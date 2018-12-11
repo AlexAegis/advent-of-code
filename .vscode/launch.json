@@ -5,6 +5,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program",
+			"args": ["--target", "es2018", "--lib", "esnext"],
+			"program": "${file}"
+		},
+		{
 			"name": "Current TS File",
 			"type": "node",
 			"request": "launch",
