@@ -4,7 +4,7 @@ import { createInterface } from 'readline';
 const read = new Promise<string>(async res => {
 	const lineCache: Array<string> = [];
 	const reader = createInterface({
-		input: createReadStream('day2/input.txt')
+		input: createReadStream('src/2018/day2/input.txt')
 	});
 	reader
 		.on('line', (line: string) => {

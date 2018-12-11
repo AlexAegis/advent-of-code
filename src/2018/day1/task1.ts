@@ -6,7 +6,7 @@ async function read() {
 		let sum = 0;
 
 		const reader: Interface = createInterface({
-			input: createReadStream('day1/input.txt')
+			input: createReadStream('src/2018/day1/input.txt')
 		});
 
 		reader
