@@ -1,0 +1,17 @@
+{
+	"name": "advent-of-code-2018",
+	"version": "1.0.0",
+	"author": {
+		"name": "Alex Aegis",
+		"email": "alexaegis@gmail.com",
+		"url": "https://github.com/AlexAegis"
+	},
+	"repository": "https://github.com/AlexAegis/advent-of-code-2018/",
+	"private": true,
+	"main": "main.js",
+	"devDependencies": {
+		"ts-node": "7.0.1",
+		"typescript": "3.2.2",
+		"tslint": "~5.11.0"
+	}
+}
