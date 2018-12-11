@@ -53,6 +53,4 @@ const read = new Promise(async res => {
 	res(firstToBeTwice);
 });
 
-(async () => {
-	console.log(`First to be repeated: ${await read}`);
-})(); // 55250
+(async () => console.log(`First to be repeated: ${await read}`))(); // 55250
