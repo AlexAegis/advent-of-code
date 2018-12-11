@@ -48,6 +48,6 @@ const read = new Promise<number>(res => {
 		});
 });
 
-(async function() {
+(async () => {
 	console.log(`Result: ${await read}`);
 })(); // 116920

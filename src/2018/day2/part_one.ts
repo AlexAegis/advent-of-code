@@ -37,6 +37,6 @@ const read = new Promise<number>(async res => {
 });
 
 // IIFEs rule!
-(async function() {
+(async () => {
 	console.log(`Resulting checksum: ${await read}`);
 })(); // 5456
