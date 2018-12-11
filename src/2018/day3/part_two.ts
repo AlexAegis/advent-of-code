@@ -63,6 +63,6 @@ const read = new Promise<string>(res => {
 		});
 });
 
-(async function() {
+(async () => {
 	console.log(`Result: ${await read}`);
 })(); // [{"id":382,"starting":{"x":155,"y":316},"size":{"x":28,"y":15}}]

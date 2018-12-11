@@ -30,6 +30,6 @@ const read = new Promise<string>(async res => {
 		});
 });
 
-(async function() {
+(async () => {
 	console.log(`Result: ${await read}`);
 })(); // megsdlpulxvinkatfoyzxcbvq

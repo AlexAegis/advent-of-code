@@ -16,6 +16,6 @@ async function read() {
 			.on('close', () => res(sum));
 	});
 }
-(async function() {
+(async () => {
 	console.log(await read());
 })(); // 408
