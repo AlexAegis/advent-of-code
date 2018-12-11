@@ -2,58 +2,59 @@ import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
 /**
- * I haven't taken into consideration that I'd need to iterate over the
- * this many times (135) so I didn't really cared about reading the same file from
- * disk over and over again. Which is very slow.
- * I should've used the cached content after first iteration.
+ * I you cehck my previous implementation I read the file again on each iteration
+ * It was quite slow so I reimplemented it to use a cache instead and for any
+ * iteration after the first, it would use the cache instead. But it's somehow still slow.
  */
-async function read() {
-	return new Promise(async res => {
-		let sum = 0;
-		let iterations = 0;
-		let firstToBeTwice: number = undefined;
-		let frequencyHistory = [0];
+const read = new Promise(async res => {
+	let frequencyHistory: Array<number> = [0]; // sums calculated
+	let cache: Array<string> = []; // lines cached
+	let fileRead: boolean = false;
+	let sumTotal: number = 0; // sum until the first iteration found
+	let sumOnce: number; // sum of one iteration
+	let firstToBeTwice: number = undefined;
+	let iterations = 0;
 
-		let reading = function() {
-			return new Promise(res => {
-				const readStream = createReadStream('day1/input.txt');
-				const reader = createInterface({
-					input: readStream,
-					crlfDelay: Infinity
-				});
-
-				reader.on('line', line => {
-					sum = eval(sum + line);
-					if (!firstToBeTwice) {
-						// only if haven't found yet
-						if (frequencyHistory.find(val => val === sum)) {
-							console.log(`freq found twice: ${sum}`);
-
-							firstToBeTwice = sum;
-						}
-						frequencyHistory.push(sum);
-					}
-				});
-				reader.on('close', () => {
-					if (firstToBeTwice) {
-						console.log(`first to be twice found: ${firstToBeTwice}`);
-						console.log(`total sum found: ${sum}`);
-						console.log(`iterations used: ${iterations}`);
-					} else {
-						iterations++;
-						console.log('Not found');
-					}
-					res(firstToBeTwice);
-				});
-			});
-		};
-		while (!firstToBeTwice) {
-			await reading();
-			console.log(`iterated: ${iterations}, current sums calculated: ${frequencyHistory.length}`);
-		}
-		console.log(`Answer found ${firstToBeTwice}`);
+	const readStream = createReadStream('day1/input.txt');
+	const reader = createInterface({
+		input: readStream
 	});
-}
+
+	const calculate = (line: string) => {
+		if (!fileRead) {
+			cache.push(line);
+		}
+		sumTotal = eval(sumTotal + line);
+		if (!firstToBeTwice) {
+			// only if haven't found yet
+			if (frequencyHistory.find(val => val === sumTotal)) {
+				console.log(`freq found twice: ${sumTotal}`);
+
+				firstToBeTwice = sumTotal;
+			}
+			frequencyHistory.push(sumTotal);
+		}
+	};
+
+	const prom = new Promise<number>(res => {
+		reader.on('line', calculate);
+		reader.on('close', () => {
+			console.log(`File read. Sum found: ${sumTotal}`);
+			sumOnce = sumTotal;
+			fileRead = true;
+			iterations++;
+			res(sumOnce);
+		});
+	});
+	await prom;
+	while (!firstToBeTwice) {
+		cache.forEach(calculate);
+		iterations++;
+		console.log(`Iterated over the cache ${iterations}, total number of sums stored: ${frequencyHistory.length}`);
+	}
+	res(firstToBeTwice);
+});
+
 (async function() {
-	console.log(await read());
+	console.log(`First to be repeated: ${await read}`);
 })(); // 55250
