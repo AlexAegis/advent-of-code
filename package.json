@@ -15,7 +15,9 @@
 		"tslint": "~5.11.0"
 	},
 	"dependencies": {
+		"@types/express": "^4.16.0",
 		"@types/node": "^10.12.12",
-		"core-js": "^2.6.0"
+		"core-js": "^2.6.0",
+		"express": "^4.16.4"
 	}
 }
