@@ -36,8 +36,7 @@ const read = new Promise(async res => {
 	};
 
 	const prom = new Promise<number>(res => {
-		reader.on('line', calculate);
-		reader.on('close', () => {
+		reader.on('line', calculate).on('close', () => {
 			console.log(`File read. Sum found: ${sumTotal}`);
 			sumOnce = sumTotal;
 			fileRead = true;
