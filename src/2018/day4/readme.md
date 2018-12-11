@@ -1,4 +1,4 @@
-# Day 4: Repose Record
+# [Day 4: Repose Record](https://adventofcode.com/2018/day/4)
 
 ## Part One
 
