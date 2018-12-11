@@ -26,7 +26,7 @@ const interpret = (line: string): Event => {
 
 const read = new Promise<Array<Event>>(res => {
 	const events: Array<Event> = [];
-	const reader = createInterface({
+	createInterface({
 		input: createReadStream('src/2018/day4/input.txt')
 	})
 		.on('line', (line: string) => events.push(interpret(line)))
@@ -76,7 +76,6 @@ const read = new Promise<Array<Event>>(res => {
 	let mostSlept: number = -1;
 	let mostSleptGuard: number = -1;
 	[...guards].forEach(([guard, sleepMap]) => {
-		console.log(sleepMap);
 		if (sleepMap.size > 0) {
 			const totalSleep: [number, number] = [...sleepMap].reduce(
 				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
