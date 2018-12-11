@@ -4,6 +4,8 @@
 
 ## Usage
 
+Install [Node.js](https://nodejs.org/en/)
+
 Open with [VS Code](https://code.visualstudio.com/)
 
 Install the suggested extensions when prompted (Recommended)
