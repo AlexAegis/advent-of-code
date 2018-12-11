@@ -2,7 +2,7 @@ import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
 /**
- * I you cehck my previous implementation I read the file again on each iteration
+ * I you check my previous implementation I read the file again on each iteration
  * It was quite slow so I reimplemented it to use a cache instead and for any
  * iteration after the first, it would use the cache instead. But it's somehow still slow.
  */
@@ -15,9 +15,8 @@ const read = new Promise(async res => {
 	let firstToBeTwice: number = undefined;
 	let iterations = 0;
 
-	const readStream = createReadStream('day1/input.txt');
 	const reader = createInterface({
-		input: readStream
+		input: createReadStream('day1/input.txt')
 	});
 
 	const calculate = (line: string) => {
