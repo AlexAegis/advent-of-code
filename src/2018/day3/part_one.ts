@@ -12,6 +12,7 @@ interface Coord {
 	y: number;
 }
 
+// `${parts[4]}_${parts[5]}`
 const interpret = (line: string): Claim => {
 	let parts = line.split(/#|@|,|:|x/).map(e => e.trim());
 	return {
@@ -21,8 +22,8 @@ const interpret = (line: string): Claim => {
 	};
 };
 
-const read = new Promise<number>(async res => {
-	const fabric: Map<Coord, Array<number>> = new Map(); // Contains each claim for each coordinate
+const read = new Promise<number>(res => {
+	const fabric: Map<string, Array<number>> = new Map<string, Array<number>>(); // Contains each claim for each coordinate
 	const reader = createInterface({
 		input: createReadStream('src/2018/day3/input.txt')
 	});
@@ -31,14 +32,13 @@ const read = new Promise<number>(async res => {
 			let claim = interpret(line);
 			for (let i = claim.starting.x; i < claim.starting.x + claim.size.x; i++) {
 				for (let j = claim.starting.y; j < claim.starting.y + claim.size.y; j++) {
-					const coord: Coord = { x: i, y: j };
+					const coordKey: string = `${i}_${j}`; // I used string as keys as the coordinates themselves because even if the object looks the same as the key, it's not the exact same key.
 					let claims: Array<number> = [];
-					if (fabric.has(coord)) {
-						// overlap
-						claims = fabric.get(coord);
+					if (fabric.has(coordKey)) {
+						claims = fabric.get(coordKey);
 					}
 					claims.push(claim.id);
-					fabric.set(coord, claims);
+					fabric.set(coordKey, claims);
 				}
 			}
 		})
@@ -50,4 +50,4 @@ const read = new Promise<number>(async res => {
 
 (async function() {
 	console.log(`Result: ${await read}`);
-})(); //
+})(); // 116920
