@@ -21,20 +21,16 @@ const charRepeats = (line: string, times: number = 2): number => {
 const atLeastOne = (n: number): boolean => n && n >= 1;
 
 const read = new Promise<number>(async res => {
-	const lineHashes: Array<number> = [];
 	let twiceAppearCount = 0;
 	let thriceAppearCount = 0;
 	const reader = createInterface({
 		input: createReadStream('day2/input.txt')
 	});
-
 	reader.on('line', (line: string) => {
 		twiceAppearCount += atLeastOne(charRepeats(line)) ? 1 : 0;
 		thriceAppearCount += atLeastOne(charRepeats(line, 3)) ? 1 : 0;
 	});
 	reader.on('close', () => {
-		console.log(`File read.`);
-
 		res(twiceAppearCount * thriceAppearCount);
 	});
 });
@@ -42,4 +38,4 @@ const read = new Promise<number>(async res => {
 // IIFEs rule!
 (async function() {
 	console.log(`Resulting checksum: ${await read}`);
-})();
+})(); // 5456
