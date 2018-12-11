@@ -101,4 +101,4 @@ const read = new Promise<Array<Event>>(res => {
 
 	console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
 	console.log(`The answer is: ${mostSleptGuard * mostSleptMinute[0]}`); // 106710
-})(); //
+})();
