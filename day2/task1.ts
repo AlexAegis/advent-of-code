@@ -26,13 +26,14 @@ const read = new Promise<number>(async res => {
 	const reader = createInterface({
 		input: createReadStream('day2/input.txt')
 	});
-	reader.on('line', (line: string) => {
-		twiceAppearCount += atLeastOne(charRepeats(line)) ? 1 : 0;
-		thriceAppearCount += atLeastOne(charRepeats(line, 3)) ? 1 : 0;
-	});
-	reader.on('close', () => {
-		res(twiceAppearCount * thriceAppearCount);
-	});
+	reader
+		.on('line', (line: string) => {
+			twiceAppearCount += atLeastOne(charRepeats(line)) ? 1 : 0;
+			thriceAppearCount += atLeastOne(charRepeats(line, 3)) ? 1 : 0;
+		})
+		.on('close', () => {
+			res(twiceAppearCount * thriceAppearCount);
+		});
 });
 
 // IIFEs rule!
