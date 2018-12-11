@@ -24,7 +24,7 @@ const read = new Promise<number>(async res => {
 	let twiceAppearCount = 0;
 	let thriceAppearCount = 0;
 	const reader = createInterface({
-		input: createReadStream('day2/input.txt')
+		input: createReadStream('src/2018/day2/input.txt')
 	});
 	reader
 		.on('line', (line: string) => {
