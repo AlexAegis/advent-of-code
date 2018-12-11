@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
+		"lib": ["es2015", "esnext.asynciterable"],
 		"module": "commonjs",
-		"target": "es2018",
+		"target": "esnext",
 		"noImplicitAny": true,
 		"outDir": "./dist",
 		"sourceMap": true
