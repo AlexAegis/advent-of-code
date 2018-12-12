@@ -14,7 +14,7 @@ Using only the Manhattan distance, determine the area around each coordinate by 
 
 Your goal is to find the size of the largest area that isn't infinite. For example, consider the following list of coordinates:
 
-```
+```bash
 1, 1
 1, 6
 8, 3
@@ -25,7 +25,7 @@ Your goal is to find the size of the largest area that isn't infinite. For examp
 
 If we name these coordinates A through F, we can draw them on a grid, putting 0,0 at the top left:
 
-```
+```bash
 ..........
 .A........
 ..........
@@ -40,7 +40,7 @@ If we name these coordinates A through F, we can draw them on a grid, putting 0,
 
 This view is partial - the actual grid extends infinitely in all directions. Using the Manhattan distance, each location's closest coordinate can be determined, shown here in lowercase:
 
-```
+```bash
 aaaaa.cccc
 aAaaa.cccc
 aaaddecccc
