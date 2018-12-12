@@ -1,31 +1,19 @@
 import * as fs from 'fs';
 
 const react = (sequence: string): { sequence: string; occuredReactions: number } => {
-	let current: string;
+	let prev: string;
 	let seq: string = '';
 	let occ: number = 0;
-	let reactLock: boolean = false;
-	let index: number = 0;
-	for (let next of sequence) {
-		index++;
-		//if (!reactLock) {
-		if (current !== undefined && next !== current && next.toLowerCase() === current.toLowerCase()) {
-			//console.log(`Occurence at index: ${index}, current: ${current},  next: ${next}`);
-			occ++;
-			reactLock = true;
+	for (let curr of sequence) {
+		if (prev !== undefined && prev !== curr && prev.toLowerCase() === curr.toLowerCase()) {
+			occ = occ + 1;
+			seq = seq.substr(0, seq.length - 1);
+			prev = seq.charAt(seq.length - 1);
 		} else {
-			seq = seq + (!reactLock && current ? current : '');
-			reactLock = false;
+			seq = seq + curr;
+			prev = curr;
 		}
-		current = next;
-		//} else {
-		//	reactLock = false;
-		//	current = next;
-		//}
-		//console.log('iterated');
 	}
-	seq = seq + (current ? current : '');
-
 	return { sequence: seq, occuredReactions: occ };
 };
 
@@ -36,7 +24,11 @@ const react = (sequence: string): { sequence: string; occuredReactions: number }
 		reaction = react(sequence);
 		sequence = reaction.sequence;
 		console.log(reaction);
-		console.log(`length after react: ${reaction.sequence.length}`);
-	} while (reaction.occuredReactions > 0);
-	console.log(`Remaining sequences length: ${reaction.sequence.length}`); // 7693 too low, 16933 not good, 21060 too high
+		console.log(
+			`Sequence iteration! ${
+				reaction.occuredReactions
+			} reduction happened in this iteration! Length after react: ${reaction.sequence.length}`
+		);
+	} while (reaction.occuredReactions > 0); // Even thought it's designed for repeated reductions, the react function does everything in one go and collapses the entire sequence.
+	console.log(`Remaining sequences length: ${reaction.sequence.length}`); // 9202
 })();
