@@ -5,17 +5,15 @@ import * as fs from 'fs';
  *
  * @param sequence to be collapsed
  */
-const collapse = (sequence: string): string =>
+const collapse = (sequence: string) =>
 	[...sequence].reduce((acc, curr) =>
-		acc.length > 0 &&
-		acc.charAt(acc.length - 1) !== curr &&
-		acc.charAt(acc.length - 1).toLowerCase() === curr.toLowerCase()
+		acc && acc.charAt(acc.length - 1) !== curr && acc.charAt(acc.length - 1).toLowerCase() === curr.toLowerCase()
 			? acc.substr(0, acc.length - 1)
 			: acc + curr
 	);
 
 (async () => {
-	let sequence: string = <string>await fs.promises.readFile('src/2018/day5/input.txt', { encoding: 'UTF-8' }); // Encoding is specified, result is string
+	let sequence = <string>await fs.promises.readFile('src/2018/day5/input.txt', { encoding: 'UTF-8' }); // Encoding is specified, result is string
 
 	// get all unique letters regardless of casing
 	const uniqueUnits = [...sequence].reduce((acc, curr) =>
