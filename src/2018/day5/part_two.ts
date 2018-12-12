@@ -1,28 +1,25 @@
 import * as fs from 'fs';
 
-const react = (sequence: string): { sequence: string; occuredReactions: number } => {
-	let prev: string;
-	let seq: string = '';
-	let occ: number = 0;
-	for (let curr of sequence) {
-		if (prev !== undefined && prev !== curr && prev.toLowerCase() === curr.toLowerCase()) {
-			occ = occ + 1;
-			seq = seq.substr(0, seq.length - 1);
-			prev = seq.charAt(seq.length - 1);
-		} else {
-			seq = seq + curr;
-			prev = curr;
-		}
-	}
-	return { sequence: seq, occuredReactions: occ };
-};
+/**
+ * For the uncompressed solution check the previous commit
+ *
+ * @param sequence to be collapsed
+ */
+const collapse = (sequence: string): string =>
+	[...sequence].reduce((acc, curr) =>
+		acc.length > 0 &&
+		acc.charAt(acc.length - 1) !== curr &&
+		acc.charAt(acc.length - 1).toLowerCase() === curr.toLowerCase()
+			? acc.substr(0, acc.length - 1)
+			: acc + curr
+	);
 
 (async () => {
 	let sequence: string = <string>await fs.promises.readFile('src/2018/day5/input.txt', { encoding: 'UTF-8' }); // Encoding is specified, result is string
 
 	// get all unique letters regardless of casing
-	const uniqueUnits = [...sequence].reduce((prev, curr) =>
-		prev.includes(curr.toLowerCase()) ? prev.toLowerCase() : prev + curr.toLowerCase()
+	const uniqueUnits = [...sequence].reduce((acc, curr) =>
+		acc.includes(curr.toLowerCase()) ? acc.toLowerCase() : acc + curr.toLowerCase()
 	);
 
 	console.log(uniqueUnits);
@@ -31,23 +28,19 @@ const react = (sequence: string): { sequence: string; occuredReactions: number }
 	let shortestSequenceRemovedUnit: string;
 
 	for (let unit of uniqueUnits) {
-		let modifiedSequence = [...sequence].reduce((prev, curr) => (curr.toLowerCase() === unit ? prev : prev + curr));
-		let reaction: { sequence: string; occuredReactions: number };
-		do {
-			reaction = react(modifiedSequence);
-			modifiedSequence = reaction.sequence;
-		} while (reaction.occuredReactions > 0); // Even thought it's designed for repeated reductions, the react function does everything in one go and collapses the entire sequence.
+		let modifiedSequence = [...sequence].reduce((acc, curr) => (curr.toLowerCase() === unit ? acc : acc + curr));
+		let collapsedSequence = collapse(modifiedSequence);
 		console.log(
-			`Remaining sequences length: ${reaction.sequence.length}, we used a sequence without the ${unit} unit.`
+			`Remaining sequences length: ${collapsedSequence.length}, we used a sequence without the ${unit} unit.`
 		);
 
-		if (shortestSequence === undefined || reaction.sequence.length < shortestSequence.length) {
-			shortestSequence = reaction.sequence;
+		if (shortestSequence === undefined || collapsedSequence.length < shortestSequence.length) {
+			shortestSequence = collapsedSequence;
 			shortestSequenceRemovedUnit = unit;
 		}
 	}
 
 	console.log(
 		`Shortest sequence is ${shortestSequence.length} long. The removed unit is: ${shortestSequenceRemovedUnit}`
-	); // 6394
+	); // 6394, with the removal of k and K
 })();
