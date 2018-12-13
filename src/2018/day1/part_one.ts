@@ -1,15 +1,7 @@
-import { createReadStream } from 'fs';
-import { createInterface } from 'readline';
+import { promises } from 'fs';
 
-export const read = new Promise<number>(res => {
-	let sum = 0;
-	createInterface({
-		input: createReadStream('src/2018/day1/input.txt')
-	})
-		.on('line', line => {
-			sum = eval(sum + line);
-		})
-		.on('close', () => res(sum));
-});
-
-(async () => console.log(await read))(); // 408
+export const runner = (async () => {
+	let result = eval(<string>await promises.readFile('src/2018/day1/input.txt', { encoding: 'UTF-8' }));
+	console.log(`Result: ${result}`);
+	return result;
+})(); // 408
