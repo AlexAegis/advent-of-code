@@ -31,11 +31,67 @@ export class Vertice {
 
 export class Worker {
 	id: number;
+	workingOn: Node;
 	subscription: Subscription;
-	constructor(id: number, subscription: Subscription) {
+	constructor(id: number) {
 		this.id = id;
-		this.subscription = subscription;
 	}
+	start = (
+		tick$: ConnectableObservable<number>,
+		graph: Graph,
+		file: string,
+		done$: Subject<Node>,
+		finished$: Subject<number>
+	): Worker => {
+		this.subscription = tick$.subscribe(this.logic(this.id, graph, file, done$, finished$));
+		return this;
+	};
+	logic = (id: number, graph: Graph, file: string, done$: Subject<Node>, finished$: Subject<number>) => {
+		return (tick: number) => {
+			//console.log(`${id} - I'm currenty working on: ${JSON.stringify(workingOn)}.`);
+			// If not working, pick an avaialble task.
+			if (!this.workingOn) {
+				for (let node of graph.nodes) {
+					if (
+						node.available() &&
+						graph.vertices.filter(
+							vertice =>
+								vertice.to === node &&
+								(!vertice.fulfilled(file === 'input') || vertice.from.finishedOnTick === tick)
+						).length === 0
+					) {
+						this.workingOn = node;
+						//console.log(`${id} - ${JSON.stringify(node)} can be worked on.`);
+						break; // We need the first one.
+					}
+				}
+				// This means that this worker couldn't find any jobs. Time to retire.
+
+				if (graph.nodes.filter(node => node.available()).length === 0) {
+					//console.log(`${id} - No more free tasks left. Time to retire.`);
+
+					this.subscription.unsubscribe();
+					// the last one please turn off the light
+					if (graph.nodes.filter(node => !node.processed(file === 'input')).length === 0) {
+						//console.log(`${id} - I was the last one, on tick: ${tick}. Bye bye!`);
+						finished$.next(tick);
+					}
+				}
+			}
+			// if he's working, then do his work
+			if (this.workingOn && !this.workingOn.processed(file === 'input')) {
+				this.workingOn.progress++;
+				//console.log(`${id} - Doing my job! ${JSON.stringify(workingOn)}`);
+			}
+			// If just finished
+			if (this.workingOn && this.workingOn.processed(file === 'input')) {
+				//console.log(`${id} - Finished.`);
+				this.workingOn.finishedOnTick = tick;
+				done$.next(this.workingOn);
+				this.workingOn = undefined;
+			}
+		};
+	};
 }
 
 export interface Graph {
@@ -88,7 +144,7 @@ const read = (file: 'input' | 'example' = 'input') =>
 	});
 
 export const runner = async (file: 'input' | 'example' = 'input'): Promise<Result> =>
-	new Promise<{ tick: number; seq: string }>(async res => {
+	new Promise<Result>(async res => {
 		const graph: Graph = await read(file);
 
 		const finished$ = new Subject<number>(); // The cue subject when the async job is done.
@@ -96,63 +152,32 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<Resul
 		const workers: Array<Worker> = [];
 
 		// Worker logic
-		const worker = (id: number) => {
-			let workingOn: Node;
-			return (tick: number) => {
-				//console.log(`${id} - I'm currenty working on: ${JSON.stringify(workingOn)}.`);
-				// If not working, pick an avaialble task.
-				if (!workingOn) {
-					for (let node of graph.nodes) {
-						if (
-							node.available() &&
-							graph.vertices.filter(
-								vertice =>
-									vertice.to === node &&
-									(!vertice.fulfilled(file === 'input') || vertice.from.finishedOnTick === tick)
-							).length === 0
-						) {
-							workingOn = node;
-							//console.log(`${id} - ${JSON.stringify(node)} can be worked on.`);
-							break; // We need the first one.
-						}
-					}
-					// This means that this worker couldn't find any jobs. Time to retire.
-
-					if (graph.nodes.filter(node => node.available()).length === 0) {
-						console.log(`${id} - No more free tasks left. Time to retire.`);
-						let meSelf = workers.find(w => w.id === id);
-						meSelf.subscription.unsubscribe();
-						workers.splice(workers.indexOf(meSelf), 1); // Let myself out.
-						// the last one please turn off the light
-						if (workers.length === 0) {
-							console.log(`${id} - I was the last one, on tick: ${tick}. Bye bye!`);
-							finished$.next(tick);
-						}
-					}
-				}
-				// if he's working, then do his work
-				if (workingOn && !workingOn.processed(file === 'input')) {
-					workingOn.progress++;
-					//console.log(`${id} - Doing my job! ${JSON.stringify(workingOn)}`);
-				}
-				// If just finished
-				if (workingOn && workingOn.processed(file === 'input')) {
-					console.log(`${id} - Finished.`);
-					workingOn.finishedOnTick = tick;
-					done$.next(workingOn);
-					workingOn = undefined;
-				}
-			};
-		};
-
 		const tick$ = <ConnectableObservable<number>>interval().pipe(
-			tap((tick: number) => console.log(`tick: ${tick}`)),
+			tap((tick: number) => {
+				done$
+					.pipe(
+						bufferTime(0),
+						take(1)
+					)
+					.subscribe(nodes => {
+						let seq = nodes.map(node => node.node).join('');
+
+						console.log(
+							`| ${tick.toString().padEnd(5)}${workers
+								.map(
+									worker =>
+										'| ' + (worker.workingOn !== undefined ? worker.workingOn.node : '.').padEnd(5)
+								)
+								.join(``)}| ${seq.padEnd(26)} |`
+						);
+					});
+			}),
 			takeUntil(finished$), //  Until it emits, the interval will keep ticking.
 			multicast(() => new Subject())
 		);
 
 		finished$.subscribe(tick => {
-			console.log(`Finished on: ${tick}`);
+			workers.forEach(worker => worker.subscription.unsubscribe());
 			done$
 				.pipe(
 					bufferTime(0),
@@ -160,22 +185,19 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<Resul
 				)
 				.subscribe(nodes => {
 					let seq = nodes.map(node => node.node).join('');
-					console.log(`Done's are: ${seq}`);
 					res({ tick: tick, seq: seq });
 				});
 		});
-
-		done$.subscribe(node => {
-			console.log(`Newest done is: ${JSON.stringify(node)}`);
-		});
-
-		// Spawn 5 workers
+		// Spawn 5 workers (Or 2 if you are running the example)
+		let header = '|Tick |';
 		range(1, file === 'input' ? 5 : 2).forEach(num => {
-			workers.push(new Worker(num, tick$.subscribe(worker(num))));
+			header += ` W ${num}  |`;
+			workers.push(new Worker(num).start(tick$, graph, file, done$, finished$));
 		});
+		console.log(` ${header} Done                       |`);
 
 		tick$.connect();
 		// The tick$ stream is multicasted. It will only start on a connect and not immediatly at a subscription.
 	});
 
-(async () => console.log(await runner('input')))(); // 1115, GRTZAHVLQKYWXMUBPCIJFEDNSO
+(async () => console.log(await runner()))(); // 1115, GRTZAHVLQKYWXMUBPCIJFEDNSO
