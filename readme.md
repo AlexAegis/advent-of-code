@@ -26,4 +26,4 @@ There are tests on every task. You can run them with
 npm test
 ```
 
-or if you installed the recommented jasmine extension you can run them with that.
+or if you installed the recommended jasmine extension you can run them with that.
