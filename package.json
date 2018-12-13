@@ -11,7 +11,6 @@
 	},
 	"repository": "https://github.com/AlexAegis/advent-of-code-2018/",
 	"private": true,
-	"main": "main.js",
 	"dependencies": {
 		"@types/jasmine": "^3.3.1",
 		"core-js": "^2.6.0",
