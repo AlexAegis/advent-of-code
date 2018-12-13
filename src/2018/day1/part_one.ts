@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
-const read = new Promise<number>(res => {
+export const read = new Promise<number>(res => {
 	let sum = 0;
 	createInterface({
 		input: createReadStream('src/2018/day1/input.txt')

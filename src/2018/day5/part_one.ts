@@ -12,9 +12,10 @@ const collapse = (sequence: string) =>
 			: acc + curr
 	);
 
-(async () => {
+export const runner = (async () => {
 	let collapsedSequence = collapse(<string>(
 		await fs.promises.readFile('src/2018/day5/input.txt', { encoding: 'UTF-8' })
 	)); // Encoding is specified, result is string
 	console.log(`Collapsed sequences length: ${collapsedSequence.length}`); // 9202
+	return collapsedSequence.length;
 })();

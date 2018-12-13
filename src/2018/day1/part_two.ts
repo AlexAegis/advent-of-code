@@ -6,7 +6,7 @@ import { createInterface } from 'readline';
  * It was quite slow so I reimplemented it to use a cache instead and for any
  * iteration after the first, it would use the cache instead. But it's somehow still slow.
  */
-const read = new Promise(async res => {
+export const read = new Promise(async res => {
 	let frequencyHistory: Array<number> = [0]; // sums calculated
 	let cache: Array<string> = []; // lines cached
 	let fileRead: boolean = false;
