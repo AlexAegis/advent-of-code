@@ -1,8 +1,7 @@
 import { createReadStream } from 'fs';
 import * as rl from 'readline';
-import { Observable, interval, Subject, of, ConnectableObservable, Subscription, range, ReplaySubject } from 'rxjs';
-import { takeUntil, map, tap, multicast, takeLast, bufferCount, take, bufferTime } from 'rxjs/operators';
-import { finished } from 'stream';
+import { interval, Subject, ConnectableObservable, Subscription, range, ReplaySubject } from 'rxjs';
+import { takeUntil, tap, multicast, take, bufferTime } from 'rxjs/operators';
 
 class Node {
 	node: string;
@@ -15,7 +14,7 @@ class Node {
 	available = () => this.progress === 0;
 }
 
-class Vertice {
+export class Vertice {
 	from: Node;
 	to: Node;
 	constructor(from: Node, to: Node) {
@@ -25,7 +24,7 @@ class Vertice {
 	fulfilled = () => this.from.processed();
 }
 
-class Worker {
+export class Worker {
 	id: number;
 	subscription: Subscription;
 	constructor(id: number, subscription: Subscription) {
@@ -34,11 +33,11 @@ class Worker {
 	}
 }
 
-interface Graph {
+export interface Graph {
 	nodes: Array<Node>;
 	vertices: Array<Vertice>;
 }
-const read = new Promise<Graph>(res => {
+export const read = new Promise<Graph>(res => {
 	let graph: Graph = { nodes: [], vertices: [] };
 
 	rl.createInterface({

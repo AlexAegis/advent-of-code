@@ -11,6 +11,7 @@
 		"daylerees.rainglow",
 		"wix.vscode-import-cost",
 		"npxms.hide-gitignored",
-		"msjsdiag.debugger-for-chrome"
+		"msjsdiag.debugger-for-chrome",
+		"hbenl.vscode-jasmine-test-adapter"
 	]
 }
