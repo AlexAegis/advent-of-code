@@ -20,4 +20,10 @@ npm i
 
 ## Testing
 
-I also added te
+There are tests on every task. You can run them with
+
+```bash
+npm test
+```
+
+or if you installed the recommented jasmine extension you can run them with that.
