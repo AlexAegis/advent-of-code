@@ -17,3 +17,7 @@ npm i
 ```
 
 **F5** runs the file you're focusing in debug mode.
+
+## Testing
+
+I also added te
