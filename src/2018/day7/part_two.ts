@@ -3,13 +3,18 @@ import * as rl from 'readline';
 import { interval, Subject, ConnectableObservable, Subscription, range, ReplaySubject } from 'rxjs';
 import { takeUntil, tap, multicast, take, bufferTime } from 'rxjs/operators';
 
+export interface Result {
+	tick: number;
+	seq: string;
+}
 export class Node {
 	node: string;
 	progress: number = 0;
+	finishedOnTick: number = 0;
 	constructor(node: string) {
 		this.node = node;
 	}
-	cost = (useBaseCost: boolean = false) => this.node.toLowerCase().charCodeAt(0) + (useBaseCost ? 60 : 0) - 97 + 1; // 60 base cost, -97 unicode offset for lowercase letters, + 1 offset.
+	cost = (useLong: boolean = false) => this.node.toLowerCase().charCodeAt(0) + (useLong ? 60 : 0) - 97 + 1; // 60 base cost, -97 unicode offset for lowercase letters, + 1 offset.
 	processed = (useBaseCost: boolean = false) => this.progress >= this.cost(useBaseCost); // shouldn't be bigger but hey, you never know.
 	available = () => this.progress === 0;
 }
@@ -82,7 +87,7 @@ const read = (file: 'input' | 'example' = 'input') =>
 			});
 	});
 
-export const runner = async (file: 'input' | 'example' = 'input'): Promise<{ tick: number; seq: string }> =>
+export const runner = async (file: 'input' | 'example' = 'input'): Promise<Result> =>
 	new Promise<{ tick: number; seq: string }>(async res => {
 		const graph: Graph = await read(file);
 
@@ -101,7 +106,9 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<{ tic
 						if (
 							node.available() &&
 							graph.vertices.filter(
-								vertice => !vertice.fulfilled(file === 'input') && vertice.to === node
+								vertice =>
+									vertice.to === node &&
+									(!vertice.fulfilled(file === 'input') || vertice.from.finishedOnTick === tick)
 							).length === 0
 						) {
 							workingOn = node;
@@ -131,6 +138,7 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<{ tic
 				// If just finished
 				if (workingOn && workingOn.processed(file === 'input')) {
 					console.log(`${id} - Finished.`);
+					workingOn.finishedOnTick = tick;
 					done$.next(workingOn);
 					workingOn = undefined;
 				}
@@ -167,9 +175,7 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<{ tic
 		});
 
 		tick$.connect();
-
 		// The tick$ stream is multicasted. It will only start on a connect and not immediatly at a subscription.
-	}); // Completed in 1257 and 1258 ticks is too high
+	});
 
-(async () => console.log(await runner('example')))();
-// 1104 1105 too low GRTZAHVLQKYWXMUBPCIJFEDNSO
+(async () => console.log(await runner('input')))(); // 1115, GRTZAHVLQKYWXMUBPCIJFEDNSO
