@@ -1,13 +1,13 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
-interface Claim {
+export interface Claim {
 	id: number;
 	starting: Coord;
 	size: Coord;
 }
 
-interface Coord {
+export interface Coord {
 	x: number;
 	y: number;
 }
@@ -22,7 +22,7 @@ const interpret = (line: string): Claim => {
 	};
 };
 
-const read = new Promise<string>(res => {
+export const read = new Promise<Array<Claim>>(res => {
 	const fabric: Map<string, Array<number>> = new Map<string, Array<number>>(); // Contains each claim for each coordinate
 	const reader = createInterface({
 		input: createReadStream('src/2018/day3/input.txt')
@@ -59,7 +59,7 @@ const read = new Promise<string>(res => {
 					goodClaims.push(claim);
 				}
 			}
-			res(JSON.stringify(goodClaims));
+			res(goodClaims);
 		});
 });
 

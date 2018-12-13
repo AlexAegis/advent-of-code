@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
-interface Event {
+export interface Event {
 	year: number;
 	month: number;
 	day: number;
@@ -24,7 +24,7 @@ const interpret = (line: string): Event => {
 	};
 };
 
-const read = new Promise<Array<Event>>(res => {
+export const read = new Promise<Array<Event>>(res => {
 	const events: Array<Event> = [];
 	createInterface({
 		input: createReadStream('src/2018/day4/input.txt')
@@ -50,7 +50,7 @@ const read = new Promise<Array<Event>>(res => {
 		});
 });
 
-(async () => {
+export const runner = (async () => {
 	const guards: Map<number, Map<number, number>> = new Map();
 	let currentGuard: number; // Guard currently on shift
 	let asleepAt: number;
@@ -100,4 +100,5 @@ const read = new Promise<Array<Event>>(res => {
 
 	console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
 	console.log(`The answer is: ${mostSleptGuard * mostSleptMinute[0]}`); // 106710
+	return mostSleptGuard * mostSleptMinute[0];
 })();

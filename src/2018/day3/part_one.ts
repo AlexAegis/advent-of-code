@@ -22,7 +22,7 @@ const interpret = (line: string): Claim => {
 	};
 };
 
-const read = new Promise<number>(res => {
+export const read = new Promise<number>(res => {
 	const fabric: Map<string, Array<number>> = new Map<string, Array<number>>(); // Contains each claim for each coordinate
 	const reader = createInterface({
 		input: createReadStream('src/2018/day3/input.txt')

@@ -50,7 +50,7 @@ const read = new Promise<Array<Event>>(res => {
 		});
 });
 
-(async () => {
+export const runner = (async () => {
 	const guards: Map<number, Map<number, number>> = new Map();
 	let currentGuard: number; // Guard currently on shift
 	let asleepAt: number;
@@ -98,4 +98,6 @@ const read = new Promise<Array<Event>>(res => {
 		`Answer: ${mostSleptGuard *
 			mostSleptMinute}, minute: ${mostSleptMinute}, for: ${mostSlept}, guard: ${mostSleptGuard}`
 	); // 10491
+
+	return mostSleptGuard * mostSleptMinute;
 })();

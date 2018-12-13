@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
-const read = new Promise<string>(async res => {
+export const read = new Promise<string>(async res => {
 	const lineCache: Array<string> = [];
 	const reader = createInterface({
 		input: createReadStream('src/2018/day2/input.txt')

@@ -12,7 +12,7 @@ const collapse = (sequence: string) =>
 			: acc + curr
 	);
 
-(async () => {
+export const runner = (async () => {
 	let sequence = <string>await fs.promises.readFile('src/2018/day5/input.txt', { encoding: 'UTF-8' }); // Encoding is specified, result is string
 
 	// get all unique letters regardless of casing
@@ -41,4 +41,5 @@ const collapse = (sequence: string) =>
 	console.log(
 		`Shortest sequence is ${shortestSequence.length} long. The removed unit is: ${shortestSequenceRemovedUnit}`
 	); // 6394, with the removal of k and K
+	return shortestSequence.length;
 })();

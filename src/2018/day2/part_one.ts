@@ -20,7 +20,7 @@ const charRepeats = (line: string, times: number = 2): number => {
 
 const atLeastOne = (n: number): boolean => n && n >= 1;
 
-const read = new Promise<number>(async res => {
+export const read = new Promise<number>(async res => {
 	let twiceAppearCount = 0;
 	let thriceAppearCount = 0;
 	const reader = createInterface({
