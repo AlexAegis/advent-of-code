@@ -77,3 +77,5 @@ Note that the order of the steps has changed; this is because steps now take tim
 In this example, it would take 15 seconds for two workers to complete these steps.
 
 With 5 workers and the 60+ second step durations described above, how long will it take to complete all of the steps?
+
+Your puzzle answer was 1115.
