@@ -12,7 +12,8 @@
 	"dependencies": {
 		"core-js": "^2.6.0",
 		"express": "^4.16.4",
-		"lodash": "^4.17.11"
+		"lodash": "^4.17.11",
+		"rxjs": "^6.3.3"
 	},
 	"devDependencies": {
 		"@types/express": "^4.16.0",
