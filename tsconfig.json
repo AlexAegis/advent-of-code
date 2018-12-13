@@ -5,7 +5,8 @@
 		"target": "esnext",
 		"noImplicitAny": true,
 		"outDir": "./dist",
-		"sourceMap": true
+		"sourceMap": true,
+		"typeRoots": ["./node_modules/@types"]
 	},
 	"include": ["./src/**/*"]
 }

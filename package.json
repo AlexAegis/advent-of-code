@@ -6,12 +6,18 @@
 		"email": "alexaegis@gmail.com",
 		"url": "https://github.com/AlexAegis"
 	},
+	"scripts": {
+		"test": "ts-node node_modules/jasmine/bin/jasmine JASMINE_CONFIG_PATH=./.jasmine.json"
+	},
 	"repository": "https://github.com/AlexAegis/advent-of-code-2018/",
 	"private": true,
 	"main": "main.js",
 	"dependencies": {
+		"@types/jasmine": "^3.3.1",
 		"core-js": "^2.6.0",
 		"express": "^4.16.4",
+		"jasmine": "^3.3.1",
+		"jasmine-node": "^1.16.2",
 		"lodash": "^4.17.11",
 		"rxjs": "^6.3.3"
 	},
