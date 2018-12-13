@@ -24,7 +24,7 @@ const read = new Promise<Graph>(res => {
 		.on('close', () => res(graph));
 });
 
-(async () => {
+export const result = (async () => {
 	const graph: Graph = await read;
 	let unprocessedNodes = graph.nodes.sort((a, b) => {
 		if (a === b) {
@@ -59,4 +59,5 @@ const read = new Promise<Graph>(res => {
 		iterations++;
 	}
 	console.log(`Result: ${result.join('')}, with a total of ${iterations} iterations.`);
+	return result.join('');
 })(); // GRTAHKLQVYWXMUBCZPIJFEDNSO
