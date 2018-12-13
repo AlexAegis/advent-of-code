@@ -30,5 +30,7 @@
 		"titleBar.activeBackground": "#303030",
 		"titleBar.activeForeground": "#F8FBF8"
 	},
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"jasmineExplorer.config": "./.jasmine.json",
+	"jasmineExplorer.nodeArgv": ["-r", "ts-node/register"]
 }
