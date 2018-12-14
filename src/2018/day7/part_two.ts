@@ -66,10 +66,8 @@ export class Worker {
 					}
 				}
 				// This means that this worker couldn't find any jobs. Time to retire.
-
 				if (graph.nodes.filter(node => node.available()).length === 0) {
 					//console.log(`${id} - No more free tasks left. Time to retire.`);
-
 					this.subscription.unsubscribe();
 					// the last one please turn off the light
 					if (graph.nodes.filter(node => !node.processed(file === 'input')).length === 0) {
@@ -151,7 +149,6 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<Resul
 		const done$ = new ReplaySubject<Node>();
 		const workers: Array<Worker> = [];
 
-		// Worker logic
 		const tick$ = <ConnectableObservable<number>>interval().pipe(
 			tap((tick: number) => {
 				done$
