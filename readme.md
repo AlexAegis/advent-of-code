@@ -18,7 +18,7 @@ Install the required packages
 npm i
 ```
 
-**F5** runs the file you're focusing in debug mode.
+> **F5** runs the file you're focusing in debug mode.
 
 ## Testing
 
