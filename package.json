@@ -9,7 +9,7 @@
 	"scripts": {
 		"test": "ts-node node_modules/jasmine/bin/jasmine JASMINE_CONFIG_PATH=./.jasmine.json"
 	},
-	"repository": "https://github.com/AlexAegis/advent-of-code-2018/",
+	"repository": "https://github.com/AlexAegis/advent-of-code/",
 	"private": true,
 	"dependencies": {
 		"@types/jasmine": "^3.3.1",
