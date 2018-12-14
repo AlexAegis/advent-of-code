@@ -1,5 +1,7 @@
 # [Advent of Code 2018](https://adventofcode.com/2018/)
 
+[![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code)
+
 [Private Leaderboard](https://adventofcode.com/2018/leaderboard/private/view/243796)
 
 ## Usage
