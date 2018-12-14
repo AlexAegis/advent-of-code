@@ -1,4 +1,6 @@
 import * as fs from 'fs';
+import { of, zip, forkJoin } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 /**
  * For the uncompressed solution check the previous commit
@@ -13,6 +15,7 @@ const collapse = (sequence: string) =>
 	);
 
 export const runner = (async () => {
+	console.time();
 	let sequence = <string>await fs.promises.readFile('src/2018/day5/input.txt', { encoding: 'UTF-8' }); // Encoding is specified, result is string
 
 	// get all unique letters regardless of casing
