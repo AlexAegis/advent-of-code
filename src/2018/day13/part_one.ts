@@ -1,13 +1,12 @@
 import { createReadStream } from 'fs';
 import * as rl from 'readline';
 import { interval, Subject } from 'rxjs';
-import { takeUntil, take } from 'rxjs/operators';
+import { takeUntil, take, flatMap, tap } from 'rxjs/operators';
 
 export const railCounterReg: RegExp = /\/|\\|-|\||\+|>|<|v|\^/;
 
 export type Rail = ('/' | '\\' | '-' | '|' | '+') & string;
 export type DirectionMarker = ('^' | '>' | 'v' | '<') & string;
-export type Explosion = 'X';
 
 export class Coord {
 	x: number;
@@ -20,23 +19,12 @@ export class Coord {
 
 	add(coord: Coord) {
 		this.x += coord.x;
-		this.y -= coord.y;
+		this.y -= coord.y; // Psst, you didn't see me.
 		return this;
-	}
-	/**
-	 * (0, 1) -> (1, 0) -> (0, -1) -> (-1, 0)
-	 * @param coord
-	 */
-	static turnRight(coord: Coord) {
-		return { x: coord.y, y: -coord.x };
-	}
-
-	static turnLeft(coord: Coord) {
-		return { x: -coord.y, y: coord.x };
 	}
 
 	toString(): string {
-		return `${this.x}_${this.y}`;
+		return `${this.x},${this.y}`;
 	}
 }
 
@@ -50,30 +38,24 @@ export class Direction {
 	}
 
 	calculateTurn(x: -1 | 1 = 1, y: -1 | 1 = 1) {
-		const temp = this.value.x;
+		this.value = new Coord(x * this.value.y, y * this.value.x);
+		/*let temp = this.value.x;
 		this.value.x = x * this.value.y;
-		this.value.y = y * temp;
+		this.value.y = y * temp;*/
 		switch (this.value.toString()) {
-			case '1_0':
+			case '1,0':
 				this.marker = '>';
 				break;
-			case '0_-1':
+			case '0,-1':
 				this.marker = 'v';
 				break;
-			case '-1_0':
+			case '-1,0':
 				this.marker = '<';
 				break;
-			case '0_1':
+			case '0,1':
 				this.marker = '^';
 				break;
 		}
-		/* 
-		this.marker = <DirectionMarker>(
-			Object.keys(Direction.markerAssociations).find(
-				key => Direction.markerAssociations[key].toString() === this.value.toString()
-			)
-		);*/
-		console.log(`for ${this.value.toString()} it's: ${this.marker}`);
 	}
 
 	turnLeft() {
@@ -123,7 +105,8 @@ export class Mine {
 	carts: Array<Cart> = [];
 	height: number;
 	width: number;
-	print(): void {
+	print(tick: number = undefined): void {
+		console.log(`${tick}.`);
 		for (let x = 0; x < this.height; x++) {
 			let line: string = '';
 			for (let y = 0; y < this.width; y++) {
@@ -154,10 +137,6 @@ export class Cart {
 		this.direction = new Direction(directionMarker);
 	}
 
-	/**
-	 * A step of a minecart always steps forward.
-	 * After stepped forward, the minecart will turn if possible.
-	 */
 	step(mine: Mine, crash: Subject<Coord>): void {
 		this.position = this.position.add(this.direction.value);
 		const rail = mine.rail.get(this.position.toString());
@@ -213,25 +192,28 @@ export const read = (input: 'example' | 'input' = 'example'): Promise<Mine> =>
 			.on('close', () => (mine.height = row) && res(mine));
 	});
 
-export const run = async (input: 'example' | 'input' = 'example') => {
-	console.time();
-	const mine: Mine = await read(input);
-	mine.print();
-	const crash = new Subject<Coord>();
-	interval()
-		.pipe(takeUntil(crash))
-		.subscribe(tick => {
-			mine.carts
-				.sort((a, b) =>
-					a.position.y === b.position.y ? a.position.x - b.position.x : a.position.y - b.position.y
+export const run = async (input: 'example' | 'input' = 'example'): Promise<Coord> =>
+	new Promise<Coord>(async res => {
+		console.time();
+		const mine: Mine = await read(input);
+		const crash = new Subject<Coord>();
+		interval()
+			.pipe(
+				takeUntil(crash),
+				tap(tick => {
+					//mine.print(tick);
+				}),
+				flatMap(tick =>
+					mine.carts.sort((a, b) =>
+						a.position.y === b.position.y ? a.position.x - b.position.x : a.position.y - b.position.y
+					)
 				)
-				.forEach(cart => cart.step(mine, crash));
-			mine.print();
+			)
+			.subscribe(cart => cart.step(mine, crash));
+		crash.pipe(take(1)).subscribe(coord => {
+			res(coord);
+			console.timeEnd();
 		});
-	crash.pipe(take(1)).subscribe(coord => {
-		console.log(`First crash happened at ${coord}`);
-		console.timeEnd();
 	});
-};
 
-run();
+// (async () => console.log(`First crash happened at ${await run('example')}`))(); // 28,107
