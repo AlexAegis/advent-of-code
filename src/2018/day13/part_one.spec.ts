@@ -6,7 +6,7 @@ describe('Day 13, Part One', () => {
 		expect((await run('example')).toString()).toEqual('7,3');
 	});
 
-	it('Should be  for the example:', async () => {
+	it('Should be 28,107 for the input:', async () => {
 		expect((await run('input')).toString()).toEqual('28,107');
 	});
 });
