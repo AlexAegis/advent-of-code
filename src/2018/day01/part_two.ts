@@ -16,7 +16,7 @@ export const read = async () => {
 	let iterations = 0;
 
 	const reader = createInterface({
-		input: createReadStream('src/2018/day1/input.txt')
+		input: createReadStream('src/2018/day01/input.txt')
 	});
 
 	const calculate = (line: number) => {

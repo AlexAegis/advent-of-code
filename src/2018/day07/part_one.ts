@@ -9,7 +9,7 @@ const read = new Promise<Graph>(res => {
 	let graph: Graph = { nodes: [], vertices: [] };
 
 	rl.createInterface({
-		input: createReadStream('src/2018/day7/input.txt')
+		input: createReadStream('src/2018/day07/input.txt')
 	})
 		.on('line', line => {
 			let splitLine: Array<string> = line.split(/ /);

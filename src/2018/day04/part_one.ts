@@ -27,7 +27,7 @@ const interpret = (line: string): Event => {
 export const read = new Promise<Array<Event>>(res => {
 	const events: Array<Event> = [];
 	createInterface({
-		input: createReadStream('src/2018/day4/input.txt')
+		input: createReadStream('src/2018/day04/input.txt')
 	})
 		.on('line', (line: string) => events.push(interpret(line)))
 		.on('close', () => {
