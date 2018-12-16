@@ -101,7 +101,7 @@ const read = (file: 'input' | 'example' = 'input') =>
 		let graph: Graph = { nodes: [], vertices: [] };
 
 		rl.createInterface({
-			input: createReadStream(`src/2018/day7/${file}.txt`)
+			input: createReadStream(`src/2018/day07/${file}.txt`)
 		})
 			.on('line', line => {
 				let splitLine: Array<string> = line.split(/ /);
