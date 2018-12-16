@@ -225,4 +225,4 @@ export const run = async (input: 'example' | 'example_two' | 'input' = 'example_
 		});
 	});
 
-(async () => console.log(`Final survivors position is ${await run('example_two')}`))(); // 36,123
+// (async () => console.log(`Final survivors position is ${await run('example_two')}`))(); // 36,123
