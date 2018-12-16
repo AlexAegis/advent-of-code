@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import * as rl from 'readline';
 import { interval, Subject } from 'rxjs';
-import { takeUntil, take, flatMap, tap, takeWhile, map, min } from 'rxjs/operators';
+import { flatMap, tap, takeWhile } from 'rxjs/operators';
 
 export const railCounterReg: RegExp = /\/|\\|-|\||\+|>|<|v|\^/;
 
@@ -30,7 +30,7 @@ export class Coord {
 
 export class Direction {
 	marker: DirectionMarker;
-	value: Coord; // up: (0, 1)  | right: (1, 0) | down: (0, -1) | left: (-1, 0)
+	value: Coord;
 
 	constructor(marker: DirectionMarker) {
 		this.marker = marker;
@@ -39,9 +39,6 @@ export class Direction {
 
 	calculateTurn(x: -1 | 1 = 1, y: -1 | 1 = 1) {
 		this.value = new Coord(x * this.value.y, y * this.value.x);
-		/*let temp = this.value.x;
-		this.value.x = x * this.value.y;
-		this.value.y = y * temp;*/
 		switch (this.value.toString()) {
 			case '1,0':
 				this.marker = '>';
