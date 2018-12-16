@@ -8,5 +8,5 @@ describe('Day 13, Part Two', () => {
 
 	it('Should be 36,123 for the input:', async () => {
 		expect((await run('input')).toString()).toEqual('36,123');
-	});
+	}, 30000); // this is long!
 });
