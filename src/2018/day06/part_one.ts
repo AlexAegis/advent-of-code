@@ -18,6 +18,10 @@ export class Coord {
 		return this;
 	}
 
+	manhattan(coord: Coord) {
+		return Math.abs(coord.x - this.x) + Math.abs(coord.y - this.y);
+	}
+
 	toString(): string {
 		return `${this.x},${this.y}`;
 	}
