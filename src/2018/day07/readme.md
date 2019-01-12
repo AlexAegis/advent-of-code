@@ -44,7 +44,7 @@ Your first goal is to determine the order in which the steps should be completed
 
 In what order should the steps in your instructions be completed?
 
-Your puzzle answer was GRTAHKLQVYWXMUBCZPIJFEDNSO.
+Your puzzle answer was **GRTAHKLQVYWXMUBCZPIJFEDNSO**.
 
 ## Part Two
 
@@ -78,4 +78,4 @@ In this example, it would take 15 seconds for two workers to complete these step
 
 With 5 workers and the 60+ second step durations described above, how long will it take to complete all of the steps?
 
-Your puzzle answer was 1115.
+Your puzzle answer was **1115**.
