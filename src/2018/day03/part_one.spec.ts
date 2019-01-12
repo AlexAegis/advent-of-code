@@ -1,7 +1,11 @@
-import { read } from './part_one';
+import { runner } from './part_one';
 
 describe('Day 3, Part One', () => {
 	it('Should be:', async () => {
-		expect(await read).toEqual(116920);
+		expect(await runner('example')).toEqual(4);
+	});
+
+	it('Should be:', async () => {
+		expect(await runner()).toEqual(116920);
 	});
 });
