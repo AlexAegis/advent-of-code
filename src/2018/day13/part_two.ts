@@ -12,7 +12,7 @@ export const runner = async (input: 'example' | 'example_two' | 'input' = 'input
 		interval()
 			.pipe(
 				takeWhile(tick => mine.carts.length > 1),
-				tap(tick => (input !== 'input' ? mine.print(tick) : undefined)),
+				// tap(tick => (input !== 'input' ? mine.print(tick) : undefined)),
 				flatMap(tick =>
 					mine.carts.sort((a, b) =>
 						a.position.y === b.position.y ? a.position.x - b.position.x : a.position.y - b.position.y
