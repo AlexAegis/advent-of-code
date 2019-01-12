@@ -173,7 +173,7 @@ After following their respective paths for a while, the carts eventually crash. 
 
 In this example, the location of the first crash is 7,3.
 
-Your puzzle answer was 28,107.
+Your puzzle answer was **28,107**.
 
 ## Part Two
 
@@ -221,4 +221,4 @@ After four very expensive crashes, a tick ends with only one cart remaining; its
 
 What is the location of the last cart at the end of the first tick where it is the only cart left?
 
-Your puzzle answer was 36,123.
+Your puzzle answer was **36,123**.
