@@ -2,31 +2,13 @@ import { createReadStream } from 'fs';
 import * as rl from 'readline';
 import { interval, Subject, ConnectableObservable, Subscription, range, ReplaySubject } from 'rxjs';
 import { takeUntil, tap, multicast, take, bufferTime } from 'rxjs/operators';
+import { Node } from './node.class';
+import { Graph } from './graph.interface';
+import { Vertice } from './vertice.class';
 
 export interface Result {
 	tick: number;
 	seq: string;
-}
-export class Node {
-	node: string;
-	progress: number = 0;
-	finishedOnTick: number = 0;
-	constructor(node: string) {
-		this.node = node;
-	}
-	cost = (useLong: boolean = false) => this.node.toLowerCase().charCodeAt(0) + (useLong ? 60 : 0) - 97 + 1; // 60 base cost, -97 unicode offset for lowercase letters, + 1 offset.
-	processed = (useBaseCost: boolean = false) => this.progress >= this.cost(useBaseCost); // shouldn't be bigger but hey, you never know.
-	available = () => this.progress === 0;
-}
-
-export class Vertice {
-	from: Node;
-	to: Node;
-	constructor(from: Node, to: Node) {
-		this.from = from;
-		this.to = to;
-	}
-	fulfilled = (useBaseCost: boolean = false) => this.from.processed(useBaseCost);
 }
 
 export class Worker {
@@ -48,8 +30,6 @@ export class Worker {
 	};
 	logic = (id: number, graph: Graph, file: string, done$: Subject<Node>, finished$: Subject<number>) => {
 		return (tick: number) => {
-			//console.log(`${id} - I'm currenty working on: ${JSON.stringify(workingOn)}.`);
-			// If not working, pick an avaialble task.
 			if (!this.workingOn) {
 				for (let node of graph.nodes) {
 					if (
@@ -61,8 +41,7 @@ export class Worker {
 						).length === 0
 					) {
 						this.workingOn = node;
-						//console.log(`${id} - ${JSON.stringify(node)} can be worked on.`);
-						break; // We need the first one.
+						break;
 					}
 				}
 				// This means that this worker couldn't find any jobs. Time to retire.
@@ -92,16 +71,12 @@ export class Worker {
 	};
 }
 
-export interface Graph {
-	nodes: Array<Node>;
-	vertices: Array<Vertice>;
-}
-const read = (file: 'input' | 'example' = 'input') =>
+const reader = (input: 'input' | 'example' = 'input') =>
 	new Promise<Graph>(res => {
 		let graph: Graph = { nodes: [], vertices: [] };
 
 		rl.createInterface({
-			input: createReadStream(`src/2018/day07/${file}.txt`)
+			input: createReadStream(`src/2018/day07/${input}.txt`)
 		})
 			.on('line', line => {
 				let splitLine: Array<string> = line.split(/ /);
@@ -141,9 +116,9 @@ const read = (file: 'input' | 'example' = 'input') =>
 			});
 	});
 
-export const runner = async (file: 'input' | 'example' = 'input'): Promise<Result> =>
-	new Promise<Result>(async res => {
-		const graph: Graph = await read(file);
+export const runner = async (file: 'input' | 'example' = 'input'): Promise<number> =>
+	new Promise<number>(async res => {
+		const graph: Graph = await reader(file);
 
 		const finished$ = new Subject<number>(); // The cue subject when the async job is done.
 		const done$ = new ReplaySubject<Node>();
@@ -157,8 +132,8 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<Resul
 						take(1)
 					)
 					.subscribe(nodes => {
-						let seq = nodes.map(node => node.node).join('');
-
+						/*let seq = nodes.map(node => node.node).join('');
+						
 						console.log(
 							`| ${tick.toString().padEnd(5)}${workers
 								.map(
@@ -166,10 +141,10 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<Resul
 										'| ' + (worker.workingOn !== undefined ? worker.workingOn.node : '.').padEnd(5)
 								)
 								.join(``)}| ${seq.padEnd(26)} |`
-						);
+						);*/
 					});
 			}),
-			takeUntil(finished$), //  Until it emits, the interval will keep ticking.
+			takeUntil(finished$),
 			multicast(() => new Subject())
 		);
 
@@ -180,21 +155,22 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<Resul
 					bufferTime(0),
 					take(1)
 				)
-				.subscribe(nodes => {
-					let seq = nodes.map(node => node.node).join('');
-					res({ tick: tick, seq: seq });
-				});
+				.subscribe(nodes => res(tick));
 		});
-		// Spawn 5 workers (Or 2 if you are running the example)
-		let header = '|Tick |';
+		//let header = '|Tick |';
 		range(1, file === 'input' ? 5 : 2).forEach(num => {
-			header += ` W ${num}  |`;
+			// header += ` W ${num}  |`;
 			workers.push(new Worker(num).start(tick$, graph, file, done$, finished$));
 		});
-		console.log(` ${header} Done                       |`);
+		// console.log(` ${header} Done                       |`);
 
 		tick$.connect();
-		// The tick$ stream is multicasted. It will only start on a connect and not immediatly at a subscription.
 	});
 
-(async () => console.log(await runner()))(); // 1115, GRTZAHVLQKYWXMUBPCIJFEDNSO
+if (require.main == module) {
+	console.time();
+	(async () => {
+		console.log(`Result: ${await runner()}`);
+		console.timeEnd();
+	})(); // 1115 ~1800ms
+}
