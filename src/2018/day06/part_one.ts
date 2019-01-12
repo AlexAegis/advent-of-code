@@ -79,16 +79,12 @@ export const runner = async (input: 'example' | 'input' = 'example'): Promise<an
 			}
 		});
 
-		const boundaryStart: Coord = new Coord(boundaryLeft.x - 10, boundaryTop.y - 10);
-		const boundaryEnd: Coord = new Coord(boundaryRight.x + 20, boundaryBottom.y + 20);
+		const boundaryStart: Coord = new Coord(boundaryLeft.x, boundaryTop.y);
+		const boundaryEnd: Coord = new Coord(boundaryRight.x, boundaryBottom.y + 1);
 		// 40:52 - 353:358
 		const bucket: Map<string, Array<Coord>> = new Map();
-		const associations: Map<string, string> = new Map();
-		let i = 0;
 		for (let point of points) {
 			bucket.set(point.toString(), []);
-			associations.set(point.toString(), String.fromCharCode(64 + i)); // 97
-			i++;
 		}
 		let map: Array<string> = [];
 		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
@@ -97,37 +93,26 @@ export const runner = async (input: 'example' | 'input' = 'example'): Promise<an
 				let ordered: Array<Coord> = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
 				if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
 					bucket.get(ordered[0].toString()).push(new Coord(x, y));
-					let assoc = associations.get(ordered[0].toString());
-					if (ordered[0].toString() === new Coord(x, y).toString()) {
-						assoc = assoc.toUpperCase();
-					}
-					row = row + assoc;
-				} else {
-					row = row + '.';
 				}
 			}
 			map.push(row);
 		}
-		//map.forEach(row => console.log(row));
 		const bound: Array<number> = [];
 		bucket.forEach(territory => {
 			if (
 				!territory.some(
 					point =>
-						point.x <= boundaryStart.x + 10 ||
-						point.y <= boundaryStart.y + 20 ||
-						point.x >= boundaryEnd.x - 20 ||
-						point.y >= boundaryEnd.y - 20
+						point.x <= boundaryStart.x ||
+						point.y <= boundaryStart.y ||
+						point.x >= boundaryEnd.x ||
+						point.y >= boundaryEnd.y - 1 // magic boundary bandaid
 				)
 			) {
 				bound.push(territory.length);
 			}
 		});
-		let sortedBound = bound.sort((a, b) => a - b);
-
-		const max = bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc));
-		res(max);
+		res(bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc)));
 		console.timeEnd();
-	}); // 3006 the partitioning of the plane is good, but the way I determine which is infinite or not is not.
+	}); // 3006
 
-(async () => console.log(await runner('input')))();
+// (async () => console.log(await runner('input')))();
