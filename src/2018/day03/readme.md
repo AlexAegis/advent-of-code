@@ -49,7 +49,7 @@ The four square inches marked with X are claimed by both 1 and 2. (Claim 3, whil
 
 If the Elves all proceed with their own plans, none of them will have enough fabric. How many square inches of fabric are within two or more claims?
 
-Your puzzle answer was 116920.
+Your puzzle answer was **116920**.
 
 ## Part Two
 
@@ -59,4 +59,4 @@ For example, in the claims above, only claim 3 is intact after all claims are ma
 
 What is the ID of the only claim that doesn't overlap?
 
-Your puzzle answer was 382.
+Your puzzle answer was **382**.
