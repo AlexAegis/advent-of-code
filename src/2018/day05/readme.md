@@ -28,7 +28,7 @@ After all possible reactions, the resulting polymer contains 10 units.
 
 How many units remain after fully reacting the polymer you scanned? (Note: in this puzzle and others, the input is large; if you copy/paste your input, make sure you get the whole thing.)
 
-Your puzzle answer was 9202.
+Your puzzle answer was **9202**.
 
 ## Part Two
 
@@ -47,4 +47,4 @@ In this example, removing all C/c units was best, producing the answer 4.
 
 What is the length of the shortest polymer you can produce by removing all units of exactly one type and fully reacting the result?
 
-Your puzzle answer was 6394.
+Your puzzle answer was **6394**.
