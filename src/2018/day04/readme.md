@@ -56,7 +56,7 @@ While this example listed the entries in chronological order, your entries are i
 
 What is the ID of the guard you chose multiplied by the minute you chose? (In the above example, the answer would be 10 \* 24 = 240.)
 
-Your puzzle answer was 106710.
+Your puzzle answer was **106710**.
 
 ## Part Two
 
@@ -66,4 +66,4 @@ In the example above, Guard #99 spent minute 45 asleep more than any other guard
 
 What is the ID of the guard you chose multiplied by the minute you chose? (In the above example, the answer would be 99 \* 45 = 4455.)
 
-Your puzzle answer was 10491.
+Your puzzle answer was **10491**.

@@ -1,61 +1,11 @@
-import { createReadStream } from 'fs';
-import { createInterface } from 'readline';
+import { reader } from './reader.function';
 
-export interface Event {
-	year: number;
-	month: number;
-	day: number;
-	hour: number;
-	minute: number;
-	guard: number;
-	event: string;
-}
-
-const interpret = (line: string): Event => {
-	let parts = line.split(/\[|-|:|]|#/).map(e => e.trim());
-	return {
-		year: Number(parts[1]),
-		month: Number(parts[2]),
-		day: Number(parts[3].split(/ /)[0]),
-		hour: Number(parts[3].split(/ /)[1]),
-		minute: Number(parts[4]),
-		guard: parts[5] === 'Guard' ? Number(parts[6].split(/ /)[0]) : undefined,
-		event: parts[5]
-	};
-};
-
-export const read = new Promise<Array<Event>>(res => {
-	const events: Array<Event> = [];
-	createInterface({
-		input: createReadStream('src/2018/day04/input.txt')
-	})
-		.on('line', (line: string) => events.push(interpret(line)))
-		.on('close', () => {
-			console.log(`File read.`);
-			res(
-				events.sort((a, b) => {
-					return a.year - b.year !== 0
-						? a.year - b.year
-						: a.month - b.month !== 0
-						? a.month - b.month
-						: a.day - b.day !== 0
-						? a.day - b.day
-						: a.hour - b.hour !== 0
-						? a.hour - b.hour
-						: a.minute - b.minute !== 0
-						? a.minute - b.minute
-						: 0;
-				})
-			);
-		});
-});
-
-export const runner = (async () => {
+export const runner = async (input: 'example' | 'input' = 'input') => {
 	const guards: Map<number, Map<number, number>> = new Map();
-	let currentGuard: number; // Guard currently on shift
+	let currentGuard: number;
 	let asleepAt: number;
-	let o = await read;
-	for (let event of o) {
+	let events = await reader(input);
+	for (let event of events) {
 		if (event.guard) {
 			currentGuard = event.guard;
 			if (!guards.has(currentGuard)) {
@@ -99,6 +49,13 @@ export const runner = (async () => {
 	);
 
 	console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
-	console.log(`The answer is: ${mostSleptGuard * mostSleptMinute[0]}`); // 106710
 	return mostSleptGuard * mostSleptMinute[0];
-})();
+};
+
+if (require.main == module) {
+	console.time();
+	(async () => {
+		console.log(`Result: ${await runner()}`);
+		console.timeEnd();
+	})(); // 106710 ~16ms
+}
