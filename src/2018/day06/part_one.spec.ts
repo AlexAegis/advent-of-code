@@ -24,6 +24,6 @@ describe('Day 6, Part One', () => {
 	});
 
 	it('should the input resolve to XX', async () => {
-		expect(await runner('input')).toEqual(3006);
+		expect(await runner()).toEqual(3006);
 	});
 });
