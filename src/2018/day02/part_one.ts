@@ -20,21 +20,27 @@ const charRepeats = (line: string, times: number = 2): number => {
 
 const atLeastOne = (n: number): boolean => n && n >= 1;
 
-export const read = new Promise<number>(async res => {
-	let twiceAppearCount = 0;
-	let thriceAppearCount = 0;
-	const reader = createInterface({
-		input: createReadStream('src/2018/day02/input.txt')
-	});
-	reader
-		.on('line', (line: string) => {
-			twiceAppearCount += atLeastOne(charRepeats(line)) ? 1 : 0;
-			thriceAppearCount += atLeastOne(charRepeats(line, 3)) ? 1 : 0;
-		})
-		.on('close', () => {
-			res(twiceAppearCount * thriceAppearCount);
+export const runner = async (input: 'example' | 'input' = 'input') =>
+	new Promise<number>(async res => {
+		let twiceAppearCount = 0;
+		let thriceAppearCount = 0;
+		const reader = createInterface({
+			input: createReadStream(`src/2018/day02/${input}.txt`)
 		});
-});
+		reader
+			.on('line', (line: string) => {
+				twiceAppearCount += atLeastOne(charRepeats(line)) ? 1 : 0;
+				thriceAppearCount += atLeastOne(charRepeats(line, 3)) ? 1 : 0;
+			})
+			.on('close', () => {
+				res(twiceAppearCount * thriceAppearCount);
+			});
+	});
 
-// IIFEs rule!
-(async () => console.log(`Resulting checksum: ${await read}`))(); // 5456
+if (require.main == module) {
+	console.time();
+	(async () => {
+		console.log(`Resulting checksum: ${await runner()}`);
+		console.timeEnd();
+	})(); // 5456 ~17ms
+}

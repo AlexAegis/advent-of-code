@@ -26,7 +26,7 @@ Of these box IDs, four of them contain a letter which appears exactly twice, and
 
 What is the checksum for your list of box IDs?
 
-Your puzzle answer was 5456.
+Your puzzle answer was **5456**.
 
 ## Part Two
 
@@ -46,4 +46,4 @@ The IDs abcde and axcye are close, but they differ by two characters (the second
 
 What letters are common between the two correct box IDs? (In the example above, this is found by removing the differing character from either ID, producing fgij.)
 
-Your puzzle answer was megsdlpulxvinkatfoyzxcbvq.
+Your puzzle answer was **megsdlpulxvinkatfoyzxcbvq**.

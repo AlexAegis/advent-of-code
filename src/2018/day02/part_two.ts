@@ -1,13 +1,13 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
-export const read = new Promise<string>(async res => {
-	const lineCache: Array<string> = [];
-	const reader = createInterface({
-		input: createReadStream('src/2018/day02/input.txt')
-	});
-	reader
-		.on('line', (line: string) => {
+export const runner = async (input: 'example' | 'input' = 'input') =>
+	new Promise<string>(async res => {
+		const lineCache: Array<string> = [];
+		const reader = createInterface({
+			input: createReadStream(`src/2018/day02/${input}.txt`)
+		});
+		reader.on('line', (line: string) => {
 			lineCache.forEach(cachedLine => {
 				let matchingChars = 0;
 				let notMatchingPos;
@@ -24,10 +24,13 @@ export const read = new Promise<string>(async res => {
 				}
 			});
 			lineCache.push(line);
-		})
-		.on('close', () => {
-			console.log(`File read.`);
 		});
-});
+	});
 
-(async () => console.log(`Result: ${await read}`))(); // megsdlpulxvinkatfoyzxcbvq
+if (require.main == module) {
+	console.time();
+	(async () => {
+		console.log(`Resulting checksum: ${await runner()}`);
+		console.timeEnd();
+	})(); // megsdlpulxvinkatfoyzxcbvq ~20ms
+}
