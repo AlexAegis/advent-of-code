@@ -1,4 +1,5 @@
-import { runner, Coord } from './part_one';
+import { runner } from './part_one';
+import { Coord } from './coord.class';
 
 describe('Day 6, Part One', () => {
 	const a: Coord = new Coord(1, 1);
