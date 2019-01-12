@@ -1,35 +1,6 @@
 import { createReadStream } from 'fs';
 import * as rl from 'readline';
-import { interval, Subject } from 'rxjs';
-import { takeUntil, take, flatMap, tap } from 'rxjs/operators';
-
-export class Coord {
-	x: number;
-	y: number;
-
-	constructor(x: number, y: number) {
-		this.x = x;
-		this.y = y;
-	}
-
-	add(coord: Coord) {
-		this.x += coord.x;
-		this.y -= coord.y; // Psst, you didn't see me.
-		return this;
-	}
-
-	manhattanCoord(coord: Coord): number {
-		return this.manhattan(coord.x, coord.y);
-	}
-
-	manhattan(x: number, y: number): number {
-		return Math.abs(x - this.x) + Math.abs(y - this.y);
-	}
-
-	toString(): string {
-		return `${this.x},${this.y}`;
-	}
-}
+import { Coord } from './coord.class';
 
 export const read = (input: 'example' | 'input' = 'example'): Promise<Array<Coord>> =>
 	new Promise<Array<Coord>>(res => {
@@ -44,21 +15,10 @@ export const read = (input: 'example' | 'input' = 'example'): Promise<Array<Coor
 			.on('close', () => res(points));
 	});
 
-export const runner = async (input: 'example' | 'input' = 'example'): Promise<any> =>
-	new Promise<any>(async res => {
+export const runner = async (input: 'example' | 'input' = 'example'): Promise<number> =>
+	new Promise<number>(async res => {
 		console.time();
 		const points = await read(input);
-		console.log(points);
-
-		/*	PLAN- BOUNDING BOX
-
-			get the bounding box of all the points and pad it by 1.
-			start iterating from the center in circles until the bounding box is complete
-			while iterating, for each point get the manhattan distance for each point, get the lowest ones 
-			if there is only one, then put that point in the area of that point, if there are multiple ones, ignore it, its a boundary. 
-
-		*/
-
 		let boundaryTop: Coord;
 		let boundaryRight: Coord;
 		let boundaryBottom: Coord;
@@ -81,21 +41,17 @@ export const runner = async (input: 'example' | 'input' = 'example'): Promise<an
 
 		const boundaryStart: Coord = new Coord(boundaryLeft.x, boundaryTop.y);
 		const boundaryEnd: Coord = new Coord(boundaryRight.x, boundaryBottom.y + 1);
-		// 40:52 - 353:358
 		const bucket: Map<string, Array<Coord>> = new Map();
 		for (let point of points) {
 			bucket.set(point.toString(), []);
 		}
-		let map: Array<string> = [];
 		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
-			let row = '';
 			for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
 				let ordered: Array<Coord> = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
 				if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
 					bucket.get(ordered[0].toString()).push(new Coord(x, y));
 				}
 			}
-			map.push(row);
 		}
 		const bound: Array<number> = [];
 		bucket.forEach(territory => {
