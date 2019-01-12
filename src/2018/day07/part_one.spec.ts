@@ -1,7 +1,10 @@
-import { result } from './part_one';
+import { runner } from './part_one';
 
 describe('Day 7, Part One', () => {
 	it('Should be:', async () => {
-		expect(await result).toEqual('GRTAHKLQVYWXMUBCZPIJFEDNSO');
+		expect(await runner('example')).toEqual('CABDFE');
+	});
+	it('Should be:', async () => {
+		expect(await runner()).toEqual('GRTAHKLQVYWXMUBCZPIJFEDNSO');
 	});
 });

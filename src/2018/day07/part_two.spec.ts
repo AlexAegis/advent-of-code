@@ -1,5 +1,5 @@
-import { Graph, Node, Result } from './part_two';
 import { runner } from './part_two';
+import { Node } from './node.class';
 
 describe('Day 7 Part Two', () => {
 	const node_a: Node = new Node('a');
@@ -13,8 +13,8 @@ describe('Day 7 Part Two', () => {
 	const b_cost_long = 62;
 	const z_cost_long = 86;
 
-	let resultExample: Result;
-	let resultMain: Result;
+	let resultExample: number;
+	let resultMain: number;
 	beforeAll(async () => {
 		resultExample = await runner('example');
 		resultMain = await runner();
@@ -44,16 +44,10 @@ describe('Day 7 Part Two', () => {
 	});
 
 	it(`Example should finish in the given ticks`, async () => {
-		expect(resultExample.tick).toEqual(15);
-	});
-	it(`Example should result in the given sequence`, async () => {
-		expect(resultExample.seq).toEqual('CABFDE');
+		expect(resultExample).toEqual(15);
 	});
 
 	it(`Main should finish in given ticks`, async () => {
-		expect(resultMain.tick).toEqual(1115);
-	});
-	it(`Main should result in the given sequence`, async () => {
-		expect(resultMain.seq).toEqual('GRTZAHVLQKYWXMUBPCIJFEDNSO');
+		expect(resultMain).toEqual(1115);
 	});
 });
