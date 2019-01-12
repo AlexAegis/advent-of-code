@@ -1,24 +1,9 @@
-import { createReadStream } from 'fs';
-import * as rl from 'readline';
 import { Coord } from './coord.class';
+import { reader } from './reader.function';
 
-export const read = (input: 'example' | 'input' = 'example'): Promise<Array<Coord>> =>
-	new Promise<Array<Coord>>(res => {
-		const points: Array<Coord> = new Array();
-		rl.createInterface({
-			input: createReadStream(`src/2018/day06/${input}.txt`)
-		})
-			.on('line', line => {
-				const lineSplit = line.split(', ');
-				points.push(new Coord(Number(lineSplit[1]), Number(lineSplit[0])));
-			})
-			.on('close', () => res(points));
-	});
-
-export const runner = async (input: 'example' | 'input' = 'example'): Promise<number> =>
+export const runner = async (input: 'example' | 'input' = 'input'): Promise<number> =>
 	new Promise<number>(async res => {
-		console.time();
-		const points = await read(input);
+		const points = await reader(input);
 		let boundaryTop: Coord;
 		let boundaryRight: Coord;
 		let boundaryBottom: Coord;
@@ -68,7 +53,12 @@ export const runner = async (input: 'example' | 'input' = 'example'): Promise<nu
 			}
 		});
 		res(bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc)));
-		console.timeEnd();
-	}); // 3006
+	});
 
-// (async () => console.log(await runner('input')))();
+if (require.main == module) {
+	console.time();
+	(async () => {
+		console.log(`Result: ${await runner()}`);
+		console.timeEnd();
+	})(); // 3006 ~272ms
+}
