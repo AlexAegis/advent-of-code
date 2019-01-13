@@ -56,3 +56,5 @@ For example, again using the above nodes:
   So, in this example, the value of the root node is 66.
 
 What is the value of the root node?
+
+Your puzzle answer was **28237**.
