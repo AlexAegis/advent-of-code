@@ -20,7 +20,7 @@ export class Node {
 		this.process(input);
 	}
 
-	process(input: Array<number>) {
+	process = (input: Array<number>) => {
 		if (this.totalNumberOfChildren === this.processedChildren) {
 			this.data = input.splice(0, this.totalNumberOfData);
 			if (this.parent) {
@@ -28,25 +28,23 @@ export class Node {
 				this.parent.process(input);
 			}
 		} else new Node(input, this);
-	}
+	};
 
 	// part one
-	sum(): number {
-		return this.children
+	sum = (): number =>
+		this.children
 			.map(child => child.sum())
 			.concat(this.data)
 			.reduce((acc, next) => acc + next);
-	}
 
 	// part two
-	value(): number {
-		return this.children.length > 0
+	value = (): number =>
+		this.children.length > 0
 			? this.data
 					.filter(index => index > 0 && index < this.children.length + 1)
 					.map(index => this.children[--index].value())
 					.reduce((acc, next) => acc + next, 0)
 			: this.sum();
-	}
 
 	toString(): string {
 		return `[${this.data} - ${this.children.map(child => child.toString()).reduce((acc, next) => acc + next, '')}]`;
