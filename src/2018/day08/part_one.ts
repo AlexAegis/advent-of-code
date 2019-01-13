@@ -1,17 +1,13 @@
 import { reader } from './reader.function';
+import { Node } from './node.class';
 
 export const runner = async (input: 'example' | 'input' = 'input'): Promise<any> =>
-	new Promise<any>(async res => {
-		const read = await reader(input);
-
-		res(read);
-	});
+	new Promise<any>(async res => res(new Node(await reader(input)).sum()));
 
 if (require.main == module) {
-	console.log('asd');
 	console.time();
 	(async () => {
-		console.log(`${await runner('example')}`);
+		console.log(`${await runner()}`);
 		console.timeEnd();
-	})(); //  ~ms
+	})(); // 47112 ~20ms
 }
