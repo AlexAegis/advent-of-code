@@ -30,11 +30,22 @@ export class Node {
 		} else new Node(input, this);
 	}
 
+	// part one
 	sum(): number {
 		return this.children
 			.map(child => child.sum())
 			.concat(this.data)
 			.reduce((acc, next) => acc + next);
+	}
+
+	// part two
+	value(): number {
+		return this.children.length > 0
+			? this.data
+					.filter(index => index > 0 && index < this.children.length + 1)
+					.map(index => this.children[--index].value())
+					.reduce((acc, next) => acc + next, 0)
+			: this.sum();
 	}
 
 	toString(): string {
