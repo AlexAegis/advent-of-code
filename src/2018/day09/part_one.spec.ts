@@ -26,6 +26,6 @@ describe('Day 9, Part One', () => {
 	});
 
 	it('Should be:', async () => {
-		expect(await runner()).toEqual(0);
+		expect(await runner()).toEqual(361466);
 	});
 });
