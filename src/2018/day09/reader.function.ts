@@ -3,10 +3,10 @@ import * as rl from 'readline';
 
 export interface Setup {
 	players: number;
-	lastMarbleWorth: number;
+	lastMarble: number;
 }
 
-export const reader = (input: 'example' | 'input' = 'input'): Promise<Setup> =>
+export const reader = (input: string = 'input'): Promise<Setup> =>
 	new Promise<Setup>(res =>
 		rl
 			.createInterface({
@@ -14,6 +14,6 @@ export const reader = (input: 'example' | 'input' = 'input'): Promise<Setup> =>
 			})
 			.on('line', line => {
 				const input = line.split(' ');
-				res({ players: Number(input[0]), lastMarbleWorth: Number(input[6]) });
+				res({ players: Number(input[0]), lastMarble: Number(input[6]) });
 			})
 	);
