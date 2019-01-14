@@ -1,6 +1,6 @@
 import { runner } from './part_two';
 
-describe('Day 8, Part One', () => {
+describe('Day 8, Part Two', () => {
 	it('Should be:', async () => {
 		expect(await runner('example')).toEqual(66);
 	});
