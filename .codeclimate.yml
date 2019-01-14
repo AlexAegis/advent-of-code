@@ -7,4 +7,4 @@ plugins:
         enabled: true
 checks:
     identical-code:
-        enabled: false #this is a problem solving repository. It will have identical code blocks by nature.
+        enabled: false # this is a problem solving repository. It will have identical code blocks by nature.
