@@ -5,6 +5,7 @@ interface Graph {
 	nodes: Array<string>;
 	vertices: Array<{ from: string; to: string }>;
 }
+
 const reader = async (input: 'input' | 'example' = 'input') =>
 	new Promise<Graph>(res => {
 		let graph: Graph = { nodes: [], vertices: [] };
