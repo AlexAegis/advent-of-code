@@ -6,33 +6,33 @@
 
 ## Progress
 
-| Day    | Part One Answer            | Part One Runtime | Part Two Answer           | Part Two Runtime                                            |
-| ------ | -------------------------- | ---------------- | ------------------------- | ----------------------------------------------------------- |
-| Day 1  | 408                        | 9ms              | 55250                     | 5161ms                                                      |
-| Day 2  | 5456                       | 17ms             | megsdlpulxvinkatfoyzxcbvq | 20ms                                                        |
-| Day 3  | 116920                     | 290ms            | 382                       | 240ms                                                       |
-| Day 4  | 106710                     | 16ms             | 10491                     | 16ms                                                        |
-| Day 5  | 10                         | 9ms              | 6394                      | 361ms                                                       |
-| Day 6  | 3006                       | 295ms            | 42998                     | 66ms                                                        |
-| Day 7  | GRTAHKLQVYWXMUBCZPIJFEDNSO | 9ms              | 1115                      | 1800ms                                                      |
-| Day 8  | 47112                      | 20ms             | 28237                     | 12ms                                                        |
-| Day 9  | 361466                     | 140ms            | 2945918550                | 5203622ms <sub><sub><sup><sup>jesus</sub></sub></sup></sup> |
-| Day 10 | KBJHEZCB                   | 170ms            | 10369                     | 170ms                                                       |
-| Day 11 |                            |                  |                           |                                                             |
-| Day 12 |                            |                  |                           |                                                             |
-| Day 13 | 28,107                     | 340ms            | 36,123                    | 20000ms                                                     |
-| Day 14 |                            |                  |                           |                                                             |
-| Day 15 |                            |                  |                           |                                                             |
-| Day 16 |                            |                  |                           |                                                             |
-| Day 17 |                            |                  |                           |                                                             |
-| Day 18 |                            |                  |                           |                                                             |
-| Day 19 |                            |                  |                           |                                                             |
-| Day 20 |                            |                  |                           |                                                             |
-| Day 21 |                            |                  |                           |                                                             |
-| Day 22 |                            |                  |                           |                                                             |
-| Day 23 |                            |                  |                           |                                                             |
-| Day 24 |                            |                  |                           |                                                             |
-| Day 25 |                            |                  |                           |                                                             |
+| Day                         | Part One Answer                     | Part One Runtime | Part Two Answer               | Part Two Runtime                                            |
+| --------------------------- | ----------------------------------- | ---------------- | ----------------------------- | ----------------------------------------------------------- |
+| [Day 1](./src/2018/day01/)  | [408](./src/2018/day01/part_one.ts) | 9ms              | [55250]()                     | 5161ms                                                      |
+| [Day 2](./src/2018/day02/)  | [5456]()                            | 17ms             | [megsdlpulxvinkatfoyzxcbvq]() | 20ms                                                        |
+| [Day 3](./src/2018/day03/)  | [116920]()                          | 290ms            | [382]()                       | 240ms                                                       |
+| [Day 4](./src/2018/day04/)  | [106710]()                          | 16ms             | [10491]()                     | 16ms                                                        |
+| [Day 5](./src/2018/day05/)  | [10]()                              | 9ms              | [6394]()                      | 361ms                                                       |
+| [Day 6](./src/2018/day06/)  | [3006]()                            | 295ms            | [42998]()                     | 66ms                                                        |
+| [Day 7](./src/2018/day07/)  | [GRTAHKLQVYWXMUBCZPIJFEDNSO]()      | 9ms              | [1115]()                      | 1800ms                                                      |
+| [Day 8](./src/2018/day08/)  | [47112]()                           | 20ms             | [28237]()                     | 12ms                                                        |
+| [Day 9](./src/2018/day09/)  | [361466]()                          | 140ms            | [2945918550]()                | 5203622ms <sub><sub><sup><sup>jesus</sub></sub></sup></sup> |
+| [Day 10](./src/2018/day10/) | [KBJHEZCB]()                        | 170ms            | [10369]()                     | 170ms                                                       |
+| [Day 11](./src/2018/day11/) |                                     |                  |                               |                                                             |
+| Day 12                      |                                     |                  |                               |                                                             |
+| [Day 13](./src/2018/day13/) | [28,107]()                          | 340ms            | [36,123]()                    | 20000ms                                                     |
+| Day 14                      |                                     |                  |                               |                                                             |
+| Day 15                      |                                     |                  |                               |                                                             |
+| Day 16                      |                                     |                  |                               |                                                             |
+| Day 17                      |                                     |                  |                               |                                                             |
+| Day 18                      |                                     |                  |                               |                                                             |
+| Day 19                      |                                     |                  |                               |                                                             |
+| Day 20                      |                                     |                  |                               |                                                             |
+| Day 21                      |                                     |                  |                               |                                                             |
+| Day 22                      |                                     |                  |                               |                                                             |
+| Day 23                      |                                     |                  |                               |                                                             |
+| Day 24                      |                                     |                  |                               |                                                             |
+| Day 25                      |                                     |                  |                               |                                                             |
 
 ## Usage
 
