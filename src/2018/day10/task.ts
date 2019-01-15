@@ -1,17 +1,19 @@
 import { Vector } from './vector.class';
 import { reader } from './reader.function';
-import { of, concat } from 'rxjs';
-import { reduce, map, partition, merge, mergeAll } from 'rxjs/operators';
 import { Coord } from './coord.class';
+import { Boundary } from './boundary.interface';
 
-export interface Boundary {
-	maxX: number;
-	minX: number;
-	maxY: number;
-	minY: number;
-}
+export const normalize = (input: Array<Vector>): Array<Vector> => {
+	let { maxX, minX, maxY, minY } = boundary(input);
+	let norm = new Coord(minX, minY);
+	return input.map(vector => {
+		vector.position.sub(norm);
+		return vector;
+	});
+};
 
-export const area = (boundary: Boundary): number => (boundary.maxX - boundary.minX) * (boundary.maxY - boundary.minY);
+export const area = (boundary: Boundary): number => (boundary.maxX - boundary.minX) * (boundary.maxY - boundary.minY); // did not terminate correctly
+export const verticalArea = (boundary: Boundary): number => boundary.maxY - boundary.minY;
 
 export const boundary = (input: Array<Vector>): Boundary => {
 	return {
@@ -26,13 +28,7 @@ export const max = (acc: number, next: number) => (acc < next ? next : acc);
 export const min = (acc: number, next: number) => (acc > next ? next : acc);
 
 export const print = (input: Array<Vector>): string => {
-	console.time('legacy');
 	let { maxX, minX, maxY, minY } = boundary(input);
-	/*
-	const maxX = input.map(vector => vector.position.x).reduce(max);
-	const minX = input.map(vector => vector.position.x).reduce(min);
-	const maxY = input.map(vector => vector.position.y).reduce(max);
-	const minY = input.map(vector => vector.position.y).reduce(min);*/
 	console.log(`maxX: ${maxX}, minX: ${minX}, maxY: ${maxY}, minY: ${minY}`);
 
 	const stars = input.map(vector => vector.position.toString());
@@ -46,37 +42,17 @@ export const print = (input: Array<Vector>): string => {
 		pic = pic.concat(row.concat('\n'));
 	}
 	return pic;
-
-	/*
-	console.time('rxjs');
-	const input$ = of(...input);
-	const inputX$ = input$.pipe(map(vector => vector.position.x));
-	const inputY$ = input$.pipe(map(vector => vector.position.y));
-	const inputMaxX$ = inputX$.pipe(reduce(max));
-	const inputMinX$ = inputX$.pipe(reduce(min));
-	const inputMaxY$ = inputY$.pipe(reduce(max));
-	const inputMinY$ = inputY$.pipe(reduce(min));
-
-	of(inputMaxX$, inputMinX$, inputMaxY$, inputMinY$)
-		.pipe(mergeAll())
-		.subscribe(result => {
-			console.log(`rx result combined: ${result}`);
-		})
-		.add(() => {
-			console.timeEnd('rxjs');
-		});*/
 };
 
 export const runner = async (input: string = 'input'): Promise<any> =>
 	new Promise<any>(async res => {
 		const vectors = await reader(input);
 		let minArea: number = area(boundary(vectors));
-
-		for (let i = 0; i < 5; i++) {
+		for (var i = 0; true; i++) {
 			vectors.forEach(vector => {
 				vector.position.add(vector.velocity);
 			});
-			let currArea = area(boundary(vectors));
+			let currArea = verticalArea(boundary(vectors));
 			if (minArea > currArea) {
 				minArea = currArea;
 			} else break;
@@ -84,14 +60,14 @@ export const runner = async (input: string = 'input'): Promise<any> =>
 		vectors.forEach(vector => {
 			vector.position.sub(vector.velocity);
 		});
-		console.log(print(vectors));
-		res(0);
+		console.log(print(vectors)); // result of part one
+		res(i); // result of part two
 	});
 
 if (require.main == module) {
 	console.time();
 	(async () => {
-		console.log(`${await runner('input')}`);
+		console.log(`${await runner()}`);
 		console.timeEnd();
-	})(); // ~ ms
+	})(); // KBJHEZCB - 10369 ~ 170ms
 }
