@@ -12,7 +12,7 @@ Rather than wait, you decide to fast-forward the process and calculate what the 
 
 For example, suppose you note the following points:
 
-```cmd
+```json
 position=< 9,  1> velocity=< 0,  2>
 position=< 7,  0> velocity=<-1,  0>
 position=< 3, -2> velocity=<-1,  1>
@@ -46,13 +46,13 @@ position=<14,  7> velocity=<-2,  0>
 position=<-3,  6> velocity=< 2, -1>
 ```
 
-Each line represents one point. Positions are given as <X, Y> pairs: X represents how far left (negative) or right (positive) the point appears, while Y represents how far up (negative) or down (positive) the point appears.
+Each line represents one point. Positions are given as `<X, Y>` pairs: X represents how far left (negative) or right (positive) the point appears, while Y represents how far up (negative) or down (positive) the point appears.
 
-At 0 seconds, each point has the position given. Each second, each point's velocity is added to its position. So, a point with velocity <1, -2> is moving to the right, but is moving upward twice as quickly. If this point's initial position were <3, 9>, after 3 seconds, its position would become <6, 3>.
+At `0` seconds, each point has the position given. Each second, each point's velocity is added to its position. So, a point with velocity `<1, -2>` is moving to the right, but is moving upward twice as quickly. If this point's initial position were `<3, 9>`, after `3` seconds, its position would become `<6, 3>`.
 
 Over time, the points listed above would move like this:
 
-```cmd
+```json
 Initially:
 ........#.............
 ................#.....
@@ -144,16 +144,16 @@ After 4 seconds:
 ......................
 ```
 
-After 3 seconds, the message appeared briefly: HI. Of course, your message will be much longer and will take many more seconds to appear.
+After 3 seconds, the message appeared briefly: `HI`. Of course, your message will be much longer and will take many more seconds to appear.
 
-What message will eventually appear in the sky?
+**What message will eventually appear in the sky?**
 
-Your puzzle answer was **KBJHEZCB**.
+Your puzzle answer was `KBJHEZCB`.
 
 ## Part Two
 
-Good thing you didn't have to wait, because that would have taken a long time - much longer than the 3 seconds in the example above.
+Good thing you didn't have to wait, because that would have taken a long time - much longer than the `3` seconds in the example above.
 
-Impressed by your sub-hour communication capabilities, the Elves are curious: exactly how many seconds would they have needed to wait for that message to appear?
+Impressed by your sub-hour communication capabilities, the Elves are curious: **exactly how many seconds would they have needed to wait for that message to appear?**
 
-Your puzzle answer was **10369**.
+Your puzzle answer was `10369`.
