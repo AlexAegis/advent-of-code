@@ -8,5 +8,5 @@ if (require.main == module) {
 	(async () => {
 		console.log(await runner());
 		console.timeEnd();
-	})(); // 408
+	})(); // 408 ~9ms
 }

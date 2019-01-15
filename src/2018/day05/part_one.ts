@@ -10,5 +10,5 @@ if (require.main == module) {
 	(async () => {
 		console.log(`Collapsed sequences length: ${await runner('example')}`);
 		console.timeEnd();
-	})(); // 9202 ~26ms
+	})(); // 10 ~9ms
 }

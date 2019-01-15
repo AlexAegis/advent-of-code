@@ -48,5 +48,5 @@ if (require.main == module) {
 	(async () => {
 		console.log(`First to be repeated: ${await runner()}`);
 		console.timeEnd();
-	})(); // 55250
+	})(); // 55250 ~5161ms
 }
