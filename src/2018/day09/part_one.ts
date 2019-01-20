@@ -1,31 +1,22 @@
+import { Deque } from './deque.class';
 import { reader } from './reader.function';
 
 export const runner = async (input: string = 'input'): Promise<any> =>
 	new Promise<any>(async res => {
 		const setup = await reader(input);
-
-		let ring: Array<number> = [];
-		let current: number = 0;
-		let score: Map<number, number> = new Map();
-
-		for (let marble = 0; marble <= setup.lastMarble; marble++) {
-			if (marble !== 0 && marble % 23 === 0) {
-				const currentPlayer = marble % setup.players;
-				if (!score.has(currentPlayer)) {
-					score.set(currentPlayer, 0);
-				}
-				score.set(currentPlayer, score.get(currentPlayer) + marble);
-				current = current - 7;
-				if (current < 0) {
-					current = ring.length + current;
-				}
-				score.set(currentPlayer, score.get(currentPlayer) + ring.splice(current - 1, 1)[0]);
+		const ring: Deque<number> = new Deque<number>(undefined, 0);
+		const score: Array<number> = new Array<number>(setup.players).fill(0);
+		for (let marble = 1; marble <= setup.lastMarble; marble++) {
+			if (marble % 23 === 0) {
+				ring.rotate(7);
+				score[marble % setup.players] += marble + ring.pop();
+				ring.rotate(-1);
 			} else {
-				ring.splice(current + 1, 0, marble);
-				current = (current + 2) % ring.length;
+				ring.rotate(-1);
+				ring.push(marble);
 			}
 		}
-		res([...score].reduce((acc, next) => (acc[1] < next[1] ? next : acc))[1]);
+		res([...score].reduce((acc, next) => (acc < next ? next : acc)));
 	});
 
 if (require.main == module) {
@@ -33,5 +24,5 @@ if (require.main == module) {
 	(async () => {
 		console.log(`${await runner()}`);
 		console.timeEnd();
-	})(); // 361466 ~140ms
+	})(); // 361466 ~19ms
 }
