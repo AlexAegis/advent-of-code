@@ -2,12 +2,10 @@ import { runner } from './part_one';
 
 describe('Day 13, Part One', () => {
 	it('Should be 7,3 for the example:', async () => {
-		expect(1).toEqual(1);
 		expect((await runner('example')).toString()).toEqual('7,3');
 	});
 
-	it('Should be 7,3 for the example:', async () => {
-		expect(1).toEqual(1);
+	it('Should be 2,0 for the example:', async () => {
 		expect((await runner('example_two')).toString()).toEqual('2,0');
 	});
 

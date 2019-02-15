@@ -9,13 +9,13 @@ export class Coord {
 
 	add(coord: Coord) {
 		this.x += coord.x;
-		this.y += coord.y; // Psst, you didn't see me.
+		this.y += coord.y;
 		return this;
 	}
 
 	sub(coord: Coord) {
 		this.x -= coord.x;
-		this.y -= coord.y; // Psst, you didn't see me.
+		this.y -= coord.y;
 		return this;
 	}
 
