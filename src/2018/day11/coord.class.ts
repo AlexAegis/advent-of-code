@@ -1,0 +1,37 @@
+export class Coord implements Iterable<Coord> {
+	x: number;
+	y: number;
+
+	static dirs: Array<Coord> = [
+		new Coord(0, 0),
+		new Coord(0, 1),
+		new Coord(0, 2),
+		new Coord(1, 0),
+		new Coord(1, 1),
+		new Coord(1, 2),
+		new Coord(2, 0),
+		new Coord(2, 1),
+		new Coord(2, 2)
+	];
+
+	constructor(x: number, y: number) {
+		this.x = x;
+		this.y = y;
+	}
+
+	add(coord: Coord): Coord {
+		this.x += coord.x;
+		this.y += coord.y;
+		return this;
+	}
+
+	*[Symbol.iterator](): IterableIterator<Coord> {
+		for (let dir of Coord.dirs) {
+			yield new Coord(this.x, this.y).add(dir);
+		}
+	}
+
+	toString(): string {
+		return `${this.x},${this.y}`;
+	}
+}
