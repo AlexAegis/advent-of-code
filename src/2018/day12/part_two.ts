@@ -42,5 +42,5 @@ if (require.main === module) {
 	(async () => {
 		console.log(`${await runner()}`);
 		console.timeEnd();
-	})(); // 4400000000304 ~16ms
+	})(); // 4400000000304 ~24ms
 }
