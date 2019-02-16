@@ -19,7 +19,7 @@ export const runner = async (input: string = 'input'): Promise<any> =>
 		res([...score].reduce((acc, next) => (acc < next ? next : acc)));
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`${await runner()}`);

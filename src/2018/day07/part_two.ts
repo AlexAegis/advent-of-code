@@ -167,7 +167,7 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<numbe
 		tick$.connect();
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Result: ${await runner()}`);
