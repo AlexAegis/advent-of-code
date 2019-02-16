@@ -25,4 +25,10 @@ describe('Day 12, Cave', () => {
 			expect(cave.row.endsWith('#....')).toBeTruthy();
 		}
 	});
+
+	it('Should be a score of:', async () => {
+		cave.offset = -3;
+		cave.row = '.#....##....#####...#######....#.#..##.';
+		expect(cave.score()).toBe(325);
+	});
 });
