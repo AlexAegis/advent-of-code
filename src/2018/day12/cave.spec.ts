@@ -26,7 +26,7 @@ describe('Day 12, Cave', () => {
 		}
 	});
 
-	it('Should be a score of:', async () => {
+	it('Should be a score of 325:', async () => {
 		cave.offset = -3;
 		cave.row = '.#....##....#####...#######....#.#..##.';
 		expect(cave.score()).toBe(325);
