@@ -1,4 +1,4 @@
-# Day 9: Marble Mania
+# [Day 9: Marble Mania](https://adventofcode.com/2018/day/9)
 
 ## Part One
 
