@@ -78,3 +78,5 @@ For example:
 **What is the `X,Y,size` identifier of the square with the largest total power?**
 
 Your puzzle input is still **`8561`**.
+
+Your puzzle answer was `236,146,12`.
