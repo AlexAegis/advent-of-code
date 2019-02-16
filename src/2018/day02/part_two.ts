@@ -27,7 +27,7 @@ export const runner = async (input: 'example' | 'input' = 'input') =>
 		});
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Resulting checksum: ${await runner()}`);

@@ -5,7 +5,7 @@ describe('Day 12, Part One', () => {
 		expect(await runner()).toEqual(3230);
 	});
 
-	it('Should be 325 when running the example:', async () => {
+	it('Should be 325 when running against the example:', async () => {
 		expect(await runner('example')).toEqual(325);
 	});
 });

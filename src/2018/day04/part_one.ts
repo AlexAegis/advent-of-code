@@ -52,7 +52,7 @@ export const runner = async (input: 'example' | 'input' = 'input') => {
 	return mostSleptGuard * mostSleptMinute[0];
 };
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Result: ${await runner()}`);

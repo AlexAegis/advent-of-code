@@ -64,7 +64,7 @@ export const runner = async (input: string = 'input'): Promise<any> =>
 		res(i); // result of part two
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`${await runner()}`);

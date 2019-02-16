@@ -24,7 +24,7 @@ export const runner = async (input: 'example' | 'input' = 'input') => {
 	return shortestSequence.length;
 };
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Shortest sequence is: ${await runner()}`);

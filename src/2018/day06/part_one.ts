@@ -55,7 +55,7 @@ export const runner = async (input: 'example' | 'input' = 'input'): Promise<numb
 		res(bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc)));
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Result: ${await runner()}`);

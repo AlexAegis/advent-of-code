@@ -29,7 +29,7 @@ export const runner = async (input: number = 8561): Promise<string> =>
 		res(`${max.coord} (${max.sum})`);
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Result: ${await runner()}`);
