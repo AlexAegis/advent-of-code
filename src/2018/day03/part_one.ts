@@ -26,7 +26,7 @@ export const runner = async (input: 'example' | 'input' = 'input') =>
 			.on('close', () => res([...fabric].filter(([k, v]) => v.length >= 2).length));
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Resulting checksum: ${await runner()}`);

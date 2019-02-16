@@ -60,7 +60,7 @@ export const runner = async (input: 'input' | 'example' = 'input') => {
 	return result.join('');
 };
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Result: ${await runner()}`);

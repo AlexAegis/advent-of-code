@@ -39,7 +39,7 @@ export const runner = async (input: 'example' | 'input' = 'input'): Promise<numb
 		res(area);
 	});
 
-if (require.main == module) {
+if (require.main === module) {
 	console.time();
 	(async () => {
 		console.log(`Result: ${await runner()}`);
