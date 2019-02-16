@@ -23,7 +23,7 @@
 | [Day 9](./src/2018/day09/)  | [361466](./src/2018/day09/part_one.ts)                     | 19ms             | [2945918550](./src/2018/day09/part_two.ts)                | 346ms              |
 | [Day 10](./src/2018/day10/) | [KBJHEZCB](./src/2018/day10/task.ts)                       | 170ms            | [10369](./src/2018/day10/task.ts)                         | 170ms              |
 | [Day 11](./src/2018/day11/) | [21,37](./src/2018/day11/part_one.ts)                      | 165ms            | [236,146,12](./src/2018/day11/part_two.ts)                | 63007ms (Threaded) |
-| [Day 12](./src/2018/day12/) |                                                            |                  |                                                           |                    |
+| [Day 12](./src/2018/day12/) | [3230](./src/2018/day12/part_one.ts)                       | 10ms             |                                                           |                    |
 | [Day 13](./src/2018/day13/) | [28,107](./src/2018/day13/cart.class.ts)                   | 340ms            | [36,123](./src/2018/day13/part_two.ts)                    | 20000ms            |
 | Day 14                      |                                                            |                  |                                                           |                    |
 | Day 15                      |                                                            |                  |                                                           |                    |
