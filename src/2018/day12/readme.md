@@ -70,3 +70,11 @@ After one generation, only seven plants remain. The one in pot `0` matched the r
 In this example, after 20 generations, the pots shown as `#` contain plants, the furthest left of which is pot `-2`, and the furthest right of which is pot `34`. Adding up all the numbers of plant-containing pots after the 20th generation produces **`325`**.
 
 **After `20` generations, what is the sum of the numbers of all pots which contain a plant?**
+
+Your puzzle answer was `3230`.
+
+## Part Two
+
+You realize that 20 generations aren't enough. After all, these plants will need to last another 1500 years to even reach your timeline, not to mention your future.
+
+**After fifty billion (`50000000000`) generations, what is the sum of the numbers of all pots which contain a plant?**
