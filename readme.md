@@ -7,6 +7,7 @@
 ## Progress
 
 > 🌟 marks my favourites
+
 > All times are measured on i7-8700k@4.8Ghz
 
 | Day                         | Part One Answer                                            | Part One Runtime | Part Two Answer                                           | Part Two Runtime   |
