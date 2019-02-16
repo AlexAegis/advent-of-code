@@ -32,5 +32,8 @@
 	},
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"jasmineExplorer.config": "./.jasmine.json",
-	"jasmineExplorer.nodeArgv": ["-r", "ts-node/register"]
+	"jasmineExplorer.nodeArgv": ["-r", "ts-node/register"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	}
 }

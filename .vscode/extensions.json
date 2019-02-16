@@ -2,8 +2,7 @@
 	"recommendations": [
 		"jasonlhy.hungry-delete",
 		"dbaeumer.vscode-eslint",
-		"eg2.tslint",
-		"eg2.vscode-npm-script",
+		"ms-vscode.vscode-typescript-tslint-plugin",
 		"esbenp.prettier-vscode",
 		"pkief.material-icon-theme",
 		"robinbentley.sass-indented",

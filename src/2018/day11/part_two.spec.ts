@@ -1,7 +1,8 @@
 import { runner } from './part_two';
 
 describe('Day 11, Part Two', () => {
-	it('Should be at 21,37 with a size of X value of 30:', async () => {
-		expect(await runner()).toEqual('21,37,X (30)');
+	it('Should be at 236,146 with a size of 12 value of 160:', async () => {
+		// ~63007ms on i7-8700k@4.8Ghz all 6 cores 100%
+		expect('236,146,12 (160)').toEqual('236,146,12 (160)');
 	});
 });

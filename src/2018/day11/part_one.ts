@@ -1,5 +1,3 @@
-import { interval, Subject } from 'rxjs';
-import { takeUntil, take, flatMap, tap } from 'rxjs/operators';
 import { Coord } from './coord.class';
 import { range } from './range.generator';
 
