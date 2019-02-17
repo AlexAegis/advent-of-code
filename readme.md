@@ -1,8 +1,6 @@
 # [Advent of Code 2018](https://adventofcode.com/2018/)
 
-[![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard) [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-
-[Private Leaderboard](https://adventofcode.com/2018/leaderboard/private/view/243796)
+[![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard) [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![private: leaderboard](https://img.shields.io/badge/private-leaderboard-brightgreen.svg)](https://adventofcode.com/2018/leaderboard/private/view/243796)
 
 ## Progress
 
@@ -62,7 +60,13 @@ There are tests on every task. You can run them with
 npm test
 ```
 
-or if you installed the recommended jasmine extension you can run them with that
+With coverage report
+
+```bash
+npm run test:coverage
+```
+
+or if you installed the recommended mocha extension you can run them with that
 
 ## Technologies
 
@@ -109,8 +113,6 @@ or if you installed the recommended jasmine extension you can run them with that
 ### [Travis](https://travis-ci.com/)
 
 > **Continuous Integration** solution
-
-https://app.codacy.com/project/AlexAegis/advent-of-code/dashboard
 
 ### [Codacy](https://codacy.com/)
 
