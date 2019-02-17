@@ -1,29 +1,12 @@
 import { runner } from './part_one';
-import { Coord } from './coord.class';
+import { expect } from 'chai';
 
 describe('Day 6, Part One', () => {
-	const a: Coord = new Coord(1, 1);
-	const b: Coord = new Coord(3, 3);
-	const c: Coord = new Coord(7, 2);
-
-	it('should the manhattan distance between (1, 1) and (3, 3) be 4', async () => {
-		expect(a.manhattanCoord(b)).toEqual(4);
-	});
-
-	it('should the manhattan distance between (3, 3) and (7, 2) be 4', async () => {
-		expect(b.manhattanCoord(c)).toEqual(5);
-	});
-
-	it('should the that the manhattan distance is commutative', async () => {
-		expect(a.manhattanCoord(b)).toEqual(b.manhattanCoord(a));
-		expect(a.manhattanCoord(c)).toEqual(c.manhattanCoord(a));
-	});
-
 	it('should the example resolve to 17', async () => {
-		expect(await runner('example')).toEqual(17);
+		expect(await runner('example')).to.equal(17);
 	});
 
-	it('should the input resolve to XX', async () => {
-		expect(await runner()).toEqual(3006);
+	it('should the input resolve to 3006', async () => {
+		expect(await runner()).to.equal(3006);
 	});
 });

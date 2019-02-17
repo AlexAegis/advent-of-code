@@ -11,6 +11,6 @@
 		"wix.vscode-import-cost",
 		"npxms.hide-gitignored",
 		"msjsdiag.debugger-for-chrome",
-		"hbenl.vscode-jasmine-test-adapter"
+		"hbenl.vscode-mocha-test-adapter"
 	]
 }
