@@ -4,9 +4,11 @@
 		"module": "commonjs",
 		"target": "esnext",
 		"noImplicitAny": true,
-		"outDir": "./dist",
+		"rootDir": "./src/",
+		"outDir": "./dist/",
 		"sourceMap": true,
 		"typeRoots": ["./node_modules/@types"]
 	},
-	"include": ["./src/**/*"]
+	"include": ["./src/**/*"],
+	"exclude": ["**/node_modules/**/*"]
 }
