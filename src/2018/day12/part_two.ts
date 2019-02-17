@@ -23,8 +23,8 @@ export const runner = async (input: string = 'input'): Promise<any> =>
 			scores.push(cave.score());
 			// console.log(`i: ${i + 1} cave: ${cave.toString()}`);
 			if (
-				counts.length > 10 &&
-				counts.slice(counts.length - 10, counts.length).every((next, i, arr) => next === arr[0])
+				counts.length > 4 &&
+				counts.slice(counts.length - 4, counts.length).every((next, i, arr) => next === arr[0])
 			) {
 				// console.log(`Stabilized, extrapolating to 50000000000`);
 				scores.push(
