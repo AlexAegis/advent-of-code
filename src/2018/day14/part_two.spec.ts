@@ -26,7 +26,8 @@ describe('Day 14, Part Two', () => {
 	it('Should take 2018 recipes for 59414 to appear:', async () => {
 		expect(await runner('59414')).to.equal(2018);
 	});
-	it('Should take 20229822 recipes for 327901 to appear:', async () => {
+	it('Should take 20229822 recipes for 327901 to appear:', async function() {
+		this.timeout(10000);
 		expect(await runner()).to.equal(20229822);
 	});
 });
