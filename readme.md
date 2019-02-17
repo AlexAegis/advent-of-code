@@ -25,7 +25,7 @@
 | [Day 11](./src/2018/day11/) | [21,37](./src/2018/day11/part_one.ts)                      | 165ms   | [236,146,12](./src/2018/day11/part_two.ts)                | 63007ms |
 | [Day 12](./src/2018/day12/) | [3230](./src/2018/day12/part_one.ts)                       | 10ms    | [4400000000304](./src/2018/day12/part_two.ts)             | 24ms    |
 | [Day 13](./src/2018/day13/) | [28,107](./src/2018/day13/cart.class.ts)                   | 340ms   | [36,123](./src/2018/day13/part_two.ts)                    | 20000ms |
-| Day 14                      |                                                            |         |                                                           |         |
+| [Day 14](./src/2018/day14/) |                                                            |         |                                                           |         |
 | Day 15                      |                                                            |         |                                                           |         |
 | Day 16                      |                                                            |         |                                                           |         |
 | Day 17                      |                                                            |         |                                                           |         |
