@@ -1,7 +1,9 @@
+import { Creature } from './element/creature/creature.class';
 import { Block } from './element/block/block.class';
 
 export class Cave {
 	grid: Array<Block> = [];
+	units: Array<Creature> = [];
 	width: number = 0;
 	height: number = 0;
 

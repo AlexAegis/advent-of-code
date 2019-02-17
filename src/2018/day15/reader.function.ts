@@ -22,6 +22,7 @@ export const reader = (input: string = 'input'): Promise<Cave> =>
 					if (element instanceof Creature) {
 						const ground: Ground = <Ground>elementFactory('.');
 						ground.occupant = element;
+						cave.units.push(element);
 						cave.grid.push(ground);
 					} else {
 						cave.grid.push(element);

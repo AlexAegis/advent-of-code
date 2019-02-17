@@ -2,10 +2,19 @@ import { Block } from './block.class';
 import { Creature } from '../creature/creature.class';
 
 export class Ground extends Block {
-	public occupant: Creature;
+	_occupant: Creature;
 
 	constructor() {
 		super('.');
+	}
+
+	set occupant(occupant: Creature) {
+		this._occupant = occupant;
+		occupant._ground = this;
+	}
+
+	get occupant(): Creature {
+		return this._occupant;
 	}
 
 	toString() {
