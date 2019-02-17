@@ -8,9 +8,6 @@
 	"prettier.tabWidth": 4,
 	"prettier.singleQuote": true,
 	"prettier.eslintIntegration": true,
-	"bracket-pair-colorizer-2.excludedLanguages": [""],
-	"bracket-pair-colorizer-2.showBracketsInGutter": true,
-	"bracket-pair-colorizer-2.colors": ["#CB3", "#C64", "#C42"],
 	"material-icon-theme.folders.associations": {
 		"module": "font",
 		"component": "components",
@@ -31,8 +28,9 @@
 		"titleBar.activeForeground": "#F8FBF8"
 	},
 	"typescript.tsdk": "node_modules\\typescript\\lib",
-	"jasmineExplorer.config": "./.jasmine.json",
-	"jasmineExplorer.nodeArgv": ["-r", "ts-node/register"],
+	"mochaExplorer.optsFile": "./mocha.opts",
+	"mochaExplorer.files": "src/**/*.spec.ts",
+	"mochaExplorer.mochaPath": "node_modules/mocha",
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true
 	}

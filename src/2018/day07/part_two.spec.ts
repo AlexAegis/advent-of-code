@@ -1,5 +1,6 @@
 import { runner } from './part_two';
 import { Node } from './node.class';
+import { expect } from 'chai';
 
 describe('Day 7 Part Two', () => {
 	const node_a: Node = new Node('a');
@@ -15,39 +16,39 @@ describe('Day 7 Part Two', () => {
 
 	let resultExample: number;
 	let resultMain: number;
-	beforeAll(async () => {
+	before(async () => {
 		resultExample = await runner('example');
 		resultMain = await runner();
 	});
 	it('Node cost is equal regardless of casing', () => {
-		expect(node_a.cost()).toEqual(node_A.cost());
+		expect(node_a.cost()).to.equal(node_A.cost());
 	});
 
 	it(`Node cost of 'a' is ${a_cost_long}`, () => {
-		expect(node_a.cost(true)).toEqual(a_cost_long);
+		expect(node_a.cost(true)).to.equal(a_cost_long);
 	});
 
 	it(`Node cost of non base 'a' is ${a_cost_short}`, () => {
-		expect(node_a.cost()).toEqual(a_cost_short);
+		expect(node_a.cost()).to.equal(a_cost_short);
 	});
 
 	it(`Node cost of 'b' is ${b_cost_long}`, () => {
-		expect(node_b.cost(true)).toEqual(b_cost_long);
+		expect(node_b.cost(true)).to.equal(b_cost_long);
 	});
 
 	it(`Node cost of non base 'b' is ${b_cost_short}`, () => {
-		expect(node_b.cost()).toEqual(b_cost_short);
+		expect(node_b.cost()).to.equal(b_cost_short);
 	});
 
 	it(`Node cost of 'z' is ${z_cost_long}`, () => {
-		expect(node_z.cost(true)).toEqual(z_cost_long);
+		expect(node_z.cost(true)).to.equal(z_cost_long);
 	});
 
 	it(`Example should finish in the given ticks`, async () => {
-		expect(resultExample).toEqual(15);
+		expect(resultExample).to.equal(15);
 	});
 
 	it(`Main should finish in given ticks`, async () => {
-		expect(resultMain).toEqual(1115);
+		expect(resultMain).to.equal(1115);
 	});
 });
