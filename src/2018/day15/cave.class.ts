@@ -1,11 +1,20 @@
 import { Creature } from './element/creature/creature.class';
 import { Block } from './element/block/block.class';
+import { Ground } from './element/block/ground.class';
 
 export class Cave {
 	grid: Array<Block> = [];
-	units: Array<Creature> = [];
 	width: number = 0;
 	height: number = 0;
+
+	/**
+	 * Ensures correct order
+	 */
+	*units(): IterableIterator<Creature> {
+		for (let tile of this.grid.filter(tile => tile instanceof Ground && (<Ground>tile).occupant)) {
+			yield (<Ground>tile).occupant;
+		}
+	}
 
 	toString(): string {
 		let repr = '';
