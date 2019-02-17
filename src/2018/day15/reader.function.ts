@@ -1,7 +1,6 @@
 import { Ground } from './element/block/ground.class';
 import { createReadStream } from 'fs';
 import * as rl from 'readline';
-import { Coord } from './coord.class';
 import { Cave } from './cave.class';
 import { elementFactory } from './element/element.factory';
 import { Element } from './element/element.class';
@@ -22,7 +21,6 @@ export const reader = (input: string = 'input'): Promise<Cave> =>
 					if (element instanceof Creature) {
 						const ground: Ground = <Ground>elementFactory('.');
 						ground.occupant = element;
-						cave.units.push(element);
 						cave.grid.push(ground);
 					} else {
 						cave.grid.push(element);
