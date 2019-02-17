@@ -82,9 +82,13 @@ or if you installed the recommended jasmine extension you can run them with that
 
 > **Reactive** programming with observable streams
 
-### [Jasmine](http://reactivex.io/)
+### [Mocha](https://mochajs.org/)
 
 > **Behaviour driven testing** framework
+
+### [Chai](https://www.chaijs.com/)
+
+> **Assertion** library
 
 ## Recommendations
 
