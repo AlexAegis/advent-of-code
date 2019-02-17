@@ -130,6 +130,10 @@ or if you installed the recommended mocha extension you can run them with that
 
 > **Vulnerability** detection
 
-### [Libraries](https://libraries.io/)
+### [Libraries.io](https://libraries.io/)
 
 > **Dependency** watcher
+
+### [Shields.io](https://shields.io/#/)
+
+> **Badges** to look cool
