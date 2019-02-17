@@ -74,7 +74,7 @@ or if you installed the recommended mocha extension you can run them with that
 
 ## Technologies
 
-### [Node](https://nodejs.org/en/)
+### [Node 10](https://nodejs.org/en/)
 
 > **JavaScript** runtime
 
