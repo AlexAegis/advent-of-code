@@ -63,3 +63,51 @@ npm test
 ```
 
 or if you installed the recommended jasmine extension you can run them with that
+
+## Technologies
+
+### [Node](https://nodejs.org/en/)
+
+> **JavaScript** runtime
+
+### [NPM](https://www.npmjs.com/)
+
+> **Package manager** for Node
+
+### [TypeScript](https://www.typescriptlang.org/)
+
+> **Typed superset** of JavaScript
+
+### [RxJS](http://reactivex.io/)
+
+> **Reactive** programming with observable streams
+
+### [Jasmine](http://reactivex.io/)
+
+> **Behaviour driven testing** framework
+
+## Recommendations
+
+### [Visual Studio Code](https://code.visualstudio.com/)
+
+> **IDE** for everything. [Settings](./.vscode/)
+
+### [Fira Code](https://github.com/tonsky/FiraCode)
+
+> **Font** with ligatures
+
+## Services
+
+### [Travis](https://travis-ci.com/)
+
+> **Continuous Integration** solution
+
+https://app.codacy.com/project/AlexAegis/advent-of-code/dashboard
+
+### [Codacy](https://codacy.com/)
+
+> **Code Quality** monitoring
+
+### [Code Climate](https://codeclimate.com/)
+
+> **Maintainability and Coverage** reports
