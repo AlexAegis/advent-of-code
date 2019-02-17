@@ -1,10 +1,10 @@
-# [Advent of Code 2018](https://adventofcode.com/2018/)
+# [Advent of Code](https://adventofcode.com/)
 
-[![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard) [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![private: leaderboard](https://img.shields.io/badge/private-leaderboard-brightgreen.svg)](https://adventofcode.com/2018/leaderboard/private/view/243796)
-
-## Progress
+[![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard) [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage) [![librariesio: dependencies](https://img.shields.io/librariesio/github/AlexAegis/advent-of-code.svg?style=popout)](https://libraries.io/github/AlexAegis/advent-of-code) [![snyk: vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/AlexAegis/advent-of-code.svg?style=popout)](https://app.snyk.io/org/alexaegis/projects) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![private: leaderboard](https://img.shields.io/badge/private-leaderboard-brightgreen.svg)](https://adventofcode.com/2018/leaderboard/private/view/243796)
 
 > 🌟 marks my favourites
+
+## [2018](https://adventofcode.com/2018/)
 
 > All times are measured on i7-8700k@4.8Ghz
 
@@ -35,6 +35,8 @@
 | Day 23                      |                                                            |         |                                                           |         |
 | Day 24                      |                                                            |         |                                                           |         |
 | Day 25                      |                                                            |         |                                                           |         |
+
+---
 
 ## Usage
 
@@ -67,6 +69,8 @@ npm run test:coverage
 ```
 
 or if you installed the recommended mocha extension you can run them with that
+
+---
 
 ## Technologies
 
@@ -121,3 +125,11 @@ or if you installed the recommended mocha extension you can run them with that
 ### [Code Climate](https://codeclimate.com/)
 
 > **Maintainability and Coverage** reports
+
+### [Snyk](https://snyk.io/)
+
+> **Vulnerability** detection
+
+### [Libraries](https://libraries.io/)
+
+> **Dependency** watcher
