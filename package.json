@@ -14,7 +14,7 @@
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
 	"scripts": {
-		"test": "ts-node node_modules/jasmine/bin/jasmine JASMINE_CONFIG_PATH=./.jasmine.json"
+		"test": "mocha --opts ./mocha.opts"
 	},
 	"repository": {
 		"type": "git",
@@ -27,14 +27,16 @@
 	"private": true,
 	"dependencies": {
 		"core-js": "^2.6.5",
-		"jasmine": "^3.3.1",
 		"rxjs": "^6.4.0",
 		"workerpool": "^3.0.0"
 	},
 	"devDependencies": {
-		"@types/jasmine": "^3.3.9",
+		"@types/chai": "^4.1.7",
+		"@types/mocha": "^5.2.6",
 		"@types/node": "^11.9.4",
 		"@types/workerpool": "^2.3.0",
+		"chai": "^4.2.0",
+		"mocha": "^5.2.0",
 		"ts-node": "8.0.2",
 		"tslint": "~5.12.1",
 		"typescript": "3.3.3"
