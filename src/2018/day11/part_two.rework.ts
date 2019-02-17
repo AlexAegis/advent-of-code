@@ -1,3 +1,4 @@
+/*
 import { Coord } from './coord.class';
 import { range } from './range.generator';
 import * as WorkerPool from 'workerpool';
@@ -83,3 +84,4 @@ if (require.main == module) {
 	})(); // 236,146,12 (160) ~63007ms on i7-8700k@4.8Ghz all 6 cores 100%
 	// err 242,150,7 (154) ~207273.412ms with limit and without too
 }
+*/

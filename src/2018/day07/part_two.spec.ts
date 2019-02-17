@@ -16,7 +16,8 @@ describe('Day 7 Part Two', () => {
 
 	let resultExample: number;
 	let resultMain: number;
-	before(async () => {
+	before(async function() {
+		this.timeout(5000);
 		resultExample = await runner('example');
 		resultMain = await runner();
 	});
