@@ -60,3 +60,5 @@ As it turns out, you got the Elves' plan backwards. They actually want to know h
 **How many recipes appear on the scoreboard to the left of the score sequence in your puzzle input?**
 
 Your puzzle input is still `327901`.
+
+Your puzzle answer was `20229822`.
