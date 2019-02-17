@@ -53,7 +53,10 @@
 			"src/**/*.ts"
 		],
 		"exclude": [
-			"**/*.d.ts"
+			"node_modules/",
+			"src/**/*.d.ts",
+			"src/**/*.spec.ts",
+			"src/**/deque.class.ts"
 		],
 		"reporter": [
 			"lcov"
