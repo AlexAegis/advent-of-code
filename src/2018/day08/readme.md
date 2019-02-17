@@ -1,6 +1,6 @@
 # [Day 8: Memory Maneuver](https://adventofcode.com/2018/day/8)
 
-## Part One
+## [Part One](./node.class.ts)
 
 The sleigh is much easier to pull than you'd expect for something its weight. Unfortunately, neither you nor the Elves know which way the North Pole is from here.
 
@@ -40,7 +40,7 @@ The first check done on the license file is to simply add up all of the metadata
 
 Your puzzle answer was `47112`.
 
-## Part Two
+## [Part Two](./node.class.ts)
 
 The second check is slightly more complicated: you need to find the value of the root node (`A` in the example above).
 

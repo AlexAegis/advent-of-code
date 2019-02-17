@@ -1,6 +1,6 @@
 # [Day 12: Subterranean Sustainability](https://adventofcode.com/2018/day/12)
 
-## Part One
+## [Part One](./part_one.ts)
 
 The year 518 is significantly more underground than your history books implied. Either that, or you've arrived in a vast cavern network under the North Pole.
 
@@ -75,7 +75,7 @@ In this example, after 20 generations, the pots shown as `#` contain plants, the
 
 Your puzzle answer was `3230`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 You realize that 20 generations aren't enough. After all, these plants will need to last another 1500 years to even reach your timeline, not to mention your future.
 

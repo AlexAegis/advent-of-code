@@ -1,6 +1,6 @@
 # [Day 11: Chronal Charge](https://adventofcode.com/2018/day/11)
 
-## Part One
+## [Part One](./part_one.ts)
 
 You watch the Elves and their sleigh fade into the distance as they head toward the North Pole.
 
@@ -66,7 +66,7 @@ Your puzzle input is **8561**.
 
 Your puzzle answer was `21,37`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 You discover a dial on the side of the device; it seems to let you select a square of **any size**, not just 3x3. Sizes from 1x1 to 300x300 are supported.
 

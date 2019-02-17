@@ -1,6 +1,6 @@
 # [Day 2: Inventory Management System](https://adventofcode.com/2018/day/2)
 
-## Part One
+## [Part One](./part_one.ts)
 
 You stop falling through time, catch your breath, and check the screen on the device. "Destination reached. Current Year: 1518. Current Location: North Pole Utility Closet 83N10." You made it! Now, to find those anomalies.
 
@@ -28,7 +28,7 @@ Of these box IDs, four of them contain a letter which appears exactly twice, and
 
 Your puzzle answer was `5456`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 Confident that your list of box IDs is complete, you're ready to find the boxes full of prototype fabric.
 

@@ -1,6 +1,6 @@
 # [Day 9: Marble Mania](https://adventofcode.com/2018/day/9)
 
-## Part One
+## [Part One](./part_one.ts)
 
 You talk to the Elves while you wait for your navigation system to initialize. To pass the time, they introduce you to their favorite [marble](<https://en.wikipedia.org/wiki/Marble_(toy)>) game.
 
@@ -57,7 +57,7 @@ Here are a few more examples:
 
 Your puzzle answer was `361466`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 Amused by the speed of your answer, the Elves are curious:
 

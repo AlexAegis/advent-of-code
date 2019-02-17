@@ -1,6 +1,6 @@
 # [Day 10: The Stars Align](https://adventofcode.com/2018/day/10)
 
-## Part One
+## [Part One](./task.ts)
 
 It's no use; your navigation system simply isn't capable of providing walking directions in the arctic circle, and certainly not in 1018.
 
@@ -150,7 +150,7 @@ After 3 seconds, the message appeared briefly: `HI`. Of course, your message wil
 
 Your puzzle answer was `KBJHEZCB`.
 
-## Part Two
+## [Part Two](./task.ts)
 
 Good thing you didn't have to wait, because that would have taken a long time - much longer than the `3` seconds in the example above.
 

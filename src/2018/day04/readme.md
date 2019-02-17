@@ -1,6 +1,6 @@
 # [Day 4: Repose Record](https://adventofcode.com/2018/day/4)
 
-## Part One
+## [Part One](./part_one.ts)
 
 You've sneaked into another supply closet - this time, it's across from the prototype suit manufacturing lab. You need to sneak inside and fix the issues with the suit, but there's a guard stationed outside the lab, so this is as close as you can safely get.
 
@@ -58,7 +58,7 @@ While this example listed the entries in chronological order, your entries are i
 
 Your puzzle answer was `106710`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 **Strategy 2**: Of all guards, which guard is most frequently asleep on the same minute?
 

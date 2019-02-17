@@ -1,6 +1,6 @@
 # [Day 14: Chocolate Charts](https://adventofcode.com/2018/day/14)
 
-## Part One
+## [Part One](./part_one.ts)
 
 You finally have a chance to look at all of the produce moving around. Chocolate, cinnamon, mint, chili peppers, nutmeg, vanilla... the Elves must be growing these plants to make **hot chocolate**! As you realize this, you hear a conversation in the distance. When you go to investigate, you discover two Elves in what appears to be a makeshift underground kitchen/laboratory.
 

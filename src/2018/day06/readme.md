@@ -2,7 +2,7 @@
 
 > Because of a bug in the day 6 puzzle that made it unsolvable for some users until about two hours after unlock, day 6 is worth no points.
 
-## Part One
+## [Part One](./part_one.ts)
 
 The device on your wrist beeps several times, and once again you feel like you're falling.
 
@@ -63,7 +63,7 @@ In this example, the areas of coordinates A, B, C, and F are infinite - while no
 
 Your puzzle answer was `3006`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 On the other hand, **if the coordinates are safe**, maybe the best you can do is try to find a **region** near as many coordinates as possible.
 

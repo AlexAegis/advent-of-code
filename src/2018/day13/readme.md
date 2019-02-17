@@ -1,6 +1,6 @@
 # Day 13: Mine Cart Madness
 
-## Part One
+## [Part One](./cart.class.ts)
 
 A crop of this size requires significant logistics to transport produce, soil, fertilizer, and so on. The Elves are very busy pushing things around in **carts** on some kind of rudimentary system of tracks they've come up with.
 
@@ -177,7 +177,7 @@ In this example, the location of the first crash is `7,3`.
 
 Your puzzle answer was `28,107`.
 
-## Part Two
+## [Part Two](./part_two.ts)
 
 There isn't much you can do to prevent crashes in this ridiculous system. However, by predicting the crashes, the Elves know where to be in advance and **instantly remove the two crashing carts** the moment any crash occurs.
 
