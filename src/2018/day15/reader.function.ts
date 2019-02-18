@@ -5,6 +5,7 @@ import { Cave } from './cave.class';
 import { elementFactory } from './element/element.factory';
 import { Element } from './element/element.class';
 import { Creature } from './element/creature/creature.class';
+import { Block } from './element/block/block.class';
 
 export const reader = (input: string = 'input'): Promise<Cave> =>
 	new Promise<Cave>(res => {
@@ -23,10 +24,14 @@ export const reader = (input: string = 'input'): Promise<Cave> =>
 						ground.occupant = element;
 						cave.grid.push(ground);
 					} else {
-						cave.grid.push(element);
+						cave.grid.push(<Block>element);
 					}
+
+					// wiring
 				});
 				cave.height++;
 			})
-			.on('close', () => res(cave));
+			.on('close', () => {
+				res(cave);
+			});
 	});
