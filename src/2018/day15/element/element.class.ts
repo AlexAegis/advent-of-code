@@ -1,4 +1,6 @@
-export class Element {
+import { Vertice } from './block/vertice.class';
+
+export abstract class Element {
 	constructor(public tile?: string) {}
 
 	toString(): string {
