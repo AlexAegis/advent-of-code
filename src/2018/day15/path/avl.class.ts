@@ -1,14 +1,18 @@
+import { Convertable } from './convertable.interface';
+import { Key } from 'readline';
+
 /**
  * AVL Binary Search Tree
- * TODO: T can be number, or a class that implements a Numerical value;
+ *
+ * Typings
+ *
  *
  * @export
  * @class AVL
  */
-
 export namespace AVL {
-	export class Tree<K = number, V = number> {
-		root: Node<K> = new Node<K>();
+	export class Tree<K = number | Convertable<number>, V = number | K | Convertable<number>> {
+		root: Node<K, V> = new Node<K, V>();
 
 		/**
 		 * Creates an instance of AVL. From an array, or start empty
@@ -16,13 +20,26 @@ export namespace AVL {
 		 * @memberof AVL
 		 */
 		constructor(...init: K[]) {
-			for (let v of init) this.insert(v);
+			for (let v of init) this.push(v);
 		}
 
-		public insert(...input: K[]) {
-			for (let v of input) {
-				this.root.insert(v);
-				this.root = this.root.rebalance();
+		public push(v: V | number | K | Convertable<K>): void {
+			let k: K = <K>v;
+			if ((v as Convertable<K>).convertTo) {
+				k = (<Convertable<K>>v).convertTo();
+			}
+			this.put({ k, v });
+		}
+
+		public set(k: K, v: V | number | K | Convertable<K>): void {
+			this.root.insert(k, v);
+			this.root = this.root.rebalance();
+			this.root.calch(); // Not really important, just for debugging to see the correct value
+		}
+
+		public put(...input: { k: K; v: V | number | K | Convertable<K> }[]) {
+			for (let { k, v } of input) {
+				this.set(k, v);
 			}
 		}
 
@@ -32,37 +49,39 @@ export namespace AVL {
 			return c;
 		}
 
-		forEach(callback: (i: K) => void): void {
+		/*forEach(callback: (i: V) => void): void {
 			for (const item of this) callback(item);
-		}
+		}*/
 
 		get(key: number): K {
 			return;
 		}
 
-		*[Symbol.iterator](): IterableIterator<K> {
+		*[Symbol.iterator](): IterableIterator<V | number | K | Convertable<K>> {
 			yield* this.root;
 		}
 
-		*nodes(): IterableIterator<Node<K>> {
+		*nodes(): IterableIterator<Node<K, V>> {
 			yield* this.root.nodes();
 		}
 
-		toArray(): Array<K> {
-			const arr: Array<K> = [];
+		toArray(): Array<V | number | K | Convertable<K>> {
+			const arr: Array<V | number | K | Convertable<K>> = [];
 			for (const v of this) arr.push(v);
 			return arr;
 		}
 	}
 
-	export class Node<T> {
-		l: Node<T>; // left side
-		r: Node<T>; // right side
-		v: T; // current value
+	export class Node<K = number, V = number | K | Convertable<K>> {
+		l: Node<K, V>; // left side
+		r: Node<K, V>; // right side
+		k: K; // key
+		v: V | number | K | Convertable<K>; // value
+
 		h: number;
 
-		constructor(...init: T[]) {
-			for (const v of init) this.insert(v);
+		constructor(...init: { k: K; v: V | number | K | Convertable<K> }[]) {
+			for (const { k, v } of init) this.insert(k, v);
 		}
 
 		/**
@@ -73,42 +92,42 @@ export namespace AVL {
 		 * @type {number}
 		 * @memberof Node
 		 */
-		private calch(): void {
+		calch(): void {
 			this.h = 1 + Math.max(this.l ? this.l.h : 0, this.r ? this.r.h : 0);
 		}
-
-		public insert(v: T) {
-			if (!this.v) {
+		insert(k: K, v?: V | number | K | Convertable<K>) {
+			if ((!this.k && !this.v) || k === this.k) {
+				this.k = k;
 				this.v = v;
-			} else if (v < this.v) {
-				if (this.l) this.l.insert(v);
-				else this.l = new Node<T>(v);
-			} else if (v > this.v) {
-				if (this.r) this.r.insert(v);
-				else this.r = new Node<T>(v);
-			} else {
-				// throw 'duplicate key';
+			} else if (k < this.k) {
+				if (this.l) this.l.insert(k, v);
+				else this.l = new Node<K, V>({ k, v });
+			} else if (k > this.k) {
+				if (this.r) this.r.insert(k, v);
+				else this.r = new Node<K, V>({ k, v });
 			}
 			this.calch();
 		}
 
-		*nodes(): IterableIterator<Node<T>> {
+		*nodes(): IterableIterator<Node<K, V>> {
 			if (this.l) yield* this.l.nodes();
 			yield this;
 			if (this.r) yield* this.r.nodes();
 		}
 
-		*[Symbol.iterator](): IterableIterator<T> {
+		*[Symbol.iterator](): IterableIterator<V | number | K | Convertable<K>> {
 			if (this.l) yield* this.l;
-			if (this.v) yield this.v;
+			if (this.k) yield this.v;
 			if (this.r) yield* this.r;
 		}
 
 		toString(): string {
-			return `l: ${this.l ? this.l.v : '-'} v: ${this.v} r: ${this.r ? this.r.v : '-'} h: ${this.h}`;
+			return `l: ${this.l ? this.l.k : '-'} {k: ${this.k} v: ${this.v}} r: ${this.r ? this.r.k : '-'} h: ${
+				this.h
+			}`;
 		}
 
-		rebalance(): Node<T> {
+		rebalance(): Node<K, V> {
 			if (this.l) this.l = this.l.rebalance();
 			if (this.r) this.r = this.r.rebalance();
 			let lh = this.l ? this.l.h : 0;
@@ -124,12 +143,12 @@ export namespace AVL {
 			} else return this;
 		}
 
-		private rlrotate() {
+		private rlrotate(): Node<K, V> {
 			this.r = this.r.rrotate();
 			return this.lrotate();
 		}
 
-		private lrrotate() {
+		private lrrotate(): Node<K, V> {
 			this.l = this.l.lrotate();
 			return this.rrotate();
 		}
@@ -138,11 +157,11 @@ export namespace AVL {
 		 * Performs a right rotation on the tree
 		 *
 		 * @private
-		 * @returns {Node<T>} the new root
+		 * @returns {Node<K>} the new root
 		 * @memberof AVL
 		 */
-		private rrotate(): Node<T> {
-			const root: Node<T> = this.l;
+		private rrotate(): Node<K, V> {
+			const root: Node<K, V> = this.l;
 			this.l = root.r;
 			root.r = this;
 			this.calch();
@@ -155,11 +174,11 @@ export namespace AVL {
 		 * Performs a right rotation on the tree
 		 *
 		 * @private
-		 * @returns {Node<T>} the new root
+		 * @returns {Node<K>} the new root
 		 * @memberof AVL
 		 */
-		private lrotate(): Node<T> {
-			const root: Node<T> = this.r;
+		private lrotate(): Node<K, V> {
+			const root: Node<K, V> = this.r;
 			this.r = root.l;
 			root.l = this;
 			this.calch();
