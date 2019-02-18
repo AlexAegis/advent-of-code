@@ -17,6 +17,10 @@ export class Ground extends Block {
 		return this._occupant;
 	}
 
+	get weight(): number {
+		return this.occupant ? Infinity : 0;
+	}
+
 	toString() {
 		return this.occupant ? this.occupant.toString() : super.toString();
 	}
