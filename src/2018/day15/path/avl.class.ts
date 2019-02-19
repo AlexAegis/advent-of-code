@@ -2,14 +2,21 @@
  * AVL Search Tree
  *
  * For examples check my mocha tests.
+ *
+ *
+ * TODO: deletion
+ * TODO: comparator
+ * TODO: priority
+ * TODO: Tests
+ * TODO: Publish to NPM
  */
 export namespace AVL {
 	export type Options<V, K> = { converter?: (v: V) => K; comparator?: (a: V, b: V) => number };
 	export interface Convertable<T = number> {
 		convertTo(): T;
 	}
-	export class Tree<V, K extends number | V | Convertable<K> = number> {
-		root: Node<V, K> = new Node<V, K>();
+	export class Tree<V, K extends number | Convertable<K> = number> {
+		root: Node<V, K>;
 		// Converts a value to it's key
 		private _converter: (v: V) => K;
 		//
@@ -73,18 +80,18 @@ export namespace AVL {
 		 */
 		public push(...input: V[]): void {
 			for (const v of input) {
-				let k: K;
+				let k: K | number;
 				if (typeof v === 'number') {
-					k = v as K;
+					k = v as number;
 				}
-				if (((v as unknown) as Convertable<K>).convertTo) {
+				if (!k && ((v as unknown) as Convertable<K>).convertTo) {
 					k = (<Convertable<K>>(v as unknown)).convertTo();
 				}
 				if (!k && this.converter) {
 					k = this.converter.bind(v)(v);
 				}
 				if (k) {
-					this.set(k, v);
+					this.set(k as K, v);
 				} else if (!this.comparator) {
 					throw "can't put, no sufficient conversion method. Either use an AVL.Convertable or supply a converter";
 				}
@@ -92,7 +99,8 @@ export namespace AVL {
 		}
 
 		public set(k: K, v: V): void {
-			this.root.set(k, v);
+			if (!this.root) this.root = new Node<V, K>({ k, v });
+			else this.root.set(k, v);
 			this.root = this.root.rebalance();
 			this.root.calch(); // Not really important, just for debugging to see the correct value
 		}
@@ -135,7 +143,7 @@ export namespace AVL {
 		}
 
 		get(k: K): V {
-			return this.root.search(k);
+			if (this.root) return this.root.search(k);
 		}
 
 		/**
@@ -145,11 +153,11 @@ export namespace AVL {
 		 * @memberof Tree
 		 */
 		*[Symbol.iterator](): IterableIterator<V> {
-			yield* this.root;
+			if (this.root) yield* this.root;
 		}
 
 		*descend(): IterableIterator<V> {
-			yield* this.root.descend();
+			if (this.root) yield* this.root.descend();
 		}
 
 		/**
@@ -162,7 +170,7 @@ export namespace AVL {
 		 * @memberof Tree
 		 */
 		/*private*/ *nodes(): IterableIterator<Node<V, K>> {
-			yield* this.root.nodes();
+			if (this.root) yield* this.root.nodes();
 		}
 
 		/**
