@@ -57,7 +57,6 @@ tree.push(5);
 tree.push(6);
 tree.push(7);*/
 //tree.set(3, 4);
-new Cat('1').asNum();
 let tree = new AVL.Tree<Cat>({ converter: Cat.prototype.asNum });
 
 tree.push(new Cat('1'));
@@ -68,7 +67,7 @@ tree.push(new Cat('5'));
 tree.push(new Cat('6'));
 tree.push(new Cat('7'));
 for (const node of tree.nodes()) {
-	//console.log(node.toString());
+	console.log(node.toString());
 }
 // tree.push(kutyus);
 /*
