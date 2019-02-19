@@ -58,7 +58,7 @@ tree.push(6);
 tree.push(7);*/
 //tree.set(3, 4);
 new Cat('1').asNum();
-let tree = new AVL.Tree<Cat>(Cat.prototype.asNum);
+let tree = new AVL.Tree<Cat>({ converter: Cat.prototype.asNum });
 
 tree.push(new Cat('1'));
 tree.push(new Cat('2'));
