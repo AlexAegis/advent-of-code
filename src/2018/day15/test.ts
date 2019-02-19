@@ -39,7 +39,7 @@ export class Cat {
 	}
 }
 
-console.log(`Only Value Type with converter`);
+console.log(`Only Value Type with converter ˙${Cat.prototype.asNum}`);
 let treeovtwc = new AVL.Tree<Cat>({ converter: Cat.prototype.asNum });
 
 treeovtwc.push(new Cat('8'));
@@ -53,7 +53,7 @@ treeovtwc.push(new Cat('7'));
 for (const node of treeovtwc.nodes()) {
 	console.log(node.toString());
 }
-
+/*
 console.log(`Only Convertable Value Type `);
 
 let treeocvt = new AVL.Tree<Dog>();
@@ -101,6 +101,24 @@ tree3.set(7, new Cat('7'));
 for (const node of tree3.nodes()) {
 	console.log(node.toString());
 }
+console.log(tree3.get(4));
+
+console.log(`numbers with number keys`);
+
+let treen = new AVL.Tree();
+
+treen.set(8, 9);
+treen.set(2, 3);
+treen.set(3, 4);
+treen.set(1, 2);
+treen.set(4, 5);
+treen.set(5, 6);
+treen.set(6, 7);
+treen.set(7, 8);
+for (const node of treen.nodes()) {
+	console.log(node.toString());
+}
+console.log(treen.get(8));
 
 console.log(`Non Convertable Object without keys (error)`);
 
@@ -135,7 +153,6 @@ for (const node of tree5.nodes()) {
 }
 
 console.log(tree5.get('b'));
-//console.log(tree5['b']);
 console.log(tree5.get(1));
 
 // Only Value Type wi
