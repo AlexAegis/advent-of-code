@@ -5,22 +5,36 @@
  *
  *
  * TODO: deletion
- * TODO: comparator
+ * // TODO: comparator  using a comparator on values would mean dynamic keying which would mean in worst case O(n / 2) insertion time and no way of acquiring the items only iterating through them in order, for which there are faster methods
+ * TODO: comparator for keys.
  * TODO: priority
  * TODO: Tests
  * TODO: Publish to NPM
  */
 export namespace AVL {
-	export type Options<V, K> = { converter?: (v: V) => K; comparator?: (a: V, b: V) => number };
+	export type Options<V, K> = { converter?: (v: V) => K; comparator?: (a: K, b: K) => number };
 	export interface Convertable<T = number> {
 		convertTo(): T;
 	}
-	export class Tree<V, K extends number | Convertable<K> = number> {
+
+	export interface Comparable<T> {
+		compareTo(other: T): number;
+	}
+	/**
+	 *
+	 *
+	 * @export
+	 * @class Tree
+	 * @template V
+	 * @template K by default it's a primitive
+	 */
+	export class Tree<V, K extends number | string | V | Convertable<K> = number | string> {
+		//[string: string]: Node<V, K>;
+
 		root: Node<V, K>;
 		// Converts a value to it's key
-		private _converter: (v: V) => K;
-		//
-		private _comparator: (a: V, b: V) => number;
+
+		private _opts: Options<V, K> = { comparator: (a, b) => (a as number) - (b as number) };
 
 		/**
 		 * Creates an instance of AVL. Can set a comparator and/or a converter from here.
@@ -35,24 +49,19 @@ export namespace AVL {
 		}
 
 		set opts(opts: Options<V, K>) {
-			if (opts.converter) {
-				this.converter = opts.converter;
-			}
-			if (opts.comparator) {
-				this.comparator = opts.comparator;
-			}
+			Object.assign(this._opts, opts);
 		}
 
 		get opts(): Options<V, K> {
-			return { converter: this.converter, comparator: this.comparator };
+			return this._opts;
 		}
 
 		set converter(converter: (v: V) => K) {
-			this._converter = converter;
+			this._opts.converter = converter;
 		}
 
 		get converter(): (v: V) => K {
-			return this._converter;
+			return this._opts.converter;
 		}
 
 		/**
@@ -62,12 +71,12 @@ export namespace AVL {
 		 *
 		 * @memberof Tree
 		 */
-		set comparator(comparator: (a: V, b: V) => number) {
-			this._comparator = comparator;
+		set comparator(comparator: (a: K, b: K) => number) {
+			this._opts.comparator = comparator;
 		}
 
-		get comparator(): (a: V, b: V) => number {
-			return this._comparator;
+		get comparator(): (a: K, b: K) => number {
+			return this._opts.comparator;
 		}
 
 		/**
@@ -80,9 +89,11 @@ export namespace AVL {
 		 */
 		public push(...input: V[]): void {
 			for (const v of input) {
-				let k: K | number;
-				if (typeof v === 'number') {
-					k = v as number;
+				//let k: K = v as K;
+				let k: K;
+				// TODO: BigInt option based on ES level
+				if (typeof v === 'number' || typeof v === 'string' /*|| typeof v === 'bigint'*/) {
+					k = v as K;
 				}
 				if (!k && ((v as unknown) as Convertable<K>).convertTo) {
 					k = (<Convertable<K>>(v as unknown)).convertTo();
@@ -99,7 +110,7 @@ export namespace AVL {
 		}
 
 		public set(k: K, v: V): void {
-			if (!this.root) this.root = new Node<V, K>({ k, v });
+			if (!this.root) this.root = new Node<V, K>(this._opts, { k, v });
 			else this.root.set(k, v);
 			this.root = this.root.rebalance();
 			this.root.calch(); // Not really important, just for debugging to see the correct value
@@ -146,6 +157,10 @@ export namespace AVL {
 			if (this.root) return this.root.search(k);
 		}
 
+		has(k: K): boolean {
+			if (this.root) return !!this.get(k);
+		}
+
 		/**
 		 * Iterate through the values in ascending order
 		 *
@@ -186,13 +201,13 @@ export namespace AVL {
 		}
 	}
 
-	class Node<V, K extends number | V | Convertable<K> = number> {
+	class Node<V, K extends number | string | V | Convertable<K> = number> {
 		l: Node<V, K>;
 		r: Node<V, K>;
 		h: number;
 		k: K;
 		v: V;
-		constructor(...init: { k: K; v: V }[]) {
+		constructor(private opts: Options<V, K>, ...init: { k: K; v: V }[]) {
 			for (const { k, v } of init) this.set(k, v);
 		}
 
@@ -251,10 +266,10 @@ export namespace AVL {
 				this.v = v;
 			} else if (k < this.k) {
 				if (this.l) this.l.set(k, v);
-				else this.l = new Node<V, K>({ k, v });
+				else this.l = new Node<V, K>(this.opts, { k, v });
 			} else if (k > this.k) {
 				if (this.r) this.r.set(k, v);
-				else this.r = new Node<V, K>({ k, v });
+				else this.r = new Node<V, K>(this.opts, { k, v });
 			}
 			this.calch();
 		}
