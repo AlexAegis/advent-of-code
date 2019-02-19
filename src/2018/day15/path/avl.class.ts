@@ -4,18 +4,41 @@
  * For examples check my mocha tests.
  */
 export namespace AVL {
+	export type Options<V, K> = { converter?: (v: V) => K; comparator?: (a: V, b: V) => number };
 	export interface Convertable<T = number> {
 		convertTo(): T;
 	}
 	export class Tree<V, K extends number | V | Convertable<K> = number> {
 		root: Node<V, K> = new Node<V, K>();
+		// Converts a value to it's key
+		private _converter: (v: V) => K;
+		//
+		private _comparator: (a: V, b: V) => number;
 
 		/**
-		 * Creates an instance of AVL. From an array, or start empty
-		 * @param {...K[]} init
+		 * Creates an instance of AVL. Can set a comparator and/or a converter from here.
+		 * Priority as follows:
+		 * 1.) opts.comparator
+		 *
+		 *
 		 * @memberof AVL
 		 */
-		constructor(private _converter?: (v: V) => K) {}
+		constructor(opts?: Options<V, K>) {
+			if (opts) this.opts = opts;
+		}
+
+		set opts(opts: Options<V, K>) {
+			if (opts.converter) {
+				this.converter = opts.converter;
+			}
+			if (opts.comparator) {
+				this.comparator = opts.comparator;
+			}
+		}
+
+		get opts(): Options<V, K> {
+			return { converter: this.converter, comparator: this.comparator };
+		}
 
 		set converter(converter: (v: V) => K) {
 			this._converter = converter;
@@ -26,6 +49,21 @@ export namespace AVL {
 		}
 
 		/**
+		 * Compares two values if 'a' is bigger than 'b' it returns a negative value
+		 *
+		 * Example when using numbers as values: (a: number, b: number) => a - b;
+		 *
+		 * @memberof Tree
+		 */
+		set comparator(comparator: (a: V, b: V) => number) {
+			this._comparator = comparator;
+		}
+
+		get comparator(): (a: V, b: V) => number {
+			return this._comparator;
+		}
+
+		/**
 		 * The push method tries to convert the value into a number to use it as a Key
 		 * if it has a convertTo method (suggested, but not necessarily by the Convertable interface)
 		 * it will use that. If not, but you've set a converter
@@ -33,21 +71,24 @@ export namespace AVL {
 		 * @param {V} v
 		 * @memberof Tree
 		 */
-		public push(v: V): void {
-			let k: K;
-			if (typeof v === 'number') {
-				k = v as K;
+		public push(...input: V[]): void {
+			for (const v of input) {
+				let k: K;
+				if (typeof v === 'number') {
+					k = v as K;
+				}
+				if (((v as unknown) as Convertable<K>).convertTo) {
+					k = (<Convertable<K>>(v as unknown)).convertTo();
+				}
+				if (!k && this.converter) {
+					k = this.converter.bind(v)(v);
+				}
+				if (k) {
+					this.set(k, v);
+				} else if (!this.comparator) {
+					throw "can't put, no sufficient conversion method. Either use an AVL.Convertable or supply a converter";
+				}
 			}
-			if (((v as unknown) as Convertable<K>).convertTo) {
-				k = (<Convertable<K>>(v as unknown)).convertTo();
-			}
-			if (!k && this.converter) {
-				k = this.converter.bind(v)(v);
-			}
-			if (k) {
-				this.put({ k, v });
-			} else
-				throw "can't put, no sufficient conversion method. Either use an AVL.Convertable or supply a converter";
 		}
 
 		public set(k: K, v: V): void {
@@ -97,14 +138,39 @@ export namespace AVL {
 			return this.root.search(k);
 		}
 
+		/**
+		 * Iterate through the values in ascending order
+		 *
+		 * @returns {IterableIterator<V>}
+		 * @memberof Tree
+		 */
 		*[Symbol.iterator](): IterableIterator<V> {
 			yield* this.root;
 		}
 
-		*nodes(): IterableIterator<Node<V, K>> {
+		*descend(): IterableIterator<V> {
+			yield* this.root.descend();
+		}
+
+		/**
+		 * For debug purposes
+		 *
+		 * Complexity:
+		 *  call: O(1), iterating through: O(n)
+		 *
+		 * @returns {IterableIterator<Node<V, K>>}
+		 * @memberof Tree
+		 */
+		/*private*/ *nodes(): IterableIterator<Node<V, K>> {
 			yield* this.root.nodes();
 		}
 
+		/**
+		 * Complexity: O(n)
+		 *
+		 * @returns {Array<V>}
+		 * @memberof Tree
+		 */
 		toArray(): Array<V> {
 			const arr: Array<V> = [];
 			for (const v of this) arr.push(v);
@@ -113,13 +179,11 @@ export namespace AVL {
 	}
 
 	class Node<V, K extends number | V | Convertable<K> = number> {
-		l: Node<V, K>; // left side
-		r: Node<V, K>; // right side
-		k: K; // key
-		v: V; // value
-
+		l: Node<V, K>;
+		r: Node<V, K>;
 		h: number;
-
+		k: K;
+		v: V;
 		constructor(...init: { k: K; v: V }[]) {
 			for (const { k, v } of init) this.set(k, v);
 		}
@@ -187,16 +251,22 @@ export namespace AVL {
 			this.calch();
 		}
 
-		*nodes(): IterableIterator<Node<V, K>> {
-			if (this.l) yield* this.l.nodes();
-			yield this;
-			if (this.r) yield* this.r.nodes();
-		}
-
 		*[Symbol.iterator](): IterableIterator<V> {
 			if (this.l) yield* this.l;
 			if (this.k) yield this.v;
 			if (this.r) yield* this.r;
+		}
+
+		*descend(): IterableIterator<V> {
+			if (this.r) yield* this.r;
+			if (this.k) yield this.v;
+			if (this.l) yield* this.l;
+		}
+
+		*nodes(): IterableIterator<Node<V, K>> {
+			if (this.l) yield* this.l.nodes();
+			yield this;
+			if (this.r) yield* this.r.nodes();
 		}
 
 		toString(): string {
