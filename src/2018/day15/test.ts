@@ -20,13 +20,21 @@ export class Dog implements AVL.Convertable<number> {
 export class Cat {
 	constructor(public n: string) {}
 	asNum(): number {
-		return 5;
+		return parseInt(this.n);
 	}
 	toString(): string {
 		return `${this.n}`;
 	}
 }
 
+console.log(typeof (() => 1));
+
+let a = [1, 2, 3, 4, 5];
+let gogo = new AVL.Tree();
+
+for (const node of gogo.nodes()) {
+	console.log(node.toString());
+}
 //tree.insert(-6, -4, -1, 1, 2, 3, 4, 5, 6, 11, 12);
 /*
 tree.insert(1);
@@ -49,18 +57,18 @@ tree.push(5);
 tree.push(6);
 tree.push(7);*/
 //tree.set(3, 4);
+new Cat('1').asNum();
+let tree = new AVL.Tree<Cat>(Cat.prototype.asNum);
 
-let tree = new AVL.Tree<Cat>();
-
-tree.push(new Cat('ti1'));
-tree.push(new Cat('ti2'));
-tree.push(new Cat('ti3'));
-tree.push(new Cat('ti4'));
-tree.push(new Cat('ti5'));
-tree.push(new Cat('ti6'));
-tree.push(new Cat('ti7'));
+tree.push(new Cat('1'));
+tree.push(new Cat('2'));
+tree.push(new Cat('3'));
+tree.push(new Cat('4'));
+tree.push(new Cat('5'));
+tree.push(new Cat('6'));
+tree.push(new Cat('7'));
 for (const node of tree.nodes()) {
-	console.log(node.toString());
+	//console.log(node.toString());
 }
 // tree.push(kutyus);
 /*
