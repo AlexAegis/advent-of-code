@@ -1,5 +1,3 @@
-import { Key } from 'readline';
-
 /**
  * AVL Search Tree
  *
@@ -64,6 +62,27 @@ export namespace AVL {
 			}
 		}
 
+		/**
+		 * Returns the first element.
+		 * Complexity: O(1)
+		 */
+		min(): V {
+			return this.root ? this.root.first().v : undefined;
+		}
+
+		/**
+		 * Returns the last element.
+		 * Complexity: O(1)
+		 */
+		max(): V {
+			return this.root ? this.root.last().v : undefined;
+		}
+
+		pop(): V {
+			// remove and return max
+			return undefined;
+		}
+
 		get length(): number {
 			let c = 0;
 			for (const v of this) c++;
@@ -93,7 +112,7 @@ export namespace AVL {
 		}
 	}
 
-	export class Node<V, K extends number | V | Convertable<K> = number> {
+	class Node<V, K extends number | V | Convertable<K> = number> {
 		l: Node<V, K>; // left side
 		r: Node<V, K>; // right side
 		k: K; // key
@@ -118,6 +137,24 @@ export namespace AVL {
 				if (this.r) return this.r.search(k);
 				else return undefined;
 			}
+		}
+
+		/**
+		 * Returns the first element.
+		 * Complexity: O(1)
+		 */
+		first(): Node<V, K> {
+			if (this.l) return this.l.first();
+			else this;
+		}
+
+		/**
+		 * Returns the last element.
+		 * Complexity: O(1)
+		 */
+		last(): Node<V, K> {
+			if (this.r) return this.r.last();
+			else this;
 		}
 
 		/**
