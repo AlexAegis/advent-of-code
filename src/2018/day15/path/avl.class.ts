@@ -11,7 +11,7 @@ import { Key } from 'readline';
  * @class AVL
  */
 export namespace AVL {
-	export class Tree<K = number | Convertable<number>, V = number | K | Convertable<number>> {
+	export class Tree<K extends number | Convertable<number> = number, V extends number | K | Convertable<K> = K> {
 		root: Node<K, V> = new Node<K, V>();
 
 		/**
@@ -19,12 +19,12 @@ export namespace AVL {
 		 * @param {...K[]} init
 		 * @memberof AVL
 		 */
-		constructor(...init: K[]) {
+		constructor(...init: V[]) {
 			for (let v of init) this.push(v);
 		}
 
-		public push(v: V | number | K | Convertable<K>): void {
-			let k: K = <K>v;
+		public push(v: V): void {
+			let k: K = v as K;
 			if ((v as Convertable<K>).convertTo) {
 				k = (<Convertable<K>>v).convertTo();
 			}
@@ -32,7 +32,7 @@ export namespace AVL {
 		}
 
 		public set(k: K, v: V | number | K | Convertable<K>): void {
-			this.root.insert(k, v);
+			this.root.set(k, v);
 			this.root = this.root.rebalance();
 			this.root.calch(); // Not really important, just for debugging to see the correct value
 		}
@@ -49,12 +49,12 @@ export namespace AVL {
 			return c;
 		}
 
-		/*forEach(callback: (i: V) => void): void {
-			for (const item of this) callback(item);
-		}*/
+		forEach(callback: (i: V) => void): void {
+			for (const item of this) callback(item as V);
+		}
 
-		get(key: number): K {
-			return;
+		get(k: K): V {
+			return this.root.search(k);
 		}
 
 		*[Symbol.iterator](): IterableIterator<V | number | K | Convertable<K>> {
@@ -75,13 +75,28 @@ export namespace AVL {
 	export class Node<K = number, V = number | K | Convertable<K>> {
 		l: Node<K, V>; // left side
 		r: Node<K, V>; // right side
-		k: K; // key
+		k: K | Convertable<K>; // key
 		v: V | number | K | Convertable<K>; // value
 
 		h: number;
 
-		constructor(...init: { k: K; v: V | number | K | Convertable<K> }[]) {
-			for (const { k, v } of init) this.insert(k, v);
+		constructor(...init: { k: K | Convertable<K>; v: V | number | K | Convertable<K> }[]) {
+			for (const { k, v } of init) this.set(k, v);
+		}
+
+		search(k: K | Convertable<K>): V {
+			if ((k as Convertable<K>).convertTo) {
+				k = (<Convertable<K>>k).convertTo();
+			}
+			if (this.k && k == this.k) {
+				return this.v as V;
+			} else if (k < this.k) {
+				if (this.l) return this.l.search(k);
+				else return undefined;
+			} else if (k > this.k) {
+				if (this.r) return this.r.search(k);
+				else return undefined;
+			}
 		}
 
 		/**
@@ -95,15 +110,20 @@ export namespace AVL {
 		calch(): void {
 			this.h = 1 + Math.max(this.l ? this.l.h : 0, this.r ? this.r.h : 0);
 		}
-		insert(k: K, v?: V | number | K | Convertable<K>) {
+
+		set(k: K | Convertable<K>, v?: V | number | K | Convertable<K>) {
+			if ((k as Convertable<K>).convertTo) {
+				k = (<Convertable<K>>k).convertTo();
+			}
+
 			if ((!this.k && !this.v) || k === this.k) {
 				this.k = k;
 				this.v = v;
 			} else if (k < this.k) {
-				if (this.l) this.l.insert(k, v);
+				if (this.l) this.l.set(k, v);
 				else this.l = new Node<K, V>({ k, v });
 			} else if (k > this.k) {
-				if (this.r) this.r.insert(k, v);
+				if (this.r) this.r.set(k, v);
 				else this.r = new Node<K, V>({ k, v });
 			}
 			this.calch();
