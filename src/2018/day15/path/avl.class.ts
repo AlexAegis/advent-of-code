@@ -20,6 +20,7 @@ export namespace AVL {
 	export interface Comparable<T> {
 		compareTo(other: T): number;
 	}
+	export const defComp: <K>(a: K, b: K) => number = (a, b) => (a === b ? 0 : a > b ? 1 : -1);
 	/**
 	 *
 	 *
@@ -28,13 +29,8 @@ export namespace AVL {
 	 * @template V
 	 * @template K by default it's a primitive
 	 */
-	export class Tree<V, K extends number | string | V | Convertable<K> = number | string> {
-		//[string: string]: Node<V, K>;
-
+	export class Tree<V = number, K extends number | string | V | Convertable<K> = number | string> {
 		root: Node<V, K>;
-		// Converts a value to it's key
-
-		private _opts: Options<V, K> = { comparator: (a, b) => (a as number) - (b as number) };
 
 		/**
 		 * Creates an instance of AVL. Can set a comparator and/or a converter from here.
@@ -44,12 +40,12 @@ export namespace AVL {
 		 *
 		 * @memberof AVL
 		 */
-		constructor(opts?: Options<V, K>) {
-			if (opts) this.opts = opts;
-		}
+		constructor(private _opts: Options<V, K> = {}) {}
 
 		set opts(opts: Options<V, K>) {
-			Object.assign(this._opts, opts);
+			console.log(`setopts from: ${JSON.stringify(this.opts)} to: ${JSON.stringify(opts)}`);
+			Object.assign(this.opts, opts);
+			if (this.root) this.root.opts = this.opts;
 		}
 
 		get opts(): Options<V, K> {
@@ -57,11 +53,11 @@ export namespace AVL {
 		}
 
 		set converter(converter: (v: V) => K) {
-			this._opts.converter = converter;
+			this.opts.converter = converter;
 		}
 
 		get converter(): (v: V) => K {
-			return this._opts.converter;
+			return this.opts.converter;
 		}
 
 		/**
@@ -84,12 +80,10 @@ export namespace AVL {
 		 * if it has a convertTo method (suggested, but not necessarily by the Convertable interface)
 		 * it will use that. If not, but you've set a converter
 		 *
-		 * @param {V} v
 		 * @memberof Tree
 		 */
 		public push(...input: V[]): void {
 			for (const v of input) {
-				//let k: K = v as K;
 				let k: K;
 				// TODO: BigInt option based on ES level
 				if (typeof v === 'number' || typeof v === 'string' /*|| typeof v === 'bigint'*/) {
@@ -101,7 +95,7 @@ export namespace AVL {
 				if (!k && this.converter) {
 					k = this.converter.bind(v)(v);
 				}
-				if (k) {
+				if (!!k) {
 					this.set(k as K, v);
 				} else if (!this.comparator) {
 					throw "can't put, no sufficient conversion method. Either use an AVL.Convertable or supply a converter";
@@ -109,8 +103,15 @@ export namespace AVL {
 			}
 		}
 
+		/**
+		 * I reconstuct the opts because in the node, it will be modified
+		 *
+		 * @param {K} k
+		 * @param {V} v
+		 * @memberof Tree
+		 */
 		public set(k: K, v: V): void {
-			if (!this.root) this.root = new Node<V, K>(this._opts, { k, v });
+			if (!this.root) this.root = new Node<V, K>({ ...this.opts }, { k, v });
 			else this.root.set(k, v);
 			this.root = this.root.rebalance();
 			this.root.calch(); // Not really important, just for debugging to see the correct value
@@ -207,25 +208,21 @@ export namespace AVL {
 		h: number;
 		k: K;
 		v: V;
-		constructor(private opts: Options<V, K>, ...init: { k: K; v: V }[]) {
+		constructor(private _opts: Options<V, K>, ...init: { k: K; v: V }[]) {
 			for (const { k, v } of init) this.set(k, v);
 		}
 
-		search(k: K | Convertable<K>): V {
-			if ((k as Convertable<K>).convertTo) {
-				k = (<Convertable<K>>k).convertTo();
-			}
-			if (this.k && k == this.k) {
-				return this.v as V;
-			} else if (k < this.k) {
-				if (this.l) return this.l.search(k);
-				else return undefined;
-			} else if (k > this.k) {
-				if (this.r) return this.r.search(k);
-				else return undefined;
-			}
+		/**
+		 * the opts in a node delete themself upon conversion (but not on comparing)
+		 * If ever needing to change the converter (or the comparator by that matter), this will help resetting it everywhere
+		 *
+		 * @memberof Node
+		 */
+		set opts(opts: Options<V, K>) {
+			if (this.l) this.l.opts = opts;
+			this._opts = opts;
+			if (this.r) this.r.opts = opts;
 		}
-
 		/**
 		 * Returns the first element.
 		 * Complexity: O(1)
@@ -256,10 +253,62 @@ export namespace AVL {
 			this.h = 1 + Math.max(this.l ? this.l.h : 0, this.r ? this.r.h : 0);
 		}
 
-		set(k: K, v?: V) {
+		tryConvert(k: K | Convertable<K>): void {
 			if ((k as Convertable<K>).convertTo) {
 				k = (<Convertable<K>>k).convertTo();
+				this._opts.comparator = undefined; // if its also comparable and convertable, only use the convert
+			} else if (this._opts.converter) {
+				k = this._opts.converter(k as V);
+				this._opts.comparator = undefined;
+				this._opts.converter = undefined;
 			}
+		}
+
+		search(k: K | Convertable<K>): V {
+			this.tryConvert(k);
+
+			if (this.k && (!!this._opts.comparator ? this._opts.comparator(k as K, this.k) === 0 : k == this.k)) {
+				return this.v as V;
+			} else if (!!this._opts.comparator ? this._opts.comparator(k as K, this.k) < 0 : k < this.k) {
+				if (this.l) return this.l.search(k);
+				else return undefined;
+			} else if (!!this._opts.comparator ? this._opts.comparator(k as K, this.k) > 0 : k > this.k) {
+				if (this.r) return this.r.search(k);
+				else return undefined;
+			}
+
+			/*
+		if (this.k && k == this.k) {
+				return this.v as V;
+			} else if (k < this.k) {
+				if (this.l) return this.l.search(k);
+				else return undefined;
+			} else if (k > this.k) {
+				if (this.r) return this.r.search(k);
+				else return undefined;
+			}
+
+            */
+		}
+
+		set(k: K, v?: V) {
+			this.tryConvert(k);
+
+			if (
+				(!this.k && !this.v) ||
+				(!!this._opts.comparator ? this._opts.comparator(k as K, this.k) === 0 : k === this.k)
+			) {
+				this.k = k;
+				this.v = v;
+			} else if (!!this._opts.comparator ? this._opts.comparator(k as K, this.k) < 0 : k < this.k) {
+				if (this.l) this.l.set(k, v);
+				else this.l = new Node<V, K>(this._opts, { k, v });
+			} else if (!!this._opts.comparator ? this._opts.comparator(k as K, this.k) > 0 : k > this.k) {
+				if (this.r) this.r.set(k, v);
+				else this.r = new Node<V, K>(this._opts, { k, v });
+			}
+
+			/*
 
 			if ((!this.k && !this.v) || k === this.k) {
 				this.k = k;
@@ -270,7 +319,10 @@ export namespace AVL {
 			} else if (k > this.k) {
 				if (this.r) this.r.set(k, v);
 				else this.r = new Node<V, K>(this.opts, { k, v });
-			}
+            }
+            
+
+            */
 			this.calch();
 		}
 
