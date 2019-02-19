@@ -1,17 +1,20 @@
-import { Convertable } from './convertable.interface';
 import { Key } from 'readline';
 
 /**
  * AVL Binary Search Tree
  *
- * Typings
+ * Typings Guide:
+ * Use LTree if you want to store any type of object, but having to
  *
  *
  * @export
  * @class AVL
  */
 export namespace AVL {
-	export class Tree<K extends number | Convertable<number> = number, V extends number | K | Convertable<K> = K> {
+	export abstract class Convertable<T = number> {
+		abstract convertTo(): T;
+	}
+	export class Tree<V, K extends number | V | Convertable<K> = number> {
 		root: Node<K, V> = new Node<K, V>();
 
 		/**
@@ -19,25 +22,30 @@ export namespace AVL {
 		 * @param {...K[]} init
 		 * @memberof AVL
 		 */
-		constructor(...init: V[]) {
-			for (let v of init) this.push(v);
+		constructor(private converter?: (v: V) => K) {
+			//for (let v of init) this.push(v);
 		}
 
 		public push(v: V): void {
 			let k: K = v as K;
-			if ((v as Convertable<K>).convertTo) {
-				k = (<Convertable<K>>v).convertTo();
+			if (((v as unknown) as Convertable<K>).convertTo) {
+				k = (<Convertable<K>>(v as unknown)).convertTo();
+			} else if (this.converter) {
+				k = this.converter(v);
 			}
-			this.put({ k, v });
+			if (k) {
+				this.put({ k, v });
+			} else
+				throw "can't put, no sufficient conversion method. Either use an AVL.Convertable or supply a converter";
 		}
 
-		public set(k: K, v: V | number | K | Convertable<K>): void {
+		public set(k: K, v: V): void {
 			this.root.set(k, v);
 			this.root = this.root.rebalance();
 			this.root.calch(); // Not really important, just for debugging to see the correct value
 		}
 
-		public put(...input: { k: K; v: V | number | K | Convertable<K> }[]) {
+		public put(...input: { k: K; v: V }[]) {
 			for (let { k, v } of input) {
 				this.set(k, v);
 			}
@@ -142,9 +150,9 @@ export namespace AVL {
 		}
 
 		toString(): string {
-			return `l: ${this.l ? this.l.k : '-'} {k: ${this.k} v: ${this.v}} r: ${this.r ? this.r.k : '-'} h: ${
-				this.h
-			}`;
+			return `l: ${this.l ? this.l.k : '-'} {k: ${this.k} v: ${this.v.toString()}} r: ${
+				this.r ? this.r.k : '-'
+			} h: ${this.h}`;
 		}
 
 		rebalance(): Node<K, V> {
