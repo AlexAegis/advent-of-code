@@ -1,9 +1,9 @@
 import { elementFactory } from './element/element.factory';
 import { Goblin } from './element/creature/goblin.class';
 import { Wall } from './element/block/wall.class';
-import { AVL } from './path/avl.class';
+import { Tree, Comparable, Convertable } from '@alexaegis/avl';
 
-export class ComparableKey implements AVL.Comparable<ComparableKey> {
+export class ComparableKey implements Comparable<ComparableKey> {
 	n: number = 0;
 	constructor(n: number) {
 		this.n = n;
@@ -16,7 +16,7 @@ export class ComparableKey implements AVL.Comparable<ComparableKey> {
 	}
 }
 
-export class Dog implements AVL.Convertable<number> {
+export class Dog implements Convertable<number> {
 	n: number = 0;
 	constructor(n: number) {
 		this.n = n;
@@ -40,7 +40,7 @@ export class Cat {
 }
 
 console.log(`Only Value Type with converter ˙${Cat.prototype.asNum}`);
-let treeovtwc = new AVL.Tree<Cat>({ converter: Cat.prototype.asNum });
+let treeovtwc = new Tree<Cat>(Cat.prototype.asNum);
 
 treeovtwc.push(new Cat('8'));
 treeovtwc.push(new Cat('2'));
