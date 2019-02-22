@@ -1,7 +1,5 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
-import { Tree } from '@alexaegis/avl';
-import { SimpleTree } from '@alexaegis/avl';
 
 export const runner = async (input: 'example' | 'input' = 'input'): Promise<number> => {
 	let frequencyHistory = new Set();
