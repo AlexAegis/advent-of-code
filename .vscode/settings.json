@@ -17,11 +17,11 @@
 		"directive": "ngrx-actions",
 		"interceptor": "middleware",
 		"validator": "coverage",
-		"e2e": "test",
-		".mocharc": "mocha"
+		"e2e": "test"
 	},
 	"material-icon-theme.files.associations": {
-		"*.animation.ts": "purescript"
+		"*.animation.ts": "purescript",
+		".mocharc": "mocha"
 	},
 	"workbench.colorCustomizations": {
 		"activityBar.background": "#303030",
