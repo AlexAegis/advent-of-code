@@ -1,11 +1,6 @@
 import { Node } from './node.class';
 
 export class Vertice {
-	from: Node;
-	to: Node;
-	constructor(from: Node, to: Node) {
-		this.from = from;
-		this.to = to;
-	}
+	constructor(public from: Node, public to: Node) {}
 	fulfilled = (useBaseCost: boolean = false) => this.from.processed(useBaseCost);
 }
