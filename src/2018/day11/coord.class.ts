@@ -1,7 +1,4 @@
 export class Coord implements Iterable<Coord> {
-	x: number;
-	y: number;
-
 	static dirs: Array<Coord> = [
 		new Coord(0, 0),
 		new Coord(0, 1),
@@ -14,10 +11,7 @@ export class Coord implements Iterable<Coord> {
 		new Coord(2, 2)
 	];
 
-	constructor(x: number, y: number) {
-		this.x = x;
-		this.y = y;
-	}
+	constructor(public x: number, public y: number) {}
 
 	add(coord: Coord): Coord {
 		this.x += coord.x;
