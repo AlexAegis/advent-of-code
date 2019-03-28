@@ -1,7 +1,6 @@
 export class Node {
 	identifier: string;
 	level: number;
-	parent: Node;
 	data: Array<number>;
 	children: Array<Node> = [];
 	processedChildren: number = 0;
@@ -10,8 +9,7 @@ export class Node {
 
 	static currCharIndex: number = 96;
 
-	constructor(input: Array<number>, parent?: Node) {
-		this.parent = parent;
+	constructor(input: Array<number>, private parent?: Node) {
 		if (this.parent) this.parent.children.push(this);
 		this.identifier = String.fromCharCode(++Node.currCharIndex);
 		this.level = this.parent ? this.parent.level + 1 : 0;
