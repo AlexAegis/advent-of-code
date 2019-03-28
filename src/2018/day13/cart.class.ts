@@ -5,11 +5,9 @@ import { Mine } from './mine.class';
 import { Subject } from 'rxjs';
 
 export class Cart {
-	position: Coord;
-	direction: Direction;
-	turnsAtIntersection: number = 0;
-	constructor(position: Coord, directionMarker: DirectionMarker) {
-		this.position = position;
+	public direction: Direction;
+	public turnsAtIntersection: number = 0;
+	constructor(public position: Coord, directionMarker: DirectionMarker) {
 		this.direction = new Direction(directionMarker);
 	}
 

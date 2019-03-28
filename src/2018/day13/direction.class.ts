@@ -3,11 +3,9 @@ import { DirectionMarker } from './direction-marker.type';
 import { Rail } from './rail.type';
 
 export class Direction {
-	marker: DirectionMarker;
 	value: Coord;
 
-	constructor(marker: DirectionMarker) {
-		this.marker = marker;
+	constructor(public marker: DirectionMarker) {
 		this.value = Direction.markerAssociations[this.marker];
 	}
 

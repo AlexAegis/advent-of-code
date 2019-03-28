@@ -12,12 +12,11 @@ export interface Result {
 }
 
 export class Worker {
-	id: number;
-	workingOn: Node;
-	subscription: Subscription;
-	constructor(id: number) {
-		this.id = id;
-	}
+	public workingOn: Node;
+	public subscription: Subscription;
+
+	constructor(public id: number) {}
+
 	start = (
 		tick$: ConnectableObservable<number>,
 		graph: Graph,
@@ -133,7 +132,7 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<numbe
 					)
 					.subscribe(nodes => {
 						/*let seq = nodes.map(node => node.node).join('');
-						
+
 						console.log(
 							`| ${tick.toString().padEnd(5)}${workers
 								.map(

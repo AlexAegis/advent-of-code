@@ -1,13 +1,7 @@
 import { Coord } from './coord.class';
 
 export class Vector {
-	position: Coord;
-	velocity: Coord;
-
-	constructor(position: Coord, velocity: Coord) {
-		this.position = position;
-		this.velocity = velocity;
-	}
+	constructor(public position: Coord, public velocity: Coord) {}
 
 	move = () => this.position.add(this.velocity);
 
