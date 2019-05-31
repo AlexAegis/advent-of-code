@@ -4,10 +4,6 @@
 	"editor.autoIndent": true,
 	"editor.quickSuggestions": true,
 	"editor.tabSize": 4,
-	"prettier.useTabs": true,
-	"prettier.tabWidth": 4,
-	"prettier.singleQuote": true,
-	"prettier.eslintIntegration": true,
 	"material-icon-theme.folders.associations": {
 		"module": "font",
 		"component": "components",
@@ -23,11 +19,6 @@
 		"*.animation.ts": "purescript",
 		".mocharc": "mocha"
 	},
-	"workbench.colorCustomizations": {
-		"activityBar.background": "#303030",
-		"titleBar.activeBackground": "#303030",
-		"titleBar.activeForeground": "#F8FBF8"
-	},
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"mochaExplorer.optsFile": "./mocha.opts",
 	"mochaExplorer.files": "src/**/*.spec.ts",
@@ -35,5 +26,6 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true
 	},
-	"files.associations": { ".mocharc": "json" }
+	"files.associations": { ".mocharc": "json" },
+	"workbench.colorTheme": "Material Theme Darker High Contrast"
 }

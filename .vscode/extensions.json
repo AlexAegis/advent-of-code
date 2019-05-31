@@ -1,7 +1,6 @@
 {
 	"recommendations": [
 		"jasonlhy.hungry-delete",
-		"dbaeumer.vscode-eslint",
 		"ms-vscode.vscode-typescript-tslint-plugin",
 		"esbenp.prettier-vscode",
 		"pkief.material-icon-theme",
