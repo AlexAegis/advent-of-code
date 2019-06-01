@@ -13,7 +13,9 @@
 		"directive": "ngrx-actions",
 		"interceptor": "middleware",
 		"validator": "coverage",
-		"e2e": "test"
+		"e2e": "test",
+		"target": "dist",
+		"rust": "delta"
 	},
 	"material-icon-theme.files.associations": {
 		"*.animation.ts": "purescript",
@@ -27,5 +29,11 @@
 		"source.fixAll": true
 	},
 	"files.associations": { ".mocharc": "json" },
-	"workbench.colorTheme": "Material Theme Darker High Contrast"
+	"theme-by-language.themes": {
+		"typescript": "Material Theme Darker High Contrast",
+		"rust": "1984 - Orwellian",
+		"markdown": "Material Theme Darker High Contrast",
+		"JSON with Comments": "Material Theme Darker High Contrast"
+	},
+	"rust.build_on_save": true
 }

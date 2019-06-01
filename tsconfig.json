@@ -7,6 +7,12 @@
 		"rootDir": "./src/",
 		"outDir": "./dist/",
 		"sourceMap": true,
+		"baseUrl": "./",
+		"paths": {
+			"@root/*": ["src/*"],
+			"@2015/*": ["src/2015/*"],
+			"@2018/*": ["src/2018/*"]
+		},
 		"typeRoots": ["./node_modules/@types"]
 	},
 	"include": ["./src/**/*"],
