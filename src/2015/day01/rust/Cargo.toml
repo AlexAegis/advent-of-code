@@ -1,0 +1,20 @@
+[package]
+name = "aoc150101"
+version = "1.0.0"
+authors = ["AlexAegis <alexaegis@gmail.com>"]
+license = "mit"
+edition = "2018"
+
+[lib]
+name = "aoc150101"
+path = "./src/lib.rs"
+
+[dependencies]
+aoc = { path = "../../../../" }
+
+[dev-dependencies]
+criterion = "*"
+
+[[bench]]
+name = "bench"
+harness = false

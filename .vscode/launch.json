@@ -19,9 +19,9 @@
 			"type": "cppvsdbg",
 			"request": "launch",
 			"name": "Current Rust Cargo",
-			"program": "${workspaceFolder}/target/debug/${fileBasenameNoExtension}.exe",
-			"args": [],
-			"cwd": "${workspaceFolder}",
+			"program": "cargo",
+			"args": ["run", "--", "--workspace", "${workspaceFolder}"],
+			"cwd": "${fileDirname}",
 			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
 			"preLaunchTask": "cargo build",
 			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
