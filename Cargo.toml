@@ -1,0 +1,18 @@
+[package]
+name = "advent_of_code"
+version = "0.1.0"
+authors = ["AlexAegis <alexaegis@gmail.com>"]
+license = "mit"
+edition = "2018"
+
+[lib]
+name = "aoc"
+bench = true
+doc = true
+
+[profile.bench]
+lto = true
+
+[[bin]]
+name = "aoc-150101"
+path = "src/2015/day01/rust/aoc-150101.rs"
