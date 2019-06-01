@@ -35,5 +35,8 @@
 		"markdown": "Material Theme Darker High Contrast",
 		"JSON with Comments": "Material Theme Darker High Contrast"
 	},
-	"rust.build_on_save": true
+	"rust.build_on_save": true,
+	"rust.clippy_preference": "on",
+	"rust.racer_completion": true,
+	"rust.show_hover_context": true
 }
