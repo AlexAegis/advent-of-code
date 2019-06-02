@@ -12,7 +12,7 @@ pub fn reader(path: &Path) -> String {
 }
 
 pub fn path_resolve(year: u16, day: u16, resource: String, depth_in_target: usize) -> PathBuf {
-	let path = env::current_exe()
+	env::current_exe()
 		.unwrap()
 		.parent()
 		.unwrap()
@@ -22,6 +22,5 @@ pub fn path_resolve(year: u16, day: u16, resource: String, depth_in_target: usiz
 			day = day,
 			resource = resource,
 			back = "../".repeat(depth_in_target)
-		)));
-	path
+		)))
 }
