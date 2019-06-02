@@ -2,11 +2,7 @@
 
 [![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard) [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage) [![snyk: vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/AlexAegis/advent-of-code.svg?style=popout)](https://app.snyk.io/org/alexaegis/project/82929b9b-f679-4b1c-8804-bff40110b7dd) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![private: leaderboard](https://img.shields.io/badge/private-leaderboard-brightgreen.svg)](https://adventofcode.com/2018/leaderboard/private/view/243796) [![Greenkeeper badge](https://badges.greenkeeper.io/AlexAegis/advent-of-code.svg)](https://greenkeeper.io/)
 
-> 🌟 marks my favourites
-
 ## [2018](https://adventofcode.com/2018/)
-
-> All times are measured on i7-8700k@4.8Ghz
 
 | Day                         | Part One Answer                                            | Runtime | Part Two Answer                                           | Runtime |
 | --------------------------- | ---------------------------------------------------------- | ------- | --------------------------------------------------------- | ------- |
@@ -36,25 +32,33 @@
 | Day 24                      |                                                            |         |                                                           |         |
 | Day 25                      |                                                            |         |                                                           |         |
 
+## [2015](https://adventofcode.com/2015/)
+
+## Notes
+
+> All times are measured on i7-8700k@4.8Ghz
+
+> 🌟 marks my favourites
+
 ---
 
-## Usage
+## TypeScript
 
-Install [Node.js](https://nodejs.org/en/)
+1. Install [Node.js](https://nodejs.org/en/)
 
-Open with [VS Code](https://code.visualstudio.com/)
+2. Open with [VS Code](https://code.visualstudio.com/)
 
-Install the suggested extensions when prompted (Recommended)
+3. Install the suggested extensions when prompted (Recommended)
 
-Install the required packages
+4. Install the required packages
 
-```bash
-npm i
-```
+   ```bash
+   npm i
+   ```
 
-> **F5** runs the file you're focusing in debug mode.
+   > Select `Current TS File` launch option. **F5** runs the file you're focusing in debug mode.
 
-## Testing
+### Testing
 
 There are tests on every task. You can run them with
 
@@ -70,11 +74,55 @@ npm run test:coverage
 
 or if you installed the recommended mocha extension you can run them with that
 
+## Rust
+
+1. Install [Rust](https://www.rust-lang.org/tools/install)
+
+2. Open with [VS Code](https://code.visualstudio.com/)
+
+3. Install the suggested extensions when prompted (Recommended)
+
+4. Install the required crates
+
+   ```bash
+   cargo build
+   ```
+
+   > Select `Current Rust Cargo` launch option. **F5** runs the cargo you're focusing in debug mode.
+
+### Testing
+
+Run in the cargo you'd like to test
+
+```bash
+cargo test
+```
+
+Or in the workspace cargo if you'd like to run all tests
+
+```bash
+cargo test --all
+```
+
+### Benchmarking
+
+Run in the cargo you'd like to benchmark
+
+```bash
+cargo bench
+```
+
+Or in the workspace cargo if you'd like to run all benchmarks (Takes a while!)
+
+```bash
+cargo bench --all
+```
+
 ---
 
-## Technologies
+## Technologies ([TypeScript](#TypeScript))
 
-### [Node 10](https://nodejs.org/en/)
+### [Node 12](https://nodejs.org/en/)
 
 > **JavaScript** runtime
 
@@ -101,6 +149,20 @@ or if you installed the recommended mocha extension you can run them with that
 ### [Istanbul](https://istanbul.js.org/)
 
 > **Code coverage** tool
+
+## Technologies ([Rust](#Rust))
+
+### [Rust](https://www.rust-lang.org/)
+
+> **Systems** programmin language
+
+### [Criterion](https://github.com/bheisler/criterion.rs)
+
+> **Benchmarking** tool
+
+### [Clippy](https://github.com/rust-lang/rust-clippy)
+
+> **Linter** for rust
 
 ## Recommendations
 

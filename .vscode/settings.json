@@ -30,10 +30,10 @@
 	},
 	"files.associations": { ".mocharc": "json" },
 	"theme-by-language.themes": {
+		"*": "Material Theme Darker High Contrast",
 		"typescript": "Material Theme Darker High Contrast",
 		"rust": "1984 - Orwellian",
-		"markdown": "Material Theme Darker High Contrast",
-		"JSON with Comments": "Material Theme Darker High Contrast"
+		"toml": "1984 - Orwellian"
 	},
 	"rust.build_on_save": true,
 	"rust.clippy_preference": "on",
