@@ -7,7 +7,7 @@ import { promises } from 'fs';
  * @param day of the task
  * @param file in the resources folder of the task
  */
-export const reader = (year: number, day: number, file: string) => () =>
+export const reader = (year: number, day: number, file: string = 'input.txt') => () =>
 	promises.readFile(`src/${year}/day${day < 10 ? '0' + day : day}/resources/${file}`, {
 		encoding: 'UTF-8'
 	}) as Promise<string>;
