@@ -13,13 +13,12 @@ matrix:
           before_script:
               - rustup component add clippy --toolchain stable
           script:
-              - cargo clean
               - cargo build --verbose --all
               - cargo test --verbose --all
               - cargo clippy --verbose --all
           after_success: |
               if [[ "$TRAVIS_RUST_VERSION" == stable ]]; then
-                  cargo tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
+                  cargo tarpaulin --all --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
               fi
         - language: node_js
           node_js:
