@@ -34,12 +34,6 @@
 
 ## [2015](https://adventofcode.com/2015/)
 
-## Notes
-
-> All times are measured on i7-8700k@4.8Ghz
-
-> 🌟 marks my favourites
-
 ---
 
 ## TypeScript
@@ -117,6 +111,14 @@ Or in the workspace cargo if you'd like to run all benchmarks (Takes a while!)
 ```bash
 cargo bench --all
 ```
+
+## Notes
+
+> All times are measured on i7-8700k@4.8Ghz
+
+> 🌟 marks my favourites
+
+> If you have material-icon-theme installed copy the "material-icon-theme.folders.associations" and "material-icon-theme.files.associations" to your user settings to see the custom icons
 
 ---
 

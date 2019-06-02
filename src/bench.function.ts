@@ -10,7 +10,7 @@ export const bench = async <T>(reader: () => Promise<T>, runner: (input: T) => P
 	performance.mark('start');
 	const obs = new PerformanceObserver(list => {
 		list.getEntries().forEach(entry => {
-			console.log(`${entry.name}: ${entry.duration}`);
+			console.log(`${entry.name}: ${entry.duration} ms`);
 		});
 	});
 	obs.observe({ entryTypes: ['measure'] });
