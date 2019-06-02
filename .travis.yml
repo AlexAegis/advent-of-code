@@ -13,6 +13,16 @@ matrix:
                   zip -0 ccov.zip `find . \( -name "advent-of-code*.gc*" \) -print`;
                   ./grcov ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing --ignore-dir "/*" -o lcov.info;
                   bash <(curl -s https://codecov.io/bash) -f lcov.info;
+              - mkdir coverage && mkdir coverage/rust
+              - mv ./lcov.info ./coverage/rust/lcov.info
+          deploy:
+              provider: pages
+              skip_cleanup: true
+              github_token: $GITHUB_TOKEN
+              keep_history: true
+              local_dir: coverage
+              on:
+                  branch: master
 
         - language: node_js
           node_js:
@@ -31,6 +41,13 @@ matrix:
 
           after_script:
               - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-
+          deploy:
+              provider: pages
+              skip_cleanup: true
+              github_token: $GITHUB_TOKEN
+              keep_history: true
+              local_dir: coverage
+              on:
+                  branch: master
 after_script:
-    - echo lol
+    - ls coverage
