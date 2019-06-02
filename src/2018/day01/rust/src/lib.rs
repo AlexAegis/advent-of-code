@@ -13,16 +13,16 @@ impl aoc::Solvable<String, i32> for PartTwo {
 	fn solve(input: &String) -> i32 {
 		let history: &mut HashSet<i32> = &mut HashSet::new();
 		let result: &mut Option<i32> = &mut None;
-		let sum: &mut i32 = &mut 0;
+		let mut sum: i32 = 0;
 
 		while result.is_none() {
-			'numbers: for n in input.lines().map(|s| s.parse::<i32>().unwrap()) {
+			for n in input.lines().map(|s| s.parse::<i32>().unwrap()) {
 				let prev_length = history.len();
-				*sum += n;
-				history.insert(*sum);
+				sum += n;
+				history.insert(sum);
 				if prev_length == history.len() {
-					result.replace(*sum);
-					break 'numbers;
+					result.replace(sum);
+					break;
 				}
 			}
 		}
