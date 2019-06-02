@@ -15,7 +15,8 @@
 	},
 	"scripts": {
 		"test": "mocha --config ./.mocharc",
-		"test:coverage": "nyc npm test"
+		"test:coverage": "nyc npm test",
+		"codecov": "codecov"
 	},
 	"repository": {
 		"type": "git",
@@ -37,6 +38,7 @@
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.0.4",
 		"@types/workerpool": "^2.3.1",
+		"codecov": "^3.5.0",
 		"chai": "^4.2.0",
 		"mocha": "^6.1.4",
 		"nyc": "^14.1.1",
