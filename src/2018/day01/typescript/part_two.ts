@@ -1,5 +1,6 @@
 import { bench } from '@root/bench.function';
 import { reader } from '@root/reader.function';
+import { year, day } from '.';
 
 export const runner = (input: string): number => {
 	let frequencyHistory = new Set();
@@ -26,5 +27,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(2018, 1, 'input.txt'), runner)}`))(); // 55250 ~10ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 55250 ~10ms
 }

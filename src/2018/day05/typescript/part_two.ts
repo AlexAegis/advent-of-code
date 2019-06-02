@@ -1,10 +1,10 @@
-import * as fs from 'fs';
 import { collapse } from './collapse.function';
+import { bench } from '@root/bench.function';
+import { reader } from '@root/reader.function';
+import { year, day } from '.';
 
-export const runner = async (input: 'example' | 'input' = 'input') => {
-	let sequence = <string>await fs.promises.readFile(`src/2018/day05/${input}.txt`, { encoding: 'UTF-8' }); // Encoding is specified, result is string
-
-	const uniqueUnits = [...sequence].reduce((acc, curr) =>
+export const runner = async (input: string) => {
+	const uniqueUnits = [...input].reduce((acc, curr) =>
 		acc.includes(curr.toLowerCase()) ? acc.toLowerCase() : acc + curr.toLowerCase()
 	);
 
@@ -12,7 +12,7 @@ export const runner = async (input: 'example' | 'input' = 'input') => {
 	let shortestSequenceRemovedUnit: string;
 
 	for (let unit of uniqueUnits) {
-		let modifiedSequence = [...sequence].reduce((acc, curr) => (curr.toLowerCase() === unit ? acc : acc + curr));
+		let modifiedSequence = [...input].reduce((acc, curr) => (curr.toLowerCase() === unit ? acc : acc + curr));
 		let collapsedSequence = collapse(modifiedSequence);
 		if (shortestSequence === undefined || collapsedSequence.length < shortestSequence.length) {
 			shortestSequence = collapsedSequence;
@@ -25,9 +25,5 @@ export const runner = async (input: 'example' | 'input' = 'input') => {
 };
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`Shortest sequence is: ${await runner()}`);
-		console.timeEnd();
-	})(); // 6394 ~361ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 6394 ~326ms
 }
