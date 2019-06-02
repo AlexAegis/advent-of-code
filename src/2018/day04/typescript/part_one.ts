@@ -1,10 +1,12 @@
-import { reader } from './reader.function';
+import { interpret } from './interpret.function';
+import { bench } from '@root/bench.function';
+import { reader } from '@root/reader.function';
 
-export const runner = async (input: 'example' | 'input' = 'input') => {
+export const runner = async (input: string) => {
 	const guards: Map<number, Map<number, number>> = new Map();
 	let currentGuard: number;
 	let asleepAt: number;
-	let events = await reader(input);
+	let events = await interpret(input);
 	for (let event of events) {
 		if (event.guard) {
 			currentGuard = event.guard;
@@ -53,9 +55,5 @@ export const runner = async (input: 'example' | 'input' = 'input') => {
 };
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`Result: ${await runner()}`);
-		console.timeEnd();
-	})(); // 106710 ~16ms
+	(async () => console.log(`Result: ${await bench(reader(2018, 4, 'input.txt'), runner)}`))(); // 106710 ~6ms
 }
