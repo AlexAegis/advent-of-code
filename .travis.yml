@@ -19,13 +19,9 @@ matrix:
               - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
         - language: rust
-          rust:
-              - stable
-          matrix:
-              allow_failures:
-                  - rust: nightly
-              fast_finish: true
           cache: cargo
+          before_script:
+              - rustup component add clippy --toolchain stable
           script:
               - cargo build --verbose --all
               - cargo test --verbose --all
