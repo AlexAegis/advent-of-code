@@ -3,10 +3,10 @@ import { performance, PerformanceObserver } from 'perf_hooks';
 /**
  * Wrapper for running read/compute pairs. Benchmarks both using the performance api.
  *
- * @param reader Async input supplier for the `runner`
+ * @param reader input supplier for the `runner`
  * @param runner with the result of `reader`, produces an output
  */
-export const bench = async <T>(reader: () => Promise<T>, runner: (input: T) => Promise<any>) => {
+export const bench = async <T, R = string>(reader: () => Promise<T>, runner: (input: T) => Promise<R> | R) => {
 	performance.mark('start');
 	const obs = new PerformanceObserver(list => {
 		list.getEntries().forEach(entry => {
@@ -30,3 +30,7 @@ export const bench = async <T>(reader: () => Promise<T>, runner: (input: T) => P
 	obs.disconnect();
 	return result;
 };
+
+let foo: Promise<String> | String;
+
+let s: String;

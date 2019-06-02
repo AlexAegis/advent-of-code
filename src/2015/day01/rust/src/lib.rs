@@ -1,15 +1,3 @@
-pub fn get_input(level: Option<usize>) -> String {
-	aoc::reader(
-		aoc::path_resolve(
-			2015,
-			1,
-			String::from("input.txt"),
-			level.unwrap_or_else(|| 2),
-		)
-		.as_path(),
-	)
-}
-
 pub struct PartOne;
 pub struct PartTwo;
 

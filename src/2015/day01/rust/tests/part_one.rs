@@ -4,7 +4,7 @@ use aoc::Solvable;
 
 #[test]
 fn input() {
-	let input = aoc1501::get_input(Option::from(3));
+	let input = aoc::reader(2015, 1, "input.txt");
 	assert_eq!(aoc1501::PartOne::solve(&input), 74);
 }
 
