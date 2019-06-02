@@ -2,7 +2,7 @@ import { runner } from '../part_one';
 import { expect } from 'chai';
 import { reader } from '@root/reader.function';
 
-describe('Day 1, Part One', () => {
+describe('2018 - Day 1 - Part One', () => {
 	it('Should be that that the input resolves to 408', async () => {
 		expect(runner(await reader(2018, 1, 'input.txt')())).to.equal(408);
 	});
