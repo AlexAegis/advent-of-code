@@ -1,4 +1,4 @@
-import { Claim } from './claim.interface';
+import { Claim } from './model/claim.interface';
 
 export const interpret = (line: string): Claim => {
 	let parts = line.split(/#|@|,|:|x/).map(e => e.trim());
