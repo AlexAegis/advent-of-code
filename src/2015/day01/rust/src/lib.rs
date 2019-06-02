@@ -13,17 +13,17 @@ pub fn get_input(level: Option<usize>) -> String {
 pub struct PartOne;
 pub struct PartTwo;
 
-impl aoc::Solvable<String, i32> for PartOne {
-	fn solve(input: &String) -> i32 {
+impl aoc::Solvable<String, i16> for PartOne {
+	fn solve(input: &String) -> i16 {
 		input
 			.chars()
-			.filter(|a| *a == '(' || *a == ')')
+			.filter(|c| *c == '(' || *c == ')')
 			.fold(0, |a, c| a + if c == '(' { 1 } else { -1 })
 	}
 }
 
-impl aoc::Solvable<String, i32> for PartTwo {
-	fn solve(input: &String) -> i32 {
+impl aoc::Solvable<String, i16> for PartTwo {
+	fn solve(input: &String) -> i16 {
 		let mut a = 0;
 		let mut i = 0;
 		for c in input.chars().filter(|a| *a == '(' || *a == ')') {

@@ -10,7 +10,7 @@ repository = "https://github.com/AlexAegis/advent-of-code"
 
 [dev-dependencies]
 criterion = "0.2.11"
-rspec = "0.1.0"
+clippy = "0.0.302"
 
 [lib]
 name = "aoc"
