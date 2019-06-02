@@ -7,8 +7,6 @@ edition = "2018"
 repository = "https://github.com/AlexAegis/advent-of-code"
 
 [dependencies]
-# aoc150101 = { path = "src/2015/day01/rust" }
-
 
 [dev-dependencies]
 criterion = "0.2.11"
