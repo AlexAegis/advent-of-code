@@ -15,7 +15,8 @@
 		"validator": "coverage",
 		"e2e": "test",
 		"target": "dist",
-		"rust": "delta"
+		"rust": "delta",
+		"benches": "benchmark"
 	},
 	"material-icon-theme.files.associations": {
 		"*.animation.ts": "purescript",

@@ -1,4 +1,4 @@
-import { reader } from './reader.function';
+import { reader } from '@root/reader.function';
 import { bench } from '@root/bench.function';
 
 export const runner = async (input: string) => {
@@ -13,5 +13,5 @@ export const runner = async (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader, runner)}`))(); // 1795 ~0.4ms
+	(async () => console.log(`Result: ${await bench(reader(2015, 1, 'input.txt'), runner)}`))(); // 1795 ~0.4ms
 }
