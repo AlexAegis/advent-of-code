@@ -1,34 +1,36 @@
-jobs:
+matrix:
     include:
-        - stage: test
-            - language: node_js
-              node_js:
-                  - 'lts/*'
-              cache:
-                  directories:
-                      - node_modules
+        - language: node_js
+          node_js:
+              - 'lts/*'
+          cache:
+              directories:
+                  - node_modules
 
-              before_script:
-                  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-                  - chmod +x ./cc-test-reporter
-                  - ./cc-test-reporter before-build
+          before_script:
+              - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+              - chmod +x ./cc-test-reporter
+              - ./cc-test-reporter before-build
 
-              script:
-                  - npm run test:coverage
+          script:
+              - npm run test:coverage
 
-              after_script:
-                  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-        -
-            - language: rust
-              cache: cargo
-              before_script:
-                  - curl -L https://github.com/mozilla/grcov/releases/download/v0.4.1/grcov-linux-x86_64.tar.bz2 | tar jxf -
-                  - rustup component add clippy --toolchain stable
-              script:
-                  - cargo build --verbose --all
-                  - cargo test --verbose --all
-                  - cargo clippy --verbose --all
-                  - |
-                      zip -0 ccov.zip `find . \( -name "advent-of-code*.gc*" \) -print`;
-                      ./grcov ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing --ignore-dir "/*" -o lcov.info;
-                      bash <(curl -s https://codecov.io/bash) -f lcov.info;
+          after_script:
+              - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+        - language: rust
+          cache: cargo
+          before_script:
+              - curl -L https://github.com/mozilla/grcov/releases/download/v0.4.1/grcov-linux-x86_64.tar.bz2 | tar jxf -
+              - rustup component add clippy --toolchain stable
+          script:
+              - cargo build --verbose --all
+              - cargo test --verbose --all
+              - cargo clippy --verbose --all
+              - |
+                  zip -0 ccov.zip `find . \( -name "advent-of-code*.gc*" \) -print`;
+                  ./grcov ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing --ignore-dir "/*" -o lcov.info;
+                  bash <(curl -s https://codecov.io/bash) -f lcov.info;
+
+after_script:
+    - echo lol
