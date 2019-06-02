@@ -9,10 +9,7 @@ matrix:
               - cargo build --verbose --all
               - cargo test --verbose --all
               # - cargo clippy --verbose --all
-              - |
-                  zip -0 ccov.zip `find . \( -name "advent-of-code*.gc*" \) -print`;
-                  ./grcov ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing --ignore-dir "/*" -o lcov.info;
-                  bash <(curl -s https://codecov.io/bash) -f lcov.info;
+              - ./grcov . -t lcov -o lcov.info
               - mkdir coverage && mkdir coverage/rust
               - mv ./lcov.info ./coverage/rust/lcov.info
           deploy:
