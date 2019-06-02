@@ -1,21 +1,26 @@
 #[macro_use]
 
-
 extern crate criterion;
 
 extern crate aoc;
-extern crate aoc150101;
-use criterion::black_box;
-use criterion::Criterion;
+extern crate aoc1501;
 
+use aoc::Solvable;
+use criterion::Criterion;
 
 fn part_one_benchmark(c: &mut Criterion) {
 	c.bench_function("2015 day 1 part one", |b| {
-		let input: String = aoc150101::get_input(Option::from(3));
-		b.iter(|| aoc150101::runner(black_box(input.clone())))
+		let input: String = aoc1501::get_input(Option::from(3));
+		b.iter(|| aoc1501::PartOne::solve(&input))
 	});
 }
 
-criterion_group!(benches, part_one_benchmark);
-criterion_main!(benches);
+fn part_two_benchmark(c: &mut Criterion) {
+	c.bench_function("2015 day 1 part two", |b| {
+		let input: String = aoc1501::get_input(Option::from(3));
+		b.iter(|| aoc1501::PartTwo::solve(&input))
+	});
+}
 
+criterion_group!(benches, part_one_benchmark, part_two_benchmark);
+criterion_main!(benches);

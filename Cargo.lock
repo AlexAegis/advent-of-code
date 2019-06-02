@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "aoc150101"
+name = "aoc1501"
 version = "1.0.0"
 dependencies = [
  "aoc 0.1.0",
