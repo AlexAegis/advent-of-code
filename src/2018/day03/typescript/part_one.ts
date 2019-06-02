@@ -1,6 +1,7 @@
 import { interpret } from './interpret.function';
 import { bench } from '@root/bench.function';
 import { reader } from '@root/reader.function';
+import { year, day } from '.';
 
 export const runner = async (input: string) => {
 	const fabric: Map<string, Array<number>> = new Map<string, Array<number>>(); // Contains each claim for each coordinate
@@ -22,5 +23,5 @@ export const runner = async (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(2018, 3, 'input.txt'), runner)}`))(); // 116920 ~265ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 116920 ~265ms
 }

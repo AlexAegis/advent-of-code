@@ -1,6 +1,6 @@
 # [Day 5: Alchemical Reduction](https://adventofcode.com/2018/day/5)
 
-## [Part One](./collapse.function.ts)
+## [Part One](./typescript/collapse.function.ts)
 
 You've managed to sneak in to the prototype suit manufacturing lab. The Elves are making decent progress, but are still struggling with the suit's size reduction capabilities.
 
@@ -32,7 +32,7 @@ After all possible reactions, the resulting polymer contains **10 units**.
 
 Your puzzle answer was `9202`.
 
-## [Part Two](./part_two.ts)
+## [Part Two](./typescript/part_two.ts)
 
 Time to improve the polymer.
 

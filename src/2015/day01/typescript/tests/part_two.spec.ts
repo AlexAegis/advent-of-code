@@ -1,10 +1,11 @@
 import { runner } from '../part_two';
 import { expect } from 'chai';
 import { reader } from '@root/reader.function';
+import { year, day } from '..';
 
-describe('2015 Day 1, Part Two', () => {
+describe(`${year} - Day ${day} - Part Two`, () => {
 	it('Should be that that the input resolves to 1795', async () => {
-		expect(await runner(await reader(2015, 1, 'input.txt')())).to.equal(1795);
+		expect(await runner(await reader(year, day)())).to.equal(1795);
 	});
 
 	it('Should be that that the first example resolves to 1', async () => {

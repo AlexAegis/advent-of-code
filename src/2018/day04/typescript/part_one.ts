@@ -1,6 +1,7 @@
 import { interpret } from './interpret.function';
 import { bench } from '@root/bench.function';
 import { reader } from '@root/reader.function';
+import { year, day } from '.';
 
 export const runner = async (input: string) => {
 	const guards: Map<number, Map<number, number>> = new Map();
@@ -55,5 +56,5 @@ export const runner = async (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(2018, 4, 'input.txt'), runner)}`))(); // 106710 ~6ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 106710 ~6ms
 }
