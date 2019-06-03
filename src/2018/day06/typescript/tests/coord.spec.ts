@@ -1,4 +1,4 @@
-import { Coord } from './coord.class';
+import { Coord } from '../model/coord.class';
 import { expect } from 'chai';
 
 describe('Day 6, Part One', () => {
