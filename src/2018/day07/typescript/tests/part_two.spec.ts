@@ -1,8 +1,10 @@
-import { runner } from './part_two';
-import { Node } from './node.class';
+import { runner } from '../part_two';
+import { Node } from '../model/node.class';
 import { expect } from 'chai';
+import { year, day } from '..';
+import { reader } from '@root/reader.function';
 
-describe('Day 7 Part Two', () => {
+describe(`${year} - Day ${day} - Part Two`, () => {
 	const node_a: Node = new Node('a');
 	const node_A: Node = new Node('A');
 	const node_b: Node = new Node('b');
@@ -18,8 +20,8 @@ describe('Day 7 Part Two', () => {
 	let resultMain: number;
 	before(async function() {
 		this.timeout(5000);
-		resultExample = await runner('example');
-		resultMain = await runner();
+		resultExample = await runner(await reader(year, day, 'example.txt')());
+		resultMain = await runner(await reader(year, day)());
 	});
 	it('Node cost is equal regardless of casing', () => {
 		expect(node_a.cost()).to.equal(node_A.cost());
