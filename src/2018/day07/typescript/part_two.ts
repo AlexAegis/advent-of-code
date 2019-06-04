@@ -1,10 +1,11 @@
-import { createReadStream } from 'fs';
-import * as rl from 'readline';
 import { interval, Subject, ConnectableObservable, Subscription, range, ReplaySubject } from 'rxjs';
 import { takeUntil, tap, multicast, take, bufferTime } from 'rxjs/operators';
-import { Node } from './node.class';
-import { Graph } from './graph.interface';
-import { Vertice } from './vertice.class';
+import { Node } from './model/node.class';
+import { Graph } from './model/graph.interface';
+import { Vertice } from './model/vertice.class';
+import { bench } from '@root/bench.function';
+import { reader } from '@root/reader.function';
+import { year, day } from '.';
 
 export interface Result {
 	tick: number;
@@ -70,54 +71,49 @@ export class Worker {
 	};
 }
 
-const reader = (input: 'input' | 'example' = 'input') =>
-	new Promise<Graph>(res => {
-		let graph: Graph = { nodes: [], vertices: [] };
+const interpret = (input: string): Graph => {
+	let graph: Graph = { nodes: [], vertices: [] };
 
-		rl.createInterface({
-			input: createReadStream(`src/2018/day07/${input}.txt`)
-		})
-			.on('line', line => {
-				let splitLine: Array<string> = line.split(/ /);
-				let from: Node = graph.nodes.find(node => node.node === splitLine[1]);
-				let to: Node = graph.nodes.find(node => node.node === splitLine[7]);
-				if (!from) {
-					from = new Node(splitLine[1]);
-					graph.nodes.push(from);
-				}
-				if (!to) {
-					to = new Node(splitLine[7]);
-					graph.nodes.push(to);
-				}
-				graph.vertices.push(new Vertice(from, to));
-			})
-			.on('close', () => {
-				graph.nodes = graph.nodes.sort((a, b) => {
-					if (a.node === b.node) {
-						return 0;
-					} else {
-						return a.node > b.node ? 1 : -1;
-					}
-				});
-				graph.vertices = graph.vertices.sort((a, b) => {
-					if (a.from === b.from) {
-						if (a.to === b.to) {
-							return 0;
-						} else {
-							return a.to > b.to ? 1 : -1;
-						}
-					} else {
-						return a.from > b.from ? 1 : -1;
-					}
-				});
+	for (const line of input.split(/\r?\n/)) {
+		let splitLine: Array<string> = line.split(/ /);
+		let from: Node = graph.nodes.find(node => node.node === splitLine[1]);
+		let to: Node = graph.nodes.find(node => node.node === splitLine[7]);
+		if (!from) {
+			from = new Node(splitLine[1]);
+			graph.nodes.push(from);
+		}
+		if (!to) {
+			to = new Node(splitLine[7]);
+			graph.nodes.push(to);
+		}
+		graph.vertices.push(new Vertice(from, to));
+	}
 
-				res(graph);
-			});
+	graph.nodes = graph.nodes.sort((a, b) => {
+		if (a.node === b.node) {
+			return 0;
+		} else {
+			return a.node > b.node ? 1 : -1;
+		}
+	});
+	graph.vertices = graph.vertices.sort((a, b) => {
+		if (a.from === b.from) {
+			if (a.to === b.to) {
+				return 0;
+			} else {
+				return a.to > b.to ? 1 : -1;
+			}
+		} else {
+			return a.from > b.from ? 1 : -1;
+		}
 	});
 
-export const runner = async (file: 'input' | 'example' = 'input'): Promise<number> =>
+	return graph;
+};
+
+export const runner = async (input: string): Promise<number> =>
 	new Promise<number>(async res => {
-		const graph: Graph = await reader(file);
+		const graph: Graph = await interpret(input);
 
 		const finished$ = new Subject<number>(); // The cue subject when the async job is done.
 		const done$ = new ReplaySubject<Node>();
@@ -156,7 +152,8 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<numbe
 				)
 				.subscribe(nodes => res(tick));
 		});
-		//let header = '|Tick |';
+		// let header = '|Tick |';
+		let file = 'input';
 		range(1, file === 'input' ? 5 : 2).forEach(num => {
 			// header += ` W ${num}  |`;
 			workers.push(new Worker(num).start(tick$, graph, file, done$, finished$));
@@ -167,9 +164,5 @@ export const runner = async (file: 'input' | 'example' = 'input'): Promise<numbe
 	});
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`Result: ${await runner()}`);
-		console.timeEnd();
-	})(); // 1115 ~1800ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 1115 ~1800ms
 }
