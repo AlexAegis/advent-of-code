@@ -57,5 +57,5 @@ export const runner = async (input: string): Promise<string> => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~9ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~1ms
 }
