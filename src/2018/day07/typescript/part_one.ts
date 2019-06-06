@@ -1,6 +1,5 @@
 import { year, day } from '.';
-import { bench } from '@root/bench.function';
-import { reader } from '@root/reader.function';
+import { bench, reader, split } from '@root';
 
 interface Graph {
 	nodes: Array<string>;
@@ -10,7 +9,7 @@ interface Graph {
 const interpret = async (input: string) => {
 	let graph: Graph = { nodes: [], vertices: [] };
 
-	for (const line of input.split(/\r?\n/)) {
+	for (const line of split(input)) {
 		let splitLine: Array<string> = line.split(/ /);
 		if (!graph.nodes.find(node => node === splitLine[1])) {
 			graph.nodes.push(splitLine[1]);
@@ -23,7 +22,7 @@ const interpret = async (input: string) => {
 	return graph;
 };
 
-export const runner = async (input: string) => {
+export const runner = async (input: string): Promise<string> => {
 	const graph: Graph = await interpret(input);
 	let unprocessedNodes = graph.nodes.sort((a, b) => {
 		if (a === b) {

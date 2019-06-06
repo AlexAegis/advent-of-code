@@ -1,16 +1,15 @@
 import { Coord } from './model/coord.class';
 import { interpret } from './interpret.function';
-import { bench } from '@root/bench.function';
-import { reader } from '@root/reader.function';
-import { year, day } from '.';
+import { bench, reader } from '@root';
+import { year, day, Args } from '.';
 
 /**
  *
  * @param input in this task the input is slightly modified. There were extra data in the
  * description of the task so I added that as the first line of the input.
  */
-export const runner = async (input: string): Promise<number> => {
-	const { points, boundary } = await interpret(input);
+export const runner = async (input: string, args: Args): Promise<number> => {
+	const points = await interpret(input);
 	let boundaryTop: Coord;
 	let boundaryRight: Coord;
 	let boundaryBottom: Coord;
@@ -36,7 +35,7 @@ export const runner = async (input: string): Promise<number> => {
 	let area = 0;
 	for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
 		for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
-			if (points.map(a => a.manhattan(x, y)).reduce((acc, next) => (acc += next)) < boundary) {
+			if (points.map(a => a.manhattan(x, y)).reduce((acc, next) => (acc += next)) < args.limit) {
 				area++;
 			}
 		}

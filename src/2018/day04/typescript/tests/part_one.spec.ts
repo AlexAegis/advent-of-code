@@ -1,14 +1,14 @@
 import { expect } from 'chai';
-import { reader } from '@root/reader.function';
+import { reader } from '@root';
 import { runner } from '../part_one';
-import { year, day } from '..';
+import { year, day, results } from '..';
 
 describe(`${year} - Day ${day} - Part One`, () => {
-	it('Should be 106710 for the input:', async () => {
-		expect(await runner(await reader(year, day)())).to.equal(106710);
+	it(`should resolve to ${results.one.input} when using the input`, async () => {
+		expect(await runner((await reader(year, day)()).input)).to.equal(results.one.input);
 	});
 
-	it('Should be 240 for the example:', async () => {
-		expect(await runner(await reader(year, day, 'example.txt')())).to.equal(240);
+	it(`should resolve to ${results.one.example} when using the example`, async () => {
+		expect(await runner((await reader(year, day, 'example.txt')()).input)).to.equal(results.one.example);
 	});
 });

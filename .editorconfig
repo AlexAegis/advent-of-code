@@ -12,6 +12,9 @@ trim_trailing_whitespace = true
 max_line_length = off
 trim_trailing_whitespace = false
 
+[*.txt]
+insert_final_newline = false
+
 [*.yml]
 indent_style = space
 indent_size = 4

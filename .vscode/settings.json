@@ -29,6 +29,7 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true
 	},
+	"editor.mouseWheelZoom": true,
 	"files.associations": { ".mocharc": "json" },
 	"theme-by-language.themes": {
 		"*": "Material Theme Darker High Contrast",

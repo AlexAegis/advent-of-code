@@ -1,5 +1,4 @@
-import { bench } from '@root/bench.function';
-import { reader } from '@root/reader.function';
+import { bench, reader } from '@root';
 import { year, day } from '.';
 
 export const runner = (input: string): number => {
