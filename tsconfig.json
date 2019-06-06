@@ -9,6 +9,7 @@
 		"sourceMap": true,
 		"baseUrl": "./",
 		"paths": {
+			"@root": ["src"],
 			"@root/*": ["src/*"],
 			"@2015/*": ["src/2015/*"],
 			"@2018/*": ["src/2018/*"]

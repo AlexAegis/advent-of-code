@@ -1,11 +1,10 @@
 import { Coord } from './model/coord.class';
 import { interpret } from './interpret.function';
-import { bench } from '@root/bench.function';
+import { bench, reader } from '@root';
 import { year, day } from '.';
-import { reader } from '@root/reader.function';
 
 export const runner = async (input: string): Promise<number> => {
-	const { points } = await interpret(input);
+	const points = await interpret(input);
 	let boundaryTop: Coord;
 	let boundaryRight: Coord;
 	let boundaryBottom: Coord;

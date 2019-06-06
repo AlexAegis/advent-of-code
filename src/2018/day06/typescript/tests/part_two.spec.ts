@@ -1,14 +1,16 @@
 import { runner } from '../part_two';
 import { expect } from 'chai';
-import { year, day } from '..';
-import { reader } from '@root/reader.function';
+import { reader } from '@root';
+import { year, day, results, Args } from '..';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
-	it('should be that the input resolves to 42998', async () => {
-		expect(await runner(await reader(year, day)())).to.equal(42998);
+	it(`should resolve to ${results.two.input} when using the input`, async () => {
+		const { input, args } = await reader<Args>(year, day)();
+		expect(await runner(input, args)).to.equal(results.two.input);
 	});
 
-	it('should be that the example resolves to 16', async () => {
-		expect(await runner(await reader(year, day, 'example.txt')())).to.equal(16);
+	it(`should resolve to ${results.two.example} when using the example`, async () => {
+		const { input, args } = await reader<Args>(year, day, 'example.txt')();
+		expect(await runner(input, args)).to.equal(results.two.example);
 	});
 });
