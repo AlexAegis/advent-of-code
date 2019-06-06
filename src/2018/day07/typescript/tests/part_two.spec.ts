@@ -1,8 +1,8 @@
 import { runner } from '../part_two';
 import { Node } from '../model/node.class';
 import { expect } from 'chai';
-import { year, day } from '..';
-import { reader } from '@root/reader.function';
+import { reader } from '@root';
+import { year, day, results, Args } from '..';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
 	const node_a: Node = new Node('a');
@@ -20,8 +20,11 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	let resultMain: number;
 	before(async function() {
 		this.timeout(5000);
-		resultExample = await runner(await reader(year, day, 'example.txt')());
-		resultMain = await runner(await reader(year, day)());
+		const inputExample = await reader<Args>(year, day, 'example.txt')();
+		const inputMain = await reader<Args>(year, day)();
+
+		resultExample = await runner(inputExample.input, inputExample.args);
+		resultMain = await runner(inputMain.input, inputMain.args);
 	});
 	it('Node cost is equal regardless of casing', () => {
 		expect(node_a.cost()).to.equal(node_A.cost());
@@ -47,11 +50,13 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 		expect(node_z.cost(true)).to.equal(z_cost_long);
 	});
 
-	it(`Example should finish in the given ticks`, async () => {
-		expect(resultExample).to.equal(15);
+	it(`should resolve to ${results.two.input} when using the input`, async () => {
+		const { input, args } = await reader<Args>(year, day)();
+		expect(await runner(input, args)).to.equal(results.two.input);
 	});
 
-	it(`Main should finish in given ticks`, async () => {
-		expect(resultMain).to.equal(1115);
+	it(`should resolve to ${results.two.example} when using the example`, async () => {
+		const { input, args } = await reader<Args>(year, day, 'example.txt')();
+		expect(await runner(input, args)).to.equal(results.two.example);
 	});
 });

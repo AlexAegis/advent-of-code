@@ -1,6 +1,5 @@
 import { interpret } from './interpret.function';
-import { reader } from '@root/reader.function';
-import { bench } from '@root/bench.function';
+import { bench, reader } from '@root';
 import { year, day } from '.';
 
 export const runner = async (input: string) => {
