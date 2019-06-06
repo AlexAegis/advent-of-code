@@ -1,7 +1,8 @@
-import { runner } from './part_one';
+import { runner } from '../part_one';
 import { expect } from 'chai';
+import { year, day, results } from '..';
 
-describe('Day 14, Part One', () => {
+describe(`${year} - Day ${day} - Part One`, () => {
 	it('Should be 5158916779 after 9 recipe:', async () => {
 		expect((await runner(9)).toString()).to.equal('5158916779');
 	});
@@ -17,7 +18,7 @@ describe('Day 14, Part One', () => {
 		expect((await runner(2018)).toString()).to.equal('5941429882');
 	});
 
-	it('Should be 1115317115 after 327901 recipe:', async () => {
-		expect((await runner()).toString()).to.equal('1115317115');
+	it(`should resolve to ${results.one.input} when using the input`, async () => {
+		expect(runner(327901)).to.equal(results.one.input);
 	});
 });
