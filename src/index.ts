@@ -3,6 +3,8 @@ import { performance, PerformanceObserver } from 'perf_hooks';
 import { promises } from 'fs';
 import { tap } from 'rxjs/operators';
 
+export type Awaitable<T> = Promise<T> | T;
+
 /**
  * Some tasks define different handling for their examples than the real input.
  * These differencies can be stored alongside the input file as a `.args.json` file
@@ -10,7 +12,7 @@ import { tap } from 'rxjs/operators';
  */
 export interface Input<T, A = undefined> {
 	input: T;
-	args: A;
+	args?: A;
 }
 
 /**
@@ -78,8 +80,8 @@ export const reader = <A>(year: number, day: number, file: string = 'input.txt')
  * @param runner with the result of `reader`, produces an output
  */
 export const bench = async <T, R = string, A = undefined>(
-	reader: () => Promise<Input<T, A>>,
-	runner: (input: T, args: A) => Promise<R> | R
+	reader: () => Awaitable<Input<T, A>>,
+	runner: (input: T, args: A) => Awaitable<R>
 ) => {
 	performance.mark('start');
 	const obs = new PerformanceObserver(list => {
