@@ -110,5 +110,5 @@ export const runner = async (input: string, args: Args = { workers: 2 }): Promis
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 1115 ~28.5ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 1115 ~24ms
 }
