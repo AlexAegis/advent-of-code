@@ -28,7 +28,6 @@
 	"license": "mit",
 	"private": true,
 	"dependencies": {
-		"@alexaegis/avl": "^1.5.0",
 		"core-js": "^3.1.3",
 		"rxjs": "^6.5.2",
 		"workerpool": "^3.1.2"
@@ -36,7 +35,7 @@
 	"devDependencies": {
 		"@types/chai": "^4.1.7",
 		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.0.4",
+		"@types/node": "^12.0.7",
 		"@types/workerpool": "^2.3.1",
 		"codecov": "^3.5.0",
 		"chai": "^4.2.0",
