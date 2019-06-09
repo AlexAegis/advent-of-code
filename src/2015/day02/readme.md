@@ -1,6 +1,6 @@
 # [Day 2: I Was Told There Would Be No Math](https://adventofcode.com/2015/day/2)
 
-## [Part One](https://adventofcode.com/2015/day/2#part1) - [TypeScript](./typescript/part_one.ts)
+## [Part One](https://adventofcode.com/2015/day/2#part1) - [TypeScript](./typescript/part_one.ts) - [Rust](./rust/src/lib.rs)
 
 The elves are running low on wrapping paper, and so they need to submit an order for more. They have a list of the dimensions (length `l`, width `w`, and height `h`) of each present, and only want to order exactly as much as they need.
 
@@ -17,7 +17,7 @@ Your puzzle answer was `1606483`.
 
 The first half of this puzzle is complete! It provides one gold star: \*
 
-## [Part Two](https://adventofcode.com/2015/day/2#part2) - [TypeScript](./typescript/part_two.ts)
+## [Part Two](https://adventofcode.com/2015/day/2#part2) - [TypeScript](./typescript/part_two.ts) - [Rust](./rust/src/lib.rs)
 
 The elves are also running low on ribbon. Ribbon is all the same width, so they only have to worry about the length they need to order, which they would again like to be exact.
 
