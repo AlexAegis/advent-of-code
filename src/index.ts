@@ -75,7 +75,7 @@ export const split = (input: string) => input.split(/\r?\n/).filter(line => !!li
  * @param day of the task
  * @param file in the resources folder of the task
  */
-export const reader = <A>(year: number, day: number, file: string = 'input.txt') => async (): Promise<
+export const read = <A>(year: number, day: number, file: string = 'input.txt') => async (): Promise<
 	Input<string, A>
 > => {
 	const baseUrl = `src/${year}/day${day < 10 ? '0' + day : day}/resources/`;

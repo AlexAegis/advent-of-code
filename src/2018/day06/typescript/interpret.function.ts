@@ -1,8 +1,8 @@
-import { Coord } from './model/coord.class';
 import { split } from '@root';
+import { Coord } from './model/coord.class';
 
-export const interpret = (input: string): Array<Coord> => {
-	const points: Array<Coord> = [];
+export const interpret = (input: string): Coord[] => {
+	const points: Coord[] = [];
 	for (const line of split(input)) {
 		if (line) {
 			const lineSplit = line.split(', ');

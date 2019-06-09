@@ -1,10 +1,10 @@
-import { reader } from './reader.function';
 import { Cave } from './cave.class';
+import { reader } from './reader.function';
 
 export const runner = async (input: string = 'input'): Promise<any> =>
 	new Promise<any>(async res => {
 		const cave: Cave = await reader(input);
-		for (let unit of cave.units()) {
+		for (const unit of cave.units()) {
 			console.log(unit);
 		}
 		res(cave);
@@ -17,13 +17,14 @@ if (require.main == module) {
 		console.timeEnd();
 	})(); //
 }*/
-
+/*
 console.log(typeof {});
 
-let n = 10;
+const n = 10;
 
-let asd = () => {
+const asd = () => {
 	console.log(this.n);
 };
-let a = { n: 10 };
+const a = { n: 10 };
 asd();
+*/

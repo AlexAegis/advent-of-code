@@ -14,6 +14,10 @@
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
 	"scripts": {
+		"lint": "tslint --project .",
+		"lint:fix": "tslint --project . --fix",
+		"format": "npx prettier --write \"src/**/*\"",
+		"prettier": "npm run format",
 		"test": "mocha --config ./.mocharc",
 		"test:coverage": "nyc npm test",
 		"codecov": "codecov"
@@ -37,14 +41,16 @@
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.0.7",
 		"@types/workerpool": "^2.3.1",
-		"codecov": "^3.5.0",
 		"chai": "^4.2.0",
+		"codecov": "^3.5.0",
 		"mocha": "^6.1.4",
 		"nyc": "^14.1.1",
+		"prettier": "^1.18.2",
 		"source-map-support": "^0.5.12",
 		"ts-node": "8.2.0",
 		"tsconfig-paths": "^3.8.0",
 		"tslint": "~5.17.0",
+		"tslint-plugin-prettier": "^2.0.1",
 		"typescript": "3.5.1"
 	},
 	"nyc": {

@@ -1,7 +1,7 @@
-import { Coord } from './model/coord.class';
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { interpret } from './interpret.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
+import { Coord } from './model/coord.class';
 
 export const runner = (input: string): number | undefined => {
 	const points = interpret(input);
@@ -28,13 +28,13 @@ export const runner = (input: string): number | undefined => {
 	if (boundaryTop && boundaryRight && boundaryBottom && boundaryLeft) {
 		const boundaryStart: Coord = new Coord(boundaryLeft.x, boundaryTop.y);
 		const boundaryEnd: Coord = new Coord(boundaryRight.x, boundaryBottom.y + 1);
-		const bucket: Map<string, Array<Coord>> = new Map();
-		for (let point of points) {
+		const bucket: Map<string, Coord[]> = new Map();
+		for (const point of points) {
 			bucket.set(point.toString(), []);
 		}
 		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
 			for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
-				let ordered: Array<Coord> = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
+				const ordered: Coord[] = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
 				if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
 					const b = bucket.get(ordered[0].toString());
 					if (b) {
@@ -43,7 +43,7 @@ export const runner = (input: string): number | undefined => {
 				}
 			}
 		}
-		const bound: Array<number> = [];
+		const bound: number[] = [];
 		bucket.forEach(territory => {
 			if (
 				!territory.some(
@@ -58,9 +58,11 @@ export const runner = (input: string): number | undefined => {
 			}
 		});
 		return bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc));
-	} else return undefined;
+	} else {
+		return undefined;
+	}
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 3006 ~230ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 3006 ~230ms
 }

@@ -1,4 +1,4 @@
-import { Vector } from './model/vector.class';
 import { split } from '@root';
+import { Vector } from './model/vector.class';
 
-export const interpreter = (input: string): Array<Vector> => split(input).map(line => Vector.parse(line));
+export const interpreter = (input: string): Vector[] => split(input).map(line => Vector.parse(line));

@@ -1,13 +1,13 @@
-import { Coord } from './model/coord.class';
-import { range } from './functions/range.generator';
 import { bench } from '@root';
 import { inputs } from '.';
+import { range } from './functions/range.generator';
+import { Coord } from './model/coord.class';
 
 export const runner = (input: number): string => {
-	let map: Map<string, number> = new Map();
+	const map: Map<string, number> = new Map();
 
-	for (let coord of range({ from: 1, to: 300 }, { from: 1, to: 300 })) {
-		let rackID = coord.x + 10;
+	for (const coord of range({ from: 1, to: 300 }, { from: 1, to: 300 })) {
+		const rackID = coord.x + 10;
 		let powerLevel = rackID * coord.y;
 		powerLevel += input;
 		powerLevel *= rackID;
@@ -16,9 +16,9 @@ export const runner = (input: number): string => {
 		map.set(coord.toString(), powerLevel);
 	}
 
-	let max = [...range({ from: 1, to: 298 }, { from: 1, to: 298 })].reduce(
+	const max = [...range({ from: 1, to: 298 }, { from: 1, to: 298 })].reduce(
 		(acc, next) => {
-			let sum = [...next].map(c => map.get(c.toString()) || 0).reduce((acc, next) => (acc += next), 0);
+			const sum = [...next].map(c => map.get(c.toString()) || 0).reduce((a, n) => (a += n), 0);
 			if (sum > acc.sum) {
 				acc.coord = next;
 				acc.sum = sum;

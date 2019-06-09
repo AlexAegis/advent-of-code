@@ -1,12 +1,12 @@
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { interpret } from './interpret.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
 
 export const runner = (input: string): number | undefined => {
 	const guards: Map<number, Map<number, number>> = new Map();
 	let currentGuard = -1;
 	let asleepAt: number | undefined;
-	let events = interpret(input);
+	const events = interpret(input);
 	for (const event of events) {
 		if (event.guard) {
 			currentGuard = event.guard;
@@ -28,15 +28,16 @@ export const runner = (input: string): number | undefined => {
 		}
 	}
 
-	let mostSlept: number = -1;
-	let mostSleptGuard: number = -1;
+	let mostSlept = -1;
+	let mostSleptGuard = -1;
 	[...guards].forEach(([guard, sleepMap]) => {
 		if (sleepMap.size > 0) {
-			const totalSleep: [number, number] = [...sleepMap].reduce(
-				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
-					return [prevMinute < currMin ? currMin : prevMinute, prevSleep + currSleep];
-				}
-			);
+			const totalSleep: [number, number] = [...sleepMap].reduce(([prevMinute, prevSleep], [currMin, currSleep]): [
+				number,
+				number
+			] => {
+				return [prevMinute < currMin ? currMin : prevMinute, prevSleep + currSleep];
+			});
 			if (totalSleep[1] > mostSlept) {
 				mostSlept = totalSleep[1];
 				mostSleptGuard = guard;
@@ -56,9 +57,11 @@ export const runner = (input: string): number | undefined => {
 
 		console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
 		return mostSleptGuard * mostSleptMinute[0];
-	} else return undefined;
+	} else {
+		return undefined;
+	}
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 106710 ~6ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 106710 ~6ms
 }

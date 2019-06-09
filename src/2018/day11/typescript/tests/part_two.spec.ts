@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { year, day, results } from '..';
+import { day, results, year } from '..';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
 	it(`should resolve to ${results.two.input} when using the input`, async () => {

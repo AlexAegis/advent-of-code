@@ -1,12 +1,26 @@
-import { Coord } from './model/coord.class';
-import { DirectionMarker } from './model/direction-marker.type';
-import { Rail } from './rail.type';
+import { Coord, DirectionMarker, Rail } from './model';
 
 export class Direction {
-	value: Coord;
-
 	constructor(public marker: DirectionMarker) {
 		this.value = Direction.markerAssociations[this.marker];
+	}
+
+	static directions: string[] = ['^', 'v', '>', '<'];
+
+	static markerAssociations: { [key: string]: Coord } = {
+		'^': new Coord(0, 1),
+		'>': new Coord(1, 0),
+		v: new Coord(0, -1),
+		'<': new Coord(-1, 0)
+	};
+	value: Coord;
+
+	static isHorizonal(marker: DirectionMarker): boolean {
+		return marker === '>' || marker === '<';
+	}
+
+	static isVertical(marker: DirectionMarker): boolean {
+		return marker === '^' || marker === 'v';
 	}
 
 	calculateTurn(x: -1 | 1 = 1, y: -1 | 1 = 1) {
@@ -34,23 +48,6 @@ export class Direction {
 	turnRight() {
 		this.calculateTurn(undefined, -1);
 	}
-
-	static directions: Array<string> = ['^', 'v', '>', '<'];
-
-	static isHorizonal(marker: DirectionMarker): boolean {
-		return marker === '>' || marker === '<';
-	}
-
-	static isVertical(marker: DirectionMarker): boolean {
-		return marker === '^' || marker === 'v';
-	}
-
-	static markerAssociations: { [key: string]: Coord } = {
-		'^': new Coord(0, 1),
-		'>': new Coord(1, 0),
-		v: new Coord(0, -1),
-		'<': new Coord(-1, 0)
-	};
 
 	turn(next: Rail) {
 		if (Direction.isVertical(this.marker)) {

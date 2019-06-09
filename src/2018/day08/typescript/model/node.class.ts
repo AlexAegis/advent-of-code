@@ -1,16 +1,8 @@
 export class Node {
-	identifier: string;
-	level: number;
-	data: Array<number> | undefined;
-	children: Array<Node> = [];
-	processedChildren: number = 0;
-	totalNumberOfChildren: number | undefined;
-	totalNumberOfData: number | undefined;
-
-	static currCharIndex: number = 96;
-
-	constructor(input: Array<number>, private parent?: Node) {
-		if (this.parent) this.parent.children.push(this);
+	public constructor(input: number[], private parent?: Node) {
+		if (this.parent) {
+			this.parent.children.push(this);
+		}
 		this.identifier = String.fromCharCode(++Node.currCharIndex);
 		this.level = this.parent ? this.parent.level + 1 : 0;
 		this.totalNumberOfChildren = input.shift();
@@ -18,33 +10,45 @@ export class Node {
 		this.process(input);
 	}
 
-	process = (input: Array<number>) => {
+	public static currCharIndex = 96;
+	public identifier: string;
+	public level: number;
+	public data: number[] | undefined;
+	public children: Node[] = [];
+	public processedChildren = 0;
+	public totalNumberOfChildren: number | undefined;
+	public totalNumberOfData: number | undefined;
+
+	public process(input: number[]): Node | undefined {
 		if (this.totalNumberOfChildren === this.processedChildren) {
 			this.data = input.splice(0, this.totalNumberOfData);
 			if (this.parent) {
 				this.parent.processedChildren++;
 				this.parent.process(input);
 			}
-		} else new Node(input, this);
-	};
+			return undefined;
+		} else return new Node(input, this);
+	}
 
 	// part one
-	sum = (): number =>
-		this.children
+	public sum(): number {
+		return this.children
 			.map(child => child.sum())
 			.concat(this.data ? this.data : [])
 			.reduce((acc, next) => acc + next);
+	}
 
 	// part two
-	value = (): number =>
-		this.data && this.children.length > 0
+	public value(): number {
+		return this.data && this.children.length > 0
 			? this.data
 					.filter(index => index > 0 && index < this.children.length + 1)
 					.map(index => this.children[--index].value())
 					.reduce((acc, next) => acc + next, 0)
 			: this.sum();
+	}
 
-	toString(): string {
+	public toString(): string {
 		return `[${this.data} - ${this.children.map(child => child.toString()).reduce((acc, next) => acc + next, '')}]`;
 	}
 }

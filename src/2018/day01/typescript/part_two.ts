@@ -1,16 +1,16 @@
-import { bench, reader } from '@root';
-import { year, day } from '.';
+import { bench, read } from '@root';
+import { day, year } from '.';
 
 export const runner = (input: string): number => {
-	let frequencyHistory = new Set();
-	let cache: Array<number> = input.split(/\r?\n/).map(s => Number(s));
-	let sumTotal: number = 0;
-	let firstToBeTwice: number | undefined = undefined;
+	const frequencyHistory = new Set();
+	const cache: number[] = input.split(/\r?\n/).map(s => Number(s));
+	let sumTotal = 0;
+	let firstToBeTwice: number | undefined;
 
 	const calculate = (line: number) => {
 		sumTotal += line;
 		if (!firstToBeTwice) {
-			let prevLength = frequencyHistory.size;
+			const prevLength = frequencyHistory.size;
 			frequencyHistory.add(sumTotal);
 			if (frequencyHistory.size === prevLength) {
 				firstToBeTwice = sumTotal;
@@ -26,5 +26,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 55250 ~10ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 55250 ~10ms
 }

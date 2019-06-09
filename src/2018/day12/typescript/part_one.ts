@@ -1,6 +1,6 @@
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { interpreter } from './interpreter.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
 
 export const runner = (input: string): number | undefined => {
 	const cave = interpreter(input);
@@ -10,7 +10,7 @@ export const runner = (input: string): number | undefined => {
 		for (let i = 0; i < 20; i++) {
 			let nextGen = '..';
 			for (let p = 2; p < cave.row.length - 2; p++) {
-				let char = cave.row.charAt(p);
+				const char = cave.row.charAt(p);
 				if (cave.rules.indexOf(cave.row.substr(p - 2, 5)) >= 0) {
 					nextGen += char === '.' ? '#' : '.';
 				} else {
@@ -22,9 +22,11 @@ export const runner = (input: string): number | undefined => {
 			// console.log(`i: ${i + 1} cave: ${cave.toString()}`);
 		}
 		return cave.score();
-	} else return undefined;
+	} else {
+		return undefined;
+	}
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 3230 ~0.8ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 3230 ~0.8ms
 }

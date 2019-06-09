@@ -1,6 +1,6 @@
 import { Coord } from '../model/coord.class';
 
-export const ripple = (radius: number, xoffset: number = 0, yoffset: number = 0): Array<Coord> => {
+export const ripple = (radius: number, xoffset: number = 0, yoffset: number = 0): Coord[] => {
 	const result = [];
 	if (radius === 0) {
 		result.push(new Coord(xoffset, yoffset));

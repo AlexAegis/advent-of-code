@@ -1,16 +1,16 @@
-import { year, day } from '.';
-import { bench, reader, split } from '@root';
+import { bench, read, split } from '@root';
+import { day, year } from '.';
 
 interface Graph {
-	nodes: Array<string>;
+	nodes: string[];
 	vertices: Array<{ from: string; to: string }>;
 }
 
 const interpret = async (input: string) => {
-	let graph: Graph = { nodes: [], vertices: [] };
+	const graph: Graph = { nodes: [], vertices: [] };
 
 	for (const line of split(input)) {
-		let splitLine: Array<string> = line.split(/ /);
+		const splitLine: string[] = line.split(/ /);
 		if (!graph.nodes.find(node => node === splitLine[1])) {
 			graph.nodes.push(splitLine[1]);
 		}
@@ -24,7 +24,7 @@ const interpret = async (input: string) => {
 
 export const runner = async (input: string): Promise<string> => {
 	const graph: Graph = await interpret(input);
-	let unprocessedNodes = graph.nodes.sort((a, b) => {
+	const unprocessedNodes = graph.nodes.sort((a, b) => {
 		if (a === b) {
 			return 0;
 		} else {
@@ -42,9 +42,9 @@ export const runner = async (input: string): Promise<string> => {
 			return a.from > b.from ? 1 : -1;
 		}
 	});
-	const result: Array<string> = [];
+	const result: string[] = [];
 	while (unprocessedNodes.length !== 0) {
-		for (let node of unprocessedNodes) {
+		for (const node of unprocessedNodes) {
 			if (unprocessedVertices.filter(vertice => vertice.to === node).length === 0) {
 				unprocessedNodes.splice(unprocessedNodes.indexOf(node), 1);
 				unprocessedVertices = unprocessedVertices.filter(vertice => vertice.from !== node);
@@ -57,5 +57,5 @@ export const runner = async (input: string): Promise<string> => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~1ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~1ms
 }
