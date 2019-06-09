@@ -31,6 +31,7 @@ matrix:
               - chmod +x ./cc-test-reporter
               - ./cc-test-reporter before-build
           script:
+              - npm run lint
               - npm run test:coverage
           after_script:
               - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

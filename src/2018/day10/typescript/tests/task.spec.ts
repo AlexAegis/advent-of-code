@@ -1,7 +1,7 @@
-import { runner } from '../task';
+import { read } from '@root';
 import { expect } from 'chai';
-import { reader } from '@root';
-import { year, day, results } from '..';
+import { day, results, year } from '..';
+import { runner } from '../task';
 
 describe(`${year} - Day ${day} - Part One and Two`, () => {
 	it(`should resolve to ${results.one.example} when using the input`, async () => {
@@ -10,7 +10,7 @@ describe(`${year} - Day ${day} - Part One and Two`, () => {
 	});
 
 	it(`should resolve to ${results.two.example} when using the input`, async () => {
-		expect(await runner((await reader(year, day, 'example.txt')()).input)).to.equal(results.two.example);
+		expect(await runner((await read(year, day, 'example.txt')()).input)).to.equal(results.two.example);
 	});
 
 	it(`should resolve to ${results.one.input} when using the input`, async () => {
@@ -19,6 +19,6 @@ describe(`${year} - Day ${day} - Part One and Two`, () => {
 	});
 
 	it(`should resolve to ${results.two.input} when using the input`, async () => {
-		expect(await runner((await reader(year, day)()).input)).to.equal(results.two.input);
+		expect(await runner((await read(year, day)()).input)).to.equal(results.two.input);
 	});
 });

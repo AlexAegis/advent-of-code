@@ -1,18 +1,18 @@
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { interpreter } from './interpreter.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
 
 export const runner = (input: string): number | undefined => {
 	const cave = interpreter(input);
 	if (cave) {
 		cave.normalize();
 		// console.log(`i: 0 cave: ${cave.toString()}`);
-		let counts = [];
-		let scores: Array<number> = [];
+		const counts = [];
+		const scores: number[] = [];
 		for (let i = 0; i < 200; i++) {
 			let nextGen = '..';
 			for (let p = 2; p < cave.row.length - 2; p++) {
-				let char = cave.row.charAt(p);
+				const char = cave.row.charAt(p);
 				if (cave.rules.indexOf(cave.row.substr(p - 2, 5)) >= 0) {
 					nextGen += char === '.' ? '#' : '.';
 				} else {
@@ -37,9 +37,11 @@ export const runner = (input: string): number | undefined => {
 			}
 		}
 		return scores.pop();
-	} else return undefined;
+	} else {
+		return undefined;
+	}
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 4400000000304 ~11ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 4400000000304 ~11ms
 }

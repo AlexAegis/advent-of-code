@@ -1,8 +1,8 @@
-import { Vertice } from './vertice.class';
 import { Element } from '../element.class';
+import { Vertice } from './vertice.interface';
 
 export abstract class Block extends Element {
-	protected _vertices: Array<Vertice> = [];
+	protected _vertices: Vertice[] = [];
 	constructor(tile: string, protected _weight: number = 0) {
 		super(tile);
 	}

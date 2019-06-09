@@ -1,18 +1,18 @@
-import { runner } from '../part_one';
+import { read } from '@root';
 import { expect } from 'chai';
-import { reader } from '@root';
-import { year, day, results } from '..';
+import { day, results, year } from '..';
+import { runner } from '../part_one';
 
 describe(`${year} - Day ${day} - Part One`, () => {
 	it(`should resolve to ${results.one.input} when using the input`, async () => {
-		expect(await runner((await reader(year, day)()).input)).to.equal(results.one.input);
+		expect(await runner((await read(year, day)()).input)).to.equal(results.one.input);
 	});
 
 	it(`should resolve to ${results.one.example1} when using the example`, async () => {
-		expect(await runner((await reader(year, day, 'example.1.txt')()).input)).to.equal(results.one.example1);
+		expect(await runner((await read(year, day, 'example.1.txt')()).input)).to.equal(results.one.example1);
 	});
 
 	it(`should resolve to ${results.one.example2} when using the example`, async () => {
-		expect(await runner((await reader(year, day, 'example.2.txt')()).input)).to.equal(results.one.example2);
+		expect(await runner((await read(year, day, 'example.2.txt')()).input)).to.equal(results.one.example2);
 	});
 });

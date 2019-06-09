@@ -1,8 +1,8 @@
-import { Mine } from './model/mine.class';
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { cartSorter } from './functions/cart-sorter.function';
 import { interpreter } from './interpreter.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
+import { Mine } from './model/mine.class';
 
 export const runner = (input: string): string | undefined => {
 	const mine: Mine = interpreter(input);
@@ -16,5 +16,5 @@ export const runner = (input: string): string | undefined => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 36,123 ~56ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 36,123 ~51ms
 }

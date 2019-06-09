@@ -24,13 +24,6 @@
  * THE SOFTWARE.
  */
 export class Deque<T> extends Array<T | undefined> {
-	static MAX_CAPACITY: number = (1 << 30) | 0;
-	static MIN_CAPACITY: number = 16;
-
-	_capacity: number;
-	_length: number;
-	_front: number;
-
 	constructor(capacity: number = Deque.MAX_CAPACITY, ...arr: T[]) {
 		super(...arr);
 		this._capacity = Deque.getCapacity(capacity);
@@ -43,6 +36,38 @@ export class Deque<T> extends Array<T | undefined> {
 			}
 			this._length = len;
 		}
+	}
+
+	get length(): number {
+		return this._length;
+	}
+	static MAX_CAPACITY: number = (1 << 30) | 0;
+	static MIN_CAPACITY = 16;
+
+	_capacity: number;
+	_length: number;
+	_front: number;
+
+	static arrayMove<T>(src: Deque<T>, srcIndex: number, dst: Deque<T>, dstIndex: number, len: number): void {
+		for (let j = 0; j < len; ++j) {
+			dst[j + dstIndex] = src[j + srcIndex];
+			src[j + srcIndex] = undefined;
+		}
+	}
+
+	static pow2AtLeast(n: number): number {
+		n = n >>> 0;
+		n = n - 1;
+		n = n | (n >> 1);
+		n = n | (n >> 2);
+		n = n | (n >> 4);
+		n = n | (n >> 8);
+		n = n | (n >> 16);
+		return n + 1;
+	}
+
+	static getCapacity(capacity: number): number {
+		return Deque.pow2AtLeast(Math.min(Math.max(Deque.MIN_CAPACITY, capacity), Deque.MAX_CAPACITY));
 	}
 
 	rotate(n: number): void {
@@ -69,18 +94,18 @@ export class Deque<T> extends Array<T | undefined> {
 		if (argsLength > 1) {
 			const capacity = this._capacity;
 			if (length + argsLength > capacity) {
-				for (var i = 0; i < argsLength; ++i) {
+				for (let x = 0; x < argsLength; ++x) {
 					this._checkCapacity(length + 1);
-					var j = (this._front + length) & (this._capacity - 1);
-					this[j] = arguments[i];
+					const j = (this._front + length) & (this._capacity - 1);
+					this[j] = arguments[x];
 					length++;
 					this._length = length;
 				}
 				return length;
 			} else {
-				var j = this._front;
-				for (var i = 0; i < argsLength; ++i) {
-					this[(j + length) & (capacity - 1)] = arguments[i];
+				let j = this._front;
+				for (let x = 0; x < argsLength; ++x) {
+					this[(j + length) & (capacity - 1)] = arguments[x];
 					j++;
 				}
 				this._length = length + argsLength;
@@ -88,10 +113,12 @@ export class Deque<T> extends Array<T | undefined> {
 			}
 		}
 
-		if (argsLength === 0) return length;
+		if (argsLength === 0) {
+			return length;
+		}
 
 		this._checkCapacity(length + 1);
-		var i = (this._front + length) & (this._capacity - 1);
+		const i = (this._front + length) & (this._capacity - 1);
 		this[i] = item;
 		this._length = length + 1;
 		return length + 1;
@@ -127,13 +154,12 @@ export class Deque<T> extends Array<T | undefined> {
 		const argsLength = arguments.length;
 
 		if (argsLength > 1) {
-			var capacity = this._capacity;
-			if (length + argsLength > capacity) {
-				for (var i = argsLength - 1; i >= 0; i--) {
+			const c = this._capacity;
+			if (length + argsLength > c) {
+				for (let x = argsLength - 1; x >= 0; x--) {
 					this._checkCapacity(length + 1);
-					var capacity = this._capacity;
-					var j = (((this._front - 1) & (capacity - 1)) ^ capacity) - capacity;
-					this[j] = arguments[i];
+					const j = (((this._front - 1) & (this._capacity - 1)) ^ this._capacity) - this._capacity;
+					this[j] = arguments[x];
 					length++;
 					this._length = length;
 					this._front = j;
@@ -141,9 +167,9 @@ export class Deque<T> extends Array<T | undefined> {
 				return length;
 			} else {
 				let front = this._front;
-				for (var i = argsLength - 1; i >= 0; i--) {
-					var j = (((front - 1) & (capacity - 1)) ^ capacity) - capacity;
-					this[j] = arguments[i];
+				for (let x = argsLength - 1; x >= 0; x--) {
+					const j = (((front - 1) & (c - 1)) ^ c) - c;
+					this[j] = arguments[x];
 					front = j;
 				}
 				this._front = front;
@@ -152,11 +178,13 @@ export class Deque<T> extends Array<T | undefined> {
 			}
 		}
 
-		if (argsLength === 0) return length;
+		if (argsLength === 0) {
+			return length;
+		}
 
 		this._checkCapacity(length + 1);
-		var capacity = this._capacity;
-		var i = (((this._front - 1) & (capacity - 1)) ^ capacity) - capacity;
+		const capacity = this._capacity;
+		const i = (((this._front - 1) & (capacity - 1)) ^ capacity) - capacity;
 		this[i] = item;
 		this._length = length + 1;
 		this._front = i;
@@ -213,10 +241,6 @@ export class Deque<T> extends Array<T | undefined> {
 		return this.toArray().toString();
 	}
 
-	get length(): number {
-		return this._length;
-	}
-
 	_checkCapacity(size: number): void {
 		if (this._capacity < size) {
 			this._resizeTo(Deque.getCapacity(this._capacity * 1.5 + 16));
@@ -232,27 +256,5 @@ export class Deque<T> extends Array<T | undefined> {
 			const moveItemsCount = (front + length) & (oldCapacity - 1);
 			Deque.arrayMove(this, 0, this, oldCapacity, moveItemsCount);
 		}
-	}
-
-	static arrayMove<T>(src: Deque<T>, srcIndex: number, dst: Deque<T>, dstIndex: number, len: number): void {
-		for (let j = 0; j < len; ++j) {
-			dst[j + dstIndex] = src[j + srcIndex];
-			src[j + srcIndex] = undefined;
-		}
-	}
-
-	static pow2AtLeast(n: number): number {
-		n = n >>> 0;
-		n = n - 1;
-		n = n | (n >> 1);
-		n = n | (n >> 2);
-		n = n | (n >> 4);
-		n = n | (n >> 8);
-		n = n | (n >> 16);
-		return n + 1;
-	}
-
-	static getCapacity(capacity: number): number {
-		return Deque.pow2AtLeast(Math.min(Math.max(Deque.MIN_CAPACITY, capacity), Deque.MAX_CAPACITY));
 	}
 }

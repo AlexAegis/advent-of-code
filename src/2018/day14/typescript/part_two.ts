@@ -7,10 +7,10 @@ function shift(window: string, last: number, length: number): string {
 }
 
 export const runner = (input: string): number => {
-	const recipes: Array<number> = [3, 7];
+	const recipes: number[] = [3, 7];
 	let a = 0;
 	let b = 1;
-	let window: string = '';
+	let window = '';
 	while (true) {
 		const next = recipes[a] + recipes[b];
 		if (next >= 10) {

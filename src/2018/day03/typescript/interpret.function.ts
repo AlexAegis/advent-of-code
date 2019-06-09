@@ -1,7 +1,7 @@
 import { Claim } from './model/claim.interface';
 
 export const interpret = (line: string): Claim => {
-	let parts = line.split(/#|@|,|:|x/).map(e => e.trim());
+	const parts = line.split(/#|@|,|:|x/).map(e => e.trim());
 	return {
 		id: Number(parts[1]),
 		starting: { x: Number(parts[2]), y: Number(parts[3]) },

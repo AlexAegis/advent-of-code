@@ -1,13 +1,13 @@
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { interpret } from './interpret.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
 
 export const runner = (input: string): number => {
 	const guards: Map<number, Map<number, number>> = new Map();
 	let currentGuard = -1;
 	let asleepAt: number | undefined;
-	let o = interpret(input);
-	for (let event of o) {
+	const o = interpret(input);
+	for (const event of o) {
 		if (event.guard) {
 			currentGuard = event.guard;
 			if (!guards.has(currentGuard)) {
@@ -28,9 +28,9 @@ export const runner = (input: string): number => {
 		}
 	}
 
-	let mostSleptGuard: number = -1;
-	let mostSlept: number = -1;
-	let mostSleptMinute: number = -1;
+	let mostSleptGuard = -1;
+	let mostSlept = -1;
+	let mostSleptMinute = -1;
 
 	[...guards].forEach(([guard, sleepMap]) => {
 		if (sleepMap.size > 0) {
@@ -53,5 +53,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 10491 ~4.6ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 10491 ~4.6ms
 }

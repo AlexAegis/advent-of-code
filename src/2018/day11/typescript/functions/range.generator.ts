@@ -1,6 +1,9 @@
 import { Coord } from '../model/coord.class';
 
-export type Range = { from: number; to: number };
+export interface Range {
+	from: number;
+	to: number;
+}
 
 export function* range(xRange: Range, yRange: Range) {
 	for (let x = xRange.from; x <= xRange.to; x++) {

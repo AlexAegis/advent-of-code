@@ -5,7 +5,7 @@ import { Mine } from './mine.class';
 
 export class Cart {
 	public direction: Direction;
-	public turnsAtIntersection: number = 0;
+	public turnsAtIntersection = 0;
 	constructor(public position: Coord, directionMarker: DirectionMarker) {
 		this.direction = new Direction(directionMarker);
 	}

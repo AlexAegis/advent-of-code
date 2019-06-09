@@ -1,6 +1,6 @@
-import { runner } from '../part_one';
 import { expect } from 'chai';
-import { year, day, inputs, results } from '..';
+import { day, inputs, results, year } from '..';
+import { runner } from '../part_one';
 
 describe(`${year} - Day ${day} - Part One`, () => {
 	it(`should resolve to ${results.one.input} when using the input`, async () => {

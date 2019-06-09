@@ -1,11 +1,11 @@
-import { Ground } from './element/block/ground.class';
 import { createReadStream } from 'fs';
 import * as rl from 'readline';
 import { Cave } from './cave.class';
-import { elementFactory } from './element/element.factory';
-import { Element } from './element/element.class';
-import { Creature } from './element/creature/creature.class';
 import { Block } from './element/block/block.class';
+import { Ground } from './element/block/ground.class';
+import { Creature } from './element/creature/creature.class';
+import { Element } from './element/element.class';
+import { elementFactory } from './element/element.factory';
 
 export const reader = (input: string = 'input'): Promise<Cave> =>
 	new Promise<Cave>(res => {
@@ -20,11 +20,11 @@ export const reader = (input: string = 'input'): Promise<Cave> =>
 				[...line].forEach((letter, column) => {
 					const element: Element = elementFactory(letter);
 					if (element instanceof Creature) {
-						const ground: Ground = <Ground>elementFactory('.');
+						const ground: Ground = elementFactory('.') as Ground;
 						ground.occupant = element;
 						cave.grid.push(ground);
 					} else {
-						cave.grid.push(<Block>element);
+						cave.grid.push(element as Block);
 					}
 
 					// wiring

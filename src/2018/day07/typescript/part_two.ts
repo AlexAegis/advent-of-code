@@ -1,8 +1,8 @@
-import { Node } from './model/node.class';
+import { bench, read, split } from '@root';
+import { Args, day, year } from '.';
 import { Graph } from './model/graph.interface';
+import { Node } from './model/node.class';
 import { Vertice } from './model/vertice.class';
-import { bench, reader, split } from '@root';
-import { year, day, Args } from '.';
 
 export interface Result {
 	tick: number;
@@ -17,7 +17,7 @@ export class Worker {
 	public logic(tick: number): boolean {
 		let finished = false;
 		if (!this.workingOn) {
-			for (let node of this.graph.nodes) {
+			for (const node of this.graph.nodes) {
 				if (
 					node.available() &&
 					this.graph.vertices.filter(
@@ -38,11 +38,11 @@ export class Worker {
 		// if he's working, then do his work
 		if (this.workingOn && !this.workingOn.processed(this.withBaseCost)) {
 			this.workingOn.progress++;
-			//console.log(`${id} - Doing my job! ${JSON.stringify(workingOn)}`);
+			// console.log(`${id} - Doing my job! ${JSON.stringify(workingOn)}`);
 		}
 		// If just finished
 		if (this.workingOn && this.workingOn.processed(this.withBaseCost)) {
-			//console.log(`${id} - Finished.`);
+			// console.log(`${id} - Finished.`);
 			this.workingOn.finishedOnTick = tick;
 			// done$.next(this.workingOn);
 			this.workingOn = undefined;
@@ -53,10 +53,10 @@ export class Worker {
 }
 
 const interpret = (input: string): Graph => {
-	let graph: Graph = { nodes: [], vertices: [] };
+	const graph: Graph = { nodes: [], vertices: [] };
 
 	for (const line of split(input)) {
-		let splitLine: Array<string> = line.split(/ /);
+		const splitLine: string[] = line.split(/ /);
 		let from: Node | undefined = graph.nodes.find(node => node.node === splitLine[1]);
 		let to: Node | undefined = graph.nodes.find(node => node.node === splitLine[7]);
 		if (!from) {
@@ -110,5 +110,5 @@ export const runner = (input: string, args: Args = { workers: 2 }): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 1115 ~24ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1115 ~24ms
 }

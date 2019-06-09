@@ -1,8 +1,8 @@
-import { Event } from './model/event.interface';
 import { split } from '@root';
+import { Event } from './model/event.interface';
 
 const interpretLine = (line: string): Event => {
-	let parts = line.split(/\[|-|:|]|#/).map(e => e.trim());
+	const parts = line.split(/\[|-|:|]|#/).map(e => e.trim());
 	return {
 		year: Number(parts[1]),
 		month: Number(parts[2]),
@@ -14,8 +14,8 @@ const interpretLine = (line: string): Event => {
 	};
 };
 
-export const interpret = (input: string): Array<Event> => {
-	const events: Array<Event> = [];
+export const interpret = (input: string): Event[] => {
+	const events: Event[] = [];
 	for (const line of split(input)) {
 		events.push(interpretLine(line));
 	}

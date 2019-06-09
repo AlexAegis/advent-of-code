@@ -1,12 +1,12 @@
-import { Deque } from './model/deque.class';
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { interpreter } from './interpreter.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
+import { Deque } from './model/deque.class';
 
 export const runner = (input: string): number => {
 	const setup = interpreter(input);
 	const ring: Deque<number> = new Deque<number>(undefined, 0);
-	const score: Array<number> = new Array<number>(setup.players).fill(0);
+	const score: number[] = new Array<number>(setup.players).fill(0);
 	for (let marble = 1; marble <= setup.lastMarble; marble++) {
 		if (marble % 23 === 0) {
 			ring.rotate(7);
@@ -21,5 +21,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 361466 ~9ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 361466 ~9ms
 }
