@@ -8,7 +8,6 @@ import { year, day } from '.';
  * @param times
  */
 const charRepeats = (line: string, times: number = 2): number => {
-	let result = 0;
 	const processed: Map<string, number> = new Map();
 	for (let letter of line) {
 		if (!processed.has(letter)) {

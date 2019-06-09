@@ -1,4 +1,3 @@
-import { runner } from './part_two';
 import { expect } from 'chai';
 
 describe('Day 11, Part Two', () => {

@@ -16,16 +16,6 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	const b_cost_long = 62;
 	const z_cost_long = 86;
 
-	let resultExample: number;
-	let resultMain: number;
-	before(async function() {
-		this.timeout(5000);
-		const inputExample = await reader<Args>(year, day, 'example.txt')();
-		const inputMain = await reader<Args>(year, day)();
-
-		resultExample = await runner(inputExample.input, inputExample.args);
-		resultMain = await runner(inputMain.input, inputMain.args);
-	});
 	it('Node cost is equal regardless of casing', () => {
 		expect(node_a.cost()).to.equal(node_A.cost());
 	});
