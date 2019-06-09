@@ -1,6 +1,6 @@
+import { bench, read } from '@root';
+import { day, year } from '.';
 import { collapse } from './collapse.function';
-import { bench, reader } from '@root';
-import { year, day } from '.';
 
 export const runner = async (input: string) => {
 	const uniqueUnits = [...input].reduce((acc, curr) =>
@@ -10,9 +10,9 @@ export const runner = async (input: string) => {
 	let shortestSequence: string | undefined;
 	let shortestSequenceRemovedUnit: string | undefined;
 
-	for (let unit of uniqueUnits) {
-		let modifiedSequence = [...input].reduce((acc, curr) => (curr.toLowerCase() === unit ? acc : acc + curr));
-		let collapsedSequence = collapse(modifiedSequence);
+	for (const unit of uniqueUnits) {
+		const modifiedSequence = [...input].reduce((acc, curr) => (curr.toLowerCase() === unit ? acc : acc + curr));
+		const collapsedSequence = collapse(modifiedSequence);
 		if (shortestSequence === undefined || collapsedSequence.length < shortestSequence.length) {
 			shortestSequence = collapsedSequence;
 			shortestSequenceRemovedUnit = unit;
@@ -24,5 +24,5 @@ export const runner = async (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 6394 ~326ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 6394 ~326ms
 }

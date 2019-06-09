@@ -1,5 +1,5 @@
-import { ripple } from '../functions/ripple.function';
 import { expect } from 'chai';
+import { ripple } from '../functions/ripple.function';
 
 describe('Day 11, ripple', () => {
 	it('Should be only 40 of them:', () => {

@@ -1,15 +1,12 @@
-import { bench, reader, split } from '@root';
-import { year, day } from '.';
+import { bench, read, split } from '@root';
+import { day, year } from '.';
 
 /**
  * Returns how many character repeats exactly 'times' times in the given string
- *
- * @param line
- * @param times
  */
 const charRepeats = (line: string, times: number = 2): number => {
 	const processed: Map<string, number> = new Map();
-	for (let letter of line) {
+	for (const letter of line) {
 		if (!processed.has(letter)) {
 			processed.set(letter, line.split(letter).length - 1);
 		}
@@ -30,5 +27,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 5456 ~8ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 5456 ~8ms
 }

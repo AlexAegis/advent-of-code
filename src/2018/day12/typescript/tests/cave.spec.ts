@@ -1,8 +1,8 @@
-import { Cave } from '../model/cave.class';
 import { expect } from 'chai';
+import { Cave } from '../model/cave.class';
 
 describe('Day 12, Cave', () => {
-	const inputs: Array<string> = [
+	const inputs: string[] = [
 		'....#.#....',
 		'#.#',
 		'#.#.',
@@ -17,10 +17,12 @@ describe('Day 12, Cave', () => {
 	];
 
 	it('Should be normalizing inputs on both ends:', () => {
-		for (let input of inputs) {
+		for (const input of inputs) {
 			const cave = new Cave(input);
 			cave.normalize();
+			// tslint:disable-next-line: no-unused-expression
 			expect(cave.row.startsWith('....#')).to.be.true;
+			// tslint:disable-next-line: no-unused-expression
 			expect(cave.row.endsWith('#....')).to.be.true;
 		}
 	});

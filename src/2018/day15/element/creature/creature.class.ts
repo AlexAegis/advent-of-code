@@ -1,9 +1,9 @@
-import { Element } from '../element.class';
 import { Ground } from '../block/ground.class';
+import { Element } from '../element.class';
 
 export class Creature extends Element {
-	hp: number = 200;
-	ap: number = 3;
+	hp = 200;
+	ap = 3;
 
 	_ground: Ground;
 

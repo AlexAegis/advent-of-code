@@ -1,8 +1,8 @@
-import { bench, reader } from '@root';
+import { bench, read } from '@root';
 import { day, year } from '.';
 
 export const runner = (input: string): string | undefined => {
-	const lineCache: Array<string> = [];
+	const lineCache: string[] = [];
 	for (const line of input.split(/\r?\n/)) {
 		for (const cachedLine of lineCache) {
 			let matchingChars = 0;
@@ -24,5 +24,5 @@ export const runner = (input: string): string | undefined => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // megsdlpulxvinkatfoyzxcbvq ~9.5ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // megsdlpulxvinkatfoyzxcbvq ~9.5ms
 }

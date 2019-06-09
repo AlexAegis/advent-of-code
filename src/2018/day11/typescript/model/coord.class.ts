@@ -1,5 +1,5 @@
 export class Coord implements Iterable<Coord> {
-	static dirs: Array<Coord> = [
+	static dirs: Coord[] = [
 		new Coord(0, 0),
 		new Coord(0, 1),
 		new Coord(0, 2),
@@ -20,7 +20,7 @@ export class Coord implements Iterable<Coord> {
 	}
 
 	*[Symbol.iterator](): IterableIterator<Coord> {
-		for (let dir of Coord.dirs) {
+		for (const dir of Coord.dirs) {
 			yield new Coord(this.x, this.y).add(dir);
 		}
 	}

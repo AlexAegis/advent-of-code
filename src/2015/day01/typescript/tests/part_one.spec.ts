@@ -1,11 +1,11 @@
-import { runner } from '../part_one';
+import { read } from '@root';
 import { expect } from 'chai';
-import { reader } from '@root';
-import { year, day, results } from '..';
+import { day, results, year } from '..';
+import { runner } from '../part_one';
 
 describe(`${year} - Day ${day} - Part One`, () => {
 	it(`should resolve to ${results.one.input} when using the input`, async () => {
-		expect(await runner((await reader(year, day)()).input)).to.equal(results.one.input);
+		expect(await runner((await read(year, day)()).input)).to.equal(results.one.input);
 	});
 
 	it('should be that that both the first examples resolves to 0', async () => {

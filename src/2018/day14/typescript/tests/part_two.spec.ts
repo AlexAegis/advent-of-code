@@ -1,6 +1,6 @@
-import { runner } from '../part_two';
 import { expect } from 'chai';
-import { year, day, results } from '..';
+import { day, results, year } from '..';
+import { runner } from '../part_two';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
 	it('Should take 9 recipes for 5158916779 to appear:', async () => {

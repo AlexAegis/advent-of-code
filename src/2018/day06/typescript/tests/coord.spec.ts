@@ -1,6 +1,6 @@
-import { Coord } from '../model/coord.class';
 import { expect } from 'chai';
-import { year, day } from '..';
+import { day, year } from '..';
+import { Coord } from '../model/coord.class';
 
 describe(`${year} - Day ${day} - Coord`, () => {
 	const a: Coord = new Coord(1, 1);

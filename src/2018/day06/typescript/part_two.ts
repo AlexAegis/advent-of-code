@@ -1,7 +1,7 @@
-import { Coord } from './model/coord.class';
+import { bench, read } from '@root';
+import { Args, day, year } from '.';
 import { interpret } from './interpret.function';
-import { bench, reader } from '@root';
-import { year, day, Args } from '.';
+import { Coord } from './model/coord.class';
 
 /**
  *
@@ -42,9 +42,11 @@ export const runner = (input: string, args: Args | undefined): number | undefine
 			}
 		}
 		return area;
-	} else return undefined;
+	} else {
+		return undefined;
+	}
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 42998 ~48ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 42998 ~48ms
 }

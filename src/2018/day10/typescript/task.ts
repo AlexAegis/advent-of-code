@@ -1,23 +1,23 @@
-import { Vector } from './model/vector.class';
+import { bench, read } from '@root';
+import { day, year } from '.';
+import { Boundary } from './boundary.interface';
 import { interpreter } from './interpreter.function';
 import { Coord } from './model/coord.class';
-import { Boundary } from './boundary.interface';
-import { bench, reader } from '@root';
-import { year, day } from '.';
+import { Vector } from './model/vector.class';
 
-export const normalize = (input: Array<Vector>): Array<Vector> => {
-	let { minX, minY } = boundary(input);
-	let norm = new Coord(minX, minY);
+export const normalize = (input: Vector[]): Vector[] => {
+	const { minX, minY } = boundary(input);
+	const norm = new Coord(minX, minY);
 	return input.map(vector => {
 		vector.position.sub(norm);
 		return vector;
 	});
 };
 
-export const area = (boundary: Boundary): number => (boundary.maxX - boundary.minX) * (boundary.maxY - boundary.minY); // did not terminate correctly
-export const verticalArea = (boundary: Boundary): number => boundary.maxY - boundary.minY;
+export const area = (b: Boundary): number => (b.maxX - b.minX) * (b.maxY - b.minY); // did not terminate correctly
+export const verticalArea = (b: Boundary): number => b.maxY - b.minY;
 
-export const boundary = (input: Array<Vector>): Boundary => {
+export const boundary = (input: Vector[]): Boundary => {
 	return {
 		maxX: input.map(vector => vector.position.x).reduce(max),
 		minX: input.map(vector => vector.position.x).reduce(min),
@@ -29,15 +29,15 @@ export const boundary = (input: Array<Vector>): Boundary => {
 export const max = (acc: number, next: number) => (acc < next ? next : acc);
 export const min = (acc: number, next: number) => (acc > next ? next : acc);
 
-export const print = (input: Array<Vector>): string => {
-	let { maxX, minX, maxY, minY } = boundary(input);
+export const print = (input: Vector[]): string => {
+	const { maxX, minX, maxY, minY } = boundary(input);
 	console.log(`maxX: ${maxX}, minX: ${minX}, maxY: ${maxY}, minY: ${minY}`);
 
 	const stars = input.map(vector => vector.position.toString());
 
 	let pic = '';
 	for (let y = minY; y <= maxY; y++) {
-		let row: string = '';
+		let row = '';
 		for (let x = minX; x <= maxX; x++) {
 			row = row.concat(stars.indexOf(new Coord(x, y).toString()) >= 0 ? `#` : '.');
 		}
@@ -49,14 +49,16 @@ export const print = (input: Array<Vector>): string => {
 export const runner = (input: string): number => {
 	const vectors = interpreter(input);
 	let minArea: number = area(boundary(vectors));
-	for (var i = 0; true; i++) {
+	let i = 0;
+	while (true) {
 		vectors.forEach(vector => {
 			vector.position.add(vector.velocity);
 		});
-		let currArea = verticalArea(boundary(vectors));
+		const currArea = verticalArea(boundary(vectors));
 		if (minArea > currArea) {
 			minArea = currArea;
 		} else break;
+		i++;
 	}
 	vectors.forEach(vector => {
 		vector.position.sub(vector.velocity);
@@ -66,5 +68,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // KBJHEZCB - 10369 ~305ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // KBJHEZCB - 10369 ~305ms
 }

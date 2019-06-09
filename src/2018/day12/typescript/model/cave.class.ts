@@ -1,5 +1,5 @@
 export class Cave {
-	public rules: Array<string> = [];
+	public rules: string[] = [];
 	public offset = 0;
 
 	public constructor(public row: string) {}
