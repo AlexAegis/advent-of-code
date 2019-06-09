@@ -1,4 +1,4 @@
-import { Coord } from './coord.class';
+import { Coord } from '../model/coord.class';
 
 export const ripple = (radius: number, xoffset: number = 0, yoffset: number = 0): Array<Coord> => {
 	const result = [];

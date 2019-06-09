@@ -1,10 +1,12 @@
-import { Coord } from './coord.class';
-import { range } from './range.generator';
+import { Coord } from './model/coord.class';
+import { range } from './functions/range.generator';
 import * as WorkerPool from 'workerpool';
+import { bench } from '@root';
+import { inputs } from '.';
 
 export type Result = { coord: Coord | undefined; sum: number; size: number };
 
-export const runner = async (input: number = 8561): Promise<string> => {
+export const runner = async (input: number): Promise<string> => {
 	const mapSize = 300;
 	let pool = WorkerPool.pool();
 	let promises = [];
@@ -60,9 +62,5 @@ export const runner = async (input: number = 8561): Promise<string> => {
 };
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`Result: ${await runner()}`);
-		console.timeEnd();
-	})(); // 236,146,12 (160) ~63007ms on i7-8700k@4.8Ghz all 6 cores 100%
+	(async () => console.log(`Result: ${await bench(() => inputs.two.input, runner)}`))(); // 236,146,12 (160) ~63007ms on i7-8700k@4.8Ghz all 6 cores 100%
 }
