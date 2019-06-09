@@ -15,7 +15,7 @@ export const runner = async (input: string) => {
 			}
 		}
 	}
-	return [...fabric].filter(([k, v]) => v.length >= 2).length;
+	return [...fabric].filter(([_, v]) => v.length >= 2).length;
 };
 
 if (require.main === module) {
