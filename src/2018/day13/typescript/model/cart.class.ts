@@ -2,7 +2,6 @@ import { Coord } from './coord.class';
 import { DirectionMarker } from './direction-marker.type';
 import { Direction } from './direction.class';
 import { Mine } from './mine.class';
-import { Subject } from 'rxjs';
 
 export class Cart {
 	public direction: Direction;
@@ -11,7 +10,7 @@ export class Cart {
 		this.direction = new Direction(directionMarker);
 	}
 
-	step(mine: Mine, crash: Subject<Coord>): void {
+	public step(mine: Mine): Coord | undefined {
 		this.position = this.position.add(this.direction.value);
 		const rail = mine.rail.get(this.position.toString());
 		if (rail === '+') {
@@ -27,9 +26,7 @@ export class Cart {
 		} else if (rail) {
 			this.direction.turn(rail);
 		}
-		if (this.isCrashed(mine)) {
-			crash.next(this.position);
-		}
+		return this.isCrashed(mine) ? this.position : undefined;
 	}
 
 	isCrashed(mine: Mine): boolean {
