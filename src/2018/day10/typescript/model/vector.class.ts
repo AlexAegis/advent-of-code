@@ -1,11 +1,13 @@
 import { Coord } from './coord.class';
 
 export class Vector {
-	constructor(public position: Coord, public velocity: Coord) {}
+	public constructor(public position: Coord, public velocity: Coord) {}
 
-	move = () => this.position.add(this.velocity);
+	public move(): Coord {
+		return this.position.add(this.velocity);
+	}
 
-	toString(): string {
+	public toString(): string {
 		return `<${this.position.toString()}> , <${this.velocity.toString()}>`;
 	}
 

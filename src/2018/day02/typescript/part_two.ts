@@ -1,7 +1,7 @@
 import { bench, reader } from '@root';
 import { day, year } from '.';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): string | undefined => {
 	const lineCache: Array<string> = [];
 	for (const line of input.split(/\r?\n/)) {
 		for (const cachedLine of lineCache) {
@@ -20,6 +20,7 @@ export const runner = async (input: string) => {
 		}
 		lineCache.push(line);
 	}
+	return undefined;
 };
 
 if (require.main === module) {

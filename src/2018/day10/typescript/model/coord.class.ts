@@ -1,19 +1,19 @@
 export class Coord {
-	constructor(public x: number, public y: number) {}
+	public constructor(public x: number, public y: number) {}
 
-	add(coord: Coord) {
+	public add(coord: Coord): Coord {
 		this.x += coord.x;
 		this.y += coord.y;
 		return this;
 	}
 
-	sub(coord: Coord) {
+	public sub(coord: Coord): Coord {
 		this.x -= coord.x;
 		this.y -= coord.y;
 		return this;
 	}
 
-	toString(): string {
+	public toString(): string {
 		return `${this.x},${this.y}`;
 	}
 
