@@ -5,7 +5,7 @@ describe('Day 11, Coord neightbour iterator', () => {
 	it('Should be only 9 of them:', () => {
 		let c = new Coord(1, 1);
 		let count = 0;
-		for (let n of c) {
+		for (const _ of c) {
 			count++;
 		}
 		expect(count).to.equal(9);

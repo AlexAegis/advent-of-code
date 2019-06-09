@@ -1,5 +1,4 @@
-import { bench, reader } from '@root';
-import { year } from '.';
+import { bench } from '@root';
 
 function shift(window: string, last: number, length: number): string {
 	if (window.length >= length) {
