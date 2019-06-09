@@ -24,5 +24,5 @@ export const runner = (input: string): string | undefined => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // megsdlpulxvinkatfoyzxcbvq ~9.5ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // megsdlpulxvinkatfoyzxcbvq ~9.6ms
 }

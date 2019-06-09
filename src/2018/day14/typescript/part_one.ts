@@ -19,5 +19,5 @@ export const runner = (input: number): string => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(() => ({ input: 327901 }), runner)}`))(); // 1115317115 ~10.5ms
+	(async () => console.log(`Result: ${await bench(() => ({ input: 327901 }), runner)}`))(); // 1115317115 ~9.6ms
 }
