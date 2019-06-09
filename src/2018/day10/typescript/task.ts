@@ -1,4 +1,4 @@
-import { bench, read } from '@root';
+import { bench, max, min, read } from '@root';
 import { day, year } from '.';
 import { Boundary } from './boundary.interface';
 import { interpreter } from './interpreter.function';
@@ -25,9 +25,6 @@ export const boundary = (input: Vector[]): Boundary => {
 		minY: input.map(vector => vector.position.y).reduce(min)
 	};
 };
-
-export const max = (acc: number, next: number) => (acc < next ? next : acc);
-export const min = (acc: number, next: number) => (acc > next ? next : acc);
 
 export const print = (input: Vector[]): string => {
 	const { maxX, minX, maxY, minY } = boundary(input);

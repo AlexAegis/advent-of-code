@@ -127,3 +127,10 @@ export const bench = async <T, R = string, A = undefined>(
 	obs.disconnect();
 	return result;
 };
+
+export const max = (acc: number, next: number) => (acc < next ? next : acc);
+export const min = (acc: number, next: number) => (acc > next ? next : acc);
+export const sum = (acc: number, next: number) => acc + next;
+export const mult = (acc: number, next: number) => acc * next;
+export const dup = (next: number) => next * 2;
+export const asc = (a: number, b: number) => a - b;
