@@ -1,8 +1,10 @@
-import { reader } from './reader.function';
+import { interpreter } from './interpreter.function';
+import { bench, reader } from '@root';
+import { year, day } from '.';
 
-export const runner = async (input: string = 'input'): Promise<any> =>
-	new Promise<any>(async res => {
-		const cave = await reader(input);
+export const runner = (input: string): number | undefined => {
+	const cave = interpreter(input);
+	if (cave) {
 		cave.normalize();
 		// console.log(`i: 0 cave: ${cave.toString()}`);
 		for (let i = 0; i < 20; i++) {
@@ -19,14 +21,10 @@ export const runner = async (input: string = 'input'): Promise<any> =>
 			cave.normalize();
 			// console.log(`i: ${i + 1} cave: ${cave.toString()}`);
 		}
-
-		res(cave.score());
-	});
+		return cave.score();
+	} else return undefined;
+};
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`${await runner()}`);
-		console.timeEnd();
-	})(); // 3230 ~10ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 3230 ~0.8ms
 }

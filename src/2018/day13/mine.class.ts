@@ -3,11 +3,11 @@ import { Coord } from './coord.class';
 import { Cart } from './cart.class';
 
 export class Mine {
-	rail: Map<string, Rail> = new Map();
-	carts: Array<Cart> = [];
-	crashes: Array<Coord> = [];
-	height: number;
-	width: number;
+	public rail: Map<string, Rail> = new Map();
+	public carts: Array<Cart> = [];
+	public crashes: Array<Coord> = [];
+	public height: number = 0;
+	public width: number = 0;
 	public print(tick: number | undefined = undefined): void {
 		console.log(`${tick}.`);
 		for (let y = 0; y < this.height; y++) {

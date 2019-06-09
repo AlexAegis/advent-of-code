@@ -1,7 +1,7 @@
 export class Node {
 	identifier: string;
 	level: number;
-	data: Array<number>;
+	data: Array<number> | undefined;
 	children: Array<Node> = [];
 	processedChildren: number = 0;
 	totalNumberOfChildren: number | undefined;
@@ -32,12 +32,12 @@ export class Node {
 	sum = (): number =>
 		this.children
 			.map(child => child.sum())
-			.concat(this.data)
+			.concat(this.data ? this.data : [])
 			.reduce((acc, next) => acc + next);
 
 	// part two
 	value = (): number =>
-		this.children.length > 0
+		this.data && this.children.length > 0
 			? this.data
 					.filter(index => index > 0 && index < this.children.length + 1)
 					.map(index => this.children[--index].value())
