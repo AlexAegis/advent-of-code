@@ -10,7 +10,7 @@ export interface Result {
 }
 
 export class Worker {
-	public workingOn: Node;
+	public workingOn: Node | undefined;
 
 	constructor(public id: number, private graph: Graph, private withBaseCost: boolean) {}
 
@@ -53,12 +53,12 @@ export class Worker {
 }
 
 const interpret = (input: string): Graph => {
-	let graph: Graph = { nodes: [], vertices: [], workers: undefined };
+	let graph: Graph = { nodes: [], vertices: [] };
 
 	for (const line of split(input)) {
 		let splitLine: Array<string> = line.split(/ /);
-		let from: Node = graph.nodes.find(node => node.node === splitLine[1]);
-		let to: Node = graph.nodes.find(node => node.node === splitLine[7]);
+		let from: Node | undefined = graph.nodes.find(node => node.node === splitLine[1]);
+		let to: Node | undefined = graph.nodes.find(node => node.node === splitLine[7]);
 		if (!from) {
 			from = new Node(splitLine[1]);
 			graph.nodes.push(from);
@@ -93,8 +93,8 @@ const interpret = (input: string): Graph => {
 	return graph;
 };
 
-export const runner = async (input: string, args: Args = { workers: 2 }): Promise<number> => {
-	const graph: Graph = await interpret(input);
+export const runner = (input: string, args: Args = { workers: 2 }): number => {
+	const graph: Graph = interpret(input);
 
 	const workers = [...Array(args.workers)].map(i => new Worker(i, graph, args.workers === 5));
 

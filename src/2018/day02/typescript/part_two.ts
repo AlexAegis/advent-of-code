@@ -6,7 +6,7 @@ export const runner = (input: string): string | undefined => {
 	for (const line of input.split(/\r?\n/)) {
 		for (const cachedLine of lineCache) {
 			let matchingChars = 0;
-			let notMatchingPos;
+			let notMatchingPos = -1;
 			for (let i = 0; i < cachedLine.length; i++) {
 				if (line.charAt(i) === cachedLine.charAt(i)) {
 					matchingChars++;

@@ -3,12 +3,12 @@ import { interpret } from './interpret.function';
 import { bench, reader } from '@root';
 import { year, day } from '.';
 
-export const runner = async (input: string): Promise<number> => {
-	const points = await interpret(input);
-	let boundaryTop: Coord;
-	let boundaryRight: Coord;
-	let boundaryBottom: Coord;
-	let boundaryLeft: Coord;
+export const runner = (input: string): number | undefined => {
+	const points = interpret(input);
+	let boundaryTop: Coord | undefined;
+	let boundaryRight: Coord | undefined;
+	let boundaryBottom: Coord | undefined;
+	let boundaryLeft: Coord | undefined;
 
 	points.forEach(point => {
 		if (boundaryTop === undefined || boundaryTop.y >= point.y) {
@@ -25,37 +25,42 @@ export const runner = async (input: string): Promise<number> => {
 		}
 	});
 
-	const boundaryStart: Coord = new Coord(boundaryLeft.x, boundaryTop.y);
-	const boundaryEnd: Coord = new Coord(boundaryRight.x, boundaryBottom.y + 1);
-	const bucket: Map<string, Array<Coord>> = new Map();
-	for (let point of points) {
-		bucket.set(point.toString(), []);
-	}
-	for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
-		for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
-			let ordered: Array<Coord> = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
-			if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
-				bucket.get(ordered[0].toString()).push(new Coord(x, y));
+	if (boundaryTop && boundaryRight && boundaryBottom && boundaryLeft) {
+		const boundaryStart: Coord = new Coord(boundaryLeft.x, boundaryTop.y);
+		const boundaryEnd: Coord = new Coord(boundaryRight.x, boundaryBottom.y + 1);
+		const bucket: Map<string, Array<Coord>> = new Map();
+		for (let point of points) {
+			bucket.set(point.toString(), []);
+		}
+		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
+			for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
+				let ordered: Array<Coord> = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
+				if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
+					const b = bucket.get(ordered[0].toString());
+					if (b) {
+						b.push(new Coord(x, y));
+					}
+				}
 			}
 		}
-	}
-	const bound: Array<number> = [];
-	bucket.forEach(territory => {
-		if (
-			!territory.some(
-				point =>
-					point.x <= boundaryStart.x ||
-					point.y <= boundaryStart.y ||
-					point.x >= boundaryEnd.x ||
-					point.y >= boundaryEnd.y - 1 // magic boundary bandaid
-			)
-		) {
-			bound.push(territory.length);
-		}
-	});
-	return bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc));
+		const bound: Array<number> = [];
+		bucket.forEach(territory => {
+			if (
+				!territory.some(
+					point =>
+						point.x <= boundaryStart.x ||
+						point.y <= boundaryStart.y ||
+						point.x >= boundaryEnd.x ||
+						point.y >= boundaryEnd.y - 1 // magic boundary bandaid
+				)
+			) {
+				bound.push(territory.length);
+			}
+		});
+		return bound.reduce((acc, next) => (acc === undefined || next > acc ? next : acc));
+	} else return undefined;
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 3006 ~295ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 3006 ~230ms
 }

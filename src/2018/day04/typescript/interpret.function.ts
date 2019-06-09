@@ -1,4 +1,5 @@
 import { Event } from './model/event.interface';
+import { split } from '@root';
 
 const interpretLine = (line: string): Event => {
 	let parts = line.split(/\[|-|:|]|#/).map(e => e.trim());
@@ -13,9 +14,9 @@ const interpretLine = (line: string): Event => {
 	};
 };
 
-export const interpret = async (input: string) => {
+export const interpret = (input: string): Array<Event> => {
 	const events: Array<Event> = [];
-	for (const line of input.split(/\r?\n/)) {
+	for (const line of split(input)) {
 		events.push(interpretLine(line));
 	}
 	return events.sort((a, b) => {

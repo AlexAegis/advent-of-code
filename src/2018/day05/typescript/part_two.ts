@@ -7,8 +7,8 @@ export const runner = async (input: string) => {
 		acc.includes(curr.toLowerCase()) ? acc.toLowerCase() : acc + curr.toLowerCase()
 	);
 
-	let shortestSequence: string;
-	let shortestSequenceRemovedUnit: string;
+	let shortestSequence: string | undefined;
+	let shortestSequenceRemovedUnit: string | undefined;
 
 	for (let unit of uniqueUnits) {
 		let modifiedSequence = [...input].reduce((acc, curr) => (curr.toLowerCase() === unit ? acc : acc + curr));
@@ -20,7 +20,7 @@ export const runner = async (input: string) => {
 	}
 
 	console.log(`The removed unit is: ${shortestSequenceRemovedUnit}`);
-	return shortestSequence.length;
+	return shortestSequence ? shortestSequence.length : 0;
 };
 
 if (require.main === module) {

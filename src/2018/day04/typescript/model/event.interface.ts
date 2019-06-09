@@ -4,6 +4,6 @@ export interface Event {
 	day: number;
 	hour: number;
 	minute: number;
-	guard: number;
+	guard: number | undefined;
 	event: string;
 }
