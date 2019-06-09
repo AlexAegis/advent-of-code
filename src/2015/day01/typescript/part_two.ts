@@ -13,5 +13,5 @@ export const runner = async (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1795 ~0.4ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1795 ~1.2ms
 }
