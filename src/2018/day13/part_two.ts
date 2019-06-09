@@ -11,9 +11,9 @@ export const runner = async (input: 'example' | 'example_two' | 'input' = 'input
 
 		interval()
 			.pipe(
-				takeWhile(tick => mine.carts.length > 1),
+				takeWhile(() => mine.carts.length > 1),
 				// tap(tick => (input !== 'input' ? mine.print(tick) : undefined)),
-				flatMap(tick =>
+				flatMap(() =>
 					mine.carts.sort((a, b) =>
 						a.position.y === b.position.y ? a.position.x - b.position.x : a.position.y - b.position.y
 					)
@@ -24,7 +24,7 @@ export const runner = async (input: 'example' | 'example_two' | 'input' = 'input
 				input !== 'input' ? mine.print(0) : undefined;
 				res(mine.carts[0].position);
 			});
-		crash.pipe(takeWhile(tick => mine.carts.length > 1)).subscribe(coord => {
+		crash.pipe(takeWhile(() => mine.carts.length > 1)).subscribe(coord => {
 			mine.crashes.push(coord);
 			console.log(`Crash happened on: ${coord}`);
 		});
