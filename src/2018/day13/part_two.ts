@@ -1,6 +1,6 @@
 import { reader } from './reader.function';
 import { interval, Subject } from 'rxjs';
-import { flatMap, tap, takeWhile } from 'rxjs/operators';
+import { flatMap, takeWhile } from 'rxjs/operators';
 import { Coord } from './coord.class';
 import { Mine } from './mine.class';
 

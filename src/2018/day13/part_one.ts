@@ -1,5 +1,5 @@
 import { interval, Subject } from 'rxjs';
-import { takeUntil, take, flatMap, tap } from 'rxjs/operators';
+import { takeUntil, take, flatMap } from 'rxjs/operators';
 import { Coord } from './coord.class';
 import { Mine } from './mine.class';
 import { reader } from './reader.function';
