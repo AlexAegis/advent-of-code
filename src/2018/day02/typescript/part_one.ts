@@ -1,4 +1,4 @@
-import { bench, reader } from '@root';
+import { bench, reader, split } from '@root';
 import { year, day } from '.';
 
 /**
@@ -14,7 +14,7 @@ const charRepeats = (line: string, times: number = 2): number => {
 			processed.set(letter, line.split(letter).length - 1);
 		}
 	}
-	return [...processed].filter(([k, v]) => v === times).length;
+	return [...processed].filter(([_, v]) => v === times).length;
 };
 
 const atLeastOne = (n: number): boolean => n >= 1;
@@ -22,7 +22,7 @@ const atLeastOne = (n: number): boolean => n >= 1;
 export const runner = (input: string): number => {
 	let twiceAppearCount = 0;
 	let thriceAppearCount = 0;
-	for (const line of input.split(/\r?\n/)) {
+	for (const line of split(input)) {
 		twiceAppearCount += atLeastOne(charRepeats(line)) ? 1 : 0;
 		thriceAppearCount += atLeastOne(charRepeats(line, 3)) ? 1 : 0;
 	}

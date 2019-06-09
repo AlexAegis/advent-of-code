@@ -12,7 +12,7 @@ export const runner = async (input: 'example' | 'example_two' | 'input' = 'input
 			.pipe(
 				takeUntil(crash),
 				// tap(tick => mine.print(tick)),
-				flatMap(tick =>
+				flatMap(() =>
 					mine.carts.sort((a, b) =>
 						a.position.y === b.position.y ? a.position.x - b.position.x : a.position.y - b.position.y
 					)
