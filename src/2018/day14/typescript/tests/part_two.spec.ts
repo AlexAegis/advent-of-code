@@ -37,5 +37,5 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 
 	it(`should resolve to ${results.two.input} when using the input`, async () => {
 		expect(runner('327901')).to.equal(results.two.input);
-	});
+	}).timeout(20000);
 });
