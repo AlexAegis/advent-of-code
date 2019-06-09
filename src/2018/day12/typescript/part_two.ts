@@ -1,8 +1,10 @@
-import { reader } from './reader.function';
+import { interpreter } from './interpreter.function';
+import { bench, reader } from '@root';
+import { year, day } from '.';
 
-export const runner = async (input: string = 'input'): Promise<any> =>
-	new Promise<any>(async res => {
-		const cave = await reader(input);
+export const runner = (input: string): number | undefined => {
+	const cave = interpreter(input);
+	if (cave) {
 		cave.normalize();
 		// console.log(`i: 0 cave: ${cave.toString()}`);
 		let counts = [];
@@ -34,13 +36,10 @@ export const runner = async (input: string = 'input'): Promise<any> =>
 				break;
 			}
 		}
-		res(scores.pop());
-	});
+		return scores.pop();
+	} else return undefined;
+};
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`${await runner()}`);
-		console.timeEnd();
-	})(); // 4400000000304 ~24ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // 4400000000304 ~11ms
 }

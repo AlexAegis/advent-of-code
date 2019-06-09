@@ -1,9 +1,7 @@
-import { Cave } from './cave.class';
+import { Cave } from '../model/cave.class';
 import { expect } from 'chai';
 
 describe('Day 12, Cave', () => {
-	const cave: Cave = new Cave();
-
 	const inputs: Array<string> = [
 		'....#.#....',
 		'#.#',
@@ -20,7 +18,7 @@ describe('Day 12, Cave', () => {
 
 	it('Should be normalizing inputs on both ends:', () => {
 		for (let input of inputs) {
-			cave.row = input;
+			const cave = new Cave(input);
 			cave.normalize();
 			expect(cave.row.startsWith('....#')).to.be.true;
 			expect(cave.row.endsWith('#....')).to.be.true;
@@ -28,8 +26,8 @@ describe('Day 12, Cave', () => {
 	});
 
 	it('Should be a score of 325:', () => {
+		const cave = new Cave('.#....##....#####...#######....#.#..##.');
 		cave.offset = -3;
-		cave.row = '.#....##....#####...#######....#.#..##.';
 		expect(cave.score()).to.equal(325);
 	});
 });

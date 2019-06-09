@@ -1,9 +1,10 @@
 export class Cave {
-	row: string;
-	rules: Array<string> = [];
-	offset = 0;
+	public rules: Array<string> = [];
+	public offset = 0;
 
-	normalize() {
+	public constructor(public row: string) {}
+
+	public normalize(): void {
 		const start = this.countFromEnds(this.row, '.');
 		const end = this.countFromEnds(this.row, '.', true);
 		this.offset += start - 4;
@@ -11,19 +12,19 @@ export class Cave {
 		this.row = this.row.slice(0, this.row.length - Math.max(0, end - 4)) + '.'.repeat(Math.max(0, 4 - end));
 	}
 
-	count() {
+	public count(): number {
 		return (this.row.match(/#/g) || []).length;
 	}
 
-	score(): number {
+	public score(): number {
 		return [...this.row].reduce((acc, pot, i) => (pot === `#` ? (acc += i + this.offset) : acc), 0);
 	}
 
-	invert(char: string): string {
+	public invert(char: string): string {
 		return char === '.' ? '#' : '.';
 	}
 
-	countFromEnds(input: string, match: string, invert: boolean = false): number {
+	public countFromEnds(input: string, match: string, invert: boolean = false): number {
 		let i = 0;
 		while (i < input.length) {
 			if (input[(invert ? input.length - 1 : 0) - i * (invert ? 1 : -1)] !== match) {
@@ -34,7 +35,7 @@ export class Cave {
 		return i;
 	}
 
-	toString(): string {
+	public toString(): string {
 		return `${this.row} count: ${this.count()} offset: ${this.offset} score: ${this.score()}`;
 	}
 }
