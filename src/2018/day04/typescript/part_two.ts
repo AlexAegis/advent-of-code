@@ -53,5 +53,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 10491 ~4.6ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 10491 ~4ms
 }
