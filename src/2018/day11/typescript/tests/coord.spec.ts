@@ -1,4 +1,4 @@
-import { Coord } from './coord.class';
+import { Coord } from '../model/coord.class';
 import { expect } from 'chai';
 
 describe('Day 11, Coord neightbour iterator', () => {

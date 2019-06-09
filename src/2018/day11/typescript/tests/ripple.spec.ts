@@ -1,4 +1,4 @@
-import { ripple } from './ripple.function';
+import { ripple } from '../functions/ripple.function';
 import { expect } from 'chai';
 
 describe('Day 11, ripple', () => {

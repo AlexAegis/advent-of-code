@@ -1,4 +1,4 @@
-import { Coord } from './coord.class';
+import { Coord } from '../model/coord.class';
 
 export type Range = { from: number; to: number };
 
