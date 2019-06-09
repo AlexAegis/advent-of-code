@@ -8,7 +8,7 @@ import { year, day, Args } from '.';
  * @param input in this task the input is slightly modified. There were extra data in the
  * description of the task so I added that as the first line of the input.
  */
-export const runner = (input: string, args: Args): number | undefined => {
+export const runner = (input: string, args: Args | undefined): number | undefined => {
 	const points = interpret(input);
 	let boundaryTop: Coord | undefined;
 	let boundaryRight: Coord | undefined;
@@ -36,7 +36,7 @@ export const runner = (input: string, args: Args): number | undefined => {
 		let area = 0;
 		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
 			for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
-				if (points.map(a => a.manhattan(x, y)).reduce((acc, next) => (acc += next)) < args.limit) {
+				if (points.map(a => a.manhattan(x, y)).reduce((acc, next) => (acc += next)) < (args ? args.limit : 0)) {
 					area++;
 				}
 			}

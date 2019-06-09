@@ -12,6 +12,7 @@
 		"noImplicitThis": true,
 		"noUnusedParameters": true,
 		"strictNullChecks": true,
+		"strictFunctionTypes": true,
 		"baseUrl": "./",
 		"paths": {
 			"@root": ["src"],
