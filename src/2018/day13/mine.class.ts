@@ -8,7 +8,7 @@ export class Mine {
 	crashes: Array<Coord> = [];
 	height: number;
 	width: number;
-	print(tick: number = undefined): void {
+	public print(tick: number | undefined = undefined): void {
 		console.log(`${tick}.`);
 		for (let y = 0; y < this.height; y++) {
 			let line: string = '';

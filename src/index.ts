@@ -12,7 +12,7 @@ export type Awaitable<T> = Promise<T> | T;
  */
 export interface Input<T, A = undefined> {
 	input: T;
-	args?: A;
+	args?: A | undefined;
 }
 
 /**
@@ -39,7 +39,8 @@ export interface DayResults<O = number, T = O> {
  *
  * @param label optional labeling
  */
-export const log = (label: string = undefined) => tap(o => (label ? console.log(label, o) : console.log(o)));
+export const log = (label: string | undefined = undefined) =>
+	tap(o => (label ? console.log(label, o) : console.log(o)));
 
 /**
  * Convinienence method to split up a long string into it's
@@ -81,7 +82,7 @@ export const reader = <A>(year: number, day: number, file: string = 'input.txt')
  */
 export const bench = async <T, R = string, A = undefined>(
 	reader: () => Awaitable<Input<T, A>>,
-	runner: (input: T, args: A) => Awaitable<R>
+	runner: (input: T, args: A | undefined) => Awaitable<R>
 ) => {
 	performance.mark('start');
 	const obs = new PerformanceObserver(list => {

@@ -2,11 +2,11 @@ import { interpret } from './interpret.function';
 import { bench, reader } from '@root';
 import { year, day } from '.';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const guards: Map<number, Map<number, number>> = new Map();
-	let currentGuard: number;
-	let asleepAt: number;
-	let o = await interpret(input);
+	let currentGuard = -1;
+	let asleepAt: number | undefined;
+	let o = interpret(input);
 	for (let event of o) {
 		if (event.guard) {
 			currentGuard = event.guard;
@@ -18,8 +18,11 @@ export const runner = async (input: string) => {
 			asleepAt = event.minute;
 		} else if (event.event === 'wakes up') {
 			const sleepMap = guards.get(currentGuard);
-			for (let i = asleepAt; i < event.minute; i++) {
-				sleepMap.set(i, (sleepMap.get(i) ? sleepMap.get(i) : 0) + 1);
+			if (sleepMap && asleepAt !== undefined) {
+				for (let i = asleepAt; i < event.minute; i++) {
+					const sm = sleepMap.get(i);
+					sleepMap.set(i, (sm ? sm : 0) + 1);
+				}
 			}
 			asleepAt = undefined;
 		}

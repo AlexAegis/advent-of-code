@@ -18,9 +18,9 @@ const charRepeats = (line: string, times: number = 2): number => {
 	return [...processed].filter(([k, v]) => v === times).length;
 };
 
-const atLeastOne = (n: number): boolean => n && n >= 1;
+const atLeastOne = (n: number): boolean => n >= 1;
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	let twiceAppearCount = 0;
 	let thriceAppearCount = 0;
 	for (const line of input.split(/\r?\n/)) {

@@ -23,7 +23,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-export class Deque<T> extends Array<T> {
+export class Deque<T> extends Array<T | undefined> {
 	static MAX_CAPACITY: number = (1 << 30) | 0;
 	static MIN_CAPACITY: number = 16;
 
@@ -55,15 +55,15 @@ export class Deque<T> extends Array<T> {
 		}
 	}
 
-	toArray(): Array<T> {
-		const ret = new Array<T>(this._length);
+	toArray(): Array<T | undefined> {
+		const ret = new Array<T | undefined>(this._length);
 		for (let j = 0; j < this._length; ++j) {
 			ret[j] = this[(this._front + j) & (this._capacity - 1)];
 		}
 		return ret;
 	}
 
-	push(item: T): number {
+	push(item: T | undefined): number {
 		const argsLength = arguments.length;
 		let length = this._length;
 		if (argsLength > 1) {
@@ -97,32 +97,32 @@ export class Deque<T> extends Array<T> {
 		return length + 1;
 	}
 
-	pop(): T {
+	pop(): T | undefined {
 		const length = this._length;
 		if (length === 0) {
-			return void 0;
+			return undefined;
 		}
 		const i = (this._front + length - 1) & (this._capacity - 1);
 		const ret = this[i];
-		this[i] = void 0;
+		this[i] = undefined;
 		this._length = length - 1;
 		return ret;
 	}
 
-	shift(): T {
+	shift(): T | undefined {
 		const length = this._length;
 		if (length === 0) {
-			return void 0;
+			return undefined;
 		}
 		const front = this._front;
 		const ret = this[front];
-		this[front] = void 0;
+		this[front] = undefined;
 		this._front = (front + 1) & (this._capacity - 1);
 		this._length = length - 1;
 		return ret;
 	}
 
-	unshift(item: T): number {
+	unshift(item: T | undefined): number {
 		let length = this._length;
 		const argsLength = arguments.length;
 
@@ -163,33 +163,33 @@ export class Deque<T> extends Array<T> {
 		return length + 1;
 	}
 
-	peekBack(): T {
+	peekBack(): T | undefined {
 		const length = this._length;
 		if (length === 0) {
-			return void 0;
+			return undefined;
 		}
 		const index = (this._front + length - 1) & (this._capacity - 1);
 		return this[index];
 	}
 
-	peekFront(): T {
+	peekFront(): T | undefined {
 		if (this._length === 0) {
-			return void 0;
+			return undefined;
 		}
 		return this[this._front];
 	}
 
-	get(index: number): T {
+	get(index: number): T | undefined {
 		let i = index;
 		if (i !== (i | 0)) {
-			return void 0;
+			return undefined;
 		}
 		const len = this._length;
 		if (i < 0) {
 			i = i + len;
 		}
 		if (i < 0 || i >= len) {
-			return void 0;
+			return undefined;
 		}
 		return this[(this._front + i) & (this._capacity - 1)];
 	}
@@ -203,7 +203,7 @@ export class Deque<T> extends Array<T> {
 		const front = this._front;
 		const capacity = this._capacity;
 		for (let j = 0; j < len; ++j) {
-			this[(front + j) & (capacity - 1)] = void 0;
+			this[(front + j) & (capacity - 1)] = undefined;
 		}
 		this._length = 0;
 		this._front = 0;
@@ -237,7 +237,7 @@ export class Deque<T> extends Array<T> {
 	static arrayMove<T>(src: Deque<T>, srcIndex: number, dst: Deque<T>, dstIndex: number, len: number): void {
 		for (let j = 0; j < len; ++j) {
 			dst[j + dstIndex] = src[j + srcIndex];
-			src[j + srcIndex] = void 0;
+			src[j + srcIndex] = undefined;
 		}
 	}
 
