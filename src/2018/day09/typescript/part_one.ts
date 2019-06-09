@@ -10,7 +10,7 @@ export const runner = (input: string): number => {
 	for (let marble = 1; marble <= setup.lastMarble; marble++) {
 		if (marble % 23 === 0) {
 			ring.rotate(7);
-			score[marble % setup.players] += marble + ring.pop();
+			score[marble % setup.players] += marble + (ring.pop() || 0);
 			ring.rotate(-1);
 		} else {
 			ring.rotate(-1);

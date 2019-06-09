@@ -4,8 +4,8 @@ export class Node {
 	data: Array<number>;
 	children: Array<Node> = [];
 	processedChildren: number = 0;
-	totalNumberOfChildren: number;
-	totalNumberOfData: number;
+	totalNumberOfChildren: number | undefined;
+	totalNumberOfData: number | undefined;
 
 	static currCharIndex: number = 96;
 

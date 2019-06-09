@@ -66,5 +66,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // KBJHEZCB - 10369 ~ 170ms / 350ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // KBJHEZCB - 10369 ~305ms
 }

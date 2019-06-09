@@ -24,7 +24,7 @@ export class Cart {
 					break;
 			}
 			this.turnsAtIntersection++;
-		} else {
+		} else if (rail) {
 			this.direction.turn(rail);
 		}
 		if (this.isCrashed(mine)) {

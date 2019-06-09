@@ -2,12 +2,12 @@ import { interpret } from './interpret.function';
 import { bench, reader } from '@root';
 import { year, day } from '.';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number | undefined => {
 	const guards: Map<number, Map<number, number>> = new Map();
-	let currentGuard: number;
-	let asleepAt: number;
-	let events = await interpret(input);
-	for (let event of events) {
+	let currentGuard = -1;
+	let asleepAt: number | undefined;
+	let events = interpret(input);
+	for (const event of events) {
 		if (event.guard) {
 			currentGuard = event.guard;
 			if (!guards.has(currentGuard)) {
@@ -18,8 +18,11 @@ export const runner = async (input: string) => {
 			asleepAt = event.minute;
 		} else if (event.event === 'wakes up') {
 			const sleepMap = guards.get(currentGuard);
-			for (let i = asleepAt; i < event.minute; i++) {
-				sleepMap.set(i, (sleepMap.get(i) ? sleepMap.get(i) : 0) + 1);
+			if (sleepMap !== undefined && asleepAt !== undefined) {
+				for (let i = asleepAt; i < event.minute; i++) {
+					const si = sleepMap.get(i);
+					sleepMap.set(i, (si !== undefined ? si : 0) + 1);
+				}
 			}
 			asleepAt = undefined;
 		}
@@ -44,14 +47,16 @@ export const runner = async (input: string) => {
 
 	const mostSleptSleepMap = guards.get(mostSleptGuard);
 
-	const mostSleptMinute: [number, number] = [...mostSleptSleepMap].reduce(
-		([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
-			return [prevSleep < currSleep ? currMin : prevMinute, currSleep];
-		}
-	);
+	if (mostSleptSleepMap) {
+		const mostSleptMinute: [number, number] = [...mostSleptSleepMap].reduce(
+			([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
+				return [prevSleep < currSleep ? currMin : prevMinute, currSleep];
+			}
+		);
 
-	console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
-	return mostSleptGuard * mostSleptMinute[0];
+		console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
+		return mostSleptGuard * mostSleptMinute[0];
+	} else return undefined;
 };
 
 if (require.main === module) {

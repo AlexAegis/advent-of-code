@@ -5,7 +5,7 @@ export const runner = (input: string): number => {
 	let frequencyHistory = new Set();
 	let cache: Array<number> = input.split(/\r?\n/).map(s => Number(s));
 	let sumTotal: number = 0;
-	let firstToBeTwice: number = undefined;
+	let firstToBeTwice: number | undefined = undefined;
 
 	const calculate = (line: number) => {
 		sumTotal += line;

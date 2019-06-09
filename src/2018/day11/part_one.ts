@@ -17,14 +17,14 @@ export const runner = async (input: number = 8561): Promise<string> =>
 
 		let max = [...range({ from: 1, to: 298 }, { from: 1, to: 298 })].reduce(
 			(acc, next) => {
-				let sum = [...next].map(c => map.get(c.toString())).reduce((acc, next) => (acc += next), 0);
+				let sum = [...next].map(c => map.get(c.toString()) || 0).reduce((acc, next) => (acc += next), 0);
 				if (sum > acc.sum) {
 					acc.coord = next;
 					acc.sum = sum;
 				}
 				return acc;
 			},
-			{ coord: undefined as Coord, sum: -Infinity }
+			{ coord: (undefined as unknown) as Coord, sum: -Infinity }
 		);
 		res(`${max.coord} (${max.sum})`);
 	});
