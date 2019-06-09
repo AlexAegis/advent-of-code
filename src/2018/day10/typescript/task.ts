@@ -1,10 +1,12 @@
-import { Vector } from './vector.class';
-import { reader } from './reader.function';
-import { Coord } from './coord.class';
+import { Vector } from './model/vector.class';
+import { interpreter } from './interpreter.function';
+import { Coord } from './model/coord.class';
 import { Boundary } from './boundary.interface';
+import { bench, reader } from '@root';
+import { year, day } from '.';
 
 export const normalize = (input: Array<Vector>): Array<Vector> => {
-	let { maxX, minX, maxY, minY } = boundary(input);
+	let { minX, minY } = boundary(input);
 	let norm = new Coord(minX, minY);
 	return input.map(vector => {
 		vector.position.sub(norm);
@@ -44,30 +46,25 @@ export const print = (input: Array<Vector>): string => {
 	return pic;
 };
 
-export const runner = async (input: string = 'input'): Promise<any> =>
-	new Promise<any>(async res => {
-		const vectors = await reader(input);
-		let minArea: number = area(boundary(vectors));
-		for (var i = 0; true; i++) {
-			vectors.forEach(vector => {
-				vector.position.add(vector.velocity);
-			});
-			let currArea = verticalArea(boundary(vectors));
-			if (minArea > currArea) {
-				minArea = currArea;
-			} else break;
-		}
+export const runner = (input: string): number => {
+	const vectors = interpreter(input);
+	let minArea: number = area(boundary(vectors));
+	for (var i = 0; true; i++) {
 		vectors.forEach(vector => {
-			vector.position.sub(vector.velocity);
+			vector.position.add(vector.velocity);
 		});
-		console.log(print(vectors)); // result of part one
-		res(i); // result of part two
+		let currArea = verticalArea(boundary(vectors));
+		if (minArea > currArea) {
+			minArea = currArea;
+		} else break;
+	}
+	vectors.forEach(vector => {
+		vector.position.sub(vector.velocity);
 	});
+	console.log(print(vectors)); // result of part one
+	return i; // result of part two
+};
 
 if (require.main === module) {
-	console.time();
-	(async () => {
-		console.log(`${await runner()}`);
-		console.timeEnd();
-	})(); // KBJHEZCB - 10369 ~ 170ms
+	(async () => console.log(`Result: ${await bench(reader(year, day), runner)}`))(); // KBJHEZCB - 10369 ~ 170ms / 350ms
 }
