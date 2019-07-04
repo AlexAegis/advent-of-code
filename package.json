@@ -1,74 +1,78 @@
 {
-	"name": "advent-of-code",
-	"displayName": "Advent of Code Solutions",
-	"description": "Advent of Code Solutions",
-	"version": "0.14.2",
-	"author": {
-		"name": "Alex Aegis",
-		"email": "alexaegis@gmail.com",
-		"url": "https://github.com/AlexAegis"
-	},
-	"homepage": "https://github.com/AlexAegis",
-	"bugs": {
-		"email": "alexaegis@gmail.com",
-		"url": "https://github.com/AlexAegis/advent-of-code/issues"
-	},
-	"scripts": {
-		"lint": "tslint --project .",
-		"lint:fix": "tslint --project . --fix",
-		"format": "npx prettier --write \"src/**/*\"",
-		"prettier": "npm run format",
-		"test": "mocha --config ./.mocharc",
-		"test:coverage": "nyc npm test",
-		"codecov": "codecov"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/AlexAegis/advent-of-code/"
-	},
-	"categories": [
-		"Other"
-	],
-	"license": "mit",
-	"private": true,
-	"dependencies": {
-		"rxjs": "^6.5.2",
-		"workerpool": "^3.1.2"
-	},
-	"devDependencies": {
-		"@types/chai": "^4.1.7",
-		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.0.8",
-		"@types/workerpool": "^2.3.1",
-		"chai": "^4.2.0",
-		"codecov": "^3.5.0",
-		"mocha": "^6.1.4",
-		"nyc": "^14.1.1",
-		"prettier": "^1.18.2",
-		"source-map-support": "^0.5.12",
-		"ts-node": "8.3.0",
-		"tsconfig-paths": "^3.8.0",
-		"tslint": "~5.17.0",
-		"tslint-plugin-prettier": "^2.0.1",
-		"typescript": "3.5.2"
-	},
-	"nyc": {
-		"extension": [
-			".ts",
-			".tsx"
-		],
-		"include": [
-			"src/**/*.ts"
-		],
-		"exclude": [
-			"node_modules/",
-			"src/**/*.d.ts",
-			"src/**/*.spec.ts",
-			"src/**/deque.class.ts"
-		],
-		"reporter": [
-			"lcov"
-		],
-		"all": true
-	}
+  "name": "advent-of-code",
+  "displayName": "Advent of Code Solutions",
+  "description": "Advent of Code Solutions",
+  "version": "0.14.2",
+  "author": {
+    "name": "Alex Aegis",
+    "email": "alexaegis@gmail.com",
+    "url": "https://github.com/AlexAegis"
+  },
+  "homepage": "https://github.com/AlexAegis",
+  "bugs": {
+    "email": "alexaegis@gmail.com",
+    "url": "https://github.com/AlexAegis/advent-of-code/issues"
+  },
+  "scripts": {
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix",
+    "format": "npx prettier --write \"src/**/*\"",
+    "prettier": "npm run format",
+    "test": "mocha --config ./.mocharc",
+    "test:coverage": "nyc npm test",
+    "codecov": "codecov",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexAegis/advent-of-code/"
+  },
+  "categories": [
+    "Other"
+  ],
+  "license": "mit",
+  "private": true,
+  "dependencies": {
+    "rxjs": "^6.5.2",
+    "workerpool": "^3.1.2",
+    "snyk": "^1.189.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.8",
+    "@types/workerpool": "^2.3.1",
+    "chai": "^4.2.0",
+    "codecov": "^3.5.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2",
+    "source-map-support": "^0.5.12",
+    "ts-node": "8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "tslint": "~5.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "3.5.2"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules/",
+      "src/**/*.d.ts",
+      "src/**/*.spec.ts",
+      "src/**/deque.class.ts"
+    ],
+    "reporter": [
+      "lcov"
+    ],
+    "all": true
+  },
+  "snyk": true
 }
