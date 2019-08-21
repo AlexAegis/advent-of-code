@@ -33,7 +33,7 @@
 	"private": true,
 	"dependencies": {
 		"rxjs": "^6.5.2",
-		"workerpool": "^3.1.2"
+		"workerpool": "^4.0.0"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.1.7",
