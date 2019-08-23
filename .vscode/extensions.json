@@ -4,11 +4,11 @@
 		"ms-vscode.vscode-typescript-tslint-plugin",
 		"esbenp.prettier-vscode",
 		"pkief.material-icon-theme",
-		"robinbentley.sass-indented",
 		"msjsdiag.debugger-for-chrome",
 		"wix.vscode-import-cost",
 		"npxms.hide-gitignored",
 		"msjsdiag.debugger-for-chrome",
-		"hbenl.vscode-mocha-test-adapter"
+		"hbenl.vscode-mocha-test-adapter",
+		"serayuzgur.crates"
 	]
 }
