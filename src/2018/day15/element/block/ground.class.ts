@@ -11,7 +11,7 @@ export class Ground extends Block {
 	set occupant(occupant: Creature | undefined) {
 		this._occupant = occupant;
 		if (occupant) {
-			occupant._ground = this;
+			occupant.ground = this;
 		}
 	}
 
