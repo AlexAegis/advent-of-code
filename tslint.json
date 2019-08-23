@@ -2,10 +2,10 @@
 	"defaultSeverity": "error",
 	"extends": ["tslint:recommended"],
 	"jsRules": {},
-	"rulesDirectory": ["node_modules/tslint-plugin-prettier"],
 	"rules": {
-		"arrow-return-shorthand": true,
+		"array-type": false,
 		"arrow-parens": false,
+		"arrow-return-shorthand": true,
 		"callable-types": true,
 		"class-name": true,
 		"comment-format": [true, "check-space"],
@@ -13,16 +13,15 @@
 		"deprecation": {
 			"severity": "warn"
 		},
-		"no-submodule-imports": false,
 		"eofline": true,
 		"forin": true,
 		"import-blacklist": [true, "rxjs/Rx"],
 		"import-spacing": true,
 		"indent": [true, "tabs"],
-		"interface-over-type-literal": true,
 		"interface-name": false,
+		"interface-over-type-literal": true,
 		"label-position": true,
-		"max-line-length": [true, 140],
+		"max-line-length": [true, 120],
 		"member-access": false,
 		"member-ordering": [
 			true,
@@ -46,13 +45,14 @@
 		"no-shadowed-variable": true,
 		"no-string-literal": false,
 		"no-string-throw": true,
+		"no-submodule-imports": false,
 		"no-switch-case-fall-through": true,
 		"no-trailing-whitespace": true,
 		"no-unnecessary-initializer": true,
 		"no-unused-expression": true,
 		"no-var-keyword": true,
-		"object-literal-sort-keys": false,
 		"object-literal-key-quotes": false,
+		"object-literal-sort-keys": false,
 		"one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
 		"prefer-const": true,
 		"quotemark": [true, "single"],
@@ -71,7 +71,10 @@
 			}
 		],
 		"unified-signatures": true,
-		"variable-name": false,
+		"variable-name": {
+			"options": ["check-format", "require-const-for-all-caps", "allow-leading-underscore", "ban-keywords"]
+		},
 		"whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"]
-	}
+	},
+	"rulesDirectory": ["node_modules/tslint-plugin-prettier"]
 }

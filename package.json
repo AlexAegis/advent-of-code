@@ -20,7 +20,9 @@
 		"prettier": "npm run format",
 		"test": "mocha --config ./.mocharc",
 		"test:coverage": "nyc npm test",
-		"codecov": "codecov"
+		"codecov": "codecov",
+		"check:updates": "ncu",
+		"check:updates:update": "ncu -u"
 	},
 	"repository": {
 		"type": "git",
@@ -33,24 +35,25 @@
 	"private": true,
 	"dependencies": {
 		"rxjs": "^6.5.2",
-		"workerpool": "^3.1.2"
+		"workerpool": "^4.0.0"
 	},
 	"devDependencies": {
-		"@types/chai": "^4.1.7",
+		"@types/chai": "^4.2.0",
 		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.0.8",
-		"@types/workerpool": "^2.3.1",
+		"@types/node": "^12.7.2",
+		"@types/workerpool": "^3.1.0",
 		"chai": "^4.2.0",
 		"codecov": "^3.5.0",
-		"mocha": "^6.1.4",
+		"mocha": "^6.2.0",
 		"nyc": "^14.1.1",
 		"prettier": "^1.18.2",
-		"source-map-support": "^0.5.12",
+		"source-map-support": "^0.5.13",
 		"ts-node": "8.3.0",
 		"tsconfig-paths": "^3.8.0",
-		"tslint": "~5.17.0",
+		"tslint": "~5.19.0",
 		"tslint-plugin-prettier": "^2.0.1",
-		"typescript": "3.5.2"
+		"npm-check-updates": "latest",
+		"typescript": "3.5.3"
 	},
 	"nyc": {
 		"extension": [

@@ -5,39 +5,39 @@ import { Node } from '../model/node.class';
 import { runner } from '../part_two';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
-	const node_a: Node = new Node('a');
-	const node_A: Node = new Node('A');
-	const node_b: Node = new Node('b');
-	const node_z: Node = new Node('z');
+	const NODE_A: Node = new Node('a');
+	const NODE_UA: Node = new Node('A');
+	const NODE_B: Node = new Node('b');
+	const NODE_Z: Node = new Node('z');
 
-	const a_cost_short = 1;
-	const a_cost_long = 61;
-	const b_cost_short = 2;
-	const b_cost_long = 62;
-	const z_cost_long = 86;
+	const A_COST_SHORT = 1;
+	const A_COST_LONG = 61;
+	const B_COST_SHORT = 2;
+	const B_COST_LONG = 62;
+	const Z_COST_LONG = 86;
 
 	it('Node cost is equal regardless of casing', () => {
-		expect(node_a.cost()).to.equal(node_A.cost());
+		expect(NODE_A.cost()).to.equal(NODE_UA.cost());
 	});
 
-	it(`Node cost of 'a' is ${a_cost_long}`, () => {
-		expect(node_a.cost(true)).to.equal(a_cost_long);
+	it(`Node cost of 'a' is ${A_COST_LONG}`, () => {
+		expect(NODE_A.cost(true)).to.equal(A_COST_LONG);
 	});
 
-	it(`Node cost of non base 'a' is ${a_cost_short}`, () => {
-		expect(node_a.cost()).to.equal(a_cost_short);
+	it(`Node cost of non base 'a' is ${A_COST_SHORT}`, () => {
+		expect(NODE_A.cost()).to.equal(A_COST_SHORT);
 	});
 
-	it(`Node cost of 'b' is ${b_cost_long}`, () => {
-		expect(node_b.cost(true)).to.equal(b_cost_long);
+	it(`Node cost of 'b' is ${B_COST_LONG}`, () => {
+		expect(NODE_B.cost(true)).to.equal(B_COST_LONG);
 	});
 
-	it(`Node cost of non base 'b' is ${b_cost_short}`, () => {
-		expect(node_b.cost()).to.equal(b_cost_short);
+	it(`Node cost of non base 'b' is ${B_COST_SHORT}`, () => {
+		expect(NODE_B.cost()).to.equal(B_COST_SHORT);
 	});
 
-	it(`Node cost of 'z' is ${z_cost_long}`, () => {
-		expect(node_z.cost(true)).to.equal(z_cost_long);
+	it(`Node cost of 'z' is ${Z_COST_LONG}`, () => {
+		expect(NODE_Z.cost(true)).to.equal(Z_COST_LONG);
 	});
 
 	it(`should resolve to ${results.two.input} when using the input`, async () => {
