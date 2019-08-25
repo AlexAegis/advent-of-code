@@ -35,7 +35,7 @@
 	"private": true,
 	"dependencies": {
 		"rxjs": "^6.5.2",
-		"workerpool": "^4.0.0"
+		"workerpool": "^5.0.0"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.2.0",
