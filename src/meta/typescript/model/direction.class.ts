@@ -3,17 +3,45 @@ import { directionMarkerAssociations } from './direction-marker-associations.con
 import { DirectionMarker } from './direction-marker.type';
 
 export class Direction extends Coord {
-	constructor(public marker: DirectionMarker) {
+	public constructor(public marker: DirectionMarker) {
 		super(directionMarkerAssociations[marker]);
 	}
+	public static NORTH = new Direction('^');
+	public static SOUTH = new Direction('v');
+	public static EAST = new Direction('>');
+	public static WEST = new Direction('<');
 
-	static directions: string[] = ['^', 'v', '>', '<'];
+	public static directions: string[] = ['^', 'v', '>', '<'];
 
-	static isHorizonal(marker: DirectionMarker): boolean {
+	public static isHorizonal(marker: DirectionMarker): boolean {
 		return marker === '>' || marker === '<';
 	}
 
-	static isVertical(marker: DirectionMarker): boolean {
+	public static isVertical(marker: DirectionMarker): boolean {
 		return marker === '^' || marker === 'v';
+	}
+
+	public right(): Direction {
+		if (this.equals(Direction.NORTH)) return Direction.EAST;
+		else if (this.equals(Direction.EAST)) return Direction.SOUTH;
+		else if (this.equals(Direction.SOUTH)) return Direction.WEST;
+		else if (this.equals(Direction.WEST)) return Direction.NORTH;
+		else return Direction.NORTH;
+	}
+
+	public left(): Direction {
+		if (this.equals(Direction.NORTH)) return Direction.WEST;
+		else if (this.equals(Direction.WEST)) return Direction.SOUTH;
+		else if (this.equals(Direction.SOUTH)) return Direction.EAST;
+		else if (this.equals(Direction.EAST)) return Direction.NORTH;
+		else return Direction.NORTH;
+	}
+
+	public equals(that: Direction): boolean {
+		return that && this.x === that.x && this.y === that.y;
+	}
+
+	public clone(): Direction {
+		return new Direction(this.marker);
 	}
 }
