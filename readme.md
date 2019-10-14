@@ -33,6 +33,37 @@
 | Day 24                      |                                                             |                                          |                                                          |                                            |
 | Day 25                      |                                                             |                                          |                                                          |                                            |
 
+## [2016](https://adventofcode.com/2016/)
+
+| Day                        | Part One                                          |      | Part Two   |      |
+| -------------------------- | ------------------------------------------------- | ---- | ---------- | ---- |
+|                            | TypeScript                                        | Rust | TypeScript | Rust |
+| [Day 1](./src/2015/day01/) | [0.37ms](./src/2015/day01/typescript/part_one.ts) |      |            |      |
+| Day 2                      |                                                   |      |            |      |
+| Day 3                      |                                                   |      |            |      |
+| Day 4                      |                                                   |      |            |      |
+| Day 5                      |                                                   |      |            |      |
+| Day 6                      |                                                   |      |            |      |
+| Day 7                      |                                                   |      |            |      |
+| Day 8                      |                                                   |      |            |      |
+| Day 9                      |                                                   |      |            |      |
+| Day 10                     |                                                   |      |            |      |
+| Day 11                     |                                                   |      |            |      |
+| Day 12                     |                                                   |      |            |      |
+| Day 13                     |                                                   |      |            |      |
+| Day 14                     |                                                   |      |            |      |
+| Day 15                     |                                                   |      |            |      |
+| Day 16                     |                                                   |      |            |      |
+| Day 17                     |                                                   |      |            |      |
+| Day 18                     |                                                   |      |            |      |
+| Day 19                     |                                                   |      |            |      |
+| Day 20                     |                                                   |      |            |      |
+| Day 21                     |                                                   |      |            |      |
+| Day 22                     |                                                   |      |            |      |
+| Day 23                     |                                                   |      |            |      |
+| Day 24                     |                                                   |      |            |      |
+| Day 25                     |                                                   |      |            |      |
+
 ## [2015](https://adventofcode.com/2015/)
 
 | Day                        | Part One                                         |                                           | Part Two                                           |                                           |
