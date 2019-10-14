@@ -8,6 +8,6 @@ export const results: DayResults = {
 		input: 300
 	},
 	two: {
-		input: 0
+		input: 159
 	}
 };
