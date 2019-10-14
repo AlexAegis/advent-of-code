@@ -3,20 +3,21 @@ import { Coord } from '@root/meta/typescript/model/coord.class';
 import { Direction } from '@root/meta/typescript/model/direction.class';
 import { day, year } from '.';
 
-export const runner = (input: string) =>
-	input
-		.split(', ')
-		.reduce(
-			(acc, next) => {
-				if (next[0] === 'R') acc.direction = acc.direction.right();
-				if (next[0] === 'L') acc.direction = acc.direction.left();
-				acc.position.add(acc.direction, Number(next.substring(1)));
-				return acc;
-			},
-			{ position: Coord.ORIGO, direction: Direction.NORTH }
-		)
-		.position.manhattan(Coord.ORIGO);
+export const runner = (input: string) => {
+	const acc = { position: Coord.ORIGO, direction: Direction.NORTH, history: new Set<string>() };
+	loop: for (const next of input.split(', ')) {
+		if (next[0] === 'R') acc.direction = acc.direction.right();
+		if (next[0] === 'L') acc.direction = acc.direction.left();
+		for (let i = 0; i < Number(next.substring(1)); i++) {
+			acc.position.add(acc.direction);
+			const coordString = acc.position.toString();
+			if (acc.history.has(coordString)) break loop;
+			acc.history.add(coordString);
+		}
+	}
+	return acc.position.manhattan(Coord.ORIGO);
+};
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 300 ~0.37ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 159 ~0.48ms
 }

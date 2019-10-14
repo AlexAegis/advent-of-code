@@ -5,16 +5,17 @@ export class Coord {
 	public x!: number;
 	public y!: number;
 
-	public constructor(coord: Coord);
+	public constructor(coord: Coord | string);
 	public constructor(x: number, y: number);
-	public constructor(x: number | Coord, y?: number) {
+	public constructor(x: number | string | Coord, y?: number) {
 		if (typeof x === 'object' && x instanceof Coord) {
 			this.x = x.x;
 			this.y = x.y;
-		}
-		if (typeof x === 'number' && typeof y === 'number') {
+		} else if (typeof x === 'number' && typeof y === 'number') {
 			this.x = x;
 			this.y = y;
+		} else if (typeof x === 'string') {
+			[this.x, this.y] = x.split(',').map(s => Number(s));
 		}
 	}
 
