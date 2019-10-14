@@ -14,7 +14,7 @@ There's no time to follow such ridiculous instructions on foot, though, so you t
 
 For example:
 
-- Following `R2, L3`leaves you `2` blocks East and `3` blocks North, or `5` blocks away.
+- Following `R2, L3` leaves you `2` blocks East and `3` blocks North, or `5` blocks away.
 - `R2, R2, R2` leaves you `2` blocks due South of your starting position, which is `2` blocks away.
 - `R5, L5, R5, R3` leaves you `12` blocks away.
 
@@ -22,7 +22,7 @@ For example:
 
 Your puzzle answer was `300`.
 
-## [Part One](./part_two.ts)
+## [Part Two](./part_two.ts)
 
 Then, you notice the instructions continue on the back of the Recruiting Document. Easter Bunny HQ is actually at the first location you visit twice.
 
