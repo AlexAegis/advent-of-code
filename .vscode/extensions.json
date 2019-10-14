@@ -9,6 +9,10 @@
 		"npxms.hide-gitignored",
 		"msjsdiag.debugger-for-chrome",
 		"hbenl.vscode-mocha-test-adapter",
-		"serayuzgur.crates"
+		"serayuzgur.crates",
+		"rust-lang.rust",
+		"ms-vscode.cpptools",
+		"juanmnl.vscode-theme-1984",
+		"daylerees.rainglow"
 	]
 }

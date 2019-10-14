@@ -34,7 +34,7 @@
 	"theme-by-language.themes": {
 		"*": "Material Theme Darker High Contrast",
 		"typescript": "Material Theme Darker High Contrast",
-		"rust": "1984 - Orwellian",
+		"rust": "Halflife Contrast (rainglow)",
 		"toml": "1984 - Orwellian"
 	},
 	"rust.build_on_save": true,

@@ -28,50 +28,36 @@
 		"type": "git",
 		"url": "https://github.com/AlexAegis/advent-of-code/"
 	},
-	"categories": [
-		"Other"
-	],
+	"categories": ["Other"],
 	"license": "mit",
 	"private": true,
 	"dependencies": {
-		"rxjs": "^6.5.2",
-		"workerpool": "^4.0.0"
+		"rxjs": "^6.5.3",
+		"workerpool": "^5.0.1"
 	},
 	"devDependencies": {
-		"@types/chai": "^4.2.0",
+		"@types/chai": "^4.2.3",
 		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.7.2",
-		"@types/workerpool": "^3.1.0",
+		"@types/node": "^12.7.12",
+		"@types/workerpool": "^5.0.0",
 		"chai": "^4.2.0",
-		"codecov": "^3.5.0",
-		"mocha": "^6.2.0",
+		"codecov": "^3.6.1",
+		"mocha": "^6.2.1",
 		"nyc": "^14.1.1",
 		"prettier": "^1.18.2",
 		"source-map-support": "^0.5.13",
-		"ts-node": "8.3.0",
-		"tsconfig-paths": "^3.8.0",
-		"tslint": "~5.19.0",
+		"ts-node": "8.4.1",
+		"tsconfig-paths": "^3.9.0",
+		"tslint": "~5.20.0",
 		"tslint-plugin-prettier": "^2.0.1",
 		"npm-check-updates": "latest",
-		"typescript": "3.5.3"
+		"typescript": "3.6.4"
 	},
 	"nyc": {
-		"extension": [
-			".ts",
-			".tsx"
-		],
-		"include": [
-			"src/**/*.ts"
-		],
-		"exclude": [
-			"node_modules/",
-			"src/**/*.d.ts",
-			"src/**/*.spec.ts",
-			"src/**/deque.class.ts"
-		],
-		"reporter": [
-			"lcov"
-		],
+		"extension": [".ts", ".tsx"],
+		"include": ["src/**/*.ts"],
+		"exclude": ["node_modules/", "src/**/*.d.ts", "src/**/*.spec.ts", "src/**/deque.class.ts"],
+		"reporter": ["lcov"],
 		"all": true
 	}
 }
