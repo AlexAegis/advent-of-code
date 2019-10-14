@@ -1,4 +1,7 @@
 export class Coord {
+	public static get ORIGO(): Coord {
+		return new Coord(0, 0);
+	}
 	public x!: number;
 	public y!: number;
 
@@ -15,10 +18,22 @@ export class Coord {
 		}
 	}
 
-	public add(coord: Coord): Coord {
-		this.x += coord.x;
-		this.y += coord.y;
+	public add(coord: Coord, times: number = 1): Coord {
+		this.x += coord.x * times;
+		this.y += coord.y * times;
 		return this;
+	}
+
+	public manhattan(coord: Coord): number;
+	public manhattan(x: number, y: number): number;
+	public manhattan(x: number | Coord, y?: number): number {
+		if (typeof x === 'number' && typeof y === 'number') {
+			return Math.abs(x - this.x) + Math.abs(y - this.y);
+		} else if (typeof x === 'object') {
+			return this.manhattan(x.x, x.y);
+		} else {
+			return 0;
+		}
 	}
 
 	public toString(): string {
