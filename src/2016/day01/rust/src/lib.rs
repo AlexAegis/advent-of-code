@@ -10,6 +10,7 @@ impl aoc::Solvable<String, i16> for PartOne {
 
 		// println!("{:?}", _vec);
 		// model::Coord::<i32>::zero(); ???
+		let origo = model::Coord::<i16> { x: 0, y: 0 };
 		let mut pos = model::Coord::<i16> { x: 0, y: 0 };
 		let mut dir = model::coord::north::<i16>();
 
@@ -22,9 +23,15 @@ impl aoc::Solvable<String, i16> for PartOne {
 			}
 
 			// model::coord::north::<i16>().step(model::Coord::<i16> { x: 0, y: 0 }, 2i16);
-			// pos = pos.step(dir, scale.parse::<i16>().unwrap());
 
-			println!("dir: {:?}, pos: {:?}", dir, pos);
+			pos = pos + (dir * scale.parse::<i16>().unwrap());
+
+			println!(
+				"dir: {:?}, pos: {:?}, manthattan: {}",
+				dir,
+				pos,
+				pos.manhattan(origo)
+			);
 		}
 		//
 		//let c1 = model::Coord::<i16> { x: 1i16, y: 2i16 };

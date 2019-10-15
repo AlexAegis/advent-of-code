@@ -65,13 +65,34 @@ impl<T: FromStr> FromStr for Coord<T> {
 
 impl<T: Copy + Mul<Output = T> + Add<Output = T>> Stepper<T> for Coord<T> {
 	type Output = Coord<T>;
-	pub fn step(self, step: Coord<T>, amount: T) -> Coord<T> {
+	fn step(self, step: Coord<T>, amount: T) -> Coord<T> {
 		self + (step * amount)
 	}
 }
 
+impl<T: Copy + Mul<Output = T> + Add<Output = T>> Stepper<T> for &mut Coord<T> {
+	type Output = Coord<T>;
+	fn step(self, step: Coord<T>, amount: T) -> Coord<T> {
+		*self + (step * amount)
+	}
+}
+
+impl<T: Copy + Mul<Output = T> + Add<Output = T>> Stepper<T> for &mut &Coord<T> {
+	type Output = Coord<T>;
+	fn step(self, step: Coord<T>, amount: T) -> Coord<T> {
+		**self + (step * amount)
+	}
+}
+
+impl<T: Copy + Mul<Output = T> + Add<Output = T>> Stepper<T> for &Coord<T> {
+	type Output = Coord<T>;
+	fn step(self, step: Coord<T>, amount: T) -> Coord<T> {
+		*self + (step * amount)
+	}
+}
+
 impl<T: Add<Output = T> + Sub<Output = T> + Neg<Output = T> + Ord + Default> Coord<T> {
-	fn manhattan(self, coord: Coord<T>) -> T {
+	pub fn manhattan(self, coord: Coord<T>) -> T {
 		abs(coord.x - self.x) + abs(coord.y - self.y)
 	}
 }
