@@ -9,23 +9,33 @@ impl aoc::Solvable<String, i16> for PartOne {
 		let _vec = input.split(", ");
 
 		// println!("{:?}", _vec);
+		// model::Coord::<i32>::zero(); ???
+		let mut pos = model::Coord::<i16> { x: 0, y: 0 };
+		let mut dir = model::coord::north::<i16>();
 
 		for val in _vec {
-			println!("Got: {}", val);
+			let (rot, scale) = val.split_at(1);
+			if rot == "R" {
+				dir = dir.rotate_right();
+			} else if rot == "L" {
+				dir = dir.rotate_left();
+			}
+
+			// model::coord::north::<i16>().step(model::Coord::<i16> { x: 0, y: 0 }, 2i16);
+			// pos = pos.step(dir, scale.parse::<i16>().unwrap());
+
+			println!("dir: {:?}, pos: {:?}", dir, pos);
 		}
-
-		let c1 = model::Coord::<i16> { x: 1i16, y: 2i16 };
-		let c2 = model::Coord::<i16> { x: 3i16, y: 1i16 };
-		let c3 = "12,10".parse::<model::Coord<i16>>().unwrap();
-
-		let dirNorth = model::direction::north::<i16>();
-		println!("dirNorthR: {:?}", dirNorth.right());
-
-		println!("c1: {:?}", c1);
-		println!("c2: {:?}", c2);
-		println!("c3: {:?}", c3);
-		println!("c1 + c2: {:?}", c1 + c2);
-
+		//
+		//let c1 = model::Coord::<i16> { x: 1i16, y: 2i16 };
+		//let c2 = model::Coord::<i16> { x: 3i16, y: 1i16 };
+		//let c3 = "12,10".parse::<model::Coord<i16>>().unwrap();
+		//
+		//println!("c1: {:?}", c1);
+		//println!("c2: {:?}", c2);
+		//println!("c3: {:?}", c3);
+		//println!("c1 + c2: {:?}", c1 + c2);
+		//
 		let n = -4i16;
 		n
 	}
