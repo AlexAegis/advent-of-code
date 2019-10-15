@@ -9,6 +9,8 @@ repository = "https://github.com/AlexAegis/advent-of-code"
 [dependencies]
 
 [dev-dependencies]
+num-traits = "0.2.8"
+cached = "0.9.0"
 criterion = "0.3.0"
 clippy = "0.0.302"
 
@@ -28,7 +30,9 @@ opt-level = 3
 
 [workspace]
 members = [
+	"src/meta/rust",
 	"src/2015/day01/rust",
 	"src/2015/day02/rust",
+	"src/2016/day01/rust",
 	"src/2018/day01/rust",
 ]
