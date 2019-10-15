@@ -1,7 +1,7 @@
 pub struct PartOne;
 pub struct PartTwo;
 
-use aoclib::model::Coord;
+use aoclib::model;
 
 impl aoc::Solvable<String, i16> for PartOne {
 	fn solve(input: &String) -> i16 {
@@ -14,9 +14,13 @@ impl aoc::Solvable<String, i16> for PartOne {
 			println!("Got: {}", val);
 		}
 
-		let c1 = Coord::<i16> { x: 1i16, y: 2i16 };
-		let c2 = Coord::<i16> { x: 3i16, y: 1i16 };
-		let c3 = "12,10".parse::<Coord<i16>>().unwrap();
+		let c1 = model::Coord::<i16> { x: 1i16, y: 2i16 };
+		let c2 = model::Coord::<i16> { x: 3i16, y: 1i16 };
+		let c3 = "12,10".parse::<model::Coord<i16>>().unwrap();
+
+		let dirNorth = model::direction::north::<i16>();
+		println!("dirNorthR: {:?}", dirNorth.right());
+
 		println!("c1: {:?}", c1);
 		println!("c2: {:?}", c2);
 		println!("c3: {:?}", c3);

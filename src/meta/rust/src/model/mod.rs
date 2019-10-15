@@ -1,3 +1,5 @@
 pub use coord::Coord;
+pub use direction::Direction;
 
-mod coord;
+pub mod coord;
+pub mod direction;
