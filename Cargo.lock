@@ -48,6 +48,7 @@ name = "aoclib"
 version = "1.0.0"
 dependencies = [
  "aoc 0.1.0",
+ "num-traits 0.2.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]

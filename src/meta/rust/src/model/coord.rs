@@ -1,4 +1,6 @@
 use crate::math::abs;
+use num_traits::identities::One;
+use num_traits::identities::Zero;
 use std::cmp::Ord;
 use std::fmt::Debug;
 use std::ops::Add;
@@ -7,7 +9,7 @@ use std::ops::Neg;
 use std::ops::Sub;
 use std::str::FromStr;
 
-// #[derive(Debug, PartialEq)]
+#[derive(Debug, Copy, Clone)]
 pub struct Coord<T> {
 	pub x: T,
 	pub y: T,
@@ -30,12 +32,6 @@ impl<T: FromStr> FromStr for Coord<T> {
 			x: x_fromstr,
 			y: y_fromstr,
 		})
-	}
-}
-
-impl<T: Debug> Debug for Coord<T> {
-	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-		write!(f, "Coord {{ x: {:?}, y: {:?} }}", self.x, self.y)
 	}
 }
 
@@ -62,5 +58,33 @@ impl<T: Add<Output = T> + Copy> AddAssign for Coord<T> {
 			x: self.x + other.x,
 			y: self.y + other.y,
 		};
+	}
+}
+
+pub fn north<T: Zero + One>() -> Coord<T> {
+	Coord {
+		x: T::zero(),
+		y: T::one(),
+	}
+}
+
+pub fn south<T: Neg<Output = T> + Zero + One>() -> Coord<T> {
+	Coord {
+		x: T::zero(),
+		y: -(T::one()),
+	}
+}
+
+pub fn east<T: Zero + One>() -> Coord<T> {
+	Coord {
+		x: T::one(),
+		y: T::zero(),
+	}
+}
+
+pub fn west<T: Neg<Output = T> + Zero + One>() -> Coord<T> {
+	Coord {
+		x: -(T::one()),
+		y: T::zero(),
 	}
 }
