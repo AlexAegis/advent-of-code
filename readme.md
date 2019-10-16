@@ -173,6 +173,12 @@ Or in the workspace cargo if you'd like to run all benchmarks (Takes a while!)
 cargo bench --all
 ```
 
+### Scaffolding
+
+```bash
+cargo run --package scaffold 2016 01
+```
+
 ## Notes
 
 > All times are measured on i7-8700k@4.8Ghz
