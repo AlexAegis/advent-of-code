@@ -10,6 +10,7 @@ repository = "https://github.com/AlexAegis/advent-of-code"
 num-traits = "0.2.8"
 cached = "0.9.0"
 clap = "2.33.0"
+async-std = "0.99.10"
 
 [dev-dependencies]
 criterion = "0.3.0"
