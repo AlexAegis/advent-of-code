@@ -1,5 +1,7 @@
 use clap::{App, Arg};
 
+use async_std::fs;
+use async_std::task;
 use std::convert::From;
 use std::string::String;
 
@@ -15,14 +17,6 @@ impl From<std::ffi::OsString> for ParserError {
 		}
 	}
 }
-/*
-impl From<std::option::NoneError> for ParserError {
-	fn from(_: std::option::NoneError) -> ParserError {
-		ParserError {
-			message: "Invalid data type".to_string(),
-		}
-	}
-}*/
 
 impl From<std::num::ParseIntError> for ParserError {
 	fn from(_: std::num::ParseIntError) -> ParserError {
@@ -84,6 +78,12 @@ pub fn main() -> Result<(), ParserError> {
 		.to_str()
 		.unwrap()
 		.parse::<i8>()?;
-	print!("Args: year {:?} day {:?}", year, day);
+
+	task::spawn(async {
+		// fs::create_dir("./some/dir").await?;
+		println!("Hello, world!");
+	});
+
+	println!("Args: year {:?} day {:?}", year, day);
 	Ok(())
 }
