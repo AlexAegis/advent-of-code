@@ -7,10 +7,11 @@ edition = "2018"
 repository = "https://github.com/AlexAegis/advent-of-code"
 
 [dependencies]
-
-[dev-dependencies]
 num-traits = "0.2.8"
 cached = "0.9.0"
+clap = "2.33.0"
+
+[dev-dependencies]
 criterion = "0.3.0"
 clippy = "0.0.302"
 

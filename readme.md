@@ -145,6 +145,12 @@ or if you installed the recommended mocha extension you can run them with that
 
    > Select `Current Rust Cargo` launch option. **F5** runs the cargo you're focusing in debug mode.
 
+### Running individual days
+
+```bash
+cargo run -p aoc1601
+```
+
 ### Testing
 
 Run in the cargo you'd like to test
