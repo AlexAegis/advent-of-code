@@ -6,7 +6,7 @@ license = "mit"
 edition = "2018"
 
 [dependencies]
-clap = "2.33.0"
+clap = "*"
 
 [dev-dependencies]
 criterion = "*"

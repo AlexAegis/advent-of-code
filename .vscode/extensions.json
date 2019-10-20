@@ -13,6 +13,7 @@
 		"rust-lang.rust",
 		"ms-vscode.cpptools",
 		"juanmnl.vscode-theme-1984",
-		"daylerees.rainglow"
+		"daylerees.rainglow",
+		"equinusocio.vsc-material-theme"
 	]
 }
