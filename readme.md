@@ -145,6 +145,12 @@ or if you installed the recommended mocha extension you can run them with that
 
    > Select `Current Rust Cargo` launch option. **F5** runs the cargo you're focusing in debug mode.
 
+   > Set Rust to default to `nightly`
+
+   ```bash
+   rustup default nightly
+   ```
+
 ### Running individual days
 
 ```bash
