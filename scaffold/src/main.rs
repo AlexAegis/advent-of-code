@@ -25,6 +25,12 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	match task_response.status() {
 		reqwest::StatusCode::OK => {
 			println!("Status 200");
+			let html = task_response.text().await?;
+			let fragment = Html::parse_document(&html);
+			let selector = Selector::parse("main").unwrap();
+			let main = fragment.select(&selector).next().unwrap();
+			let text = main.text().collect::<Vec<_>>();
+			println!("Main  {:?}", text);
 		}
 		i => {
 			println!("Status other {}", i);
