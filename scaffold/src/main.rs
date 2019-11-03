@@ -1,36 +1,29 @@
+mod errors;
+
 use clap::{App, Arg};
-
 use std::fs;
-// use std::task;
-use std::convert::From;
-// use std::future::Future;
 use std::path::Path;
-use std::string::String;
 
-#[derive(Debug)]
-pub struct ParserError {
-	pub message: String,
-}
-
-impl From<std::ffi::OsString> for ParserError {
-	fn from(_: std::ffi::OsString) -> ParserError {
-		ParserError {
-			message: "Invalid data type".to_string(),
-		}
-	}
-}
-
-impl From<std::num::ParseIntError> for ParserError {
-	fn from(_: std::num::ParseIntError) -> ParserError {
-		ParserError {
-			message: "Invalid data type".to_string(),
-		}
-	}
-}
+use errors::ParserError;
 
 pub fn main() -> Result<(), ParserError> {
 	println!("Scaffold!");
+	let (year, day) = bootstrap()?;
 
+	let is_src_dir = Path::new("./src/").is_dir();
+	println!("isSrcDir {}", is_src_dir);
+	let p = match fs::create_dir("./srcd") {
+		Ok(_o) => Ok(()),
+		Err(_e) => Err("Already exists".to_string()),
+	};
+
+	println!("Hello, world! {:?}", p);
+
+	println!("Args: year {:?} day {:?}", year, day);
+	Ok(())
+}
+
+fn bootstrap() -> Result<(i16, i8), ParserError> {
 	let m = App::new("myapp")
 		.version("1.0")
 		.about("Does great things!")
@@ -81,15 +74,5 @@ pub fn main() -> Result<(), ParserError> {
 		.unwrap()
 		.parse::<i8>()?;
 
-	let is_src_dir = Path::new("./src/").is_dir();
-	println!("isSrcDir {}", is_src_dir);
-	let p = match fs::create_dir("./srcd") {
-		Ok(_o) => Ok(()),
-		Err(_e) => Err("Already exists".to_string()),
-	};
-
-	println!("Hello, world! {:?}", p);
-
-	println!("Args: year {:?} day {:?}", year, day);
-	Ok(())
+	Ok((year, day))
 }
