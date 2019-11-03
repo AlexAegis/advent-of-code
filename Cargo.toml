@@ -11,6 +11,8 @@ num-traits = "0.2.8"
 cached = "0.9.0"
 clap = "2.33.0"
 async-std = "0.99.10"
+tokio = "0.2.0-alpha.6"
+futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 
 [dev-dependencies]
 criterion = "0.3.0"
