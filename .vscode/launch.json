@@ -42,7 +42,7 @@
 		{
 			"id": "year",
 			"type": "promptString",
-			"default": "2019",
+			"default": "2015",
 			"description": "Year"
 		},
 		{

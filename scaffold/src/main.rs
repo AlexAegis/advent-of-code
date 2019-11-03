@@ -1,42 +1,55 @@
 mod errors;
-/*
-use std::{
-	fmt::{self, Debug, Display},
-	process::{ExitCode, Termination},
-};*/
 
 use clap::{App, Arg};
+use scraper::{Html, Selector};
 
-use std::fs;
-use std::path::Path;
+use async_std::fs::{DirBuilder, File};
+use async_std::prelude::*;
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	println!("Scaffold!");
 	let (year, day) = bootstrap()?;
+	println!("Scaffold!: year {:?} day {:?}", year, day);
 
-	let is_src_dir = Path::new("./src/").is_dir();
-	println!("isSrcDir {}", is_src_dir);
-	let p = match fs::create_dir("./srcd") {
-		Ok(_o) => Ok(()),
-		Err(_e) => Err("Already exists".to_string()),
-	};
-
-	println!("Hello, world! {:?}", p);
-
+	let client = reqwest::Client::new();
+	let dir = format!("./src/{}/day{:0>2}", year, day);
 	let link = format!("https://adventofcode.com/{}/day/{}", year, day);
+	let input_url = link.clone() + "/input";
+
+	println!("Creating directories: {}", dir);
+	DirBuilder::new().recursive(true).create(&dir).await?;
+
+	println!("Fetching task description from {}", link);
+
+	let task_response = client.get(&link).send().await?;
+	match task_response.status() {
+		reqwest::StatusCode::OK => {
+			println!("Status 200");
+		}
+		i => {
+			println!("Status other {}", i);
+		}
+	}
+
+	println!("Creating readme.md");
+	let mut readme = File::create(dir + "/readme.md").await?;
+	readme.write_all(b"Hello, world!").await?;
+	readme.sync_all().await?;
 
 	println!("link: {}", link);
-
-	let res = reqwest::Client::new().get(&link).send().await?;
-
+	/*
+	let res = ?;
 	println!("Status: {}", res.status());
-
 	let body = res.text().await?;
+	let fragment = Html::parse_fragment(html);
+	let selector = Selector::parse("li").unwrap();*/
+	/*
+	for element in fragment.select(&selector) {
+		assert_eq!("li", element.value().name());
+	}
 
-	// println!("Body:\n\n{}", body);
+	println!("Body:\n\n{}", body);*/
 
-	println!("Args: year {:?} day {:?}", year, day);
 	Ok(())
 }
 
