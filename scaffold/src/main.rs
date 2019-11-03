@@ -1,12 +1,17 @@
 mod errors;
+/*
+use std::{
+	fmt::{self, Debug, Display},
+	process::{ExitCode, Termination},
+};*/
 
 use clap::{App, Arg};
+
 use std::fs;
 use std::path::Path;
 
-use errors::ParserError;
-
-pub fn main() -> Result<(), ParserError> {
+#[tokio::main]
+pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	println!("Scaffold!");
 	let (year, day) = bootstrap()?;
 
@@ -19,11 +24,23 @@ pub fn main() -> Result<(), ParserError> {
 
 	println!("Hello, world! {:?}", p);
 
+	let link = format!("https://adventofcode.com/{}/day/{}", year, day);
+
+	println!("link: {}", link);
+
+	let res = reqwest::Client::new().get(&link).send().await?;
+
+	println!("Status: {}", res.status());
+
+	let body = res.text().await?;
+
+	// println!("Body:\n\n{}", body);
+
 	println!("Args: year {:?} day {:?}", year, day);
 	Ok(())
 }
 
-fn bootstrap() -> Result<(i16, i8), ParserError> {
+fn bootstrap() -> Result<(i16, i8), Box<dyn std::error::Error>> {
 	let m = App::new("myapp")
 		.version("1.0")
 		.about("Does great things!")
