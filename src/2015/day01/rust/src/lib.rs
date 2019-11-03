@@ -24,4 +24,3 @@ impl aoc::Solvable<String, i16> for PartTwo {
 		i
 	}
 }
-
