@@ -5,6 +5,7 @@ use scraper::{Html, Selector};
 
 use async_std::fs::{DirBuilder, File};
 use async_std::prelude::*;
+use html2md::parse_html;
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -29,8 +30,9 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 			let fragment = Html::parse_document(&html);
 			let selector = Selector::parse("main").unwrap();
 			let main = fragment.select(&selector).next().unwrap();
-			let text = main.text().collect::<Vec<_>>();
-			println!("Main  {:?}", text);
+			let text = main.text().collect::<Vec<&str>>().join("");
+			let markdown = parse_html(&text);
+			println!("markdown {:?}", markdown);
 		}
 		i => {
 			println!("Status other {}", i);
