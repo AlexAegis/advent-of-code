@@ -1,5 +1,3 @@
-extern crate aoc;
-
 use aoc::Solvable;
 use aoc1501::{PartOne, PartTwo};
 
