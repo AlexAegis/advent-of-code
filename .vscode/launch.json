@@ -25,6 +25,31 @@
 			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
 			"preLaunchTask": "cargo build",
 			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
+		},
+		{
+			"type": "cppvsdbg",
+			"request": "launch",
+			"name": "Rust Scaffolder",
+			"program": "cargo",
+			"args": ["run", "--", "--workspace", "${workspaceFolder}", "${input:year}", "${input:day}"],
+			"cwd": "${fileDirname}",
+			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
+			"preLaunchTask": "cargo build",
+			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
+		}
+	],
+	"inputs": [
+		{
+			"id": "year",
+			"type": "promptString",
+			"default": "2019",
+			"description": "Year"
+		},
+		{
+			"id": "day",
+			"type": "promptString",
+			"default": "01",
+			"description": "Day"
 		}
 	]
 }
