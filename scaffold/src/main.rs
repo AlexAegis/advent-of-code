@@ -1,8 +1,10 @@
 use clap::{App, Arg};
 
-use async_std::fs;
-use async_std::task;
+use std::fs;
+// use std::task;
 use std::convert::From;
+// use std::future::Future;
+use std::path::Path;
 use std::string::String;
 
 #[derive(Debug)]
@@ -79,10 +81,14 @@ pub fn main() -> Result<(), ParserError> {
 		.unwrap()
 		.parse::<i8>()?;
 
-	task::spawn(async {
-		// fs::create_dir("./some/dir").await?;
-		println!("Hello, world!");
-	});
+	let is_src_dir = Path::new("./src/").is_dir();
+	println!("isSrcDir {}", is_src_dir);
+	let p = match fs::create_dir("./srcd") {
+		Ok(_o) => Ok(()),
+		Err(_e) => Err("Already exists".to_string()),
+	};
+
+	println!("Hello, world! {:?}", p);
 
 	println!("Args: year {:?} day {:?}", year, day);
 	Ok(())
