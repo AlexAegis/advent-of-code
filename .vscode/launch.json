@@ -32,7 +32,7 @@
 			"name": "Rust Scaffolder",
 			"program": "cargo",
 			"args": ["run", "--", "--workspace", "${workspaceFolder}", "${input:year}", "${input:day}"],
-			"cwd": "${fileDirname}",
+			"cwd": "${workspaceFolder}\\scaffold",
 			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
 			"preLaunchTask": "cargo build",
 			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
