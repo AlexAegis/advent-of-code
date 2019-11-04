@@ -34,6 +34,7 @@ opt-level = 3
 
 [workspace]
 members = [
+	"htmd",
 	"scaffold",
 	"src/meta/rust",
 	"src/2015/day01/rust",
