@@ -1,11 +1,10 @@
 mod errors;
 
 use clap::{App, Arg};
-use scraper::{Html, Selector};
 
 use async_std::fs::{DirBuilder, File};
 use async_std::prelude::*;
-use html2md::parse_html;
+use htmd::parser::parser;
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -23,25 +22,24 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	println!("Fetching task description from {}", link);
 
 	let task_response = client.get(&link).send().await?;
-	match task_response.status() {
+	let readme_content = match task_response.status() {
 		reqwest::StatusCode::OK => {
 			println!("Status 200");
 			let html = task_response.text().await?;
-			let fragment = Html::parse_document(&html);
-			let selector = Selector::parse("main").unwrap();
-			let main = fragment.select(&selector).next().unwrap();
-			let text = main.text().collect::<Vec<&str>>().join("");
-			let markdown = parse_html(&text);
-			println!("markdown {:?}", markdown);
+
+			parser::transform(&html)
 		}
 		i => {
 			println!("Status other {}", i);
+			"Not found".to_string()
 		}
-	}
+	};
+
+	// println!("readme_content {:?}", &readme_content);
 
 	println!("Creating readme.md");
 	let mut readme = File::create(dir + "/readme.md").await?;
-	readme.write_all(b"Hello, world!").await?;
+	readme.write_all(readme_content.as_bytes()).await?;
 	readme.sync_all().await?;
 
 	println!("link: {}", link);
