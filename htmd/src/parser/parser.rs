@@ -4,20 +4,20 @@ use scraper::Node;
 use scraper::{Html, Selector};
 
 pub trait Markdownable {
-	fn into_markdown(&self) -> &str;
+	fn into_markdown(&self) -> String;
 }
 
 impl Markdownable for Element {
-	fn into_markdown(&self) -> &str {
-		"Node Element Into Mark"
+	fn into_markdown(&self) -> String {
+		"Node Element Into Mark".to_string()
 	}
 }
 
 impl Markdownable for Markdownables {
-	fn into_markdown(&self) -> &'static str {
+	fn into_markdown(&self) -> String {
 		match self {
-			Markdownables::Article(e) => "ARTICLE",
-			Markdownables::Text(t) => "TEXT", // &(t.to_string().clone()),
+			Markdownables::Article(e) => "ARTICLE".to_string(),
+			Markdownables::Text(t) => t.to_string(), // &(t.to_string().clone()),
 		}
 	}
 }
@@ -33,11 +33,11 @@ pub fn transform(html: &str) -> String {
 
 	let main = fragment.select(&selector).next().unwrap();
 
-	// for d in main.descendants() {
+	// for d in main.descendants() { // children
 	// 	println!("Node {:?}", d.value());
 	// }
 
-	for d in main.children() {
+	for d in main.descendants() {
 		println!("Node {:?}", d.value());
 
 		let n: &Node = d.value();
@@ -48,7 +48,12 @@ pub fn transform(html: &str) -> String {
 			)
 		}
 		if let Some(t) = n.as_element() {
-			println!("Name {:?}", t.name())
+			let match_res = match t.name() {
+				"code" => "ITS A CODE",
+				_ => "not a code",
+			};
+			println!("dsfd {:?}", match_res);
+			println!("Name {:?}", t.name());
 		}
 	}
 	println!("transform");
