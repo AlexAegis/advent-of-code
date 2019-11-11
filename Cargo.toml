@@ -10,7 +10,7 @@ repository = "https://github.com/AlexAegis/advent-of-code"
 num-traits = "0.2.8"
 cached = "0.10.0"
 clap = "2.33.0"
-async-std = "0.99.12"
+async-std = "1.0.0"
 tokio = "0.2.0-alpha.6"
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 
