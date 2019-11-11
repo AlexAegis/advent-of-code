@@ -6,11 +6,11 @@ license = "mit"
 edition = "2018"
 
 [dependencies]
-clap = "2.33.0"
-async-std = "0.99.11"
+clap = "*"
+async-std = "*"
 tokio = "0.2.0-alpha.6"
-scraper = "0.11.0"
+scraper = "*"
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 
 [dev-dependencies]
-criterion = "0.3.0"
+criterion = "*"
