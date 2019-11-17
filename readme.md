@@ -66,34 +66,34 @@
 
 ## [2015](https://adventofcode.com/2015/)
 
-| Day                        | Part One                                         |                                           | Part Two                                           |                                           |
-| -------------------------- | ------------------------------------------------ | ----------------------------------------- | -------------------------------------------------- | ----------------------------------------- |
-|                            | TypeScript                                       | Rust                                      | TypeScript                                         | Rust                                      |
-| [Day 1](./src/2015/day01/) | [0.5ms](./src/2015/day01/typescript/part_one.ts) | [6.2μs](./src/2015/day01/rust/src/lib.rs) | [ 1.2ms ](./src/2015/day01/typescript/part_two.ts) | [1.9μs](./src/2015/day01/rust/src/lib.rs) |
-| [Day 2](./src/2015/day02/) | [2ms](./src/2015/day02/typescript/part_one.ts)   | [210μs](./src/2015/day02/rust/src/lib.rs) | [2.4ms](./src/2015/day02/typescript/part_two.ts)   | [227μs](./src/2015/day02/rust/src/lib.rs) |
-| [Day 3](./src/2015/day03/) | [2.6ms](./src/2015/day03/typescript/part_one.ts) |                                           | [2.8ms](./src/2015/day03/typescript/part_one.ts)   |                                           |
-| Day 4                      |                                                  |                                           |                                                    |                                           |
-| Day 5                      |                                                  |                                           |                                                    |                                           |
-| Day 6                      |                                                  |                                           |                                                    |                                           |
-| Day 7                      |                                                  |                                           |                                                    |                                           |
-| Day 8                      |                                                  |                                           |                                                    |                                           |
-| Day 9                      |                                                  |                                           |                                                    |                                           |
-| Day 10                     |                                                  |                                           |                                                    |                                           |
-| Day 11                     |                                                  |                                           |                                                    |                                           |
-| Day 12                     |                                                  |                                           |                                                    |                                           |
-| Day 13                     |                                                  |                                           |                                                    |                                           |
-| Day 14                     |                                                  |                                           |                                                    |                                           |
-| Day 15                     |                                                  |                                           |                                                    |                                           |
-| Day 16                     |                                                  |                                           |                                                    |                                           |
-| Day 17                     |                                                  |                                           |                                                    |                                           |
-| Day 18                     |                                                  |                                           |                                                    |                                           |
-| Day 19                     |                                                  |                                           |                                                    |                                           |
-| Day 20                     |                                                  |                                           |                                                    |                                           |
-| Day 21                     |                                                  |                                           |                                                    |                                           |
-| Day 22                     |                                                  |                                           |                                                    |                                           |
-| Day 23                     |                                                  |                                           |                                                    |                                           |
-| Day 24                     |                                                  |                                           |                                                    |                                           |
-| Day 25                     |                                                  |                                           |                                                    |                                           |
+| Day                        | Part One                                                     |                                           | Part Two                                                   |                                           |
+| -------------------------- | ------------------------------------------------------------ | ----------------------------------------- | ---------------------------------------------------------- | ----------------------------------------- |
+|                            | TypeScript                                                   | Rust                                      | TypeScript                                                 | Rust                                      |
+| [Day 1](./src/2015/day01/) | [0.5ms](./src/2015/day01/typescript/part_one.ts)             | [6.2μs](./src/2015/day01/rust/src/lib.rs) | [ 1.2ms ](./src/2015/day01/typescript/part_two.ts)         | [1.9μs](./src/2015/day01/rust/src/lib.rs) |
+| [Day 2](./src/2015/day02/) | [2ms](./src/2015/day02/typescript/part_one.ts)               | [210μs](./src/2015/day02/rust/src/lib.rs) | [2.4ms](./src/2015/day02/typescript/part_two.ts)           | [227μs](./src/2015/day02/rust/src/lib.rs) |
+| [Day 3](./src/2015/day03/) | [2.6ms](./src/2015/day03/typescript/part_one.ts)             |                                           | [2.8ms](./src/2015/day03/typescript/part_two.ts)           |                                           |
+| [Day 4](./src/2015/day04/) | [663ms](./src/2015/day04/typescript/hash-search.function.ts) | [506ms](./src/2015/day04/rust/src/lib.rs) | [19s](./src/2015/day04/typescript/hash-search.function.ts) | [14s](./src/2015/day04/rust/src/lib.rs)   |
+| Day 5                      |                                                              |                                           |                                                            |                                           |
+| Day 6                      |                                                              |                                           |                                                            |                                           |
+| Day 7                      |                                                              |                                           |                                                            |                                           |
+| Day 8                      |                                                              |                                           |                                                            |                                           |
+| Day 9                      |                                                              |                                           |                                                            |                                           |
+| Day 10                     |                                                              |                                           |                                                            |                                           |
+| Day 11                     |                                                              |                                           |                                                            |                                           |
+| Day 12                     |                                                              |                                           |                                                            |                                           |
+| Day 13                     |                                                              |                                           |                                                            |                                           |
+| Day 14                     |                                                              |                                           |                                                            |                                           |
+| Day 15                     |                                                              |                                           |                                                            |                                           |
+| Day 16                     |                                                              |                                           |                                                            |                                           |
+| Day 17                     |                                                              |                                           |                                                            |                                           |
+| Day 18                     |                                                              |                                           |                                                            |                                           |
+| Day 19                     |                                                              |                                           |                                                            |                                           |
+| Day 20                     |                                                              |                                           |                                                            |                                           |
+| Day 21                     |                                                              |                                           |                                                            |                                           |
+| Day 22                     |                                                              |                                           |                                                            |                                           |
+| Day 23                     |                                                              |                                           |                                                            |                                           |
+| Day 24                     |                                                              |                                           |                                                            |                                           |
+| Day 25                     |                                                              |                                           |                                                            |                                           |
 
 ---
 
@@ -173,10 +173,10 @@ cargo test --all
 
 ### Benchmarking
 
-Run in the cargo you'd like to benchmark
+Run a specific days benchmark
 
 ```bash
-cargo bench
+cargo bench -p aoc201501
 ```
 
 Or in the workspace cargo if you'd like to run all benchmarks (Takes a while!)
@@ -185,10 +185,10 @@ Or in the workspace cargo if you'd like to run all benchmarks (Takes a while!)
 cargo bench --all
 ```
 
-### Scaffolding
+## Scaffolding
 
 ```bash
-cargo run --package scaffold 2016 01
+cargo run -p scaffold 2016 01
 ```
 
 ## Notes

@@ -10,6 +10,7 @@ name = "aoc1504"
 path = "./src/lib.rs"
 
 [dependencies]
+md5 = "0.7.0"
 aoc = { path = "../../../../" }
 
 [dev-dependencies]
