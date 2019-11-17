@@ -65,7 +65,6 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	input_file.write_all(input_content.as_bytes()).await?;
 	input_file.sync_all().await?;
 
-	// TODO: Multiple example files
 	println!("Creating empty example.txt");
 	let _example_file = File::create(resources_dir + "/example.txt").await?;
 
@@ -74,6 +73,15 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let rust_benches_dir = rust_dir.clone() + "/benches";
 	let rust_src_dir = rust_dir.clone() + "/src";
 	let rust_tests_dir = rust_dir.clone() + "/tests";
+
+	DirBuilder::new().recursive(true).create(&rust_dir).await?;
+
+	let mut rust_cargo_file = File::create(rust_dir.clone() + "/Cargo.toml").await?;
+	rust_cargo_file
+		.write_all(rust_cargo_file_content(year, day).as_bytes())
+		.await?;
+	rust_cargo_file.sync_all().await?;
+
 	DirBuilder::new()
 		.recursive(true)
 		.create(&rust_benches_dir)
@@ -215,6 +223,42 @@ fn bootstrap() -> Result<(i16, i8), Box<dyn std::error::Error>> {
 		.parse::<i8>()?;
 
 	Ok((year, day))
+}
+
+fn rust_cargo_file_content(year: i16, day: i8) -> String {
+	format!(
+		"[package]
+name = \"aoc{short_year}{day:0>2}\"
+version = \"1.0.0\"
+authors = [\"AlexAegis <alexaegis@gmail.com>\"]
+license = \"mit\"
+edition = \"2018\"
+
+[lib]
+name = \"aoc{short_year}{day:0>2}\"
+path = \"./src/lib.rs\"
+
+[dependencies]
+aoc = {{ path = \"../../../../\" }}
+
+[dev-dependencies]
+criterion = \"*\"
+
+[[bench]]
+name = \"bench\"
+harness = false
+",
+		short_year = year
+			.to_string()
+			.chars()
+			.rev()
+			.take(2)
+			.collect::<String>()
+			.chars()
+			.rev()
+			.collect::<String>(),
+		day = day.to_string()
+	)
 }
 
 fn rust_bench_file_content(year: i16, day: i8) -> String {
