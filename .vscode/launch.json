@@ -29,6 +29,17 @@
 		{
 			"type": "cppvsdbg",
 			"request": "launch",
+			"name": "Current Rust Cargo As Release",
+			"program": "cargo",
+			"args": ["run", "--release", "--", "--workspace", "${workspaceFolder}"],
+			"cwd": "${fileDirname}",
+			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
+			"preLaunchTask": "cargo build",
+			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
+		},
+		{
+			"type": "cppvsdbg",
+			"request": "launch",
 			"name": "Project Scaffolder",
 			"program": "cargo",
 			"args": ["run", "--", "--workspace", "${workspaceFolder}", "${input:year}", "${input:day}"],
