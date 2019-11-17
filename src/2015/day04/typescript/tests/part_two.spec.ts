@@ -11,4 +11,8 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	it(`should resolve to ${results.two.example} when using the example`, async () => {
 		expect(await runner((await read(year, day, 'example.txt')()).input)).to.equal(results.two.example);
 	});
+
+	it(`should resolve to ${results.two.example} when using the example`, async () => {
+		expect(await runner((await read(year, day, 'example.2.txt')()).input)).to.equal(results.two.example2);
+	});
 });
