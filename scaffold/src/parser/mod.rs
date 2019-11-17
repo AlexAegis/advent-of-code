@@ -11,6 +11,10 @@ pub struct Wrapper<'a> {
 impl<'a> Wrapper<'a> {
 	fn new(name: &str) -> Self {
 		match name {
+			"a" => Wrapper {
+				prefix: "[",
+				suffix: "]",
+			},
 			"article" => Wrapper {
 				prefix: "",
 				suffix: "",
@@ -96,6 +100,12 @@ impl Processable for Day {
 						s += &self.process(&a, level + 1);
 					}
 					s += wrapper.suffix;
+				}
+
+				if t.name() == "a" {
+					if let Some(url) = t.attr("href") {
+						s += &format!("({})", url);
+					}
 				}
 
 				if t.name() == "h2" {
