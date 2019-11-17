@@ -4,7 +4,7 @@ use clap::{App, Arg};
 
 use async_std::fs::{DirBuilder, File};
 use async_std::prelude::*;
-use htmd::parser::parser;
+use htmd::parser;
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -27,7 +27,7 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 			println!("Status 200");
 			let html = task_response.text().await?;
 
-			parser::transform(&html)
+			parser::transform(&html, year, day)
 		}
 		i => {
 			println!("Status other {}", i);
