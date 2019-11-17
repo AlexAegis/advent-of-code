@@ -1,60 +1,72 @@
 mod errors;
+mod parser;
 
 use clap::{App, Arg};
 
 use async_std::fs::{DirBuilder, File};
 use async_std::prelude::*;
-use htmd::parser;
+use reqwest::header::*;
+use reqwest::RedirectPolicy;
+use std::env;
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let (year, day) = bootstrap()?;
 	println!("Scaffold!: year {:?} day {:?}", year, day);
 
-	let client = reqwest::Client::new();
-	let dir = format!("./src/{}/day{:0>2}", year, day);
+	let client = reqwest::ClientBuilder::new()
+		.cookie_store(true)
+		.redirect(RedirectPolicy::limited(10))
+		.build()?;
+	let task_dir = format!("./src/{}/day{:0>2}", year, day);
+	let resources_dir = task_dir.clone() + "/resources";
 	let link = format!("https://adventofcode.com/{}/day/{}", year, day);
 	let input_url = link.clone() + "/input";
 
-	println!("Creating directories: {}", dir);
-	DirBuilder::new().recursive(true).create(&dir).await?;
+	println!("Creating directories: {}", task_dir);
+	DirBuilder::new().recursive(true).create(&task_dir).await?;
+	DirBuilder::new()
+		.recursive(true)
+		.create(&resources_dir)
+		.await?;
 
 	println!("Fetching task description from {}", link);
 
-	let task_response = client.get(&link).send().await?;
-	let readme_content = match task_response.status() {
-		reqwest::StatusCode::OK => {
-			println!("Status 200");
-			let html = task_response.text().await?;
+	let session = env::var("SESSION").expect("Set the SESSION environmental variable. Log into AoC and then get it from a request, it's in the Cookie header");
 
-			parser::transform(&html, year, day)
-		}
-		i => {
-			println!("Status other {}", i);
-			"Not found".to_string()
-		}
+	let task_response = client
+		.get(&link)
+		.header(COOKIE, format!("session={}", session))
+		.send()
+		.await?;
+
+	let readme_content = match task_response.status() {
+		reqwest::StatusCode::OK => parser::transform(&task_response.text().await?, year, day),
+		_ => String::new(),
+	};
+
+	let input_response = client
+		.get(&input_url)
+		.header(COOKIE, format!("session={}", session))
+		.send()
+		.await?;
+
+	let input_content = match input_response.status() {
+		reqwest::StatusCode::OK => input_response.text().await?,
+		_ => String::new(),
 	};
 
 	// println!("readme_content {:?}", &readme_content);
 
 	println!("Creating readme.md");
-	let mut readme = File::create(dir + "/readme.md").await?;
-	readme.write_all(readme_content.as_bytes()).await?;
-	readme.sync_all().await?;
-
+	let mut readme_file = File::create(task_dir + "/readme.md").await?;
+	readme_file.write_all(readme_content.as_bytes()).await?;
+	readme_file.sync_all().await?;
+	println!("Creating input.txt");
+	let mut input_file = File::create(resources_dir + "/input.txt").await?;
+	input_file.write_all(input_content.as_bytes()).await?;
+	input_file.sync_all().await?;
 	println!("link: {}", link);
-	/*
-	let res = ?;
-	println!("Status: {}", res.status());
-	let body = res.text().await?;
-	let fragment = Html::parse_fragment(html);
-	let selector = Selector::parse("li").unwrap();*/
-	/*
-	for element in fragment.select(&selector) {
-		assert_eq!("li", element.value().name());
-	}
-
-	println!("Body:\n\n{}", body);*/
 
 	Ok(())
 }

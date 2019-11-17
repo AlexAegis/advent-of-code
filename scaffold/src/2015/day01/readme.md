@@ -27,14 +27,23 @@ For example:
 To **what floor** do the instructions take Santa?
 
 
-To play, please identify yourself via one of these services:
+Your puzzle answer was `74`.
+
+## [Part Two](./part_two.ts)
+
+Now, given the same instructions, find the **position** of the first character that causes him to enter the basement (floor `-1`).  The first character in the instructions has position `1`, the second character has position `2`, and so on.
+
+For example:
 
 
-function auth_warning(service,activate) {
-  document.getElementById("auth-"+service+"-warning").classList[activate?"add":"remove"]("warning-active");
-}
+- `)` causes him to enter the basement at character position `1`.
+- `()())` causes him to enter the basement at character position `5`.
 
-[GitHub] [Google] [Twitter] [Reddit] - [How Does Auth Work?]
+What is the **position** of the character that causes Santa to first enter the basement?
 
-(Twitter users: if you have auth problems that claim "There is no request token for this page", please clear your twitter.com cookies and try again.)
+
+Your puzzle answer was `1795`.
+
+
+
 

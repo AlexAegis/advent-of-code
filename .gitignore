@@ -68,3 +68,5 @@ scratchpad
 # Rust
 
 target
+
+*.env

@@ -35,6 +35,7 @@
 			"cwd": "${workspaceFolder}\\scaffold",
 			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
 			"preLaunchTask": "cargo build",
+			"envFile": "${workspaceFolder}/env/scaffold.env",
 			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
 		}
 	],
