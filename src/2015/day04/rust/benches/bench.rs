@@ -1,5 +1,4 @@
 #[macro_use]
-
 extern crate criterion;
 
 extern crate aoc;
@@ -22,5 +21,14 @@ fn part_two_benchmark(c: &mut Criterion) {
 	});
 }
 
-criterion_group!(benches, part_one_benchmark, part_two_benchmark);
+fn low_sample() -> Criterion {
+	Criterion::default().sample_size(10)
+}
+
+criterion_group! {
+	name = benches;
+	config = low_sample();
+	targets = part_two_benchmark
+}
+
 criterion_main!(benches);
