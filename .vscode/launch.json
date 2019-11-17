@@ -29,7 +29,7 @@
 		{
 			"type": "cppvsdbg",
 			"request": "launch",
-			"name": "Rust Scaffolder",
+			"name": "Project Scaffolder",
 			"program": "cargo",
 			"args": ["run", "--", "--workspace", "${workspaceFolder}", "${input:year}", "${input:day}"],
 			"cwd": "${workspaceFolder}\\scaffold",
