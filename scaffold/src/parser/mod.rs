@@ -122,9 +122,9 @@ impl Processable for Day {
 					}
 					self.current_task += 1;
 					if self.current_task == 1 {
-						s += "## [Part One](./part_one.ts)\n\n";
+						s += "## [Part One](./typescript/part_one.ts)\n\n";
 					} else if self.current_task == 2 {
-						s += "## [Part Two](./part_two.ts)\n\n";
+						s += "## [Part Two](./typescript/part_two.ts)\n\n";
 					}
 				}
 				return s;
