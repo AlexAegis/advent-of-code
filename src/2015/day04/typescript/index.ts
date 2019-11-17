@@ -5,11 +5,13 @@ export const day = 4;
 
 export const results: DayResults = {
 	one: {
-		input: 0,
-		example: 0
+		input: 343597,
+		example: 609043,
+		example2: 1048970
 	},
 	two: {
-		input: 0,
-		example: 0
+		input: 9958218,
+		example: 6742839,
+		example2: 5714438
 	}
 };

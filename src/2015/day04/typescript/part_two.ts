@@ -1,10 +1,9 @@
 import { bench, read } from '@root';
 import { day, year } from '.';
+import { hashSearch } from './hash-search.function';
 
-export const runner = (input: string): number => {
-	return 0;
-};
+export const runner = hashSearch(6);
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 9958218 ~18622ms
 }
