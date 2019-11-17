@@ -10,6 +10,7 @@ clap = "*"
 async-std = "*"
 tokio = "0.2.0-alpha.6"
 scraper = "*"
+ego-tree = "*"
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 
 [dev-dependencies]
