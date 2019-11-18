@@ -5,7 +5,7 @@ export const day = 4;
 
 export const results: DayResults = {
 	one: {
-		input: 343597,
+		input: 346386,
 		example: 609043,
 		example2: 1048970
 	},
