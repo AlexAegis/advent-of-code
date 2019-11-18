@@ -1,7 +1,7 @@
 import { read } from '@root';
 import { expect } from 'chai';
 import { day, results, year } from '..';
-import { runner } from '../part_one';
+import { isNice, runner } from '../part_one';
 
 describe(`${year} - Day ${day} - Part One`, () => {
 	it(`should resolve to ${results.one.input} when using the input`, async () => {
@@ -9,22 +9,22 @@ describe(`${year} - Day ${day} - Part One`, () => {
 	});
 
 	it(`should true that example 1 is nice`, async () => {
-		expect(runner('ugknbfddgicrmopn')).to.equal(results.one.example);
+		expect(isNice('ugknbfddgicrmopn')).to.equal(true);
 	});
 
 	it(`should true that example 2 is nice`, async () => {
-		expect(runner('aaa')).to.equal(results.one.example2);
+		expect(isNice('aaa')).to.equal(true);
 	});
 
 	it(`should true that example 3 is naughty`, async () => {
-		expect(runner('jchzalrnumimnmhp')).to.equal(results.one.example3);
+		expect(isNice('jchzalrnumimnmhp')).to.equal(false);
 	});
 
 	it(`should true that example 4 is naughty`, async () => {
-		expect(runner('haegwjzuvuyypxyu')).to.equal(results.one.example4);
+		expect(isNice('haegwjzuvuyypxyu')).to.equal(false);
 	});
 
 	it(`should true that example 5 is naughty`, async () => {
-		expect(runner('dvszwmarrgswjxmb')).to.equal(results.one.example5);
+		expect(isNice('dvszwmarrgswjxmb')).to.equal(false);
 	});
 });
