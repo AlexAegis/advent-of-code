@@ -11,6 +11,8 @@ path = "./src/lib.rs"
 
 [dependencies]
 aoc = { path = "../../../../" }
+regex = "*"
+fancy-regex = "*"
 
 [dev-dependencies]
 criterion = "*"
