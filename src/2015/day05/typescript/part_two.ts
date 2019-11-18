@@ -21,10 +21,8 @@ export const isNice = (line: string): boolean => {
 				pairObj = doubles[pair];
 			}
 			pairObj.push(i);
-
-			hasNonOverlapping = pairObj.some(po => pairObj.some(poi => Math.abs(poi - po) > 1));
-			if (hasNonOverlapping && hasWrapping) {
-				break;
+			if (!hasNonOverlapping) {
+				hasNonOverlapping = pairObj.some(po => pairObj.some(poi => Math.abs(poi - po) > 1));
 			}
 		}
 
@@ -40,6 +38,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	// (async () => console.log(`Result: ${await runner('dmrtgakaimrrwmej')}`))(); // !44 ~24ms
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // !44 ~24ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 51 ~21ms
 }

@@ -45,18 +45,9 @@ export const inputs: DayInputs<string> = {
 
 export const results: DayResults<number | boolean> = {
 	one: {
-		input: 236,
-		example1: true,
-		example2: true,
-		example3: false,
-		example4: false,
-		example5: false
+		input: 236
 	},
 	two: {
-		input: 0,
-		example1: true,
-		example2: true,
-		example3: false,
-		example4: false
+		input: 51
 	}
 };
