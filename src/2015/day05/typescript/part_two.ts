@@ -1,31 +1,38 @@
 import { bench, read } from '@root';
 import { day, year } from '.';
 
-const vowels = 'aeiou';
-const forbidden = ['ab', 'cd', 'pq', 'xy'];
-
 export const isNice = (line: string): boolean => {
+	let prevBef: string | undefined;
 	let prev: string | undefined;
-	let vowelsCount = 0;
-	let hasForbidden = false;
-	let hasDouble = false;
+	let hasWrapping = false;
+	let hasNonOverlapping = false;
+	// holds the positions of the pairs
+	const doubles: { [key: string]: number[] } = {};
+	let i = 0;
 	for (const n of [...line]) {
-		if (vowelsCount <= 3 && vowels.search(n) >= 0) {
-			vowelsCount++;
+		if (!hasWrapping && prevBef && prev && prevBef === n) {
+			hasWrapping = true;
 		}
 		if (prev) {
-			if (!hasDouble && prev === n) {
-				hasDouble = true;
+			const pair = prev + n;
+			let pairObj = doubles[pair];
+			if (!pairObj) {
+				doubles[pair] = [];
+				pairObj = doubles[pair];
 			}
-			if (forbidden.find(f => f === `${prev}${n}`)) {
-				hasForbidden = true;
+			pairObj.push(i);
+
+			hasNonOverlapping = pairObj.some(po => pairObj.some(poi => Math.abs(poi - po) > 1));
+			if (hasNonOverlapping && hasWrapping) {
 				break;
 			}
 		}
 
+		prevBef = prev;
 		prev = n;
+		i++;
 	}
-	return !hasForbidden && vowelsCount >= 3 && hasDouble;
+	return hasWrapping && hasNonOverlapping;
 };
 
 export const runner = (input: string): number => {
@@ -33,5 +40,6 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 236 ~13ms
+	// (async () => console.log(`Result: ${await runner('dmrtgakaimrrwmej')}`))(); // !44 ~24ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // !44 ~24ms
 }
