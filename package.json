@@ -19,6 +19,7 @@
 		"format": "npx prettier --write \"src/**/*\"",
 		"prettier": "npm run format",
 		"test": "mocha --config ./.mocharc",
+		"test:parallel": "mocha-parallel-tests --config ./.mocharc",
 		"test:coverage": "nyc npm test",
 		"codecov": "codecov",
 		"check:updates": "ncu",
@@ -34,17 +35,21 @@
 	"license": "mit",
 	"private": true,
 	"dependencies": {
+		"is-ci": "^2.0.0",
 		"rxjs": "^6.5.3",
 		"workerpool": "^5.0.2"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.2.5",
+		"@types/is-ci": "^2.0.0",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.12.8",
 		"@types/workerpool": "^5.0.0",
 		"chai": "^4.2.0",
 		"codecov": "^3.6.1",
 		"mocha": "^6.2.2",
+		"mocha-parallel-tests": "^2.2.2",
+		"npm-check-updates": "latest",
 		"nyc": "^14.1.1",
 		"prettier": "^1.19.1",
 		"source-map-support": "^0.5.16",
@@ -52,7 +57,6 @@
 		"tsconfig-paths": "^3.9.0",
 		"tslint": "~5.20.1",
 		"tslint-plugin-prettier": "^2.0.1",
-		"npm-check-updates": "latest",
 		"typescript": "3.7.2"
 	},
 	"nyc": {
