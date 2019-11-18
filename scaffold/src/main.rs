@@ -45,28 +45,37 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 		_ => String::new(),
 	};
 
-	let input_response = client
-		.get(&input_url)
-		.header(COOKIE, format!("session={}", session))
-		.send()
-		.await?;
-
-	let input_content = match input_response.status() {
-		reqwest::StatusCode::OK => input_response.text().await?,
-		_ => String::new(),
-	};
-
 	println!("Creating readme.md");
 	let mut readme_file = File::create(task_dir.clone() + "/readme.md").await?;
 	readme_file.write_all(readme_content.as_bytes()).await?;
 	readme_file.sync_all().await?;
-	println!("Creating input.txt");
-	let mut input_file = File::create(resources_dir.clone() + "/input.txt").await?;
-	input_file.write_all(input_content.as_bytes()).await?;
-	input_file.sync_all().await?;
 
-	println!("Creating empty example.txt");
-	let _example_file = File::create(resources_dir + "/example.txt").await?;
+	if File::open(resources_dir.clone() + "/input.txt")
+		.await
+		.is_err()
+	{
+		let input_response = client
+			.get(&input_url)
+			.header(COOKIE, format!("session={}", session))
+			.send()
+			.await?;
+		let input_content = match input_response.status() {
+			reqwest::StatusCode::OK => input_response.text().await?,
+			_ => String::new(),
+		};
+		println!("Creating input.txt");
+		let mut input_file = File::create(resources_dir.clone() + "/input.txt").await?;
+		input_file.write_all(input_content.as_bytes()).await?;
+		input_file.sync_all().await?;
+	}
+
+	if File::open(resources_dir.clone() + "/example.txt")
+		.await
+		.is_err()
+	{
+		println!("Creating empty example.txt");
+		let _example_file = File::create(resources_dir + "/example.txt").await?;
+	}
 
 	println!("Creating Rust solution folder");
 	let rust_dir = task_dir.clone() + "/rust";
@@ -74,57 +83,79 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let rust_src_dir = rust_dir.clone() + "/src";
 	let rust_tests_dir = rust_dir.clone() + "/tests";
 
-	DirBuilder::new().recursive(true).create(&rust_dir).await?;
+	if File::open(rust_dir.clone() + "/Cargo.toml").await.is_err() {
+		DirBuilder::new().recursive(true).create(&rust_dir).await?;
 
-	let mut rust_cargo_file = File::create(rust_dir.clone() + "/Cargo.toml").await?;
-	rust_cargo_file
-		.write_all(rust_cargo_file_content(year, day).as_bytes())
-		.await?;
-	rust_cargo_file.sync_all().await?;
+		let mut rust_cargo_file = File::create(rust_dir.clone() + "/Cargo.toml").await?;
+		rust_cargo_file
+			.write_all(rust_cargo_file_content(year, day).as_bytes())
+			.await?;
+		rust_cargo_file.sync_all().await?;
+	}
 
-	DirBuilder::new()
-		.recursive(true)
-		.create(&rust_benches_dir)
-		.await?;
+	if File::open(rust_benches_dir.clone() + "/bench.rs")
+		.await
+		.is_err()
+	{
+		DirBuilder::new()
+			.recursive(true)
+			.create(&rust_benches_dir)
+			.await?;
 
-	let mut rust_bench_file = File::create(rust_benches_dir + "/bench.rs").await?;
-	rust_bench_file
-		.write_all(rust_bench_file_content(year, day).as_bytes())
-		.await?;
-	rust_bench_file.sync_all().await?;
+		let mut rust_bench_file = File::create(rust_benches_dir + "/bench.rs").await?;
+		rust_bench_file
+			.write_all(rust_bench_file_content(year, day).as_bytes())
+			.await?;
+		rust_bench_file.sync_all().await?;
+	}
 
-	DirBuilder::new()
-		.recursive(true)
-		.create(&rust_src_dir)
-		.await?;
+	if File::open(rust_src_dir.clone() + "/lib.rs").await.is_err() {
+		DirBuilder::new()
+			.recursive(true)
+			.create(&rust_src_dir)
+			.await?;
 
-	let mut rust_lib_file = File::create(rust_src_dir.clone() + "/lib.rs").await?;
-	rust_lib_file
-		.write_all(rust_lib_content().as_bytes())
-		.await?;
-	rust_lib_file.sync_all().await?;
+		let mut rust_lib_file = File::create(rust_src_dir.clone() + "/lib.rs").await?;
+		rust_lib_file
+			.write_all(rust_lib_content().as_bytes())
+			.await?;
+		rust_lib_file.sync_all().await?;
+	}
 
-	let mut rust_main_file = File::create(rust_src_dir + "/main.rs").await?;
-	rust_main_file
-		.write_all(rust_main_content(year, day).as_bytes())
-		.await?;
-	rust_main_file.sync_all().await?;
+	if File::open(rust_src_dir.clone() + "/main.rs").await.is_err() {
+		let mut rust_main_file = File::create(rust_src_dir + "/main.rs").await?;
+		rust_main_file
+			.write_all(rust_main_content(year, day).as_bytes())
+			.await?;
+		rust_main_file.sync_all().await?;
+	}
 
-	DirBuilder::new()
-		.recursive(true)
-		.create(&rust_tests_dir)
-		.await?;
-	let mut rust_part_one_test_file = File::create(rust_tests_dir.clone() + "/part_one.rs").await?;
-	rust_part_one_test_file
-		.write_all(rust_test_content(year, day, 1).as_bytes())
-		.await?;
-	rust_part_one_test_file.sync_all().await?;
+	if File::open(rust_tests_dir.clone() + "/part_one.rs")
+		.await
+		.is_err()
+	{
+		DirBuilder::new()
+			.recursive(true)
+			.create(&rust_tests_dir)
+			.await?;
+		let mut rust_part_one_test_file =
+			File::create(rust_tests_dir.clone() + "/part_one.rs").await?;
+		rust_part_one_test_file
+			.write_all(rust_test_content(year, day, 1).as_bytes())
+			.await?;
+		rust_part_one_test_file.sync_all().await?;
+	}
 
-	let mut rust_part_two_test_file = File::create(rust_tests_dir + "/part_two.rs").await?;
-	rust_part_two_test_file
-		.write_all(rust_test_content(year, day, 2).as_bytes())
-		.await?;
-	rust_part_two_test_file.sync_all().await?;
+	if File::open(rust_tests_dir.clone() + "/part_two.rs")
+		.await
+		.is_err()
+	{
+		let mut rust_part_two_test_file = File::create(rust_tests_dir + "/part_two.rs").await?;
+		rust_part_two_test_file
+			.write_all(rust_test_content(year, day, 2).as_bytes())
+			.await?;
+		rust_part_two_test_file.sync_all().await?;
+	}
 
 	println!("Creating TypeScript solution folder");
 	let typescript_dir = task_dir.clone() + "/typescript";
@@ -134,39 +165,64 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 		.create(&typescript_tests_dir)
 		.await?;
 
-	let mut typescript_index_file = File::create(typescript_dir.clone() + "/index.ts").await?;
-	typescript_index_file
-		.write_all(typescript_index_file_content(year, day).as_bytes())
-		.await?;
-	typescript_index_file.sync_all().await?;
+	if File::open(typescript_dir.clone() + "/index.ts")
+		.await
+		.is_err()
+	{
+		let mut typescript_index_file = File::create(typescript_dir.clone() + "/index.ts").await?;
+		typescript_index_file
+			.write_all(typescript_index_file_content(year, day).as_bytes())
+			.await?;
+		typescript_index_file.sync_all().await?;
+	}
 
-	let mut typescript_solution_one_file =
-		File::create(typescript_dir.clone() + "/part_one.ts").await?;
-	typescript_solution_one_file
-		.write_all(typescript_solution_file_content().as_bytes())
-		.await?;
-	typescript_solution_one_file.sync_all().await?;
+	if File::open(typescript_dir.clone() + "/part_one.ts")
+		.await
+		.is_err()
+	{
+		let mut typescript_solution_one_file =
+			File::create(typescript_dir.clone() + "/part_one.ts").await?;
+		typescript_solution_one_file
+			.write_all(typescript_solution_file_content().as_bytes())
+			.await?;
+		typescript_solution_one_file.sync_all().await?;
+	}
 
-	let mut typescript_solution_two_file =
-		File::create(typescript_dir.clone() + "/part_two.ts").await?;
-	typescript_solution_two_file
-		.write_all(typescript_solution_file_content().as_bytes())
-		.await?;
-	typescript_solution_two_file.sync_all().await?;
+	if File::open(typescript_dir.clone() + "/part_two.ts")
+		.await
+		.is_err()
+	{
+		let mut typescript_solution_two_file =
+			File::create(typescript_dir.clone() + "/part_two.ts").await?;
+		typescript_solution_two_file
+			.write_all(typescript_solution_file_content().as_bytes())
+			.await?;
+		typescript_solution_two_file.sync_all().await?;
+	}
 
-	let mut typescript_test_one_file =
-		File::create(typescript_tests_dir.clone() + "/part_one.spec.ts").await?;
-	typescript_test_one_file
-		.write_all(typescript_test_content(1).as_bytes())
-		.await?;
-	typescript_test_one_file.sync_all().await?;
+	if File::open(typescript_tests_dir.clone() + "/part_one.spec.ts")
+		.await
+		.is_err()
+	{
+		let mut typescript_test_one_file =
+			File::create(typescript_tests_dir.clone() + "/part_one.spec.ts").await?;
+		typescript_test_one_file
+			.write_all(typescript_test_content(1).as_bytes())
+			.await?;
+		typescript_test_one_file.sync_all().await?;
+	}
 
-	let mut typescript_test_two_file =
-		File::create(typescript_tests_dir.clone() + "/part_two.spec.ts").await?;
-	typescript_test_two_file
-		.write_all(typescript_test_content(2).as_bytes())
-		.await?;
-	typescript_test_two_file.sync_all().await?;
+	if File::open(typescript_tests_dir.clone() + "/part_two.spec.ts")
+		.await
+		.is_err()
+	{
+		let mut typescript_test_two_file =
+			File::create(typescript_tests_dir.clone() + "/part_two.spec.ts").await?;
+		typescript_test_two_file
+			.write_all(typescript_test_content(2).as_bytes())
+			.await?;
+		typescript_test_two_file.sync_all().await?;
+	}
 
 	Ok(())
 }
