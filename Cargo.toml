@@ -13,6 +13,7 @@ clap = "2.33.0"
 async-std = "1.0.0"
 tokio = "0.2.0-alpha.6"
 regex = "*"
+fancy-regex = "*"
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 
 [dev-dependencies]
