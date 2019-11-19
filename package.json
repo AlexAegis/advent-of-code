@@ -43,7 +43,7 @@
 		"@types/chai": "^4.2.5",
 		"@types/is-ci": "^2.0.0",
 		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.12.8",
+		"@types/node": "^12.12.9",
 		"@types/workerpool": "^5.0.0",
 		"chai": "^4.2.0",
 		"codecov": "^3.6.1",
