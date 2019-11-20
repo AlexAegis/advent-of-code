@@ -2,6 +2,7 @@ pub struct PartOne;
 pub struct PartTwo;
 
 impl aoc::Solvable<&str, i16> for PartOne {
+	/// Not worth to be parallelized
 	fn solve(input: &str) -> aoc::Solution<i16> {
 		Ok(input
 			.chars()
@@ -12,6 +13,7 @@ impl aoc::Solvable<&str, i16> for PartOne {
 }
 
 impl aoc::Solvable<&str, i16> for PartTwo {
+	/// Can't be parallelized as the order matters
 	fn solve(input: &str) -> aoc::Solution<i16> {
 		Ok(input
 			.chars()
