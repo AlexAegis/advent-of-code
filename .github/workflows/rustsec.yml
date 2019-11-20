@@ -1,4 +1,4 @@
-name: Security Audit
+name: Rust Security Audit
 on:
     push:
     pull_request:
