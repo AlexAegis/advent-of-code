@@ -23,7 +23,7 @@ impl aoc::Solvable<&str, i16> for PartOne {
 
 			// model::coord::north::<i16>().step(model::Coord::<i16> { x: 0, y: 0 }, 2i16);
 
-			pos = pos + (dir * scale.parse::<i16>().unwrap());
+			pos += dir * scale.parse::<i16>().unwrap();
 
 			println!(
 				"dir: {:?}, pos: {:?}, manthattan: {}",
