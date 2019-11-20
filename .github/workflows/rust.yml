@@ -6,6 +6,8 @@ jobs:
     check:
         name: Check
         runs-on: ubuntu-latest
+        env:
+            RUST_BACKTRACE: 1
         strategy:
             matrix:
                 rust:
@@ -26,6 +28,8 @@ jobs:
     test:
         name: Test Suite
         runs-on: ubuntu-latest
+        env:
+            RUST_BACKTRACE: 1
         strategy:
             matrix:
                 rust:
@@ -46,6 +50,8 @@ jobs:
     fmt:
         name: Rustfmt
         runs-on: ubuntu-latest
+        env:
+            RUST_BACKTRACE: 1
         strategy:
             matrix:
                 rust:
@@ -67,6 +73,8 @@ jobs:
     clippy:
         name: Clippy
         runs-on: ubuntu-latest
+        env:
+            RUST_BACKTRACE: 1
         strategy:
             matrix:
                 rust:
