@@ -9,7 +9,7 @@ fn input() -> aoc::Result<()> {
 	println!("{}", e.description());
 	println!("{}", e.description());
 	println!("{:?}", e);
-	println!("{}", e);
+	println!("{,}", e);
 	// assert_eq!(aoc1501::PartOne::solve(&(input.unwrap()))?, 74);
 	Ok(())
 }
