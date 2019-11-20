@@ -26,7 +26,8 @@ impl aoc::Solvable<&str, i16> for PartTwo {
 					Ok(acc)
 				}
 			})
-			.expect_err("Not found")
+			.err()
+			.ok_or("Not found")?
 			.1)
 	}
 }
