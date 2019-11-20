@@ -1,6 +1,6 @@
 # [Day 1: Not Quite Lisp](https://adventofcode.com/2015/day/1)
 
-## [Part One](./part_one.ts)
+## [Part One](https://adventofcode.com/2015/day/1#part1) - [TypeScript](./typescript/part_one.ts) - [Rust](./rust/src/lib.rs)
 
 Santa was hoping for a white Christmas, but his weather machine's "snow" function is powered by stars, and he's fresh out! To save Christmas, he needs you to collect **fifty stars** by December 25th.
 
@@ -26,7 +26,7 @@ To **what floor** do the instructions take Santa?
 
 Your puzzle answer was `74`.
 
-## [Part Two](./part_two.ts)
+## [Part Two](https://adventofcode.com/2015/day/1#part2) - [TypeScript](./typescript/part_two.ts) - [Rust](./rust/src/lib.rs)
 
 Now, given the same instructions, find the **position** of the first character that causes him to enter the basement (floor `-1`). The first character in the instructions has position `1`, the second character has position `2`, and so on.
 

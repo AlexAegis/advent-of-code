@@ -1,3 +1,5 @@
+use rayon::prelude::*;
+
 pub struct PartOne;
 pub struct PartTwo;
 
@@ -5,6 +7,7 @@ impl aoc::Solvable<&str, u32> for PartOne {
 	fn solve(input: &str) -> aoc::Solution<u32> {
 		Ok(input
 			.lines()
+			.par_bridge()
 			.map(|l| l.trim())
 			.map(|line| line.split('x').map(|c| c.parse().unwrap()).collect())
 			.map(|arr: Vec<u32>| [arr[0] * arr[1], arr[1] * arr[2], arr[2] * arr[0]])
@@ -17,6 +20,7 @@ impl aoc::Solvable<&str, u32> for PartTwo {
 	fn solve(input: &str) -> aoc::Solution<u32> {
 		Ok(input
 			.lines()
+			.par_bridge()
 			.map(|l| l.trim())
 			.map(|line| line.split('x').map(|c| c.parse().unwrap()).collect())
 			.map(|mut s: Vec<u32>| {
