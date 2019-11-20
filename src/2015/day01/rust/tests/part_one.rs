@@ -1,11 +1,16 @@
 extern crate aoc1501;
 
 use aoc::Solvable;
+use std::error::Error;
 
 #[test]
 fn input() -> aoc::Result<()> {
-	let input = aoc::reader(2015, 1, "input.txt")?;
-	assert_eq!(aoc1501::PartOne::solve(&input)?, 74);
+	let e = aoc::reader(2015, 1, "input.txt").err().unwrap();
+	println!("{}", e.description());
+	println!("{}", e.description());
+	println!("{:?}", e);
+	println!("{}", e);
+	// assert_eq!(aoc1501::PartOne::solve(&(input.unwrap()))?, 74);
 	Ok(())
 }
 
