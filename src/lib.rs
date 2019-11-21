@@ -170,11 +170,14 @@ fn path_resolve(
 	resource: &'static str,
 	depth_in_target: usize,
 ) -> io::Result<PathBuf> {
-	Ok(env::current_exe()?.join(PathBuf::from(format!(
-		"{back}src/{year}/day{day:02}/resources/{resource}",
-		year = year,
-		day = day,
-		resource = resource,
-		back = "../".repeat(depth_in_target + 1)
-	))))
+	Ok(env::current_exe()?
+		.parent()
+		.unwrap()
+		.join(PathBuf::from(format!(
+			"{back}src/{year}/day{day:02}/resources/{resource}",
+			year = year,
+			day = day,
+			resource = resource,
+			back = "../".repeat(depth_in_target)
+		))))
 }
