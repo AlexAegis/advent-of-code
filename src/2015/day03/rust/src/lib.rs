@@ -8,37 +8,46 @@ pub struct PartTwo;
 
 impl aoc::Solvable<&str, usize> for PartOne {
 	fn solve(input: &str) -> aoc::Solution<usize> {
-		let mut set = HashSet::<Coord<i8>>::new();
-		input
+		Ok(input
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())
-			.fold(Coord::new(0, 0), |mut acc, d| {
-				acc += d.value();
-				set.insert(acc);
-				acc
-			});
-		Ok(set.len())
+			.fold(
+				(HashSet::<Coord<i8>>::new(), Coord::new(0, 0)),
+				|mut acc, d| {
+					acc.1 += d.value();
+					acc.0.insert(acc.1);
+					acc
+				},
+			)
+			.0
+			.len())
 	}
 }
 
 impl aoc::Solvable<&str, usize> for PartTwo {
 	fn solve(input: &str) -> aoc::Solution<usize> {
-		let mut set = HashSet::<Coord<i32>>::new();
-		let mut s_pos = Coord::new(0, 0);
-		let mut r_pos = Coord::new(0, 0);
-		let mut is_r = true;
-		input
+		Ok(input
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())
-			.for_each(|d| {
-				if is_r {
-					r_pos += d.value();
-				} else {
-					s_pos += d.value();
-				}
-				is_r = !is_r;
-				set.insert(if is_r { r_pos } else { s_pos });
-			});
-		Ok(set.len())
+			.fold(
+				(
+					HashSet::<Coord<i32>>::new(),
+					Coord::new(0, 0),
+					Coord::new(0, 0),
+					true,
+				),
+				|mut acc, d| {
+					if acc.3 {
+						acc.2 += d.value();
+					} else {
+						acc.1 += d.value();
+					}
+					acc.3 = !acc.3;
+					acc.0.insert(if acc.3 { acc.2 } else { acc.1 });
+					acc
+				},
+			)
+			.0
+			.len())
 	}
 }
