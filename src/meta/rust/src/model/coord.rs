@@ -1,7 +1,11 @@
 use crate::math::abs;
 use num_traits::identities::One;
 use num_traits::identities::Zero;
+use std::cmp::Eq;
 use std::cmp::Ord;
+use std::cmp::PartialEq;
+use std::convert::TryFrom;
+use std::fmt;
 use std::fmt::Debug;
 use std::ops::Add;
 use std::ops::AddAssign;
@@ -10,10 +14,54 @@ use std::ops::Neg;
 use std::ops::Sub;
 use std::str::FromStr;
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Hash, Eq, PartialEq)]
+pub enum Direction<T = i8> {
+	North(Coord<T>),
+	South(Coord<T>),
+	East(Coord<T>),
+	West(Coord<T>),
+}
+
+impl<T: One + Zero + Copy + Neg<Output = T> + Debug> Direction<T> {
+	pub fn value(self) -> Coord<T> {
+		match self {
+			Direction::North(c) => c,
+			Direction::West(c) => c,
+			Direction::South(c) => c,
+			Direction::East(c) => c,
+		}
+	}
+}
+
+impl<T: One + Zero + Copy + Neg<Output = T> + Debug> fmt::Display for Direction<T> {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		write!(f, "{:?}", self.value())
+	}
+}
+
+impl<T: One + Zero + Copy + Neg<Output = T> + Debug> TryFrom<char> for Direction<T> {
+	type Error = aoc::ReaderError;
+	fn try_from(e: char) -> Result<Self, aoc::ReaderError> {
+		match e {
+			'^' => Ok(Direction::North(north())),
+			'>' => Ok(Direction::East(east())),
+			'v' => Ok(Direction::South(south())),
+			'<' => Ok(Direction::West(west())),
+			_ => Err(aoc::ReaderError::new("Not a direction")),
+		}
+	}
+}
+
+#[derive(Debug, Copy, Clone, Hash, Eq, PartialEq)]
 pub struct Coord<T> {
 	pub x: T,
 	pub y: T,
+}
+
+impl<T> Coord<T> {
+	pub fn new(x: T, y: T) -> Self {
+		Coord { x, y }
+	}
 }
 
 impl<T: One + Zero + Copy + Sub<Output = T>> One for Coord<T> {

@@ -51,6 +51,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "aoc1503"
+version = "1.0.0"
+dependencies = [
+ "aoc 0.1.0",
+ "aoclib 1.0.0",
+ "criterion 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "aoc1504"
 version = "1.0.0"
 dependencies = [
