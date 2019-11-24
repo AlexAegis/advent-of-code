@@ -25,13 +25,10 @@ impl aoc::Solvable<&str, usize> for PartTwo {
 		let mut r_pos = Coord::new(0, 0);
 		let mut is_r = true;
 		for d in input.chars().filter_map(|c| Direction::try_from(c).ok()) {
-			if is_r {
-				r_pos += d.value();
-			} else {
-				s_pos += d.value();
-			}
+			let pos = if is_r { &mut r_pos } else { &mut s_pos };
+			*pos += d.value();
 			is_r = !is_r;
-			set.insert(if is_r { r_pos } else { s_pos });
+			set.insert(*pos);
 		}
 		Ok(set.len())
 	}
