@@ -8,6 +8,39 @@ pub struct PartTwo;
 
 impl aoc::Solvable<&str, usize> for PartOne {
 	fn solve(input: &str) -> aoc::Solution<usize> {
+		let mut set = HashSet::<Coord<i8>>::new();
+		let mut pos = Coord::new(0, 0);
+		for d in input.chars().filter_map(|c| Direction::try_from(c).ok()) {
+			pos += d.value();
+			set.insert(pos);
+		}
+		Ok(set.len())
+	}
+}
+
+impl aoc::Solvable<&str, usize> for PartTwo {
+	fn solve(input: &str) -> aoc::Solution<usize> {
+		let mut set = HashSet::<Coord<i32>>::new();
+		let mut s_pos = Coord::new(0, 0);
+		let mut r_pos = Coord::new(0, 0);
+		let mut is_r = true;
+		for d in input.chars().filter_map(|c| Direction::try_from(c).ok()) {
+			if is_r {
+				r_pos += d.value();
+			} else {
+				s_pos += d.value();
+			}
+			is_r = !is_r;
+			set.insert(if is_r { r_pos } else { s_pos });
+		}
+		Ok(set.len())
+	}
+}
+
+// For some reason these solutions are slower by ~30%
+/*
+impl aoc::Solvable<&str, usize> for PartOne {
+	fn solve(input: &str) -> aoc::Solution<usize> {
 		Ok(input
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())
@@ -51,3 +84,4 @@ impl aoc::Solvable<&str, usize> for PartTwo {
 			.len())
 	}
 }
+*/
