@@ -12,7 +12,7 @@ impl aoc::Solvable<&str, usize> for PartOne {
 		input
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())
-			.fold(Coord { x: 0, y: 0 }, |mut acc, d| {
+			.fold(Coord::new(0, 0), |mut acc, d| {
 				acc += d.value();
 				set.insert(acc);
 				acc
@@ -31,8 +31,6 @@ impl aoc::Solvable<&str, usize> for PartTwo {
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())
 			.for_each(|d| {
-				// let &mut mut pos = if is_r { &mut r_pos } else { &mut s_pos };
-				// pos += d.value();
 				if is_r {
 					r_pos += d.value();
 				} else {
