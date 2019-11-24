@@ -41,6 +41,7 @@ members = [
 	"src/meta/rust",
 	"src/2015/day01/rust",
 	"src/2015/day02/rust",
+	"src/2015/day03/rust",
 	"src/2015/day04/rust",
 	"src/2015/day05/rust",
 	"src/2016/day01/rust",
