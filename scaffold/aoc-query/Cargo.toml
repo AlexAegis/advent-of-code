@@ -1,0 +1,20 @@
+[package]
+name = "aoc_query"
+version = "1.0.0"
+authors = ["AlexAegis <alexaegis@gmail.com>"]
+license = "mit"
+edition = "2018"
+
+[dependencies]
+clap = "*"
+async-std = "*"
+tokio = "0.2.0-alpha.6"
+scraper = "*"
+reqwest = { version = "0.10.0-alpha.1", features = ["cookies"] }
+futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
+ego-tree = "*"
+serde = "*"
+serde_json = "*"
+
+[dev-dependencies]
+criterion = "0.3.0"
