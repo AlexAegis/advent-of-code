@@ -1,12 +1,14 @@
 [package]
-name = "aoc_scaffold"
-version = "0.2.0"
+name = "mirror_folder"
+version = "0.1.0"
 authors = ["AlexAegis <alexaegis@gmail.com>"]
 license = "mit"
 edition = "2018"
 
 [dependencies]
 tokio = "0.2.0-alpha.6"
-aoc_query = { path = "./aoc-query" }
+clap = "*"
+walkdir = "*"
+async-std = "*"
 serde = "*"
-serde_json = "*"
+handlebars = "3.0.0-beta.1"
