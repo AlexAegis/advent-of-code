@@ -6,7 +6,8 @@ license = "mit"
 edition = "2018"
 
 [dependencies]
-tokio = "0.2.0-alpha.6"
+tokio = "*"
 aoc_query = { path = "./aoc-query" }
-serde = "*"
-serde_json = "*"
+cpt = "0.4.1"
+serde = "1.0.103"
+serde_json = "1.0.42"
