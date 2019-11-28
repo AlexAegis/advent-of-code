@@ -2,11 +2,44 @@
 
 [![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard) [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage) [![codecov](https://img.shields.io/codecov/c/github/AlexAegis/advent-of-code.svg?label=node%20coverage)](https://codecov.io/gh/AlexAegis/advent-of-code) [![Coverage Status](https://img.shields.io/coveralls/github/AlexAegis/advent-of-code.svg?label=rust%20coverage)](https://coveralls.io/github/AlexAegis/advent-of-code?branch=master) [![snyk: vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/AlexAegis/advent-of-code.svg?style=popout)](https://app.snyk.io/org/alexaegis/project/82929b9b-f679-4b1c-8804-bff40110b7dd) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![private: 2018 leaderboard](https://img.shields.io/badge/2018-private_leaderboard-brightgreen.svg)](https://adventofcode.com/2018/leaderboard/private/view/243796) [![Greenkeeper badge](https://badges.greenkeeper.io/AlexAegis/advent-of-code.svg)](https://greenkeeper.io/)
 
-[![2019 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2019.json})](./src/2019/) [![2018 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2018.json})](./src/2018/) [![2017 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2017.json})](./src/2017/) [![2016 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2016.json})](./src/2016/) [![2015 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2015.json})](./src/2015/)
+[![2019 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2019.json)](./src/2019/) [![2018 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2018.json)](./src/2018/) [![2017 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2017.json)](./src/2017/) [![2016 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2016.json)](./src/2016/) [![2015 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2015.json)](./src/2015/)
+
+## [2019](https://adventofcode.com/2017/)
+
+[![2019 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2019.json)](./src/2019/)
+
+| Day    | Part One   |      | Part Two   |      |
+| ------ | ---------- | ---- | ---------- | ---- |
+|        | TypeScript | Rust | TypeScript | Rust |
+| Day 1  |            |      |            |      |
+| Day 2  |            |      |            |      |
+| Day 3  |            |      |            |      |
+| Day 4  |            |      |            |      |
+| Day 5  |            |      |            |      |
+| Day 6  |            |      |            |      |
+| Day 7  |            |      |            |      |
+| Day 8  |            |      |            |      |
+| Day 9  |            |      |            |      |
+| Day 10 |            |      |            |      |
+| Day 11 |            |      |            |      |
+| Day 12 |            |      |            |      |
+| Day 13 |            |      |            |      |
+| Day 14 |            |      |            |      |
+| Day 15 |            |      |            |      |
+| Day 16 |            |      |            |      |
+| Day 17 |            |      |            |      |
+| Day 18 |            |      |            |      |
+| Day 19 |            |      |            |      |
+| Day 20 |            |      |            |      |
+| Day 21 |            |      |            |      |
+| Day 22 |            |      |            |      |
+| Day 23 |            |      |            |      |
+| Day 24 |            |      |            |      |
+| Day 25 |            |      |            |      |
 
 ## [2018](https://adventofcode.com/2018/)
 
-[![2018 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2018.json})](./src/2018/)
+[![2018 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2018.json)](./src/2018/)
 
 | Day                         | Part One                                                    |                                          | Part Two                                                 |                                            |
 | --------------------------- | ----------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------- | ------------------------------------------ |
@@ -39,7 +72,7 @@
 
 ## [2017](https://adventofcode.com/2017/)
 
-[![2016 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2017.json})](./src/2017/)
+[![2017 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2017.json)](./src/2017/)
 
 | Day    | Part One   |      | Part Two   |      |
 | ------ | ---------- | ---- | ---------- | ---- |
@@ -72,7 +105,7 @@
 
 ## [2016](https://adventofcode.com/2016/)
 
-[![2016 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2016.json})](./src/2016/)
+[![2016 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2016.json)](./src/2016/)
 
 | Day                        | Part One                                          |      | Part Two                                          |      |
 | -------------------------- | ------------------------------------------------- | ---- | ------------------------------------------------- | ---- |
@@ -105,7 +138,7 @@
 
 ## [2015](https://adventofcode.com/2015/)
 
-[![2015 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2015.json})](./src/2015/)
+[![2015 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2015.json)](./src/2015/)
 
 | Day                        | Part One                                                     |                                             | Part Two                                                   |                                             |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
