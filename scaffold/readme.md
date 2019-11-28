@@ -43,3 +43,9 @@ Bash
 ```bash
 export SESSION="value"
 ```
+
+## Additional ideas
+
+default to todays date
+
+Answer submitter subcrate (aoc-submit)

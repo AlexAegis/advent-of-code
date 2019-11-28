@@ -8,7 +8,7 @@ edition = "2018"
 [dependencies]
 clap = "*"
 async-std = "*"
-tokio = "0.2.0-alpha.6"
+tokio = "*"
 scraper = "*"
 reqwest = { version = "0.10.0-alpha.1", features = ["cookies"] }
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
