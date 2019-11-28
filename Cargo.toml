@@ -11,7 +11,7 @@ num-traits = "0.2.8"
 cached = "0.10.0"
 clap = "2.33.0"
 async-std = "1.0.0"
-tokio = "0.2.0-alpha.6"
+tokio = "*"
 rayon = "*"
 regex = "*"
 fancy-regex = "*"
@@ -39,7 +39,6 @@ opt-level = 3
 members = [
 	"scaffold",
 	"scaffold/aoc-query",
-	"scaffold/mirror-folder",
 	"src/meta/rust",
 	"src/2015/day01/rust",
 	"src/2015/day02/rust",
