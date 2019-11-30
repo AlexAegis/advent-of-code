@@ -1,0 +1,14 @@
+use aoc::Solvable;
+use aoc{{year}}{{day}}::{PartOne, PartTwo};
+
+pub fn main() -> aoc::Result<()> {
+	let input = aoc::reader({{year}}, {{short_day}}, "input.txt")?;
+	let result_part_one = PartOne::solve(&input)?; // 0, ~0μs
+	let result_part_two = PartTwo::solve(&input)?; // 0, ~0μs
+
+	println!(
+		"Results for {{year}} Day {{short_day}}:\n\tPart One: {:?}\n\tPart Two: {:?}",
+		result_part_one, result_part_two
+	);
+	Ok(())
+}
