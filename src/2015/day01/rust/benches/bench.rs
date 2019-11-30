@@ -1,9 +1,6 @@
 #[macro_use]
 extern crate criterion;
 
-extern crate aoc;
-extern crate aoc1501;
-
 use aoc::Solvable;
 use criterion::Criterion;
 
