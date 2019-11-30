@@ -16,9 +16,9 @@
 			"internalConsoleOptions": "openOnSessionStart"
 		},
 		{
-			"type": "cppvsdbg",
+			"type": "gdb",
 			"request": "launch",
-			"name": "Current Rust Cargo",
+			"name": "Current Rust Cargo (Unix)",
 			"program": "cargo",
 			"args": ["run", "--", "--workspace", "${workspaceFolder}"],
 			"cwd": "${fileDirname}",
@@ -29,7 +29,18 @@
 		{
 			"type": "cppvsdbg",
 			"request": "launch",
-			"name": "Current Rust Cargo As Release",
+			"name": "Current Rust Cargo (Windows)",
+			"program": "cargo",
+			"args": ["run", "--", "--workspace", "${workspaceFolder}"],
+			"cwd": "${fileDirname}",
+			"symbolSearchPath": "${workspaceFolder}\\target\\debug",
+			"preLaunchTask": "cargo build",
+			"internalConsoleOptions": "openOnSessionStart" // Focus the Debug Console on run
+		},
+		{
+			"type": "cppvsdbg",
+			"request": "launch",
+			"name": "Current Rust Cargo As Release (Windows)",
 			"program": "cargo",
 			"args": ["run", "--release", "--", "--workspace", "${workspaceFolder}"],
 			"cwd": "${fileDirname}",

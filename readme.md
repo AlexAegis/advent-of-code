@@ -78,34 +78,34 @@ Join me on my private leaderboard! You can find my invitation code [here](./.aoc
 
 [![2017 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2017.json)](./src/2017/)
 
-| Day    | Part One   |      | Part Two   |      |
-| ------ | ---------- | ---- | ---------- | ---- |
-|        | TypeScript | Rust | TypeScript | Rust |
-| Day 1  |            |      |            |      |
-| Day 2  |            |      |            |      |
-| Day 3  |            |      |            |      |
-| Day 4  |            |      |            |      |
-| Day 5  |            |      |            |      |
-| Day 6  |            |      |            |      |
-| Day 7  |            |      |            |      |
-| Day 8  |            |      |            |      |
-| Day 9  |            |      |            |      |
-| Day 10 |            |      |            |      |
-| Day 11 |            |      |            |      |
-| Day 12 |            |      |            |      |
-| Day 13 |            |      |            |      |
-| Day 14 |            |      |            |      |
-| Day 15 |            |      |            |      |
-| Day 16 |            |      |            |      |
-| Day 17 |            |      |            |      |
-| Day 18 |            |      |            |      |
-| Day 19 |            |      |            |      |
-| Day 20 |            |      |            |      |
-| Day 21 |            |      |            |      |
-| Day 22 |            |      |            |      |
-| Day 23 |            |      |            |      |
-| Day 24 |            |      |            |      |
-| Day 25 |            |      |            |      |
+| Day                        | Part One                                         |                                            | Part Two                                         |                                            |
+| -------------------------- | ------------------------------------------------ | ------------------------------------------ | ------------------------------------------------ | ------------------------------------------ |
+|                            | TypeScript                                       | Rust                                       | TypeScript                                       | Rust                                       |
+| [Day 1](./src/2017/day01/) | [0.9ms](./src/2017/day01/typescript/part_one.ts) | [51μs\*](./src/2017/day01/rust/src/lib.rs) | [0.9ms](./src/2017/day01/typescript/part_two.ts) | [59μs\*](./src/2017/day01/rust/src/lib.rs) |
+| Day 2                      |                                                  |                                            |                                                  |                                            |
+| Day 3                      |                                                  |                                            |                                                  |                                            |
+| Day 4                      |                                                  |                                            |                                                  |                                            |
+| Day 5                      |                                                  |                                            |                                                  |                                            |
+| Day 6                      |                                                  |                                            |                                                  |                                            |
+| Day 7                      |                                                  |                                            |                                                  |                                            |
+| Day 8                      |                                                  |                                            |                                                  |                                            |
+| Day 9                      |                                                  |                                            |                                                  |                                            |
+| Day 10                     |                                                  |                                            |                                                  |                                            |
+| Day 11                     |                                                  |                                            |                                                  |                                            |
+| Day 12                     |                                                  |                                            |                                                  |                                            |
+| Day 13                     |                                                  |                                            |                                                  |                                            |
+| Day 14                     |                                                  |                                            |                                                  |                                            |
+| Day 15                     |                                                  |                                            |                                                  |                                            |
+| Day 16                     |                                                  |                                            |                                                  |                                            |
+| Day 17                     |                                                  |                                            |                                                  |                                            |
+| Day 18                     |                                                  |                                            |                                                  |                                            |
+| Day 19                     |                                                  |                                            |                                                  |                                            |
+| Day 20                     |                                                  |                                            |                                                  |                                            |
+| Day 21                     |                                                  |                                            |                                                  |                                            |
+| Day 22                     |                                                  |                                            |                                                  |                                            |
+| Day 23                     |                                                  |                                            |                                                  |                                            |
+| Day 24                     |                                                  |                                            |                                                  |                                            |
+| Day 25                     |                                                  |                                            |                                                  |                                            |
 
 ## [2016](https://adventofcode.com/2016/)
 
