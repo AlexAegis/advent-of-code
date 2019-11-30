@@ -12,9 +12,9 @@ fn part_one_benchmark(c: &mut Criterion) {
 }
 
 fn part_two_benchmark(c: &mut Criterion) {
-	c.bench_function("{{year}} day {{short_day}} part {{part_lc_str}}", |b| {
+	c.bench_function("{{year}} day {{short_day}} part two", |b| {
 		let input = aoc::reader({{year}}, {{short_day}, "input.txt").unwrap();
-		b.iter(|| aoc{{year}}{{day}}::Part{{part_uc_str}}::solve(&input).unwrap())
+		b.iter(|| aoc{{year}}{{day}}::PartTwo::solve(&input).unwrap())
 	});
 }
 

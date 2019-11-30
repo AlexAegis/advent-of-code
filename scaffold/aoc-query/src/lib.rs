@@ -6,10 +6,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AocQueryResult {
-	year: i16,
-	day: i8,
-	description: String,
-	input: String,
+	pub year: i16,
+	pub day: i8,
+	pub description: String,
+	pub input: String,
 }
 
 pub async fn query(
