@@ -1,4 +1,4 @@
-import { bench } from '@root';
+import { bench } from '@root/lib/typescript';
 import * as WorkerPool from 'workerpool';
 import { inputs } from '.';
 import { range } from './functions/range.generator';

@@ -1,4 +1,4 @@
-import { split } from '@root';
+import { split } from '@root/lib/typescript';
 import { Cart } from './model/cart.class';
 import { Coord } from './model/coord.class';
 import { DirectionMarker } from './model/direction-marker.type';

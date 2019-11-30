@@ -1,4 +1,4 @@
-import { bench } from '@root';
+import { bench } from '@root/lib/typescript';
 
 export const runner = (input: number): string => {
 	const recipes: number[] = [3, 7];

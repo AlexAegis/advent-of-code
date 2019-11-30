@@ -1,4 +1,4 @@
-import { read } from '@root';
+import { read } from '@root/lib/typescript';
 import { expect } from 'chai';
 import { day, results, year } from '..';
 import { isNice, runner } from '../part_one';
