@@ -1,12 +1,12 @@
 [package]
-name = "aoc1505"
+name = "aoc201505"
 version = "1.0.0"
 authors = ["AlexAegis <alexaegis@gmail.com>"]
 license = "mit"
 edition = "2018"
 
 [lib]
-name = "aoc1505"
+name = "aoc201505"
 path = "./src/lib.rs"
 
 [dependencies]
