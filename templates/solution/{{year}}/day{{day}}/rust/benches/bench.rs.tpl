@@ -5,7 +5,7 @@ use aoclib::Solvable;
 use criterion::Criterion;
 
 fn part_one_benchmark(c: &mut Criterion) {
-	c.bench_function("{{day}} day {{short_day}} part one", |b| {
+	c.bench_function("{{year}} day {{short_day}} part one", |b| {
 		let input = aoclib::reader({{year}}, {{short_day}}, "input.txt").unwrap();
 		b.iter(|| aoc{{year}}{{day}}::PartOne::solve(&input).unwrap())
 	});

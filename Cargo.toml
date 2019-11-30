@@ -9,6 +9,7 @@ members = [
 	"src/2015/day04/rust",
 	"src/2015/day05/rust",
 	"src/2016/day01/rust",
+	"src/2017/day01/rust",
 	"src/2018/day01/rust",
 ]
 
