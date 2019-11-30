@@ -1,10 +1,8 @@
-extern crate aoc;
-
-use aoc::Solvable;
 use aoc1502::{PartOne, PartTwo};
+use aoclib::Solvable;
 
-pub fn main() -> aoc::Result<()> {
-	let input = aoc::reader(2015, 2, "input.txt")?;
+pub fn main() -> aoclib::Result<()> {
+	let input = aoclib::reader(2015, 2, "input.txt")?;
 	let result_part_one = PartOne::solve(&input)?; // 1606483, ~194μs
 	let result_part_two = PartTwo::solve(&input)?; // 3842356, ~196μs
 

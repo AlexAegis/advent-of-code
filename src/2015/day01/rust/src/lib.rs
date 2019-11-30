@@ -1,9 +1,9 @@
 pub struct PartOne;
 pub struct PartTwo;
 
-impl aoc::Solvable<&str, i16> for PartOne {
+impl aoclib::Solvable<&str, i16> for PartOne {
 	/// Not worth to be parallelized
-	fn solve(input: &str) -> aoc::Solution<i16> {
+	fn solve(input: &str) -> aoclib::Solution<i16> {
 		Ok(input
 			.chars()
 			.filter(|c| *c == '(' || *c == ')')
@@ -12,9 +12,9 @@ impl aoc::Solvable<&str, i16> for PartOne {
 	}
 }
 
-impl aoc::Solvable<&str, i16> for PartTwo {
+impl aoclib::Solvable<&str, i16> for PartTwo {
 	/// Can't be parallelized as the order matters
-	fn solve(input: &str) -> aoc::Solution<i16> {
+	fn solve(input: &str) -> aoclib::Solution<i16> {
 		Ok(input
 			.chars()
 			.filter(|c| *c == '(' || *c == ')')

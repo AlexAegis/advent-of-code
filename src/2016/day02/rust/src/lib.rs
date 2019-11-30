@@ -3,8 +3,8 @@ pub struct PartTwo;
 
 use aoclib::model;
 
-impl aoc::Solvable<&str, i16> for PartOne {
-	fn solve(input: &str) -> aoc::Solution<i16> {
+impl aoclib::Solvable<&str, i16> for PartOne {
+	fn solve(input: &str) -> aoclib::Solution<i16> {
 		let _vec = input.split(", ");
 
 		// println!("{:?}", _vec);
@@ -47,8 +47,8 @@ impl aoc::Solvable<&str, i16> for PartOne {
 	}
 }
 
-impl aoc::Solvable<&str, i16> for PartTwo {
-	fn solve(input: &str) -> aoc::Solution<i16> {
+impl aoclib::Solvable<&str, i16> for PartTwo {
+	fn solve(input: &str) -> aoclib::Solution<i16> {
 		let mut a = 0;
 		let mut i = 0;
 		for c in input.chars().filter(|a| *a == '(' || *a == ')') {
