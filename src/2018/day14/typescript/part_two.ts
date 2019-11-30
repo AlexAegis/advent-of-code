@@ -1,4 +1,4 @@
-import { bench } from '@root/lib/typescript';
+import { bench } from '@lib';
 
 function shift(window: string, last: number, length: number): string {
 	if (window.length >= length) {

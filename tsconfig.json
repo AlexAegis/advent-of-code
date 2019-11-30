@@ -24,8 +24,13 @@
 		"paths": {
 			"@root": ["src"],
 			"@root/*": ["src/*"],
+			"@lib": ["src/lib/typescript"],
+			"@lib/*": ["src/lib/typescript/*"],
 			"@2015/*": ["src/2015/*"],
-			"@2018/*": ["src/2018/*"]
+			"@2016/*": ["src/2016/*"],
+			"@2017/*": ["src/2017/*"],
+			"@2018/*": ["src/2018/*"],
+			"@2019/*": ["src/2019/*"]
 		},
 		"typeRoots": ["./node_modules/@types"]
 	},

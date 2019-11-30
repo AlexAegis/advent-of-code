@@ -1,4 +1,4 @@
-import { bench } from '@root/lib/typescript';
+import { bench } from '@lib';
 import { inputs } from '.';
 import { range } from './functions/range.generator';
 import { Coord } from './model/coord.class';

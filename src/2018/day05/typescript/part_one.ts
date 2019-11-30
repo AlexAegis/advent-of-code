@@ -1,4 +1,4 @@
-import { bench, read } from '@root/lib/typescript';
+import { bench, read } from '@lib';
 import { day, year } from '.';
 import { collapse } from './collapse.function';
 

@@ -1,4 +1,4 @@
-import { read } from '@root/lib/typescript';
+import { read } from '@lib';
 import { expect } from 'chai';
 import * as isCI from 'is-ci';
 import { day, results, year } from '..';

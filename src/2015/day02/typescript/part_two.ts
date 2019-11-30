@@ -1,4 +1,4 @@
-import { asc, bench, dup, mult, read, split, sum } from '@root/lib/typescript';
+import { asc, bench, dup, mult, read, split, sum } from '@lib';
 import { day, year } from '.';
 
 export const runner = (input: string): number =>
