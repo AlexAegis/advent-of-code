@@ -1,4 +1,4 @@
-import { bench, min, read, split, sum } from '@root';
+import { bench, min, read, split, sum } from '@root/lib/typescript';
 import { day, year } from '.';
 
 export const runner = async (input: string) =>

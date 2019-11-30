@@ -1,4 +1,4 @@
-import { bench, read } from '@root';
+import { bench, read } from '@root/lib/typescript';
 import { Args, day, year } from '.';
 import { interpret } from './interpret.function';
 import { Coord } from './model/coord.class';

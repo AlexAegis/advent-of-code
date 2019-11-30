@@ -1,4 +1,4 @@
-import { split } from '@root';
+import { split } from '@root/lib/typescript';
 import { Event } from './model/event.interface';
 
 const interpretLine = (line: string): Event => {
