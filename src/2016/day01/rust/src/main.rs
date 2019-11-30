@@ -1,4 +1,4 @@
-use aoc1601::{PartOne, PartTwo};
+use aoc201601::{PartOne, PartTwo};
 use aoclib::Solvable;
 
 pub fn main() -> aoclib::Result<()> {
