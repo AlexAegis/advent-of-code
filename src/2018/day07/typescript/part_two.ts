@@ -1,4 +1,4 @@
-import { bench, read, split } from '@root/lib/typescript';
+import { bench, read, split } from '@lib';
 import { Args, day, year } from '.';
 import { Graph } from './model/graph.interface';
 import { Node } from './model/node.class';
