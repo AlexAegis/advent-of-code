@@ -1,4 +1,4 @@
-import { DayResults } from '@root/lib/typescript';
+import { DayResults } from '@lib';
 
 export const year = 2016;
 export const day = 1;

@@ -1,4 +1,4 @@
-import { bench, max, min, read } from '@root/lib/typescript';
+import { bench, max, min, read } from '@lib';
 import { day, year } from '.';
 import { Boundary } from './boundary.interface';
 import { interpreter } from './interpreter.function';

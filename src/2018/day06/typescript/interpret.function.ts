@@ -1,4 +1,4 @@
-import { split } from '@root/lib/typescript';
+import { split } from '@lib';
 import { Coord } from './model/coord.class';
 
 export const interpret = (input: string): Coord[] => {

@@ -1,4 +1,4 @@
-import { split } from '@root/lib/typescript';
+import { split } from '@lib';
 import { Cave } from './model/cave.class';
 
 export const interpreter = (input: string): Cave | undefined => {

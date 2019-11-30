@@ -1,4 +1,4 @@
-import { bench, read, split } from '@root/lib/typescript';
+import { bench, read, split } from '@lib';
 import { day, year } from '.';
 import { interpret } from './interpret.function';
 
