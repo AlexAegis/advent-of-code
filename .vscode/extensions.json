@@ -12,6 +12,7 @@
 		"serayuzgur.crates",
 		"rust-lang.rust",
 		"ms-vscode.cpptools",
+		"mikestead.dotenv",
 		"juanmnl.vscode-theme-1984",
 		"daylerees.rainglow",
 		"equinusocio.vsc-material-theme"
