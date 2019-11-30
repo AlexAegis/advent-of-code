@@ -1,5 +1,5 @@
-mod args;
-mod parser;
+pub mod args;
+pub mod parser;
 
 use reqwest::header::*;
 use serde::{Deserialize, Serialize};
