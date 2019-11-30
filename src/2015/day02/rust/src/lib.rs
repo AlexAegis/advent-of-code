@@ -3,8 +3,8 @@ use rayon::prelude::*;
 pub struct PartOne;
 pub struct PartTwo;
 
-impl aoc::Solvable<&str, u32> for PartOne {
-	fn solve(input: &str) -> aoc::Solution<u32> {
+impl aoclib::Solvable<&str, u32> for PartOne {
+	fn solve(input: &str) -> aoclib::Solution<u32> {
 		Ok(input
 			.lines()
 			.par_bridge()
@@ -16,8 +16,8 @@ impl aoc::Solvable<&str, u32> for PartOne {
 	}
 }
 
-impl aoc::Solvable<&str, u32> for PartTwo {
-	fn solve(input: &str) -> aoc::Solution<u32> {
+impl aoclib::Solvable<&str, u32> for PartTwo {
+	fn solve(input: &str) -> aoclib::Solution<u32> {
 		Ok(input
 			.lines()
 			.par_bridge()

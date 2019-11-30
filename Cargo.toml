@@ -1,30 +1,16 @@
-[package]
-name = "aoc"
-version = "0.1.0"
-authors = ["AlexAegis <alexaegis@gmail.com>"]
-license = "mit"
-edition = "2018"
-repository = "https://github.com/AlexAegis/advent-of-code"
-
-[dependencies]
-num-traits = "0.2.8"
-cached = "0.10.0"
-clap = "2.33.0"
-async-std = "1.0.0"
-tokio = "*"
-rayon = "*"
-regex = "*"
-fancy-regex = "*"
-futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
-
-[dev-dependencies]
-criterion = "0.3.0"
-clippy = "0.0.302"
-
-[lib]
-name = "aoc"
-bench = true
-doc = true
+[workspace]
+members = [
+	"src/lib/rust",
+	"scaffold",
+	"scaffold/aoc-query",
+	"src/2015/day01/rust",
+	"src/2015/day02/rust",
+	"src/2015/day03/rust",
+	"src/2015/day04/rust",
+	"src/2015/day05/rust",
+	"src/2016/day01/rust",
+	"src/2018/day01/rust",
+]
 
 [profile.bench]
 lto = true
@@ -34,17 +20,3 @@ overflow-checks = true
 
 [profile.dev]
 opt-level = 3
-
-[workspace]
-members = [
-	"scaffold",
-	"scaffold/aoc-query",
-	"src/meta/rust",
-	"src/2015/day01/rust",
-	"src/2015/day02/rust",
-	"src/2015/day03/rust",
-	"src/2015/day04/rust",
-	"src/2015/day05/rust",
-	"src/2016/day01/rust",
-	"src/2018/day01/rust",
-]

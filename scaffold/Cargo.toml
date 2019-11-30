@@ -1,13 +1,13 @@
 [package]
-name = "aoc_scaffold"
+name = "scaffold"
 version = "0.2.0"
 authors = ["AlexAegis <alexaegis@gmail.com>"]
 license = "mit"
 edition = "2018"
 
 [dependencies]
-tokio = "0.2.0-alpha.6"
 aoc_query = { path = "./aoc-query" }
 cpt = "0.4.1"
+tokio = "0.2.0-alpha.6"
 serde = "1.0.103"
 serde_json = "1.0.42"

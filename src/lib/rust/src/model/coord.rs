@@ -1,4 +1,4 @@
-use crate::math::abs;
+use crate::{errors::ReaderError, math};
 use num_traits::identities::One;
 use num_traits::identities::Zero;
 use std::cmp::Eq;
@@ -40,14 +40,14 @@ impl<T: One + Zero + Copy + Neg<Output = T> + Debug> fmt::Display for Direction<
 }
 
 impl<T: One + Zero + Copy + Neg<Output = T> + Debug> TryFrom<char> for Direction<T> {
-	type Error = aoc::ReaderError;
-	fn try_from(e: char) -> Result<Self, aoc::ReaderError> {
+	type Error = ReaderError;
+	fn try_from(e: char) -> Result<Self, ReaderError> {
 		match e {
 			'^' => Ok(Direction::North(north())),
 			'>' => Ok(Direction::East(east())),
 			'v' => Ok(Direction::South(south())),
 			'<' => Ok(Direction::West(west())),
-			_ => Err(aoc::ReaderError::new("Not a direction")),
+			_ => Err(ReaderError::new("Not a direction")),
 		}
 	}
 }
@@ -141,7 +141,7 @@ impl<T: Copy + Mul<Output = T> + Add<Output = T>> Stepper<T> for &Coord<T> {
 
 impl<T: Add<Output = T> + Sub<Output = T> + Neg<Output = T> + Ord + Default> Coord<T> {
 	pub fn manhattan(self, coord: Coord<T>) -> T {
-		abs(coord.x - self.x) + abs(coord.y - self.y)
+		math::abs(coord.x - self.x) + math::abs(coord.y - self.y)
 	}
 }
 
