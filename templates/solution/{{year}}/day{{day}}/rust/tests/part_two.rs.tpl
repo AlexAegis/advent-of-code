@@ -1,14 +1,14 @@
-use aoc::Solvable;
+use aoclib::Solvable;
 
 #[test]
-fn input() -> aoc::Result<()> {
-	let input = aoc::reader({{year}}, {{short_day}}, "input.txt")?;
+fn input() -> aoclib::Result<()> {
+	let input = aoclib::reader({{year}}, {{short_day}}, "input.txt")?;
 	assert_eq!(aoc{{year}}{{day}}::PartTwo::solve(&input)?, 0);
 	Ok(())
 }
 
 #[test]
-fn example_1() -> aoc::Result<()> {
+fn example_1() -> aoclib::Result<()> {
 	assert_eq!(aoc{{year}}{{day}}::PartTwo::solve("")?, 0);
 	Ok(())
 }

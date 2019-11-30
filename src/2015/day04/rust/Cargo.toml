@@ -10,8 +10,8 @@ name = "aoc1504"
 path = "./src/lib.rs"
 
 [dependencies]
+aoclib = { path = "../../../lib/rust" }
 md5 = "0.7.0"
-aoc = { path = "../../../../" }
 
 [dev-dependencies]
 criterion = "*"

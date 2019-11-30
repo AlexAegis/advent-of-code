@@ -6,8 +6,8 @@ use std::convert::TryFrom;
 pub struct PartOne;
 pub struct PartTwo;
 
-impl aoc::Solvable<&str, usize> for PartOne {
-	fn solve(input: &str) -> aoc::Solution<usize> {
+impl aoclib::Solvable<&str, usize> for PartOne {
+	fn solve(input: &str) -> aoclib::Solution<usize> {
 		let mut set = HashSet::<Coord<i8>>::new();
 		let mut pos = Coord::new(0, 0);
 		for d in input.chars().filter_map(|c| Direction::try_from(c).ok()) {
@@ -18,8 +18,8 @@ impl aoc::Solvable<&str, usize> for PartOne {
 	}
 }
 
-impl aoc::Solvable<&str, usize> for PartTwo {
-	fn solve(input: &str) -> aoc::Solution<usize> {
+impl aoclib::Solvable<&str, usize> for PartTwo {
+	fn solve(input: &str) -> aoclib::Solution<usize> {
 		let mut set = HashSet::<Coord<i32>>::new();
 		let mut s_pos = Coord::new(0, 0);
 		let mut r_pos = Coord::new(0, 0);
@@ -36,8 +36,8 @@ impl aoc::Solvable<&str, usize> for PartTwo {
 
 // For some reason these solutions are slower by ~30%
 /*
-impl aoc::Solvable<&str, usize> for PartOne {
-	fn solve(input: &str) -> aoc::Solution<usize> {
+impl aoclib::Solvable<&str, usize> for PartOne {
+	fn solve(input: &str) -> aoclib::Solution<usize> {
 		Ok(input
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())
@@ -54,8 +54,8 @@ impl aoc::Solvable<&str, usize> for PartOne {
 	}
 }
 
-impl aoc::Solvable<&str, usize> for PartTwo {
-	fn solve(input: &str) -> aoc::Solution<usize> {
+impl aoclib::Solvable<&str, usize> for PartTwo {
+	fn solve(input: &str) -> aoclib::Solution<usize> {
 		Ok(input
 			.chars()
 			.filter_map(|c| Direction::try_from(c).ok())

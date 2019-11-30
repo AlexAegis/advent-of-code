@@ -16,14 +16,14 @@ fn hash_search(zeroes: usize, input: &str) -> u32 {
 	i - 1
 }
 
-impl aoc::Solvable<&str, u32> for PartOne {
-	fn solve(input: &str) -> aoc::Solution<u32> {
+impl aoclib::Solvable<&str, u32> for PartOne {
+	fn solve(input: &str) -> aoclib::Solution<u32> {
 		Ok(hash_search(5, input))
 	}
 }
 
-impl aoc::Solvable<&str, u32> for PartTwo {
-	fn solve(input: &str) -> aoc::Solution<u32> {
+impl aoclib::Solvable<&str, u32> for PartTwo {
+	fn solve(input: &str) -> aoclib::Solution<u32> {
 		Ok(hash_search(6, input))
 	}
 }

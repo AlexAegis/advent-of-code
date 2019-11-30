@@ -10,7 +10,7 @@ name = "aoc1502"
 path = "./src/lib.rs"
 
 [dependencies]
-aoc = { path = "../../../../" }
+aoclib = { path = "../../../lib/rust" }
 rayon = "*"
 
 [dev-dependencies]
