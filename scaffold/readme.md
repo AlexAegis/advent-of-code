@@ -46,6 +46,8 @@ export SESSION="value"
 
 ## Additional ideas
 
-default to todays date
+- Default to todays date
 
-Answer submitter subcrate (aoc-submit)
+- Answer submitter subcrate (aoc-submit)
+
+- Add scaffolded entry into other files (Cargo workspace, Readme)
