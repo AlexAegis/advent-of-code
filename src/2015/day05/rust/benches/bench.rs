@@ -7,14 +7,14 @@ use criterion::Criterion;
 fn part_one_benchmark(c: &mut Criterion) {
 	c.bench_function("2015 day 5 part one", |b| {
 		let input = aoclib::reader(2015, 5, "input.txt").unwrap();
-		b.iter(|| aoc1505::PartOne::solve(&input).unwrap())
+		b.iter(|| aoc201505::PartOne::solve(&input).unwrap())
 	});
 }
 
 fn part_two_benchmark(c: &mut Criterion) {
 	c.bench_function("2015 day 5 part two", |b| {
 		let input = aoclib::reader(2015, 5, "input.txt").unwrap();
-		b.iter(|| aoc1505::PartTwo::solve(&input).unwrap())
+		b.iter(|| aoc201505::PartTwo::solve(&input).unwrap())
 	});
 }
 
