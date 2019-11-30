@@ -234,7 +234,7 @@ or if you installed the recommended mocha extension you can run them with that
 ### Running individual days
 
 ```bash
-cargo run -p aoc1601
+cargo run -p aoc201601
 ```
 
 ### Testing
