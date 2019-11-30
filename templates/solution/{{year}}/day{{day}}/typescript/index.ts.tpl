@@ -1,4 +1,4 @@
-import { DayResults } from '@root';
+import { DayResults } from '@root/lib/typescript';
 
 export const year = {{year}};
 export const day = {{short_day}};

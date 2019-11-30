@@ -1,4 +1,4 @@
-import { bench, read } from '@root';
+import { bench, read } from '@root/lib/typescript';
 import { day, year } from '.';
 import { cartSorter } from './functions/cart-sorter.function';
 import { interpreter } from './interpreter.function';

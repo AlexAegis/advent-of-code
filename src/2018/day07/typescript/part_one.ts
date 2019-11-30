@@ -1,4 +1,4 @@
-import { bench, read, split } from '@root';
+import { bench, read, split } from '@root/lib/typescript';
 import { day, year } from '.';
 
 interface Graph {

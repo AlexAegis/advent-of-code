@@ -47,6 +47,7 @@
 		"@types/workerpool": "^5.0.0",
 		"chai": "^4.2.0",
 		"codecov": "^3.6.1",
+		"lerna": "^3.19.0",
 		"mocha": "^6.2.2",
 		"mocha-parallel-tests": "^2.2.2",
 		"npm-check-updates": "latest",
@@ -58,6 +59,9 @@
 		"tslint": "~5.20.1",
 		"tslint-plugin-prettier": "^2.0.1",
 		"typescript": "3.7.2"
+	},
+	"engines": {
+		"node": ">= 12.13.1"
 	},
 	"nyc": {
 		"extension": [
