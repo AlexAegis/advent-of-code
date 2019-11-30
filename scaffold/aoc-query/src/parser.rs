@@ -122,9 +122,17 @@ impl Processable for Day {
 					}
 					self.current_task += 1;
 					if self.current_task == 1 {
-						s += "## [Part One](./typescript/part_one.ts)\n\n";
+						s += "## [Part One](https://adventofcode.com/";
+						s += &self.year.to_string();
+						s += "/day/";
+						s += &self.day.to_string();
+						s +=  "#part1) - [TypeScript](./typescript/part_one.ts) - [Rust](./rust/src/lib.rs)\n\n";
 					} else if self.current_task == 2 {
-						s += "## [Part Two](./typescript/part_two.ts)\n\n";
+						s += "## [Part Two](https://adventofcode.com/";
+						s += &self.year.to_string();
+						s += "/day/";
+						s += &self.day.to_string();
+						s +=  "#part2) - [TypeScript](./typescript/part_two.ts) - [Rust](./rust/src/lib.rs)\n\n";
 					}
 				}
 				return s;
