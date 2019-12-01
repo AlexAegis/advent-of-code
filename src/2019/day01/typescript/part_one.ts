@@ -1,7 +1,7 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
 
-export const runner = async (input: string) =>
+export const runner = (input: string) =>
 	input
 		.split(/\r?\n/)
 		.map(n => Math.floor(Number(n) / 3) - 2)
