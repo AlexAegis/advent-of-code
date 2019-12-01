@@ -4,7 +4,7 @@
 
 [![2019 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2019.json)](./src/2019/) [![2018 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2018.json)](./src/2018/) [![2017 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2017.json)](./src/2017/) [![2016 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2016.json)](./src/2016/) [![2015 Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/2015.json)](./src/2015/)
 
-### [Leaderboards](https://adventofcode.com/2018/leaderboard/private/view/515399)
+### [Leaderboards](https://adventofcode.com/2019/leaderboard/private/view/515399)
 
 Join me on my private leaderboard! You can find my invitation code [here](./.aoc/leaderboard.md).
 
