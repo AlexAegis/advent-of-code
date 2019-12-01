@@ -11,6 +11,7 @@ members = [
 	"src/2016/day01/rust",
 	"src/2017/day01/rust",
 	"src/2018/day01/rust",
+	"src/2019/day01/rust",
 ]
 
 [profile.bench]
