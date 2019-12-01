@@ -1,6 +1,5 @@
 use std::cmp;
 
-#[derive(Default)]
 pub struct PartOne;
 pub struct PartTwo;
 
