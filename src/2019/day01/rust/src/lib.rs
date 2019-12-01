@@ -4,6 +4,7 @@ pub struct PartOne;
 pub struct PartTwo;
 
 impl aoclib::Solvable<&str, i32> for PartOne {
+	/// 3399947, ~1.6μs
 	fn solve(input: &str) -> aoclib::Solution<i32> {
 		Ok(input
 			.lines()
@@ -18,6 +19,7 @@ fn fuel(i: i32) -> i32 {
 }
 
 impl aoclib::Solvable<&str, i32> for PartTwo {
+	// 5097039, ~3.6μs
 	fn solve(input: &str) -> aoclib::Solution<i32> {
 		Ok(input
 			.lines()
