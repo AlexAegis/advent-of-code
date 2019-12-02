@@ -9,7 +9,6 @@ export const compute = (a: number[], noun?: number, verb?: number, immutable = t
 	let i = 0;
 	while (true) {
 		const curr = arr[i % arr.length];
-
 		if (curr === 99) {
 			break;
 		}

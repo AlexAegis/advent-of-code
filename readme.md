@@ -16,7 +16,7 @@ Join me on my private leaderboard! You can find my invitation code [here](./.aoc
 | -------------------------- | ------------------------------------------------- | ------------------------------------------- | ------------------------------------------------- | ------------------------------------------- |
 |                            | TypeScript                                        | Rust                                        | TypeScript                                        | Rust                                        |
 | [Day 1](./src/2019/day01/) | [0.3ms](./src/2019/day01/typescript/part_one.ts)  | [1.6μs\*](./src/2019/day01/rust/src/lib.rs) | [0.39ms](./src/2019/day01/typescript/part_two.ts) | [3.6μs\*](./src/2019/day01/rust/src/lib.rs) |
-| [Day 2](./src/2019/day02/) | [0.25ms](./src/2019/day02/typescript/part_one.ts) |                                             | [11ms](./src/2019/day02/typescript/part_two.ts)   |                                             |
+| [Day 2](./src/2019/day02/) | [0.25ms](./src/2019/day02/typescript/part_one.ts) | [2.2μs\*](./src/2019/day02/rust/src/lib.rs) | [11ms](./src/2019/day02/typescript/part_two.ts)   | [1ms\*](./src/2019/day02/rust/src/lib.rs)   |
 | Day 3                      |                                                   |                                             |                                                   |                                             |
 | Day 4                      |                                                   |                                             |                                                   |                                             |
 | Day 5                      |                                                   |                                             |                                                   |                                             |
@@ -174,6 +174,8 @@ Join me on my private leaderboard! You can find my invitation code [here](./.aoc
 | Day 25                     |                                                              |                                             |                                                            |                                             |
 
 > \* measured on 8700k@4.8Ghz
+
+> All benchmarks are calculated with input parsing. I plan to refactor my solutions so I can bench without it.
 
 ---
 
