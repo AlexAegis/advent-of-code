@@ -1,4 +1,4 @@
-export const search = (a: number[], noun?: number, verb?: number, immutable = true): number => {
+export const compute = (a: number[], noun?: number, verb?: number, immutable = true): number => {
 	const arr = immutable ? [...a] : a;
 	if (noun !== undefined) {
 		arr[1] = noun;
