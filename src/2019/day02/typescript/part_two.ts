@@ -5,16 +5,13 @@ import { parse } from './parse';
 
 export const runner = async (input: string) => {
 	const arr = parse(input);
-	let noun = 0;
-	let verb = 0;
-	while (true) {
-		if (compute(arr, noun, verb) === 19690720) {
-			break;
-		}
-		noun += 1;
-		if (noun >= 99) {
-			noun = 0;
-			verb++;
+	let noun = 0; // 84
+	let verb = 0; // 78
+	o: for (noun = 0; noun <= 100; noun++) {
+		for (verb = 0; verb <= 100; verb++) {
+			if (compute(arr, noun, verb) === 19690720) {
+				break o;
+			}
 		}
 	}
 	return 100 * noun + verb;
