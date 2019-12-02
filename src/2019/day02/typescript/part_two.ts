@@ -1,14 +1,14 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
+import { compute } from './compute';
 import { parse } from './parse';
-import { search } from './search';
 
 export const runner = async (input: string) => {
 	const arr = parse(input);
 	let noun = 0;
 	let verb = 0;
 	while (true) {
-		if (search(arr, noun, verb) === 19690720) {
+		if (compute(arr, noun, verb) === 19690720) {
 			break;
 		}
 		noun += 1;
