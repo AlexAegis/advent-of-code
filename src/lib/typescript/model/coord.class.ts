@@ -37,6 +37,10 @@ export class Coord {
 		}
 	}
 
+	public equal(o: Coord): boolean {
+		return o && this.x === o.x && this.y === o.x;
+	}
+
 	public toString(): string {
 		return `${this.x},${this.y}`;
 	}
