@@ -3,6 +3,7 @@ import { directionMarkerAssociations } from './direction-marker-associations.con
 import { DirectionMarker } from './direction-marker.type';
 
 export class Direction extends Coord {
+	// TODO: public scalar = 1;
 	public constructor(public marker: DirectionMarker) {
 		super(directionMarkerAssociations[marker]);
 	}
