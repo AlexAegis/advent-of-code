@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
-import { Coord } from '@root/lib/typescript/model/coord.class';
-import { directionMarkerAssociations } from '@root/lib/typescript/model/direction-marker-associations.const';
+import { Coord } from '@lib/model/coord.class';
+import { directionMarkerAssociations } from '@lib/model/direction-marker-associations.const';
 import { day, year } from '.';
 
 export const runner = async (input: string) =>

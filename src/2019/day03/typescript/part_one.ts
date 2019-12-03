@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { Coord } from '@lib/model/coord.class';
-import { flattenVectors } from '@root/lib/typescript/model/vector.class';
+import { flattenVectors } from '@lib/model/vector.class';
 import { day, year } from '.';
 import { parse } from './parse';
 
