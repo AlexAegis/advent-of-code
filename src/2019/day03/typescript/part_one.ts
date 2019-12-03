@@ -15,7 +15,7 @@ export const runner = async (input: string) => {
 
 	return Coord.ORIGO.manhattan(
 		b
-			.filter(bp => possInts.get(bp.c.toString()))
+			.filter(bp => possInts.has(bp.c.toString()))
 			.map(v => v.c)
 			.reduce((min, n) =>
 				min === undefined || Coord.ORIGO.manhattan(n) <= Coord.ORIGO.manhattan(min as Coord) ? n : min
