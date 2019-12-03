@@ -12,12 +12,36 @@ import {
 export const runner = async (input: string) => {
 	const p = parse(input);
 	const map = new Map<string, { pos: Coord; step: number }[]>();
-	// 	const longer = p.map(n => n.length).reduce((a, n) => n > a ? n : a, 0);
-	//
-	// 	for(let i = 0; i< longer; i++) {
-	//
-	// 	}
 
+	const t = p.map(
+		pi =>
+			pi.reduce(
+				(acc, n) => {
+					for (let d = 0; d < n.amount; d++) {
+						acc.curs.pos.add(n.direction);
+						acc.curs.step += 1;
+						acc.res.push({ c: new Coord(acc.curs.pos), steps: acc.curs.step });
+					}
+					return acc;
+				},
+				{ res: [] as { c: Coord; steps: number }[], curs: { pos: new Coord(0, 0), step: 0 } }
+			).res
+	);
+
+	const longerWireLength = t.map(n => n.length).reduce((acc, n) => (n > acc ? n : acc), 0);
+	let minStep = Infinity;
+	for (let i = 0; i < longerWireLength; i++) {
+		const a = t[0][i];
+		const b = t[1][i];
+
+		if (a && b && a.c.toString() === b.c.toString()) {
+			console.log(a, b);
+			if (a.steps + b.steps <= minStep) {
+				minStep = a.steps + b.steps;
+			}
+		}
+	}
+	return minStep;
 	for (const wire of p) {
 		wire.reduce(
 			(a, n) => {
