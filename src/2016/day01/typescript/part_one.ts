@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
-import { Coord } from '@root/lib/typescript/model/coord.class';
-import { Direction } from '@root/lib/typescript/model/direction.class';
+import { Coord } from '@lib/model/coord.class';
+import { Direction } from '@lib/model/direction.class';
 import { day, year } from '.';
 
 export const runner = (input: string) =>

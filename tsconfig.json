@@ -22,8 +22,6 @@
 		"strictPropertyInitialization": true,
 		"baseUrl": "./",
 		"paths": {
-			"@root": ["src"],
-			"@root/*": ["src/*"],
 			"@lib": ["src/lib/typescript"],
 			"@lib/*": ["src/lib/typescript/*"],
 			"@2015/*": ["src/2015/*"],
