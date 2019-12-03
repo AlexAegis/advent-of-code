@@ -1,27 +1,4 @@
-import { Direction } from '@lib/model/direction.class';
-
-export class Vector {
-	direction!: Direction;
-	amount: number;
-
-	constructor(s: string) {
-		switch (s[0]) {
-			case 'R':
-				this.direction = Direction.EAST;
-				break;
-			case 'L':
-				this.direction = Direction.WEST;
-				break;
-			case 'U':
-				this.direction = Direction.NORTH;
-				break;
-			case 'D':
-				this.direction = Direction.SOUTH;
-				break;
-		}
-		this.amount = Number(s.substring(1));
-	}
-}
+import { Vector } from '@lib/model/vector.class';
 
 export const parse = (input: string): Vector[][] => {
 	return input.split(/\r?\n/).map(line =>
