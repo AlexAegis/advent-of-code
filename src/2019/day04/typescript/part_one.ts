@@ -1,19 +1,24 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
-import { parse } from './parse';
 
 export const runner = async (input: string) => {
-	const p = parse(input);
-
-	let s = 0;
-	for (let i = 0; i < p.length; i++) {
-		s += 1;
+	const [l, h] = input.split('-').map(s => Number(s));
+	let count = 0;
+	for (let i = l; i <= h; i++) {
+		const s = i.toString();
+		let m = true;
+		let pa = false;
+		for (let j = 1; j < s.length && m; j++) {
+			m = m && Number(s[j]) >= Number(s[j - 1]);
+			pa = pa || s[j] === s[j - 1];
+		}
+		if (m && pa) {
+			count++;
+		}
 	}
-	console.log(s);
-	return s;
+	return count;
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await runner('')}`))();
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1694 ~62ms
 }
