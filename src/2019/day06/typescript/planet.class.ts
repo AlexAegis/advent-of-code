@@ -24,6 +24,7 @@ export class Planet implements Iterable<Planet> {
 		}
 	}
 
+	// TODO: Refactor this so it won't use find
 	public *reach(planet: string): IterableIterator<Planet> {
 		if (this.name === planet || !this.find(planet).next().done) {
 			yield this;

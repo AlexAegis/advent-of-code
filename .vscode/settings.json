@@ -28,20 +28,12 @@
 		".mocharc": "mocha"
 	},
 	"typescript.tsdk": "node_modules\\typescript\\lib",
-	"mochaExplorer.optsFile": "./mocha.opts",
-	"mochaExplorer.files": "src/**/*.spec.ts",
-	"mochaExplorer.mochaPath": "node_modules/mocha",
-	"files.associations": { ".mocharc": "json" },
-	"theme-by-language.themes": {
-		"*": "Material Theme Darker High Contrast",
-		"typescript": "Material Theme Darker High Contrast",
-		"rust": "Halflife Contrast (rainglow)",
-		"toml": "1984 - Orwellian"
-	},
 	"rust.build_on_save": true,
 	"rust.clippy_preference": "on",
 	"rust.racer_completion": true,
 	"rust.show_hover_context": true,
-	"mochaExplorer.files": "test/**/*.ts",
-	"mochaExplorer.require": "ts-node/register"
+	"files.associations": { ".mocharc": "json" },
+	"mocha.files.glob": "src/**/*.spec.ts",
+	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
+	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"]
 }
