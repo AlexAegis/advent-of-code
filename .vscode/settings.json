@@ -4,6 +4,11 @@
 	"editor.autoIndent": true,
 	"editor.quickSuggestions": true,
 	"editor.tabSize": 4,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"editor.mouseWheelZoom": true,
+	"editor.wordBasedSuggestions": false,
 	"material-icon-theme.folders.associations": {
 		"module": "font",
 		"component": "components",
@@ -26,10 +31,6 @@
 	"mochaExplorer.optsFile": "./mocha.opts",
 	"mochaExplorer.files": "src/**/*.spec.ts",
 	"mochaExplorer.mochaPath": "node_modules/mocha",
-	"editor.codeActionsOnSave": {
-		"source.fixAll": true
-	},
-	"editor.mouseWheelZoom": true,
 	"files.associations": { ".mocharc": "json" },
 	"theme-by-language.themes": {
 		"*": "Material Theme Darker High Contrast",
@@ -41,5 +42,6 @@
 	"rust.clippy_preference": "on",
 	"rust.racer_completion": true,
 	"rust.show_hover_context": true,
-	"editor.wordBasedSuggestions": false
+	"mochaExplorer.files": "test/**/*.ts",
+	"mochaExplorer.require": "ts-node/register"
 }
