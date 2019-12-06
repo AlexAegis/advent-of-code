@@ -26,8 +26,8 @@ export const runner = async (input: string) => {
 	const center = planets.get(Notable.CENTER);
 	let c = 0;
 	if (center) {
-		const san = [...center.lineOf(Notable.SAN)].map(p => p.name);
-		const you = [...center.lineOf(Notable.YOU)].map(p => p.name);
+		const san = [...center.reach(Notable.SAN)].map(p => p.name);
+		const you = [...center.reach(Notable.YOU)].map(p => p.name);
 		const longer = Math.max(san.length, you.length);
 
 		for (let i = 0; i <= longer; i++) {
