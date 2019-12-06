@@ -14,9 +14,10 @@
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
 	"scripts": {
+		"lin": "tslint --project",
 		"lint": "tslint --project .",
 		"lint:fix": "tslint --project . --fix",
-		"format": "npx prettier --write \"src/**/*\"",
+		"format": "prettier --write \"src/**/*\"",
 		"prettier": "npm run format",
 		"test": "mocha --config ./.mocharc",
 		"test:parallel": "mocha-parallel-tests --config ./.mocharc",
