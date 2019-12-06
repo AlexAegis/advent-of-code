@@ -1,4 +1,4 @@
-import { Orbit } from './orbit.class';
+import { Orbit } from './model/orbit.class';
 
 export const parse = (input: string): Orbit[] => {
 	return input
