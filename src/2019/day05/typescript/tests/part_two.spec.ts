@@ -1,9 +1,9 @@
+import { read } from '@lib';
 import { IntCodeComputer } from '@lib/intcode';
 import { expect } from 'chai';
 import { day, results, year } from '..';
 import { parse } from '../parse';
 import { runner } from '../part_two';
-import { read } from '@lib';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
 	const seventhInput = parse(
