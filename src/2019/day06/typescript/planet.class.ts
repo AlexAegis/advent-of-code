@@ -15,21 +15,21 @@ export class Planet implements Iterable<Planet> {
 		}
 	}
 
-	public *search(planet: string): IterableIterator<Planet> {
+	public *find(planet: string): IterableIterator<Planet> {
 		if (this.name === planet) {
 			yield this;
 		}
 		for (const orbiter of this.orbiters) {
-			yield* orbiter.search(planet);
+			yield* orbiter.find(planet);
 		}
 	}
 
-	public *lineOf(planet: string): IterableIterator<Planet> {
-		if (this.name === planet || !this.search(planet).next().done) {
+	public *reach(planet: string): IterableIterator<Planet> {
+		if (this.name === planet || !this.find(planet).next().done) {
 			yield this;
 		}
 		for (const orbiter of this.orbiters) {
-			yield* orbiter.lineOf(planet);
+			yield* orbiter.reach(planet);
 		}
 	}
 
