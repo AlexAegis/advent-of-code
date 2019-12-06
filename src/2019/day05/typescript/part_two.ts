@@ -1,5 +1,5 @@
-import { bench, read } from '@lib';
-import { day, year } from '.';
+// import { bench, read } from '@lib';
+// import { day, year } from '.';
 import { parseCommaSeparatedNumbers } from './parse';
 
 export const compute = (a: number[], noun?: number, verb?: number, immutable = true): number => {
@@ -28,7 +28,6 @@ export const compute = (a: number[], noun?: number, verb?: number, immutable = t
 		}
 
 		let step = 4;
-		const ogI = i;
 		if (instruction === 99) {
 			break;
 		}
