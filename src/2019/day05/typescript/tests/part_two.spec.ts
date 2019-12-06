@@ -1,8 +1,7 @@
-import { read } from '@lib';
 import { expect } from 'chai';
 import { day, results, year } from '..';
 import { parseCommaSeparatedNumbers } from '../parse';
-import { compute, runner } from '../part_two';
+import { compute } from '../part_two';
 
 describe(`${year} - Day ${day} - Part Two`, () => {
 	it(`should resolve to ${results.two.input} when using the input`, async () => {
