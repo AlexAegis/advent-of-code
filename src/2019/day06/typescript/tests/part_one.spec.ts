@@ -8,7 +8,7 @@ describe(`${year} - Day ${day} - Part One`, () => {
 		expect(await runner((await read(year, day)()).input)).to.equal(results.one.input);
 	});
 
-	it('should be that that both the first examples resolves to 0', async () => {
-		expect(await runner('')).to.equal(0);
+	it('should be that that the first example resolves to 42', async () => {
+		expect(await runner('COM)B\nB)C\nC)D\nD)E\nE)F\nB)G\nG)H\nD)I\nE)J\nJ)K\nK)L')).to.equal(42);
 	});
 });
