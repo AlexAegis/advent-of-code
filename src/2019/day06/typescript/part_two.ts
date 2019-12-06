@@ -1,7 +1,7 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
+import { Notable, Planet } from './model/planet.class';
 import { parse } from './parse';
-import { Notable, Planet } from './planet.class';
 
 export const runner = async (input: string) => {
 	const orbits = parse(input);
