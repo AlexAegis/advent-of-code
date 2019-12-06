@@ -1,47 +1,12 @@
 import { numLength } from '@lib/functions';
 import { numAt } from '@lib/functions/num-at.function';
-
-export enum Instruction {
-	ADD = 1,
-	MUL = 2,
-	IN = 3,
-	OUT = 4,
-	JIT = 5,
-	JIF = 6,
-	LT = 7,
-	EQ = 8,
-	HALT = 99
-}
-
-export const isInstruction = (n: number): boolean => {
-	return (n >= 1 && n <= 8) || n === 99;
-};
-
-export const toInstruction = (code: number): Instruction => {
-	const inst = code % 100;
-	if (isInstruction(inst)) {
-		return inst;
-	} else {
-		throw new Error(`Unsupported instruction ${inst}`);
-	}
-};
-
-export const addOp = (tape: number[], cursor: number): number => {
-	// const e = tape[cursor];
-
-	return cursor;
-};
-
-export enum Mode {
-	POS = 0,
-	VAL = 1
-}
+import { Instruction, toInstruction } from './instruction.enum';
+import { Mode } from './mode.enum';
 
 export class IntCodeComputer implements Iterable<number> {
 	public tape: number[];
 	public cursor = 0;
 	private halt = false;
-
 	public inputQueue?: number[];
 
 	public constructor(tape: number[], mutable = false) {
@@ -56,6 +21,11 @@ export class IntCodeComputer implements Iterable<number> {
 		}
 	}
 
+	public withInput(input: number | number[]): IntCodeComputer {
+		this.input = input;
+		return this;
+	}
+
 	private getValue(pos: number, mode: Mode = Mode.POS): number {
 		switch (mode) {
 			case Mode.POS:
@@ -66,27 +36,34 @@ export class IntCodeComputer implements Iterable<number> {
 		}
 	}
 
-	public reset(tape?: number[], mutable = false): void {
+	public reset(tape?: number[], mutable = false): IntCodeComputer {
 		if (tape) {
 			this.tape = mutable ? tape : [...tape];
 		}
 		this.cursor = 0;
 		this.halt = false;
+		return this;
 	}
 
 	public peek(at: number): number {
 		return this.tape[at];
 	}
-	public set noun(to: number) {
-		this.tape[1] = to;
+	public set noun(noun: number) {
+		this.tape[1] = noun;
 	}
 
-	public set verb(to: number) {
-		this.tape[2] = to;
+	public withNoun(noun: number): IntCodeComputer {
+		this.noun = noun;
+		return this;
 	}
 
-	public execute(): number[] {
-		return [...this];
+	public set verb(verb: number) {
+		this.tape[2] = verb;
+	}
+
+	public withVerb(verb: number): IntCodeComputer {
+		this.verb = verb;
+		return this;
 	}
 
 	private getArg(v: number, n: number, mode?: Mode): number {
@@ -111,10 +88,10 @@ export class IntCodeComputer implements Iterable<number> {
 					yield this.outOp(this.getArg(v, 0));
 					break;
 				case Instruction.JIT:
-					this.jitOp(this.getArg(v, 0), this.getArg(v, 1, Mode.VAL));
+					this.jitOp(this.getArg(v, 0), this.getArg(v, 1));
 					break;
 				case Instruction.JIF:
-					this.jifOp(this.getArg(v, 0), this.getArg(v, 1, Mode.VAL));
+					this.jifOp(this.getArg(v, 0), this.getArg(v, 1));
 					break;
 				case Instruction.LT:
 					this.ltOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
@@ -123,13 +100,24 @@ export class IntCodeComputer implements Iterable<number> {
 					this.eqOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
 					break;
 				case Instruction.HALT:
+				default:
 					this.haltOp();
 					break;
-				default:
-					break;
 			}
-			console.log(this.cursor, v);
 		} while (!this.halt);
+	}
+
+	public run(target?: number[]): IntCodeComputer {
+		if (target) {
+			target.push(...this.execute());
+		} else {
+			this.execute();
+		}
+		return this;
+	}
+
+	public execute(): number[] {
+		return [...this];
 	}
 
 	private addOp(a: number, b: number, pos: number): void {
@@ -185,7 +173,3 @@ export class IntCodeComputer implements Iterable<number> {
 		this.halt = true;
 	}
 }
-/*
-const comp = new IntCodeComputer([111, 2, 3, 9]);
-console.log(comp.getArg(1001, 1));
-*/
