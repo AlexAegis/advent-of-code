@@ -42,8 +42,18 @@ export class IntCodeComputer implements Iterable<number> {
 	public cursor = 0;
 	private halt = false;
 
+	public inputQueue?: number[];
+
 	public constructor(tape: number[], mutable = false) {
 		this.tape = mutable ? tape : [...tape];
+	}
+
+	public set input(input: number | number[]) {
+		if (typeof input === 'number') {
+			this.inputQueue = [input];
+		} else {
+			this.inputQueue = input;
+		}
 	}
 
 	private getValue(pos: number, mode: Mode = Mode.POS): number {
@@ -80,7 +90,7 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	private getArg(v: number, n: number, mode?: Mode): number {
-		return this.getValue(this.cursor + n + 1, mode || numAt(v, numLength(v) - n - 2));
+		return this.getValue(this.cursor + n + 1, mode || numAt(v, numLength(v) - n - 3));
 	}
 
 	public *[Symbol.iterator](): IterableIterator<number> {
@@ -94,12 +104,31 @@ export class IntCodeComputer implements Iterable<number> {
 				case Instruction.MUL:
 					this.mulOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
 					break;
+				case Instruction.IN:
+					this.inOp(this.getArg(v, 0, Mode.VAL));
+					break;
+				case Instruction.OUT:
+					yield this.outOp(this.getArg(v, 0));
+					break;
+				case Instruction.JIT:
+					this.jitOp(this.getArg(v, 0), this.getArg(v, 1, Mode.VAL));
+					break;
+				case Instruction.JIF:
+					this.jifOp(this.getArg(v, 0), this.getArg(v, 1, Mode.VAL));
+					break;
+				case Instruction.LT:
+					this.ltOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
+					break;
+				case Instruction.EQ:
+					this.eqOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
+					break;
 				case Instruction.HALT:
 					this.haltOp();
 					break;
 				default:
 					break;
 			}
+			console.log(this.cursor, v);
 		} while (!this.halt);
 	}
 
@@ -110,6 +139,45 @@ export class IntCodeComputer implements Iterable<number> {
 
 	private mulOp(a: number, b: number, pos: number): void {
 		this.tape[pos] = a * b;
+		this.cursor += 4;
+	}
+
+	private inOp(pos: number): void {
+		if (this.inputQueue && this.inputQueue.length > 0) {
+			this.tape[pos] = this.inputQueue.pop() as number;
+		} else {
+			throw new Error('No input');
+		}
+		this.cursor += 2;
+	}
+
+	private outOp(pos: number): number {
+		this.cursor += 2;
+		return pos;
+	}
+
+	private jitOp(v: number, target: number): void {
+		if (v) {
+			this.cursor = target;
+		} else {
+			this.cursor += 3;
+		}
+	}
+	private jifOp(v: number, target: number): void {
+		if (!v) {
+			this.cursor = target;
+		} else {
+			this.cursor += 3;
+		}
+	}
+
+	private ltOp(a: number, b: number, pos: number): void {
+		this.tape[pos] = a < b ? 1 : 0;
+		this.cursor += 4;
+	}
+
+	private eqOp(a: number, b: number, pos: number): void {
+		this.tape[pos] = a === b ? 1 : 0;
 		this.cursor += 4;
 	}
 
