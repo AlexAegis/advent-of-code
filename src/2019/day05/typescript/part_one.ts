@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
+import { IntCodeComputer } from '@lib/intcode';
 import { day, year } from '.';
-import { IntCodeComputer } from '../../../lib/typescript/intcode/intcode.class';
 import { parse } from './parse';
 
 export const runner = async (input: string) =>
