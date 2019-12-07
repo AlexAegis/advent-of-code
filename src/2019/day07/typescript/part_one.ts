@@ -6,7 +6,7 @@ import { parse } from './parse';
 
 export const PHASE = [0, 1, 2, 3, 4];
 
-export const runner = async (input: string) => {
+export const runner = (input: string) => {
 	const a = parse(input);
 	const p = perm(PHASE);
 
