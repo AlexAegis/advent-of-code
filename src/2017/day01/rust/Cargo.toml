@@ -13,7 +13,7 @@ path = "./src/lib.rs"
 aoclib = { path = "../../../lib/rust" }
 
 [dev-dependencies]
-criterion = "*"
+criterion = "0.3.0"
 
 [[bench]]
 name = "bench"
