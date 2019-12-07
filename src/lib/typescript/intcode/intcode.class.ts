@@ -13,6 +13,10 @@ export class IntCodeComputer implements Iterable<number> {
 		this.tape = mutable ? tape : [...tape];
 	}
 
+	public iter(): IterableIterator<number> {
+		return this[Symbol.iterator]();
+	}
+
 	public set input(input: number | number[]) {
 		if (typeof input === 'number') {
 			this.inputQueue = [input];
@@ -23,6 +27,18 @@ export class IntCodeComputer implements Iterable<number> {
 
 	public withInput(input: number | number[]): IntCodeComputer {
 		this.input = input;
+		return this;
+	}
+
+	public isHalt(): boolean {
+		return this.halt;
+	}
+
+	public pushInput(input: number): IntCodeComputer {
+		if (!this.inputQueue) {
+			this.inputQueue = [];
+		}
+		this.inputQueue.push(input);
 		return this;
 	}
 
@@ -132,7 +148,7 @@ export class IntCodeComputer implements Iterable<number> {
 
 	private inOp(pos: number): void {
 		if (this.inputQueue && this.inputQueue.length > 0) {
-			this.tape[pos] = this.inputQueue.pop() as number;
+			this.tape[pos] = this.inputQueue.shift() as number;
 		} else {
 			throw new Error('No input');
 		}
