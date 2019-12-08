@@ -17,7 +17,7 @@
 		"lin": "tslint --project",
 		"lint": "tslint --project .",
 		"lint:fix": "tslint --project . --fix",
-		"format": "prettier --write \"src/**/*\"",
+		"format": "prettier --write \"src/**/*.ts\"",
 		"prettier": "npm run format",
 		"test": "mocha --config ./.mocharc.json",
 		"test:parallel": "mocha-parallel-tests --config ./.mocharc.json",
