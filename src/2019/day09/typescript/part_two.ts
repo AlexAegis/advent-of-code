@@ -1,8 +1,14 @@
-export const runner = async (_input: string) => {
-	return 0;
-};
+import { bench, read } from '@lib';
+import { IntCodeComputer } from '@lib/intcode';
+import { day, year } from '.';
+import { parse } from './parse';
+
+export const runner = (input: string) =>
+	new IntCodeComputer(parse(input))
+		.withInput(2)
+		.execute()
+		.pop();
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await runner('')}`))();
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 84513 ~107ms
 }

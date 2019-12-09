@@ -43,16 +43,29 @@ export class IntCodeComputer implements Iterable<number> {
 		return this;
 	}
 
-	private getValue(pos: number, mode: Mode = Mode.POS): number {
+	private getValue(pos: number, mode: Mode = Mode.POS, isPos = false): number {
 		switch (mode) {
 			case Mode.POS:
-				return this.tape.get(this.tape.get(pos) || 0) || 0;
+				if (isPos) {
+					return this.tape.get(pos) || 0;
+				} else {
+					return this.tape.get(this.tape.get(pos) || 0) || 0;
+				}
 			case Mode.REL:
 				// return this.tape.get(this.relBase + (this.tape.get(pos) || 0)) || 0;
-				return this.tape.get(this.relBase + (this.tape.get(pos) || 0)) || 0;
+				if (isPos) {
+					return this.relBase + (this.tape.get(pos) || 0);
+				} else {
+					return this.tape.get(this.relBase + (this.tape.get(pos) || 0)) || 0;
+				}
+			// return this.relBase + (this.tape.get(pos) || 0);
 			case Mode.VAL:
 			default:
-				return this.tape.get(pos) || 0;
+				if (isPos) {
+					return pos;
+				} else {
+					return this.tape.get(pos) || 0;
+				}
 		}
 	}
 
@@ -87,9 +100,13 @@ export class IntCodeComputer implements Iterable<number> {
 		return this;
 	}
 
-	private getArg(v: number, n: number, mode?: Mode): number {
-		return this.getValue(this.cursor + n + 1, mode || numAt(v, numLength(v) - n - 3));
+	private getArg(v: number, n: number, mode?: Mode, forcePos = false): number {
+		return this.getValue(this.cursor + n + 1, mode || numAt(v, numLength(v) - n - 3), forcePos);
 	}
+
+	// private getMode(v: number, n: number): Mode | undefined {
+	// 	return numAt(v, numLength(v) - n - 3);
+	// }
 
 	public *[Symbol.iterator](): IterableIterator<number> {
 		do {
@@ -97,13 +114,13 @@ export class IntCodeComputer implements Iterable<number> {
 			const i = toInstruction(v);
 			switch (i) {
 				case Instruction.ADD:
-					this.addOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
+					this.addOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, undefined, true));
 					break;
 				case Instruction.MUL:
-					this.mulOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
+					this.mulOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, undefined, true));
 					break;
 				case Instruction.IN:
-					this.inOp(this.getArg(v, 0, Mode.VAL));
+					this.inOp(this.getArg(v, 0, undefined, true));
 					break;
 				case Instruction.OUT:
 					yield this.outOp(this.getArg(v, 0));
@@ -115,10 +132,10 @@ export class IntCodeComputer implements Iterable<number> {
 					this.jifOp(this.getArg(v, 0), this.getArg(v, 1));
 					break;
 				case Instruction.LT:
-					this.ltOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
+					this.ltOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, undefined, true));
 					break;
 				case Instruction.EQ:
-					this.eqOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
+					this.eqOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, undefined, true));
 					break;
 				case Instruction.REL:
 					this.relOp(this.getArg(v, 0));
