@@ -92,12 +92,12 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	private getArg(v: number, n: number, forcePos = false, mode?: Mode): number {
-		return this.getValue(this.cursor + n + 1, mode || numAt(v, numLength(v) - n - 3), forcePos);
+		return this.getValue(this.cursor + n + 1, mode === undefined ? this.getMode(v, n) : mode, forcePos);
 	}
 
-	// private getMode(v: number, n: number): Mode | undefined {
-	// 	return numAt(v, numLength(v) - n - 3);
-	// }
+	private getMode(v: number, n: number): Mode | undefined {
+		return numAt(v, numLength(v) - n - 3);
+	}
 
 	public *[Symbol.iterator](): IterableIterator<number> {
 		do {
