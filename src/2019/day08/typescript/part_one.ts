@@ -1,4 +1,5 @@
 import { bench, read } from '@lib';
+import { chunksOfArray } from '@lib/functions/chunks-of-array.function';
 import { day, year } from '.';
 import { parse } from './parse';
 
@@ -8,15 +9,9 @@ export const runner = async (input: string) => {
 
 	const lines = parse(input);
 
-	const chunkSize = h * w;
-	const layers: number[][] = [];
-	for (let i = 0; i < lines.length; i += chunkSize) {
-		layers.push(lines.slice(i, i + chunkSize));
-	}
-
-	const resultLine = layers
+	const resultLine = chunksOfArray(lines, h * w)
 		.map(layer => [layer, layer.filter(n => n === 0).length])
-		.reduce((a, n) => (n[1] < a[1] ? n : a), [[], Infinity] as [number[], number])[0] as number[];
+		.reduce((a, n) => (n[1] < a[1] ? n : a), [[] as number[], Infinity])[0] as number[];
 
 	return resultLine.filter(n => n === 1).length * resultLine.filter(n => n === 2).length;
 };
