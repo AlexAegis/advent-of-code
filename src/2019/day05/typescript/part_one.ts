@@ -4,7 +4,7 @@ import { day, year } from '.';
 import { parse } from './parse';
 
 export const runner = async (input: string) =>
-	new IntCodeComputer(parse(input), true)
+	new IntCodeComputer(parse(input))
 		.withInput(1)
 		.execute()
 		.pop();
