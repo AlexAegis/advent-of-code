@@ -16,7 +16,7 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 
 	it('should be that that the first example resolves to 1 when the input is 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
 				.withInput(8)
 				.execute()
 				.pop()
@@ -24,21 +24,21 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	});
 	it('should be that that the first example resolves to 0 when the input is less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
 				.withInput(1)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
 				.withInput(2)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
 				.withInput(7)
 				.execute()
 				.pop()
@@ -47,21 +47,21 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 
 	it('should be that that the second example resolves to 1 when the input is less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
 				.withInput(1)
 				.execute()
 				.pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
 				.withInput(4)
 				.execute()
 				.pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
 				.withInput(7)
 				.execute()
 				.pop()
@@ -69,21 +69,21 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	});
 	it('should be that that the second example resolves to 0 when the input is not less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
 				.withInput(8)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
 				.withInput(9)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'), true)
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
 				.withInput(100)
 				.execute()
 				.pop()
@@ -92,7 +92,7 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 
 	it('should be that that the third example resolves to 1 when the input is equal to 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'))
 				.withInput(8)
 				.execute()
 				.pop()
@@ -100,14 +100,14 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	});
 	it('should be that that the third example resolves to 0 when the input is not equal to 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'))
 				.withInput(1)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'))
 				.withInput(100)
 				.execute()
 				.pop()
@@ -115,14 +115,14 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	});
 	it('should be that that the fourth example resolves to 1 when the input is less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
 				.withInput(1)
 				.execute()
 				.pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
 				.withInput(7)
 				.execute()
 				.pop()
@@ -130,14 +130,14 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	});
 	it('should be that that the fourth example resolves to 0 when the input is not less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
 				.withInput(8)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'), true)
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
 				.withInput(10)
 				.execute()
 				.pop()
@@ -146,14 +146,14 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 
 	it('should be that that the fifth and sixth example resolves to 0 when the input is 0', async () => {
 		expect(
-			new IntCodeComputer(parse('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9'), true)
+			new IntCodeComputer(parse('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9'))
 				.withInput(0)
 				.execute()
 				.pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1105,-1,9,1101,0,0,12,4,12,99,1'), true)
+			new IntCodeComputer(parse('3,3,1105,-1,9,1101,0,0,12,4,12,99,1'))
 				.withInput(0)
 				.execute()
 				.pop()
@@ -162,28 +162,28 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 
 	it('should be that that the fifth and sixth example resolves to 1 when the input is not 0', async () => {
 		expect(
-			new IntCodeComputer(parse('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9'), true)
+			new IntCodeComputer(parse('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9'))
 				.withInput(20)
 				.execute()
 				.pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9'), true)
+			new IntCodeComputer(parse('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9'))
 				.withInput(4)
 				.execute()
 				.pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1105,-1,9,1101,0,0,12,4,12,99,1'), true)
+			new IntCodeComputer(parse('3,3,1105,-1,9,1101,0,0,12,4,12,99,1'))
 				.withInput(20)
 				.execute()
 				.pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1105,-1,9,1101,0,0,12,4,12,99,1'), true)
+			new IntCodeComputer(parse('3,3,1105,-1,9,1101,0,0,12,4,12,99,1'))
 				.withInput(4)
 				.execute()
 				.pop()
