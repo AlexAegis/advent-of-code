@@ -43,7 +43,7 @@ export class IntCodeComputer implements Iterable<number> {
 		return this;
 	}
 
-	private getValue(pos: number, mode: Mode = Mode.POS, forcePos = false): number {
+	private getValue(pos: number, mode: Mode = Mode.POS, asIndex = false): number {
 		let v: number;
 		switch (mode) {
 			case Mode.POS:
@@ -57,7 +57,7 @@ export class IntCodeComputer implements Iterable<number> {
 				v = pos;
 				break;
 		}
-		return forcePos ? v : this.tape.get(v) || 0;
+		return asIndex ? v : this.tape.get(v) || 0;
 	}
 
 	public reset(tape?: number[]): IntCodeComputer {
@@ -91,8 +91,8 @@ export class IntCodeComputer implements Iterable<number> {
 		return this;
 	}
 
-	private getArg(v: number, n: number, forcePos = false, mode?: Mode): number {
-		return this.getValue(this.cursor + n + 1, mode === undefined ? this.getMode(v, n) : mode, forcePos);
+	private getArg(v: number, n: number, asIndex = false, mode?: Mode): number {
+		return this.getValue(this.cursor + n + 1, mode === undefined ? this.getMode(v, n) : mode, asIndex);
 	}
 
 	private getMode(v: number, n: number): Mode | undefined {
