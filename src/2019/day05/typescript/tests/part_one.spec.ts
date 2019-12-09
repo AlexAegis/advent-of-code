@@ -11,7 +11,7 @@ describe(`${year} - Day ${day} - Part One`, () => {
 	});
 
 	it('should be that that both the first examples resolves to 0', async () => {
-		const computer = new IntCodeComputer(parse('1,0,0,0,99'), true);
+		const computer = new IntCodeComputer(parse('1,0,0,0,99'));
 		computer.execute();
 		expect(computer.peek(0)).to.equal(2);
 		// expect(await runner('')).to.equal(0);

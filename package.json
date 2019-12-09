@@ -14,7 +14,6 @@
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
 	"scripts": {
-		"lin": "tslint --project",
 		"lint": "tslint --project .",
 		"lint:fix": "tslint --project . --fix",
 		"format": "prettier --write \"src/**/*.ts\"",

@@ -4,13 +4,14 @@ import { Instruction, toInstruction } from './instruction.enum';
 import { Mode } from './mode.enum';
 
 export class IntCodeComputer implements Iterable<number> {
-	public tape: number[];
+	public tape: Map<number, number>;
 	public cursor = 0;
+	public relBase = 0;
 	private halt = false;
 	public inputQueue?: number[];
 
-	public constructor(tape: number[], mutable = false) {
-		this.tape = mutable ? tape : [...tape];
+	public constructor(tape: number[]) {
+		this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map());
 	}
 
 	public iter(): IterableIterator<number> {
@@ -45,27 +46,31 @@ export class IntCodeComputer implements Iterable<number> {
 	private getValue(pos: number, mode: Mode = Mode.POS): number {
 		switch (mode) {
 			case Mode.POS:
-				return this.tape[this.tape[pos]];
+				return this.tape.get(this.tape.get(pos) || 0) || 0;
+			case Mode.REL:
+				// return this.tape.get(this.relBase + (this.tape.get(pos) || 0)) || 0;
+				return this.tape.get(this.relBase + (this.tape.get(pos) || 0)) || 0;
 			case Mode.VAL:
 			default:
-				return this.tape[pos];
+				return this.tape.get(pos) || 0;
 		}
 	}
 
-	public reset(tape?: number[], mutable = false): IntCodeComputer {
+	public reset(tape?: number[]): IntCodeComputer {
 		if (tape) {
-			this.tape = mutable ? tape : [...tape];
+			this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map());
 		}
 		this.cursor = 0;
+		this.relBase = 0;
 		this.halt = false;
 		return this;
 	}
 
-	public peek(at: number): number {
-		return this.tape[at];
+	public peek(at: number): number | undefined {
+		return this.tape.get(at);
 	}
 	public set noun(noun: number) {
-		this.tape[1] = noun;
+		this.tape.set(1, noun);
 	}
 
 	public withNoun(noun: number): IntCodeComputer {
@@ -74,7 +79,7 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	public set verb(verb: number) {
-		this.tape[2] = verb;
+		this.tape.set(2, verb);
 	}
 
 	public withVerb(verb: number): IntCodeComputer {
@@ -88,7 +93,7 @@ export class IntCodeComputer implements Iterable<number> {
 
 	public *[Symbol.iterator](): IterableIterator<number> {
 		do {
-			const v = this.tape[this.cursor];
+			const v = this.tape.get(this.cursor) || 0;
 			const i = toInstruction(v);
 			switch (i) {
 				case Instruction.ADD:
@@ -115,6 +120,9 @@ export class IntCodeComputer implements Iterable<number> {
 				case Instruction.EQ:
 					this.eqOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, Mode.VAL));
 					break;
+				case Instruction.REL:
+					this.relOp(this.getArg(v, 0));
+					break;
 				case Instruction.HALT:
 				default:
 					this.haltOp();
@@ -137,18 +145,18 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	private addOp(a: number, b: number, pos: number): void {
-		this.tape[pos] = a + b;
+		this.tape.set(pos, a + b);
 		this.cursor += 4;
 	}
 
 	private mulOp(a: number, b: number, pos: number): void {
-		this.tape[pos] = a * b;
+		this.tape.set(pos, a * b);
 		this.cursor += 4;
 	}
 
 	private inOp(pos: number): void {
 		if (this.inputQueue && this.inputQueue.length > 0) {
-			this.tape[pos] = this.inputQueue.shift() as number;
+			this.tape.set(pos, this.inputQueue.shift() as number);
 		} else {
 			throw new Error('No input');
 		}
@@ -156,6 +164,9 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	private outOp(pos: number): number {
+		if (pos === undefined) {
+			throw new Error('Not valid output' + pos);
+		}
 		this.cursor += 2;
 		return pos;
 	}
@@ -176,13 +187,18 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	private ltOp(a: number, b: number, pos: number): void {
-		this.tape[pos] = a < b ? 1 : 0;
+		this.tape.set(pos, a < b ? 1 : 0);
 		this.cursor += 4;
 	}
 
 	private eqOp(a: number, b: number, pos: number): void {
-		this.tape[pos] = a === b ? 1 : 0;
+		this.tape.set(pos, a === b ? 1 : 0);
 		this.cursor += 4;
+	}
+
+	private relOp(pos: number): void {
+		this.relBase += pos;
+		this.cursor += 2;
 	}
 
 	private haltOp(): void {

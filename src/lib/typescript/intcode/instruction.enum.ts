@@ -7,11 +7,12 @@ export enum Instruction {
 	JIF = 6,
 	LT = 7,
 	EQ = 8,
+	REL = 9,
 	HALT = 99
 }
 
 export const isInstruction = (n: number): boolean => {
-	return (n >= 1 && n <= 8) || n === 99;
+	return (n >= 1 && n <= 9) || n === 99;
 };
 
 export const toInstruction = (code: number): Instruction => {
