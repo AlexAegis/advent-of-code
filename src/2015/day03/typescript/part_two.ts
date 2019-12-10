@@ -7,7 +7,7 @@ export const runner = async (input: string) =>
 	input.split(``).reduce(
 		(acc, next) => {
 			const c = acc.isRobot ? acc.roboCurrent : acc.current;
-			c.add(directionMarkerAssociations[next]);
+			c.addMut(directionMarkerAssociations[next]);
 			const cs = c.toString();
 			acc.locations.set(cs, (acc.locations.get(cs) || 0) + 1);
 			acc.isRobot = !acc.isRobot;

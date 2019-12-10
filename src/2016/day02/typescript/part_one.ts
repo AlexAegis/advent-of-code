@@ -10,7 +10,7 @@ export const runner = (input: string) =>
 			(acc, next) => {
 				if (next[0] === 'R') acc.direction = acc.direction.right();
 				if (next[0] === 'L') acc.direction = acc.direction.left();
-				acc.position.add(acc.direction, Number(next.substring(1)));
+				acc.position.addMut(acc.direction, Number(next.substring(1)));
 				return acc;
 			},
 			{ position: Coord.ORIGO, direction: Direction.NORTH }
