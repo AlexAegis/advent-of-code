@@ -6,7 +6,7 @@ import { day, year } from '.';
 export const runner = async (input: string) =>
 	input.split(``).reduce(
 		(acc, next) => {
-			acc.current.add(directionMarkerAssociations[next]);
+			acc.current.addMut(directionMarkerAssociations[next]);
 			const c = acc.current.toString();
 			acc.locations.set(c, (acc.locations.get(c) || 0) + 1);
 			return acc;

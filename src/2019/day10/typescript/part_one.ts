@@ -1,30 +1,32 @@
 import { bench, read } from '@lib';
 import { Coord } from '@lib/model';
 import { day, year } from '.';
-import { Field, FieldType, intoMap, parseLines } from './parse';
+import { parseLines } from './parse';
 
-export const mostLos = (flat: Field[]): Field => {
-	flat.forEach(f => {
-		f.lineOfSight = flat
-			.filter(fo => !fo.pos.equal(f.pos))
-			.map(o => [...f.pos.reach(o.pos)].filter(l => flat.find(fl => fl.pos.equal(l))).length)
-			.filter(n => n === 0).length;
-	});
-	return flat.reduce((a, n) => (n.lineOfSight > a.lineOfSight ? n : a), flat[0]);
+export interface CoordWithLosCount {
+	coord: Coord;
+	losCount: number;
+}
+
+export const mostLos = (flat: Coord[]): CoordWithLosCount | undefined => {
+	return flat
+		.map(f => ({
+			losCount: flat
+				.filter(fo => !fo.equals(f))
+				.map(o => [...f.reach(o)].filter(l => flat.find(fl => fl.equals(l))).length)
+				.filter(n => n === 0).length,
+			coord: f
+		}))
+		.reduce(
+			(a, n) => (a === undefined ? n : n.losCount > a.losCount ? n : a),
+			undefined as CoordWithLosCount | undefined
+		);
 };
+
 export const runner = async (input: string) => {
-	const p = parseLines(input);
-
-	const map = intoMap(p);
-	const flat = [...map.values()];
-
-	return mostLos(flat).lineOfSight;
+	return mostLos([...parseLines(input).values()])?.losCount;
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 230 ~0ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 8 ~0ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.2.txt'), runner)}`))(); // 33 ~0ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.3.txt'), runner)}`))(); // 35 ~0ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.4.txt'), runner)}`))(); // 41 ~0ms// (async () => console.log(`Result: ${await bench(read(year, day, 'example.5.txt'), runner)}`))(); // 210 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 230 ~120ms
 }
