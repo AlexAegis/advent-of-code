@@ -31,7 +31,7 @@ export const flattenVectors = (v: Vector[]): { c: Coord; steps: number }[] => {
 	return v.reduce(
 		(acc, n) => {
 			for (let d = 0; d < n.amount; d++) {
-				acc.curs.pos.add(n.direction);
+				acc.curs.pos.addMut(n.direction);
 				acc.curs.step += 1;
 				acc.res.push({ c: new Coord(acc.curs.pos), steps: acc.curs.step });
 			}
