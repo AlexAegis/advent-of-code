@@ -32,6 +32,16 @@ export class Coord {
 		return this;
 	}
 
+	public sub(o: Coord, times: number = 1): Coord {
+		return new Coord(this.x - o.x * times, this.y - o.y * times);
+	}
+
+	public subMut(o: Coord, times: number = 1): Coord {
+		this.x -= o.x * times;
+		this.y -= o.y * times;
+		return this;
+	}
+
 	public manhattan(coord: Coord): number;
 	public manhattan(x: number, y: number): number;
 	public manhattan(x: number | Coord, y?: number): number {
@@ -46,16 +56,6 @@ export class Coord {
 
 	public dist(o: Coord): number {
 		return Math.sqrt(Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2));
-	}
-
-	public sub(o: Coord): Coord {
-		return new Coord(this.x - o.x, this.y - o.y);
-	}
-
-	public subMut(o: Coord): Coord {
-		this.x -= o.x;
-		this.y -= o.y;
-		return this;
 	}
 
 	public stepVec(to: Coord): Coord {
@@ -73,16 +73,16 @@ export class Coord {
 
 	public *reach(o: Coord, yieldStart = false, yieldEnd = false): IterableIterator<Coord> {
 		const stepVec = this.stepVec(o);
-		const current = new Coord(this).addMut(stepVec);
+		const current = this.add(stepVec);
 		if (yieldStart) {
-			yield new Coord(this);
+			yield this.clone();
 		}
 		while (!current.equals(o)) {
-			yield new Coord(current);
+			yield current.clone();
 			current.addMut(stepVec);
 		}
 		if (yieldEnd) {
-			yield new Coord(current);
+			yield current.clone();
 		}
 	}
 
@@ -115,5 +115,9 @@ export class Coord {
 
 	public toString(): string {
 		return `${this.x},${this.y}`;
+	}
+
+	public clone(): Coord {
+		return new Coord(this);
 	}
 }
