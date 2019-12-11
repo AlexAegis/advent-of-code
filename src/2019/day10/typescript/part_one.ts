@@ -1,5 +1,6 @@
 import { bench, read } from '@lib';
 import { Coord } from '@lib/model';
+import { iterate } from 'iterare';
 import { day, year } from '.';
 import { parseLines } from './parse';
 
@@ -13,8 +14,8 @@ export const mostLos = (flat: Coord[]): CoordWithLosCount | undefined => {
 		.map(f => ({
 			losCount: flat
 				.filter(fo => !fo.equals(f))
-				.map(o => [...f.reach(o)].filter(l => flat.find(fl => fl.equals(l))).length)
-				.filter(n => n === 0).length,
+				.map(o => iterate(f.reach(o)).find(l => !!flat.find(fl => fl.equals(l))))
+				.filter(n => !n).length,
 			coord: f
 		}))
 		.reduce(
@@ -28,5 +29,5 @@ export const runner = async (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 230 ~120ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 230 ~61ms
 }

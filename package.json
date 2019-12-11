@@ -36,6 +36,7 @@
 	"private": true,
 	"dependencies": {
 		"is-ci": "^2.0.0",
+		"iterare": "^1.2.0",
 		"rxjs": "^6.5.3",
 		"workerpool": "^5.0.2"
 	},
