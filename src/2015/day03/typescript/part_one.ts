@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
-import { Coord } from '@lib/model/coord.class';
 import { directionMarkerAssociations } from '@lib/model/direction-marker-associations.const';
+import { Vec2 } from '@lib/model/vec2.class';
 import { day, year } from '.';
 
 export const runner = async (input: string) =>
@@ -11,7 +11,7 @@ export const runner = async (input: string) =>
 			acc.locations.set(c, (acc.locations.get(c) || 0) + 1);
 			return acc;
 		},
-		{ locations: new Map<string, number>([[new Coord(0, 0).toString(), 1]]), current: new Coord(0, 0) }
+		{ locations: new Map<string, number>([[new Vec2(0, 0).toString(), 1]]), current: new Vec2(0, 0) }
 	).locations.size;
 
 if (require.main === module) {

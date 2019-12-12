@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
-import { Coord } from '@lib/model/coord.class';
 import { Direction } from '@lib/model/direction.class';
+import { Vec2 } from '@lib/model/vec2.class';
 import { day, year } from '.';
 
 export const runner = (input: string) =>
@@ -13,9 +13,9 @@ export const runner = (input: string) =>
 				acc.position.addMut(acc.direction, Number(next.substring(1)));
 				return acc;
 			},
-			{ position: Coord.ORIGO, direction: Direction.NORTH }
+			{ position: Vec2.ORIGO, direction: Direction.NORTH }
 		)
-		.position.manhattan(Coord.ORIGO);
+		.position.manhattan(Vec2.ORIGO);
 
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 300 ~0.37ms

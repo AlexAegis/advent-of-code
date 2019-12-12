@@ -1,7 +1,5 @@
 import { bench, read } from '@lib';
 import { rotateArray } from '@lib/functions/rotate-array.function';
-import { listenerCount } from 'cluster';
-import iterate from 'iterare';
 import { day, year } from '.';
 import { parseLines } from './parse';
 import { mostLos } from './part_one';
