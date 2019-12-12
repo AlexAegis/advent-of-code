@@ -5,3 +5,5 @@ export * from './lcm.function';
 export * from './gcd.function';
 export * from './perm.function';
 export * from './rotate-array.function';
+export * from './clamp.function';
+export * from './pairs.function';

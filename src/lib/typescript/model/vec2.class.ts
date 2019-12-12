@@ -1,50 +1,60 @@
 import { gcd } from '@lib/functions';
+import { NUM } from '@lib/regex';
 
-export class Coord {
-	public static get ORIGO(): Coord {
-		return new Coord(0, 0);
+export interface Vec2Like {
+	x: number;
+	y: number;
+}
+
+export class Vec2 implements Vec2Like {
+	public static get ORIGO(): Vec2 {
+		return new Vec2(0, 0);
 	}
 
 	public x!: number;
 	public y!: number;
 
-	public constructor(coord: Coord | string);
+	/**
+	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
+	 */
+	public constructor(coord: Vec2Like | string);
 	public constructor(x: number, y: number);
-	public constructor(x: number | string | Coord, y?: number) {
-		if (typeof x === 'object' && x instanceof Coord) {
+	public constructor(x: number | string | Vec2Like, y?: number);
+	public constructor(x: number | string | Vec2Like, y?: number) {
+		if (typeof x === 'object' && x instanceof Vec2) {
 			this.x = x.x;
 			this.y = x.y;
 		} else if (typeof x === 'number' && typeof y === 'number') {
 			this.x = x;
 			this.y = y;
 		} else if (typeof x === 'string') {
-			[this.x, this.y] = x.split(',').map(s => Number(s));
+			[this.x, this.y] = (x.match(NUM) || []).map(s => parseInt(s, 10));
 		}
 	}
 
-	public add(coord: Coord, times: number = 1): Coord {
-		return new Coord(this.x + coord.x * times, this.y + coord.y * times);
+	public add(coord: Vec2Like, times: number = 1): Vec2 {
+		return new Vec2(this.x + coord.x * times, this.y + coord.y * times);
 	}
 
-	public addMut(coord: Coord, times: number = 1): Coord {
+	public addMut(coord: Vec2Like, times: number = 1): Vec2 {
 		this.x += coord.x * times;
 		this.y += coord.y * times;
 		return this;
 	}
 
-	public sub(o: Coord, times: number = 1): Coord {
-		return new Coord(this.x - o.x * times, this.y - o.y * times);
+	public sub(o: Vec2, times: number = 1): Vec2 {
+		return new Vec2(this.x - o.x * times, this.y - o.y * times);
 	}
 
-	public subMut(o: Coord, times: number = 1): Coord {
+	public subMut(o: Vec2, times: number = 1): Vec2 {
 		this.x -= o.x * times;
 		this.y -= o.y * times;
 		return this;
 	}
 
-	public manhattan(coord: Coord): number;
+	public manhattan(coord: Vec2Like): number;
 	public manhattan(x: number, y: number): number;
-	public manhattan(x: number | Coord, y?: number): number {
+	public manhattan(x: number | Vec2Like, y?: number): number {
 		if (typeof x === 'number' && typeof y === 'number') {
 			return Math.abs(x - this.x) + Math.abs(y - this.y);
 		} else if (typeof x === 'object') {
@@ -54,24 +64,24 @@ export class Coord {
 		}
 	}
 
-	public dist(o: Coord): number {
+	public dist(o: Vec2Like): number {
 		return Math.sqrt(Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2));
 	}
 
-	public stepVec(to: Coord): Coord {
+	public stepVec(to: Vec2Like): Vec2Like {
 		const dx = to.x - this.x;
 		const dy = to.y - this.y;
 		let g = gcd(dx, dy);
-		const step = new Coord(dx / g, dy / g);
+		const step = new Vec2(dx / g, dy / g);
 		while (g !== 1) {
 			g = gcd(step.x, step.y);
 			step.x /= g;
-			step.x /= g;
+			step.y /= g;
 		}
 		return step;
 	}
 
-	public *reach(o: Coord, yieldStart = false, yieldEnd = false): IterableIterator<Coord> {
+	public *reach(o: Vec2Like, yieldStart = false, yieldEnd = false): IterableIterator<Vec2> {
 		const stepVec = this.stepVec(o);
 		const current = this.add(stepVec);
 		if (yieldStart) {
@@ -86,7 +96,7 @@ export class Coord {
 		}
 	}
 
-	public los(f: Coord[]): Coord[] {
+	public los(f: Vec2[]): Vec2[] {
 		return f
 			.filter(fo => !fo.equals(this))
 			.map(
@@ -94,7 +104,7 @@ export class Coord {
 					[...this.reach(o, false, true)]
 						.filter(l => f.find(fi => fi.equals(l)))
 						.sort((a, b) => this.dist(a) - this.dist(b))
-						.shift() as Coord
+						.shift() as Vec2
 			)
 			.filter(a => !!a)
 			.reduce((acc, n) => {
@@ -102,14 +112,14 @@ export class Coord {
 					acc.push(n);
 				}
 				return acc;
-			}, [] as Coord[]);
+			}, [] as Vec2[]);
 	}
 
-	public equals(o: Coord): boolean {
+	public equals(o: Vec2Like): boolean {
 		return o && this.x === o.x && this.y === o.y;
 	}
 
-	public angle(o: Coord): number {
+	public angle(o: Vec2Like): number {
 		return (Math.atan2(o.y - this.y, o.x - this.x) * 180) / Math.PI;
 	}
 
@@ -117,7 +127,7 @@ export class Coord {
 		return `${this.x},${this.y}`;
 	}
 
-	public clone(): Coord {
-		return new Coord(this);
+	public clone(): Vec2 {
+		return new Vec2(this);
 	}
 }

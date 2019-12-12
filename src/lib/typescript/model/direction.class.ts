@@ -1,8 +1,8 @@
-import { Coord } from './coord.class';
 import { directionMarkerAssociations } from './direction-marker-associations.const';
 import { DirectionMarker } from './direction-marker.type';
+import { Vec2 } from './vec2.class';
 
-export class Direction extends Coord {
+export class Direction extends Vec2 {
 	// TODO: public scalar = 1;
 	public constructor(public marker: DirectionMarker) {
 		super(directionMarkerAssociations[marker]);

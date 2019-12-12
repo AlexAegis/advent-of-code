@@ -1,11 +1,11 @@
-import { Coord } from '@lib/model';
+import { Vec2 } from '@lib/model';
 
 export enum FieldType {
 	EMPTY = '.',
 	ASTEROID = '#'
 }
 
-export const parseLines = (input: string): Map<string, Coord> => {
+export const parseLines = (input: string): Map<string, Vec2> => {
 	const matrix = input
 		.split(/\r?\n/)
 		.filter(line => !!line)
@@ -20,7 +20,7 @@ export const parseLines = (input: string): Map<string, Coord> => {
 	for (let i = 0; i < matrix.length; i++) {
 		const row = matrix[i];
 		for (let j = 0; j < row.length; j++) {
-			const coord = new Coord(j, i);
+			const coord = new Vec2(j, i);
 			if (row[j] === FieldType.ASTEROID) {
 				map.set(coord.toString(), coord);
 			}

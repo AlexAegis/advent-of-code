@@ -1,5 +1,5 @@
 import { bench, read } from '@lib';
-import { Coord } from '@lib/model/coord.class';
+import { Vec2 } from '@lib/model/vec2.class';
 import { flattenVectors } from '@lib/model/vector.class';
 import { day, year } from '.';
 import { parse } from './parse';
@@ -8,17 +8,17 @@ export const runner = async (input: string) => {
 	const p = parse(input);
 	const a = flattenVectors(p[0]);
 	const b = flattenVectors(p[1]);
-	const possInts = new Map<string, { a: Coord; b: Coord | undefined }>();
+	const possInts = new Map<string, { a: Vec2; b: Vec2 | undefined }>();
 	a.forEach(ap => {
 		possInts.set(ap.c.toString(), { a: ap.c, b: undefined });
 	});
 
-	return Coord.ORIGO.manhattan(
+	return Vec2.ORIGO.manhattan(
 		b
 			.filter(bp => possInts.has(bp.c.toString()))
 			.map(v => v.c)
 			.reduce((min, n) =>
-				min === undefined || Coord.ORIGO.manhattan(n) <= Coord.ORIGO.manhattan(min as Coord) ? n : min
+				min === undefined || Vec2.ORIGO.manhattan(n) <= Vec2.ORIGO.manhattan(min as Vec2) ? n : min
 			)
 	);
 };

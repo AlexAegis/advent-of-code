@@ -1,10 +1,10 @@
 import { bench, read } from '@lib';
-import { Coord } from '@lib/model/coord.class';
 import { Direction } from '@lib/model/direction.class';
+import { Vec2 } from '@lib/model/vec2.class';
 import { day, year } from '.';
 
 export const runner = (input: string) => {
-	const acc = { position: Coord.ORIGO, direction: Direction.NORTH, history: new Set<string>() };
+	const acc = { position: Vec2.ORIGO, direction: Direction.NORTH, history: new Set<string>() };
 	loop: for (const next of input.split(', ')) {
 		if (next[0] === 'R') acc.direction = acc.direction.right();
 		if (next[0] === 'L') acc.direction = acc.direction.left();
@@ -15,7 +15,7 @@ export const runner = (input: string) => {
 			acc.history.add(coordString);
 		}
 	}
-	return acc.position.manhattan(Coord.ORIGO);
+	return acc.position.manhattan(Vec2.ORIGO);
 };
 
 if (require.main === module) {
