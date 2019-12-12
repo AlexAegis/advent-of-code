@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { IntCodeComputer } from '@lib/intcode';
-import { Coord, Direction } from '@lib/model';
+import { Direction, Vec2 } from '@lib/model';
 import { day, year } from '.';
 import { parse } from './parse';
 
@@ -41,7 +41,7 @@ export const runner = async (input: string) => {
 	const iter = intcode.iter();
 
 	const map = new Map<string, ColorCode>();
-	const pos = new Coord(0, 0);
+	const pos = new Vec2(0, 0);
 	let dir = Direction.NORTH;
 
 	let nextColor: IteratorResult<number, any>;

@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { IntCodeComputer } from '@lib/intcode';
-import { Coord, Direction } from '@lib/model';
+import { Direction, Vec2 } from '@lib/model';
 import { day, year } from '.';
 import { parse } from './parse';
 
@@ -73,7 +73,7 @@ export const drawMap = <T>(
 	for (let i = startY; i <= endY; i++) {
 		const row = [];
 		for (let j = startX; j <= endX; j++) {
-			row.push(renderTile(map.get(new Coord(j, i).toString())));
+			row.push(renderTile(map.get(new Vec2(j, i).toString())));
 		}
 		res.push(row);
 	}
@@ -103,7 +103,7 @@ export const runner = async (input: string) => {
 	const iter = intcode.iter();
 
 	const map = new Map<string, ColorCode>();
-	const pos = new Coord(0, 0);
+	const pos = new Vec2(0, 0);
 	let dir = Direction.NORTH;
 
 	let nextColor: IteratorResult<number, any>;

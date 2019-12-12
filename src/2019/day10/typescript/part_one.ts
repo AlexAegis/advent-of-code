@@ -1,15 +1,15 @@
 import { bench, read } from '@lib';
-import { Coord } from '@lib/model';
+import { Vec2 } from '@lib/model';
 import { iterate } from 'iterare';
 import { day, year } from '.';
 import { parseLines } from './parse';
 
 export interface CoordWithLosCount {
-	coord: Coord;
+	coord: Vec2;
 	losCount: number;
 }
 
-export const mostLos = (flat: Coord[]): CoordWithLosCount | undefined => {
+export const mostLos = (flat: Vec2[]): CoordWithLosCount | undefined => {
 	return flat
 		.map(f => ({
 			losCount: flat
