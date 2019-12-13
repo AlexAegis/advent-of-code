@@ -1,5 +1,5 @@
 import { bench, read } from '@lib';
-import { drawMapStatic, printMatrix, sleep } from '@lib/functions';
+import { clamp, drawMapStatic, printMatrix, sleep } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
 import { Vec2 } from '@lib/model';
 import { day, year } from '.';
@@ -49,7 +49,6 @@ export const runner = (render: boolean = false, speed = 10) => async (input: str
 	const m = new Map<string, number>();
 	const sd = new Vec2(-1, 0);
 	let s = 0;
-	let b: Vec2 | undefined;
 	let p: Vec2 | undefined;
 	let j: Joy = Joy.NEUT;
 	comp.pushInput(j);
@@ -60,15 +59,8 @@ export const runner = (render: boolean = false, speed = 10) => async (input: str
 			s = t;
 		} else {
 			if (t === TileType.BALL) {
-				b = c;
 				if (p) {
-					if (p.x > b.x) {
-						j = Joy.LEFT;
-					} else if (p.x < b.x) {
-						j = Joy.RIGHT;
-					} else {
-						j = Joy.NEUT;
-					}
+					j = clamp(c.x - p.x);
 					if (j) {
 						p.x += j;
 					}
@@ -91,5 +83,5 @@ export const runner = (render: boolean = false, speed = 10) => async (input: str
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // 12338 ~220ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner(false))}`))(); // 12338 ~220ms
 }
