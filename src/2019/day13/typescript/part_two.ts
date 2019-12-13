@@ -35,11 +35,14 @@ export const tileToString = (t: TileType | undefined): string => {
 	}
 };
 
+const W = 22;
+const H = 37;
+
 const draw = (m: Map<string, number>): void => {
-	console.log(printMatrix(drawMapStatic(m, tileToString, 0, 22, 0, 37)));
+	console.log(printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
-export const runner = (doDraw: boolean = false, speed = 10) => async (input: string) => {
+export const runner = (render: boolean = false, speed = 10) => async (input: string) => {
 	const comp = new IntCodeComputer(parse(input));
 	comp.tape.set(0, 2);
 	const i = comp.iter();
@@ -56,7 +59,6 @@ export const runner = (doDraw: boolean = false, speed = 10) => async (input: str
 		if (c.equals(sd)) {
 			s = t;
 		} else {
-			m.set(c.toString(), t);
 			if (t === TileType.BALL) {
 				b = c;
 				if (p) {
@@ -72,12 +74,16 @@ export const runner = (doDraw: boolean = false, speed = 10) => async (input: str
 					}
 					comp.pushInput(j);
 				}
-				if (doDraw) {
+			} else if (t === TileType.PAD) {
+				p = c;
+			}
+
+			if (render) {
+				m.set(c.toString(), t);
+				if (m.size > W * H) {
 					draw(m);
 					await sleep(speed);
 				}
-			} else if (t === TileType.PAD) {
-				p = c;
 			}
 		}
 	}
@@ -85,5 +91,5 @@ export const runner = (doDraw: boolean = false, speed = 10) => async (input: str
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // 12338 ~223ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // 12338 ~220ms
 }
