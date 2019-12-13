@@ -39,8 +39,8 @@ export const tileToString = (t: TileType | undefined): string => {
 const W = 22;
 const H = 37;
 
-const draw = (m: Map<string, number>): void => {
-	console.log(printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
+const draw = (m: Map<string, number>, score: number): void => {
+	console.log(score + '\n' + printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
 export const runner = (render: boolean = false, speed = 10) => async (input: string) => {
@@ -69,7 +69,7 @@ export const runner = (render: boolean = false, speed = 10) => async (input: str
 			if (render) {
 				m.set(c.toString(), t);
 				if (m.size > W * H) {
-					draw(m);
+					draw(m, s);
 					await sleep(speed);
 				}
 			}
@@ -79,5 +79,5 @@ export const runner = (render: boolean = false, speed = 10) => async (input: str
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner(false))}`))(); // 12338 ~220ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // 12338 ~220ms
 }
