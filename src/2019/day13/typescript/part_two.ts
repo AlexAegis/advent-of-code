@@ -1,3 +1,4 @@
+import { FieldType } from '@2019/day10/typescript/parse';
 import { bench, read } from '@lib';
 import { clamp, drawMapStatic, printMatrix, sleep } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
@@ -50,22 +51,17 @@ export const runner = (render: boolean = false, speed = 10) => async (input: str
 	const sd = new Vec2(-1, 0);
 	let s = 0;
 	let p: Vec2 | undefined;
-	let j: Joy = Joy.NEUT;
-	comp.pushInput(j);
+	comp.pushInput(Joy.NEUT);
 	while (!comp.isHalt()) {
 		const [x, y, t] = [i.next().value, i.next().value, i.next().value];
 		const c = new Vec2(x, y);
 		if (c.equals(sd)) {
 			s = t;
 		} else {
-			if (t === TileType.BALL) {
-				if (p) {
-					j = clamp(c.x - p.x);
-					if (j) {
-						p.x += j;
-					}
-					comp.pushInput(j);
-				}
+			if (t === TileType.BALL && p) {
+				const j: Joy = clamp(c.x - p.x);
+				p.x += j;
+				comp.pushInput(j);
 			} else if (t === TileType.PAD) {
 				p = c;
 			}
