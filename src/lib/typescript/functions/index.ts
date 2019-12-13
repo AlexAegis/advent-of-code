@@ -7,3 +7,5 @@ export * from './perm.function';
 export * from './rotate-array.function';
 export * from './clamp.function';
 export * from './pairs.function';
+export * from './control';
+export * from './output';

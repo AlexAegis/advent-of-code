@@ -43,6 +43,13 @@ export class IntCodeComputer implements Iterable<number> {
 		return this;
 	}
 
+	public pushInputIfEmpty(input: number): boolean {
+		if (!this.inputQueue || this.inputQueue.length === 0) {
+			this.pushInput(input);
+			return true;
+		} else return false;
+	}
+
 	private getValue(pos: number, mode: Mode = Mode.POS, asIndex = false): number {
 		let v: number;
 		switch (mode) {
