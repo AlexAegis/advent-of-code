@@ -1,7 +1,7 @@
 {
 	"tslint.alwaysShowRuleFailuresAsWarnings": true,
 	"editor.formatOnSave": true,
-	"editor.autoIndent": true,
+	"editor.autoIndent": "brackets",
 	"editor.quickSuggestions": true,
 	"editor.tabSize": 4,
 	"editor.codeActionsOnSave": {
