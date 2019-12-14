@@ -30,7 +30,9 @@ export const runner = async (input: string) => {
 	if (fuelReact) {
 		console.log(fuelReact.to);
 		// return rex.oreCost(surplus);
-		return fuelReact.oreCost(surplus);
+		const a = fuelReact.oreCost(surplus);
+		console.log(surplus);
+		return a;
 
 		// console.log('Ore: ', oreReacts[0].toString(), 'COST: ', oreReacts[0].oreCost());
 		// console.log('Ore: ', rex.toString(), 'COST: ', rex.oreCost(surplus));
@@ -42,6 +44,6 @@ export const runner = async (input: string) => {
 
 if (require.main === module) {
 	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 31 ~0ms
-	(async () => console.log(`Result: ${await bench(read(year, day, 'example.5.txt'), runner)}`))(); // 165 ~0ms
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.5.txt'), runner)}`))(); // 165 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
 }
