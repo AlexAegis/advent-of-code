@@ -39,87 +39,26 @@ export class Reaction {
 		return [...this.cost()].reduce((s, n) => s + n, 0);
 	}
 
-	public oreCost(surplus: Map<string, number>, level = 0): number {
+	public oreCost(surplus: Map<string, number>): number {
 		let s = this.from.get(MainResource.ORE) ?? 0;
-		console.log('\t'.repeat(level), 'COST OF', this.toq, this.to, '(DIRECT ORE COST ', s, ')');
 		for (const [pre, totalNeededQuantity] of this.preceeding) {
-			const availableQuantity = surplus.get(pre.to) ?? 0; // 7
+			const availableQuantity = surplus.get(pre.to) ?? 0;
 			const needToCreateQuantity = totalNeededQuantity - availableQuantity;
 			const repToSup = repeatToSurpass(pre.toq, needToCreateQuantity);
-
 			const gonnaCreate = repToSup * pre.toq;
-
 			const extra = gonnaCreate - needToCreateQuantity;
-			surplus.set(pre.to, extra);
-			console.log(
-				'\t'.repeat(level),
-				'Creating',
-				pre.to,
-				'have to crate total',
-				totalNeededQuantity,
-				'available',
-				availableQuantity,
-				'needToCreateQuantity',
-				needToCreateQuantity,
-				'repToSup',
-				repToSup,
-				'gonnaCreate',
-				gonnaCreate,
-				' extra will be created:',
-				extra,
-				'SURPO [',
-				[...surplus.entries()].map(([k, v]) => k + ': ' + v.toString()).join('; '),
-				']'
-			);
+			if (extra) {
+				surplus.set(pre.to, extra);
+			} else {
+				surplus.delete(pre.to);
+			}
 
 			for (
 				let remainingNeededQuantity = needToCreateQuantity;
 				remainingNeededQuantity > 0;
 				remainingNeededQuantity -= pre.toq
 			) {
-				console.log(
-					'\t'.repeat(level),
-					'Creating',
-					pre.to,
-					'by batches of',
-					pre.toq,
-					'have to crate',
-					remainingNeededQuantity
-				);
-				// PAL 2, 5
-
-				// const diffInQuantity = remainingNeededQuantity - availableQuantity; // -2
-				// const neededQuantity = Math.max(diffInQuantity, 0); // 0
-				// const usingFromSurplusQuantity = Math.abs(Math.min(diffInQuantity, 0)); // 2
-				//
-				// const haveToRepeat = repeatToSurpass(pre.toq, neededQuantity); // 0
-				// const toBeCreated = haveToRepeat * pre.toq; // 0
-				// const extra = toBeCreated - neededQuantity; // 0
-				const oreCost = pre.oreCost(surplus, level + 1) /** haveToRepeat*/;
-				s += oreCost;
-				// 	surplus.set(pre.to, usingFromSurplusQuantity + extra);
-
-				// console.log(
-				// 	'\t'.repeat(level),
-				// 	'Already have',
-				// 	availableQuantity,
-				// 	'need to make: ',
-				// 	neededQuantity,
-				// 	'using from already available:',
-				// 	usingFromSurplusQuantity,
-				// 	'for this I have to make',
-				// 	haveToRepeat,
-				// 	'more batches.',
-				// 	'Im gonna create',
-				// 	toBeCreated,
-				// 	'more.',
-				// 	'that means an extra of',
-				// 	extra,
-				// 	'. and this is going to cost',
-				// 	oreCost,
-				// 	'SURP',
-				// 	[...surplus.entries()].map(([k, v]) => k + ':' + v.toString()).join('; ')
-				// );
+				s += pre.oreCost(surplus);
 			}
 		}
 
