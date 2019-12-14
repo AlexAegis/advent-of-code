@@ -1,6 +1,7 @@
 import { bench, read, sum } from '@lib';
 import { day, year } from '.';
 import { parse } from './parse';
+import { calcOreForSurplus } from './part_one';
 import { Reaction } from './reaction.class';
 
 export enum MainResource {
@@ -29,6 +30,9 @@ export const runner = async (input: string) => {
 	let cargo = 1000000000000;
 
 	const surplus = new Map<string, number>();
+	// surplus.set('ORE', cargo);
+	// const asd = calcOreForSurplus(surplus, reactions);
+	// console.log('', asd);
 
 	if (fuelReact) {
 		console.log(fuelReact.to);
@@ -37,13 +41,14 @@ export const runner = async (input: string) => {
 		let i = 0;
 		let s = 0;
 		let lf = 0;
+
 		while (i === 0 || surplus.size !== 0) {
 			lf = fuelReact.oreCost(surplus);
 			s += lf;
 			i++;
 
 			if (i % 1000 === 0) {
-				console.log(i, surplus.size);
+				console.log(i, surplus.size, lf);
 			}
 		}
 		// i--;
@@ -78,6 +83,6 @@ if (require.main === module) {
 	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.0.txt'), runner)}`))(); // 31 ~0ms
 	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.3.txt'), runner)}`))(); // 31 ~0ms
 	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.4.txt'), runner)}`))(); // 31 ~0ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.5.txt'), runner)}`))(); // 165 ~0ms
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day, 'example.5.txt'), runner)}`))(); // 165 ~0ms
+	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
 }
