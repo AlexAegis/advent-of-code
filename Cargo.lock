@@ -186,6 +186,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "aoc201913"
+version = "1.0.0"
+dependencies = [
+ "aoclib 1.0.0",
+ "criterion 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "aoc201914"
+version = "1.0.0"
+dependencies = [
+ "aoclib 1.0.0",
+ "criterion 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "aoc_query"
 version = "1.0.0"
 dependencies = [
