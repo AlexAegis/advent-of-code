@@ -10,6 +10,18 @@ export enum MainResource {
 
 export type Resource = MainResource | string;
 
+export const calcOreForSurplus = (surplus: Map<string, number>, reactions: Reaction[]): number => {
+	return [...surplus.entries()].reduce((a, [k, v]) => {
+		const m = new Map<string, number>();
+		const ocm = reactions.find(r => r.to === k)?.oreCost(m) ?? 0;
+		let ex = 0;
+		if (m.size) {
+			ex = calcOreForSurplus(m, reactions);
+		}
+		return ocm * v + a + ex;
+	}, 0);
+};
+
 export const runner = async (input: string) => {
 	const reactions = parse(input);
 	const fuelReact = reactions.find(r => r.to === MainResource.FUEL);
@@ -31,7 +43,8 @@ export const runner = async (input: string) => {
 		console.log(fuelReact.to);
 		// return rex.oreCost(surplus);
 		const a = fuelReact.oreCost(surplus);
-		console.log(surplus);
+		const asd = calcOreForSurplus(surplus, reactions);
+		console.log(surplus, asd);
 		return a;
 
 		// console.log('Ore: ', oreReacts[0].toString(), 'COST: ', oreReacts[0].oreCost());

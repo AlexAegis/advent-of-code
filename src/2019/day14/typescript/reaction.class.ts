@@ -23,22 +23,6 @@ export class Reaction {
 		return `${[...this.from.entries()].map(([n, q]) => q + ' ' + n).join(', ')} => ${this.toq} ${this.to}`;
 	}
 
-	public *cost(): IterableIterator<number> {
-		for (const [pre, q] of this.preceeding) {
-			for (const _ of Array(q)) {
-				yield* pre.cost();
-			}
-
-			// if (pre.from.has('ORE')) {
-			// yield pre.oreCost();
-			// }
-		}
-	}
-
-	public indirectCost() {
-		return [...this.cost()].reduce((s, n) => s + n, 0);
-	}
-
 	public oreCost(surplus: Map<string, number>): number {
 		let s = this.from.get(MainResource.ORE) ?? 0;
 		for (const [pre, totalNeededQuantity] of this.preceeding) {
