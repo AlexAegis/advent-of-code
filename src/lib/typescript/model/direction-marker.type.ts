@@ -1,1 +1,1 @@
-export type DirectionMarker = ('^' | '>' | 'v' | '<') & string;
+export type DirectionMarker = ('^' | '>' | 'v' | '<' | '') & string;
