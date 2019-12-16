@@ -9,16 +9,39 @@ import { parse } from './parse';
 export const runner = (print = false) => (input: string) => {
 	const i = new IntCodeComputer(parse(input));
 	const it = i.iter();
-	const p = Vec2.ORIGO.clone();
+
+	const startVec = new Vec2(1, 1);
+	const p = startVec.clone();
 	const map = new Map<string, Tile>();
-	map.set(Vec2.ORIGO.toString(), Tile.DROID);
+	map.set(startVec.toString(), Tile.DROID);
 	const g = new GridGraph();
 
-	const res = g.search(
-		[new GridGraphNode(Vec2.ORIGO.clone(), Tile.EMPTY)],
+	const start = new GridGraphNode(startVec.clone(), Tile.EMPTY);
+
+	const maze = 
+	         [['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']];
+	maze.push(['#', '.', '#', '#', '.', '.', '.', '.', '.', '#', '.', '.', '.', '#', '.', '#']);
+	maze.push(['#', '.', '.', '#', '.', '#', '#', '#', '.', '.', '.', '#', '.', '#', '.', '#']);
+	maze.push(['#', '#', '.', '#', '.', '.', '.', '#', '#', '.', '#', '.', '.', '#', '.', '#']);
+	maze.push(['#', '.', '.', '.', '.', '#', '.', '#', '.', '.', '#', '.', '#', '.', '.', '#']);
+	maze.push(['#', '.', '#', '.', '#', '.', '.', '#', '#', '#', '#', '#', '.', '#', '.', '#']);
+	maze.push(['#', '.', '#', '#', '#', '.', '#', '#', '.', '.', '.', '.', '.', '.', '.', '#']);
+	maze.push(['#', '.', '.', '.', '#', '#', '#', '.', '.', '#', '.', '#', '.', '#', '#', '#']);
+	maze.push(['#', '.', '#', '.', '#', '.', '.', '.', '#', '#', '.', '#', '.', '#', '.', '#']);
+	maze.push(['#', '.', '#', '.', '#', '.', '#', '#', '.', '.', '#', '.', '.', '.', '.', '#']);
+	maze.push(['#', '.', '#', '.', '#', '.', '.', '.', '#', '.', '#', '#', '.', '#', '#', '#']);
+	maze.push(['#', '.', '#', '#', '#', '#', '#', '.', '.', '.', '#', '.', '.', '.', '.', '#']);
+	maze.push(['#', '.', '.', '.', '.', '.', '#', '#', '#', '.', '#', '.', '#', '#', '.', '#']);
+	maze.push(['#', '#', '#', '.', '#', '.', '#', '.', '#', '.', '#', '.', '#', '.', '.', '#']);
+	maze.push(['#', '.', '.', '.', '#', '.', '.', '.', '.', '.', '#', '.', '.', '#', '.', 'O']);
+	maze.push(['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']);
+
+	const res = g.recSearch(
+		[start],
 		(dir: Direction) => {
-			i.pushInput(getMove(dir));
-			const s: Status = it.next().value;
+			const nextP = p.add(dir);
+			const nextTile = maze[nextP.x][nextP.y];
+			const s: Status = nextTile === Tile.WALL ? Status.WALL : nextTile === Tile.OXY ? Status.FINISHED : Status.MOVED;
 			if (s === Status.FINISHED) {
 				console.log('!!!!!!!!!!!!!!!!! FINISHED');
 			}
@@ -38,9 +61,32 @@ export const runner = (print = false) => (input: string) => {
 		t => t === Tile.OXY
 	);
 
-	return res?.pos.toString();
+	return JSON.stringify(res);
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // 0 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // '.' ~'.'ms
 }
+
+/**
+(dir: Direction) => {
+			i.pushInput(getMove(dir));
+			const s: Status = it.next().value;
+			if (s === Status.FINISHED) {
+				console.log('!!!!!!!!!!!!!!!!! FINISHED');
+			}
+			if (print) {
+				if (s === Status.WALL) {
+					map.set(p.add(dir).toString(), Tile.WALL);
+				} else {
+					map.set(p.toString(), Tile.EMPTY);
+					p.addMut(dir);
+					map.set(p.toString(), s === Status.MOVED ? Tile.DROID : Tile.OXY);
+				}
+				draw(map);
+			}
+
+			return s;
+		},
+
+ */

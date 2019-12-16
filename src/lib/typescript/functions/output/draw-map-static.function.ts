@@ -6,13 +6,14 @@ export const drawMapStatic = <T>(
 	startY: number,
 	endY: number,
 	startX: number,
-	endX: number
+	endX: number,
+	flip = false
 ): string[][] => {
 	const res: string[][] = [];
 	for (let i = startY; i <= endY; i++) {
 		const row = [];
 		for (let j = startX; j <= endX; j++) {
-			row.push(renderTile(map.get(new Vec2(j, i).toString())));
+			row.push(renderTile(map.get(new Vec2(flip ? i : j, flip ? j : i).toString())));
 		}
 		res.push(row);
 	}

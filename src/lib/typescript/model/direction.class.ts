@@ -28,7 +28,7 @@ export class Direction extends Vec2 {
 		else if (this.equals(Direction.EAST)) return Direction.SOUTH;
 		else if (this.equals(Direction.SOUTH)) return Direction.WEST;
 		else if (this.equals(Direction.WEST)) return Direction.NORTH;
-		else return Direction.NORTH;
+		else return Direction.NONE;
 	}
 
 	public left(): Direction {
@@ -36,7 +36,15 @@ export class Direction extends Vec2 {
 		else if (this.equals(Direction.WEST)) return Direction.SOUTH;
 		else if (this.equals(Direction.SOUTH)) return Direction.EAST;
 		else if (this.equals(Direction.EAST)) return Direction.NORTH;
-		else return Direction.NORTH;
+		else return Direction.NONE;
+	}
+
+	public reverse(axis?: 'h' | 'v'): Direction {
+		if ((!axis || axis === 'v') && this.equals(Direction.NORTH)) return Direction.SOUTH;
+		else if ((!axis || axis === 'h') && this.equals(Direction.WEST)) return Direction.EAST;
+		else if ((!axis || axis === 'v') && this.equals(Direction.SOUTH)) return Direction.NORTH;
+		else if ((!axis || axis === 'h') && this.equals(Direction.EAST)) return Direction.WEST;
+		else return this;
 	}
 
 	public equals(that: Direction): boolean {
