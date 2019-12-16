@@ -62,9 +62,36 @@ export const statusToTile = (s: Status): Tile => {
 	}
 };
 
-const W = 10;
-const H = 10;
+const W = 20;
+const H = 20;
 
 export const draw = (m: Map<string, string>): void => {
-	console.log(printMatrix(drawMapStatic(m, t => t ?? '_', -W, W, -H, H)));
+	console.log(
+		printMatrix(
+			drawMapStatic(
+				m,
+				t => {
+					switch (t) {
+						case Tile.EMPTY:
+							return '  ';
+						case Tile.OXY:
+							return 'X!';
+						case Tile.DROID:
+							return 'O/';
+						case Tile.WALL:
+							return '██';
+						default:
+							return '░░';
+					}
+				},
+				-1,
+				W,
+				-1,
+				H,
+				true
+			),
+			true,
+			false
+		)
+	);
 };
