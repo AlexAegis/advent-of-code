@@ -9,3 +9,5 @@ export * from './clamp.function';
 export * from './pairs.function';
 export * from './control';
 export * from './output';
+export * from './frequency-map.function';
+export * from './chunks-of-array.function';
