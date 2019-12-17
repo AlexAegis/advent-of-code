@@ -1,12 +1,11 @@
+import { frequencyMap } from '@lib/functions';
 import { HuffmannNode } from './huffman-node.class';
 
 export class Huffmann {
-	private frequencies = new Map<string, number>();
+	private frequencies: Map<string, number>;
 	private forest: HuffmannNode[] = [];
 	public constructor(public input: string[]) {
-		for (const fragment of input) {
-			this.frequencies.set(fragment, (this.frequencies.get(fragment) ?? 0) + 1);
-		}
+		this.frequencies = frequencyMap(input);
 		for (const [code, frequency] of this.frequencies) {
 			this.forest.push(new HuffmannNode(frequency, code));
 		}
