@@ -17,9 +17,9 @@ export enum Turn {
 
 const DELIMITER = '\n';
 
-export const getFullPath = (input: string): string => {
+export const getFullPath = (input: string): string[] => {
 	const [map, vacuum] = makeMap(input);
-	const path: (Turn | number)[] = [];
+	const path: (Turn | string)[] = [];
 	let steps = 0;
 	while (true) {
 		const checkThere = vacuum.pos.add(vacuum.dir);
@@ -35,30 +35,30 @@ export const getFullPath = (input: string): string => {
 			if (hasRight && !hasLeft) {
 				vacuum.dir = vacuum.dir.right();
 				if (steps) {
-					path.push(steps);
+					path.push(steps.toString());
 				}
 				path.push(Turn.RIGHT);
 				steps = 0;
 			} else if (!hasRight && hasLeft) {
 				vacuum.dir = vacuum.dir.left();
 				if (steps) {
-					path.push(steps);
+					path.push(steps.toString());
 				}
 				path.push(Turn.LEFT);
 				steps = 0;
 			} else {
 				vacuum.pos.addMut(vacuum.dir); // s
 				if (steps) {
-					path.push(steps);
+					path.push(steps.toString());
 				}
 				break;
 			}
 		}
 
-		draw(map, vacuum);
+		// draw(map, vacuum);
 	}
 
-	return path.join(',');
+	return path;
 };
 
 export const runner = (input: string): number => {
@@ -67,6 +67,9 @@ export const runner = (input: string): number => {
 	const it = i.iter();
 
 	const fullPath = getFullPath(input);
+
+	// const h = new Huffmann(fullPath);
+
 	console.log('PATH', fullPath);
 	return 0;
 };
