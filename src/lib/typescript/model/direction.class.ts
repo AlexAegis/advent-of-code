@@ -13,7 +13,7 @@ export class Direction extends Vec2 {
 	public static WEST = new Direction('<');
 	public static NONE = new Direction('');
 
-	public static directions: string[] = ['^', 'v', '>', '<'];
+	public static directions: Direction[] = [Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST];
 
 	public static isHorizonal(marker: DirectionMarker): boolean {
 		return marker === '>' || marker === '<';
