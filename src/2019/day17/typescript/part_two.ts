@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { IntCodeComputer } from '@lib/intcode';
-import { LZW } from '@lib/math/lz/lz.class';
+import { LZW } from '@lib/math/lz/lzw.class';
 import { day, year } from '.';
 import { parse } from './parse';
 import { draw, makeMap, Tile } from './part_one';
@@ -75,7 +75,10 @@ export const runner = (input: string): number => {
 	// BABABABABAABAAA  [204, 141, 98]
 	// R,8,R,8,R,4,R,4,R,8,L,6,L,2,R,4,R,4
 	//
-	console.log(asd.compress());
+	const cr = asd.multiPass();
+	console.log(cr);
+	const reversed = asd.reverse(cr[0]);
+	console.log('REVER', reversed);
 	console.log('PATH', fullPath);
 	return 0;
 };
