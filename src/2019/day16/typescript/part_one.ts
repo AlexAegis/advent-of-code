@@ -6,7 +6,7 @@ export const patternGet = (pattern: number[], forNum: number, phase: number) => 
 	return pattern[Math.floor(forNum / (phase + 1) + 1 / (phase + 1)) % pattern.length];
 };
 
-export const ftt = (a: number[], messageOffset: number = 0, multiplier = 1): string => {
+export const ftt = (a: number[], messageOffset: number = 0, multiplier = 1): string | undefined => {
 	const pattern = [0, 1, 0, -1];
 
 	const target = 100;
@@ -20,8 +20,6 @@ export const ftt = (a: number[], messageOffset: number = 0, multiplier = 1): str
 			p[r] = Math.abs(s % 10);
 		}
 		a = p;
-
-		console.log(p);
 	}
 
 	const from = (0 + messageOffset) % a.length;
@@ -30,8 +28,7 @@ export const ftt = (a: number[], messageOffset: number = 0, multiplier = 1): str
 		to += a.length;
 	}
 	const q = a.join('').match(/.{1,8}/g);
-	return q?.join(' ') ?? '';
-	return [...a, ...a].slice(from, to).join('');
+	return q?.[0];
 };
 
 export const runner = (input: string) => {
@@ -41,8 +38,5 @@ export const runner = (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await runner('12345678')}`))();
-	// (async () => console.log(`Result: ${await runner('80871224585914546619083218645595')}`))();
-	// (async () => console.log(`Result: ${await runner('03036732577212944063491565474664')}`))();
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 30369587 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 30369587 ~1081ms
 }

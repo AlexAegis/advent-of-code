@@ -35,11 +35,11 @@ export class IntCodeComputer implements Iterable<number> {
 		return this.halt;
 	}
 
-	public pushInput(input: number): IntCodeComputer {
+	public pushInput(...input: number[]): IntCodeComputer {
 		if (!this.inputQueue) {
 			this.inputQueue = [];
 		}
-		this.inputQueue.push(input);
+		this.inputQueue.push(...input);
 		return this;
 	}
 

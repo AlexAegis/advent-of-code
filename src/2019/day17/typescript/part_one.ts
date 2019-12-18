@@ -2,22 +2,17 @@ import { bench, read, sum } from '@lib';
 import { drawMapStatic, printMatrix } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
 import { Direction, DirectionMarker, Vec2 } from '@lib/model';
-import { resolve } from 'dns';
+import { GridGraph } from '@lib/model/graph';
 import { day, year } from '.';
 import { parse } from './parse';
 
 export enum Tile {
 	SCAFFOLD = '#',
-	OPEN = '.',
-	INTERSECTION = 'O'
+	OPEN = '.'
 }
 
 export class Vacuum {
 	public constructor(public pos: Vec2, public dir: Direction) {}
-
-	public toString(): string {
-		return `${(this.pos.toString(), this.dir.reverse('v').marker)}`;
-	}
 }
 
 const W = 50;
@@ -30,8 +25,6 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 			switch (t) {
 				case Tile.SCAFFOLD:
 					return '##';
-				case Tile.INTERSECTION:
-					return 'OO';
 				case Tile.OPEN:
 				default:
 					return '  ';
@@ -44,19 +37,11 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 		false,
 		true
 	);
-	console.log('hmm', mat);
 	mat[vacuum.pos.y + 1][vacuum.pos.x + 1] = vacuum.dir.reverse('v').marker + '!';
 	console.log(printMatrix(mat, true, false));
 };
 
-const getIntersections = (map: Map<string, string>): Vec2[] => {
-	return [...map.entries()]
-		.filter(([_k, v]) => v === Tile.SCAFFOLD)
-		.map(([k]) => new Vec2(k))
-		.filter(s => Direction.directions.every(d => map.get(s.add(d).toString()) === Tile.SCAFFOLD));
-};
-
-export const makeMap = (input: string): [Map<string, Tile>, Vacuum] => {
+export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 	const i = new IntCodeComputer(parse(input));
 	const it = i.iter();
 	const map = new Map<string, Tile>();
@@ -73,12 +58,12 @@ export const makeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 			case Tile.SCAFFOLD:
 				map.set(cursor.toString(), Tile.SCAFFOLD);
 				break;
-			case '^':
-			case '>':
-			case 'v':
-			case '<':
+			case DirectionMarker.NORTH:
+			case DirectionMarker.EAST:
+			case DirectionMarker.SOUTH:
+			case DirectionMarker.WEST:
 				map.set(cursor.toString(), Tile.SCAFFOLD);
-				vacuum = new Vacuum(cursor.clone(), new Direction(resc as DirectionMarker));
+				vacuum = new Vacuum(cursor.clone(), Direction.from(resc as DirectionMarker).reverse());
 				break;
 			case '\n':
 				cursor.x = -1;
@@ -89,14 +74,13 @@ export const makeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 	}
 	return [map, vacuum];
 };
-export const runner = async (input: string) => {
-	const [map, vacuum] = makeMap(input);
-	const intersections = getIntersections(map);
-	intersections.forEach(intersection => map.set(intersection.toString(), Tile.INTERSECTION));
-	// draw(map, vacuum);
-	return intersections.map(intersection => intersection.x * intersection.y).reduce(sum, 0);
-};
+
+export const runner = (input: string) =>
+	GridGraph.fromMap(computeMap(input)[0])
+		.getIntersections(n => n?.value === Tile.SCAFFOLD)
+		.map(i => i.p.x * i.p.y)
+		.reduce(sum, 0);
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 4864 ~35ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 4864 ~42ms
 }
