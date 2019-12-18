@@ -1,10 +1,8 @@
 import { bench, read } from '@lib';
 import { drawMapStatic, printMatrix } from '@lib/functions';
 import { Vec2 } from '@lib/model';
-import { ToString } from '@lib/model/to-string.interface';
+import { GridGraph, GridNode } from '@lib/model/graph';
 import { day, year } from '.';
-import { GridGraph } from './model/graph.class';
-import { GridNode } from './model/node.class';
 import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse';
 
 export const h = (inventory: Set<string>) => (n: GridNode<string>): number => {

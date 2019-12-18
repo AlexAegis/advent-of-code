@@ -1,7 +1,5 @@
-import { Vec2 } from '@lib/model';
 import { ToString } from '@lib/model/to-string.interface';
-
-export type Vertice<T> = [Node<T> | undefined, number];
+import { Vertice } from './vertice.type';
 
 export class Node<T = string> implements ToString {
 	public neighbours: Vertice<T>[] = [];
@@ -42,39 +40,5 @@ export class Node<T = string> implements ToString {
 		} else {
 			return ' ';
 		}
-	}
-}
-
-export enum ClockwiseDirection {
-	NORTH = 0,
-	EAST = 1,
-	SOUTH = 2,
-	WEST = 3
-}
-
-// tslint:disable-next-line: max-classes-per-file
-export class GridNode<T = string> extends Node<T> {
-	public constructor(public position: Vec2, ...values: T[]) {
-		super(...values);
-		this.neighbours.push([undefined, Infinity]);
-		this.neighbours.push([undefined, Infinity]);
-		this.neighbours.push([undefined, Infinity]);
-		this.neighbours.push([undefined, Infinity]);
-	}
-
-	public get north(): Vertice<T> {
-		return this.neighbours[ClockwiseDirection.NORTH];
-	}
-
-	public get east(): Vertice<T> {
-		return this.neighbours[ClockwiseDirection.EAST];
-	}
-
-	public get south(): Vertice<T> {
-		return this.neighbours[ClockwiseDirection.SOUTH];
-	}
-
-	public get west(): Vertice<T> {
-		return this.neighbours[ClockwiseDirection.WEST];
 	}
 }

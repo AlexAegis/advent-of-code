@@ -1,15 +1,7 @@
 import { Direction, Vec2 } from '@lib/model';
-import { GridNode, Node } from './node.class';
+import { Graph } from './graph.class';
+import { GridNode } from './grid-node.class';
 
-export class Graph<T = string> {
-	public nodes: Node<T>[] = [];
-
-	public constructor() {}
-
-	public aStar(start: Node<T>, goal: Node<T>, h: (n: Node<T>) => number) {}
-}
-
-// tslint:disable-next-line: max-classes-per-file
 export class GridGraph<T = string> extends Graph<T> {
 	public nodes: GridNode<T>[] = [];
 	public nodeMap = new Map<string, GridNode<T>>();
