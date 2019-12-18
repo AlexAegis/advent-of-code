@@ -11,6 +11,7 @@ export class Direction extends Vec2 {
 	public static SOUTH = new Direction('v');
 	public static EAST = new Direction('>');
 	public static WEST = new Direction('<');
+
 	public static NONE = new Direction('');
 
 	public static directions: Direction[] = [Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST];
