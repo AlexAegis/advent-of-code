@@ -29,6 +29,7 @@ members = [
 	"src/2019/day16/rust",
 	"src/2019/day17/rust",
 	"src/2019/day18/rust",
+	"src/2019/day19/rust",
 ]
 
 [profile.bench]
