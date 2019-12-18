@@ -1,5 +1,4 @@
-import { Direction, directionMarkerAssociations, directionMarkerInvert, Vec2 } from '@lib/model';
-import { Dir } from 'fs';
+import { Direction, Vec2 } from '@lib/model';
 import { Move, Status, statusToTile, Tile } from './meta';
 
 export type PathSegment = [Move, Direction, GridGraphNode | undefined];
