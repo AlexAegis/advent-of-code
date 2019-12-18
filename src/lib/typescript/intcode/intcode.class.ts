@@ -1,5 +1,4 @@
-import { numLength } from '@lib/functions';
-import { numAt } from '@lib/functions/num-at.function';
+import { numAt, numLength } from '@lib/functions';
 import { Instruction, toInstruction } from './instruction.enum';
 import { Mode } from './mode.enum';
 
@@ -80,6 +79,7 @@ export class IntCodeComputer implements Iterable<number> {
 	public peek(at: number): number | undefined {
 		return this.tape.get(at);
 	}
+
 	public set noun(noun: number) {
 		this.tape.set(1, noun);
 	}
@@ -193,6 +193,7 @@ export class IntCodeComputer implements Iterable<number> {
 			this.cursor += 3;
 		}
 	}
+
 	private jifOp(v: number, target: number): void {
 		if (!v) {
 			this.cursor = target;
