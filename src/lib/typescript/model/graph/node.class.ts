@@ -2,7 +2,7 @@ import { ToString } from '@lib/model/to-string.interface';
 import { Vertice } from './vertice.type';
 
 export class Node<T = string> implements ToString {
-	public neighbours: Vertice<T>[] = [];
+	public neighbours: Vertice<Node<T>>[] = [];
 
 	public values: T[] = [];
 

@@ -1,1 +1,6 @@
-export type DirectionMarker = ('^' | '>' | 'v' | '<' | '') & string;
+export const enum DirectionMarker {
+	NORTH = '^',
+	EAST = '>',
+	SOUTH = 'v',
+	WEST = '<'
+}
