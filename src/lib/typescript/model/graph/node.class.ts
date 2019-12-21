@@ -2,7 +2,7 @@ import { ToString } from '@lib/model/to-string.interface';
 import { Vertice } from './vertice.type';
 
 export class Node<T = string> implements ToString {
-	public neighbours: Vertice<Node<T>>[] = [];
+	public neighbours: Vertice<this>[] = [];
 
 	public values: T[] = [];
 
@@ -22,12 +22,12 @@ export class Node<T = string> implements ToString {
 		return this.values.shift();
 	}
 
-	public putValue(v: T): Node<T> {
+	public putValue(v: T): this {
 		this.values.unshift(v);
 		return this;
 	}
 
-	public appendNeighbour(n: Node<T>, w: number = 0) {
+	public appendNeighbour(n: this, w: number = 0) {
 		this.neighbours.push([n, w]);
 	}
 

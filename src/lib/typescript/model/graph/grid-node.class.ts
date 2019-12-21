@@ -1,10 +1,11 @@
 import { ClockwiseDirection, Direction, Vec2 } from '@lib/model';
+import { Graph } from './graph.class';
 import { GridGraph } from './grid-graph.class';
+import { Heuristic } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';
 
 export class GridNode<T = string> extends Node<T> {
-	public neighbours: Vertice<GridNode<T>>[] = [];
 	public constructor(public p: Vec2, ...values: T[]) {
 		super(...values);
 		this.neighbours.push([undefined, Infinity]);
@@ -13,26 +14,23 @@ export class GridNode<T = string> extends Node<T> {
 		this.neighbours.push([undefined, Infinity]);
 	}
 
-	public get north(): Vertice<GridNode<T>> {
+	public get north(): Vertice<this> {
 		return this.neighbours[ClockwiseDirection.NORTH];
 	}
 
-	public get east(): Vertice<GridNode<T>> {
+	public get east(): Vertice<this> {
 		return this.neighbours[ClockwiseDirection.EAST];
 	}
 
-	public get south(): Vertice<GridNode<T>> {
+	public get south(): Vertice<this> {
 		return this.neighbours[ClockwiseDirection.SOUTH];
 	}
 
-	public get west(): Vertice<GridNode<T>> {
+	public get west(): Vertice<this> {
 		return this.neighbours[ClockwiseDirection.WEST];
 	}
 
-	public attachNeightbours(
-		graph: GridGraph<T>,
-		h?: (a: GridNode<T>, b: GridNode<T>) => number
-	): Vertice<GridNode<T>>[] {
+	public attachNeightbours(graph: Graph<T, this>, h?: Heuristic<T, this>): Vertice<this>[] {
 		Direction.directions
 			.map(d => graph.nodeMap.get(this.p.add(d).toString()))
 			.forEach((n, i) => {
