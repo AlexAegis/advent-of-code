@@ -11,9 +11,6 @@ export class Vec2 implements Vec2Like {
 		return new Vec2(0, 0);
 	}
 
-	public x!: number;
-	public y!: number;
-
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
 	 */
@@ -30,6 +27,13 @@ export class Vec2 implements Vec2Like {
 		} else if (typeof x === 'string') {
 			[this.x, this.y] = (x.match(NUM) || []).map(s => parseInt(s, 10));
 		}
+	}
+
+	public x!: number;
+	public y!: number;
+
+	public static compare(a: Vec2, b: Vec2): number {
+		return a.x === b.x ? a.y - b.y : a.x - b.x;
 	}
 
 	public add(coord: Vec2Like, times: number = 1): Vec2 {
