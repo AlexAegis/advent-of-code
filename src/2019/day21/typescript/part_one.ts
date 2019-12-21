@@ -26,11 +26,10 @@ export const runner = (print: boolean = false) => (input: string) => {
 
 	i.pushAsciiInput(
 		[
-			'NOT T T', // T = TRUE
-			'AND A T', // T = A
-			'AND B T', // T = A AND B
-			'AND C T', // T = A AND B AND C
-			'NOT T J', // J = !A OR !B OR !C
+			'OR A J', // J = A
+			'AND B J', // J = A AND B
+			'AND C J', // J = A AND B AND C
+			'NOT J J', // J = !A OR !B OR !C
 			'AND D J', // J = (!A OR !B OR !C) AND D
 			'WALK'
 		].join('\n')
@@ -40,5 +39,5 @@ export const runner = (print: boolean = false) => (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 19352638 ~24ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 19352638 ~23ms
 }
