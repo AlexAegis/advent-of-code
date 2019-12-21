@@ -27,11 +27,11 @@ export const runner = (print: boolean = false) => (input: string) => {
 	i.pushAsciiInput(
 		[
 			'NOT T T', // T = TRUE
-			'AND A T', // T(A)
-			'AND B T', // T(A AND B)
-			'AND C T', // T(A AND B AND C)
-			'NOT T J', // J(!A OR !B OR !C)
-			'AND D J', // J((!A OR !B OR !C) AND D)
+			'AND A T', // T = A
+			'AND B T', // T = A AND B
+			'AND C T', // T = A AND B AND C
+			'NOT T J', // J = !A OR !B OR !C
+			'AND D J', // J = (!A OR !B OR !C) AND D
 			'WALK'
 		].join('\n')
 	);
