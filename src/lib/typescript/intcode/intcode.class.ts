@@ -25,7 +25,7 @@ export class IntCodeComputer implements Iterable<number> {
 		}
 	}
 
-	public withInput(input: number | number[]): IntCodeComputer {
+	public withInput(input: number | number[]): this {
 		this.input = input;
 		return this;
 	}
@@ -34,12 +34,17 @@ export class IntCodeComputer implements Iterable<number> {
 		return this.halt;
 	}
 
-	public pushInput(...input: number[]): IntCodeComputer {
+	public pushInput(...input: number[]): this {
 		if (!this.inputQueue) {
 			this.inputQueue = [];
 		}
 		this.inputQueue.push(...input);
 		return this;
+	}
+
+	public pushAsciiInput(input: string, nl = true): this {
+		if (nl) input += '\n';
+		return this.pushInput(...[...input].map(s => s.charCodeAt(0)));
 	}
 
 	public pushInputIfEmpty(input: number): boolean {
@@ -66,7 +71,7 @@ export class IntCodeComputer implements Iterable<number> {
 		return asIndex ? v : this.tape.get(v) || 0;
 	}
 
-	public reset(tape?: number[]): IntCodeComputer {
+	public reset(tape?: number[]): this {
 		if (tape) {
 			this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map());
 		}
@@ -84,7 +89,7 @@ export class IntCodeComputer implements Iterable<number> {
 		this.tape.set(1, noun);
 	}
 
-	public withNoun(noun: number): IntCodeComputer {
+	public withNoun(noun: number): this {
 		this.noun = noun;
 		return this;
 	}
@@ -93,7 +98,7 @@ export class IntCodeComputer implements Iterable<number> {
 		this.tape.set(2, verb);
 	}
 
-	public withVerb(verb: number): IntCodeComputer {
+	public withVerb(verb: number): this {
 		this.verb = verb;
 		return this;
 	}
@@ -146,7 +151,7 @@ export class IntCodeComputer implements Iterable<number> {
 		} while (!this.halt);
 	}
 
-	public run(target?: number[]): IntCodeComputer {
+	public run(target?: number[]): this {
 		if (target) {
 			target.push(...this.execute());
 		} else {
