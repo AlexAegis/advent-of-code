@@ -10,15 +10,15 @@ export const runner = (print: boolean = false) => (input: string) => {
 	i.pushAsciiInput(
 		[
 			'NOT T T', // T = TRUE
-			'AND A T', // T(A)
-			'AND B T', // T(A AND B)
-			'AND C T', // T(A AND B AND C)
-			'NOT T T', // T(!A OR !B OR !C)
+			'AND A T', // T = A
+			'AND B T', // T = A AND B
+			'AND C T', // T = A AND B AND C
+			'NOT T T', // T = !A OR !B OR !C
 			'NOT J J', // J = TRUE
-			'AND E J', // J(E)
-			'OR H J', //  J(E OR H)
-			'AND T J', // J((!A OR !B OR !C) AND (E OR H))
-			'AND D J', // J((!A OR !B OR !C) AND (E OR H) AND D)
+			'AND E J', // J = E
+			'OR H J', //  J = E OR H
+			'AND T J', // J = (!A OR !B OR !C) AND (E OR H)
+			'AND D J', // J = (!A OR !B OR !C) AND (E OR H) AND D
 			'RUN'
 		].join('\n')
 	);
