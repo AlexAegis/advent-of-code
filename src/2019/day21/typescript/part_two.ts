@@ -25,5 +25,5 @@ export const runner = (print: boolean = false) => (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner(false))}`))(); // 1141251258 ~196ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner(false))}`))(); // 1141251258 ~168ms
 }
