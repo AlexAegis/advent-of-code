@@ -3,13 +3,42 @@ import { IntCodeComputer } from '@lib/intcode';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export const runner = async (input: string) => {
+export const execute = (i: IntCodeComputer, print = false): number | undefined => {
+	let r: number | undefined;
+	let line = '';
+	for (const o of i) {
+		r = o;
+		if (print) {
+			const c = String.fromCharCode(o);
+			if (c === '\n') {
+				console.log(line);
+				line = '';
+			} else {
+				line += String.fromCharCode(o);
+			}
+		}
+	}
+	return r;
+};
+
+export const runner = (print: boolean = false) => (input: string) => {
 	const i = new IntCodeComputer(parse(input));
-	const it = i.iter();
-	return 0;
+
+	i.pushAsciiInput(
+		[
+			'NOT T T', // T = TRUE
+			'AND A T', // T(A)
+			'AND B T', // T(A AND B)
+			'AND C T', // T(A AND B AND C)
+			'NOT T J', // J(!A OR !B OR !C)
+			'AND D J', // J((!A OR !B OR !C) AND D)
+			'WALK'
+		].join('\n')
+	);
+
+	return execute(i, print);
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await runner('')}`))();
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 19352638 ~24ms
 }
