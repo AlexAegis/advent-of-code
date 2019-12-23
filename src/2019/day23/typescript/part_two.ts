@@ -19,7 +19,8 @@ export const runner = (input: string) =>
 		const natLog = new Set<number>();
 		let nat: Packet = nullPacket;
 		let resolved = false;
-		// setup
+
+		// Setup
 		for (let i = 0; i < RC; i++) {
 			const nic = new IntCodeComputer(tape);
 			nic.pushInput(i);
@@ -30,7 +31,6 @@ export const runner = (input: string) =>
 					if (packet === undefined) {
 						packet = io.get(i)?.shift() ?? nullPacket;
 						readCount = 0;
-						// 	console.log('reset packet to', packet);
 					}
 
 					let result: number;
@@ -41,8 +41,6 @@ export const runner = (input: string) =>
 						packet = undefined;
 					}
 					readCount++;
-
-					// console.log('used input in: ', i, result, readCount);
 					return result;
 				};
 			})();
@@ -70,7 +68,6 @@ export const runner = (input: string) =>
 						packet = undefined;
 					}
 					readCount++;
-					// console.log('used input in: ', i, packet, readCount);
 					return out;
 				};
 			})();
@@ -81,11 +78,11 @@ export const runner = (input: string) =>
 
 		while (!resolved) {
 			let isIdle = true;
-			// TODO: Remove this magic number
-			for (let h = 0; h < 4; h++) {
-				isIdle =
-					isIdle &&
-					[...network.entries()].every(([_source, [_nic, stepper]]) => stepper.next().value === undefined);
+			// TODO: Find a better way to determine idleness
+			for (let r = 0; r < RC / 2; r++) {
+				isIdle = ![...network.entries()].some(
+					([_source, [_nic, stepper]]) => stepper.next().value !== undefined
+				);
 			}
 
 			if (isIdle && nat.y !== -1) {
@@ -102,5 +99,5 @@ export const runner = (input: string) =>
 	});
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 19216 ~234ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 19216 ~146ms
 }
