@@ -38,6 +38,7 @@
 		"@thi.ng/iterators": "^5.1.7",
 		"@thi.ng/memoize": "^1.1.6",
 		"@thi.ng/transducers": "^6.1.0",
+		"big-integer": "^1.6.48",
 		"is-ci": "^2.0.0",
 		"iterare": "^1.2.0",
 		"ix": "^2.5.3",
