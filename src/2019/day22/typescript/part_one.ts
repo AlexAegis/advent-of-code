@@ -26,5 +26,5 @@ export const runner = (deckSize: number = 10007) => (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 6831 ~274ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 6831 ~164ms
 }
