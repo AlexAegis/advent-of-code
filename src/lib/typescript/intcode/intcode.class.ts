@@ -2,24 +2,36 @@ import { numAt, numLength } from '@lib/functions';
 import { Instruction, toInstruction } from './instruction.enum';
 import { Mode } from './mode.enum';
 
-export class IntCodeComputer implements Iterable<number> {
+export class IntCodeComputer implements Iterable<number | undefined> {
 	public tape: Map<number, number>;
 	public cursor = 0;
 	public relBase = 0;
 	private halt = false;
 	public inputQueue?: number[];
+	public inputCallback?: () => number;
+	public outputCallback?: (output: number) => number;
 
 	public constructor(tape: number[]) {
 		this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map());
 	}
 
-	public iter(): IterableIterator<number> {
-		return this[Symbol.iterator]();
+	public *iter(): IterableIterator<number> {
+		for (const res of this) {
+			if (res !== undefined) {
+				yield res;
+			}
+		}
 	}
 
-	public set input(input: number | number[]) {
+	public *stepper(): IterableIterator<number | undefined> {
+		yield* this;
+	}
+
+	public set input(input: number | number[] | (() => number)) {
 		if (typeof input === 'number') {
 			this.inputQueue = [input];
+		} else if (typeof input === 'function') {
+			this.inputCallback = input;
 		} else {
 			this.inputQueue = input;
 		}
@@ -27,6 +39,16 @@ export class IntCodeComputer implements Iterable<number> {
 
 	public withInput(input: number | number[]): this {
 		this.input = input;
+		return this;
+	}
+
+	public withInputCallback(inputCallback: () => number): this {
+		this.inputCallback = inputCallback;
+		return this;
+	}
+
+	public withOutputCallback(outputCallback: (output: number) => number): this {
+		this.outputCallback = outputCallback;
 		return this;
 	}
 
@@ -111,7 +133,7 @@ export class IntCodeComputer implements Iterable<number> {
 		return numAt(v, numLength(v) - n - 3);
 	}
 
-	public *[Symbol.iterator](): IterableIterator<number> {
+	public *[Symbol.iterator](): IterableIterator<number | undefined> {
 		do {
 			const v = this.tape.get(this.cursor) || 0;
 			const i = toInstruction(v);
@@ -124,6 +146,7 @@ export class IntCodeComputer implements Iterable<number> {
 					break;
 				case Instruction.IN:
 					this.inOp(this.getArg(v, 0, true));
+					yield undefined;
 					break;
 				case Instruction.OUT:
 					yield this.outOp(this.getArg(v, 0));
@@ -161,7 +184,7 @@ export class IntCodeComputer implements Iterable<number> {
 	}
 
 	public execute(): number[] {
-		return [...this];
+		return [...this.iter()];
 	}
 
 	private addOp(a: number, b: number, pos: number): void {
@@ -177,6 +200,8 @@ export class IntCodeComputer implements Iterable<number> {
 	private inOp(pos: number): void {
 		if (this.inputQueue && this.inputQueue.length > 0) {
 			this.tape.set(pos, this.inputQueue.shift() as number);
+		} else if (this.inputCallback) {
+			this.tape.set(pos, this.inputCallback());
 		} else {
 			throw new Error('No input');
 		}
@@ -186,6 +211,9 @@ export class IntCodeComputer implements Iterable<number> {
 	private outOp(pos: number): number {
 		if (pos === undefined) {
 			throw new Error('Not valid output' + pos);
+		}
+		if (this.outputCallback) {
+			this.outputCallback(pos);
 		}
 		this.cursor += 2;
 		return pos;
