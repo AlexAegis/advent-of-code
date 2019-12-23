@@ -1,0 +1,3 @@
+deal with increment 7
+deal with increment 9
+cut -2
