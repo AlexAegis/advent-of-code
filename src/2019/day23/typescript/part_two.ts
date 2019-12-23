@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
-import { Network, RC } from './network.class';
+import { Network, NETWORK_SIZE } from './network.class';
 import { Packet } from './packet.class';
 import { parse } from './parse';
 
@@ -15,7 +15,7 @@ export const runner = (input: string) => {
 	while (!result) {
 		let isIdle = true;
 		// TODO: Find a better way to determine idleness
-		for (let r = 0; r < RC / 2; r++) {
+		for (let r = 0; r < NETWORK_SIZE / 2; r++) {
 			isIdle = ![...network.entries()].some(([, [, stepper]]) => stepper.next().value !== undefined);
 		}
 

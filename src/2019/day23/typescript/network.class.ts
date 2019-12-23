@@ -1,14 +1,14 @@
 import { IntCodeComputer } from '@lib/intcode';
 import { nullPacket, Packet } from './packet.class';
-export const RC = 50;
-export const OUTPUT_ADDRESS = 255;
+export const NETWORK_SIZE = 50;
+export const NAT_ADDRESS = 255;
 
 export class Network {
 	public network = new Map<number, [IntCodeComputer, IterableIterator<number | undefined>]>();
 	public io = new Map<number, Packet[]>();
 
 	public constructor(tape: number[], nat: (nat: Packet) => void) {
-		for (let i = 0; i < RC; i++) {
+		for (let i = 0; i < NETWORK_SIZE; i++) {
 			const nic = new IntCodeComputer(tape);
 			nic.pushInput(i);
 			nic.input = (() => {
