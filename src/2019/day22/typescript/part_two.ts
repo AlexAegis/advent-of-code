@@ -1,53 +1,67 @@
 import { bench, read } from '@lib';
-import { bigInverseMod } from '@lib/math/discrete/inverse-modulo.function';
-import { modn } from '@lib/math/discrete/positive-modulo.function';
+import bigInt from 'big-integer';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export function expmod(base: bigint, exp: bigint, m: bigint): bigint {
-	if (exp === 0n) return 1n;
-	if (modn(exp, 2n) === 0n) {
-		const a = expmod(base, BigInt(exp / 2n), m);
-		return modn(a * a, m);
-	} else {
-		return modn(base * expmod(base, exp - 1n, m), m);
-	}
-}
-
-export const runner = (
-	deckSize: bigint = 119315717514047n,
-	repeat: bigint = 101741582076661n,
-	target: bigint = 2020n
-) => (input: string) => {
+export const runner = (deckSize: number = 119315717514047, repeat: number = 101741582076661, target: number = 2020) => (
+	input: string
+): number => {
 	const lines = parse(input);
 
-	let increment = 1n;
-	let offset = 0n;
+	let increment = bigInt.one;
+	let offset = bigInt.zero;
 
 	for (const line of lines) {
 		const n: number = parseInt(line.split(' ').pop() as string, 10);
 		if (line.startsWith('deal into new stack')) {
-			increment *= -1n;
-			increment = modn(increment, deckSize);
-			offset += increment;
-			offset = modn(offset, deckSize);
+			increment = increment.multiply(-1);
+			increment = increment
+				.mod(deckSize)
+				.add(deckSize)
+				.mod(deckSize);
+			offset = offset.add(increment);
+			offset = offset
+				.mod(deckSize)
+				.add(deckSize)
+				.mod(deckSize);
 		} else if (line.startsWith('cut')) {
-			offset += BigInt(n) * increment;
-			offset = modn(offset, deckSize);
+			offset = offset.add(increment.multiply(n));
+			offset = offset
+				.mod(deckSize)
+				.add(deckSize)
+				.mod(deckSize);
 		} else if (line.startsWith('deal with increment')) {
-			increment *= bigInverseMod(BigInt(n), deckSize);
-			increment = modn(increment, deckSize);
+			increment = increment.multiply(bigInt(n).modInv(deckSize));
+			increment = increment
+				.mod(deckSize)
+				.add(deckSize)
+				.mod(deckSize);
 		}
 	}
 
-	const i = expmod(increment, repeat, deckSize);
+	const i = increment.modPow(repeat, deckSize);
 
-	offset = offset * (1n - i) * bigInverseMod(modn(1n - increment, deckSize), deckSize);
-	offset = modn(offset, deckSize);
+	offset = offset.multiply(bigInt.one.minus(i)).multiply(
+		bigInt.one
+			.minus(increment)
+			.mod(deckSize)
+			.add(deckSize)
+			.mod(deckSize)
+			.modInv(deckSize)
+	);
+	offset = offset
+		.mod(deckSize)
+		.add(deckSize)
+		.mod(deckSize);
 
-	return modn(offset + target * i, deckSize);
+	return offset
+		.add(i.multiply(target))
+		.mod(deckSize)
+		.add(deckSize)
+		.mod(deckSize)
+		.toJSNumber();
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 81781678911487 ~0.62ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 81781678911487 ~1ms
 }
