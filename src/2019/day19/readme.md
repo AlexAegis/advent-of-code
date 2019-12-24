@@ -27,7 +27,7 @@ Y .....####.
  9........##
 ```
 
-In this example, the **number of points affected by the tractor beam** in the 10x10 area closest to the emitter is `**27**`.
+In this example, the **number of points affected by the tractor beam** in the 10x10 area closest to the emitter is **`27`**.
 
 However, you'll need to scan a larger area to **understand the shape** of the beam. **How many points are affected by the tractor beam in the 50x50 area closest to the emitter?** (For each of X and Y, this will be `0` through `49`.)
 

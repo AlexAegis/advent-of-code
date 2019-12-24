@@ -101,10 +101,10 @@ pot: 2 + 1 + 3 =  6;   kin: 3 + 2 + 1 = 6;   total:  6 * 6 = 36
 pot: 1 + 8 + 0 =  9;   kin: 1 + 1 + 3 = 5;   total:  9 * 5 = 45
 pot: 3 + 6 + 1 = 10;   kin: 3 + 2 + 3 = 8;   total: 10 * 8 = 80
 pot: 2 + 0 + 4 =  6;   kin: 1 + 1 + 1 = 3;   total:  6 * 3 = 18
-Sum of total energy: 36 + 45 + 80 + 18 = **179**
+Sum of total energy: 36 + 45 + 80 + 18 = 179
 ```
 
-In the above example, adding together the total energy for all moons after 10 steps produces the total energy in the system, `**179**`.
+In the above example, adding together the total energy for all moons after 10 steps produces the total energy in the system, **`179`**.
 
 Here's a second example:
 

@@ -27,7 +27,7 @@ export class Vec3 implements Vec3Like {
 	public y!: number;
 	public z!: number;
 
-	public add(coord: Vec3, times: number = 1): Vec3 {
+	public add(coord: Vec3Like, times: number = 1): Vec3 {
 		return new Vec3(this.x + coord.x * times, this.y + coord.y * times, this.z + coord.z * times);
 	}
 
