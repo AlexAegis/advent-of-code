@@ -1,5 +1,5 @@
 export const printMatrix = (matrix: string[][], flipVertical = false, flipHorizontal = false): string => {
-	let rows = matrix.reverse().map(row => {
+	let rows = matrix.map(row => {
 		if (flipHorizontal) {
 			row = row.reverse();
 		}
