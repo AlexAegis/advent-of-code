@@ -38,7 +38,7 @@ Join me on my private leaderboard! You can find my invitation code [here](./.aoc
 | [Day 21](./src/2019/day21/) | [23ms](./src/2019/day21/typescript/part_one.ts)   |                                             | [168ms](./src/2019/day21/typescript/part_two.ts)  |                                             |
 | [Day 22](./src/2019/day22/) | [164ms](./src/2019/day22/typescript/part_one.ts)  |                                             | [1ms](./src/2019/day22/typescript/part_two.ts)    |                                             |
 | [Day 23](./src/2019/day23/) | [38ms](./src/2019/day23/typescript/part_one.ts)   |                                             | [146ms](./src/2019/day23/typescript/part_two.ts)  |                                             |
-| Day 24                      |                                                   |                                             |                                                   |                                             |
+| [Day 24](./src/2019/day24/) | [3ms](./src/2019/day24/typescript/part_one.ts)    |                                             | [741ms](./src/2019/day24/typescript/part_two.ts)  |                                             |
 | Day 25                      |                                                   |                                             |                                                   |                                             |
 
 ## [2018](https://adventofcode.com/2018/)
