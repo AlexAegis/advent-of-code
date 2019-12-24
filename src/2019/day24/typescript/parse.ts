@@ -1,11 +1,6 @@
-export const parseLines = (input: string): number[][] => {
+export const parse = (input: string): string[][] => {
 	return input
 		.split(/\r?\n/)
 		.filter(line => !!line)
-		.map(line =>
-			line
-				.split(',')
-				.filter(c => /^(\+|-)?[0-9]+$/.test(c))
-				.map(a => parseInt(a, 10))
-		);
+		.map(line => line.split(''));
 };
