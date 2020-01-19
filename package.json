@@ -34,7 +34,6 @@
 	],
 	"license": "mit",
 	"private": true,
-	"type": "module",
 	"dependencies": {
 		"@thi.ng/iterators": "^5.1.7",
 		"@thi.ng/memoize": "^1.1.6",
