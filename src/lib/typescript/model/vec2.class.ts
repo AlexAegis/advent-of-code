@@ -135,3 +135,5 @@ export class Vec2 implements Vec2Like {
 		return new Vec2(this);
 	}
 }
+
+console.log('What', Vec2);
