@@ -1,9 +1,12 @@
 /**
  * Original by [Petka Antonov](https://github.com/petkaantonov/deque/blob/master/js/deque.js)
- * TypeScript refactor by me
+ * TypeScript refactor by me.
+ * TODO: Refactor private methods marked by _ with the private keyword.
+ * TODO: Refactor use of `arguments` with rest parameters
  */
 /**
  * Copyright (c) 2013 Petka Antonov
+ * Copyright (c) 2020 Sándor Győri
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
