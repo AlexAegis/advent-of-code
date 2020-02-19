@@ -52,7 +52,7 @@
 		"@types/node": "^13.1.8",
 		"@types/workerpool": "^5.0.1",
 		"chai": "^4.2.0",
-		"codecov": "^3.6.1",
+		"codecov": "^3.6.5",
 		"mocha": "^7.0.0",
 		"mocha-parallel-tests": "^2.2.2",
 		"npm-check-updates": "^4.0.1",
