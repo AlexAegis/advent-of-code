@@ -36,7 +36,7 @@
 	"private": true,
 	"dependencies": {
 		"@thi.ng/iterators": "^5.1.7",
-		"@thi.ng/memoize": "^1.1.6",
+		"@thi.ng/memoize": "^2.0.0",
 		"@thi.ng/transducers": "^6.1.0",
 		"big-integer": "^1.6.48",
 		"is-ci": "^2.0.0",
