@@ -43,7 +43,7 @@
 		"iterare": "^1.2.0",
 		"ix": "^2.5.3",
 		"rxjs": "^6.5.4",
-		"workerpool": "^5.0.4"
+		"workerpool": "^6.0.0"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.2.7",
