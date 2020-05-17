@@ -10,9 +10,10 @@ jobs:
             RUST_BACKTRACE: full
         strategy:
             matrix:
+                os: [ubuntu-latest, windows-latest]
                 rust:
                     - stable
-                    - 1.39.0
+                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
@@ -32,9 +33,10 @@ jobs:
             RUST_BACKTRACE: full
         strategy:
             matrix:
+                os: [ubuntu-latest, windows-latest]
                 rust:
                     - stable
-                    - 1.39.0
+                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
@@ -56,7 +58,7 @@ jobs:
             matrix:
                 rust:
                     - stable
-                    - 1.39.0
+                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
@@ -79,7 +81,7 @@ jobs:
             matrix:
                 rust:
                     - stable
-                    - 1.39.0
+                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
