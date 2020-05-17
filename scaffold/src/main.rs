@@ -1,6 +1,5 @@
 use aoc_query::{args, query};
 use cpt::cpt;
-use serde_json;
 use std::{collections::HashMap, env};
 
 #[tokio::main]
