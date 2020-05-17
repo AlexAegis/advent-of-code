@@ -1,14 +1,14 @@
 import { bench, read } from '@lib';
-import { IntCodeComputer } from '@lib/intcode';
+// import { IntCodeComputer } from '@lib/intcode';
 import { Direction, Vec2 } from '@lib/model';
 import { day, year } from '.';
 import { GridGraph, GridGraphNode } from './graph.class';
-import { draw, getMove, Status, Tile } from './meta';
-import { parse } from './parse';
+import { draw, Status, Tile } from './meta';
+// import { parse } from './parse';
 
-export const runner = (print = false) => (input: string) => {
-	const i = new IntCodeComputer(parse(input));
-	const it = i.iter();
+export const runner = (print = false) => (_input: string) => {
+	// const i = new IntCodeComputer(parse(input));
+	// const it = i.iter();
 
 	const startVec = new Vec2(1, 1);
 	const p = startVec.clone();
@@ -18,8 +18,7 @@ export const runner = (print = false) => (input: string) => {
 
 	const start = new GridGraphNode(startVec.clone(), Tile.EMPTY);
 
-	const maze = 
-	         [['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']];
+	const maze = [['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']];
 	maze.push(['#', '.', '#', '#', '.', '.', '.', '.', '.', '#', '.', '.', '.', '#', '.', '#']);
 	maze.push(['#', '.', '.', '#', '.', '#', '#', '#', '.', '.', '.', '#', '.', '#', '.', '#']);
 	maze.push(['#', '#', '.', '#', '.', '.', '.', '#', '#', '.', '#', '.', '.', '#', '.', '#']);
@@ -41,7 +40,8 @@ export const runner = (print = false) => (input: string) => {
 		(dir: Direction) => {
 			const nextP = p.add(dir);
 			const nextTile = maze[nextP.x][nextP.y];
-			const s: Status = nextTile === Tile.WALL ? Status.WALL : nextTile === Tile.OXY ? Status.FINISHED : Status.MOVED;
+			const s: Status =
+				nextTile === Tile.WALL ? Status.WALL : nextTile === Tile.OXY ? Status.FINISHED : Status.MOVED;
 			if (s === Status.FINISHED) {
 				console.log('!!!!!!!!!!!!!!!!! FINISHED');
 			}
@@ -67,26 +67,3 @@ export const runner = (print = false) => (input: string) => {
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // '.' ~'.'ms
 }
-
-/**
-(dir: Direction) => {
-			i.pushInput(getMove(dir));
-			const s: Status = it.next().value;
-			if (s === Status.FINISHED) {
-				console.log('!!!!!!!!!!!!!!!!! FINISHED');
-			}
-			if (print) {
-				if (s === Status.WALL) {
-					map.set(p.add(dir).toString(), Tile.WALL);
-				} else {
-					map.set(p.toString(), Tile.EMPTY);
-					p.addMut(dir);
-					map.set(p.toString(), s === Status.MOVED ? Tile.DROID : Tile.OXY);
-				}
-				draw(map);
-			}
-
-			return s;
-		},
-
- */

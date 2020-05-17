@@ -9,6 +9,6 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 	});
 
 	it('should be that that the first example resolves to 0', async () => {
-		expect(await runner('0')).to.equal(0);
+		expect(await runner('0')).to.equal('0');
 	});
 });

@@ -1,7 +1,6 @@
-import { bench, read, sum } from '@lib';
+import { bench, read } from '@lib';
 import { day, year } from '.';
 import { parse } from './parse';
-import { calcOreForSurplus } from './part_one';
 import { Reaction } from './reaction.class';
 
 export enum MainResource {
@@ -14,9 +13,6 @@ export type Resource = MainResource | string;
 export const runner = async (input: string) => {
 	const reactions = parse(input);
 	const fuelReact = reactions.find(r => r.to === MainResource.FUEL);
-
-	const oreReacts = reactions.filter(r => r.from.has(MainResource.ORE));
-	const rex = reactions.find(r => r.to === 'AB');
 
 	reactions.forEach(r => {
 		reactions

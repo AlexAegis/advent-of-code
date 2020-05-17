@@ -1,4 +1,4 @@
-import { Direction, Vec2 } from '@lib/model';
+import { Vec2 } from '@lib/model';
 import { GridNode } from './grid-node.class';
 import { Heuristic } from './heuristic.type';
 import { PortalGridGraph } from './portal-grid-graph.class';

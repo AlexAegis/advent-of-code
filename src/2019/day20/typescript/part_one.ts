@@ -1,11 +1,10 @@
 import { bench, read } from '@lib';
 import { Direction, Vec2 } from '@lib/model';
-import { GridGraph, GridNode } from '@lib/model/graph';
 import { Heuristic } from '@lib/model/graph/heuristic.type';
 import { PortalGridGraph } from '@lib/model/graph/portal-grid-graph.class';
+import { PortalGridNode } from '@lib/model/graph/portal-grid-node.class';
 import { day, year } from '.';
 import { parseLines } from './parse';
-import { PortalGridNode } from '@lib/model/graph/portal-grid-node.class';
 
 export enum Tile {
 	WALL = '#',

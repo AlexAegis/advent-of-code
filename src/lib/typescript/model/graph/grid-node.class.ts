@@ -1,6 +1,5 @@
 import { ClockwiseDirection, Direction, Vec2 } from '@lib/model';
 import { Graph } from './graph.class';
-import { GridGraph } from './grid-graph.class';
 import { Heuristic } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';

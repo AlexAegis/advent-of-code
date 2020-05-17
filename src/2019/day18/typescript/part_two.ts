@@ -1,7 +1,7 @@
-import { bench, read } from '@lib';
-import { day, year } from '.';
+// import { bench, read } from '@lib';
+// import { day, year } from '.';
 
-export const runner = async (input: string) => {
+export const runner = async (_input: string) => {
 	return 0;
 };
 

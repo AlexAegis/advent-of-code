@@ -8,7 +8,7 @@ export const execute = (i: IntCodeComputer, print = false): number | undefined =
 	let line = '';
 	for (const o of i) {
 		r = o;
-		if (print) {
+		if (print && o !== undefined) {
 			const c = String.fromCharCode(o);
 			if (c === '\n') {
 				console.log(line);

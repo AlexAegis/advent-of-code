@@ -2,7 +2,7 @@ import { bench, read } from '@lib';
 import { IntCodeComputer } from '@lib/intcode';
 import { day, year } from '.';
 import { parse } from './parse';
-import { computeMap, draw, Tile } from './part_one';
+import { computeMap, Tile } from './part_one';
 
 export enum MovementFunction {
 	A = 'A',
