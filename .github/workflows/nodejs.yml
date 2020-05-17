@@ -8,7 +8,7 @@ jobs:
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest, macOS-latest]
-                node-version: [12.x, 13.x]
+                node-version: [12.x, 14.x]
         steps:
             - uses: actions/checkout@v1
             - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
@@ -23,6 +23,9 @@ jobs:
                   CI: true
     lint:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [12.x, 14.x]
         steps:
             - uses: actions/checkout@v1
             - name: Use Node.js ${{ matrix.node-version }}
