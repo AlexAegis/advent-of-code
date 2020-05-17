@@ -1,6 +1,5 @@
 use aoc_query::{args, query};
 
-use serde_json;
 use std::env;
 
 #[tokio::main]

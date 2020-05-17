@@ -6,11 +6,11 @@ license = "mit"
 edition = "2018"
 
 [dependencies]
-clap = "2.33.0"
-async-std = "1.2.0"
-tokio = "0.2.0-alpha.6"
-scraper = "0.11.0 "
-reqwest = { version = "0.10.0-alpha.2", features = ["cookies"] }
+clap = "2.33.1"
+async-std = "1.5.0"
+tokio = { version = "0.2.21", features = ["full"] }
+scraper = "0.12.0"
+reqwest = { version = "0.10.4", features = ["cookies"] }
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 ego-tree = "0.6.2"
 serde = "1.0.103"
