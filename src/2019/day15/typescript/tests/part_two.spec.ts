@@ -1,4 +1,4 @@
-import { read } from '@lib';
+/*import { read } from '@lib';
 import { expect } from 'chai';
 import { day, results, year } from '..';
 import { runner } from '../part_two';
@@ -12,3 +12,4 @@ describe(`${year} - Day ${day} - Part Two`, () => {
 		expect(await runner('0')).to.equal(0);
 	});
 });
+*/

@@ -3,11 +3,11 @@ import { DayResults } from '@lib';
 export const year = 2019;
 export const day = 16;
 
-export const results: DayResults = {
+export const results: DayResults<string> = {
 	one: {
-		input: 30369587
+		input: '30369587'
 	},
 	two: {
-		input: 0
+		input: '09690613'
 	}
 };

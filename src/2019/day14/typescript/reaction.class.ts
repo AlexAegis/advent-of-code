@@ -1,4 +1,3 @@
-import { sum } from '@lib';
 import { MainResource } from './part_one';
 
 export class Reaction {

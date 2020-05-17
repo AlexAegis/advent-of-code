@@ -1,6 +1,6 @@
-import { bench, read } from '@lib';
+// import { bench, read } from '@lib';
 import { lcm } from '@lib/functions';
-import { day, year } from '.';
+// import { day, year } from '.';
 import { parse } from './parse';
 
 export const pattern = [0, 1, 0, -1] as const;

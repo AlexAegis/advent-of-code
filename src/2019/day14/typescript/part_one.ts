@@ -38,7 +38,7 @@ export const runner = async (input: string) => {
 	const surplus = new Map<string, number>();
 	if (fuelReact) {
 		const a = fuelReact.oreCost(surplus);
-		const asd = calcOreForSurplus(surplus, reactions);
+		// const asd = calcOreForSurplus(surplus, reactions);
 		return a;
 	}
 
