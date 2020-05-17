@@ -82,11 +82,11 @@ export const read = <A>(year: number, day: number, file: string = 'input.txt') =
 
 	const [input, args] = await Promise.all([
 		promises.readFile(`${baseUrl}${file}`, {
-			encoding: 'UTF-8'
+			encoding: 'utf-8'
 		}) as Promise<string>,
 		promises
 			.readFile(`${baseUrl}${file.split('.')[0]}.args.json`, {
-				encoding: 'UTF-8'
+				encoding: 'utf-8'
 			})
 			.catch(() => undefined) as Promise<string>
 	]);
