@@ -136,6 +136,6 @@ impl std::convert::From<&str> for SolutionError {
 
 impl std::convert::From<std::io::Error> for AocError {
 	fn from(err: std::io::Error) -> Self {
-		ReaderError::new(err.description()).into()
+		ReaderError::new(&err.to_string()).into()
 	}
 }
