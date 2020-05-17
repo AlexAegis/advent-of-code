@@ -18,8 +18,6 @@ export const getDirection = (move: Move): Direction => {
 			return Direction.EAST;
 		case Move.WEST:
 			return Direction.WEST;
-		default:
-			return Direction.NONE;
 	}
 };
 

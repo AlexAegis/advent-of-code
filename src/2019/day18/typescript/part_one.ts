@@ -5,7 +5,7 @@ import { GridGraph, GridNode } from '@lib/model/graph';
 import { day, year } from '.';
 import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse';
 
-export const h = (inventory: Set<string>) => (n: GridNode<string>): number => {
+export const h = (inventory: Set<string>) => (n: GridNode<string>, _a: GridNode<string>): number => {
 	const v = n.value;
 	if (v === Tile.WALL) {
 		return Infinity;
@@ -38,7 +38,6 @@ export const runner = async (input: string) => {
 	const matrix = parseLines(input);
 	const { map, doors, keys, size } = parseMatrix(matrix);
 	const inventory = new Set<Key>();
-
 	const graph = GridGraph.fromMatrix(matrix, h(inventory), under);
 
 	console.log('map: ', map, 'doors: ', doors, 'keys: ', keys, 'size: ', size);

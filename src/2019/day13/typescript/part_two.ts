@@ -1,4 +1,3 @@
-import { FieldType } from '@2019/day10/typescript/parse';
 import { bench, read } from '@lib';
 import { clamp, drawMapStatic, printMatrix, sleep } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
