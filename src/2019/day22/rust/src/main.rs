@@ -1,5 +1,5 @@
-use aoclib::Solvable;
 use aoc201922::{PartOne, PartTwo};
+use aoclib::Solvable;
 
 pub fn main() -> aoclib::Result<()> {
 	let input = aoclib::reader(2019, 22, "input.txt")?;
