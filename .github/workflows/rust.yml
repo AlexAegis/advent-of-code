@@ -13,7 +13,6 @@ jobs:
                 os: [ubuntu-latest, windows-latest]
                 rust:
                     - stable
-                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
@@ -58,7 +57,6 @@ jobs:
             matrix:
                 rust:
                     - stable
-                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
@@ -81,7 +79,6 @@ jobs:
             matrix:
                 rust:
                     - stable
-                    - nightly
         steps:
             - uses: actions/checkout@v1
             - uses: actions-rs/toolchain@v1
