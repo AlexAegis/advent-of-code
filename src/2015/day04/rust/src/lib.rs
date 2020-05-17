@@ -1,8 +1,6 @@
 pub struct PartOne;
 pub struct PartTwo;
 
-use md5;
-
 fn hash_search(zeroes: usize, input: &str) -> u32 {
 	let lead = "0".repeat(zeroes);
 	let mut i = 1;
