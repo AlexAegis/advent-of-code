@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"lib": ["ES2020", "ESNext.AsyncIterable", "ESNext", "ESNext.BigInt"],
 		"module": "CommonJS",
-		"target": "ES2020",
+		"target": "ES2018",
 		"rootDir": "./src/",
 		"outDir": "./dist/",
 		"sourceMap": true,
