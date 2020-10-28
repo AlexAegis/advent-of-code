@@ -2,7 +2,7 @@
  * Returns the length of the integer part of a number.
  */
 export function integerLength(n: number): number {
-	return Math.floor(n).toString().length;
+	return Math.floor(Math.abs(n)).toString().length;
 }
 
 /**

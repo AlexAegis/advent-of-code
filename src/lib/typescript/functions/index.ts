@@ -1,4 +1,4 @@
-export * from './num-length.function';
+export * from './integer-length.function';
 export * from './num-start.function';
 export * from './num-at.function';
 export * from './lcm.function';

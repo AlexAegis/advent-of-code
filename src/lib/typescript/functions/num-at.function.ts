@@ -6,7 +6,7 @@
  * @param n the number of whichs length will be returned
  */
 export function numAt(n: number, p: number): number {
-	return parseInt(n.toString()[p], 10);
+	return parseInt(n.toString()[p], 10) || 0;
 }
 
 /**

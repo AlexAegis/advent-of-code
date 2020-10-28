@@ -1,4 +1,4 @@
-import { numAt, numLength } from '@lib/functions';
+import { integerLength, numAt } from '@lib/functions';
 import { Instruction, toInstruction } from './instruction.enum';
 import { Mode } from './mode.enum';
 
@@ -130,7 +130,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	}
 
 	private getMode(v: number, n: number): Mode | undefined {
-		return numAt(v, numLength(v) - n - 3);
+		return numAt(v, integerLength(v) - n - 3);
 	}
 
 	public *[Symbol.iterator](): IterableIterator<number | undefined> {
