@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { Args, day, results, year } from '..';
 import { runner } from '../part_two';
 
-describe(`${year} - Day ${day} - Part Two`, () => {
+describe(`2018 - Day 6 - Part Two`, () => {
 	it(`should resolve to ${results.two.input} when using the input`, async () => {
 		const { input, args } = await read<Args>(year, day)();
 		expect(await runner(input, args)).to.equal(results.two.input);

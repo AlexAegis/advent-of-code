@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { day, results, year } from '..';
 import { runner } from '../part_one';
 
-describe(`${year} - Day ${day} - Part One`, () => {
+describe(`2018 - Day 9 - Part One`, () => {
 	it(`should resolve to ${results.one.example0} when using the zeroth example`, async () => {
 		expect(await runner((await read(year, day, 'example.0.txt')()).input)).to.equal(results.one.example0);
 	});

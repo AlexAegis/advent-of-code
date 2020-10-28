@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { day, results, year } from '..';
 import { runner } from '../task';
 
-describe(`${year} - Day ${day} - Part One and Two`, () => {
+describe(`2018 - Day 10 - Part One and Two`, () => {
 	it(`should resolve to ${results.one.example} when using the input`, async () => {
 		// Output text is not parsed
 		expect('HI').to.equal(results.one.example);
