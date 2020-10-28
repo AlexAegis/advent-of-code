@@ -11,11 +11,11 @@ path = "./src/lib.rs"
 
 [dependencies]
 aoclib = { path = "../../../lib/rust" }
-regex = "1.3.1"
-fancy-regex = "0.3.0"
+regex = "1.4.1"
+fancy-regex = "0.4.0"
 
 [dev-dependencies]
-criterion = "0.3.0"
+criterion = "*"
 
 [[bench]]
 name = "bench"

@@ -1,20 +1,15 @@
 {
 	"recommendations": [
-		"jasonlhy.hungry-delete",
 		"ms-vscode.vscode-typescript-tslint-plugin",
 		"esbenp.prettier-vscode",
 		"pkief.material-icon-theme",
 		"msjsdiag.debugger-for-chrome",
 		"wix.vscode-import-cost",
-		"npxms.hide-gitignored",
 		"msjsdiag.debugger-for-chrome",
-		"maty.vscode-mocha-sidebar",
 		"serayuzgur.crates",
-		"rust-lang.rust",
+		"matklad.rust-analyzer",
 		"ms-vscode.cpptools",
 		"mikestead.dotenv",
-		"juanmnl.vscode-theme-1984",
-		"daylerees.rainglow",
 		"equinusocio.vsc-material-theme",
 		"mhutchie.git-graph",
 		"ritwickdey.liveserver"
