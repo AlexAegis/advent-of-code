@@ -6,11 +6,11 @@ export class Node {
 	/**
 	 * 60 base cost, -97 unicode offset for lowercase letters, + 1 offset.
 	 */
-	public cost(useLong: boolean = false) {
+	public cost(useLong = false): number {
 		return this.node.toLowerCase().charCodeAt(0) + (useLong ? 60 : 0) - 97 + 1;
 	}
 
-	public processed(useBaseCost: boolean = false): boolean {
+	public processed(useBaseCost = false): boolean {
 		return this.progress >= this.cost(useBaseCost);
 	}
 

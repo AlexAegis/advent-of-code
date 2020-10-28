@@ -8,7 +8,7 @@ export class HuffmannNode {
 		public code?: string
 	) {}
 
-	public toString(prefix: string = ''): string {
+	public toString(prefix = ''): string {
 		let s = `${prefix}${this.code ?? '('}:${this.frequency}\n`;
 		if (this.left) {
 			s += this.left.toString(prefix + '\t');
@@ -19,7 +19,7 @@ export class HuffmannNode {
 		return s;
 	}
 
-	public *codeTable(prefix: string = ''): IterableIterator<[string, string]> {
+	public *codeTable(prefix = ''): IterableIterator<[string, string]> {
 		if (this.left) {
 			yield* this.left.codeTable(prefix + '1');
 		}

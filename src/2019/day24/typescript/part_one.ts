@@ -5,27 +5,29 @@ import { parse } from './parse';
 
 export enum Tile {
 	BUG = '#',
-	EMTPY = '.'
+	EMTPY = '.',
 }
 
 export const bugDie = (adj: Vec2[], map: Tile[][]): boolean => {
-	return adj.map(a => map[a.y][a.x]).filter(t => t === Tile.BUG).length !== 1;
+	return adj.map((a) => map[a.y][a.x]).filter((t) => t === Tile.BUG).length !== 1;
 };
 
 export const infest = (adj: Vec2[], map: Tile[][]): boolean => {
-	const adjBugs = adj.map(a => map[a.y][a.x]).filter(t => t === Tile.BUG).length;
+	const adjBugs = adj.map((a) => map[a.y][a.x]).filter((t) => t === Tile.BUG).length;
 	return adjBugs === 1 || adjBugs === 2;
 };
 
 export const adjacents = (x: number, y: number): Vec2[] => {
 	const asCoord = new Vec2(x, y);
-	return Direction.directions.map(d => d.add(asCoord)).filter(c => c.x >= 0 && c.x < 5 && c.y >= 0 && c.y < 5);
+	return Direction.directions
+		.map((d) => d.add(asCoord))
+		.filter((c) => c.x >= 0 && c.x < 5 && c.y >= 0 && c.y < 5);
 };
 
 export const bio = (map: Tile[][]): number =>
 	map.flat().reduce((a, t, i) => (t === Tile.BUG ? a + Math.pow(2, i) : a), 0);
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	let map = parse(input) as Tile[][];
 
 	const history = new Set<number>();

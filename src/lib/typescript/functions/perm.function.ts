@@ -3,7 +3,7 @@ export const perm = (a: number[]): number[][] => {
 		return a.reduce(
 			(r: number[][], v: number, i: number) => [
 				...r,
-				...perm([...a.slice(0, i), ...a.slice(i + 1)]).map(x => [v, ...x])
+				...perm([...a.slice(0, i), ...a.slice(i + 1)]).map((x) => [v, ...x]),
 			],
 			[]
 		);

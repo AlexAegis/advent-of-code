@@ -1,6 +1,7 @@
 import { performance, PerformanceObserver } from 'perf_hooks';
 
 import { promises } from 'fs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 export type Awaitable<T> = Promise<T> | T;
@@ -59,14 +60,14 @@ export interface DayInputs<O = number, T = O, A = undefined> {
  *
  * @param label optional labeling
  */
-export const log = (label: string | undefined = undefined) =>
-	tap(o => (label ? console.log(label, o) : console.log(o)));
+export const log = <T>(label: string | undefined = undefined): MonoTypeOperatorFunction<T> =>
+	tap((o) => (label ? console.log(label, o) : console.log(o)));
 
 /**
  * Convinienence method to split up a long string into it's
  * non empty lines in an OS agnostic way
  */
-export const split = (input: string) => input.split(/\r?\n/).filter(line => !!line);
+export const split = (input: string): string[] => input.split(/\r?\n/).filter((line) => !!line);
 
 /**
  * Factory function to create an input supplier
@@ -75,20 +76,20 @@ export const split = (input: string) => input.split(/\r?\n/).filter(line => !!li
  * @param day of the task
  * @param file in the resources folder of the task
  */
-export const read = <A>(year: number, day: number, file: string = 'input.txt') => async (): Promise<
+export const read = <A>(year: number, day: number, file = 'input.txt') => async (): Promise<
 	Input<string, A>
 > => {
 	const baseUrl = `src/${year}/day${day < 10 ? '0' + day : day}/resources/`;
 
 	const [input, args] = await Promise.all([
 		promises.readFile(`${baseUrl}${file}`, {
-			encoding: 'utf-8'
+			encoding: 'utf-8',
 		}) as Promise<string>,
 		promises
 			.readFile(`${baseUrl}${file.split('.')[0]}.args.json`, {
-				encoding: 'utf-8'
+				encoding: 'utf-8',
 			})
-			.catch(() => undefined) as Promise<string>
+			.catch(() => undefined) as Promise<string>,
 	]);
 
 	return { input, args: args && JSON.parse(args) };
@@ -103,10 +104,10 @@ export const read = <A>(year: number, day: number, file: string = 'input.txt') =
 export const bench = async <T, R = string, A = undefined>(
 	reader: () => Awaitable<Input<T, A>>,
 	runner: (input: T, args: A | undefined) => Awaitable<R>
-) => {
+): Promise<R> => {
 	performance.mark('start');
-	const obs = new PerformanceObserver(list => {
-		list.getEntries().forEach(entry => {
+	const obs = new PerformanceObserver((list) => {
+		list.getEntries().forEach((entry) => {
 			console.log(`${entry.name}: ${entry.duration} ms`);
 		});
 	});
@@ -128,9 +129,9 @@ export const bench = async <T, R = string, A = undefined>(
 	return result;
 };
 
-export const max = (acc: number, next: number) => (acc < next ? next : acc);
-export const min = (acc: number, next: number) => (acc > next ? next : acc);
-export const sum = (acc: number, next: number) => acc + next;
-export const mult = (acc: number, next: number) => acc * next;
-export const dup = (next: number) => next * 2;
-export const asc = (a: number, b: number) => a - b;
+export const max = (acc: number, next: number): number => (acc < next ? next : acc);
+export const min = (acc: number, next: number): number => (acc > next ? next : acc);
+export const sum = (acc: number, next: number): number => acc + next;
+export const mult = (acc: number, next: number): number => acc * next;
+export const dup = (next: number): number => next * 2;
+export const asc = (a: number, b: number): number => a - b;

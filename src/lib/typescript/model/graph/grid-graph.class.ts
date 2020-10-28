@@ -45,7 +45,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 
 	public getIntersections(matcher: (node?: N) => boolean): N[] {
 		return [...this.nodeMap.values()].filter(
-			node => matcher(node) && node.neighbours.every(n => matcher(n[0] as N))
+			(node) => matcher(node) && node.neighbours.every((n) => matcher(n[0] as N))
 		);
 	}
 }

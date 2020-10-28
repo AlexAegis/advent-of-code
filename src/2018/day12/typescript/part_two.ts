@@ -26,12 +26,15 @@ export const runner = (input: string): number | undefined => {
 			// console.log(`i: ${i + 1} cave: ${cave.toString()}`);
 			if (
 				counts.length > 4 &&
-				counts.slice(counts.length - 4, counts.length).every((next, _, arr) => next === arr[0])
+				counts
+					.slice(counts.length - 4, counts.length)
+					.every((next, _, arr) => next === arr[0])
 			) {
 				// console.log(`Stabilized, extrapolating to 50000000000`);
 				scores.push(
 					scores[scores.length - 1] +
-						(scores[scores.length - 1] - scores[scores.length - 2]) * (50000000000 - i - 1)
+						(scores[scores.length - 1] - scores[scores.length - 2]) *
+							(50000000000 - i - 1)
 				);
 				break;
 			}

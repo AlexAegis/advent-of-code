@@ -6,10 +6,10 @@ const fuel = (i: number): number => {
 	return f + (f > 0 ? fuel(f) : 0);
 };
 
-export const runner = (input: string) =>
+export const runner = (input: string): number =>
 	input
 		.split(/\r?\n/)
-		.map(n => fuel(Number(n)))
+		.map((n) => fuel(Number(n)))
 		.reduce((s, n) => s + n, 0);
 
 if (require.main === module) {

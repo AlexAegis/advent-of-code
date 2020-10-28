@@ -25,7 +25,7 @@ export class Vec2 implements Vec2Like {
 			this.x = x;
 			this.y = y;
 		} else if (typeof x === 'string') {
-			[this.x, this.y] = (x.match(NUM) || []).map(s => parseInt(s, 10));
+			[this.x, this.y] = (x.match(NUM) || []).map((s) => parseInt(s, 10));
 		}
 	}
 
@@ -36,21 +36,21 @@ export class Vec2 implements Vec2Like {
 		return a.x === b.x ? a.y - b.y : a.x - b.x;
 	}
 
-	public add(coord: Vec2Like, times: number = 1): Vec2 {
+	public add(coord: Vec2Like, times = 1): Vec2 {
 		return new Vec2(this.x + coord.x * times, this.y + coord.y * times);
 	}
 
-	public addMut(coord: Vec2Like, times: number = 1): Vec2 {
+	public addMut(coord: Vec2Like, times = 1): Vec2 {
 		this.x += coord.x * times;
 		this.y += coord.y * times;
 		return this;
 	}
 
-	public sub(o: Vec2, times: number = 1): Vec2 {
+	public sub(o: Vec2, times = 1): Vec2 {
 		return new Vec2(this.x - o.x * times, this.y - o.y * times);
 	}
 
-	public subMut(o: Vec2, times: number = 1): Vec2 {
+	public subMut(o: Vec2, times = 1): Vec2 {
 		this.x -= o.x * times;
 		this.y -= o.y * times;
 		return this;
@@ -102,17 +102,17 @@ export class Vec2 implements Vec2Like {
 
 	public los(f: Vec2[]): Vec2[] {
 		return f
-			.filter(fo => !fo.equals(this))
+			.filter((fo) => !fo.equals(this))
 			.map(
-				o =>
+				(o) =>
 					[...this.reach(o, false, true)]
-						.filter(l => f.find(fi => fi.equals(l)))
+						.filter((l) => f.find((fi) => fi.equals(l)))
 						.sort((a, b) => this.dist(a) - this.dist(b))
 						.shift() as Vec2
 			)
-			.filter(a => !!a)
+			.filter((a) => !!a)
 			.reduce((acc, n) => {
-				if (!acc.find(a => a.equals(n))) {
+				if (!acc.find((a) => a.equals(n))) {
 					acc.push(n);
 				}
 				return acc;

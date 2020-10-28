@@ -15,8 +15,12 @@ export class Mine {
 			for (let x = 0; x < this.width; x++) {
 				const coord: Coord = new Coord(x, y);
 				const rail = this.rail.get(coord.toString());
-				const carts: Cart[] = this.carts.filter(cart => cart.position.toString() === coord.toString());
-				const crashes: Coord[] = this.crashes.filter(c => c.toString() === coord.toString());
+				const carts: Cart[] = this.carts.filter(
+					(cart) => cart.position.toString() === coord.toString()
+				);
+				const crashes: Coord[] = this.crashes.filter(
+					(c) => c.toString() === coord.toString()
+				);
 				if (carts.length > 1 || crashes.length > 1) {
 					line += 'X';
 				} else if (carts.length === 1) {

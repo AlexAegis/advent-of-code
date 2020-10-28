@@ -5,11 +5,15 @@ import { parse } from './parse';
 
 export const pattern = [0, 1, 0, -1] as const;
 
-export const patternGet = (n: number, p: number) => {
+export const patternGet = (n: number, p: number): number => {
 	return pattern[Math.floor(n / p + 1 / p) % pattern.length];
 };
 
-export const phaser = (a: number[], c: number = 1, f: (a: number[], phase: number) => number[]): number[] => {
+export const phaser = (
+	a: number[],
+	c = 1,
+	f: (a: number[], phase: number) => number[]
+): number[] => {
 	let p!: number[];
 	for (let phase = 0; phase < c; phase++) {
 		p = f(p || a, phase);
@@ -17,7 +21,7 @@ export const phaser = (a: number[], c: number = 1, f: (a: number[], phase: numbe
 	return p;
 };
 
-export const fft = (m: number = 1) => (a: number[], _phase: number): number[] => {
+export const fft = (m = 1) => (a: number[], _phase: number): number[] => {
 	const p = [];
 
 	const alen = a.length;
@@ -40,11 +44,9 @@ export const fft = (m: number = 1) => (a: number[], _phase: number): number[] =>
 	return p;
 };
 
-export const runner = (input: string) => {
+export const runner = (input: string): string => {
 	const a = parse(input.repeat(1));
-	return phaser(a, 1, fft(1))
-		.slice(0, 8)
-		.join('');
+	return phaser(a, 1, fft(1)).slice(0, 8).join('');
 };
 
 if (require.main === module) {

@@ -1,7 +1,7 @@
 export enum Notable {
 	CENTER = 'COM',
 	YOU = 'YOU',
-	SAN = 'SAN'
+	SAN = 'SAN',
 }
 
 export class Planet implements Iterable<Planet> {
@@ -35,6 +35,6 @@ export class Planet implements Iterable<Planet> {
 	}
 
 	public toString(): string {
-		return `${this.name} o: ${this.orbiters.map(o => o.name)}`;
+		return `${this.name} o: ${this.orbiters.map((o) => o.name)}`;
 	}
 }

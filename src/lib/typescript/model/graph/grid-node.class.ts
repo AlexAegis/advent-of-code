@@ -31,7 +31,7 @@ export class GridNode<T = string> extends Node<T> {
 
 	public attachNeightbours(graph: Graph<T, this>, h?: Heuristic<T, this>): Vertice<this>[] {
 		Direction.directions
-			.map(d => graph.nodeMap.get(this.p.add(d).toString()))
+			.map((d) => graph.nodeMap.get(this.p.add(d).toString()))
 			.forEach((n, i) => {
 				if (n) {
 					this.neighbours[i][0] = n;

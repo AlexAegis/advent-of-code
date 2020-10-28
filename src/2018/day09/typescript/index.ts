@@ -11,9 +11,9 @@ export const results: DayResults = {
 		example2: 146373,
 		example3: 2764,
 		example4: 54718,
-		example5: 37305
+		example5: 37305,
 	},
 	two: {
-		input: 2945918550
-	}
+		input: 2945918550,
+	},
 };

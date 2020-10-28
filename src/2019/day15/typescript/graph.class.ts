@@ -39,7 +39,6 @@ export class GridGraphNode {
 
 // tslint:disable-next-line: max-classes-per-file
 export class GridGraph {
-	public constructor() {}
 	public limit = 40;
 
 	public nodeCount = 1;
@@ -65,6 +64,7 @@ export class GridGraph {
 
 		const possNexts = current.children(current) || [];
 		console.log('possNexts', possNexts.length, possNexts);
+		// eslint-disable-next-line prefer-const
 		for (let [move, inDir, child] of possNexts) {
 			console.log('MOVING', inDir.reverse('v').marker);
 			// For every possible direction except the previous and deadends
@@ -74,19 +74,31 @@ export class GridGraph {
 
 				switch (move) {
 					case Move.NORTH:
-						child = current.north = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.north = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 					case Move.EAST:
-						child = current.east = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.east = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 					case Move.SOUTH:
-						child = current.south = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.south = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 					case Move.WEST:
-						child = current.west = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.west = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 				}
@@ -141,14 +153,15 @@ export class GridGraph {
 			return [[...path, current], true];
 		} else if (path.length >= this.limit) {
 			return [undefined, false];
-		} else if (path.slice(0, path.length - 2).find(p => p.pos === current.pos)) {
+		} else if (path.slice(0, path.length - 2).find((p) => p.pos === current.pos)) {
 			console.log('BEEN THERE, RETURN');
 			return [undefined, false];
 		}
 
 		let childrenExceptPrev = current.children(previous);
 		childrenExceptPrev = childrenExceptPrev.filter(
-			([_, __, cep]) => cep === undefined || path.find(p => cep.pos.equals(p.pos)) === undefined
+			([_, __, cep]) =>
+				cep === undefined || path.find((p) => cep.pos.equals(p.pos)) === undefined
 		);
 		// console.log('childrenExceptPrev: ', childrenExceptPrev);
 
@@ -156,6 +169,7 @@ export class GridGraph {
 		if (childrenExceptPrev.length === 0) {
 			current.deadend = true;
 		}
+		// eslint-disable-next-line prefer-const
 		for (let [move, inDir, child] of childrenExceptPrev || []) {
 			// For every possible direction except the previous and deadends
 			const stat = control(inDir);
@@ -164,19 +178,31 @@ export class GridGraph {
 
 				switch (move) {
 					case Move.NORTH:
-						child = current.north = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.north = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 					case Move.EAST:
-						child = current.east = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.east = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 					case Move.SOUTH:
-						child = current.south = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.south = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 					case Move.WEST:
-						child = current.west = new GridGraphNode(current.pos.add(inDir), statusToTile(stat));
+						child = current.west = new GridGraphNode(
+							current.pos.add(inDir),
+							statusToTile(stat)
+						);
 						this.nodeCount++;
 						break;
 				}
@@ -196,9 +222,20 @@ export class GridGraph {
 					break;
 			}
 
-			console.log('LETS TRY', inDir.marker, child.pos.toString(), child.deadend, this.nodeCount);
+			console.log(
+				'LETS TRY',
+				inDir.marker,
+				child.pos.toString(),
+				child.deadend,
+				this.nodeCount
+			);
 			if (child?.tile !== Tile.WALL) {
-				const [result, found] = this.search(current, [current, child], control, winCondition);
+				const [result, found] = this.search(
+					current,
+					[current, child],
+					control,
+					winCondition
+				);
 				if (result && found) {
 					return [result, found];
 				}

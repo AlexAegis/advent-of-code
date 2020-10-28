@@ -3,7 +3,7 @@ import { day, year } from '.';
 import { parse } from './parse';
 import { hasBeam } from './part_one';
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const tape = parse(input);
 	const targetSide = 100 - 1;
 	let prevX = 0;

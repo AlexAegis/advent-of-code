@@ -3,7 +3,7 @@ import { Vec2 } from '@lib/model';
 export enum Tile {
 	WALL = '#',
 	EMPTY = '.',
-	ENTRANCE = '@'
+	ENTRANCE = '@',
 }
 
 export type Key = string;
@@ -15,13 +15,18 @@ export const keyMatcher = /[a-z]/;
 export const parseLines = (input: string): string[][] => {
 	return input
 		.split(/\r?\n/)
-		.filter(line => !!line)
-		.map(line => line.split(''));
+		.filter((line) => !!line)
+		.map((line) => line.split(''));
 };
 
 export const parseMatrix = (
 	matrix: string[][]
-): { map: Map<string, Tile | Key | Door>; keys: Map<string, Vec2>; doors: Map<string, Vec2>; size: Vec2 } => {
+): {
+	map: Map<string, Tile | Key | Door>;
+	keys: Map<string, Vec2>;
+	doors: Map<string, Vec2>;
+	size: Vec2;
+} => {
 	const map = new Map<string, string>();
 	const keys = new Map<string, Vec2>();
 	const doors = new Map<string, Vec2>();

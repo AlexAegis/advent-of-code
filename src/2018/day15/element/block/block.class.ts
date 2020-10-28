@@ -7,7 +7,7 @@ export abstract class Block extends Element {
 		super(tile);
 	}
 
-	get vertices() {
+	get vertices(): Vertice[] {
 		return this._vertices;
 	}
 	/*

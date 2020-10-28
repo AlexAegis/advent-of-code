@@ -6,10 +6,10 @@ import { parse } from './parse';
 export enum COLOR {
 	BLACK = 0,
 	WHITE = 1,
-	TRANSPARENT = 2
+	TRANSPARENT = 2,
 }
 
-export const runner = (input: string) => {
+export const runner = (input: string): string => {
 	const h = 6;
 	const w = 25;
 
@@ -30,9 +30,9 @@ export const runner = (input: string) => {
 		'\n' +
 		chunksOfArray(merged, w)
 			.map(
-				l =>
+				(l) =>
 					l
-						.map(n => {
+						.map((n) => {
 							switch (n) {
 								case COLOR.BLACK:
 									return '`';

@@ -11,7 +11,7 @@ export class Cave {
 	 * Ensures correct order
 	 */
 	*units(): IterableIterator<Creature | undefined> {
-		for (const tile of this.grid.filter(t => t instanceof Ground && (t as Ground).occupant)) {
+		for (const tile of this.grid.filter((t) => t instanceof Ground && (t as Ground).occupant)) {
 			yield (tile as Ground).occupant;
 		}
 	}

@@ -4,7 +4,7 @@ import { day, year } from '.';
 import { parse } from './parse';
 import { execute } from './part_one';
 
-export const runner = (print: boolean = false) => (input: string) => {
+export const runner = (print = false) => (input: string): number | undefined => {
 	const i = new IntCodeComputer(parse(input));
 
 	i.pushAsciiInput(
@@ -17,7 +17,7 @@ export const runner = (print: boolean = false) => (input: string) => {
 			'OR H J', //  J = E OR H
 			'AND T J', // J = (!A OR !B OR !C) AND (E OR H)
 			'AND D J', // J = (!A OR !B OR !C) AND (E OR H) AND D
-			'RUN'
+			'RUN',
 		].join('\n')
 	);
 

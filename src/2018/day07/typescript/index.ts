@@ -10,10 +10,10 @@ export interface Args {
 export const results: DayResults<string, number> = {
 	one: {
 		input: 'GRTAHKLQVYWXMUBCZPIJFEDNSO',
-		example: 'CABDFE'
+		example: 'CABDFE',
 	},
 	two: {
 		input: 1115,
-		example: 15
-	}
+		example: 15,
+	},
 };

@@ -15,7 +15,7 @@ export const runner = (input: string, args: Args | undefined): number | undefine
 	let boundaryBottom: Coord | undefined;
 	let boundaryLeft: Coord | undefined;
 
-	points.forEach(point => {
+	points.forEach((point) => {
 		if (boundaryTop === undefined || boundaryTop.y >= point.y) {
 			boundaryTop = point;
 		}
@@ -36,7 +36,10 @@ export const runner = (input: string, args: Args | undefined): number | undefine
 		let area = 0;
 		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
 			for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
-				if (points.map(a => a.manhattan(x, y)).reduce((acc, next) => (acc += next)) < (args ? args.limit : 0)) {
+				if (
+					points.map((a) => a.manhattan(x, y)).reduce((acc, next) => (acc += next)) <
+					(args ? args.limit : 0)
+				) {
 					area++;
 				}
 			}

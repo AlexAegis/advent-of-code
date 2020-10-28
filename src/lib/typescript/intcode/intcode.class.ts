@@ -66,7 +66,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 
 	public pushAsciiInput(input: string, nl = true): this {
 		if (nl) input += '\n';
-		return this.pushInput(...[...input].map(s => s.charCodeAt(0)));
+		return this.pushInput(...[...input].map((s) => s.charCodeAt(0)));
 	}
 
 	public pushInputIfEmpty(input: number): boolean {
@@ -126,7 +126,11 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	}
 
 	private getArg(v: number, n: number, asIndex = false, mode?: Mode): number {
-		return this.getValue(this.cursor + n + 1, mode === undefined ? this.getMode(v, n) : mode, asIndex);
+		return this.getValue(
+			this.cursor + n + 1,
+			mode === undefined ? this.getMode(v, n) : mode,
+			asIndex
+		);
 	}
 
 	private getMode(v: number, n: number): Mode | undefined {

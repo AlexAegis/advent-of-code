@@ -11,8 +11,8 @@ const EMTPY_GEN = [...Array(5)].map(() => [...Array(5)].map(() => Tile.EMTPY));
 export const recursiveAdjacents = (x: number, y: number, d: number): Vec3[] => {
 	const v = new Vec3(x, y, d);
 	return Direction.directions
-		.map(dir => v.add({ ...dir, z: 0 }))
-		.flatMap(dir => {
+		.map((dir) => v.add({ ...dir, z: 0 }))
+		.flatMap((dir) => {
 			if (dir.x < 0) {
 				return [new Vec3(1, 2, d - 1)]; // The left from the middle one, one level below
 			} else if (dir.x > 4) {
@@ -24,13 +24,13 @@ export const recursiveAdjacents = (x: number, y: number, d: number): Vec3[] => {
 			} else if (dir.x === 2 && dir.y === 2) {
 				// Points to the inner dimension, one level above
 				if (v.x === 3) {
-					return ZT5.map(i => new Vec3(4, i, d + 1)); // Whole right side one level above
+					return ZT5.map((i) => new Vec3(4, i, d + 1)); // Whole right side one level above
 				} else if (v.x === 1) {
-					return ZT5.map(i => new Vec3(0, i, d + 1)); // Whole left side one level above
+					return ZT5.map((i) => new Vec3(0, i, d + 1)); // Whole left side one level above
 				} else if (v.y === 3) {
-					return ZT5.map(i => new Vec3(i, 4, d + 1)); // Whole bottom side one level above
+					return ZT5.map((i) => new Vec3(i, 4, d + 1)); // Whole bottom side one level above
 				} else if (v.y === 1) {
-					return ZT5.map(i => new Vec3(i, 0, d + 1)); // Whole top side one level above
+					return ZT5.map((i) => new Vec3(i, 0, d + 1)); // Whole top side one level above
 				}
 			}
 			return [dir];
@@ -38,11 +38,16 @@ export const recursiveAdjacents = (x: number, y: number, d: number): Vec3[] => {
 };
 
 export const isDie = (adj: Vec3[], map: Map<number, Tile[][]>): boolean => {
-	return adj.map(a => (map.get(a.z) as any)?.[a.y][a.x] ?? Tile.EMTPY).filter(t => t === Tile.BUG).length !== 1;
+	return (
+		adj.map((a) => map.get(a.z)?.[a.y][a.x] ?? Tile.EMTPY).filter((t) => t === Tile.BUG)
+			.length !== 1
+	);
 };
 
 export const isBirth = (adj: Vec3[], map: Map<number, Tile[][]>): boolean => {
-	const adjBugs = adj.map(a => (map.get(a.z) as any)?.[a.y][a.x] ?? Tile.EMTPY).filter(t => t === Tile.BUG).length;
+	const adjBugs = adj
+		.map((a) => map.get(a.z)?.[a.y][a.x] ?? Tile.EMTPY)
+		.filter((t) => t === Tile.BUG).length;
 	return adjBugs === 1 || adjBugs === 2;
 };
 
@@ -55,15 +60,15 @@ const shrink = (level: Map<number, Tile[][]>): void => {
 	const low = level.get(lowKey);
 	const highKey = [...level.keys()].reduce(max);
 	const high = level.get(highKey);
-	if (low && low.flat().filter(t => t === Tile.BUG).length === 0) {
+	if (low && low.flat().filter((t) => t === Tile.BUG).length === 0) {
 		level.delete(lowKey);
 	}
-	if (high && high.flat().filter(t => t === Tile.BUG).length === 0) {
+	if (high && high.flat().filter((t) => t === Tile.BUG).length === 0) {
 		level.delete(highKey);
 	}
 };
 
-export const runner = (genTarget: number = 200) => (input: string) => {
+export const runner = (genTarget = 200) => (input: string): number => {
 	let levels = new Map<number, Tile[][]>();
 	levels.set(0, parse(input) as Tile[][]);
 
@@ -98,7 +103,7 @@ export const runner = (genTarget: number = 200) => (input: string) => {
 		levels = nextLevels;
 		shrink(levels);
 	}
-	return [...levels.values()].flat(2).filter(t => t === Tile.BUG).length;
+	return [...levels.values()].flat(2).filter((t) => t === Tile.BUG).length;
 };
 
 if (require.main === module) {

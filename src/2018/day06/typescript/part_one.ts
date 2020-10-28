@@ -10,7 +10,7 @@ export const runner = (input: string): number | undefined => {
 	let boundaryBottom: Coord | undefined;
 	let boundaryLeft: Coord | undefined;
 
-	points.forEach(point => {
+	points.forEach((point) => {
 		if (boundaryTop === undefined || boundaryTop.y >= point.y) {
 			boundaryTop = point;
 		}
@@ -34,7 +34,9 @@ export const runner = (input: string): number | undefined => {
 		}
 		for (let x = boundaryStart.x; x < boundaryEnd.x; x++) {
 			for (let y = boundaryStart.y; y < boundaryEnd.y; y++) {
-				const ordered: Coord[] = points.sort((a, b) => a.manhattan(x, y) - b.manhattan(x, y));
+				const ordered: Coord[] = points.sort(
+					(a, b) => a.manhattan(x, y) - b.manhattan(x, y)
+				);
 				if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
 					const b = bucket.get(ordered[0].toString());
 					if (b) {
@@ -44,10 +46,10 @@ export const runner = (input: string): number | undefined => {
 			}
 		}
 		const bound: number[] = [];
-		bucket.forEach(territory => {
+		bucket.forEach((territory) => {
 			if (
 				!territory.some(
-					point =>
+					(point) =>
 						point.x <= boundaryStart.x ||
 						point.y <= boundaryStart.y ||
 						point.x >= boundaryEnd.x ||

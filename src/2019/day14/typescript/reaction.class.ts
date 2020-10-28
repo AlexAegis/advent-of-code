@@ -10,7 +10,7 @@ export class Reaction {
 	public constructor(input: string, output: string) {
 		input
 			.split(', ')
-			.map(r => r.split(' '))
+			.map((r) => r.split(' '))
 			.forEach(([q, n]) => this.from.set(n, parseInt(q, 10)));
 
 		const [toq, to] = output.split(' ');
@@ -19,7 +19,9 @@ export class Reaction {
 	}
 
 	public toString(): string {
-		return `${[...this.from.entries()].map(([n, q]) => q + ' ' + n).join(', ')} => ${this.toq} ${this.to}`;
+		return `${[...this.from.entries()].map(([n, q]) => q + ' ' + n).join(', ')} => ${
+			this.toq
+		} ${this.to}`;
 	}
 
 	public oreCost(surplus: Map<string, number>): number {

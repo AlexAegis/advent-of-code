@@ -32,12 +32,11 @@ export const runner = (input: string): number | undefined => {
 	let mostSleptGuard = -1;
 	[...guards].forEach(([guard, sleepMap]) => {
 		if (sleepMap.size > 0) {
-			const totalSleep: [number, number] = [...sleepMap].reduce(([prevMinute, prevSleep], [currMin, currSleep]): [
-				number,
-				number
-			] => {
-				return [prevMinute < currMin ? currMin : prevMinute, prevSleep + currSleep];
-			});
+			const totalSleep: [number, number] = [...sleepMap].reduce(
+				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
+					return [prevMinute < currMin ? currMin : prevMinute, prevSleep + currSleep];
+				}
+			);
 			if (totalSleep[1] > mostSlept) {
 				mostSlept = totalSleep[1];
 				mostSleptGuard = guard;
@@ -55,7 +54,9 @@ export const runner = (input: string): number | undefined => {
 			}
 		);
 
-		console.log(`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`);
+		console.log(
+			`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`
+		);
 		return mostSleptGuard * mostSleptMinute[0];
 	} else {
 		return undefined;

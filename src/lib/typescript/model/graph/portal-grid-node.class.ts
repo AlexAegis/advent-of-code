@@ -14,10 +14,15 @@ export class PortalGridNode<T = string> extends GridNode<T> {
 		return this.neighbours[4];
 	}
 
-	public attachNeightbours(graph: PortalGridGraph<T, this>, h?: Heuristic<T, this>): Vertice<this>[] {
+	public attachNeightbours(
+		graph: PortalGridGraph<T, this>,
+		h?: Heuristic<T, this>
+	): Vertice<this>[] {
 		super.attachNeightbours(graph, h);
 		if (this.portalLabel && !this.portal) {
-			const o = [...graph.nodeMap.entries()].find(([_, v]) => v.portalLabel === this.portalLabel)?.[1];
+			const o = [...graph.nodeMap.entries()].find(
+				([_, v]) => v.portalLabel === this.portalLabel
+			)?.[1];
 			if (o) {
 				this.neighbours[4][0] = o;
 				o.neighbours[4][0] = this;

@@ -6,10 +6,10 @@ export const day = 1;
 export const results: DayResults = {
 	one: {
 		input: 408,
-		example: 4
+		example: 4,
 	},
 	two: {
 		input: 55250,
-		example: 10
-	}
+		example: 10,
+	},
 };

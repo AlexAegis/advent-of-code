@@ -2,7 +2,7 @@ import { bench, read, split } from '@lib';
 import { day, year } from '.';
 import { interpret } from './interpret.function';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const fabric: Map<string, number[]> = new Map<string, number[]>(); // Contains each claim for each coordinate
 	for (const line of split(input)) {
 		const claim = interpret(line);

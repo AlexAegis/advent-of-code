@@ -8,9 +8,7 @@ export const hashSearch = (zeroes: number) => (input: string): number => {
 	let i = 1;
 	let hash = '';
 	while (!hash.startsWith(lead)) {
-		hash = createHash(HASH, {})
-			.update(`${input}${i}`)
-			.digest(DIGEST);
+		hash = createHash(HASH, {}).update(`${input}${i}`).digest(DIGEST);
 		i++;
 	}
 	return i - 1;

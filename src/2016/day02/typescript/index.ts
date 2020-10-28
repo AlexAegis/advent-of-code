@@ -5,9 +5,9 @@ export const day = 1;
 
 export const results: DayResults = {
 	one: {
-		input: 300
+		input: 300,
 	},
 	two: {
-		input: 159
-	}
+		input: 159,
+	},
 };

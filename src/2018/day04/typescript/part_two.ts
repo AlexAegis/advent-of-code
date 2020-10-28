@@ -38,7 +38,7 @@ export const runner = (input: string): number => {
 				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
 					return [
 						prevSleep < currSleep ? currMin : prevMinute,
-						prevSleep < currSleep ? currSleep : prevSleep
+						prevSleep < currSleep ? currSleep : prevSleep,
 					];
 				}
 			);

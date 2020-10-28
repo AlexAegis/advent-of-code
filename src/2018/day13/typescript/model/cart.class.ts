@@ -30,9 +30,13 @@ export class Cart {
 	}
 
 	isCrashed(mine: Mine): boolean {
-		const crashing = mine.carts.filter(cart => cart.position.toString() === this.position.toString());
+		const crashing = mine.carts.filter(
+			(cart) => cart.position.toString() === this.position.toString()
+		);
 		if (crashing.length > 1) {
-			mine.carts = mine.carts.filter(cart => cart.position.toString() !== this.position.toString());
+			mine.carts = mine.carts.filter(
+				(cart) => cart.position.toString() !== this.position.toString()
+			);
 		}
 		return crashing.length > 1;
 	}

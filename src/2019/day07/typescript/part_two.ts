@@ -6,7 +6,7 @@ import { parse } from './parse';
 
 export const PHASE = [5, 6, 7, 8, 9];
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const a = parse(input);
 	const p = perm(PHASE);
 
@@ -39,7 +39,8 @@ export const runner = (input: string) => {
 			const resD = iterD.next().value as number;
 			ampE.pushInput(resD);
 			const resE = iterE.next().value as number;
-			someHalt = ampA.isHalt() || ampB.isHalt() || ampC.isHalt() || ampD.isHalt() || ampE.isHalt();
+			someHalt =
+				ampA.isHalt() || ampB.isHalt() || ampC.isHalt() || ampD.isHalt() || ampE.isHalt();
 			if (resE !== undefined) {
 				prev = resE;
 			}

@@ -9,10 +9,14 @@ describe(`2018 - Day 13 - Part Two`, () => {
 	});
 
 	it(`should resolve to ${results.two.example1} when using the example`, async () => {
-		expect(await runner((await read(year, day, 'example.1.txt')()).input)).to.equal(results.two.example1);
+		expect(await runner((await read(year, day, 'example.1.txt')()).input)).to.equal(
+			results.two.example1
+		);
 	});
 
 	it(`should resolve to ${results.two.example2} when using the example`, async () => {
-		expect(await runner((await read(year, day, 'example.2.txt')()).input)).to.equal(results.two.example2);
+		expect(await runner((await read(year, day, 'example.2.txt')()).input)).to.equal(
+			results.two.example2
+		);
 	});
 });
