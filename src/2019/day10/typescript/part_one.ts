@@ -11,12 +11,12 @@ export interface CoordWithLosCount {
 
 export const mostLos = (flat: Vec2[]): CoordWithLosCount | undefined => {
 	return flat
-		.map(f => ({
+		.map((f) => ({
 			losCount: flat
-				.filter(fo => !fo.equals(f))
-				.map(o => iterate(f.reach(o)).find(l => !!flat.find(fl => fl.equals(l))))
-				.filter(n => !n).length,
-			coord: f
+				.filter((fo) => !fo.equals(f))
+				.map((o) => iterate(f.reach(o)).find((l) => !!flat.find((fl) => fl.equals(l))))
+				.filter((n) => !n).length,
+			coord: f,
 		}))
 		.reduce(
 			(a, n) => (a === undefined ? n : n.losCount > a.losCount ? n : a),
@@ -24,7 +24,7 @@ export const mostLos = (flat: Vec2[]): CoordWithLosCount | undefined => {
 		);
 };
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number | undefined => {
 	return mostLos([...parseLines(input).values()])?.losCount;
 };
 

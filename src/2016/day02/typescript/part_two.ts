@@ -3,7 +3,7 @@ import { Direction } from '@lib/model/direction.class';
 import { Vec2 } from '@lib/model/vec2.class';
 import { day, year } from '.';
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const acc = { position: Vec2.ORIGO, direction: Direction.NORTH, history: new Set<string>() };
 	loop: for (const next of input.split(', ')) {
 		if (next[0] === 'R') acc.direction = acc.direction.right();

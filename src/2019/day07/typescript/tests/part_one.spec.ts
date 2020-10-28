@@ -13,9 +13,9 @@ describe(`2019 - Day 7 - Part One`, () => {
 	});
 
 	it('should be that that both the first examples resolves to 54321', async () => {
-		expect(await runner('3,23,3,24,1002,24,10,24,1002,23,-1,23,101,5,23,23,1,24,23,23,4,23,99,0,0')).to.equal(
-			54321
-		);
+		expect(
+			await runner('3,23,3,24,1002,24,10,24,1002,23,-1,23,101,5,23,23,1,24,23,23,4,23,99,0,0')
+		).to.equal(54321);
 	});
 
 	it('should be that that both the first examples resolves to 54321', async () => {

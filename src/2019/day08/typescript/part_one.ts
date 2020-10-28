@@ -3,17 +3,17 @@ import { chunksOfArray } from '@lib/functions/chunks-of-array.function';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const h = 6;
 	const w = 25;
 
 	const lines = parse(input);
 
 	const resultLine = chunksOfArray(lines, h * w)
-		.map(layer => [layer, layer.filter(n => n === 0).length])
+		.map((layer) => [layer, layer.filter((n) => n === 0).length])
 		.reduce((a, n) => (n[1] < a[1] ? n : a), [[] as number[], Infinity])[0] as number[];
 
-	return resultLine.filter(n => n === 1).length * resultLine.filter(n => n === 2).length;
+	return resultLine.filter((n) => n === 1).length * resultLine.filter((n) => n === 2).length;
 };
 
 if (require.main === module) {

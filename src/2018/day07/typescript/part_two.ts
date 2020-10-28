@@ -21,9 +21,10 @@ export class Worker {
 				if (
 					node.available() &&
 					this.graph.vertices.filter(
-						vertice =>
+						(vertice) =>
 							vertice.to === node &&
-							(!vertice.fulfilled(this.withBaseCost) || vertice.from.finishedOnTick === tick)
+							(!vertice.fulfilled(this.withBaseCost) ||
+								vertice.from.finishedOnTick === tick)
 					).length === 0
 				) {
 					this.workingOn = node;
@@ -33,7 +34,9 @@ export class Worker {
 			// This means that this worker couldn't find any jobs. Time to retire.
 			finished =
 				finished ||
-				this.graph.nodes.filter(node => node.available() || !node.processed(this.withBaseCost)).length === 0;
+				this.graph.nodes.filter(
+					(node) => node.available() || !node.processed(this.withBaseCost)
+				).length === 0;
 		}
 		// if he's working, then do his work
 		if (this.workingOn && !this.workingOn.processed(this.withBaseCost)) {
@@ -57,8 +60,8 @@ const interpret = (input: string): Graph => {
 
 	for (const line of split(input)) {
 		const splitLine: string[] = line.split(/ /);
-		let from: Node | undefined = graph.nodes.find(node => node.node === splitLine[1]);
-		let to: Node | undefined = graph.nodes.find(node => node.node === splitLine[7]);
+		let from: Node | undefined = graph.nodes.find((node) => node.node === splitLine[1]);
+		let to: Node | undefined = graph.nodes.find((node) => node.node === splitLine[7]);
 		if (!from) {
 			from = new Node(splitLine[1]);
 			graph.nodes.push(from);
@@ -96,7 +99,7 @@ const interpret = (input: string): Graph => {
 export const runner = (input: string, args: Args = { workers: 2 }): number => {
 	const graph: Graph = interpret(input);
 
-	const workers = [...Array(args.workers)].map(i => new Worker(i, graph, args.workers === 5));
+	const workers = [...Array(args.workers)].map((i) => new Worker(i, graph, args.workers === 5));
 
 	let done = false;
 	let tick = 0;

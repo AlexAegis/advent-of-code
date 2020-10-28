@@ -27,16 +27,16 @@ export class Node<T = string> implements ToString {
 		return this;
 	}
 
-	public appendNeighbour(n: this, w: number = 0) {
+	public appendNeighbour(n: this, w = 0): void {
 		this.neighbours.push([n, w]);
 	}
 
-	public toString(layer: number = 0): string {
+	public toString(layer = 0): string {
 		const toPrint = this.values.length > layer ? this.values[layer] : this.bottomValue;
 		if (typeof toPrint === 'string') {
 			return toPrint;
-		} else if ((toPrint as any).toString !== undefined) {
-			return (toPrint as any).toString();
+		} else if ((toPrint as { toString: () => string }).toString !== undefined) {
+			return (toPrint as { toString: () => string }).toString();
 		} else {
 			return ' ';
 		}

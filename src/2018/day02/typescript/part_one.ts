@@ -4,7 +4,7 @@ import { day, year } from '.';
 /**
  * Returns how many character repeats exactly 'times' times in the given string
  */
-const charRepeats = (line: string, times: number = 2): number => {
+const charRepeats = (line: string, times = 2): number => {
 	const processed: Map<string, number> = new Map();
 	for (const letter of line) {
 		if (!processed.has(letter)) {

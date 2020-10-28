@@ -1,10 +1,10 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
 
-export const runner = (input: string) =>
+export const runner = (input: string): number =>
 	input
 		.split(/\r?\n/)
-		.map(n => Math.floor(Number(n) / 3) - 2)
+		.map((n) => Math.floor(Number(n) / 3) - 2)
 		.reduce((s, n) => s + n, 0);
 
 if (require.main === module) {

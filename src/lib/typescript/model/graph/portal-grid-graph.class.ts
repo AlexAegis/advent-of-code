@@ -3,7 +3,10 @@ import { GridGraph } from './grid-graph.class';
 import { Heuristic } from './heuristic.type';
 import { PortalGridNode } from './portal-grid-node.class';
 
-export class PortalGridGraph<T = string, N extends PortalGridNode<T> = PortalGridNode<T>> extends GridGraph<T, N> {
+export class PortalGridGraph<
+	T = string,
+	N extends PortalGridNode<T> = PortalGridNode<T>
+> extends GridGraph<T, N> {
 	public constructor() {
 		super();
 	}

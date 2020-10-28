@@ -11,10 +11,10 @@ const interpret = async (input: string) => {
 
 	for (const line of split(input)) {
 		const splitLine: string[] = line.split(/ /);
-		if (!graph.nodes.find(node => node === splitLine[1])) {
+		if (!graph.nodes.find((node) => node === splitLine[1])) {
 			graph.nodes.push(splitLine[1]);
 		}
-		if (!graph.nodes.find(node => node === splitLine[7])) {
+		if (!graph.nodes.find((node) => node === splitLine[7])) {
 			graph.nodes.push(splitLine[7]);
 		}
 		graph.vertices.push({ from: splitLine[1], to: splitLine[7] });
@@ -45,9 +45,11 @@ export const runner = async (input: string): Promise<string> => {
 	const result: string[] = [];
 	while (unprocessedNodes.length !== 0) {
 		for (const node of unprocessedNodes) {
-			if (unprocessedVertices.filter(vertice => vertice.to === node).length === 0) {
+			if (unprocessedVertices.filter((vertice) => vertice.to === node).length === 0) {
 				unprocessedNodes.splice(unprocessedNodes.indexOf(node), 1);
-				unprocessedVertices = unprocessedVertices.filter(vertice => vertice.from !== node);
+				unprocessedVertices = unprocessedVertices.filter(
+					(vertice) => vertice.from !== node
+				);
 				result.push(node);
 				break;
 			}

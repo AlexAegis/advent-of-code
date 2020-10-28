@@ -21,7 +21,7 @@ export const execute = (i: IntCodeComputer, print = false): number | undefined =
 	return r;
 };
 
-export const runner = (print: boolean = false) => (input: string) => {
+export const runner = (print = false) => (input: string): number | undefined => {
 	const i = new IntCodeComputer(parse(input));
 
 	i.pushAsciiInput(
@@ -31,7 +31,7 @@ export const runner = (print: boolean = false) => (input: string) => {
 			'AND C J', // J = A AND B AND C
 			'NOT J J', // J = !A OR !B OR !C
 			'AND D J', // J = (!A OR !B OR !C) AND D
-			'WALK'
+			'WALK',
 		].join('\n')
 	);
 

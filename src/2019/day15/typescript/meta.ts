@@ -5,7 +5,7 @@ export enum Move {
 	NORTH = 1,
 	SOUTH = 2,
 	WEST = 3,
-	EAST = 4
+	EAST = 4,
 }
 
 export const getDirection = (move: Move): Direction => {
@@ -38,7 +38,7 @@ export const getMove = (direction: Direction): Move => {
 export enum Status {
 	WALL = 0,
 	MOVED = 1,
-	FINISHED = 2
+	FINISHED = 2,
 }
 
 export enum Tile {
@@ -46,7 +46,7 @@ export enum Tile {
 	EMPTY = '.',
 	OXY = 'O',
 	DROID = 'D',
-	UNKNOWN = '_'
+	UNKNOWN = '_',
 }
 
 export const statusToTile = (s: Status): Tile => {
@@ -68,7 +68,7 @@ export const draw = (m: Map<string, string>): void => {
 		printMatrix(
 			drawMapStatic(
 				m,
-				t => {
+				(t) => {
 					switch (t) {
 						case Tile.EMPTY:
 							return '  ';

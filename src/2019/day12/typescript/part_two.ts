@@ -15,15 +15,15 @@ export const findCycle = (ms: Moon[], ps: Moon[][], plane: 'x' | 'y' | 'z'): num
 			a.vel[plane] += d;
 			b.vel[plane] -= d;
 		});
-		ms.forEach(m => m.step(plane));
-		if (ms.every(m => m.vel.equals(Vec3.ORIGO))) {
+		ms.forEach((m) => m.step(plane));
+		if (ms.every((m) => m.vel.equals(Vec3.ORIGO))) {
 			return 2 + i * 2;
 		}
 	}
 };
 
-export const runner = (input: string) => {
-	const ms = parseLines(input).map(m => new Moon(m));
+export const runner = (input: string): number => {
+	const ms = parseLines(input).map((m) => new Moon(m));
 	const ps = pairs(ms);
 	const cx = findCycle(ms, ps, 'x');
 	const cy = findCycle(ms, ps, 'y');

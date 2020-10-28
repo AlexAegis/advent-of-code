@@ -14,7 +14,7 @@ export const interpreter = (input: string): Mine => {
 			mine.width = line.length;
 		}
 		[...line].forEach((letter, column) => {
-			if (Direction.directions.find(direction => direction === letter) !== undefined) {
+			if (Direction.directions.find((direction) => direction === letter) !== undefined) {
 				mine.carts.push(new Cart(new Coord(column, row), letter as DirectionMarker));
 				if (Direction.isHorizonal(letter as DirectionMarker)) {
 					letter = '-';

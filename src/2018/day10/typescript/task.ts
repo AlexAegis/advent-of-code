@@ -8,7 +8,7 @@ import { Vector } from './model/vector.class';
 export const normalize = (input: Vector[]): Vector[] => {
 	const { minX, minY } = boundary(input);
 	const norm = new Coord(minX, minY);
-	return input.map(vector => {
+	return input.map((vector) => {
 		vector.position.sub(norm);
 		return vector;
 	});
@@ -19,10 +19,10 @@ export const verticalArea = (b: Boundary): number => b.maxY - b.minY;
 
 export const boundary = (input: Vector[]): Boundary => {
 	return {
-		maxX: input.map(vector => vector.position.x).reduce(max),
-		minX: input.map(vector => vector.position.x).reduce(min),
-		maxY: input.map(vector => vector.position.y).reduce(max),
-		minY: input.map(vector => vector.position.y).reduce(min)
+		maxX: input.map((vector) => vector.position.x).reduce(max),
+		minX: input.map((vector) => vector.position.x).reduce(min),
+		maxY: input.map((vector) => vector.position.y).reduce(max),
+		minY: input.map((vector) => vector.position.y).reduce(min),
 	};
 };
 
@@ -30,7 +30,7 @@ export const print = (input: Vector[]): string => {
 	const { maxX, minX, maxY, minY } = boundary(input);
 	console.log(`maxX: ${maxX}, minX: ${minX}, maxY: ${maxY}, minY: ${minY}`);
 
-	const stars = input.map(vector => vector.position.toString());
+	const stars = input.map((vector) => vector.position.toString());
 
 	let pic = '';
 	for (let y = minY; y <= maxY; y++) {
@@ -47,8 +47,8 @@ export const runner = (input: string): number => {
 	const vectors = interpreter(input);
 	let minArea: number = area(boundary(vectors));
 	let i = 0;
-	while (true) {
-		vectors.forEach(vector => {
+	for (;;) {
+		vectors.forEach((vector) => {
 			vector.position.add(vector.velocity);
 		});
 		const currArea = verticalArea(boundary(vectors));
@@ -57,7 +57,7 @@ export const runner = (input: string): number => {
 		} else break;
 		i++;
 	}
-	vectors.forEach(vector => {
+	vectors.forEach((vector) => {
 		vector.position.sub(vector.velocity);
 	});
 	console.log(print(vectors)); // result of part one

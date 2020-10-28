@@ -3,7 +3,7 @@ import { rotateArrayTimes } from '@lib/functions';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export const runner = (deckSize: number = 10007) => (input: string) => {
+export const runner = (deckSize = 10007) => (input: string): number => {
 	const lines = parse(input);
 	let deck = [...Array(deckSize).keys()];
 	for (const line of lines) {
@@ -26,5 +26,6 @@ export const runner = (deckSize: number = 10007) => (input: string) => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day, 'example.4.txt'), runner())}`))(); // 6831 ~164ms
+	(async () =>
+		console.log(`Result: ${await bench(read(year, day, 'example.4.txt'), runner())}`))(); // 6831 ~164ms
 }

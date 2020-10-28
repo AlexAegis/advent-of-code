@@ -7,11 +7,11 @@ export const results: DayResults = {
 	one: {
 		input: 346386,
 		example: 609043,
-		example2: 1048970
+		example2: 1048970,
 	},
 	two: {
 		input: 9958218,
 		example: 6742839,
-		example2: 5714438
-	}
+		example2: 5714438,
+	},
 };

@@ -7,17 +7,17 @@ import { Creature } from './element/creature/creature.class';
 import { Element } from './element/element.class';
 import { elementFactory } from './element/element.factory';
 
-export const reader = (input: string = 'input'): Promise<Cave> =>
-	new Promise<Cave>(res => {
+export const reader = (input = 'input'): Promise<Cave> =>
+	new Promise<Cave>((res) => {
 		const cave: Cave = new Cave();
 		rl.createInterface({
-			input: createReadStream(`src/2018/day15/${input}.txt`)
+			input: createReadStream(`src/2018/day15/${input}.txt`),
 		})
-			.on('line', line => {
+			.on('line', (line) => {
 				if (!cave.width) {
 					cave.width = line.length;
 				}
-				[...line].forEach((letter, column) => {
+				[...line].forEach((letter, _column) => {
 					const element: Element = elementFactory(letter);
 					if (element instanceof Creature) {
 						const ground: Ground = elementFactory('.') as Ground;

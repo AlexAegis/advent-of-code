@@ -7,4 +7,4 @@ export const elementRepresentations: { [r: string]: () => Element } = Object.ass
 	blockRepresentations,
 	creatureRepresentations
 );
-export const elementFactory = (element: string) => elementRepresentations[element]();
+export const elementFactory = (element: string): Element => elementRepresentations[element]();

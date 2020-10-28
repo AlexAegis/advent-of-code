@@ -1,3 +1,4 @@
+/* eslint-disable prefer-rest-params */
 /**
  * Original by [Petka Antonov](https://github.com/petkaantonov/deque/blob/master/js/deque.js)
  * TypeScript refactor by me.
@@ -51,7 +52,13 @@ export class Deque<T> extends Array<T | undefined> {
 	_length: number;
 	_front: number;
 
-	static arrayMove<T>(src: Deque<T>, srcIndex: number, dst: Deque<T>, dstIndex: number, len: number): void {
+	static arrayMove<T>(
+		src: Deque<T>,
+		srcIndex: number,
+		dst: Deque<T>,
+		dstIndex: number,
+		len: number
+	): void {
 		for (let j = 0; j < len; ++j) {
 			dst[j + dstIndex] = src[j + srcIndex];
 			src[j + srcIndex] = undefined;
@@ -70,7 +77,9 @@ export class Deque<T> extends Array<T | undefined> {
 	}
 
 	static getCapacity(capacity: number): number {
-		return Deque.pow2AtLeast(Math.min(Math.max(Deque.MIN_CAPACITY, capacity), Deque.MAX_CAPACITY));
+		return Deque.pow2AtLeast(
+			Math.min(Math.max(Deque.MIN_CAPACITY, capacity), Deque.MAX_CAPACITY)
+		);
 	}
 
 	rotate(n: number): void {
@@ -161,7 +170,9 @@ export class Deque<T> extends Array<T | undefined> {
 			if (length + argsLength > c) {
 				for (let x = argsLength - 1; x >= 0; x--) {
 					this._checkCapacity(length + 1);
-					const j = (((this._front - 1) & (this._capacity - 1)) ^ this._capacity) - this._capacity;
+					const j =
+						(((this._front - 1) & (this._capacity - 1)) ^ this._capacity) -
+						this._capacity;
 					this[j] = arguments[x];
 					length++;
 					this._length = length;

@@ -10,13 +10,13 @@ export enum TileType {
 	WALL = 1,
 	BLOCK = 2,
 	PAD = 3,
-	BALL = 4
+	BALL = 4,
 }
 
 export enum Joy {
 	NEUT = 0,
 	LEFT = -1,
-	RIGHT = 1
+	RIGHT = 1,
 }
 
 export const tileToString = (t: TileType | undefined): string => {
@@ -42,7 +42,7 @@ const draw = (m: Map<string, number>, score: number): void => {
 	console.log(score + '\n' + printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
-export const runner = (render: boolean = false, speed = 10) => async (input: string) => {
+export const runner = (render = false, speed = 10) => async (input: string): Promise<number> => {
 	const comp = new IntCodeComputer(parse(input));
 	comp.tape.set(0, 2);
 	const i = comp.iter();

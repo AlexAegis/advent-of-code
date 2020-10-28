@@ -16,9 +16,11 @@ export const runner = (input: string): number | undefined => {
 			const los = start.los(flat);
 			if (los.length + d >= N) {
 				const sorted = rotateArray(
-					los.map(c => ({ c, angle: start.angle(c) })).sort((a, b) => a.angle - b.angle),
+					los
+						.map((c) => ({ c, angle: start.angle(c) }))
+						.sort((a, b) => a.angle - b.angle),
 					(_, c) => (c?.angle ?? 0) < -90
-				).map(a => a.c);
+				).map((a) => a.c);
 
 				for (const s of sorted) {
 					d++;
@@ -31,7 +33,7 @@ export const runner = (input: string): number | undefined => {
 				d += los.length;
 			}
 
-			flat = flat.filter(fl => !los.find(l => l.equals(fl)));
+			flat = flat.filter((fl) => !los.find((l) => l.equals(fl)));
 		}
 	}
 	return undefined;

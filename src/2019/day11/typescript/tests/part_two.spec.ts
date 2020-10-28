@@ -1,6 +1,6 @@
 // import { read } from '@lib';
 // import { expect } from 'chai';
-import { day, results, year } from '..';
+import { results } from '..';
 // import { runner } from '../part_two';
 
 describe(`2019 - Day 11 - Part Two`, () => {

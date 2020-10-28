@@ -4,8 +4,8 @@ import { day, year } from '.';
 import { Moon } from './model';
 import { parseLines } from './parse';
 
-export const runner = (target: number = 1000) => (input: string) => {
-	const ms = parseLines(input).map(m => new Moon(m));
+export const runner = (target = 1000) => (input: string): number => {
+	const ms = parseLines(input).map((m) => new Moon(m));
 	const ps = pairs(ms);
 	for (let i = 0; i < target; i++) {
 		ps.forEach(([a, b]) => {
@@ -21,7 +21,7 @@ export const runner = (target: number = 1000) => (input: string) => {
 			a.vel.z += z;
 			b.vel.z -= z;
 		});
-		ms.forEach(m => m.step());
+		ms.forEach((m) => m.step());
 	}
 	return ms.reduce((acc, m) => acc + m.totalEnergy(), 0);
 };

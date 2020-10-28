@@ -4,7 +4,7 @@ import { day, year } from '.';
 import { parse } from './parse';
 import { TileType } from './part_two';
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const i = new IntCodeComputer(parse(input)).iter();
 	let a = 0;
 	while (!i.next().done && !i.next().done) {

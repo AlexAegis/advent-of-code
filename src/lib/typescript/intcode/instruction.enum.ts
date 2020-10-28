@@ -8,7 +8,7 @@ export enum Instruction {
 	LT = 7,
 	EQ = 8,
 	REL = 9,
-	HALT = 99
+	HALT = 99,
 }
 
 export const isInstruction = (n: number): boolean => {

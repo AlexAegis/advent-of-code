@@ -8,7 +8,7 @@ import { parse } from './parse';
 
 export enum Tile {
 	SCAFFOLD = '#',
-	OPEN = '.'
+	OPEN = '.',
 }
 
 export class Vacuum {
@@ -21,7 +21,7 @@ const H = 50;
 export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 	const mat = drawMapStatic(
 		m,
-		t => {
+		(t) => {
 			switch (t) {
 				case Tile.SCAFFOLD:
 					return '##';
@@ -49,7 +49,10 @@ export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 	let vacuum!: Vacuum;
 	while (!i.isHalt()) {
 		const res = it.next().value;
-		const resc: DirectionMarker | Tile | '\n' = String.fromCharCode(res) as DirectionMarker | Tile | '\n';
+		const resc: DirectionMarker | Tile | '\n' = String.fromCharCode(res) as
+			| DirectionMarker
+			| Tile
+			| '\n';
 
 		switch (resc) {
 			case Tile.OPEN:
@@ -63,7 +66,10 @@ export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 			case DirectionMarker.SOUTH:
 			case DirectionMarker.WEST:
 				map.set(cursor.toString(), Tile.SCAFFOLD);
-				vacuum = new Vacuum(cursor.clone(), Direction.from(resc as DirectionMarker).reverse());
+				vacuum = new Vacuum(
+					cursor.clone(),
+					Direction.from(resc as DirectionMarker).reverse()
+				);
 				break;
 			case '\n':
 				cursor.x = -1;
@@ -75,10 +81,10 @@ export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 	return [map, vacuum];
 };
 
-export const runner = (input: string) =>
+export const runner = (input: string): number =>
 	GridGraph.fromMap(computeMap(input)[0])
-		.getIntersections(n => n?.value === Tile.SCAFFOLD)
-		.map(i => i.p.x * i.p.y)
+		.getIntersections((n) => n?.value === Tile.SCAFFOLD)
+		.map((i) => i.p.x * i.p.y)
 		.reduce(sum, 0);
 
 if (require.main === module) {

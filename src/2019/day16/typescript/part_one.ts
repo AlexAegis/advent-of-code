@@ -2,11 +2,11 @@ import { bench, read } from '@lib';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export const patternGet = (pattern: number[], forNum: number, phase: number) => {
+export const patternGet = (pattern: number[], forNum: number, phase: number): number => {
 	return pattern[Math.floor(forNum / (phase + 1) + 1 / (phase + 1)) % pattern.length];
 };
 
-export const ftt = (a: number[], messageOffset: number = 0, multiplier = 1): string | undefined => {
+export const ftt = (a: number[], messageOffset = 0, multiplier = 1): string | undefined => {
 	const pattern = [0, 1, 0, -1];
 
 	const target = 100;
@@ -31,11 +31,7 @@ export const ftt = (a: number[], messageOffset: number = 0, multiplier = 1): str
 	return q?.[0];
 };
 
-export const runner = (input: string) => {
-	const a = parse(input);
-
-	return ftt(a, 0, 1);
-};
+export const runner = (input: string): string | undefined => ftt(parse(input), 0, 1);
 
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 30369587 ~1081ms

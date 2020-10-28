@@ -3,7 +3,7 @@ import { day, year } from '.';
 
 export const runner = (input: string): number => {
 	const frequencyHistory = new Set();
-	const cache: number[] = input.split(/\r?\n/).map(s => Number(s));
+	const cache: number[] = input.split(/\r?\n/).map((s) => Number(s));
 	let sumTotal = 0;
 	let firstToBeTwice: number | undefined;
 

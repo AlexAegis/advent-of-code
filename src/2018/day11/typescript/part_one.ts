@@ -18,7 +18,9 @@ export const runner = (input: number): string => {
 
 	const max = [...range({ from: 1, to: 298 }, { from: 1, to: 298 })].reduce(
 		(acc, next) => {
-			const sum = [...next].map(c => map.get(c.toString()) || 0).reduce((a, n) => (a += n), 0);
+			const sum = [...next]
+				.map((c) => map.get(c.toString()) || 0)
+				.reduce((a, n) => (a += n), 0);
 			if (sum > acc.sum) {
 				acc.coord = next;
 				acc.sum = sum;

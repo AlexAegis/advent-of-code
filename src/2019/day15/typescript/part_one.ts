@@ -6,7 +6,7 @@ import { GridGraph, GridGraphNode } from './graph.class';
 import { draw, Status, Tile } from './meta';
 // import { parse } from './parse';
 
-export const runner = (print = false) => (_input: string) => {
+export const runner = (print = false) => (_input: string): string => {
 	// const i = new IntCodeComputer(parse(input));
 	// const it = i.iter();
 
@@ -41,7 +41,11 @@ export const runner = (print = false) => (_input: string) => {
 			const nextP = p.add(dir);
 			const nextTile = maze[nextP.x][nextP.y];
 			const s: Status =
-				nextTile === Tile.WALL ? Status.WALL : nextTile === Tile.OXY ? Status.FINISHED : Status.MOVED;
+				nextTile === Tile.WALL
+					? Status.WALL
+					: nextTile === Tile.OXY
+					? Status.FINISHED
+					: Status.MOVED;
 			if (s === Status.FINISHED) {
 				console.log('!!!!!!!!!!!!!!!!! FINISHED');
 			}
@@ -58,7 +62,7 @@ export const runner = (print = false) => (_input: string) => {
 
 			return s;
 		},
-		t => t === Tile.OXY
+		(t) => t === Tile.OXY
 	);
 
 	return JSON.stringify(res);

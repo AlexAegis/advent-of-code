@@ -6,12 +6,12 @@ import { parse } from './parse';
 
 export enum Color {
 	WHITE = '#',
-	BLACK = '.'
+	BLACK = '.',
 }
 
 export enum ColorCode {
 	WHITE = 1,
-	BLACK = 0
+	BLACK = 0,
 }
 
 export const colorCodeToColor = (cc?: ColorCode): Color => {
@@ -36,7 +36,7 @@ export const turnToDir = (cc: Turn): Direction => {
 
 export enum Turn {
 	LEFT = 0,
-	RIGHT = 1
+	RIGHT = 1,
 }
 /*
 export const drawMap = <T>(map: Map<string, T>, renderTile: (t: T) => string, defaultTile = '.'): string[][] => {
@@ -82,7 +82,7 @@ export const drawMap = <T>(
 
 export const printMatrix = (matrix: string[][]): string => {
 	return matrix
-		.map(row => row.join(''))
+		.map((row) => row.join(''))
 		.reverse()
 		.join('\n');
 };
@@ -98,7 +98,7 @@ export const outputMap = <T>(
 	console.log(printMatrix(drawMap(map, renderTile, startY, endY, startX, endX)));
 };
 
-export const runner = async (input: string) => {
+export const runner = (input: string): string => {
 	const intcode = new IntCodeComputer(parse(input));
 	const iter = intcode.iter();
 
@@ -106,8 +106,8 @@ export const runner = async (input: string) => {
 	const pos = new Vec2(0, 0);
 	let dir = Direction.NORTH;
 
-	let nextColor: IteratorResult<number, any>;
-	let nextDir: IteratorResult<number, any>;
+	let nextColor: IteratorResult<number>;
+	let nextDir: IteratorResult<number>;
 	let currentColor: ColorCode = ColorCode.WHITE;
 	let currentDir: Turn;
 

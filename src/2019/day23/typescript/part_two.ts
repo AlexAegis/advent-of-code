@@ -4,7 +4,7 @@ import { Network, NETWORK_SIZE } from './network.class';
 import { Packet } from './packet.class';
 import { parse } from './parse';
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const tape = parse(input);
 	let result: number | undefined;
 	let nat: Packet | undefined;
@@ -16,7 +16,9 @@ export const runner = (input: string) => {
 		let isIdle = true;
 		// TODO: Find a better way to determine idleness
 		for (let r = 0; r < NETWORK_SIZE / 2; r++) {
-			isIdle = ![...network.entries()].some(([, [, stepper]]) => stepper.next().value !== undefined);
+			isIdle = ![...network.entries()].some(
+				([, [, stepper]]) => stepper.next().value !== undefined
+			);
 		}
 
 		if (isIdle && nat) {
