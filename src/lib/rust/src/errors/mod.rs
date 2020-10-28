@@ -2,6 +2,21 @@ use std::error::Error;
 use std::fmt;
 
 #[derive(Debug)]
+pub struct SolutionError {
+	details: String,
+}
+
+#[derive(Debug)]
+pub struct SolverError {
+	details: String,
+}
+
+#[derive(Debug)]
+pub struct ReaderError {
+	details: String,
+}
+
+#[derive(Debug)]
 pub enum AocError {
 	Solution(SolutionError),
 	Solver(SolverError),
@@ -44,21 +59,6 @@ impl From<ReaderError> for AocError {
 	fn from(e: ReaderError) -> Self {
 		AocError::Reader(e)
 	}
-}
-
-#[derive(Debug)]
-pub struct SolutionError {
-	details: String,
-}
-
-#[derive(Debug)]
-pub struct SolverError {
-	details: String,
-}
-
-#[derive(Debug)]
-pub struct ReaderError {
-	details: String,
 }
 
 impl SolverError {
