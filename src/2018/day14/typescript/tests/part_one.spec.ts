@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { day, results, year } from '..';
 import { runner } from '../part_one';
 
-describe(`${year} - Day ${day} - Part One`, () => {
+describe(`2018 - Day 14 - Part One`, () => {
 	it('Should be 5158916779 after 9 recipe:', async () => {
 		expect((await runner(9)).toString()).to.equal('5158916779');
 	});

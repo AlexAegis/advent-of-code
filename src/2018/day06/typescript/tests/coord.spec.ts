@@ -1,8 +1,7 @@
 import { expect } from 'chai';
-import { day, year } from '..';
 import { Coord } from '../model/coord.class';
 
-describe(`${year} - Day ${day} - Coord`, () => {
+describe(`2018 - Day 6 - Coord`, () => {
 	const a: Coord = new Coord(1, 1);
 	const b: Coord = new Coord(3, 3);
 	const c: Coord = new Coord(7, 2);

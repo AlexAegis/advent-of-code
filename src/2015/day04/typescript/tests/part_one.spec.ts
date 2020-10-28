@@ -4,7 +4,7 @@ import * as isCI from 'is-ci';
 import { day, results, year } from '..';
 import { runner } from '../part_one';
 
-describe(`${year} - Day ${day} - Part One`, () => {
+describe(`2015 - Day 4 - Part One`, () => {
 	it(`should resolve to ${results.one.input} when using the input`, async () => {
 		if (!isCI) {
 			expect(await runner((await read(year, day)()).input)).to.equal(results.one.input);

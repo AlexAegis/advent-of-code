@@ -4,7 +4,7 @@ import { Args, day, results, year } from '..';
 import { Node } from '../model/node.class';
 import { runner } from '../part_two';
 
-describe(`${year} - Day ${day} - Part Two`, () => {
+describe(`2018 - Day 7 - Part Two`, () => {
 	const NODE_A: Node = new Node('a');
 	const NODE_UA: Node = new Node('A');
 	const NODE_B: Node = new Node('b');
