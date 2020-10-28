@@ -2,7 +2,7 @@ import { split } from '@lib';
 import { Event } from './model/event.interface';
 
 const interpretLine = (line: string): Event => {
-	const parts = line.split(/\[|-|:|]|#/).map(e => e.trim());
+	const parts = line.split(/\[|-|:|]|#/).map((e) => e.trim());
 	return {
 		year: Number(parts[1]),
 		month: Number(parts[2]),
@@ -10,7 +10,7 @@ const interpretLine = (line: string): Event => {
 		hour: Number(parts[3].split(/ /)[1]),
 		minute: Number(parts[4]),
 		guard: parts[5] === 'Guard' ? Number(parts[6].split(/ /)[0]) : undefined,
-		event: parts[5]
+		event: parts[5],
 	};
 };
 

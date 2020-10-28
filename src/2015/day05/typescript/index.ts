@@ -6,48 +6,48 @@ export const day = 5;
 export const inputs: DayInputs<string> = {
 	one: {
 		input: {
-			input: ''
+			input: '',
 		},
 		example: {
-			input: 'ugknbfddgicrmopn'
+			input: 'ugknbfddgicrmopn',
 		},
 		example2: {
-			input: 'aaa'
+			input: 'aaa',
 		},
 		example3: {
-			input: 'jchzalrnumimnmhp'
+			input: 'jchzalrnumimnmhp',
 		},
 		example4: {
-			input: 'haegwjzuvuyypxyu'
+			input: 'haegwjzuvuyypxyu',
 		},
 		example5: {
-			input: 'dvszwmarrgswjxmb'
-		}
+			input: 'dvszwmarrgswjxmb',
+		},
 	},
 	two: {
 		input: {
-			input: ''
+			input: '',
 		},
 		example: {
-			input: 'qjhvhtzxzqqjkmpb'
+			input: 'qjhvhtzxzqqjkmpb',
 		},
 		example2: {
-			input: 'xxyxx'
+			input: 'xxyxx',
 		},
 		example3: {
-			input: 'uurcxstgmygtbstg'
+			input: 'uurcxstgmygtbstg',
 		},
 		example4: {
-			input: 'ieodomkazucvgmuy'
-		}
-	}
+			input: 'ieodomkazucvgmuy',
+		},
+	},
 };
 
 export const results: DayResults<number | boolean> = {
 	one: {
-		input: 236
+		input: 236,
 	},
 	two: {
-		input: 51
-	}
+		input: 51,
+	},
 };

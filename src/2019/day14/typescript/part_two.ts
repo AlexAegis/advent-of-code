@@ -5,19 +5,19 @@ import { Reaction } from './reaction.class';
 
 export enum MainResource {
 	ORE = 'ORE',
-	FUEL = 'FUEL'
+	FUEL = 'FUEL',
 }
 
 export type Resource = MainResource | string;
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number | undefined => {
 	const reactions = parse(input);
-	const fuelReact = reactions.find(r => r.to === MainResource.FUEL);
+	const fuelReact = reactions.find((r) => r.to === MainResource.FUEL);
 
-	reactions.forEach(r => {
+	reactions.forEach((r) => {
 		reactions
-			.filter(pre => r.from.has(pre.to))
-			.map(pre => [pre, r.from.get(pre.to) as number])
+			.filter((pre) => r.from.has(pre.to))
+			.map((pre) => [pre, r.from.get(pre.to) as number])
 			.forEach(([pre, q]) => {
 				r.preceeding.add([pre as Reaction, q as number]);
 			});
@@ -72,7 +72,7 @@ export const runner = async (input: string) => {
 		// 	console.log('Cost: ', fuelReact.indirectCost());
 	}
 
-	return null;
+	return undefined;
 };
 
 if (require.main === module) {

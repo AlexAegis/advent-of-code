@@ -11,7 +11,7 @@ export const runner = (input: string): number => {
 	let a = 0;
 	let b = 1;
 	let window = '';
-	while (true) {
+	for (;;) {
 		const next = recipes[a] + recipes[b];
 		if (next >= 10) {
 			recipes.push(Math.floor(next / 10));

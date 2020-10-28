@@ -5,7 +5,7 @@ import { Reaction } from './reaction.class';
 
 export enum MainResource {
 	ORE = 'ORE',
-	FUEL = 'FUEL'
+	FUEL = 'FUEL',
 }
 
 export type Resource = MainResource | string;
@@ -13,7 +13,7 @@ export type Resource = MainResource | string;
 export const calcOreForSurplus = (surplus: Map<string, number>, reactions: Reaction[]): number => {
 	return [...surplus.entries()].reduce((a, [k, v]) => {
 		const m = new Map<string, number>();
-		const ocm = reactions.find(r => r.to === k)?.oreCost(m) ?? 0;
+		const ocm = reactions.find((r) => r.to === k)?.oreCost(m) ?? 0;
 		let ex = 0;
 		if (m.size) {
 			ex = calcOreForSurplus(m, reactions);
@@ -22,14 +22,14 @@ export const calcOreForSurplus = (surplus: Map<string, number>, reactions: React
 	}, 0);
 };
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number | undefined => {
 	const reactions = parse(input);
-	const fuelReact = reactions.find(r => r.to === MainResource.FUEL);
+	const fuelReact = reactions.find((r) => r.to === MainResource.FUEL);
 
-	reactions.forEach(r => {
+	reactions.forEach((r) => {
 		reactions
-			.filter(pre => r.from.has(pre.to))
-			.map(pre => [pre, r.from.get(pre.to) as number])
+			.filter((pre) => r.from.has(pre.to))
+			.map((pre) => [pre, r.from.get(pre.to) as number])
 			.forEach(([pre, q]) => {
 				r.preceeding.add([pre as Reaction, q as number]);
 			});
@@ -42,7 +42,7 @@ export const runner = async (input: string) => {
 		return a;
 	}
 
-	return null;
+	return undefined;
 };
 
 if (require.main === module) {

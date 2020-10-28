@@ -29,7 +29,12 @@ export class Direction extends Vec2 {
 	public static readonly SOUTH = new Direction(DirectionMarker.SOUTH);
 	public static readonly WEST = new Direction(DirectionMarker.WEST);
 
-	public static directions: Direction[] = [Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST];
+	public static directions: Direction[] = [
+		Direction.NORTH,
+		Direction.EAST,
+		Direction.SOUTH,
+		Direction.WEST,
+	];
 
 	public static isHorizonal(marker: DirectionMarker): boolean {
 		return marker === DirectionMarker.EAST || marker === DirectionMarker.WEST;
@@ -39,7 +44,7 @@ export class Direction extends Vec2 {
 		return marker === DirectionMarker.NORTH || marker === DirectionMarker.SOUTH;
 	}
 
-	public static from(marker: DirectionMarker) {
+	public static from(marker: DirectionMarker): Direction {
 		switch (marker) {
 			case DirectionMarker.NORTH:
 				return Direction.NORTH;

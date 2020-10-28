@@ -5,7 +5,10 @@ import { GridGraph, GridNode } from '@lib/model/graph';
 import { day, year } from '.';
 import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse';
 
-export const h = (inventory: Set<string>) => (n: GridNode<string>, _a: GridNode<string>): number => {
+export const h = (inventory: Set<string>) => (
+	n: GridNode<string>,
+	_a: GridNode<string>
+): number => {
 	const v = n.value;
 	if (v === Tile.WALL) {
 		return Infinity;
@@ -29,12 +32,12 @@ export const under = (tile: Tile | Key | Door): (Tile | Key | Door)[] => {
 	}
 };
 
-export const draw = (m: Map<string, GridNode<string>>, size: Vec2, level: number = 0): void => {
-	const mat = drawMapStatic(m, t => t?.toString(level) ?? ' ', 0, size.y, 0, size.x, false);
+export const draw = (m: Map<string, GridNode<string>>, size: Vec2, level = 0): void => {
+	const mat = drawMapStatic(m, (t) => t?.toString(level) ?? ' ', 0, size.y, 0, size.x, false);
 	console.log(printMatrix(mat, true, false));
 };
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const matrix = parseLines(input);
 	const { map, doors, keys, size } = parseMatrix(matrix);
 	const inventory = new Set<Key>();

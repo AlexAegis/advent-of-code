@@ -15,8 +15,8 @@ export const drawMapStatic = <T>(
 	if (numbered) {
 		res.push(
 			[...Array(endX - startX + 1).keys()]
-				.map(i => i + startX)
-				.map(i => (i >= 10 ? i.toString() : '0' + i.toString()))
+				.map((i) => i + startX)
+				.map((i) => (i >= 10 ? i.toString() : '0' + i.toString()))
 		);
 	}
 

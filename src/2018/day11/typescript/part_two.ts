@@ -36,7 +36,7 @@ export const runner = async (input: number): Promise<string> => {
 								lol.push({ x, y });
 							}
 						}
-						const sum = lol.map(c => calc(c.x, c.y)).reduce((a, n) => (a += n), 0);
+						const sum = lol.map((c) => calc(c.x, c.y)).reduce((a, n) => (a += n), 0);
 						if (sum > acc.sum) {
 							acc.size = size + 1;
 							acc.sum = sum;

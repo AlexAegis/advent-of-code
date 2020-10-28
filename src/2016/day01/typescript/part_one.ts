@@ -3,7 +3,7 @@ import { Direction } from '@lib/model/direction.class';
 import { Vec2 } from '@lib/model/vec2.class';
 import { day, year } from '.';
 
-export const runner = (input: string) =>
+export const runner = (input: string): number =>
 	input
 		.split(', ')
 		.reduce(

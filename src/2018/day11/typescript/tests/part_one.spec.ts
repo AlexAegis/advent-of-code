@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { day, inputs, results, year } from '..';
+import { inputs, results } from '..';
 import { runner } from '../part_one';
 
 describe(`2018 - Day 11 - Part One`, () => {

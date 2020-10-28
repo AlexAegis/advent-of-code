@@ -7,7 +7,7 @@ export class Coord {
 		this.y = y;
 	}
 
-	add(coord: Coord) {
+	add(coord: Coord): Coord {
 		this.x += coord.x;
 		this.y -= coord.y; // Psst, you didn't see me.
 		return this;

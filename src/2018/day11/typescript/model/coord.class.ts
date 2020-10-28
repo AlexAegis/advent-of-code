@@ -8,7 +8,7 @@ export class Coord implements Iterable<Coord> {
 		new Coord(1, 2),
 		new Coord(2, 0),
 		new Coord(2, 1),
-		new Coord(2, 2)
+		new Coord(2, 2),
 	];
 
 	constructor(public x: number, public y: number) {}

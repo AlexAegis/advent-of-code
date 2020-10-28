@@ -6,18 +6,20 @@ export class LZW {
 	private dictionary = new Map<string, number>();
 	private symbolSize = 0;
 	public constructor(input: (string | number)[]) {
-		this.tape = input.map(i => i.toString());
-		for (const [i, fragment] of [...this.tape.reduce((a, n) => a.add(n), new Set<string>()).values()].entries()) {
+		this.tape = input.map((i) => i.toString());
+		for (const [i, fragment] of [
+			...this.tape.reduce((a, n) => a.add(n), new Set<string>()).values(),
+		].entries()) {
 			this.dictionary.set(fragment, i);
 		}
 		this.symbolSize = this.dictionary.size;
 	}
 
-	public multiPass(untilDistinctResultSize: number = 3): [number[], string[]] {
+	public multiPass(untilDistinctResultSize = 3): [number[], string[]] {
 		const res = this.compress(1);
 		const lzw = new LZW(res);
 		if (res.reduce((a, n) => a.add(n), new Set<number>()).size <= untilDistinctResultSize) {
-			return [res, res.map(r => r.toString())];
+			return [res, res.map((r) => r.toString())];
 		} else {
 			const [r, look] = lzw.multiPass(untilDistinctResultSize);
 
@@ -26,10 +28,10 @@ export class LZW {
 	}
 
 	public reverse(result: number[]): (string | number)[] {
-		return result.map(re => [...this.dictionary.keys()][re]);
+		return result.map((re) => [...this.dictionary.keys()][re]);
 	}
 
-	public compress(rounds: number = 1, maxDistinctKeys: number = Infinity): number[] {
+	public compress(rounds = 1, maxDistinctKeys = Infinity): number[] {
 		let p = this.tape[0];
 		let result!: number[];
 		let i = 0;
@@ -39,7 +41,8 @@ export class LZW {
 			i < r &&
 			(maxDistinctKeys === Infinity ||
 				!result ||
-				(result && result.reduce((a, n) => a.add(n), new Set<number>()).size > maxDistinctKeys))
+				(result &&
+					result.reduce((a, n) => a.add(n), new Set<number>()).size > maxDistinctKeys))
 		) {
 			const localTape = [...this.tape];
 			p = localTape.shift() as string;

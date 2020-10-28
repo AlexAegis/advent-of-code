@@ -3,16 +3,16 @@ import { flattenVectors } from '@lib/model/vector.class';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const p = parse(input);
 	const a = flattenVectors(p[0]);
 	const b = flattenVectors(p[1]);
 	const possInts = new Map<string, { a: number; b: number }>();
-	a.forEach(ap => {
+	a.forEach((ap) => {
 		possInts.set(ap.c.toString(), { a: ap.steps, b: Infinity });
 	});
 
-	b.forEach(bp => {
+	b.forEach((bp) => {
 		const ae = possInts.get(bp.c.toString());
 		if (ae) {
 			ae.b = bp.steps;

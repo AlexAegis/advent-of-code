@@ -3,7 +3,7 @@ import { day, year } from '.';
 import { Notable, Planet } from './model/planet.class';
 import { parse } from './parse';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const orbits = parse(input);
 	const planets: Map<string, Planet> = new Map();
 
@@ -26,8 +26,8 @@ export const runner = async (input: string) => {
 	const center = planets.get(Notable.CENTER);
 	let c = 0;
 	if (center) {
-		const san = [...center.reach(Notable.SAN)].map(p => p.name);
-		const you = [...center.reach(Notable.YOU)].map(p => p.name);
+		const san = [...center.reach(Notable.SAN)].map((p) => p.name);
+		const you = [...center.reach(Notable.YOU)].map((p) => p.name);
 		const longer = Math.max(san.length, you.length);
 
 		for (let i = 0; i <= longer; i++) {

@@ -9,7 +9,7 @@ import { parseLines } from './parse';
 export enum Tile {
 	WALL = '#',
 	PATH = '.',
-	EMPTY = ' '
+	EMPTY = ' ',
 }
 
 export const h: Heuristic<string, PortalGridNode<string>> = (
@@ -29,7 +29,7 @@ export const h: Heuristic<string, PortalGridNode<string>> = (
 };
 
 export const readLabelOn = (v: Vec2, matrix: string[][]): string | undefined => {
-	const d = Direction.directions.find(dir => {
+	const d = Direction.directions.find((dir) => {
 		const c = v.add(dir);
 		const t = matrix[c.x][c.y];
 		return t !== Tile.WALL && t !== Tile.PATH && t !== Tile.EMPTY;
@@ -37,11 +37,11 @@ export const readLabelOn = (v: Vec2, matrix: string[][]): string | undefined => 
 
 	if (d) {
 		const ld = [v.add(d), v.add(d, 2)].sort(Vec2.compare);
-		return ld.map(c => matrix[c.x][c.y]).join('');
+		return ld.map((c) => matrix[c.x][c.y]).join('');
 	} else return undefined;
 };
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const matrix = parseLines(input);
 	const graph = PortalGridGraph.fromTorus(
 		matrix,

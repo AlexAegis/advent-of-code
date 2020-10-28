@@ -17,7 +17,7 @@ export const isNice = (line: string): boolean => {
 			if (!hasDouble && prev === n) {
 				hasDouble = true;
 			}
-			if (forbidden.find(f => f === `${prev}${n}`)) {
+			if (forbidden.find((f) => f === `${prev}${n}`)) {
 				hasForbidden = true;
 				break;
 			}

@@ -16,131 +16,80 @@ describe(`2019 - Day 5 - Part Two`, () => {
 
 	it('should be that that the first example resolves to 1 when the input is 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
-				.withInput(8)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8')).withInput(8).execute().pop()
 		).to.equal(1);
 	});
 	it('should be that that the first example resolves to 0 when the input is less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
-				.withInput(1)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8')).withInput(1).execute().pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
-				.withInput(2)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8')).withInput(2).execute().pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8'))
-				.withInput(7)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,8,9,10,9,4,9,99,-1,8')).withInput(7).execute().pop()
 		).to.equal(0);
 	});
 
 	it('should be that that the second example resolves to 1 when the input is less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
-				.withInput(1)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8')).withInput(1).execute().pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
-				.withInput(4)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8')).withInput(4).execute().pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
-				.withInput(7)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8')).withInput(7).execute().pop()
 		).to.equal(1);
 	});
 	it('should be that that the second example resolves to 0 when the input is not less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
-				.withInput(8)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8')).withInput(8).execute().pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
-				.withInput(9)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8')).withInput(9).execute().pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8'))
-				.withInput(100)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,9,7,9,10,9,4,9,99,-1,8')).withInput(100).execute().pop()
 		).to.equal(0);
 	});
 
 	it('should be that that the third example resolves to 1 when the input is equal to 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'))
-				.withInput(8)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99')).withInput(8).execute().pop()
 		).to.equal(1);
 	});
 	it('should be that that the third example resolves to 0 when the input is not equal to 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'))
-				.withInput(1)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99')).withInput(1).execute().pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99'))
-				.withInput(100)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1108,-1,8,3,4,3,99')).withInput(100).execute().pop()
 		).to.equal(0);
 	});
 	it('should be that that the fourth example resolves to 1 when the input is less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
-				.withInput(1)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99')).withInput(1).execute().pop()
 		).to.equal(1);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
-				.withInput(7)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99')).withInput(7).execute().pop()
 		).to.equal(1);
 	});
 	it('should be that that the fourth example resolves to 0 when the input is not less than 8', async () => {
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
-				.withInput(8)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99')).withInput(8).execute().pop()
 		).to.equal(0);
 
 		expect(
-			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99'))
-				.withInput(10)
-				.execute()
-				.pop()
+			new IntCodeComputer(parse('3,3,1107,-1,8,3,4,3,99')).withInput(10).execute().pop()
 		).to.equal(0);
 	});
 
@@ -191,43 +140,18 @@ describe(`2019 - Day 5 - Part Two`, () => {
 	});
 
 	it('should be that that the seventh example resolves to 999 when the input is less than 8', async () => {
-		expect(
-			new IntCodeComputer(seventhInput)
-				.withInput(6)
-				.execute()
-				.pop()
-		).to.equal(999);
+		expect(new IntCodeComputer(seventhInput).withInput(6).execute().pop()).to.equal(999);
 
-		expect(
-			new IntCodeComputer(seventhInput)
-				.withInput(5)
-				.execute()
-				.pop()
-		).to.equal(999);
+		expect(new IntCodeComputer(seventhInput).withInput(5).execute().pop()).to.equal(999);
 	});
 
 	it('should be that that the seventh example resolves to 1000 when the input is 8', async () => {
-		expect(
-			new IntCodeComputer(seventhInput)
-				.withInput(8)
-				.execute()
-				.pop()
-		).to.equal(1000);
+		expect(new IntCodeComputer(seventhInput).withInput(8).execute().pop()).to.equal(1000);
 	});
 
 	it('should be that that the seventh example resolves to 1001 when the input is greater than 8', async () => {
-		expect(
-			new IntCodeComputer(seventhInput)
-				.withInput(9)
-				.execute()
-				.pop()
-		).to.equal(1001);
+		expect(new IntCodeComputer(seventhInput).withInput(9).execute().pop()).to.equal(1001);
 
-		expect(
-			new IntCodeComputer(seventhInput)
-				.withInput(10)
-				.execute()
-				.pop()
-		).to.equal(1001);
+		expect(new IntCodeComputer(seventhInput).withInput(10).execute().pop()).to.equal(1001);
 	});
 });

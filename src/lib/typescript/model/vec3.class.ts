@@ -19,7 +19,7 @@ export class Vec3 implements Vec3Like {
 			this.y = y;
 			this.z = z;
 		} else if (typeof x === 'string') {
-			[this.x, this.y, this.z] = (x.match(NUM) || []).map(s => parseInt(s, 10));
+			[this.x, this.y, this.z] = (x.match(NUM) || []).map((s) => parseInt(s, 10));
 		}
 	}
 	static ORIGO: Vec3;
@@ -27,22 +27,26 @@ export class Vec3 implements Vec3Like {
 	public y!: number;
 	public z!: number;
 
-	public add(coord: Vec3Like, times: number = 1): Vec3 {
-		return new Vec3(this.x + coord.x * times, this.y + coord.y * times, this.z + coord.z * times);
+	public add(coord: Vec3Like, times = 1): Vec3 {
+		return new Vec3(
+			this.x + coord.x * times,
+			this.y + coord.y * times,
+			this.z + coord.z * times
+		);
 	}
 
-	public addMut(coord: Vec3, times: number = 1): Vec3 {
+	public addMut(coord: Vec3, times = 1): Vec3 {
 		this.x += coord.x * times;
 		this.y += coord.y * times;
 		this.z += coord.z * times;
 		return this;
 	}
 
-	public sub(o: Vec3, times: number = 1): Vec3 {
+	public sub(o: Vec3, times = 1): Vec3 {
 		return new Vec3(this.x - o.x * times, this.y - o.y * times, this.z - o.z * times);
 	}
 
-	public subMut(o: Vec3, times: number = 1): Vec3 {
+	public subMut(o: Vec3, times = 1): Vec3 {
 		this.x -= o.x * times;
 		this.y -= o.y * times;
 		this.z -= o.z * times;
@@ -62,7 +66,9 @@ export class Vec3 implements Vec3Like {
 	}
 
 	public dist(o: Vec3): number {
-		return Math.sqrt(Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2) + Math.pow(o.z - this.z, 2));
+		return Math.sqrt(
+			Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2) + Math.pow(o.z - this.z, 2)
+		);
 	}
 
 	public stepVec(to: Vec3): Vec3 {
@@ -97,17 +103,17 @@ export class Vec3 implements Vec3Like {
 
 	public los(f: Vec3[]): Vec3[] {
 		return f
-			.filter(fo => !fo.equals(this))
+			.filter((fo) => !fo.equals(this))
 			.map(
-				o =>
+				(o) =>
 					[...this.reach(o, false, true)]
-						.filter(l => f.find(fi => fi.equals(l)))
+						.filter((l) => f.find((fi) => fi.equals(l)))
 						.sort((a, b) => this.dist(a) - this.dist(b))
 						.shift() as Vec3
 			)
-			.filter(a => !!a)
+			.filter((a) => !!a)
 			.reduce((acc, n) => {
-				if (!acc.find(a => a.equals(n))) {
+				if (!acc.find((a) => a.equals(n))) {
 					acc.push(n);
 				}
 				return acc;

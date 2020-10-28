@@ -3,7 +3,7 @@ import { day, year } from '.';
 import { Planet } from './model/planet.class';
 import { parse } from './parse';
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const orbits = parse(input);
 	const planets: Map<string, Planet> = new Map();
 

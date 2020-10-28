@@ -12,7 +12,7 @@ export const hasBeam = (tape: number[], x: number, y: number): boolean => {
 	return cam === 1;
 };
 
-export const runner = async (input: string) => {
+export const runner = (input: string): number => {
 	const tape = parse(input);
 	let c = 0;
 	for (let x = 0; x < 50; x++) {

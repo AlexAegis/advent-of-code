@@ -1,7 +1,7 @@
 // import { bench, read } from '@lib';
 // import { day, year } from '.';
 
-export const runner = async (_input: string) => {
+export const runner = (_input: string): number => {
 	return 0;
 };
 

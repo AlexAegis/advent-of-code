@@ -13,7 +13,7 @@ describe('Day 12, Cave', () => {
 		'....#.#',
 		'#.#....',
 		'......#.#......',
-		'......#.#'
+		'......#.#',
 	];
 
 	it('Should be normalizing inputs on both ends:', () => {

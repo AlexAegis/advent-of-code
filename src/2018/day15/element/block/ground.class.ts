@@ -23,7 +23,7 @@ export class Ground extends Block {
 		return this.occupant ? Infinity : 0;
 	}
 
-	toString() {
+	toString(): string {
 		return this.occupant ? this.occupant.toString() : super.toString();
 	}
 }

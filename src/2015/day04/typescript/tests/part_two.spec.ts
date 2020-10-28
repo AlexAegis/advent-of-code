@@ -1,8 +1,7 @@
 // import { read } from '@lib';
 // import { expect } from 'chai';
 import * as isCI from 'is-ci';
-import { day, results, year } from '..';
-// import { runner } from '../part_two';
+import { results } from '..';
 
 describe(`2015 - Day 4 - Part Two`, () => {
 	it(`should resolve to ${results.two.input} when using the input`, async () => {

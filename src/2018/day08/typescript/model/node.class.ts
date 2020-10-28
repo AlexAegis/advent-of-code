@@ -33,7 +33,7 @@ export class Node {
 	// part one
 	public sum(): number {
 		return this.children
-			.map(child => child.sum())
+			.map((child) => child.sum())
 			.concat(this.data ? this.data : [])
 			.reduce((acc, next) => acc + next);
 	}
@@ -42,13 +42,15 @@ export class Node {
 	public value(): number {
 		return this.data && this.children.length > 0
 			? this.data
-					.filter(index => index > 0 && index < this.children.length + 1)
-					.map(index => this.children[--index].value())
+					.filter((index) => index > 0 && index < this.children.length + 1)
+					.map((index) => this.children[--index].value())
 					.reduce((acc, next) => acc + next, 0)
 			: this.sum();
 	}
 
 	public toString(): string {
-		return `[${this.data} - ${this.children.map(child => child.toString()).reduce((acc, next) => acc + next, '')}]`;
+		return `[${this.data} - ${this.children
+			.map((child) => child.toString())
+			.reduce((acc, next) => acc + next, '')}]`;
 	}
 }

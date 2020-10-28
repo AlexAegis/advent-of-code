@@ -4,7 +4,7 @@ import { Network } from './network.class';
 import { Packet } from './packet.class';
 import { parse } from './parse';
 
-export const runner = (input: string) => {
+export const runner = (input: string): number => {
 	const tape = parse(input);
 	let result: number | undefined;
 

@@ -1,8 +1,8 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
 
-export const runner = async (input: string) => {
-	const [l, h] = input.split('-').map(s => Number(s));
+export const runner = (input: string): number => {
+	const [l, h] = input.split('-').map((s) => Number(s));
 	let count = 0;
 	for (let i = l; i <= h; i++) {
 		const s = i.toString();

@@ -15,7 +15,9 @@ export const runner = (input: string): string | undefined => {
 				}
 			}
 			if (matchingChars + 1 === cachedLine.length) {
-				return line.slice(0, notMatchingPos) + line.slice(notMatchingPos + 1, line.length + 1);
+				return (
+					line.slice(0, notMatchingPos) + line.slice(notMatchingPos + 1, line.length + 1)
+				);
 			}
 		}
 		lineCache.push(line);
