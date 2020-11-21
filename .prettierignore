@@ -5,3 +5,5 @@
 /.cache
 .vscode/chrome
 CHANGELOG.md
+/target
+/.nyc_output
