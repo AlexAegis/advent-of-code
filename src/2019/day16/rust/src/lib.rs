@@ -39,10 +39,7 @@ fn ftt(inp: &mut Vec<isize>, offset: usize) -> String {
 }
 impl aoclib::Solvable<&str, String> for PartOne {
 	fn solve(input: &str) -> aoclib::Solution<String> {
-		let mut a = input
-			.to_string()
-			.clone()
-			.repeat(1)
+		let mut a = input.to_string()
 			.chars()
 			.map(|c| c.to_string().parse::<isize>().unwrap())
 			.collect::<Vec<isize>>();
