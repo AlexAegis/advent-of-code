@@ -35,10 +35,9 @@ jobs:
       - name: Format
         run: npm run fmt:check
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
         node-version: [12.x, 14.x]
     env:
       CI: true

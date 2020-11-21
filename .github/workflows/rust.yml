@@ -24,7 +24,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: target
-          key: ${{ runner.os }}-target }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
       - name: Setup Rust Toolchain
         uses: actions-rs/toolchain@v1
         with:
@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: target
-          key: ${{ runner.os }}-target }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
       - name: Setup Rust Toolchain
         uses: actions-rs/toolchain@v1
         with:
@@ -87,7 +87,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: target
-          key: ${{ runner.os }}-target }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
       - name: Setup Rust Toolchain
         uses: actions-rs/toolchain@v1
         with:
@@ -118,7 +118,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: target
-          key: ${{ runner.os }}-target }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
       - name: Setup Rust Toolchain
         uses: actions-rs/toolchain@v1
         with:
