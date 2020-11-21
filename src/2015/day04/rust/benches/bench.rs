@@ -2,7 +2,7 @@
 extern crate criterion;
 
 use aoclib::Solvable;
-use criterion::Criterion;d
+use criterion::Criterion;
 
 fn part_one_benchmark(c: &mut Criterion) {
 	c.bench_function("2015 day 4 part one", |b| {

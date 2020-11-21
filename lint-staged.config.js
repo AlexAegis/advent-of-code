@@ -7,5 +7,5 @@ module.exports = {
 	'(*.json|.eslintrc|.prettierrc|.stylelintrc|.markdownlintrc)': [('eslint', 'prettier --check')],
 	'*.md': ["markdownlint --ignore 'CHANGELOG.md' --ignore-path '.gitignore'", 'prettier --check'],
 	'*.(yml|yaml)': ['prettier --check'],
-	'*.rs': ['cargo fmt'],
+	'*.rs': ['cargo fmt -- --check'],
 };
