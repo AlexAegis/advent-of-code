@@ -73,9 +73,21 @@
 		],
 		"unified-signatures": true,
 		"variable-name": {
-			"options": ["check-format", "require-const-for-all-caps", "allow-leading-underscore", "ban-keywords"]
+			"options": [
+				"check-format",
+				"require-const-for-all-caps",
+				"allow-leading-underscore",
+				"ban-keywords"
+			]
 		},
-		"whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"]
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-operator",
+			"check-separator",
+			"check-type"
+		]
 	},
 	"rulesDirectory": ["node_modules/tslint-plugin-prettier"]
 }

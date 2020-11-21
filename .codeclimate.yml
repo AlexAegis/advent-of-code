@@ -1,15 +1,15 @@
 version: '2' # required to adjust maintainability checks
 plugins:
-    eslint:
-        enabled: true
-        channel: eslint-5
-    markdownlint:
-        enabled: true
+  eslint:
+    enabled: true
+    channel: eslint-5
+  markdownlint:
+    enabled: true
 checks:
-    identical-code:
-        enabled: false # this is a problem solving repository. It will have identical code blocks by nature.
-    similar-code:
-        enabled: false
-    method-complexity:
-        config:
-            threshold: 30
+  identical-code:
+    enabled: false # this is a problem solving repository. It will have identical code blocks by nature.
+  similar-code:
+    enabled: false
+  method-complexity:
+    config:
+      threshold: 30
