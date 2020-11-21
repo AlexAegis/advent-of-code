@@ -33,7 +33,7 @@
 		"self-destruct": "rimraf ./dist ./coverage ./.codacy-coverage ./cache ./node-modules ./package-lock.json ./yarn.lock ./pnpm-lock.yaml",
 		"codecov": "codecov",
 		"ncu": "ncu -u",
-		"_postinstall": "husky install",
+		"postinstall": "husky install",
 		"prepublish": "pinst --disable",
 		"postpublish": "pinst --enable"
 	},
