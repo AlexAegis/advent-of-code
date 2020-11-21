@@ -25,7 +25,7 @@ fn low_sample() -> Criterion {
 criterion_group! {
 	name = benches;
 	config = low_sample();
-	targets = part_two_benchmark
+	targets = part_one_benchmark, part_two_benchmark
 }
 
 criterion_main!(benches);
