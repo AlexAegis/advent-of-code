@@ -1,94 +1,133 @@
-on: [push, pull_request]
-
 name: Rust CI
 
+on: [push, pull_request]
+
 jobs:
-    check:
-        name: Check
-        runs-on: ubuntu-latest
-        env:
-            RUST_BACKTRACE: full
-        strategy:
-            matrix:
-                os: [ubuntu-latest, windows-latest]
-                rust:
-                    - stable
-            fail-fast: false
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions-rs/toolchain@v1
-              with:
-                  profile: minimal
-                  toolchain: ${{ matrix.rust }}
-                  override: true
-            - uses: actions-rs/cargo@v1
-              with:
-                  command: check
-                  args: --all
-
-    test:
-        name: Test Suite
-        runs-on: ubuntu-latest
-        env:
-            RUST_BACKTRACE: full
-        strategy:
-            matrix:
-                os: [ubuntu-latest, windows-latest]
-                rust:
-                    - stable
-                    - nightly
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions-rs/toolchain@v1
-              with:
-                  profile: minimal
-                  toolchain: ${{ matrix.rust }}
-                  override: true
-            - uses: actions-rs/cargo@v1
-              with:
-                  command: test
-                  args: --all
-
-    fmt:
-        name: Rustfmt
-        runs-on: ubuntu-latest
-        env:
-            RUST_BACKTRACE: full
-        strategy:
-            matrix:
-                rust:
-                    - stable
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions-rs/toolchain@v1
-              with:
-                  profile: minimal
-                  toolchain: ${{ matrix.rust }}
-                  override: true
-            - run: rustup component add rustfmt
-            - uses: actions-rs/cargo@v1
-              with:
-                  command: fmt
-                  args: --all -- --check
-
-    clippy:
-        name: Clippy
-        runs-on: ubuntu-latest
-        env:
-            RUST_BACKTRACE: full
-        strategy:
-            matrix:
-                rust:
-                    - stable
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions-rs/toolchain@v1
-              with:
-                  profile: minimal
-                  toolchain: ${{ matrix.rust }}
-                  override: true
-            - run: rustup component add clippy
-            - uses: actions-rs/cargo@v1
-              with:
-                  command: clippy
-                  args: --all -- -D warnings
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    env:
+      RUST_BACKTRACE: full
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        rust:
+          - stable
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Cache
+        id: cache-target
+        uses: actions/cache@v2
+        with:
+          path: target
+          key: ${{ runner.os }}-target }}
+      - name: Setup Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          override: true
+      - name: Cargo Check
+        uses: actions-rs/cargo@v1
+        with:
+          command: check
+          args: --workspace
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    env:
+      RUST_BACKTRACE: full
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        rust:
+          - stable
+          - nightly
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Cache
+        id: cache-target
+        uses: actions/cache@v2
+        with:
+          path: target
+          key: ${{ runner.os }}-target }}
+      - name: Setup Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          override: true
+      - uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --workspace
+  fmt:
+    name: Rustfmt
+    runs-on: ubuntu-latest
+    env:
+      RUST_BACKTRACE: full
+    strategy:
+      matrix:
+        rust:
+          - stable
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Cache
+        id: cache-target
+        uses: actions/cache@v2
+        with:
+          path: target
+          key: ${{ runner.os }}-target }}
+      - name: Setup Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          override: true
+      - run: rustup component add rustfmt
+      - uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    env:
+      RUST_BACKTRACE: full
+    strategy:
+      matrix:
+        rust:
+          - stable
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Cache
+        id: cache-target
+        uses: actions/cache@v2
+        with:
+          path: target
+          key: ${{ runner.os }}-target }}
+      - name: Setup Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          override: true
+      - name: Ensure Clippy
+        run: rustup component add clippy
+      - uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+          args: --all -- -D warnings
