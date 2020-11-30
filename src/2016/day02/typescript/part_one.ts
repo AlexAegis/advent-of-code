@@ -1,22 +1,26 @@
-import { bench, read } from '@lib';
+import { bench, read, split } from '@lib';
 import { Direction } from '@lib/model/direction.class';
-import { Vec2 } from '@lib/model/vec2.class';
+import { Area, Vec2 } from '@lib/model/vec2.class';
 import { day, year } from '.';
 
-export const runner = (input: string): number =>
-	input
-		.split(', ')
-		.reduce(
-			(acc, next) => {
-				if (next[0] === 'R') acc.direction = acc.direction.right();
-				if (next[0] === 'L') acc.direction = acc.direction.left();
-				acc.position.addMut(acc.direction, Number(next.substring(1)));
-				return acc;
-			},
-			{ position: Vec2.ORIGIN.clone(), direction: Direction.NORTH }
-		)
-		.position.manhattan(Vec2.ORIGIN);
+const toKeypadNumber = (vec: Vec2): number => (2 - vec.y) * 3 + vec.x + 1;
+
+export const runner = (input: string): number => {
+	const position = new Vec2(1, 1);
+
+	const keypadArea: Area = { cornerA: Vec2.ORIGIN, cornerB: new Vec2(2, 2) };
+
+	const result = split(input).reduce((acc, line) => {
+		line.split('')
+			.filter(Direction.isDirectionMarker)
+			.map(Direction.from)
+			.forEach((direction) => position.addMut(direction, { limit: keypadArea }));
+		return acc * 10 + toKeypadNumber(position);
+	}, 0);
+
+	return result;
+};
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 300 ~0.37ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 24862 ~2.6ms
 }

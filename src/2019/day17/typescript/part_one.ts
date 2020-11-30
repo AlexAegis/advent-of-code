@@ -1,7 +1,7 @@
 import { bench, read, sum } from '@lib';
 import { drawMapStatic, printMatrix } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
-import { Direction, DirectionMarker, Vec2 } from '@lib/model';
+import { Direction, DirectionSymbol, Vec2 } from '@lib/model';
 import { GridGraph } from '@lib/model/graph';
 import { day, year } from '.';
 import { parse } from './parse';
@@ -49,8 +49,8 @@ export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 	let vacuum!: Vacuum;
 	while (!i.isHalt()) {
 		const res = it.next().value;
-		const resc: DirectionMarker | Tile | '\n' = String.fromCharCode(res) as
-			| DirectionMarker
+		const resc: DirectionSymbol | Tile | '\n' = String.fromCharCode(res) as
+			| DirectionSymbol
 			| Tile
 			| '\n';
 
@@ -61,14 +61,14 @@ export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 			case Tile.SCAFFOLD:
 				map.set(cursor.toString(), Tile.SCAFFOLD);
 				break;
-			case DirectionMarker.NORTH:
-			case DirectionMarker.EAST:
-			case DirectionMarker.SOUTH:
-			case DirectionMarker.WEST:
+			case DirectionSymbol.NORTH:
+			case DirectionSymbol.EAST:
+			case DirectionSymbol.SOUTH:
+			case DirectionSymbol.WEST:
 				map.set(cursor.toString(), Tile.SCAFFOLD);
 				vacuum = new Vacuum(
 					cursor.clone(),
-					Direction.from(resc as DirectionMarker).reverse()
+					Direction.from(resc as DirectionSymbol).reverse()
 				);
 				break;
 			case '\n':
