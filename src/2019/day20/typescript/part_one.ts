@@ -36,7 +36,7 @@ export const readLabelOn = (v: Vec2, matrix: string[][]): string | undefined => 
 	});
 
 	if (d) {
-		const ld = [v.add(d), v.add(d, 2)].sort(Vec2.compare);
+		const ld = [v.add(d), v.add(d, { times: 2 })].sort(Vec2.compare);
 		return ld.map((c) => matrix[c.x][c.y]).join('');
 	} else return undefined;
 };

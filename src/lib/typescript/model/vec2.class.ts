@@ -6,6 +6,11 @@ export interface Vec2Like {
 	y: number;
 }
 
+export interface Area {
+	cornerA: Vec2Like;
+	cornerB: Vec2Like;
+}
+
 export class Vec2 implements Vec2Like {
 	public static ORIGIN = new Vec2(0, 0);
 
@@ -34,13 +39,65 @@ export class Vec2 implements Vec2Like {
 		return a.x === b.x ? a.y - b.y : a.x - b.x;
 	}
 
-	public add(coord: Vec2Like, times = 1): Vec2 {
-		return new Vec2(this.x + coord.x * times, this.y + coord.y * times);
+	public static isWithin(v: Vec2Like, area: Area): boolean {
+		return (
+			Math.min(area.cornerA.x, area.cornerB.x) <= v.x &&
+			v.x <= Math.max(area.cornerA.x, area.cornerB.x) &&
+			Math.min(area.cornerA.y, area.cornerB.y) <= v.y &&
+			v.y <= Math.max(area.cornerA.y, area.cornerB.y)
+		);
 	}
 
-	public addMut(coord: Vec2Like, times = 1): Vec2 {
-		this.x += coord.x * times;
-		this.y += coord.y * times;
+	public clamp(area: Area): Vec2 {
+		const xMax = Math.max(area.cornerA.x, area.cornerB.x);
+		const yMax = Math.max(area.cornerA.y, area.cornerB.y);
+		const xMin = Math.min(area.cornerA.x, area.cornerB.x);
+		const yMin = Math.min(area.cornerA.y, area.cornerB.y);
+
+		if (this.x > xMax) {
+			this.x = xMax;
+		} else if (this.x < xMin) {
+			this.x = xMin;
+		}
+
+		if (this.y > yMax) {
+			this.y = yMax;
+		} else if (this.y < yMin) {
+			this.y = yMin;
+		}
+
+		return this;
+	}
+
+	public add(
+		coord: Vec2Like,
+		options: { times?: number; limit?: Area; onLimit?: 'clamp' | 'cancel' } = {
+			times: 1,
+			onLimit: 'cancel',
+		}
+	): Vec2 {
+		return this.clone().addMut(coord, options);
+	}
+
+	public addMut(
+		coord: Vec2Like,
+		options?: { times?: number; limit?: Area; clampOnLimit?: boolean }
+	): Vec2 {
+		const originalX = this.x;
+		const originalY = this.y;
+
+		this.x += coord.x * (options?.times ?? 1);
+		this.y += coord.y * (options?.times ?? 1);
+
+		if (options?.limit && !Vec2.isWithin(this, options.limit)) {
+			if (options.clampOnLimit) {
+				this.clamp(options.limit);
+			} else {
+				this.x = originalX;
+				this.y = originalY;
+			}
+		}
+
 		return this;
 	}
 

@@ -1,6 +1,11 @@
 import { ClockwiseDirection } from './clockwise-direction.enum';
 import { directionMarkerAssociations } from './direction-marker-associations.const';
-import { DirectionMarker } from './direction-marker.type';
+import {
+	DirectionGeographicLetter,
+	DirectionLiteralLetter,
+	DirectionMarker,
+	DirectionSymbol,
+} from './direction-marker.type';
 import { Vec2 } from './vec2.class';
 
 export class Direction extends Vec2 {
@@ -10,13 +15,21 @@ export class Direction extends Vec2 {
 
 	public get value(): ClockwiseDirection {
 		switch (this.marker) {
-			case DirectionMarker.NORTH:
+			case DirectionSymbol.NORTH:
+			case DirectionLiteralLetter.NORTH:
+			case DirectionGeographicLetter.NORTH:
 				return ClockwiseDirection.NORTH;
-			case DirectionMarker.EAST:
+			case DirectionSymbol.EAST:
+			case DirectionLiteralLetter.EAST:
+			case DirectionGeographicLetter.EAST:
 				return ClockwiseDirection.EAST;
-			case DirectionMarker.SOUTH:
+			case DirectionSymbol.SOUTH:
+			case DirectionLiteralLetter.SOUTH:
+			case DirectionGeographicLetter.SOUTH:
 				return ClockwiseDirection.SOUTH;
-			case DirectionMarker.WEST:
+			case DirectionSymbol.WEST:
+			case DirectionLiteralLetter.WEST:
+			case DirectionGeographicLetter.WEST:
 				return ClockwiseDirection.WEST;
 		}
 	}
@@ -24,10 +37,10 @@ export class Direction extends Vec2 {
 	public get reverseValue(): ClockwiseDirection {
 		return Direction.reverseValue(this.value);
 	}
-	public static readonly NORTH = new Direction(DirectionMarker.NORTH);
-	public static readonly EAST = new Direction(DirectionMarker.EAST);
-	public static readonly SOUTH = new Direction(DirectionMarker.SOUTH);
-	public static readonly WEST = new Direction(DirectionMarker.WEST);
+	public static readonly NORTH = new Direction(DirectionSymbol.NORTH);
+	public static readonly EAST = new Direction(DirectionSymbol.EAST);
+	public static readonly SOUTH = new Direction(DirectionSymbol.SOUTH);
+	public static readonly WEST = new Direction(DirectionSymbol.WEST);
 
 	public static directions: Direction[] = [
 		Direction.NORTH,
@@ -37,22 +50,61 @@ export class Direction extends Vec2 {
 	];
 
 	public static isHorizonal(marker: DirectionMarker): boolean {
-		return marker === DirectionMarker.EAST || marker === DirectionMarker.WEST;
+		return (
+			marker === DirectionSymbol.EAST ||
+			marker === DirectionSymbol.WEST ||
+			marker === DirectionLiteralLetter.EAST ||
+			marker === DirectionLiteralLetter.WEST ||
+			marker === DirectionGeographicLetter.EAST ||
+			marker === DirectionGeographicLetter.WEST
+		);
 	}
 
 	public static isVertical(marker: DirectionMarker): boolean {
-		return marker === DirectionMarker.NORTH || marker === DirectionMarker.SOUTH;
+		return (
+			marker === DirectionSymbol.NORTH ||
+			marker === DirectionSymbol.SOUTH ||
+			marker === DirectionLiteralLetter.NORTH ||
+			marker === DirectionLiteralLetter.SOUTH ||
+			marker === DirectionGeographicLetter.NORTH ||
+			marker === DirectionGeographicLetter.SOUTH
+		);
+	}
+
+	public static isDirectionMarker(marker: string): marker is DirectionMarker {
+		return (
+			marker === DirectionSymbol.NORTH ||
+			marker === DirectionSymbol.EAST ||
+			marker === DirectionSymbol.SOUTH ||
+			marker === DirectionSymbol.WEST ||
+			marker === DirectionLiteralLetter.NORTH ||
+			marker === DirectionLiteralLetter.EAST ||
+			marker === DirectionLiteralLetter.SOUTH ||
+			marker === DirectionLiteralLetter.WEST ||
+			marker === DirectionGeographicLetter.NORTH ||
+			marker === DirectionGeographicLetter.EAST ||
+			marker === DirectionGeographicLetter.SOUTH ||
+			marker === DirectionGeographicLetter.WEST
+		);
 	}
 
 	public static from(marker: DirectionMarker): Direction {
 		switch (marker) {
-			case DirectionMarker.NORTH:
+			case DirectionSymbol.NORTH:
+			case DirectionLiteralLetter.NORTH:
+			case DirectionGeographicLetter.NORTH:
 				return Direction.NORTH;
-			case DirectionMarker.EAST:
+			case DirectionSymbol.EAST:
+			case DirectionLiteralLetter.EAST:
+			case DirectionGeographicLetter.EAST:
 				return Direction.EAST;
-			case DirectionMarker.SOUTH:
+			case DirectionSymbol.SOUTH:
+			case DirectionLiteralLetter.SOUTH:
+			case DirectionGeographicLetter.SOUTH:
 				return Direction.SOUTH;
-			case DirectionMarker.WEST:
+			case DirectionSymbol.WEST:
+			case DirectionLiteralLetter.WEST:
+			case DirectionGeographicLetter.WEST:
 				return Direction.WEST;
 		}
 	}
