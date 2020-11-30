@@ -1,6 +1,5 @@
 {
 	"recommendations": [
-		"ms-vscode.vscode-typescript-tslint-plugin",
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
 		"pkief.material-icon-theme",
@@ -10,7 +9,6 @@
 		"serayuzgur.crates",
 		"matklad.rust-analyzer",
 		"ms-vscode.cpptools",
-		"mikestead.dotenv",
 		"equinusocio.vsc-material-theme",
 		"mhutchie.git-graph",
 		"ritwickdey.liveserver"
