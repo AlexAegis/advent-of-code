@@ -5,7 +5,18 @@ module.exports = {
 		'scope-enum': [
 			2,
 			'always',
-			['core', 'jwt', 'package', 'docs', 'lint', 'changelog', 'release'],
+			[
+				'core',
+				'rust',
+				'typescript',
+				'haskell',
+				'java',
+				'package',
+				'docs',
+				'lint',
+				'changelog',
+				'release',
+			],
 		],
 	},
 };
