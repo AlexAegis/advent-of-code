@@ -11,9 +11,7 @@ export enum Instruction {
 	HALT = 99,
 }
 
-export const isInstruction = (n: number): boolean => {
-	return (n >= 1 && n <= 9) || n === 99;
-};
+export const isInstruction = (n: number): n is Instruction => (n >= 1 && n <= 9) || n === 99;
 
 export const toInstruction = (code: number): Instruction => {
 	const inst = code % 100;
