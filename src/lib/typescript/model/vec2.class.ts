@@ -71,9 +71,9 @@ export class Vec2 implements Vec2Like {
 
 	public add(
 		coord: Vec2Like,
-		options: { times?: number; limit?: Area; onLimit?: 'clamp' | 'cancel' } = {
-			times: 1,
-			onLimit: 'cancel',
+		options?: {
+			times?: number;
+			limit?: Area | ((v: Vec2Like) => boolean);
 		}
 	): Vec2 {
 		return this.clone().addMut(coord, options);
@@ -81,7 +81,10 @@ export class Vec2 implements Vec2Like {
 
 	public addMut(
 		coord: Vec2Like,
-		options?: { times?: number; limit?: Area; clampOnLimit?: boolean }
+		options?: {
+			times?: number;
+			limit?: Area | ((v: Vec2Like) => boolean);
+		}
 	): Vec2 {
 		const originalX = this.x;
 		const originalY = this.y;
@@ -89,13 +92,14 @@ export class Vec2 implements Vec2Like {
 		this.x += coord.x * (options?.times ?? 1);
 		this.y += coord.y * (options?.times ?? 1);
 
-		if (options?.limit && !Vec2.isWithin(this, options.limit)) {
-			if (options.clampOnLimit) {
-				this.clamp(options.limit);
-			} else {
-				this.x = originalX;
-				this.y = originalY;
-			}
+		if (
+			options?.limit &&
+			(typeof options.limit === 'function'
+				? options.limit(this)
+				: !Vec2.isWithin(this, options.limit))
+		) {
+			this.x = originalX;
+			this.y = originalY;
 		}
 
 		return this;
