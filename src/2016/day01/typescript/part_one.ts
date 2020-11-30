@@ -10,7 +10,7 @@ export const runner = (input: string): number =>
 			(acc, next) => {
 				if (next[0] === 'R') acc.direction = acc.direction.right();
 				if (next[0] === 'L') acc.direction = acc.direction.left();
-				acc.position.addMut(acc.direction, Number(next.substring(1)));
+				acc.position.addMut(acc.direction, { times: Number(next.substring(1)) });
 				return acc;
 			},
 			{ position: Vec2.ORIGIN.clone(), direction: Direction.NORTH }

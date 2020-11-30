@@ -13,12 +13,12 @@ export const runner = (input: string): number => {
 		possInts.set(ap.c.toString(), { a: ap.c, b: undefined });
 	});
 
-	return Vec2.ORIGO.manhattan(
+	return Vec2.ORIGIN.manhattan(
 		b
 			.filter((bp) => possInts.has(bp.c.toString()))
 			.map((v) => v.c)
 			.reduce((min, n) =>
-				min === undefined || Vec2.ORIGO.manhattan(n) <= Vec2.ORIGO.manhattan(min as Vec2)
+				min === undefined || Vec2.ORIGIN.manhattan(n) <= Vec2.ORIGIN.manhattan(min as Vec2)
 					? n
 					: min
 			)
