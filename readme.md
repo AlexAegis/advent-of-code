@@ -175,8 +175,8 @@
 | Day                        | Part One                                          |      | Part Two                                          |      |
 | -------------------------- | ------------------------------------------------- | ---- | ------------------------------------------------- | ---- |
 |                            | TypeScript                                        | Rust | TypeScript                                        | Rust |
-| [Day 1](./src/2015/day01/) | [0.37ms](./src/2016/day01/typescript/part_one.ts) |      | [0.48ms](./src/2016/day01/typescript/part_two.ts) |      |
-| Day 2                      |                                                   |      |                                                   |      |
+| [Day 1](./src/2016/day01/) | [0.37ms](./src/2016/day01/typescript/part_one.ts) |      | [0.48ms](./src/2016/day01/typescript/part_two.ts) |      |
+| [Day 2](./src/2016/day02/) | [2.6ms](./src/2016/day02/typescript/part_one.ts)  |      | [1.9ms](./src/2016/day02/typescript/part_one.ts)  |      |
 | Day 3                      |                                                   |      |                                                   |      |
 | Day 4                      |                                                   |      |                                                   |      |
 | Day 5                      |                                                   |      |                                                   |      |
