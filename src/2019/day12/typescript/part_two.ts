@@ -16,7 +16,7 @@ export const findCycle = (ms: Moon[], ps: Moon[][], plane: 'x' | 'y' | 'z'): num
 			b.vel[plane] -= d;
 		});
 		ms.forEach((m) => m.step(plane));
-		if (ms.every((m) => m.vel.equals(Vec3.ORIGO))) {
+		if (ms.every((m) => m.vel.equals(Vec3.ORIGIN))) {
 			return 2 + i * 2;
 		}
 	}
