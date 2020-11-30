@@ -7,6 +7,12 @@ export interface Vec3Like extends Vec2Like {
 }
 
 export class Vec3 implements Vec3Like {
+	public static ORIGIN = new Vec3(0, 0, 0);
+
+	public x!: number;
+	public y!: number;
+	public z!: number;
+
 	public constructor(coord: Vec3Like | string);
 	public constructor(x: number, y: number, z: number);
 	public constructor(x: number | string | Vec2Like, y?: number, z?: number) {
@@ -22,10 +28,6 @@ export class Vec3 implements Vec3Like {
 			[this.x, this.y, this.z] = (x.match(NUM) || []).map((s) => parseInt(s, 10));
 		}
 	}
-	static ORIGO: Vec3;
-	public x!: number;
-	public y!: number;
-	public z!: number;
 
 	public add(coord: Vec3Like, times = 1): Vec3 {
 		return new Vec3(
@@ -132,5 +134,3 @@ export class Vec3 implements Vec3Like {
 		return new Vec3(this);
 	}
 }
-
-Vec3.ORIGO = new Vec3(0, 0, 0);

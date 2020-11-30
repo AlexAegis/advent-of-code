@@ -13,9 +13,9 @@ export const runner = (input: string): number =>
 				acc.position.addMut(acc.direction, Number(next.substring(1)));
 				return acc;
 			},
-			{ position: Vec2.ORIGO, direction: Direction.NORTH }
+			{ position: Vec2.ORIGIN.clone(), direction: Direction.NORTH }
 		)
-		.position.manhattan(Vec2.ORIGO);
+		.position.manhattan(Vec2.ORIGIN);
 
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 300 ~0.37ms

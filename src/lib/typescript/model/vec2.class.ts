@@ -7,9 +7,7 @@ export interface Vec2Like {
 }
 
 export class Vec2 implements Vec2Like {
-	public static get ORIGO(): Vec2 {
-		return new Vec2(0, 0);
-	}
+	public static ORIGIN = new Vec2(0, 0);
 
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
