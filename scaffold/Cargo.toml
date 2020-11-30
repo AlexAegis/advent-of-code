@@ -8,6 +8,6 @@ edition = "2018"
 [dependencies]
 aoc_query = { path = "./aoc-query" }
 cpt = "0.4.1"
-tokio = "0.3.2"
+tokio = { version = "0.3.4", features = ["full"] }
 serde = "1.0.117"
 serde_json = "1.0.59"
