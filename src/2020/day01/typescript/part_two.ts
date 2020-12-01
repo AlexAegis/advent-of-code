@@ -5,9 +5,9 @@ export const runner = (input: string): number => {
 	const numbers = split(input).map((line) => parseInt(line, 10));
 	for (let i = 0; i < numbers.length; i++) {
 		const ni = numbers[i];
-		for (let j = i; j < numbers.length; j++) {
+		for (let j = i + 1; j < numbers.length; j++) {
 			const nj = numbers[j];
-			for (let k = j; k < numbers.length; k++) {
+			for (let k = j + 1; k < numbers.length; k++) {
 				const nk = numbers[k];
 				if (ni + nj + nk === 2020) {
 					return ni * nj * nk;
