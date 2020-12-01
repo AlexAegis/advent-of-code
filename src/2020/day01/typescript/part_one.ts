@@ -3,10 +3,12 @@ import { day, year } from '.';
 
 export const runner = (input: string): number => {
 	const numbers = split(input).map((line) => parseInt(line, 10));
-	for (const a of numbers) {
-		for (const b of numbers) {
-			if (a + b === 2020) {
-				return a * b;
+	for (let i = 0; i < numbers.length; i++) {
+		const ni = numbers[i];
+		for (let j = i; j < numbers.length; j++) {
+			const nj = numbers[j];
+			if (ni + nj === 2020) {
+				return ni * nj;
 			}
 		}
 	}
@@ -14,5 +16,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 787776 ~1ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 787776 ~0.37ms
 }
