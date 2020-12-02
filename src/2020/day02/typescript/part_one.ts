@@ -1,7 +1,7 @@
 import { bench, read, split } from '@lib';
 import { day, year } from '.';
 
-export const lineMatcher = /(\d+)-(\d+) ([a-z]): ([a-z]+)/;
+export const lineMatcher = /(\d+)-(\d+) (\w): (\w+)/;
 
 export interface TobogganPasswordPolicy {
 	low: number;
