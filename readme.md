@@ -28,7 +28,7 @@
 | -------------------------- | ------------------------------------------------- | ---- | ------------------------------------------------ | ---- |
 |                            | TypeScript                                        | Rust | TypeScript                                       | Rust |
 | [Day 1](./src/2020/day01/) | [0.37ms](./src/2020/day01/typescript/part_one.ts) |      | [3.4ms](./src/2020/day01/typescript/part_two.ts) |      |
-| Day 2                      |                                                   |      |                                                  |      |
+| [Day 2](./src/2020/day02/) | [3.7ms](./src/2020/day02/typescript/part_one.ts)  |      | [2.4ms](./src/2020/day02/typescript/part_two.ts) |      |
 | Day 3                      |                                                   |      |                                                  |      |
 | Day 4                      |                                                   |      |                                                  |      |
 | Day 5                      |                                                   |      |                                                  |      |
