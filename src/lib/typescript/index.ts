@@ -3,6 +3,7 @@ import { performance, PerformanceObserver } from 'perf_hooks';
 import { promises } from 'fs';
 import { MonoTypeOperatorFunction } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { NEWLINE } from './regex';
 
 export type Awaitable<T> = Promise<T> | T;
 
@@ -67,7 +68,7 @@ export const log = <T>(label: string | undefined = undefined): MonoTypeOperatorF
  * Convinienence method to split up a long string into it's
  * non empty lines in an OS agnostic way
  */
-export const split = (input: string): string[] => input.split(/\r?\n/).filter((line) => !!line);
+export const split = (input: string): string[] => input.split(NEWLINE).filter((line) => !!line);
 
 /**
  * Factory function to create an input supplier
