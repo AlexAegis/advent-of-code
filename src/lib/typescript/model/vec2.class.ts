@@ -17,7 +17,7 @@ export class Vec2 implements Vec2Like {
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
 	 */
-	public constructor(coord: Vec2Like | string);
+	public constructor(vec2: Vec2Like | string);
 	public constructor(x: number, y: number);
 	public constructor(x: number | string | Vec2Like, y?: number);
 	public constructor(x: number | string | Vec2Like, y?: number) {
@@ -115,7 +115,7 @@ export class Vec2 implements Vec2Like {
 		return this;
 	}
 
-	public manhattan(coord: Vec2Like): number;
+	public manhattan(vec2: Vec2Like): number;
 	public manhattan(x: number, y: number): number;
 	public manhattan(x: number | Vec2Like, y?: number): number {
 		if (typeof x === 'number' && typeof y === 'number') {
