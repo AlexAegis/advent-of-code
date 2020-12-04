@@ -1,4 +1,4 @@
-import { DayResults } from '@lib';
+import type { DayResults } from '@lib';
 
 export const year = 2020;
 export const day = 4;

@@ -1,5 +1,5 @@
-import { gcd } from '@lib/functions/gcd.function';
-import { NUM } from '@lib/regex/number.regex';
+import { gcd } from '@lib/math';
+import { NUM } from '@lib/regex';
 
 export interface Vec2Like {
 	x: number;

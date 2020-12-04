@@ -1,5 +1,6 @@
 import { bench, read } from '@lib';
-import { clamp, lcm, pairs } from '@lib/functions';
+import { pairs } from '@lib/functions';
+import { clamp, lcm } from '@lib/math';
 import { Vec3 } from '@lib/model/vec3.class';
 import { day, year } from '.';
 import { Moon } from './model';

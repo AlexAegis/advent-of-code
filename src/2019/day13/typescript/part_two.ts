@@ -1,6 +1,7 @@
 import { bench, read } from '@lib';
-import { clamp, drawMapStatic, printMatrix, sleep } from '@lib/functions';
+import { drawMapStatic, printMatrix, sleep } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
+import { clamp } from '@lib/math';
 import { Vec2 } from '@lib/model';
 import { day, year } from '.';
 import { parse } from './parse';

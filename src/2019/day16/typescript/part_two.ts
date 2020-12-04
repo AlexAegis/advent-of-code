@@ -1,5 +1,5 @@
 // import { bench, read } from '@lib';
-import { lcm } from '@lib/functions';
+import { lcm } from '@lib/math';
 // import { day, year } from '.';
 import { parse } from './parse';
 
