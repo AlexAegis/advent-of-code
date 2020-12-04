@@ -16,7 +16,8 @@ export type Passport = Record<RelevantFields, string>;
 export const parsePassport = (passport: string): Partial<Passport> =>
 	passport.split(' ').reduce((acc, e) => {
 		const [key, val] = e.split(':');
-		return { ...acc, [key]: val };
+		acc[key as RelevantFields] = val;
+		return acc;
 	}, {} as Partial<Passport>);
 
 export const parsePassports = (input: string): Partial<Passport>[] =>
@@ -31,5 +32,5 @@ export const isPassport = (passport: Partial<Passport>): passport is Passport =>
 export const runner = (input: string): number => parsePassports(input).filter(isPassport).length;
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 264 ~6.5ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 264 ~5.6ms
 }
