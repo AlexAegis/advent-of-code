@@ -1,7 +1,7 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
 
-export enum RelevantFields {
+export enum RelevantField {
 	byr = 'byr',
 	iyr = 'iyr',
 	eyr = 'eyr',
@@ -11,12 +11,12 @@ export enum RelevantFields {
 	pid = 'pid',
 }
 
-export type Passport = Record<RelevantFields, string>;
+export type Passport = Record<RelevantField, string>;
 
 export const parsePassport = (passport: string): Partial<Passport> =>
 	passport.split(' ').reduce((acc, e) => {
 		const [key, val] = e.split(':');
-		acc[key as RelevantFields] = val;
+		acc[key as RelevantField] = val;
 		return acc;
 	}, {} as Partial<Passport>);
 
@@ -27,7 +27,7 @@ export const parsePassports = (input: string): Partial<Passport>[] =>
 		.map(parsePassport);
 
 export const isPassport = (passport: Partial<Passport>): passport is Passport =>
-	Object.values(RelevantFields).every((pf) => Object.keys(passport).find((k) => k === pf));
+	Object.values(RelevantField).every((pf) => Object.keys(passport).find((k) => k === pf));
 
 export const runner = (input: string): number => parsePassports(input).filter(isPassport).length;
 
