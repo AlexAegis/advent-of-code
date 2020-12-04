@@ -1,10 +1,10 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
-import { isPassport, parsePassports, Passport, RelevantFields } from './part_one';
+import { isPassport, parsePassports, Passport, RelevantField } from './part_one';
 
 export const passportEyeColors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'];
 
-export const passportChecks: Record<RelevantFields, (v: string) => boolean> = {
+export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
 	byr: (byr: string): boolean => {
 		const byrNum = parseInt(byr, 10);
 		return byr.length === 4 && byrNum >= 1920 && byrNum <= 2002;
@@ -35,7 +35,7 @@ export const passportChecks: Record<RelevantFields, (v: string) => boolean> = {
 
 export const isValidPassport = (passport: Partial<Passport>): passport is Passport =>
 	isPassport(passport) &&
-	Object.values(RelevantFields).every((f) => passportChecks[f](passport[f]));
+	Object.values(RelevantField).every((f) => passportChecks[f](passport[f]));
 
 export const runner = (input: string): number =>
 	parsePassports(input).filter(isValidPassport).length;
