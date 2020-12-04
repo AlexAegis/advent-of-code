@@ -1,5 +1,6 @@
 import { bench, read } from '@lib';
-import { clamp, pairs } from '@lib/functions';
+import { pairs } from '@lib/functions';
+import { clamp } from '@lib/math';
 import { day, year } from '.';
 import { Moon } from './model';
 import { parseLines } from './parse';

@@ -1,4 +1,5 @@
-import { bench, max, min, read } from '@lib';
+import { bench, read } from '@lib';
+import { max, min } from '@lib/math';
 import { day, year } from '.';
 import { Boundary } from './boundary.interface';
 import { interpreter } from './interpreter.function';

@@ -1,6 +1,5 @@
-import { performance, PerformanceObserver } from 'perf_hooks';
-
 import { promises } from 'fs';
+import { performance, PerformanceObserver } from 'perf_hooks';
 import { MonoTypeOperatorFunction } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { NEWLINE } from './regex';
@@ -130,9 +129,4 @@ export const bench = async <T, R = string, A = undefined>(
 	return result;
 };
 
-export const max = (acc: number, next: number): number => (acc < next ? next : acc);
-export const min = (acc: number, next: number): number => (acc > next ? next : acc);
-export const sum = (acc: number, next: number): number => acc + next;
-export const mult = (acc: number, next: number): number => acc * next;
-export const dup = (next: number): number => next * 2;
-export const asc = (a: number, b: number): number => a - b;
+export * from './math';
