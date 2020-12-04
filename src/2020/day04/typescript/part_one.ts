@@ -1,44 +1,34 @@
 import { bench, read } from '@lib';
 import { day, year } from '.';
 
-export const relevantPassportFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
-export type Passport = Record<string, string>;
+export enum RelevantFields {
+	byr = 'byr',
+	iyr = 'iyr',
+	eyr = 'eyr',
+	hgt = 'hgt',
+	hcl = 'hcl',
+	ecl = 'ecl',
+	pid = 'pid',
+}
 
-export const runner = (input: string): number => {
-	const lines = input.split(/\r?\n/);
+export type Passport = Record<RelevantFields, string>;
 
-	const parseLine = (line: string): Passport => {
-		const data = line.split(' ').reduce((acc, e) => {
-			const [key, val] = e.split(':');
-			return { ...acc, [key]: val };
-		}, {});
+export const parsePassport = (passport: string): Partial<Passport> =>
+	passport.split(' ').reduce((acc, e) => {
+		const [key, val] = e.split(':');
+		return { ...acc, [key]: val };
+	}, {} as Partial<Passport>);
 
-		return data;
-	};
+export const parsePassports = (input: string): Partial<Passport>[] =>
+	input
+		.split(/\r?\n\r?\n/)
+		.map((raw) => raw.replace(/\r?\n/g, ' '))
+		.map(parsePassport);
 
-	const batched: Passport[] = [];
-	let c = 0;
-	for (const line of lines) {
-		let passport = batched[c] ?? {};
-		batched[c] = passport;
-		if (line === '') {
-			c++;
-		} else {
-			passport = { ...passport, ...parseLine(line) };
-			batched[c] = passport;
-		}
-	}
+export const isPassport = (passport: Partial<Passport>): passport is Passport =>
+	Object.values(RelevantFields).every((pf) => Object.keys(passport).find((k) => k === pf));
 
-	const res = batched.filter((p) => {
-		const hasEveryOther = relevantPassportFields.every((pf) =>
-			Object.keys(p).find((k) => k === pf)
-		);
-
-		return hasEveryOther;
-	}).length;
-
-	return res;
-};
+export const runner = (input: string): number => parsePassports(input).filter(isPassport).length;
 
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 264 ~6.5ms
