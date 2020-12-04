@@ -1,33 +1,44 @@
 {
-	"tslint.alwaysShowRuleFailuresAsWarnings": true,
 	"editor.formatOnSave": true,
-	"editor.autoIndent": "brackets",
-	"editor.quickSuggestions": true,
-	"editor.tabSize": 4,
+	"editor.autoIndent": "full",
+	"editor.tabCompletion": "off",
+	"editor.rulers": [
+		{
+			"color": "#bdbdbd11",
+			"column": 80
+		},
+		{
+			"color": "#6d6d6d75",
+			"column": 100
+		}
+	],
+	"editor.quickSuggestionsDelay": 0,
+	"editor.quickSuggestions": {
+		"other": true,
+		"comments": false,
+		"strings": false
+	},
+	"editor.wordBasedSuggestions": true,
 	"editor.codeActionsOnSave": {
-		"source.fixAll": true
+		"source.fixAll": true,
+		"source.organizeImports": true,
+		// For ESLint
+		"source.fixAll.eslint": true,
+		// For Stylelint
+		"source.fixAll.stylelint": true
 	},
+	"editor.fontLigatures": true,
 	"editor.mouseWheelZoom": true,
-	"editor.wordBasedSuggestions": false,
-	"material-icon-theme.folders.associations": {
-		"module": "font",
-		"component": "components",
-		"doc": "markdown",
-		"animation": "delta",
-		"guard": "ngrx-effects",
-		"directive": "ngrx-actions",
-		"interceptor": "middleware",
-		"validator": "coverage",
-		"e2e": "test",
-		"target": "dist",
-		"rust": "delta",
-		"benches": "benchmark"
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true
 	},
-	"material-icon-theme.files.associations": {
-		"*.animation.ts": "purescript",
-		".mocharc": "mocha"
+	"files.associations": {
+		"*.json": "jsonc",
+		".mocharc": "json"
 	},
 	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"terminal.integrated.windowsEnableConpty": true,
 	"[rust]": {
 		"editor.defaultFormatter": "matklad.rust-analyzer"
 	},
@@ -38,7 +49,6 @@
 	"rust-analyzer.checkOnSave.enable": true,
 	"rust-analyzer.checkOnSave.allFeatures": true,
 	"rust-analyzer.checkOnSave.allTargets": true,
-	"files.associations": { ".mocharc": "json" },
 	"mocha.files.glob": "src/**/*.spec.ts",
 	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
 	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"]
