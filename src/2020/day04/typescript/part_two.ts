@@ -33,12 +33,9 @@ export const passportChecks: Record<RelevantFields, (v: string) => boolean> = {
 	pid: (pid: string): boolean => /^[0-9]{9}$/.test(pid),
 };
 
-export const isValidPassport = (passport: Partial<Passport>): passport is Passport => {
-	return (
-		isPassport(passport) &&
-		Object.values(RelevantFields).every((f) => passportChecks[f](passport[f]))
-	);
-};
+export const isValidPassport = (passport: Partial<Passport>): passport is Passport =>
+	isPassport(passport) &&
+	Object.values(RelevantFields).every((f) => passportChecks[f](passport[f]));
 
 export const runner = (input: string): number =>
 	parsePassports(input).filter(isValidPassport).length;
