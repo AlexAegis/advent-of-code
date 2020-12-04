@@ -11,7 +11,7 @@
 		"amd": true,
 		"node": true
 	},
-	"ignorePatterns": ["dist", "node_modules", "typedocs"],
+	"ignorePatterns": ["dist", "node_modules", "typedocs", "coverage"],
 	"plugins": ["@typescript-eslint"],
 	"extends": [
 		"eslint:recommended",
