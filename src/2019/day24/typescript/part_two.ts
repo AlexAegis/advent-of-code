@@ -1,4 +1,5 @@
-import { bench, max, min, read } from '@lib';
+import { bench, read } from '@lib';
+import { max, min } from '@lib/math';
 import { Direction } from '@lib/model';
 import { Vec3 } from '@lib/model/vec3.class';
 import { day, year } from '.';
@@ -55,6 +56,7 @@ const expand = (level: Map<number, Tile[][]>): void => {
 	level.set([...level.keys()].reduce(min) - 1, EMTPY_GEN);
 	level.set([...level.keys()].reduce(max) + 1, EMTPY_GEN);
 };
+
 const shrink = (level: Map<number, Tile[][]>): void => {
 	const lowKey = [...level.keys()].reduce(min);
 	const low = level.get(lowKey);

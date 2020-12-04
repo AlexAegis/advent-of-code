@@ -2,28 +2,20 @@ import { bench, read } from '@lib';
 import { day, year } from '.';
 import { isPassport, parsePassports, Passport, RelevantField } from './part_one';
 
+const CM = 'cm';
+const IN = 'in';
+
 export const passportEyeColors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'];
 
 export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
-	byr: (byr: string): boolean => {
-		const byrNum = parseInt(byr, 10);
-		return byr.length === 4 && byrNum >= 1920 && byrNum <= 2002;
-	},
-	iyr: (iyr: string): boolean => {
-		const iyrNum = parseInt(iyr, 10);
-		return iyr.length === 4 && iyrNum >= 2010 && iyrNum <= 2020;
-	},
-	eyr: (eyr: string): boolean => {
-		const eyrNum = parseInt(eyr, 10);
-		return eyr.length === 4 && eyrNum >= 2020 && eyrNum <= 2030;
-	},
+	byr: (byr: string): boolean => byr.toInt()?.isBetween(1920, 2002) ?? false,
+	iyr: (iyr: string): boolean => iyr.toInt()?.isBetween(2010, 2020) ?? false,
+	eyr: (eyr: string): boolean => eyr.toInt()?.isBetween(2020, 2030) ?? false,
 	hgt: (hgt: string): boolean => {
-		if (hgt.endsWith('cm')) {
-			const hgtNum = parseInt(hgt.split('cm')[0], 10);
-			return hgtNum >= 150 && hgtNum <= 193;
-		} else if (hgt.endsWith('in')) {
-			const hgtNum = parseInt(hgt.split('in')[0], 10);
-			return hgtNum >= 59 && hgtNum <= 76;
+		if (hgt.endsWith(CM)) {
+			return hgt.split(CM)[0].toInt()?.isBetween(150, 193) ?? false;
+		} else if (hgt.endsWith(IN)) {
+			return hgt.split(IN)[0].toInt()?.isBetween(59, 76) ?? false;
 		} else {
 			return false;
 		}
@@ -41,5 +33,5 @@ export const runner = (input: string): number =>
 	parsePassports(input).filter(isValidPassport).length;
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 224 ~7.8ms
+	bench(read(year, day), runner).then((r) => console.log(`Result: ${r}`)); // 224 ~7.8ms
 }

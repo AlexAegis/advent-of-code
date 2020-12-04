@@ -1,6 +1,7 @@
-import { bench, read, sum } from '@lib';
+import { bench, read } from '@lib';
 import { drawMapStatic, printMatrix } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
+import { sum } from '@lib/math';
 import { Direction, DirectionSymbol, Vec2 } from '@lib/model';
 import { GridGraph } from '@lib/model/graph';
 import { day, year } from '.';

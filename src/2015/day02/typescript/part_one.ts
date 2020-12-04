@@ -1,4 +1,5 @@
-import { bench, min, read, split, sum } from '@lib';
+import { bench, read, split } from '@lib';
+import { min, sum } from '@lib/math';
 import { day, year } from '.';
 
 export const runner = async (input: string): Promise<number> =>

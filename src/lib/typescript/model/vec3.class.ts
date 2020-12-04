@@ -1,4 +1,4 @@
-import { gcd } from '@lib/functions';
+import { gcd } from '@lib/math';
 import { NUM } from '@lib/regex';
 import { Vec2Like } from './vec2.class';
 
