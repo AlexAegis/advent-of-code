@@ -7,7 +7,6 @@
 [![codecov](https://img.shields.io/codecov/c/github/AlexAegis/advent-of-code.svg?label=node%20coverage)](https://codecov.io/gh/AlexAegis/advent-of-code)
 [![Coverage Status](https://img.shields.io/coveralls/github/AlexAegis/advent-of-code.svg?label=rust%20coverage)](https://coveralls.io/github/AlexAegis/advent-of-code?branch=master)
 [![snyk: vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/AlexAegis/advent-of-code.svg?style=popout)](https://app.snyk.io/org/alexaegis/project/82929b9b-f679-4b1c-8804-bff40110b7dd)
-[![Greenkeeper badge](https://badges.greenkeeper.io/AlexAegis/advent-of-code.svg)](https://greenkeeper.io/)
 [![Last Commit on GitHub](https://img.shields.io/github/last-commit/AlexAegis/advent-of-code.svg)](https://github.com/AlexAegis/advent-of-code)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
