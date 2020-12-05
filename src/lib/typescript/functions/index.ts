@@ -8,3 +8,4 @@ export * from './output';
 export * from './pairs.function';
 export * from './perm.function';
 export * from './rotate-array.function';
+export * from './using-map.function';
