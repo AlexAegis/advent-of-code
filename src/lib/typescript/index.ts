@@ -129,4 +129,4 @@ export const bench = async <T, R = string, A = undefined>(
 	return result;
 };
 
-export * from './math';
+export * from './polyfills';
