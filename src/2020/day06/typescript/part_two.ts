@@ -1,4 +1,5 @@
-import { bench, read, sum } from '@lib';
+import { bench, read } from '@lib';
+import { sum } from '@lib/math';
 import { day, year } from '.';
 
 export const runner = (input: string): number =>

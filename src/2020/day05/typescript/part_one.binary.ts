@@ -1,5 +1,6 @@
-import { bench, max, read, split } from '@lib';
+import { bench, read, split } from '@lib';
 import { usingMap } from '@lib/functions';
+import { max } from '@lib/math';
 import { day, year } from '.';
 import { PlanePartition } from './part_one';
 
