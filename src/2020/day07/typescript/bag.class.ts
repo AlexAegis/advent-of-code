@@ -1,6 +1,8 @@
 export class Bag {
 	public canContain: Map<Bag, number> = new Map();
 
+	public static create = (color: string): Bag => new Bag(color);
+
 	public constructor(public color: string) {}
 
 	/**
