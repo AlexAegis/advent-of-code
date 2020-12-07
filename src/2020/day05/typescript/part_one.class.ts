@@ -1,4 +1,5 @@
-import { bench, max, read, split } from '@lib';
+import { bench, read, split } from '@lib';
+import { max } from '@lib/math';
 import { day, year } from '.';
 import { lowerHalf, PlanePartition, upperHalf } from './part_one';
 

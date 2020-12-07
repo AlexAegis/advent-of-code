@@ -1,4 +1,5 @@
-import { bench, max, read, split } from '@lib';
+import { bench, read, split } from '@lib';
+import { max } from '@lib/math';
 import { day, year } from '.';
 
 export enum PlanePartition {
