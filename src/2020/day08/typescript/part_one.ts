@@ -16,7 +16,7 @@ export const runner = (input: string): number => {
 			executed.add(i);
 		}
 
-		switch (instruction?.op) {
+		switch (instruction.op) {
 			case Operation.jmp:
 				i += instruction.arg;
 				break;
@@ -35,5 +35,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1709 ~0.7ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1709 ~0.67ms
 }
