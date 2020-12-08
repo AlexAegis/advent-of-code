@@ -14,16 +14,15 @@ const swap = (i: Instruction): Instruction => ({
 });
 
 export const runner = (input: string): number => {
-	const instructions = parse(input);
-
-	const possibleInstructions = instructions
-		.map((op, i) => ({
+	const possibleInstructions = parse(input)
+		.map((op, i, original) => ({
 			op,
 			i,
+			original,
 		}))
 		.filter(({ op }) => op.op === Operation.nop || op.op === Operation.jmp)
-		.map(({ i }) => {
-			const ops = [...instructions];
+		.map(({ i, original }) => {
+			const ops = [...original];
 			ops[i] = swap(ops[i]);
 			return ops;
 		});
