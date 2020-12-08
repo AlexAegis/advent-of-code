@@ -14,26 +14,29 @@ const swap = (i: Instruction): Instruction => ({
 });
 
 export const runner = (input: string): number => {
-	const operations = parse(input);
+	const instructions = parse(input);
 
-	const switchableOperations = operations
+	const possibleInstructions = instructions
 		.map((op, i) => ({
 			op,
 			i,
 		}))
 		.filter(({ op }) => op.op === Operation.nop || op.op === Operation.jmp)
-		.map(({ i }) => i);
+		.map(({ i }) => {
+			const ops = [...instructions];
+			ops[i] = swap(ops[i]);
+			return ops;
+		});
 
 	let acc = 0;
 
-	out: for (const indice of switchableOperations) {
+	out: for (const instructions of possibleInstructions) {
 		const executed = new Set<number>();
-		const ops = [...operations];
-		ops[indice] = swap(ops[indice]);
 
 		acc = 0;
-		for (let i = 0; i < ops.length; ) {
-			const op = ops[i];
+
+		for (let i = 0; i < instructions.length; ) {
+			const instruction = instructions[i];
 
 			if (executed.has(i)) {
 				continue out;
@@ -41,12 +44,12 @@ export const runner = (input: string): number => {
 				executed.add(i);
 			}
 
-			switch (op?.op) {
+			switch (instruction?.op) {
 				case Operation.jmp:
-					i += op.arg;
+					i += instruction.arg;
 					break;
 				case Operation.acc:
-					acc += op.arg;
+					acc += instruction.arg;
 					i++;
 					break;
 				default:
@@ -62,5 +65,5 @@ export const runner = (input: string): number => {
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1976 ~6ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1976 ~5.5ms
 }
