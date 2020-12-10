@@ -86,7 +86,7 @@ export const read = <A>(year: number, day: number, file = 'input.txt') => async 
 			encoding: 'utf-8',
 		}) as Promise<string>,
 		promises
-			.readFile(`${baseUrl}${file.split('.')[0]}.args.json`, {
+			.readFile(`${baseUrl}${file.split(/(.*)\..*/)[1]}.args.json`, {
 				encoding: 'utf-8',
 			})
 			.catch(() => undefined) as Promise<string>,
