@@ -2,6 +2,7 @@ export * from './chunks-of-array.function';
 export * from './control';
 export * from './frequency-map.function';
 export * from './integer-length.function';
+export * from './is.function';
 export * from './num-at.function';
 export * from './num-start.function';
 export * from './output';

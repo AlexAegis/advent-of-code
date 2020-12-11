@@ -48,6 +48,10 @@ export class Vec2 implements Vec2Like {
 		);
 	}
 
+	public isWithin(area: Area): boolean {
+		return Vec2.isWithin(this, area);
+	}
+
 	public clamp(area: Area): Vec2 {
 		const xMax = Math.max(area.cornerA.x, area.cornerB.x);
 		const yMax = Math.max(area.cornerA.y, area.cornerB.y);
