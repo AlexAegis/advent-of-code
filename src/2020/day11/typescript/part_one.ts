@@ -35,10 +35,6 @@ export const tick = (map: Map<string, SeatState>): Map<string, SeatState> => {
 	return nextMap;
 };
 
-export const areTheSameMaps = <K, V>(a: Map<K, V>, b: Map<K, V>): boolean => {
-	return [...a.keys()].every((key) => a.get(key) === b.get(key));
-};
-
 export const runner = (input: string): number => {
 	const { seats } = parse(input);
 
