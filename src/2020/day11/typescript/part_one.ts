@@ -48,7 +48,7 @@ export const runner = (input: string): number => {
 		map = nextMap;
 	}
 
-	return [...map.values()].filter(is(SeatState.OCCUPIED)).map((a) => a).length;
+	return [...map.values()].filter(is(SeatState.OCCUPIED)).length;
 };
 
 if (require.main === module) {
