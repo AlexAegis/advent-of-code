@@ -197,4 +197,26 @@ export class Vec2 implements Vec2Like {
 	public clone(): Vec2 {
 		return new Vec2(this);
 	}
+
+	public rotateLeft(times = 1, around: Vec2 = Vec2.ORIGIN): Vec2 {
+		this.subMut(around);
+		for (let i = 0; i < times; i++) {
+			const x = this.x;
+			this.x = -this.y;
+			this.y = x;
+			this.addMut(around);
+		}
+		return this;
+	}
+
+	public rotateRight(times = 1, around: Vec2 = Vec2.ORIGIN): Vec2 {
+		this.subMut(around);
+		for (let i = 0; i < times; i++) {
+			const y = this.y;
+			this.y = -this.x;
+			this.x = y;
+			this.addMut(around);
+		}
+		return this;
+	}
 }
