@@ -6,7 +6,7 @@ import { FerryAction, parse } from './parse.function';
 export const runner = (input: string): number => {
 	const position = new Vec2(0, 0);
 	const vector = new Vec2(1, 0);
-	for (const { action, value } of split(input).map((l) => parse(l))) {
+	for (const { action, value } of split(input).map(parse)) {
 		switch (action) {
 			case FerryAction.NORTH:
 				position.addMut(Direction.NORTH, { times: value });
