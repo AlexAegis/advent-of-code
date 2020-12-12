@@ -13,7 +13,7 @@ export interface FerryActionValue {
 	value: number;
 }
 
-const r = /([NSEWLRF]{1})(\d+)/.compile();
+const r = /([NSEWLRF]{1})(\d+)/;
 
 export const parse = (line: string): FerryActionValue => {
 	const [, action, value] = r.exec(line) ?? [];
