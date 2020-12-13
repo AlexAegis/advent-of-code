@@ -38,7 +38,7 @@
 | [Day 10](./src/2020/day10/) | [0.4ms](./src/2020/day10/typescript/part_one.ts)  |      | [0.3ms](./src/2020/day10/typescript/part_two.ts)  |      |
 | [Day 11](./src/2020/day11/) | [900ms](./src/2020/day11/typescript/part_one.ts)  |      | [1300ms](./src/2020/day11/typescript/part_two.ts) |      |
 | [Day 12](./src/2020/day12/) | [1.07ms](./src/2020/day12/typescript/part_one.ts) |      | [1.07ms](./src/2020/day12/typescript/part_two.ts) |      |
-| Day 13                      |                                                   |      |                                                   |      |
+| [Day 13](./src/2020/day13/) | [0.22ms](./src/2020/day13/typescript/part_one.ts) |      | [0.4ms](./src/2020/day13/typescript/part_two.ts)  |      |
 | Day 14                      |                                                   |      |                                                   |      |
 | Day 15                      |                                                   |      |                                                   |      |
 | Day 16                      |                                                   |      |                                                   |      |
