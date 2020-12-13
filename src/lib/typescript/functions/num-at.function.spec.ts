@@ -8,7 +8,7 @@ describe('Number at', () => {
 		expect(numAt(85476847, 0)).to.equal(8);
 	});
 
-	it(`should work with the position being negative`, () => {
+	it('should work with the position being negative', () => {
 		expect(numAt(123, -1)).to.equal(0);
 		expect(numAt(7653, -2)).to.equal(0);
 	});
