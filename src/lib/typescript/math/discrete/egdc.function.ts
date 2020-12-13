@@ -1,4 +1,4 @@
-import { mod, modn } from './positive-modulo.function';
+import { mod, modBigInt } from './positive-modulo.function';
 
 export const egcd = (a: number, b: number): [number, number, number] => {
 	if (a === 0) {
@@ -9,11 +9,11 @@ export const egcd = (a: number, b: number): [number, number, number] => {
 	}
 };
 
-export const bigEgcd = (a: bigint, b: bigint): [bigint, bigint, bigint] => {
+export const egdcBigInt = (a: bigint, b: bigint): [bigint, bigint, bigint] => {
 	if (a === 0n) {
 		return [b, 0n, 1n];
 	} else {
-		const [g, y, x] = bigEgcd(modn(b, a), a);
+		const [g, y, x] = egdcBigInt(modBigInt(b, a), a);
 		return [g, x - (b / a) * y, y];
 	}
 };

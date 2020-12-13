@@ -1,4 +1,4 @@
-import { isBetween, mod, modn } from '@lib/math';
+import { isBetween, mod, modBigInt } from '@lib/math';
 
 declare global {
 	interface Number {
@@ -20,7 +20,7 @@ Number.prototype.mod = function (this: number, m: number): number {
 };
 
 BigInt.prototype.mod = function (this: BigInt, m: BigInt): BigInt {
-	return modn(this as bigint, m as bigint);
+	return modBigInt(this as bigint, m as bigint);
 };
 
 Number.prototype.isBetween = function (this: number, l: number, h: number): boolean {
