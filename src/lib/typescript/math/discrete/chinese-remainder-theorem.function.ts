@@ -1,4 +1,4 @@
-import { mulInv, mulInvBigInt } from './multiplicative-inverse.function';
+import { invModBigInt } from './inverse-modulo.function';
 
 export interface CongruentModulo<T extends number | bigint> {
 	remainder: T;
@@ -7,18 +7,21 @@ export interface CongruentModulo<T extends number | bigint> {
 
 /**
  * Chinese Remainder Theorem Solver
+ *
+ * Uses bigints internally
+ *
  * @param a
  * @param n
  */
 export const crt = (mods: CongruentModulo<number>[]): number => {
-	let p = 1;
-	let sm = 0;
-	const prod = mods.reduce((acc, { modulo }) => acc * modulo, 1);
-	for (const { remainder, modulo } of mods) {
-		p = prod / modulo;
-		sm = sm + remainder * mulInv(p, modulo) * p;
-	}
-	return sm % prod;
+	return Number(
+		crtBigInt(
+			mods.map(({ remainder, modulo }) => ({
+				remainder: BigInt(remainder),
+				modulo: BigInt(modulo),
+			}))
+		)
+	);
 };
 
 /**
@@ -32,7 +35,7 @@ export const crtBigInt = (mods: CongruentModulo<bigint>[]): bigint => {
 	const prod = mods.reduce((acc, { modulo }) => acc * modulo, 1n);
 	for (const { remainder, modulo } of mods) {
 		p = prod / modulo;
-		sm = sm + remainder * mulInvBigInt(p, modulo) * p;
+		sm = sm + remainder * invModBigInt(p, modulo) * p;
 	}
 	return sm % prod;
 };

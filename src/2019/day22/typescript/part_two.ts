@@ -1,42 +1,38 @@
 import { bench, read } from '@lib';
-import bigInt from 'big-integer';
+import { invModEgdcBigInt, posModBigInt } from '@lib/math';
 import { day, year } from '.';
 import { parse } from './parse';
 
-export const runner = (deckSize = 119315717514047, repeat = 101741582076661, target = 2020) => (
+export const runner = (deckSize = 119315717514047n, repeat = 101741582076661n, target = 2020n) => (
 	input: string
 ): number => {
 	const lines = parse(input);
-
-	let increment = bigInt.one;
-	let offset = bigInt.zero;
-
+	let increment = 1n;
+	let offset = 0n;
 	for (const line of lines) {
-		const n: number = parseInt(line.split(' ').pop() as string, 10);
+		const nn = parseInt(line.split(' ').pop() as string, 10);
+		const bn = isNaN(nn) ? 0n : BigInt(nn);
 		if (line.startsWith('deal into new stack')) {
-			increment = increment.multiply(-1);
-			increment = increment.mod(deckSize).add(deckSize).mod(deckSize);
-			offset = offset.add(increment);
-			offset = offset.mod(deckSize).add(deckSize).mod(deckSize);
+			increment = increment * -1n;
+			increment = posModBigInt(increment, deckSize);
+			offset = offset + increment;
+			offset = posModBigInt(offset, deckSize);
 		} else if (line.startsWith('cut')) {
-			offset = offset.add(increment.multiply(n));
-			offset = offset.mod(deckSize).add(deckSize).mod(deckSize);
+			offset = offset + increment * bn;
+			offset = posModBigInt(offset, deckSize);
 		} else if (line.startsWith('deal with increment')) {
-			increment = increment.multiply(bigInt(n).modInv(deckSize));
-			increment = increment.mod(deckSize).add(deckSize).mod(deckSize);
+			invModEgdcBigInt;
+			increment = increment * invModEgdcBigInt(bn, deckSize);
+			increment = posModBigInt(increment, deckSize);
 		}
 	}
 
-	const i = increment.modPow(repeat, deckSize);
+	const i = increment.modExp(repeat, deckSize);
 
-	offset = offset
-		.multiply(bigInt.one.minus(i))
-		.multiply(
-			bigInt.one.minus(increment).mod(deckSize).add(deckSize).mod(deckSize).modInv(deckSize)
-		);
-	offset = offset.mod(deckSize).add(deckSize).mod(deckSize);
+	offset = offset * (1n - i) * (1n - increment).posMod(deckSize).invMod(deckSize);
+	offset = offset.posMod(deckSize);
 
-	return offset.add(i.multiply(target)).mod(deckSize).add(deckSize).mod(deckSize).toJSNumber();
+	return Number((offset + i * target).posMod(deckSize));
 };
 
 if (require.main === module) {

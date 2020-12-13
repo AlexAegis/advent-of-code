@@ -1,20 +1,80 @@
-import { egcd, egdcBigInt } from './egdc.function';
-import { mod, modBigInt } from './positive-modulo.function';
+import { egdcBigInt } from './egdc.function';
+import { posModBigInt } from './positive-modulo.function';
 
-export const inverseMod = (a: number, m: number): number => {
-	const [g, x] = egcd(a, m);
-	if (g !== 1) {
-		throw new Error(`Modular invers of ${a} modulo ${m} does not exist`);
-	} else {
-		return mod(x, m);
-	}
+/**
+ * Inverse Modulo
+ *
+ * This one is faster than the egdc variant
+ *
+ * Uses bigints internally
+ *
+ * @param a
+ * @param m
+ */
+export const invMod = (a: number, m: number): number => {
+	return Number(invModBigInt(BigInt(a), BigInt(m)));
 };
 
-export const bigInverseMod = (a: bigint, m: bigint): bigint => {
+/**
+ * Inverse Modulo directly with bigints
+ *
+ * This one is faster than the egdc variant
+ *
+ * @param a
+ * @param m
+ */
+export const invModBigInt = (a: bigint, m: bigint): bigint => {
+	const b0 = m;
+	let x0 = 0n;
+	let x1 = 1n;
+	let q: bigint;
+	let tmp: bigint;
+	if (m == 1n) {
+		return 1n;
+	}
+	while (a > 1n) {
+		if (m === 0n) {
+			throw new Error('Multiplicative inverse does not exist, tried to divide by 0');
+		}
+		q = a / m;
+		tmp = a;
+		a = m;
+		m = tmp % m;
+		tmp = x0;
+		x0 = x1 - q * x0;
+		x1 = tmp;
+	}
+	if (x1 < 0n) {
+		x1 = x1 + b0;
+	}
+	return x1;
+};
+
+/**
+ * Inverse Modulo using egdc
+ *
+ * This one is slower than the non egdc variant
+ *
+ * @param a number
+ * @param m modulo
+ */
+export const invModEgdc = (a: number, m: number): number => {
+	return Number(invModEgdcBigInt(BigInt(a), BigInt(m)));
+};
+
+/**
+ * Inverse Module directly for bigints using egdc
+ *
+ * This one is slower than the non egdc variant
+ *
+ * @param a number
+ * @param m modulo
+ */
+export const invModEgdcBigInt = (a: bigint, m: bigint): bigint => {
 	const [g, x] = egdcBigInt(a, m);
 	if (g !== 1n) {
-		throw new Error(`Modular invers of ${a} modulo ${m} does not exist`);
+		throw new Error(`Modular inverse of ${a} modulo ${m} does not exist`);
 	} else {
-		return modBigInt(x, m);
+		return posModBigInt(x, m);
 	}
 };
