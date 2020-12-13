@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { results } from '..';
 import { runner } from '../part_two';
 
-describe(`2018 - Day 14 - Part Two`, () => {
+describe('2018 - Day 14 - Part Two', () => {
 	it('Should take 9 recipes for 5158916779 to appear:', async () => {
 		expect(runner('5158916779')).to.equal(9);
 	});
@@ -35,7 +35,7 @@ describe(`2018 - Day 14 - Part Two`, () => {
 		expect(runner('59414')).to.equal(2018);
 	});
 
-	it(`should resolve to ${results.two.input} when using the input`, async () => {
+	it('should solve the input', async () => {
 		expect(runner('327901')).to.equal(results.two.input);
 	}).timeout(20000);
 });
