@@ -1,5 +1,5 @@
-import { bigEgcd, egcd } from './egdc.function';
-import { mod, modn } from './positive-modulo.function';
+import { egcd, egdcBigInt } from './egdc.function';
+import { mod, modBigInt } from './positive-modulo.function';
 
 export const inverseMod = (a: number, m: number): number => {
 	const [g, x] = egcd(a, m);
@@ -11,10 +11,10 @@ export const inverseMod = (a: number, m: number): number => {
 };
 
 export const bigInverseMod = (a: bigint, m: bigint): bigint => {
-	const [g, x] = bigEgcd(a, m);
+	const [g, x] = egdcBigInt(a, m);
 	if (g !== 1n) {
 		throw new Error(`Modular invers of ${a} modulo ${m} does not exist`);
 	} else {
-		return modn(x, m);
+		return modBigInt(x, m);
 	}
 };
