@@ -12,4 +12,5 @@ export const add = (a: number, b: number): number => a + b;
 export const sub = (a: number, b: number): number => a - b;
 export const desc = add;
 export const asc = sub;
-export const isBetween = (n: number, l: number, h: number): boolean => n >= l && n <= h;
+export const isBetween = (n: number | bigint, l: number | bigint, h: number | bigint): boolean =>
+	n >= l && n <= h;

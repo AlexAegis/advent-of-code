@@ -64,10 +64,8 @@ typings/
 # scratchfile
 scratchpad
 
-
-
 # Rust
-
 target
 
-
+# Benchmarking
+/benchmark
