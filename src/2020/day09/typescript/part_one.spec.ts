@@ -3,10 +3,10 @@ import { expect } from 'chai';
 import { Args, day, year } from '.';
 import { hasComponents, runner } from './part_one';
 
-describe(`2020 - Day 9 - Part One`, () => {
+describe('2020 - Day 9 - Part One', () => {
 	const preamble = Array.from({ length: 25 }, (_, i) => i + 1);
 
-	it(`should solve for the input`, async () => {
+	it('should solve the input', async () => {
 		const { input, args } = await read<Args>(year, day)();
 		expect(await runner(input, args)).to.equal(217430975);
 	});

@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import { day, year } from '.';
 import { runner } from './part_two';
 
-describe(`2019 - Day 22 - Part Two`, () => {
-	it(`should resolve to 81781678911487 when using the input`, async () => {
+describe('2019 - Day 22 - Part Two', () => {
+	it('should resolve to 81781678911487 when using the input', async () => {
 		expect(await runner()((await read(year, day)()).input)).to.equal(81781678911487);
 	});
 
