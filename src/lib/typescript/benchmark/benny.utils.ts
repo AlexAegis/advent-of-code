@@ -1,6 +1,13 @@
 import { add, complete, cycle, save, suite } from 'benny';
 
-export const cycleTime = (options?: { precision: number }): ReturnType<typeof cycle> => {
+/**
+ * TODO: AutoUpdate readme.md with the results
+ * @param options
+ */
+export const cycleTime = (options?: {
+	precision: number;
+	autoUpdate: boolean;
+}): ReturnType<typeof cycle> => {
 	const precision = options?.precision ?? 4;
 	return cycle((c): void => {
 		console.log(`${c.name}, mean: ${(c.details.mean * 1000).toFixed(precision)}ms`);
