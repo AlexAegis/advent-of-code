@@ -2,7 +2,7 @@ version: '2' # required to adjust maintainability checks
 plugins:
   eslint:
     enabled: true
-    channel: eslint-5
+    channel: eslint-7
   markdownlint:
     enabled: true
 checks:
