@@ -23,34 +23,34 @@
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                         | Part One                                          |      | Part Two                                          |      |
-| --------------------------- | ------------------------------------------------- | ---- | ------------------------------------------------- | ---- |
-|                             | TypeScript                                        | Rust | TypeScript                                        | Rust |
-| [Day 1](./src/2020/day01/)  | [0.37ms](./src/2020/day01/typescript/part_one.ts) |      | [3.4ms](./src/2020/day01/typescript/part_two.ts)  |      |
-| [Day 2](./src/2020/day02/)  | [2.6ms](./src/2020/day02/typescript/part_one.ts)  |      | [2ms](./src/2020/day02/typescript/part_two.ts)    |      |
-| [Day 3](./src/2020/day03/)  | [0.3ms](./src/2020/day03/typescript/part_one.ts)  |      | [0.6ms](./src/2020/day03/typescript/part_two.ts)  |      |
-| [Day 4](./src/2020/day04/)  | [5.6ms](./src/2020/day04/typescript/part_one.ts)  |      | [7.8ms](./src/2020/day04/typescript/part_two.ts)  |      |
-| [Day 5](./src/2020/day05/)  | [4ms](./src/2020/day05/typescript/part_one.ts)    |      | [4ms](./src/2020/day05/typescript/part_two.ts)    |      |
-| [Day 6](./src/2020/day06/)  | [1ms](./src/2020/day06/typescript/part_one.ts)    |      | [2.2ms](./src/2020/day06/typescript/part_two.ts)  |      |
-| [Day 7](./src/2020/day07/)  | [41ms](./src/2020/day07/typescript/part_one.ts)   |      | [3.9ms](./src/2020/day07/typescript/part_two.ts)  |      |
-| [Day 8](./src/2020/day08/)  | [0.67ms](./src/2020/day08/typescript/part_one.ts) |      | [5ms](./src/2020/day08/typescript/part_two.ts)    |      |
-| [Day 9](./src/2020/day09/)  | [2.7ms](./src/2020/day09/typescript/part_one.ts)  |      | [2.8ms](./src/2020/day09/typescript/part_two.ts)  |      |
-| [Day 10](./src/2020/day10/) | [0.4ms](./src/2020/day10/typescript/part_one.ts)  |      | [0.3ms](./src/2020/day10/typescript/part_two.ts)  |      |
-| [Day 11](./src/2020/day11/) | [900ms](./src/2020/day11/typescript/part_one.ts)  |      | [1300ms](./src/2020/day11/typescript/part_two.ts) |      |
-| [Day 12](./src/2020/day12/) | [1.07ms](./src/2020/day12/typescript/part_one.ts) |      | [1.07ms](./src/2020/day12/typescript/part_two.ts) |      |
-| [Day 13](./src/2020/day13/) | [0.22ms](./src/2020/day13/typescript/part_one.ts) |      | [0.4ms](./src/2020/day13/typescript/part_two.ts)  |      |
-| Day 14                      |                                                   |      |                                                   |      |
-| Day 15                      |                                                   |      |                                                   |      |
-| Day 16                      |                                                   |      |                                                   |      |
-| Day 17                      |                                                   |      |                                                   |      |
-| Day 18                      |                                                   |      |                                                   |      |
-| Day 19                      |                                                   |      |                                                   |      |
-| Day 20                      |                                                   |      |                                                   |      |
-| Day 21                      |                                                   |      |                                                   |      |
-| Day 22                      |                                                   |      |                                                   |      |
-| Day 23                      |                                                   |      |                                                   |      |
-| Day 24                      |                                                   |      |                                                   |      |
-| Day 25                      |                                                   |      |                                                   |      |
+| Day                         | Part One                                          |      | Part Two                                           |      |
+| --------------------------- | ------------------------------------------------- | ---- | -------------------------------------------------- | ---- |
+|                             | TypeScript                                        | Rust | TypeScript                                         | Rust |
+| [Day 1](./src/2020/day01/)  | [0.37ms](./src/2020/day01/typescript/part_one.ts) |      | [3.4ms](./src/2020/day01/typescript/part_two.ts)   |      |
+| [Day 2](./src/2020/day02/)  | [2.6ms](./src/2020/day02/typescript/part_one.ts)  |      | [2ms](./src/2020/day02/typescript/part_two.ts)     |      |
+| [Day 3](./src/2020/day03/)  | [0.3ms](./src/2020/day03/typescript/part_one.ts)  |      | [0.6ms](./src/2020/day03/typescript/part_two.ts)   |      |
+| [Day 4](./src/2020/day04/)  | [5.6ms](./src/2020/day04/typescript/part_one.ts)  |      | [7.8ms](./src/2020/day04/typescript/part_two.ts)   |      |
+| [Day 5](./src/2020/day05/)  | [4ms](./src/2020/day05/typescript/part_one.ts)    |      | [4ms](./src/2020/day05/typescript/part_two.ts)     |      |
+| [Day 6](./src/2020/day06/)  | [1ms](./src/2020/day06/typescript/part_one.ts)    |      | [2.2ms](./src/2020/day06/typescript/part_two.ts)   |      |
+| [Day 7](./src/2020/day07/)  | [41ms](./src/2020/day07/typescript/part_one.ts)   |      | [3.9ms](./src/2020/day07/typescript/part_two.ts)   |      |
+| [Day 8](./src/2020/day08/)  | [0.67ms](./src/2020/day08/typescript/part_one.ts) |      | [5ms](./src/2020/day08/typescript/part_two.ts)     |      |
+| [Day 9](./src/2020/day09/)  | [2.7ms](./src/2020/day09/typescript/part_one.ts)  |      | [2.8ms](./src/2020/day09/typescript/part_two.ts)   |      |
+| [Day 10](./src/2020/day10/) | [0.4ms](./src/2020/day10/typescript/part_one.ts)  |      | [0.3ms](./src/2020/day10/typescript/part_two.ts)   |      |
+| [Day 11](./src/2020/day11/) | [900ms](./src/2020/day11/typescript/part_one.ts)  |      | [1300ms](./src/2020/day11/typescript/part_two.ts)  |      |
+| [Day 12](./src/2020/day12/) | [1.07ms](./src/2020/day12/typescript/part_one.ts) |      | [1.07ms](./src/2020/day12/typescript/part_two.ts)  |      |
+| [Day 13](./src/2020/day13/) | [0.22ms](./src/2020/day13/typescript/part_one.ts) |      | [0.4ms](./src/2020/day13/typescript/part_two.ts)   |      |
+| [Day 14](./src/2020/day14/) | [1.22ms](./src/2020/day14/typescript/part_one.ts) |      | [78.17ms](./src/2020/day14/typescript/part_two.ts) |      |
+| Day 15                      |                                                   |      |                                                    |      |
+| Day 16                      |                                                   |      |                                                    |      |
+| Day 17                      |                                                   |      |                                                    |      |
+| Day 18                      |                                                   |      |                                                    |      |
+| Day 19                      |                                                   |      |                                                    |      |
+| Day 20                      |                                                   |      |                                                    |      |
+| Day 21                      |                                                   |      |                                                    |      |
+| Day 22                      |                                                   |      |                                                    |      |
+| Day 23                      |                                                   |      |                                                    |      |
+| Day 24                      |                                                   |      |                                                    |      |
+| Day 25                      |                                                   |      |                                                    |      |
 
 <!-- markdownlint-enable MD013 -->
 
