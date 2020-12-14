@@ -1,7 +1,7 @@
 # [Advent of Code](https://adventofcode.com/)
 
 [![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3dbac1abe814499882d2ed419cbe8a55)](https://app.codacy.com/app/AlexAegis/advent-of-code?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b135807698614bf19dab83afeac9bd15)](https://www.codacy.com/gh/AlexAegis/advent-of-code/dashboard?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage)
 [![codecov](https://img.shields.io/codecov/c/github/AlexAegis/advent-of-code.svg?label=node%20coverage)](https://codecov.io/gh/AlexAegis/advent-of-code)
