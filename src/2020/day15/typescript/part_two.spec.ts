@@ -8,6 +8,8 @@ describe('2020 - Day 15 - Part Two', () => {
 		expect(await runner((await read(year, day)()).input)).to.equal(201);
 	}).timeout(20000);
 
+	// ! Disabled example test cases because of long runtime
+	/*
 	it('should solve for the first example', () => {
 		expect(runner('0,3,6')).to.equal(175594);
 	}).timeout(20000);
@@ -35,4 +37,5 @@ describe('2020 - Day 15 - Part Two', () => {
 	it('should solve for the seventh example', () => {
 		expect(runner('3,1,2')).to.equal(362);
 	}).timeout(20000);
+	*/
 });
