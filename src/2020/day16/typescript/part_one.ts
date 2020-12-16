@@ -3,11 +3,10 @@ import { sum } from '@lib/math';
 import { day, year } from '.';
 import { parse } from './parse.function';
 
-export const checkField = (ticketField: number, categoryRanges: Range[][]): boolean => {
-	return categoryRanges.some((ranges) =>
+export const checkField = (ticketField: number, fieldRanges: Range[][]): boolean =>
+	fieldRanges.some((ranges) =>
 		ranges.some((range) => range.high >= ticketField && range.low <= ticketField)
 	);
-};
 
 export const invalidFields = (ticket: number[], rangeMap: Map<string, Range[]>): number[] => {
 	const ranges = [...rangeMap.values()];
@@ -15,8 +14,8 @@ export const invalidFields = (ticket: number[], rangeMap: Map<string, Range[]>):
 };
 
 export const runner = (input: string): number => {
-	const { fieldRanges: categoryRanges, nearbyTickets } = parse(input);
-	return nearbyTickets.flatMap((ticket) => invalidFields(ticket, categoryRanges)).reduce(sum);
+	const { fieldRanges, nearbyTickets } = parse(input);
+	return nearbyTickets.flatMap((ticket) => invalidFields(ticket, fieldRanges)).reduce(sum);
 };
 
 if (require.main === module) {
