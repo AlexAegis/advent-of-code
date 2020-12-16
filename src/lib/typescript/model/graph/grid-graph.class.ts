@@ -48,4 +48,14 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 			(node) => matcher(node) && node.neighbours.every((n) => matcher(n[0] as N))
 		);
 	}
+
+	public toString(): string {
+		const result: string[][] = [];
+		[...this.nodeMap.values()].forEach((node) => {
+			const row = (result[node.p.y] = result[node.p.y] ?? []);
+			const v = node.value as { toString?: () => string };
+			row[node.p.x] = v?.toString ? v.toString() : ' ';
+		});
+		return result.map((row) => row.join('')).join('\n');
+	}
 }
