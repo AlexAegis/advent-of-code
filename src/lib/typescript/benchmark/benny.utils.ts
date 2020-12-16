@@ -24,6 +24,7 @@ export const defaultBench = (
 		cycleTime(),
 		complete(),
 		save({ file: 'reduce', version: '1.0.0', format: 'table.html' }),
-		save({ file: 'reduce', format: 'chart.html' })
+		save({ file: 'reduce', format: 'chart.html' }),
+		save({ file: 'reduce', format: 'json' })
 	);
 };
