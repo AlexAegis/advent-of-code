@@ -8,6 +8,11 @@ import {
 	posModBigInt,
 } from '@lib/math';
 
+export interface Range<T = number> {
+	low: T;
+	high: T;
+}
+
 declare global {
 	interface Number {
 		/**
@@ -16,6 +21,7 @@ declare global {
 		 */
 		posMod(m: number): number;
 		isBetween(l: number, h: number): boolean;
+		isBetweenRange(range: Range<number>): boolean;
 		invMod(n: number): number;
 		modExp(b: number, n: number): number;
 	}
@@ -46,6 +52,10 @@ BigInt.prototype.posMod = function (this: bigint, m: bigint): bigint {
 
 Number.prototype.isBetween = function (this: number, l: number, h: number): boolean {
 	return isBetween(this, l, h);
+};
+
+Number.prototype.isBetweenRange = function (this: number, range: Range<number>): boolean {
+	return isBetween(this, range.low, range.high);
 };
 
 BigInt.prototype.isBetween = function (this: bigint, l: bigint, h: bigint): boolean {
