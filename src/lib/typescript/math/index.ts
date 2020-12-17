@@ -1,3 +1,4 @@
+export * from './combinatorics';
 export * from './common';
 export * from './discrete';
 export * from './huffman';

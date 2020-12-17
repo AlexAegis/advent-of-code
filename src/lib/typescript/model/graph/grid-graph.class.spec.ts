@@ -1,6 +1,3 @@
-import { printMatrix } from '@lib/functions';
-import { Vec2 } from '..';
-import { GridGraph } from './grid-graph.class';
 /*
 describe('Grid Graph', () => {
 	const matrix = [
@@ -15,7 +12,7 @@ describe('Grid Graph', () => {
 		const g = GridGraph.fromMatrix(matrix);
 	});
 });*/
-
+/*
 const matrix = [
 	['#', '#', '#', '#', '#', '#', '#'],
 	['#', '.', '.', '#', '.', '.', '#'],
@@ -25,7 +22,7 @@ const matrix = [
 	['#', '#', '#', '#', '#', '#', '#'],
 ];
 const g = GridGraph.fromMatrix(matrix, (a, b) => {
-	return a.value !== b.value ? 43 : 1;
+	return a.value !== b.value ? Infinity : 1;
 });
 const start = g.nodes.get(new Vec2(1, 1).toString())!;
 const goal = g.nodes.get(new Vec2(5, 4).toString())!;
@@ -40,3 +37,4 @@ for (const item of d) {
 	matrix[item.p.y][item.p.x] = 'O';
 }
 console.log(printMatrix(matrix));
+*/
