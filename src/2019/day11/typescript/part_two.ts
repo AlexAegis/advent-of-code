@@ -120,7 +120,7 @@ export const runner = (input: string): string => {
 		currentDir = nextDir.value as Turn;
 
 		if (currentDir === Turn.RIGHT) {
-			dir = dir.right();
+			dir = dir.right90();
 		} else if (currentDir === Turn.LEFT) {
 			dir = dir.left();
 		}

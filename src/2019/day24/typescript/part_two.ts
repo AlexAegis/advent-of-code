@@ -11,7 +11,7 @@ const EMTPY_GEN = [...Array(5)].map(() => [...Array(5)].map(() => Tile.EMTPY));
 
 export const recursiveAdjacents = (x: number, y: number, d: number): Vec3[] => {
 	const v = new Vec3(x, y, d);
-	return Direction.directions
+	return Direction.cardinalDirections
 		.map((dir) => v.add({ ...dir, z: 0 }))
 		.flatMap((dir) => {
 			if (dir.x < 0) {

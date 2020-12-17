@@ -1,6 +1,5 @@
 import { bench, read } from '@lib';
-import { Direction } from '@lib/model/direction.class';
-import { Vec2 } from '@lib/model/vec2.class';
+import { Direction, Vec2 } from '@lib/model';
 import { day, year } from '.';
 
 export const runner = (input: string): number =>
@@ -9,7 +8,7 @@ export const runner = (input: string): number =>
 		.reduce(
 			(acc, next) => {
 				if (next[0] === 'R') acc.direction = acc.direction.right();
-				if (next[0] === 'L') acc.direction = acc.direction.left();
+				else if (next[0] === 'L') acc.direction = acc.direction.left();
 				acc.position.addMut(acc.direction, { times: Number(next.substring(1)) });
 				return acc;
 			},
