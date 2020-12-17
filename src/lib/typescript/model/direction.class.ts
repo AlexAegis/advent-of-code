@@ -1,4 +1,10 @@
-import { CardinalDirectionValueClockwise } from './clockwise-direction.enum';
+import {
+	CardinalDirectionValueClockwise,
+	DirectionArrowSymbol,
+	DirectionCardinalGeographicLetter,
+	DirectionCardinalLiteralLetter,
+	DirectionMarker,
+} from './direction-marker.type';
 import { Vec2, Vec2Like } from './vec2.class';
 
 export class Direction extends Vec2 {
@@ -100,42 +106,8 @@ export class Direction extends Vec2 {
 		);
 	}
 
-	public static isDirectionMarker(marker: string): marker is DirectionMarker {
-		return (
-			marker === DirectionArrowSymbol.NORTH ||
-			marker === DirectionArrowSymbol.EAST ||
-			marker === DirectionArrowSymbol.SOUTH ||
-			marker === DirectionArrowSymbol.WEST ||
-			marker === DirectionCardinalLiteralLetter.NORTH ||
-			marker === DirectionCardinalLiteralLetter.EAST ||
-			marker === DirectionCardinalLiteralLetter.SOUTH ||
-			marker === DirectionCardinalLiteralLetter.WEST ||
-			marker === DirectionCardinalGeographicLetter.NORTH ||
-			marker === DirectionCardinalGeographicLetter.EAST ||
-			marker === DirectionCardinalGeographicLetter.SOUTH ||
-			marker === DirectionCardinalGeographicLetter.WEST
-		);
-	}
-
 	public static fromMarker(marker: DirectionMarker): Direction {
-		switch (marker) {
-			case DirectionArrowSymbol.NORTH:
-			case DirectionCardinalLiteralLetter.NORTH:
-			case DirectionCardinalGeographicLetter.NORTH:
-				return Direction.NORTH;
-			case DirectionArrowSymbol.EAST:
-			case DirectionCardinalLiteralLetter.EAST:
-			case DirectionCardinalGeographicLetter.EAST:
-				return Direction.EAST;
-			case DirectionArrowSymbol.SOUTH:
-			case DirectionCardinalLiteralLetter.SOUTH:
-			case DirectionCardinalGeographicLetter.SOUTH:
-				return Direction.SOUTH;
-			case DirectionArrowSymbol.WEST:
-			case DirectionCardinalLiteralLetter.WEST:
-			case DirectionCardinalGeographicLetter.WEST:
-				return Direction.WEST;
-		}
+		return directionMarkerAssociationMap[marker];
 	}
 
 	public static reverseValue(
@@ -231,34 +203,6 @@ export class Direction extends Vec2 {
 		else return ' ';
 	}
 }
-
-export type DirectionNoopLetter = ' ';
-
-export const enum DirectionArrowSymbol {
-	NORTH = '^',
-	EAST = '>',
-	SOUTH = 'v',
-	WEST = '<',
-}
-
-export const enum DirectionCardinalGeographicLetter {
-	NORTH = 'N',
-	EAST = 'E',
-	SOUTH = 'S',
-	WEST = 'W',
-}
-
-export const enum DirectionCardinalLiteralLetter {
-	NORTH = 'U',
-	EAST = 'R',
-	SOUTH = 'D',
-	WEST = 'L',
-}
-
-export type DirectionMarker =
-	| DirectionArrowSymbol
-	| DirectionCardinalGeographicLetter
-	| DirectionCardinalLiteralLetter;
 
 export const directionMarkerAssociationMap = {
 	[DirectionArrowSymbol.NORTH]: Direction.NORTH,

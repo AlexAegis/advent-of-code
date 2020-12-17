@@ -1,6 +1,5 @@
 import { bench, read } from '@lib';
-import { DirectionMarker, directionMarkerAssociationMap } from '@lib/model/direction.class';
-import { Vec2 } from '@lib/model/vec2.class';
+import { DirectionMarker, directionMarkerAssociationMap, Vec2 } from '@lib/model';
 import { day, year } from '.';
 
 export const runner = (input: string): number =>

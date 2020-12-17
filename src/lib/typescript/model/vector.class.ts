@@ -3,6 +3,7 @@ import { Vec2 } from './vec2.class';
 
 /**
  * R12, L32...
+ * TODO: put this into the constructor of VEC2
  */
 export class Vector {
 	public direction!: Direction;

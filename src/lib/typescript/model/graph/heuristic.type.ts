@@ -1,3 +1,1 @@
-import { Node } from './node.class';
-
-export type Heuristic<T = string, N extends Node<T> = Node<T>> = (a: N, b: N) => number;
+export type Heuristic<N> = (a: N, b: N) => number;

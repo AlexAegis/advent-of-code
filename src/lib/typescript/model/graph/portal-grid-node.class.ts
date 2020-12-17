@@ -16,11 +16,11 @@ export class PortalGridNode<T = string> extends GridNode<T> {
 
 	public attachNeightbours(
 		graph: PortalGridGraph<T, this>,
-		h?: Heuristic<T, this>
+		h?: Heuristic<this>
 	): Vertice<this>[] {
 		super.attachNeightbours(graph, h);
 		if (this.portalLabel && !this.portal) {
-			const o = [...graph.nodeMap.entries()].find(
+			const o = [...graph.nodes.entries()].find(
 				([_, v]) => v.portalLabel === this.portalLabel
 			)?.[1];
 			if (o) {
