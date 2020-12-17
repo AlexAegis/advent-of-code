@@ -19,7 +19,7 @@ export interface Area {
 }
 
 export class Vec2 implements Vec2Like {
-	public static ORIGIN = new Vec2(0, 0);
+	public static ORIGIN = Object.freeze(new Vec2(0, 0));
 
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
@@ -229,7 +229,11 @@ export class Vec2 implements Vec2Like {
 	}
 
 	public toString(): string {
-		return `${this.x},${this.y}`;
+		return Vec2.toString(this);
+	}
+
+	public static toString(v: Vec2Like): string {
+		return `${v.x},${v.y}`;
 	}
 
 	public clone(): Vec2 {

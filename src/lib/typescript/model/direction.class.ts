@@ -34,15 +34,15 @@ export class Direction extends Vec2 {
 		return Direction.reverseValue(this.cardinalValue);
 	}
 
-	public static readonly NOOP = new Direction(0, 0);
-	public static readonly EAST = new Direction(1, 0);
-	public static readonly NORTHEAST = new Direction(1, 1);
-	public static readonly NORTH = new Direction(0, 1);
-	public static readonly NORTHWEST = new Direction(-1, 1);
-	public static readonly WEST = new Direction(-1, 0);
-	public static readonly SOUTHWEST = new Direction(-1, -1);
-	public static readonly SOUTH = new Direction(0, -1);
-	public static readonly SOUTHEAST = new Direction(1, -1);
+	public static readonly NOOP = Object.freeze(new Direction(0, 0));
+	public static readonly EAST = Object.freeze(new Direction(1, 0));
+	public static readonly NORTHEAST = Object.freeze(new Direction(1, 1));
+	public static readonly NORTH = Object.freeze(new Direction(0, 1));
+	public static readonly NORTHWEST = Object.freeze(new Direction(-1, 1));
+	public static readonly WEST = Object.freeze(new Direction(-1, 0));
+	public static readonly SOUTHWEST = Object.freeze(new Direction(-1, -1));
+	public static readonly SOUTH = Object.freeze(new Direction(0, -1));
+	public static readonly SOUTHEAST = Object.freeze(new Direction(1, -1));
 
 	/**
 	 * Main directions

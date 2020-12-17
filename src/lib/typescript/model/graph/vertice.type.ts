@@ -3,7 +3,7 @@
  */
 export interface Vertice<N> {
 	from: N;
-	to?: N;
+	to: N;
 	/**
 	 * Vertice data, like weight.
 	 */
