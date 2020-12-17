@@ -14,6 +14,7 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 		dist.set(start, 0);
 
 		while (q.size) {
+			// refactor this to a prio queue
 			const umin = [...q.values()].reduce(
 				(acc, b) => {
 					const u = dist.get(b) ?? Infinity;
@@ -26,10 +27,10 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 				{ node: undefined as N | undefined, dist: Infinity }
 			);
 			const u = umin.node!;
-			q.delete(u);
 			if (u === target) {
 				break;
 			}
+			q.delete(u);
 
 			for (const neighbour of u) {
 				const alt = umin.dist + (neighbour.data ?? 1);
@@ -52,7 +53,63 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 		return s;
 	}
 
-	public aStar(_start: N, _goal: N, _h: Heuristic<T>): void {
-		console.log('TODO');
+	/**
+	 *
+	 * @param start
+	 * @param _goal
+	 * @param h global heuristic function. Should return a monotone value for
+	 * better nodes
+	 */
+	public aStar(start: N, goal: N, h: Heuristic<N>, recalc = false): N[] {
+		const openSet = new Set<N>([start]); // q?
+		const cameFrom = new Map<N, N>(); // prev!
+		const gScore = new Map<N, number>(); // dist! Infinity
+		gScore.set(start, 0);
+
+		const fScore = new Map<N, number>(); // Infinity
+		fScore.set(start, h(start, goal));
+
+		while (openSet.size) {
+			const umin = [...openSet.values()].reduce(
+				(acc, b) => {
+					const u = fScore.get(b) ?? Infinity;
+					if (!acc.node || u < acc.dist) {
+						acc.node = b;
+						acc.dist = fScore.get(b) ?? Infinity;
+					}
+					return acc;
+				},
+				{ node: undefined as N | undefined, dist: Infinity }
+			);
+			const current = umin.node!;
+			if (current === goal) {
+				break;
+			}
+			openSet.delete(current);
+
+			for (const neighbour of current) {
+				const tentativegScore =
+					(gScore.get(current) ?? Infinity) + (recalc ? neighbour.h() : neighbour.data);
+				if (tentativegScore < (gScore.get(neighbour.to) ?? Infinity)) {
+					cameFrom.set(neighbour.to, current);
+					gScore.set(neighbour.to, tentativegScore);
+					fScore.set(neighbour.to, tentativegScore + h(neighbour.to, goal));
+					if (!openSet.has(neighbour.to)) {
+						openSet.add(neighbour.to);
+					}
+				}
+			}
+		}
+
+		const s: N[] = [];
+		let u: N | undefined = goal;
+		if (start === u || cameFrom.get(u)) {
+			while (u) {
+				s.unshift(u);
+				u = cameFrom.get(u);
+			}
+		}
+
+		return s;
 	}
 }
