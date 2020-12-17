@@ -1,146 +1,210 @@
-import { ClockwiseDirection } from './clockwise-direction.enum';
-import { directionMarkerAssociations } from './direction-marker-associations.const';
-import {
-	DirectionGeographicLetter,
-	DirectionLiteralLetter,
-	DirectionMarker,
-	DirectionSymbol,
-} from './direction-marker.type';
-import { Vec2 } from './vec2.class';
+import { CardinalDirectionValueClockwise } from './clockwise-direction.enum';
+import { Vec2, Vec2Like } from './vec2.class';
 
 export class Direction extends Vec2 {
-	private constructor(public marker: DirectionMarker) {
-		super(directionMarkerAssociations[marker]);
+	private constructor(marker: DirectionMarker);
+	private constructor(vec2: Vec2Like | string);
+	private constructor(x: number, y: number);
+	private constructor(x: number | string | Vec2Like | DirectionMarker, y?: number);
+	private constructor(x: number | string | Vec2Like | DirectionMarker, y?: number) {
+		super(x, y);
 	}
 
-	public get value(): ClockwiseDirection {
-		switch (this.marker) {
-			case DirectionSymbol.NORTH:
-			case DirectionLiteralLetter.NORTH:
-			case DirectionGeographicLetter.NORTH:
-				return ClockwiseDirection.NORTH;
-			case DirectionSymbol.EAST:
-			case DirectionLiteralLetter.EAST:
-			case DirectionGeographicLetter.EAST:
-				return ClockwiseDirection.EAST;
-			case DirectionSymbol.SOUTH:
-			case DirectionLiteralLetter.SOUTH:
-			case DirectionGeographicLetter.SOUTH:
-				return ClockwiseDirection.SOUTH;
-			case DirectionSymbol.WEST:
-			case DirectionLiteralLetter.WEST:
-			case DirectionGeographicLetter.WEST:
-				return ClockwiseDirection.WEST;
+	public get cardinalValue(): CardinalDirectionValueClockwise | undefined {
+		if (this.equals(Direction.NORTH)) {
+			return CardinalDirectionValueClockwise.NORTH;
+		} else if (this.equals(Direction.EAST)) {
+			return CardinalDirectionValueClockwise.EAST;
+		} else if (this.equals(Direction.SOUTH)) {
+			return CardinalDirectionValueClockwise.SOUTH;
+		} else if (this.equals(Direction.WEST)) {
+			return CardinalDirectionValueClockwise.WEST;
+		} else {
+			return undefined;
 		}
 	}
 
-	public get reverseValue(): ClockwiseDirection {
-		return Direction.reverseValue(this.value);
+	public get reverseValue(): CardinalDirectionValueClockwise | undefined {
+		return Direction.reverseValue(this.cardinalValue);
 	}
-	public static readonly NORTH = new Direction(DirectionSymbol.NORTH);
-	public static readonly EAST = new Direction(DirectionSymbol.EAST);
-	public static readonly SOUTH = new Direction(DirectionSymbol.SOUTH);
-	public static readonly WEST = new Direction(DirectionSymbol.WEST);
 
-	public static directions: Direction[] = [
-		Direction.NORTH,
+	public static readonly NOOP = new Direction(0, 0);
+	public static readonly EAST = new Direction(1, 0);
+	public static readonly NORTHEAST = new Direction(1, 1);
+	public static readonly NORTH = new Direction(0, 1);
+	public static readonly NORTHWEST = new Direction(-1, 1);
+	public static readonly WEST = new Direction(-1, 0);
+	public static readonly SOUTHWEST = new Direction(-1, -1);
+	public static readonly SOUTH = new Direction(0, -1);
+	public static readonly SOUTHEAST = new Direction(1, -1);
+
+	/**
+	 * Main directions
+	 *
+	 * Counter-Clockwise from east
+	 */
+	public static readonly cardinalDirections: Direction[] = [
 		Direction.EAST,
-		Direction.SOUTH,
+		Direction.NORTH,
 		Direction.WEST,
+		Direction.SOUTH,
+	];
+
+	/**
+	 * Diagonal directions
+	 *
+	 * Clockwise from north
+	 */
+	public static readonly ordinalDirections: Direction[] = [
+		Direction.NORTHEAST,
+		Direction.SOUTHEAST,
+		Direction.SOUTHWEST,
+		Direction.NORTHWEST,
+	];
+
+	/**
+	 * All 8 directions, cardinal and ordinal combined
+	 *
+	 * Counter-Clockwise from east
+	 */
+	public static readonly directions: Direction[] = [
+		Direction.EAST,
+		Direction.NORTHEAST,
+		Direction.NORTH,
+		Direction.NORTHWEST,
+		Direction.WEST,
+		Direction.SOUTHWEST,
+		Direction.SOUTH,
+		Direction.SOUTHEAST,
 	];
 
 	public static isHorizonal(marker: DirectionMarker): boolean {
 		return (
-			marker === DirectionSymbol.EAST ||
-			marker === DirectionSymbol.WEST ||
-			marker === DirectionLiteralLetter.EAST ||
-			marker === DirectionLiteralLetter.WEST ||
-			marker === DirectionGeographicLetter.EAST ||
-			marker === DirectionGeographicLetter.WEST
+			marker === DirectionArrowSymbol.EAST ||
+			marker === DirectionArrowSymbol.WEST ||
+			marker === DirectionCardinalLiteralLetter.EAST ||
+			marker === DirectionCardinalLiteralLetter.WEST ||
+			marker === DirectionCardinalGeographicLetter.EAST ||
+			marker === DirectionCardinalGeographicLetter.WEST
 		);
 	}
 
 	public static isVertical(marker: DirectionMarker): boolean {
 		return (
-			marker === DirectionSymbol.NORTH ||
-			marker === DirectionSymbol.SOUTH ||
-			marker === DirectionLiteralLetter.NORTH ||
-			marker === DirectionLiteralLetter.SOUTH ||
-			marker === DirectionGeographicLetter.NORTH ||
-			marker === DirectionGeographicLetter.SOUTH
+			marker === DirectionArrowSymbol.NORTH ||
+			marker === DirectionArrowSymbol.SOUTH ||
+			marker === DirectionCardinalLiteralLetter.NORTH ||
+			marker === DirectionCardinalLiteralLetter.SOUTH ||
+			marker === DirectionCardinalGeographicLetter.NORTH ||
+			marker === DirectionCardinalGeographicLetter.SOUTH
 		);
 	}
 
 	public static isDirectionMarker(marker: string): marker is DirectionMarker {
 		return (
-			marker === DirectionSymbol.NORTH ||
-			marker === DirectionSymbol.EAST ||
-			marker === DirectionSymbol.SOUTH ||
-			marker === DirectionSymbol.WEST ||
-			marker === DirectionLiteralLetter.NORTH ||
-			marker === DirectionLiteralLetter.EAST ||
-			marker === DirectionLiteralLetter.SOUTH ||
-			marker === DirectionLiteralLetter.WEST ||
-			marker === DirectionGeographicLetter.NORTH ||
-			marker === DirectionGeographicLetter.EAST ||
-			marker === DirectionGeographicLetter.SOUTH ||
-			marker === DirectionGeographicLetter.WEST
+			marker === DirectionArrowSymbol.NORTH ||
+			marker === DirectionArrowSymbol.EAST ||
+			marker === DirectionArrowSymbol.SOUTH ||
+			marker === DirectionArrowSymbol.WEST ||
+			marker === DirectionCardinalLiteralLetter.NORTH ||
+			marker === DirectionCardinalLiteralLetter.EAST ||
+			marker === DirectionCardinalLiteralLetter.SOUTH ||
+			marker === DirectionCardinalLiteralLetter.WEST ||
+			marker === DirectionCardinalGeographicLetter.NORTH ||
+			marker === DirectionCardinalGeographicLetter.EAST ||
+			marker === DirectionCardinalGeographicLetter.SOUTH ||
+			marker === DirectionCardinalGeographicLetter.WEST
 		);
 	}
 
-	public static from(marker: DirectionMarker): Direction {
+	public static fromMarker(marker: DirectionMarker): Direction {
 		switch (marker) {
-			case DirectionSymbol.NORTH:
-			case DirectionLiteralLetter.NORTH:
-			case DirectionGeographicLetter.NORTH:
+			case DirectionArrowSymbol.NORTH:
+			case DirectionCardinalLiteralLetter.NORTH:
+			case DirectionCardinalGeographicLetter.NORTH:
 				return Direction.NORTH;
-			case DirectionSymbol.EAST:
-			case DirectionLiteralLetter.EAST:
-			case DirectionGeographicLetter.EAST:
+			case DirectionArrowSymbol.EAST:
+			case DirectionCardinalLiteralLetter.EAST:
+			case DirectionCardinalGeographicLetter.EAST:
 				return Direction.EAST;
-			case DirectionSymbol.SOUTH:
-			case DirectionLiteralLetter.SOUTH:
-			case DirectionGeographicLetter.SOUTH:
+			case DirectionArrowSymbol.SOUTH:
+			case DirectionCardinalLiteralLetter.SOUTH:
+			case DirectionCardinalGeographicLetter.SOUTH:
 				return Direction.SOUTH;
-			case DirectionSymbol.WEST:
-			case DirectionLiteralLetter.WEST:
-			case DirectionGeographicLetter.WEST:
+			case DirectionArrowSymbol.WEST:
+			case DirectionCardinalLiteralLetter.WEST:
+			case DirectionCardinalGeographicLetter.WEST:
 				return Direction.WEST;
 		}
 	}
 
-	public static reverseValue(v: ClockwiseDirection): ClockwiseDirection {
+	public static reverseValue(
+		v?: CardinalDirectionValueClockwise
+	): CardinalDirectionValueClockwise | undefined {
 		switch (v) {
-			case ClockwiseDirection.NORTH:
-				return ClockwiseDirection.SOUTH;
-			case ClockwiseDirection.EAST:
-				return ClockwiseDirection.WEST;
-			case ClockwiseDirection.SOUTH:
-				return ClockwiseDirection.NORTH;
-			case ClockwiseDirection.WEST:
-				return ClockwiseDirection.EAST;
+			case CardinalDirectionValueClockwise.NORTH:
+				return CardinalDirectionValueClockwise.SOUTH;
+			case CardinalDirectionValueClockwise.EAST:
+				return CardinalDirectionValueClockwise.WEST;
+			case CardinalDirectionValueClockwise.SOUTH:
+				return CardinalDirectionValueClockwise.NORTH;
+			case CardinalDirectionValueClockwise.WEST:
+				return CardinalDirectionValueClockwise.EAST;
+			default:
+				return undefined;
 		}
 	}
 
 	public isHorizonal(): boolean {
-		return Direction.isHorizonal(this.marker);
+		return this.equals(Direction.WEST) || this.equals(Direction.EAST);
 	}
+
 	public isVertical(): boolean {
-		return Direction.isVertical(this.marker);
+		return this.equals(Direction.NORTH) || this.equals(Direction.SOUTH);
 	}
 
-	public right(): Direction {
-		if (this.equals(Direction.NORTH)) return Direction.EAST;
-		else if (this.equals(Direction.EAST)) return Direction.SOUTH;
-		else if (this.equals(Direction.SOUTH)) return Direction.WEST;
-		else return Direction.NORTH;
+	/**
+	 * @param angle must be a multiple of 45, turns clockwise
+	 */
+	public turn(angle: number): Direction {
+		if (angle % 45 !== 0) {
+			throw new Error(`Angle must be a multiple of 45, it was ${angle} instead`);
+		}
+		const step = (this.angularValue + (angle % 360)) / 45;
+		return Direction.directions[
+			(step + Direction.directions.length) % Direction.directions.length
+		];
 	}
 
-	public left(): Direction {
-		if (this.equals(Direction.NORTH)) return Direction.WEST;
-		else if (this.equals(Direction.WEST)) return Direction.SOUTH;
-		else if (this.equals(Direction.SOUTH)) return Direction.EAST;
-		else return Direction.NORTH;
+	/**
+	 * Returns angles from [0, 1] (east)
+	 *
+	 * Counter-Clockwise
+	 */
+	public get angularValue(): number {
+		if (this.equals(Direction.EAST)) return 0;
+		else if (this.equals(Direction.NORTHEAST)) return 45;
+		else if (this.equals(Direction.NORTH)) return 90;
+		else if (this.equals(Direction.NORTHWEST)) return 135;
+		else if (this.equals(Direction.WEST)) return 180;
+		else if (this.equals(Direction.SOUTHWEST)) return 225;
+		else if (this.equals(Direction.SOUTH)) return 270;
+		else if (this.equals(Direction.SOUTHEAST)) return 315;
+		else return 0;
+	}
+
+	/**
+	 * @param angle must be a multiple of 45
+	 */
+	public right(angle = 90): Direction {
+		return this.turn(-angle);
+	}
+
+	/**
+	 * @param angle must be a multiple of 45
+	 */
+	public left(angle = 90): Direction {
+		return this.turn(angle);
 	}
 
 	public reverse(axis?: 'h' | 'v'): Direction {
@@ -152,10 +216,78 @@ export class Direction extends Vec2 {
 	}
 
 	public equals(that: Direction): boolean {
-		return that && this.x === that.x && this.y === that.y;
+		return this.x === that.x && this.y === that.y;
 	}
 
 	public clone(): Direction {
-		return new Direction(this.marker);
+		return new Direction(this);
+	}
+
+	public get marker(): DirectionArrowSymbol | ' ' {
+		if (this.equals(Direction.EAST)) return DirectionArrowSymbol.EAST;
+		else if (this.equals(Direction.NORTH)) return DirectionArrowSymbol.NORTH;
+		else if (this.equals(Direction.WEST)) return DirectionArrowSymbol.WEST;
+		else if (this.equals(Direction.SOUTH)) return DirectionArrowSymbol.SOUTH;
+		else return ' ';
 	}
 }
+
+export type DirectionNoopLetter = ' ';
+
+export const enum DirectionArrowSymbol {
+	NORTH = '^',
+	EAST = '>',
+	SOUTH = 'v',
+	WEST = '<',
+}
+
+export const enum DirectionCardinalGeographicLetter {
+	NORTH = 'N',
+	EAST = 'E',
+	SOUTH = 'S',
+	WEST = 'W',
+}
+
+export const enum DirectionCardinalLiteralLetter {
+	NORTH = 'U',
+	EAST = 'R',
+	SOUTH = 'D',
+	WEST = 'L',
+}
+
+export type DirectionMarker =
+	| DirectionArrowSymbol
+	| DirectionCardinalGeographicLetter
+	| DirectionCardinalLiteralLetter;
+
+export const directionMarkerAssociationMap = {
+	[DirectionArrowSymbol.NORTH]: Direction.NORTH,
+	[DirectionCardinalGeographicLetter.NORTH]: Direction.NORTH,
+	[DirectionCardinalLiteralLetter.NORTH]: Direction.NORTH,
+	[DirectionArrowSymbol.EAST]: Direction.EAST,
+	[DirectionCardinalGeographicLetter.EAST]: Direction.EAST,
+	[DirectionCardinalLiteralLetter.EAST]: Direction.EAST,
+	[DirectionArrowSymbol.SOUTH]: Direction.SOUTH,
+	[DirectionCardinalGeographicLetter.SOUTH]: Direction.SOUTH,
+	[DirectionCardinalLiteralLetter.SOUTH]: Direction.SOUTH,
+	[DirectionArrowSymbol.WEST]: Direction.WEST,
+	[DirectionCardinalGeographicLetter.WEST]: Direction.WEST,
+	[DirectionCardinalLiteralLetter.WEST]: Direction.WEST,
+	'': Direction.NOOP,
+};
+
+export const directionMarkerInvertMap = {
+	[DirectionArrowSymbol.NORTH]: DirectionArrowSymbol.SOUTH,
+	[DirectionCardinalGeographicLetter.NORTH]: DirectionCardinalGeographicLetter.SOUTH,
+	[DirectionCardinalLiteralLetter.NORTH]: DirectionCardinalLiteralLetter.SOUTH,
+	[DirectionArrowSymbol.EAST]: DirectionArrowSymbol.WEST,
+	[DirectionCardinalGeographicLetter.EAST]: DirectionCardinalGeographicLetter.WEST,
+	[DirectionCardinalLiteralLetter.EAST]: DirectionCardinalLiteralLetter.WEST,
+	[DirectionArrowSymbol.SOUTH]: DirectionArrowSymbol.NORTH,
+	[DirectionCardinalGeographicLetter.SOUTH]: DirectionCardinalGeographicLetter.NORTH,
+	[DirectionCardinalLiteralLetter.SOUTH]: DirectionCardinalLiteralLetter.NORTH,
+	[DirectionArrowSymbol.WEST]: DirectionArrowSymbol.EAST,
+	[DirectionCardinalGeographicLetter.WEST]: DirectionCardinalGeographicLetter.EAST,
+	[DirectionCardinalLiteralLetter.WEST]: DirectionCardinalLiteralLetter.EAST,
+	'': '',
+};

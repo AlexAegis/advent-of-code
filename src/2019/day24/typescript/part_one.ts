@@ -19,7 +19,7 @@ export const infest = (adj: Vec2[], map: Tile[][]): boolean => {
 
 export const adjacents = (x: number, y: number): Vec2[] => {
 	const asCoord = new Vec2(x, y);
-	return Direction.directions
+	return Direction.cardinalDirections
 		.map((d) => d.add(asCoord))
 		.filter((c) => c.x >= 0 && c.x < 5 && c.y >= 0 && c.y < 5);
 };

@@ -1,13 +1,12 @@
 import { bench, read } from '@lib';
-import { directionMarkerAssociations } from '@lib/model/direction-marker-associations.const';
-import { Vec2 } from '@lib/model/vec2.class';
+import { DirectionMarker, directionMarkerAssociationMap, Vec2 } from '@lib/model';
 import { day, year } from '.';
 
 export const runner = (input: string): number =>
 	input.split(``).reduce(
 		(acc, next) => {
 			const c = acc.isRobot ? acc.roboCurrent : acc.current;
-			c.addMut(directionMarkerAssociations[next]);
+			c.addMut(directionMarkerAssociationMap[next as DirectionMarker]);
 			const cs = c.toString();
 			acc.locations.set(cs, (acc.locations.get(cs) || 0) + 1);
 			acc.isRobot = !acc.isRobot;

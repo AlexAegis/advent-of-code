@@ -1,5 +1,6 @@
 import { gcd } from '@lib/math';
 import { NUM } from '@lib/regex';
+import { Direction, DirectionMarker } from './direction.class';
 
 export interface Vec2Like {
 	x: number;
@@ -17,18 +18,25 @@ export class Vec2 implements Vec2Like {
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
 	 */
+	public constructor(marker: DirectionMarker);
 	public constructor(vec2: Vec2Like | string);
 	public constructor(x: number, y: number);
-	public constructor(x: number | string | Vec2Like, y?: number);
-	public constructor(x: number | string | Vec2Like, y?: number) {
-		if (typeof x === 'object' && x instanceof Vec2) {
+	public constructor(x: number | string | Vec2Like | DirectionMarker, y?: number);
+	public constructor(x: number | string | Vec2Like | DirectionMarker, y?: number) {
+		if (typeof x === 'object') {
 			this.x = x.x;
 			this.y = x.y;
 		} else if (typeof x === 'number' && typeof y === 'number') {
 			this.x = x;
 			this.y = y;
 		} else if (typeof x === 'string') {
-			[this.x, this.y] = (x.match(NUM) || []).map((s) => parseInt(s, 10));
+			if (Direction.isDirectionMarker(x)) {
+				const dir = Direction.fromMarker(x);
+				this.x = dir.x;
+				this.y = dir.y;
+			} else {
+				[this.x, this.y] = (x.match(NUM) || []).map((s) => parseInt(s, 10));
+			}
 		}
 	}
 
@@ -186,7 +194,7 @@ export class Vec2 implements Vec2Like {
 		return o && this.x === o.x && this.y === o.y;
 	}
 
-	public angle(o: Vec2Like): number {
+	public angle(o: Vec2Like = Direction.EAST): number {
 		return (Math.atan2(o.y - this.y, o.x - this.x) * 180) / Math.PI;
 	}
 

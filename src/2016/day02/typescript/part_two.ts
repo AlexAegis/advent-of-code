@@ -19,7 +19,7 @@ export const runner = (input: string): string => {
 	const result = split(input).reduce((acc, line) => {
 		line.split('')
 			.filter(Direction.isDirectionMarker)
-			.map(Direction.from)
+			.map(Direction.fromMarker)
 			.forEach((direction) =>
 				position.addMut(direction, { limit: (v) => toKeypadNumber(v) === undefined })
 			);

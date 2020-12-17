@@ -36,6 +36,7 @@ export enum Turn {
 	LEFT = 0,
 	RIGHT = 1,
 }
+
 export const runner = (input: string): number => {
 	const intcode = new IntCodeComputer(parse(input));
 	const iter = intcode.iter();
@@ -46,7 +47,7 @@ export const runner = (input: string): number => {
 
 	let nextColor: IteratorResult<number>;
 	let nextDir: IteratorResult<number>;
-	let currentColor: ColorCode = ColorCode.BLACK;
+	let currentColor = ColorCode.BLACK;
 	let currentDir: Turn;
 
 	intcode.pushInput(currentColor);
