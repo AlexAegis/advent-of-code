@@ -43,12 +43,21 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 		return node;
 	}
 
+	/**
+	 * Every + shaped node group which all return true for the matcher is
+	 * considered an intersection
+	 *
+	 * @param matcher
+	 */
 	public getIntersections(matcher: (node?: N) => boolean): N[] {
 		return [...this.nodeMap.values()].filter(
-			(node) => matcher(node) && node.neighbours.every((n) => matcher(n[0] as N))
+			(node) => matcher(node) && node.neighbours.every((n) => matcher(n.to))
 		);
 	}
 
+	/**
+	 * Simple string representation of the grid
+	 */
 	public toString(): string {
 		const result: string[][] = [];
 		[...this.nodeMap.values()].forEach((node) => {

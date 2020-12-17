@@ -6,7 +6,7 @@
 	"configurations": [
 		{
 			"name": "Current TS File",
-			"type": "node",
+			"type": "pwa-node",
 			"request": "launch",
 			"env": {
 				"TS_NODE_PROJECT": "./tsconfig.json",
@@ -22,8 +22,8 @@
 				"--max-old-space-size=8192"
 			],
 			"cwd": "${workspaceRoot}",
-			"protocol": "inspector",
-			"internalConsoleOptions": "openOnSessionStart"
+			"internalConsoleOptions": "openOnSessionStart",
+			"resolveSourceMapLocations": ["${workspaceFolder}/", "!/node_modules/**"]
 		},
 		{
 			"type": "gdb",

@@ -13,7 +13,7 @@ export const runner = (input: string): number => {
 	const result = split(input).reduce((acc, line) => {
 		line.split('')
 			.filter(Direction.isDirectionMarker)
-			.map(Direction.from)
+			.map(Direction.fromMarker)
 			.forEach((direction) => position.addMut(direction, { limit: keypadArea }));
 		return acc * 10 + toKeypadNumber(position);
 	}, 0);

@@ -1,6 +1,5 @@
 import { bench, read } from '@lib';
-import { Direction } from '@lib/model/direction.class';
-import { Vec2 } from '@lib/model/vec2.class';
+import { Direction, Vec2 } from '@lib/model';
 import { day, year } from '.';
 
 export const runner = (input: string): number => {
@@ -11,7 +10,7 @@ export const runner = (input: string): number => {
 	};
 	loop: for (const next of input.split(', ')) {
 		if (next[0] === 'R') acc.direction = acc.direction.right();
-		if (next[0] === 'L') acc.direction = acc.direction.left();
+		else if (next[0] === 'L') acc.direction = acc.direction.left();
 		for (let i = 0; i < Number(next.substring(1)); i++) {
 			acc.position.addMut(acc.direction);
 			const coordString = acc.position.toString();

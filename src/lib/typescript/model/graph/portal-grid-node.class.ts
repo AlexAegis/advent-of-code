@@ -7,7 +7,7 @@ import { Vertice } from './vertice.type';
 export class PortalGridNode<T = string> extends GridNode<T> {
 	public constructor(public p: Vec2, public portalLabel: string | undefined, ...values: T[]) {
 		super(p, ...values);
-		this.neighbours.push([undefined, Infinity]); // portal
+		this.neighbours.push({ from: this, to: undefined, data: Infinity }); // portal
 	}
 
 	public get portal(): Vertice<this> {
@@ -24,11 +24,11 @@ export class PortalGridNode<T = string> extends GridNode<T> {
 				([_, v]) => v.portalLabel === this.portalLabel
 			)?.[1];
 			if (o) {
-				this.neighbours[4][0] = o;
-				o.neighbours[4][0] = this;
+				this.neighbours[4].to = o;
+				o.neighbours[4].to = this;
 				if (h) {
-					this.neighbours[4][1] = h(this, o);
-					o.neighbours[4][1] = h(o, this);
+					this.neighbours[4].data = h(this, o);
+					o.neighbours[4].data = h(o, this);
 				}
 			}
 		}

@@ -27,8 +27,8 @@ export class Node<T = string> implements ToString {
 		return this;
 	}
 
-	public appendNeighbour(n: this, w = 0): void {
-		this.neighbours.push([n, w]);
+	public appendNeighbour(to: this, data = 0): void {
+		this.neighbours.push({ from: this, to, data });
 	}
 
 	public toString(layer = 0): string {
