@@ -1,3 +1,4 @@
+import { Direction } from '../direction.class';
 import { Vec2 } from '../vec2.class';
 import { GridGraph } from './grid-graph.class';
 import { Heuristic } from './heuristic.type';
@@ -13,20 +14,29 @@ export class PortalGridGraph<
 
 	public static fromTorus<T = string, N extends PortalGridNode<T> = PortalGridNode<T>>(
 		matrix: T[][],
-		portalOf: (n: Vec2) => string | undefined,
-		filter?: (n: Vec2) => boolean,
-		h?: Heuristic<PortalGridNode<T>>,
-		under = (v: T) => [v]
+		options: {
+			weighter?: Heuristic<PortalGridNode<T>>;
+			under?: (v: T) => T[];
+			filter?: (n: Vec2) => boolean;
+			portalOf: (n: Vec2) => string | undefined;
+			connectionDirections?: Direction[];
+		}
 	): PortalGridGraph<T, N> {
+		const under = options?.under ?? ((v: T) => [v]);
+		const weigther =
+			options.weighter ??
+			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value !== b.value ? Infinity : 0));
+		const connectionDirections = options?.connectionDirections ?? Direction.cardinalDirections;
+
 		const graph = new PortalGridGraph<T, N>();
 		for (let y = 0; y < matrix.length; y++) {
 			const row = matrix[y];
 			for (let x = 0; x < row.length; x++) {
 				const v = row[x];
 				const p = new Vec2(x, y);
-				if (!filter || filter(p)) {
-					const node = new PortalGridNode<T>(p, portalOf(p), ...under(v));
-					node.attachNeightbours(graph, h);
+				if (!options.filter || options.filter(p)) {
+					const node = new PortalGridNode<T>(p, options.portalOf(p), ...under(v));
+					node.attachNeightbours(graph, connectionDirections, weigther);
 				}
 			}
 		}

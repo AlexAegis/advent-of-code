@@ -44,11 +44,11 @@ export const draw = (m: Map<string, GridNode<string>>, size: Vec2, level = 0): v
 
 export const runner = (input: string): number => {
 	const matrix = parseLines(input);
-	const { map, doors, keys, size } = parseMatrix(matrix);
+	const { size } = parseMatrix(matrix);
 	const inventory = new Set<Key>();
-	const graph = GridGraph.fromMatrix(matrix, h(inventory), under);
+	const graph = GridGraph.fromMatrix(matrix, { h: h(inventory), under });
 
-	console.log('map: ', map, 'doors: ', doors, 'keys: ', keys, 'size: ', size, 'g', graph);
+	// console.log('map: ', map, 'doors: ', doors, 'keys: ', keys, 'size: ', size, 'g', graph);
 	draw(graph.nodes, size, 0);
 	return 0;
 };

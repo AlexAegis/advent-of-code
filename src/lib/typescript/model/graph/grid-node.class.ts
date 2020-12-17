@@ -1,71 +1,78 @@
-import { CardinalDirectionValueClockwise, Direction, Vec2 } from '@lib/model';
+import { Direction, Vec2 } from '@lib/model';
+import '../../polyfills/map.polyfill';
 import { Graph } from './graph.class';
 import { Heuristic } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';
 
-export interface GridVertices<N> {
-	north?: Vertice<N>;
-	east?: Vertice<N>;
-	south?: Vertice<N>;
-	west?: Vertice<N>;
-}
-
 /**
- * TODO: Add OPTIONAL diagonal capabilities
+ *
  */
 export class GridNode<T = string> extends Node<T> {
 	public constructor(public p: Vec2, ...values: T[]) {
 		super(...values);
-		this.neighbours.push({ from: this, to: undefined, data: undefined });
-		this.neighbours.push({ from: this, to: undefined, data: undefined });
-		this.neighbours.push({ from: this, to: undefined, data: undefined });
-		this.neighbours.push({ from: this, to: undefined, data: undefined });
 	}
 
-	public get north(): Vertice<this> | undefined {
-		return this.neighbours[CardinalDirectionValueClockwise.NORTH];
+	public get north(): Vertice<GridNode<T>> | undefined {
+		return this.neighbours.get(Direction.NORTH);
+	}
+
+	public get northEast(): Vertice<this> | undefined {
+		return this.neighbours.get(Direction.NORTHEAST);
 	}
 
 	public get east(): Vertice<this> | undefined {
-		return this.neighbours[CardinalDirectionValueClockwise.EAST];
+		return this.neighbours.get(Direction.EAST);
+	}
+
+	public get southEast(): Vertice<this> | undefined {
+		return this.neighbours.get(Direction.SOUTHEAST);
 	}
 
 	public get south(): Vertice<this> | undefined {
-		return this.neighbours[CardinalDirectionValueClockwise.SOUTH];
+		return this.neighbours.get(Direction.SOUTH);
+	}
+
+	public get southWest(): Vertice<this> | undefined {
+		return this.neighbours.get(Direction.SOUTHWEST);
 	}
 
 	public get west(): Vertice<this> | undefined {
-		return this.neighbours[CardinalDirectionValueClockwise.WEST];
+		return this.neighbours.get(Direction.WEST);
 	}
 
-	public gridNeighbours(): GridVertices<this> {
-		return {
-			north: this.north,
-			east: this.east,
-			south: this.south,
-			west: this.west,
-		};
+	public get northWest(): Vertice<this> | undefined {
+		return this.neighbours.get(Direction.NORTHWEST);
 	}
 
-	public attachNeightbours(graph: Graph<T, this>, h?: Heuristic<this>): Vertice<this>[] {
-		Direction.cardinalDirections
-			.map((d) => graph.nodes.get(this.p.add(d).toString()))
-			.forEach((n, i) => {
-				const reverse = Direction.reverseValue(i);
-				if (n && reverse !== undefined) {
-					this.neighbours[i].to = n;
-					n.neighbours[reverse].to = this;
-					graph.vertices.add(this.neighbours[i]);
-					//graph.vertices.add(n.neighbours[reverse]);
-					if (h) {
-						this.neighbours[i].data = h(this, n);
-						n.neighbours[reverse].data = h(n, this);
-						this.neighbours[i].h = () => h(this, n);
-						n.neighbours[reverse].h = () => h(n, this);
-					}
+	public attachNeightbours(
+		graph: Graph<T, this>,
+		directions: Direction[] = Direction.cardinalDirections,
+		h?: Heuristic<this>
+	): void {
+		for (const dir of directions) {
+			const node = graph.nodes.get(this.p.clone().add(dir).toString());
+			const reverse = dir.turn(180);
+			if (node) {
+				const forwardVertice = this.neighbours.getOrAdd(dir, () => ({
+					from: this,
+					to: node,
+				}));
+				const backVertice = node.neighbours.getOrAdd(reverse, () => ({
+					from: node,
+					to: this,
+				}));
+				forwardVertice.to = node;
+				backVertice.to = this;
+				graph.vertices.add(forwardVertice);
+				//graph.vertices.add(backVertice);
+				if (h) {
+					forwardVertice.data = h(this, node);
+					backVertice.data = h(node, this);
+					forwardVertice.h = () => h(this, node);
+					backVertice.h = () => h(node, this);
 				}
-			});
-		return this.neighbours;
+			}
+		}
 	}
 }

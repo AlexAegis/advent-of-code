@@ -6,7 +6,10 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 	public nodes = new Map<string, N>();
 	public vertices = new Set<Vertice<N>>();
 
-	public dijkstra(start: N, target: N, _doFull = false): N[] {
+	public dijkstra(start: N | undefined, target: N | undefined, _doFull = false): N[] {
+		if (!start || !target) {
+			return [];
+		}
 		const q = new Set<N>(this.nodes.values());
 
 		const dist = new Map<N, number>();
@@ -56,11 +59,15 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 	/**
 	 *
 	 * @param start
-	 * @param _goal
+	 * @param goal
 	 * @param h global heuristic function. Should return a monotone value for
 	 * better nodes
 	 */
-	public aStar(start: N, goal: N, h: Heuristic<N>, recalc = false): N[] {
+	public aStar(start: N | undefined, goal: N | undefined, h: Heuristic<N>, recalc = false): N[] {
+		if (!start || !goal) {
+			return [];
+		}
+
 		const openSet = new Set<N>([start]); // q?
 		const cameFrom = new Map<N, N>(); // prev!
 		const gScore = new Map<N, number>(); // dist! Infinity
@@ -89,7 +96,8 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 
 			for (const neighbour of current) {
 				const tentativegScore =
-					(gScore.get(current) ?? Infinity) + (recalc ? neighbour.h() : neighbour.data);
+					(gScore.get(current) ?? Infinity) +
+					(recalc && neighbour.h ? neighbour.h() : neighbour.data ?? 1);
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Infinity)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);
