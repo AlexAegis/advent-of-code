@@ -12,17 +12,15 @@ export enum Tile {
 	EMPTY = ' ',
 }
 
-export const h: Heuristic<PortalGridNode<string>> = (
+export const weighter: Heuristic<PortalGridNode<string>> = (
 	_a: PortalGridNode<string>,
 	b: PortalGridNode<string>
 ): number => {
 	switch (b.value) {
-		case Tile.EMPTY:
-			return Infinity;
-		case Tile.WALL:
-			return Infinity;
 		case Tile.PATH:
 			return 0;
+		case Tile.WALL:
+		case Tile.EMPTY:
 		default:
 			return Infinity;
 	}
@@ -43,15 +41,14 @@ export const readLabelOn = (v: Vec2, matrix: string[][]): string | undefined => 
 
 export const runner = (input: string): number => {
 	const matrix = parseLines(input);
-	const graph = PortalGridGraph.fromTorus(
-		matrix,
-		(v: Vec2) => readLabelOn(v, matrix),
-		(v: Vec2) => {
+	const graph = PortalGridGraph.fromTorus(matrix, {
+		portalOf: (v: Vec2) => readLabelOn(v, matrix),
+		filter: (v: Vec2) => {
 			const t = matrix[v.x][v.y];
 			return t === Tile.WALL || t === Tile.PATH;
 		},
-		h
-	);
+		weighter,
+	});
 
 	console.log(graph);
 	return 0;

@@ -1,8 +1,9 @@
 import { ToString } from '@lib/model/to-string.interface';
+import { Direction } from '../direction.class';
 import { Vertice } from './vertice.type';
 
-export class Node<T = string> implements ToString {
-	public neighbours: Vertice<this>[] = [];
+export class Node<T = string, Dir extends ToString = Direction> implements ToString {
+	public neighbours = new Map<Dir, Vertice<this>>();
 
 	public values: T[] = [];
 
@@ -18,8 +19,8 @@ export class Node<T = string> implements ToString {
 		return this.values[this.values.length - 1];
 	}
 
-	*[Symbol.iterator](): IterableIterator<Required<Vertice<this>>> {
-		yield* this.neighbours.filter((n) => !!n.to) as Required<Vertice<this>>[];
+	*[Symbol.iterator](): IterableIterator<Vertice<this>> {
+		yield* this.neighbours.values();
 	}
 
 	public removeTop(): T | undefined {
@@ -29,10 +30,6 @@ export class Node<T = string> implements ToString {
 	public putValue(v: T): this {
 		this.values.unshift(v);
 		return this;
-	}
-
-	public appendNeighbour(to: this, data: number): void {
-		this.neighbours.push({ from: this, to, data });
 	}
 
 	public toString(layer = 0): string {

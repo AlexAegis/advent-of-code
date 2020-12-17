@@ -1,5 +1,6 @@
 export * from './chunks-of-array.function';
 export * from './control';
+export * from './copy-matrix.function';
 export * from './frequency-map.function';
 export * from './integer-length.function';
 export * from './is.function';
