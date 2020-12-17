@@ -1,6 +1,12 @@
 import { gcd } from '@lib/math';
 import { NUM } from '@lib/regex';
-import { Direction, DirectionMarker } from './direction.class';
+import {
+	DirectionArrowSymbol,
+	DirectionCardinalGeographicLetter,
+	DirectionCardinalLiteralLetter,
+	DirectionMarker,
+	isDirectionMarker,
+} from './direction-marker.type';
 
 export interface Vec2Like {
 	x: number;
@@ -30,10 +36,34 @@ export class Vec2 implements Vec2Like {
 			this.x = x;
 			this.y = y;
 		} else if (typeof x === 'string') {
-			if (Direction.isDirectionMarker(x)) {
-				const dir = Direction.fromMarker(x);
-				this.x = dir.x;
-				this.y = dir.y;
+			// cannot reuse the Direction class due to circular imports
+			if (isDirectionMarker(x)) {
+				switch (x) {
+					case DirectionArrowSymbol.NORTH:
+					case DirectionCardinalLiteralLetter.NORTH:
+					case DirectionCardinalGeographicLetter.NORTH:
+						this.x = 0;
+						this.y = 1;
+						break;
+					case DirectionArrowSymbol.EAST:
+					case DirectionCardinalLiteralLetter.EAST:
+					case DirectionCardinalGeographicLetter.EAST:
+						this.x = 1;
+						this.y = 0;
+						break;
+					case DirectionArrowSymbol.SOUTH:
+					case DirectionCardinalLiteralLetter.SOUTH:
+					case DirectionCardinalGeographicLetter.SOUTH:
+						this.x = 0;
+						this.y = -1;
+						break;
+					case DirectionArrowSymbol.WEST:
+					case DirectionCardinalLiteralLetter.WEST:
+					case DirectionCardinalGeographicLetter.WEST:
+						this.x = -1;
+						this.y = 0;
+						break;
+				}
 			} else {
 				[this.x, this.y] = (x.match(NUM) || []).map((s) => parseInt(s, 10));
 			}
@@ -194,7 +224,7 @@ export class Vec2 implements Vec2Like {
 		return o && this.x === o.x && this.y === o.y;
 	}
 
-	public angle(o: Vec2Like = Direction.EAST): number {
+	public angle(o: Vec2Like): number {
 		return (Math.atan2(o.y - this.y, o.x - this.x) * 180) / Math.PI;
 	}
 

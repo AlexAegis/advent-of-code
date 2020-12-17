@@ -49,7 +49,7 @@ export const runner = (input: string): number => {
 	const graph = GridGraph.fromMatrix(matrix, h(inventory), under);
 
 	console.log('map: ', map, 'doors: ', doors, 'keys: ', keys, 'size: ', size, 'g', graph);
-	draw(graph.nodeMap, size, 0);
+	draw(graph.nodes, size, 0);
 	return 0;
 };
 

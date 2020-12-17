@@ -1,6 +1,5 @@
 import { bench, read, split } from '@lib';
-import { Direction } from '@lib/model/direction.class';
-import { Vec2, Vec2Like } from '@lib/model/vec2.class';
+import { Direction, isDirectionMarker, Vec2, Vec2Like } from '@lib/model';
 import { day, year } from '.';
 
 const keypad = [
@@ -18,7 +17,7 @@ export const runner = (input: string): string => {
 
 	const result = split(input).reduce((acc, line) => {
 		line.split('')
-			.filter(Direction.isDirectionMarker)
+			.filter(isDirectionMarker)
 			.map(Direction.fromMarker)
 			.forEach((direction) =>
 				position.addMut(direction, { limit: (v) => toKeypadNumber(v) === undefined })

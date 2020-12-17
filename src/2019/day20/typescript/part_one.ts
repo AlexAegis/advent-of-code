@@ -12,7 +12,7 @@ export enum Tile {
 	EMPTY = ' ',
 }
 
-export const h: Heuristic<string, PortalGridNode<string>> = (
+export const h: Heuristic<PortalGridNode<string>> = (
 	_a: PortalGridNode<string>,
 	b: PortalGridNode<string>
 ): number => {

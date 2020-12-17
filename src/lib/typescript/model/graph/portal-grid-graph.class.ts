@@ -15,7 +15,7 @@ export class PortalGridGraph<
 		matrix: T[][],
 		portalOf: (n: Vec2) => string | undefined,
 		filter?: (n: Vec2) => boolean,
-		h?: Heuristic<T, PortalGridNode<T>>,
+		h?: Heuristic<PortalGridNode<T>>,
 		under = (v: T) => [v]
 	): PortalGridGraph<T, N> {
 		const graph = new PortalGridGraph<T, N>();
