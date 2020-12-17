@@ -67,10 +67,10 @@ export class GridNode<T = string> extends Node<T> {
 				graph.vertices.add(forwardVertice);
 				//graph.vertices.add(backVertice);
 				if (h) {
-					forwardVertice.data = h(this, node);
-					backVertice.data = h(node, this);
-					forwardVertice.h = () => h(this, node);
-					backVertice.h = () => h(node, this);
+					forwardVertice.weight = h(this, node);
+					backVertice.weight = h(node, this);
+					forwardVertice.weighter = () => h(this, node);
+					backVertice.weighter = () => h(node, this);
 				}
 			}
 		}

@@ -36,7 +36,7 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 			q.delete(u);
 
 			for (const neighbour of u) {
-				const alt = umin.dist + (neighbour.data ?? 1);
+				const alt = umin.dist + (neighbour.weight ?? 1);
 				if (alt < (dist.get(neighbour.to) ?? Infinity)) {
 					dist.set(neighbour.to, alt);
 					prev.set(neighbour.to, u);
@@ -97,7 +97,7 @@ export class Graph<T = string, N extends Node<T> = Node<T>> {
 			for (const neighbour of current) {
 				const tentativegScore =
 					(gScore.get(current) ?? Infinity) +
-					(recalc && neighbour.h ? neighbour.h() : neighbour.data ?? 1);
+					(recalc && neighbour.weighter ? neighbour.weighter() : neighbour.weight ?? 1);
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Infinity)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);

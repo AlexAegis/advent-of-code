@@ -7,6 +7,6 @@ export interface Vertice<N> {
 	/**
 	 * Vertice data, like weight.
 	 */
-	data?: number;
-	h?: () => number;
+	weight?: number;
+	weighter?: () => number;
 }
