@@ -1,11 +1,12 @@
 /**
  * Represents a vertice between two nodes with an additional data field.
  */
-export interface Vertice<N, D = number> {
+export interface Vertice<N> {
 	from: N;
 	to?: N;
 	/**
 	 * Vertice data, like weight.
 	 */
-	data?: D;
+	data?: number;
+	h?: () => number;
 }

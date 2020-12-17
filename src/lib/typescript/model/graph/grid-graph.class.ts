@@ -1,16 +1,19 @@
 import { Vec2 } from '@lib/model';
+import { ToString } from '../to-string.interface';
 import { Graph } from './graph.class';
 import { GridNode } from './grid-node.class';
 import { Heuristic } from './heuristic.type';
 
-export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends Graph<T, N> {
+export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
+	extends Graph<T, N>
+	implements ToString {
 	public constructor() {
 		super();
 	}
 
 	public static fromMatrix<T = string>(
 		matrix: T[][],
-		h?: Heuristic<T, GridNode<T>>,
+		h?: Heuristic<GridNode<T>>,
 		under = (v: T) => [v]
 	): GridGraph<T> {
 		const graph = new GridGraph<T>();
@@ -26,7 +29,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 
 	public static fromMap<T = string>(
 		map: Map<string, T>,
-		h?: Heuristic<T, GridNode<T>>,
+		h?: Heuristic<GridNode<T>>,
 		under = (v: T) => [v]
 	): GridGraph<T> {
 		const graph = new GridGraph<T>();
@@ -37,8 +40,8 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 		return graph;
 	}
 
-	public addNode(node: N, h?: Heuristic<T, GridNode<T>>): N {
-		this.nodeMap.set(node.p.toString(), node);
+	public addNode(node: N, h?: Heuristic<N>): N {
+		this.nodes.set(node.p.toString(), node);
 		node.attachNeightbours(this, h);
 		return node;
 	}
@@ -50,7 +53,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 	 * @param matcher
 	 */
 	public getIntersections(matcher: (node?: N) => boolean): N[] {
-		return [...this.nodeMap.values()].filter(
+		return [...this.nodes.values()].filter(
 			(node) => matcher(node) && node.neighbours.every((n) => matcher(n.to))
 		);
 	}
@@ -60,7 +63,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>> extends 
 	 */
 	public toString(): string {
 		const result: string[][] = [];
-		[...this.nodeMap.values()].forEach((node) => {
+		[...this.nodes.values()].forEach((node) => {
 			const row = (result[node.p.y] = result[node.p.y] ?? []);
 			const v = node.value as { toString?: () => string };
 			row[node.p.x] = v?.toString ? v.toString() : ' ';

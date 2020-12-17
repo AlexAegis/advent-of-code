@@ -18,6 +18,10 @@ export class Node<T = string> implements ToString {
 		return this.values[this.values.length - 1];
 	}
 
+	*[Symbol.iterator](): IterableIterator<Required<Vertice<this>>> {
+		yield* this.neighbours.filter((n) => !!n.to) as Required<Vertice<this>>[];
+	}
+
 	public removeTop(): T | undefined {
 		return this.values.shift();
 	}
@@ -27,7 +31,7 @@ export class Node<T = string> implements ToString {
 		return this;
 	}
 
-	public appendNeighbour(to: this, data = 0): void {
+	public appendNeighbour(to: this, data: number): void {
 		this.neighbours.push({ from: this, to, data });
 	}
 
@@ -35,8 +39,8 @@ export class Node<T = string> implements ToString {
 		const toPrint = this.values.length > layer ? this.values[layer] : this.bottomValue;
 		if (typeof toPrint === 'string') {
 			return toPrint;
-		} else if ((toPrint as { toString: () => string }).toString !== undefined) {
-			return (toPrint as { toString: () => string }).toString();
+		} else if ((toPrint as ToString).toString !== undefined) {
+			return (toPrint as ToString).toString();
 		} else {
 			return ' ';
 		}

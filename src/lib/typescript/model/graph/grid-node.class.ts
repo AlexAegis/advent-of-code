@@ -4,11 +4,11 @@ import { Heuristic } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';
 
-export interface GridVertices<T> {
-	north?: Vertice<T>;
-	east?: Vertice<T>;
-	south?: Vertice<T>;
-	west?: Vertice<T>;
+export interface GridVertices<N> {
+	north?: Vertice<N>;
+	east?: Vertice<N>;
+	south?: Vertice<N>;
+	west?: Vertice<N>;
 }
 
 /**
@@ -17,10 +17,10 @@ export interface GridVertices<T> {
 export class GridNode<T = string> extends Node<T> {
 	public constructor(public p: Vec2, ...values: T[]) {
 		super(...values);
-		this.neighbours.push({ from: this, to: undefined, data: Infinity });
-		this.neighbours.push({ from: this, to: undefined, data: Infinity });
-		this.neighbours.push({ from: this, to: undefined, data: Infinity });
-		this.neighbours.push({ from: this, to: undefined, data: Infinity });
+		this.neighbours.push({ from: this, to: undefined, data: undefined });
+		this.neighbours.push({ from: this, to: undefined, data: undefined });
+		this.neighbours.push({ from: this, to: undefined, data: undefined });
+		this.neighbours.push({ from: this, to: undefined, data: undefined });
 	}
 
 	public get north(): Vertice<this> | undefined {
@@ -48,17 +48,21 @@ export class GridNode<T = string> extends Node<T> {
 		};
 	}
 
-	public attachNeightbours(graph: Graph<T, this>, h?: Heuristic<T, this>): Vertice<this>[] {
+	public attachNeightbours(graph: Graph<T, this>, h?: Heuristic<this>): Vertice<this>[] {
 		Direction.cardinalDirections
-			.map((d) => graph.nodeMap.get(this.p.add(d).toString()))
+			.map((d) => graph.nodes.get(this.p.add(d).toString()))
 			.forEach((n, i) => {
 				const reverse = Direction.reverseValue(i);
 				if (n && reverse !== undefined) {
 					this.neighbours[i].to = n;
 					n.neighbours[reverse].to = this;
+					graph.vertices.add(this.neighbours[i]);
+					//graph.vertices.add(n.neighbours[reverse]);
 					if (h) {
 						this.neighbours[i].data = h(this, n);
 						n.neighbours[reverse].data = h(n, this);
+						this.neighbours[i].h = () => h(this, n);
+						n.neighbours[reverse].h = () => h(n, this);
 					}
 				}
 			});
