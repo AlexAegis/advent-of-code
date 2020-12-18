@@ -1,20 +1,21 @@
-import { bench } from '@lib';
+import { bench, read } from '@lib';
+import { Vec2Like } from '@lib/model';
 import * as WorkerPool from 'workerpool';
-import { inputs } from '.';
+import { day, year } from '.';
 import { range } from './functions/range.generator';
-import { Coord } from './model/coord.class';
 
 export interface Result {
-	coord: Coord | undefined;
+	vec: Vec2Like | undefined;
 	sum: number;
 	size: number;
 }
 
-export const runner = async (input: number): Promise<string> => {
+export const runner = async (input: string): Promise<string> => {
+	const serialNumber = parseInt(input, 10);
 	const _mapSize = 300;
 	const pool = WorkerPool.pool();
 	const promises = [];
-	for (const coord of range({ from: 1, to: _mapSize }, { from: 1, to: _mapSize })) {
+	for (const vec of range({ from: 1, to: _mapSize }, { from: 1, to: _mapSize })) {
 		promises.push(
 			pool.exec(
 				(cx: number, cy: number, mapSize: number, i: number) => {
@@ -28,7 +29,7 @@ export const runner = async (input: number): Promise<string> => {
 						return power;
 					};
 					const maxSize = Math.min(cx, cy, mapSize - cx, mapSize - cy);
-					const acc = { coord: { x: cx, y: cy }, sum: -Infinity, size: -Infinity };
+					const acc = { vec: { x: cx, y: cy }, sum: -Infinity, size: -Infinity };
 					for (let size = 0; size < maxSize; size++) {
 						const lol: Array<{ x: number; y: number }> = [];
 						for (let x = cx; x <= cx + size; x++) {
@@ -44,7 +45,7 @@ export const runner = async (input: number): Promise<string> => {
 					}
 					return acc;
 				},
-				[coord.x, coord.y, _mapSize, input]
+				[vec.x, vec.y, _mapSize, serialNumber]
 			)
 		);
 	}
@@ -52,19 +53,19 @@ export const runner = async (input: number): Promise<string> => {
 	const result: Result[] = await Promise.all(promises);
 	const max = result.reduce((acc, next) => {
 		if (!acc) {
-			acc = { coord: undefined, sum: -Infinity, size: -Infinity };
+			acc = { vec: undefined, sum: -Infinity, size: -Infinity };
 		}
 		if (next.sum > acc.sum) {
-			acc.coord = next.coord;
+			acc.vec = next.vec;
 			acc.size = next.size;
 			acc.sum = next.sum;
 		}
 		return acc;
 	});
 	pool.terminate();
-	return `${max.coord ? max.coord.x + ', ' + max.coord.y : 'undefined'},${max.size} (${max.sum})`;
+	return `${max.vec ? max.vec.x + ', ' + max.vec.y : 'undefined'},${max.size} (${max.sum})`;
 };
 
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(() => inputs.two.input, runner)}`))(); // 236,146,12 (160) ~63007ms
+	(async () => console.log(`Result: ${await bench(await read(year, day), runner)}`))(); // 236,146,12 (160) ~63007ms
 }
