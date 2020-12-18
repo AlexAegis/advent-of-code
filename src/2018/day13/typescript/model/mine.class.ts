@@ -1,26 +1,24 @@
+import { Vec2 } from '@lib/model';
+import { ToString } from '@lib/model/to-string.interface';
 import { Cart } from './cart.class';
-import { Coord } from './coord.class';
-import { Rail } from './rail.type';
 
-export class Mine {
+export type Rail = ('/' | '\\' | '-' | '|' | '+') & string;
+
+export class Mine implements ToString {
 	public rail: Map<string, Rail> = new Map();
 	public carts: Cart[] = [];
-	public crashes: Coord[] = [];
+	public crashes: Vec2[] = [];
 	public height = 0;
 	public width = 0;
-	public print(tick?: number | undefined): void {
-		console.log(`${tick}.`);
+	public toString(): string {
+		let mine = '';
 		for (let y = 0; y < this.height; y++) {
 			let line = '';
 			for (let x = 0; x < this.width; x++) {
-				const coord: Coord = new Coord(x, y);
-				const rail = this.rail.get(coord.toString());
-				const carts: Cart[] = this.carts.filter(
-					(cart) => cart.position.toString() === coord.toString()
-				);
-				const crashes: Coord[] = this.crashes.filter(
-					(c) => c.toString() === coord.toString()
-				);
+				const vec = new Vec2(x, y);
+				const rail = this.rail.get(vec.toString());
+				const carts = this.carts.filter((cart) => cart.position.equals(vec));
+				const crashes = this.crashes.filter((c) => c.equals(vec));
 				if (carts.length > 1 || crashes.length > 1) {
 					line += 'X';
 				} else if (carts.length === 1) {
@@ -31,7 +29,8 @@ export class Mine {
 					line += ' ';
 				}
 			}
-			console.log(line);
+			mine += line + '\n';
 		}
+		return mine;
 	}
 }

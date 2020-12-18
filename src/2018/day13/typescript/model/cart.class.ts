@@ -1,30 +1,44 @@
-import { Coord } from './coord.class';
-import { DirectionMarker } from './direction-marker.type';
-import { Direction } from './direction.class';
+import { Direction, DirectionMarker, Vec2 } from '@lib/model';
 import { Mine } from './mine.class';
 
 export class Cart {
 	public direction: Direction;
 	public turnsAtIntersection = 0;
-	constructor(public position: Coord, directionMarker: DirectionMarker) {
-		this.direction = new Direction(directionMarker);
+	constructor(public position: Vec2, directionMarker: DirectionMarker) {
+		this.direction = Direction.fromMarker(directionMarker);
 	}
 
-	public step(mine: Mine): Coord | undefined {
-		this.position = this.position.add(this.direction.value);
+	public static compare(a: Cart, b: Cart): number {
+		return Vec2.compareRowFirst(a.position, b.position);
+	}
+
+	public step(mine: Mine): Vec2 | undefined {
+		this.position = this.position.clone().addMut(this.direction, { flipY: true });
 		const rail = mine.rail.get(this.position.toString());
 		if (rail === '+') {
 			switch (this.turnsAtIntersection % 3) {
 				case 0:
-					this.direction.turnLeft();
+					this.direction = this.direction.left();
 					break;
 				case 2:
-					this.direction.turnRight();
+					this.direction = this.direction.right();
 					break;
 			}
 			this.turnsAtIntersection++;
 		} else if (rail) {
-			this.direction.turn(rail);
+			if (this.direction.isVertical()) {
+				if (rail === '\\') {
+					this.direction = this.direction.left();
+				} else if (rail === '/') {
+					this.direction = this.direction.right();
+				}
+			} else if (this.direction.isHorizonal()) {
+				if (rail === '\\') {
+					this.direction = this.direction.right();
+				} else if (rail === '/') {
+					this.direction = this.direction.left();
+				}
+			}
 		}
 		return this.isCrashed(mine) ? this.position : undefined;
 	}
