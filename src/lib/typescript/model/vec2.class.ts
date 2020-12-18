@@ -18,6 +18,8 @@ export interface Area {
 	cornerB: Vec2Like;
 }
 
+export type Vec2String = `${number},${number}`;
+
 export class Vec2 implements Vec2Like {
 	public static ORIGIN = Object.freeze(new Vec2(0, 0));
 
@@ -73,8 +75,12 @@ export class Vec2 implements Vec2Like {
 	public x!: number;
 	public y!: number;
 
-	public static compare(a: Vec2, b: Vec2): number {
+	public static compareColumnFirst(a: Vec2, b: Vec2): number {
 		return a.x === b.x ? a.y - b.y : a.x - b.x;
+	}
+
+	public static compareRowFirst(a: Vec2, b: Vec2): number {
+		return a.y === b.y ? a.x - b.x : a.y - b.y;
 	}
 
 	public static isWithin(v: Vec2Like, area: Area): boolean {
@@ -122,17 +128,21 @@ export class Vec2 implements Vec2Like {
 	}
 
 	public addMut(
-		coord: Vec2Like,
+		v: Vec2Like,
 		options?: {
 			times?: number;
 			limit?: Area | ((v: Vec2Like) => boolean);
+			flipX?: boolean;
+			flipY?: boolean;
 		}
 	): Vec2 {
 		const originalX = this.x;
 		const originalY = this.y;
+		const diffX = v.x * (options?.times ?? 1);
+		const diffY = v.y * (options?.times ?? 1);
 
-		this.x += coord.x * (options?.times ?? 1);
-		this.y += coord.y * (options?.times ?? 1);
+		this.x += options?.flipX ? -diffX : diffX;
+		this.y += options?.flipY ? -diffY : diffY;
 
 		if (
 			options?.limit &&
@@ -228,12 +238,12 @@ export class Vec2 implements Vec2Like {
 		return (Math.atan2(o.y - this.y, o.x - this.x) * 180) / Math.PI;
 	}
 
-	public toString(): string {
+	public toString(): Vec2String {
 		return Vec2.toString(this);
 	}
 
-	public static toString(v: Vec2Like): string {
-		return `${v.x},${v.y}`;
+	public static toString(v: Vec2Like): Vec2String {
+		return `${v.x},${v.y}` as Vec2String;
 	}
 
 	public clone(): Vec2 {

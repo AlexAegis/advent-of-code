@@ -1,3 +1,3 @@
-export interface ToString {
-	toString(): string;
+export interface ToString<T = undefined> {
+	toString(t?: T): string;
 }

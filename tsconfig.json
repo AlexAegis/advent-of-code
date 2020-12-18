@@ -11,6 +11,7 @@
 		"declaration": false,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
+		"incremental": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"resolveJsonModule": true,
