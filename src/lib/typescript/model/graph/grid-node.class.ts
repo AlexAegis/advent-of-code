@@ -1,5 +1,5 @@
 import { Direction, Vec2 } from '@lib/model';
-import '../../polyfills/map.polyfill';
+import '../../map/map.polyfill';
 import { Graph } from './graph.class';
 import { Heuristic } from './heuristic.type';
 import { Node } from './node.class';

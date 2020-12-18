@@ -12,25 +12,14 @@ export const processSegment = (line: string[]): string => {
 		} else if (item === '*') {
 			lastOperator = item;
 		} else if (item === '(') {
-			let pc = 1;
-			let j = i + 1;
-			for (; j < line.length; j++) {
-				if (line[j] === '(') {
-					pc++;
-				} else if (line[j] === ')') {
-					pc--;
-				}
-				if (pc === 0) {
-					const segmentResult = processSegment(line.slice(i + 1, j));
-					if (value === undefined) {
-						value = segmentResult;
-					} else {
-						value = eval(`${value}${lastOperator}${segmentResult}`);
-					}
-					break;
-				}
+			const j = line.findEndOfPair(['(', ')'], i);
+			const segmentResult = processSegment(line.slice(i + 1, j));
+			if (value === undefined) {
+				value = segmentResult;
+			} else {
+				value = eval(`${value}${lastOperator}${segmentResult}`);
 			}
-			i = j;
+			i = j ?? i;
 		} else {
 			if (value === undefined) {
 				value = item;

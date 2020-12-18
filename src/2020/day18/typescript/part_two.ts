@@ -21,23 +21,14 @@ export const calcSegment = (input: string[]): string => {
 		}
 
 		if (input[i] === '(') {
-			let pc = 1;
-			let j = i + 1;
-			for (; j < input.length; j++) {
-				if (input[j] === '(') {
-					pc++;
-				} else if (input[j] === ')') {
-					pc--;
-				}
-				if (pc === 0) {
-					const r = calcSegment(input.splice(i + 1, j - i - 1));
-					input.splice(i + 1, 1);
-					input[i] = `${r}`;
-					i--;
-					break;
-				}
+			const segment = input.cutSubSegment(['(', ')'], i);
+			if (segment) {
+				const r = calcSegment(segment);
+				input.splice(i, 0, `${r}`); // Splice the result back
+				i--;
 			}
 		}
+
 		i++;
 	}
 	return input[0];

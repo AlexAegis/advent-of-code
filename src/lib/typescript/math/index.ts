@@ -3,6 +3,7 @@ export * from './common';
 export * from './discrete';
 export * from './huffman';
 export * from './lz';
+export * from './math.polyfill';
 
 export const max = (a: number, b: number): number => (a < b ? b : a);
 export const min = (a: number, b: number): number => (a > b ? b : a);
