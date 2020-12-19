@@ -1,4 +1,16 @@
-import { add, complete, cycle, save, suite } from 'benny';
+import { add, complete, cycle, save as rawSave, suite } from 'benny';
+import { SaveOptions } from 'benny/lib/internal/common-types';
+
+const saveDefaults: SaveOptions = {
+	file: 'reduce',
+	folder: '.benchmark/result',
+};
+
+const save = (saveOptions?: SaveOptions): ReturnType<typeof rawSave> =>
+	rawSave({
+		...saveDefaults,
+		...saveOptions,
+	});
 
 /**
  * TODO: AutoUpdate readme.md with the results
@@ -23,8 +35,8 @@ export const defaultBench = (
 		...cases,
 		cycleTime(),
 		complete(),
-		save({ file: 'reduce', version: '1.0.0', format: 'table.html' }),
-		save({ file: 'reduce', format: 'chart.html' }),
-		save({ file: 'reduce', format: 'json' })
+		save({ format: 'table.html' }),
+		save({ format: 'chart.html' }),
+		save({ format: 'json' })
 	);
 };
