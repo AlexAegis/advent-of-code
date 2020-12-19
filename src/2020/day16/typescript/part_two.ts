@@ -70,6 +70,7 @@ export const runner = (input: string): number =>
 		.map((p) => p.value)
 		.reduce(mult, 1);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 3173135507987 ~1.79ms
 }

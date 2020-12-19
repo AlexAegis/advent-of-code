@@ -45,6 +45,7 @@ export const runner = (input: string): number | undefined => {
 	return undefined;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 783895 ~22ms
 }

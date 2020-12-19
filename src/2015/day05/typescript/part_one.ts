@@ -32,6 +32,7 @@ export const runner = (input: string): number => {
 	return input.split('\n').reduce((a, n) => a + (isNice(n) ? 1 : 0), 0);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 236 ~13ms
 }

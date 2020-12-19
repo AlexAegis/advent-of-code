@@ -31,6 +31,7 @@ export const isPassport = (passport: Partial<Passport>): passport is Passport =>
 
 export const runner = (input: string): number => parsePassports(input).filter(isPassport).length;
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 264 ~5.6ms
 }

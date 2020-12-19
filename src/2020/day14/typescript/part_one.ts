@@ -43,6 +43,7 @@ export const runner = (input: string): number => {
 	return [...memory.values()].reduce(sum);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 7440382076205 ~1.22ms
 }

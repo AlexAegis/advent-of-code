@@ -36,6 +36,7 @@ export const runner = (input: string): number =>
 		.map((line) => parseInt(processSegment(line.replace(/ /g, '').split('')), 10))
 		.reduce(sum, 0);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 25190263477788 ~256.62ms
 }

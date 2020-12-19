@@ -66,6 +66,7 @@ export const runner = async (input: string): Promise<string> => {
 	return `${max.vec ? max.vec.x + ', ' + max.vec.y : 'undefined'},${max.size} (${max.sum})`;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(await read(year, day), runner)}`))(); // 236,146,12 (160) ~63007ms
 }

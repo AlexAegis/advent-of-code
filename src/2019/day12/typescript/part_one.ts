@@ -27,6 +27,7 @@ export const runner = (target = 1000) => (input: string): number => {
 	return ms.reduce((acc, m) => acc + m.totalEnergy(), 0);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 8625 ~3ms
 }

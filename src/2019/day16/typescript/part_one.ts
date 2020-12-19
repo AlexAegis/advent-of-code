@@ -33,6 +33,7 @@ export const ftt = (a: number[], messageOffset = 0, multiplier = 1): string | un
 
 export const runner = (input: string): string | undefined => ftt(parse(input), 0, 1);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 30369587 ~1081ms
 }

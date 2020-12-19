@@ -32,6 +32,7 @@ export const isValidPassport = (passport: Partial<Passport>): passport is Passpo
 export const runner = (input: string): number =>
 	parsePassports(input).filter(isValidPassport).length;
 
+// istanbul ignore next
 if (require.main === module) {
 	bench(read(year, day), runner).then((r) => console.log(`Result: ${r}`)); // 224 ~7.8ms
 }

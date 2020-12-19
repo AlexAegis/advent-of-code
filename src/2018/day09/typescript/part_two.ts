@@ -20,6 +20,7 @@ export const runner = (input: string): number => {
 	return [...score].reduce((acc, next) => (acc < next ? next : acc));
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 2945918550 ~274ms
 }

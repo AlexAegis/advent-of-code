@@ -6,7 +6,7 @@ import { parse } from './parse.function';
 export const matchRule = (
 	line: string,
 	rules: Map<number, number[][] | string>,
-	ruleIndex = 0,
+	ruleIndex: number,
 	wordIndex = 0
 ): number[] => {
 	const rule = rules.get(ruleIndex)!;
@@ -41,6 +41,7 @@ export const runner = (input: string): number => {
 	return words.filter((word) => memoizedMatchRule(word, ruleBook, 0)[0] === word.length).length;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 316 ~480.55ms
 }

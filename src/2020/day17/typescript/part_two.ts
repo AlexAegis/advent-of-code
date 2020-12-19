@@ -24,6 +24,7 @@ export const runner = (input: string): number => {
 	return cubes.size;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1868 ~1618.00ms
 }

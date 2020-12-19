@@ -14,6 +14,7 @@ export const countTrees = (lines: string[], slope: Vec2, position = new Vec2(0, 
 
 export const runner = (input: string): number => countTrees(split(input), new Vec2(3, 1));
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 265 ~0.3ms
 }

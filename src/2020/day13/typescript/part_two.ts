@@ -14,6 +14,7 @@ export const runner = (input: string): number => {
 	return Number(crtBigInt(mods));
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 305068317272992 ~0.4ms
 }

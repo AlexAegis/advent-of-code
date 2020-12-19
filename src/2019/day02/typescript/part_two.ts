@@ -18,6 +18,7 @@ export const runner = (input: string): number => {
 	return 100 * noun + verb;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 8478 ~11ms
 }

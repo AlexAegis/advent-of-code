@@ -14,6 +14,7 @@ export const runner = (input: string): string | undefined => {
 	return mine.carts.length > 0 ? mine.carts[0].position.toString() : undefined;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 36,123 ~37.45ms
 }

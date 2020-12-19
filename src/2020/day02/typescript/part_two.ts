@@ -10,6 +10,7 @@ export const runner = (input: string): number =>
 				(password[low - 1] === letter) !== (password[high - 1] === letter)
 		).length;
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 593 ~2ms
 }
