@@ -1,8 +1,8 @@
 [workspace]
 members = [
 	"src/lib/rust",
-	"scaffold",
-	"scaffold/aoc-query",
+	"aoc-scaffold",
+	"aoc-scaffold/aoc-query",
 	"src/2015/day01/rust",
 	"src/2015/day02/rust",
 	"src/2015/day03/rust",

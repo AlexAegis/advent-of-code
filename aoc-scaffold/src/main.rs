@@ -27,7 +27,7 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	data.insert("input".to_string(), result.input);
 	data.insert("description".to_string(), result.description);
 	cpt(
-		"./templates/solution".to_string(),
+		"./.templates/solution".to_string(),
 		"./src/".to_string(),
 		data,
 	)

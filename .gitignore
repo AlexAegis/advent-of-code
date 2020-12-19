@@ -69,3 +69,4 @@ target
 
 # Benchmarking
 /benchmark
+/.benchmark
