@@ -4,21 +4,22 @@ import { parse } from './parse.function';
 
 export const matchRule = (
 	line: string,
-	ruleBook: Map<number, number[][] | string>,
+	rules: Map<number, number[][] | string>,
 	ruleIndex = 0,
 	wordIndex = 0
 ): number[] => {
-	const currentRule = ruleBook.get(ruleIndex)!;
-	if (typeof currentRule === 'string') {
-		return line[wordIndex] === currentRule ? [wordIndex + 1] : [];
+	const rule = rules.get(ruleIndex)!;
+	if (typeof rule === 'string') {
+		return line[wordIndex] === rule ? [wordIndex + 1] : [];
 	} else {
-		return currentRule.flatMap((rule) => {
-			let i = [wordIndex];
-			for (const next of rule) {
-				i = i.flatMap((ir) => matchRule(line, ruleBook, next, ir));
-			}
-			return i;
-		});
+		return rule.flatMap((r) =>
+			r.reduce(
+				(acc, n) => {
+					return acc.flatMap((ir) => matchRule(line, rules, n, ir));
+				},
+				[wordIndex]
+			)
+		);
 	}
 };
 
