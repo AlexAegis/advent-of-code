@@ -16,12 +16,12 @@ export const matchRule = (
 			let i = wordIndex;
 			let failed = false;
 			for (const r of rule) {
-				const matchR = matchRule(line, ruleBook, r, i);
-				if (matchR === undefined) {
+				const nextIndex = matchRule(line, ruleBook, r, i);
+				if (nextIndex === undefined) {
 					failed = true;
 					break;
 				} else {
-					i = matchR;
+					i = nextIndex;
 				}
 			}
 			if (!failed) {
