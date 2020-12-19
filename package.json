@@ -110,7 +110,8 @@
 			"node_modules/",
 			"src/**/*.d.ts",
 			"src/**/*.spec.ts",
-			"src/**/deque.class.ts"
+			"src/**/deque.class.ts",
+			"src/**/bench.ts"
 		],
 		"reporter": [
 			"lcov"

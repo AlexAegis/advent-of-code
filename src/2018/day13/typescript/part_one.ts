@@ -16,6 +16,7 @@ export const runner = (input: string): string | undefined => {
 	return crash ? crash.toString() : undefined;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 28,107 ~8.52ms
 }

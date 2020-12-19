@@ -26,6 +26,7 @@ export const runner = (input: string): number => {
 	return [...planets.entries()].reduce((acc, [_, p]) => acc + [...p].length, 0);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 223251 526ms
 }

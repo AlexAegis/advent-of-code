@@ -61,6 +61,7 @@ export const runner = (input: string): number => {
 	return [...map.values()].filter(is(SeatState.OCCUPIED)).length;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 2149 ~1300ms
 }

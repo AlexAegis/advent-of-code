@@ -21,6 +21,7 @@ export const runner = (input: string): number => {
 	return sort[0].id * sort[0].diff;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 136 ~0.22ms
 }

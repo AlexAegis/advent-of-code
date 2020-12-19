@@ -127,6 +127,7 @@ export const runner = (video = false) => (input: string): number => {
 	return 0;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner(false))}`))(); // 840248 ~110ms
 }

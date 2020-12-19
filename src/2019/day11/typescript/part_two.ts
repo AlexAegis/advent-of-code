@@ -135,6 +135,7 @@ export const runner = (input: string): string => {
 	return printMatrix(drawMap(map, colorCodeToColor, -6, 2, -2, 50));
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // AGALRGJE ~10ms
 }

@@ -35,6 +35,7 @@ export const runner = (deckSize = 119315717514047n, repeat = 101741582076661n, t
 	return Number((offset + i * target).posMod(deckSize));
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 81781678911487 ~1ms
 }

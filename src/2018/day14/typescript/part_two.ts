@@ -31,6 +31,7 @@ export const runner = (input: string): number => {
 	return recipes.length - input.length;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(() => ({ input: '327901' }), runner)}`))(); // 20229822 ~ 900ms
 }

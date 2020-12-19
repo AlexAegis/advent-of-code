@@ -18,6 +18,7 @@ export const runner = (input: number): string => {
 	return recipes.splice(input, 10).join('');
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(() => ({ input: 327901 }), runner)}`))(); // 1115317115 ~9.6ms
 }

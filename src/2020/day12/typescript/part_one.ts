@@ -34,6 +34,7 @@ export const runner = (input: string): number => {
 	return Vec2.ORIGIN.manhattan(position);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 858 ~1.07ms
 }

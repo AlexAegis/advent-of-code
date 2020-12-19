@@ -49,6 +49,7 @@ export const runner = (input: string): string => {
 	);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // LGYHB ~3.26ms
 }

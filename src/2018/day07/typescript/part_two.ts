@@ -112,6 +112,7 @@ export const runner = (input: string, args: Args = { workers: 2 }): number => {
 	return tick;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1115 ~24ms
 }

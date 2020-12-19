@@ -25,6 +25,7 @@ export const runner = (deckSize = 10007) => (input: string): number => {
 	return deck.indexOf(2019);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 6831 ~164ms
 }

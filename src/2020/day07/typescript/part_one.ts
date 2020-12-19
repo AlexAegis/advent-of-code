@@ -9,6 +9,7 @@ export const runner = (input: string): number => {
 	return [...bags.values()].filter((bag) => bag.canEventuallyContain(goldBag)).length;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 197 ~41ms
 }

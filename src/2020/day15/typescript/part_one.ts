@@ -43,6 +43,7 @@ export const calculate = (target: number) => (input: string): number => {
 
 export const runner = calculate(2020);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1015 ~0.08ms
 }

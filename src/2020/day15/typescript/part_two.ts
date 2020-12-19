@@ -4,6 +4,7 @@ import { calculate } from './part_one';
 
 export const runner = calculate(30000000);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 201 ~4932.26ms
 }

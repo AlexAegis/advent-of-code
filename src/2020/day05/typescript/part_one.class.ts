@@ -34,6 +34,7 @@ export const calculateSeatId = (line: string): number =>
 
 export const runner = (input: string): number => split(input).map(calculateSeatId).reduce(max);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 848 ~4ms
 }

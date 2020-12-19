@@ -64,6 +64,7 @@ export const runner = (input: string): number => {
 	return lastBio;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 13500447 ~3ms
 }
