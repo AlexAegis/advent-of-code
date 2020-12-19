@@ -88,6 +88,7 @@ export const runner = (input: string): number =>
 		.map((i) => i.p.x * i.p.y)
 		.reduce(sum, 0);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 4864 ~42ms
 }

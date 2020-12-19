@@ -18,6 +18,7 @@ export const runner = (input: string): number => {
 	return nearbyTickets.flatMap((ticket) => invalidFields(ticket, fieldRanges)).reduce(sum);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 27870 ~0.60ms
 }

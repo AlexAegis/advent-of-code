@@ -26,6 +26,7 @@ export const runner = (input: string): number => {
 	return twiceAppearCount * thriceAppearCount;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 5456 ~9ms
 }

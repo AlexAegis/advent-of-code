@@ -20,6 +20,7 @@ export const runner = (input: string): number =>
 		}
 	).locations.size;
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 2631 ~2.8ms
 }

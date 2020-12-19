@@ -58,6 +58,7 @@ export const runner = async (input: string): Promise<string> => {
 	return result.join('');
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~1ms
 }

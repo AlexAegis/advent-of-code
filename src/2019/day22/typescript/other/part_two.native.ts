@@ -53,6 +53,7 @@ export const runner = (
 	return modn(offset + target * i, deckSize);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 81781678911487 ~0.62ms
 }

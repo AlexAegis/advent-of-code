@@ -49,6 +49,7 @@ export const runner = (input: string): string => {
 	return phaser(a, 1, fft(1)).slice(0, 8).join('');
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await runner('12345678')}`))();
 	// (async () => console.log(`Result: ${await runner('03036732577212944063491565474664')}`))();

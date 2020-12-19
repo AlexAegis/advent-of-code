@@ -21,6 +21,7 @@ export const runner = (input: string): number => {
 	return acc.position.manhattan(Vec2.ORIGIN);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 159 ~0.48ms
 }

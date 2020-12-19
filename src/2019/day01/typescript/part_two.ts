@@ -12,6 +12,7 @@ export const runner = (input: string): number =>
 		.map((n) => fuel(Number(n)))
 		.reduce((s, n) => s + n, 0);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 5097039 ~0.36ms
 }

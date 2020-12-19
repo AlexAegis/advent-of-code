@@ -25,6 +25,7 @@ export const runner = (input: string): number => {
 	return shortestSequence ? shortestSequence.length : 0;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 6394 ~326ms
 }

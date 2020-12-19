@@ -68,6 +68,7 @@ export const runner = (print = false) => (_input: string): string => {
 	return JSON.stringify(res);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // '.' ~'.'ms
 }

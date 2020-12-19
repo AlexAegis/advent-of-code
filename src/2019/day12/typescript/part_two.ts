@@ -32,6 +32,7 @@ export const runner = (input: string): number => {
 	return lcm(lcm(cx, cy), cz);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 332477126821644 ~89ms
 }

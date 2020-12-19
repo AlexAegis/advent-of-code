@@ -33,6 +33,7 @@ export const runner = (input: string): number => {
 	return countBranches(jolts, 0, builtIn);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 169255295254528 ~0.03ms
 }

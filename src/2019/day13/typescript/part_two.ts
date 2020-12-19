@@ -78,6 +78,7 @@ export const runner = (render = false, speed = 10) => async (input: string): Pro
 	return s;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner(true))}`))(); // 12338 ~220ms
 }

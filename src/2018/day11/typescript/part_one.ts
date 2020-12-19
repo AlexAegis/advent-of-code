@@ -45,6 +45,7 @@ export const runner = (input: string): string => {
 	return `${max.vec} (${max.sum})`;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(await read(year, day), runner)}`))(); // 21,37 (30) ~165ms
 }

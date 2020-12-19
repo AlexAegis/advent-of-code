@@ -18,6 +18,7 @@ export const runner = (input: string): number => {
 	return slopes.reduce((acc, slope) => acc * countTrees(lines, slope), 1);
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 3154761400 ~0.6ms
 }

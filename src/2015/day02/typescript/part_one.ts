@@ -9,6 +9,7 @@ export const runner = async (input: string): Promise<number> =>
 		.map((sides) => sides.reduce(min) + sides.reduce(sum) * 2)
 		.reduce(sum, 0);
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 3803038 ~2ms
 }

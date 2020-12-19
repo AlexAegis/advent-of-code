@@ -16,6 +16,7 @@ export const runner = (input: string): number => {
 	return resultLine.filter((n) => n === 1).length * resultLine.filter((n) => n === 2).length;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1088 ~2.3ms
 }

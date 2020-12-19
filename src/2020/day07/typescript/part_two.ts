@@ -9,6 +9,7 @@ export const runner = (input: string): number => {
 	return goldBag.howManyBagsCanItContain();
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 85324 ~3.9ms
 }

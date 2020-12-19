@@ -108,6 +108,7 @@ export const runner = (genTarget = 200) => (input: string): number => {
 	return [...levels.values()].flat(2).filter((t) => t === Tile.BUG).length;
 };
 
+// istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner())}`))(); // 2120 ~741ms
 }
