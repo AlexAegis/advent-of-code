@@ -1,4 +1,5 @@
 import { bench, read } from '@lib';
+import { memoize } from '@lib/functions';
 import { day, year } from '.';
 import { parse } from './parse.function';
 
@@ -15,7 +16,7 @@ export const matchRule = (
 		return rule.flatMap((r) =>
 			r.reduce(
 				(acc, n) => {
-					return acc.flatMap((ir) => matchRule(line, rules, n, ir));
+					return acc.flatMap((ir) => memoizedMatchRule(line, rules, n, ir));
 				},
 				[wordIndex]
 			)
@@ -23,8 +24,13 @@ export const matchRule = (
 	}
 };
 
+const cache = new Map();
+const memoizedMatchRule = memoize(matchRule, cache);
+
 export const runner = (input: string): number => {
 	const { ruleBook, words } = parse(input);
+
+	cache.clear(); // For benchmarking
 
 	ruleBook.set(8, [[42], [42, 8]]);
 	ruleBook.set(11, [
@@ -32,7 +38,7 @@ export const runner = (input: string): number => {
 		[42, 11, 31],
 	]);
 
-	return words.filter((word) => matchRule(word, ruleBook, 0)[0] === word.length).length;
+	return words.filter((word) => memoizedMatchRule(word, ruleBook, 0)[0] === word.length).length;
 };
 
 if (require.main === module) {

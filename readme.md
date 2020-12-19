@@ -35,7 +35,7 @@
 | [Day 7](./src/2020/day07/)  | [41ms](./src/2020/day07/typescript/part_one.ts)     |      | [3.9ms](./src/2020/day07/typescript/part_two.ts)     |      |
 | [Day 8](./src/2020/day08/)  | [0.67ms](./src/2020/day08/typescript/part_one.ts)   |      | [5ms](./src/2020/day08/typescript/part_two.ts)       |      |
 | [Day 9](./src/2020/day09/)  | [2.7ms](./src/2020/day09/typescript/part_one.ts)    |      | [2.8ms](./src/2020/day09/typescript/part_two.ts)     |      |
-| [Day 10](./src/2020/day10/) | [0.4ms](./src/2020/day10/typescript/part_one.ts)    |      | [0.3ms](./src/2020/day10/typescript/part_two.ts)     |      |
+| [Day 10](./src/2020/day10/) | [0.08ms](./src/2020/day10/typescript/part_one.ts)   |      | [0.03ms](./src/2020/day10/typescript/part_two.ts)    |      |
 | [Day 11](./src/2020/day11/) | [900ms](./src/2020/day11/typescript/part_one.ts)    |      | [1300ms](./src/2020/day11/typescript/part_two.ts)    |      |
 | [Day 12](./src/2020/day12/) | [1.07ms](./src/2020/day12/typescript/part_one.ts)   |      | [1.07ms](./src/2020/day12/typescript/part_two.ts)    |      |
 | [Day 13](./src/2020/day13/) | [0.22ms](./src/2020/day13/typescript/part_one.ts)   |      | [0.4ms](./src/2020/day13/typescript/part_two.ts)     |      |

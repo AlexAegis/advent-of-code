@@ -4,6 +4,7 @@ export * from './copy-matrix.function';
 export * from './frequency-map.function';
 export * from './integer-length.function';
 export * from './is.function';
+export * from './memoize.function';
 export * from './non-nullish.function';
 export * from './num-at.function';
 export * from './num-start.function';
