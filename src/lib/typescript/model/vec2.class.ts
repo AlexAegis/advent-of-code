@@ -79,8 +79,19 @@ export class Vec2 implements Vec2Like {
 		return a.x === b.x ? a.y - b.y : a.x - b.x;
 	}
 
+	/**
+	 * Negative if b is before
+	 */
 	public static compareRowFirst(a: Vec2, b: Vec2): number {
 		return a.y === b.y ? a.x - b.x : a.y - b.y;
+	}
+
+	public compareColumnFirst(o: Vec2): number {
+		return Vec2.compareColumnFirst(this, o);
+	}
+
+	public compareRowFirst(o: Vec2): number {
+		return Vec2.compareRowFirst(this, o);
 	}
 
 	public static isWithin(v: Vec2Like, area: Area): boolean {
