@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Cave } from '../model/cave.class';
 
-describe('Day 12, Cave', () => {
+describe('2018 - Day 12 - Cave', () => {
 	const inputs: string[] = [
 		'....#.#....',
 		'#.#',
