@@ -67,7 +67,7 @@ export const log = <T>(label: string | undefined = undefined): MonoTypeOperatorF
  * Convinienence method to split up a long string into it's
  * non empty lines in an OS agnostic way
  */
-export const split = (input: string): string[] => input.split(NEWLINE).filter((line) => !!line);
+export const split = (input: string): string[] => input.trim().split(NEWLINE);
 
 /**
  * Factory function to create an input supplier
