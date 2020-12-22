@@ -70,9 +70,9 @@ export const log = <T>(label: string | undefined = undefined): MonoTypeOperatorF
 export const split = (input: string, emptyLines = false): string[] => {
 	const split = input.split(NEWLINE);
 	if (emptyLines) {
-		return split.filter((line) => !!line);
-	} else {
 		return split;
+	} else {
+		return split.filter((line) => !!line);
 	}
 };
 
