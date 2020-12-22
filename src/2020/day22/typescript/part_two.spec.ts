@@ -6,7 +6,7 @@ import { runner } from './part_two';
 describe('2020 - Day 22 - Part Two', () => {
 	it('should solve the input', async () => {
 		expect(runner((await read(year, day)()).input)).to.equal(32528);
-	});
+	}).timeout(20000);
 
 	it('should solve example 1', async () => {
 		expect(runner((await read(year, day, 'example.1.txt')()).input)).to.equal(291);
