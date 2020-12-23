@@ -1,29 +1,68 @@
 import { bench, read } from '@lib';
-import { rotateArrayTimes } from '@lib/functions';
-import { asc } from '@lib/math';
+import { CircularLinkedList } from '@lib/linked-list';
+import { CircularLinkedListNode } from '@lib/linked-list/circular-linked-list-node.class';
+import { max, min } from '@lib/math';
 import { day, year } from '.';
 
-export const runner = (input: string): number => {
+export const runner = (iterationCount = 100) => (input: string): number => {
 	const circle = input.split('').map((s) => parseInt(s, 10));
-	for (let i = 0; i < 100; i++) {
-		const firstThree = circle.splice(1, 3);
-		const rollerWheel = [...circle].sort(asc);
-		while (rollerWheel[0] !== circle[0]) {
-			rotateArrayTimes(rollerWheel, 1);
+	const high = circle.reduce(max);
+	const low = circle.reduce(min);
+	const ll = new CircularLinkedList<number>(circle);
+
+	let cursor = ll.start;
+
+	const m = new Map<number, CircularLinkedListNode<number>>();
+	for (const link of [...cursor.forward()]) {
+		m.set(link.value, link);
+	}
+
+	for (let i = 0; i < iterationCount; i++) {
+		// pick up three cups
+		const front = cursor.next;
+		cursor.next = front.next.next.next;
+
+		// select destination
+		let destination: CircularLinkedListNode<number> | undefined;
+		let val = cursor.value;
+		let sub = 1;
+		while (
+			!destination ||
+			destination === front ||
+			destination === front.next ||
+			destination === front.next.next
+		) {
+			destination = m.get(val - sub);
+			sub++;
+			if (val - sub < low) {
+				sub = 0;
+				val = high;
+			}
 		}
-		const target = rollerWheel.pop();
-		const destinationIndex = circle.findIndex((c) => c === target);
-		circle.splice(destinationIndex + 1, 0, ...firstThree);
-		rotateArrayTimes(circle, 1);
+
+		// reinsert at destination
+		const after = destination.next;
+		destination.next = front;
+		front.prev = destination;
+
+		after.prev = front.next.next.next;
+		front.next.next.next = after;
+
+		// next
+		cursor = cursor.next;
 	}
-	while (circle[0] !== 1) {
-		rotateArrayTimes(circle, 1);
+
+	let first = m.get(1)!.next;
+
+	let result = '';
+	while (first.value !== 1) {
+		result += first.value;
+		first = first.next;
 	}
-	circle.shift();
-	return parseInt(circle.join(''), 10);
+	return parseInt(result, 10);
 };
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 74698532 ~0.07ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner(10))}`))(); // 74698532 ~0.01ms
 }
