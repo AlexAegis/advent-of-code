@@ -25,7 +25,7 @@ export const runner = (input: string): number => {
 	// const allTiles = new Set<string>();
 	const monsterTiles = new Set<string>();
 	let foundThem = false; // The monsters only appear in one orientation
-	for (const sea of mergedMap.toMatrix().flipFlop<string>()) {
+	for (const sea of mergedMap.toMatrix().flipFlop()) {
 		// allTiles.clear();
 		monsterTiles.clear();
 		for (let y = 0; y < sea.length; y++) {

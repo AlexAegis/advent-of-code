@@ -1,3 +1,4 @@
+import { asc, desc, max, min, mult, sum } from '@lib/math';
 import { addAllToSet } from '@lib/set';
 import { cutSubSegment } from './cut-subsegment.function';
 import { findEndOfPair } from './find-end-of-pair.function';
@@ -10,13 +11,48 @@ declare global {
 		findEndOfPair(pairs: [T, T], from: number): number | undefined;
 		cutSubSegment(pairs: [T, T], from: number): T[] | undefined;
 		removeItem(item: T): boolean;
-		flipMatrix<T>(axis: 'y' | 'x'): T[][];
-		rotateMatrix<T>(direction: 'r' | 'l'): T[][];
-		flipFlop<T>(): Generator<T[][]>;
+		flipMatrix(axis: 'y' | 'x'): T[];
+		rotateMatrix(direction: 'r' | 'l'): T[];
+		flipFlop(): Generator<T[]>;
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
+		sum(): number;
+		product(): number;
+		min(): T;
+		max(): T;
+		asc(): T[];
+		desc(): T[];
+		clone(): T[];
 	}
 }
+
+Array.prototype.clone = function <T>(): T[] {
+	return Array.from(this);
+};
+
+Array.prototype.desc = function <T>(): T[] {
+	return this.sort(desc);
+};
+
+Array.prototype.asc = function <T>(): T[] {
+	return this.sort(asc);
+};
+
+Array.prototype.min = function <T>(): T {
+	return this.reduce(min, undefined);
+};
+
+Array.prototype.max = function <T>(): T {
+	return this.reduce(max, undefined);
+};
+
+Array.prototype.sum = function (): number {
+	return this.reduce(sum, 0);
+};
+
+Array.prototype.product = function (): number {
+	return this.reduce(mult, 1);
+};
 
 Array.prototype.intoSet = function <T>(set?: Set<T>): Set<T> {
 	return addAllToSet(this, set);
