@@ -57,6 +57,7 @@ export const invModBigInt = (a: bigint, m: bigint): bigint => {
  *
  * @param a number
  * @param m modulo
+ * @deprecated
  */
 export const invModEgdc = (a: number, m: number): number => {
 	return Number(invModEgdcBigInt(BigInt(a), BigInt(m)));
@@ -69,6 +70,7 @@ export const invModEgdc = (a: number, m: number): number => {
  *
  * @param a number
  * @param m modulo
+ * @deprecated
  */
 export const invModEgdcBigInt = (a: bigint, m: bigint): bigint => {
 	const [g, x] = egcdBigInt(a, m);
