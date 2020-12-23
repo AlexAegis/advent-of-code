@@ -4,7 +4,7 @@ import { ToString } from '../to-string.interface';
 import { Vec2Like } from '../vec2.class';
 import { Graph } from './graph.class';
 import { GridNode } from './grid-node.class';
-import { Heuristic } from './heuristic.type';
+import { Weighter } from './heuristic.type';
 
 export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	extends Graph<T, Direction, N>
@@ -16,14 +16,14 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	public static fromMatrix<T = string>(
 		matrix: T[][],
 		options?: {
-			h?: Heuristic<GridNode<T>>;
+			weighter?: Weighter<GridNode<T>>;
 			under?: (v: T) => T[];
 			connectionDirections?: Direction[];
 		}
 	): GridGraph<T> {
 		const under = options?.under ?? ((v: T) => [v]);
-		const weigther =
-			options?.h ??
+		const weigther: Weighter<GridNode<T>> =
+			options?.weighter ??
 			((a: GridNode<T>, b: GridNode<T>) => (a.value !== b.value ? Infinity : 0));
 		const connectionDirections = options?.connectionDirections ?? Direction.cardinalDirections;
 
@@ -40,13 +40,13 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 
 	public static fromMap<T = string>(
 		map: Map<string, T>,
-		h?: Heuristic<GridNode<T>>,
+		weighter?: Weighter<GridNode<T>>,
 		under = (v: T) => [v]
 	): GridGraph<T> {
 		const graph = new GridGraph<T>();
 		for (const [k, v] of map.entries()) {
 			const node = new GridNode<T>(new Vec2(k), ...under(v));
-			graph.addNode(node, h);
+			graph.addNode(node, weighter);
 		}
 		return graph;
 	}
@@ -63,11 +63,11 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 
 	public addNode(
 		node: N,
-		h?: Heuristic<N>,
+		weighter?: Weighter<N>,
 		connectionDirections: Direction[] = Direction.cardinalDirections
 	): N {
 		this.nodes.set(node.p.toString(), node);
-		node.attachNeightbours(this, connectionDirections, h);
+		node.attachNeightbours(this, connectionDirections, weighter);
 		return node;
 	}
 
