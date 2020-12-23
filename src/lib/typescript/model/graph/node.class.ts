@@ -2,7 +2,7 @@ import { ToString } from '@lib/model/to-string.interface';
 import { Direction } from '../direction.class';
 import { Vertice } from './vertice.type';
 
-export class Node<T = string, Dir extends ToString = Direction> implements ToString {
+export class Node<T extends ToString, Dir extends ToString = Direction> implements ToString {
 	public neighbours = new Map<Dir, Vertice<this>>();
 
 	public values: T[] = [];

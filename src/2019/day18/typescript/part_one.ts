@@ -10,7 +10,7 @@ import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse';
  *
  * @param inventory
  */
-export const h = (inventory: Set<string>) => (
+export const weighter = (inventory: Set<string>) => (
 	n: GridNode<string>,
 	_a: GridNode<string>
 ): number => {
@@ -46,7 +46,7 @@ export const runner = (input: string): number => {
 	const matrix = parseLines(input);
 	const { size } = parseMatrix(matrix);
 	const inventory = new Set<Key>();
-	const graph = GridGraph.fromMatrix(matrix, { h: h(inventory), under });
+	const graph = GridGraph.fromMatrix(matrix, { weighter: weighter(inventory), under });
 
 	// console.log('map: ', map, 'doors: ', doors, 'keys: ', keys, 'size: ', size, 'g', graph);
 	draw(graph.nodes, size, 0);

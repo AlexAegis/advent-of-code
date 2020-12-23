@@ -36,13 +36,19 @@ describe('Grid Graph', () => {
 	describe('A-Star', () => {
 		it('should find the shortest path', () => {
 			const g = GridGraph.fromMatrix(matrix);
-			const path = g.aStar(g.getNode(start), g.getNode(finish), (a, b) => a.p.manhattan(b.p));
+			const goal = g.getNode(finish)!;
+			const path = g.aStar(g.getNode(start), goal, {
+				heuristic: (a) => a.p.manhattan(goal.p),
+			});
 			expect(path.length).to.equal(10);
 		});
 
 		it('should find the shortest path with diagonal connections', () => {
 			const g = GridGraph.fromMatrix(matrix, { connectionDirections: Direction.directions });
-			const path = g.aStar(g.getNode(start), g.getNode(finish), (a, b) => a.p.manhattan(b.p));
+			const goal = g.getNode(finish)!;
+			const path = g.aStar(g.getNode(start), goal, {
+				heuristic: (a) => a.p.manhattan(goal.p),
+			});
 			expect(path.length).to.equal(6);
 		});
 	});
