@@ -1,7 +1,7 @@
 import { Direction, Vec2 } from '@lib/model';
 import '../../map/map.polyfill';
 import { Graph } from './graph.class';
-import { Heuristic } from './heuristic.type';
+import { Weighter } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';
 
@@ -13,7 +13,7 @@ export class GridNode<T = string> extends Node<T, Direction> {
 		super(...values);
 	}
 
-	public get north(): Vertice<GridNode<T>> | undefined {
+	public get north(): Vertice<this> | undefined {
 		return this.neighbours.get(Direction.NORTH);
 	}
 
@@ -48,7 +48,7 @@ export class GridNode<T = string> extends Node<T, Direction> {
 	public attachNeightbours(
 		graph: Graph<T, Direction, this>,
 		directions: Direction[] = Direction.cardinalDirections,
-		h?: Heuristic<this>
+		weighter?: Weighter<this>
 	): void {
 		for (const dir of directions) {
 			const node = graph.nodes.get(this.p.clone().add(dir).toString());
@@ -66,11 +66,11 @@ export class GridNode<T = string> extends Node<T, Direction> {
 				backVertice.to = this;
 				graph.vertices.add(forwardVertice);
 				//graph.vertices.add(backVertice);
-				if (h) {
-					forwardVertice.weight = h(this, node);
-					backVertice.weight = h(node, this);
-					forwardVertice.weighter = () => h(this, node);
-					backVertice.weighter = () => h(node, this);
+				if (weighter) {
+					forwardVertice.weight = weighter(this, node);
+					backVertice.weight = weighter(node, this);
+					forwardVertice.weighter = () => weighter(this, node);
+					backVertice.weighter = () => weighter(node, this);
 				}
 			}
 		}

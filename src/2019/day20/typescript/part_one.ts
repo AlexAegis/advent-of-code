@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { Direction, Vec2 } from '@lib/model';
-import { Heuristic } from '@lib/model/graph/heuristic.type';
+import { Weighter } from '@lib/model/graph/heuristic.type';
 import { PortalGridGraph } from '@lib/model/graph/portal-grid-graph.class';
 import { PortalGridNode } from '@lib/model/graph/portal-grid-node.class';
 import { day, year } from '.';
@@ -12,7 +12,7 @@ export enum Tile {
 	EMPTY = ' ',
 }
 
-export const weighter: Heuristic<PortalGridNode<string>> = (
+export const weighter: Weighter<PortalGridNode<string>> = (
 	_a: PortalGridNode<string>,
 	b: PortalGridNode<string>
 ): number => {

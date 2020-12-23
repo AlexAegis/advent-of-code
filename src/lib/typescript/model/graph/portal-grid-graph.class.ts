@@ -1,21 +1,23 @@
 import { Direction } from '../direction.class';
+import { ToString } from '../to-string.interface';
 import { Vec2 } from '../vec2.class';
 import { GridGraph } from './grid-graph.class';
-import { Heuristic } from './heuristic.type';
+import { GridNode } from './grid-node.class';
+import { Weighter } from './heuristic.type';
 import { PortalGridNode } from './portal-grid-node.class';
 
 export class PortalGridGraph<
-	T = string,
-	N extends PortalGridNode<T> = PortalGridNode<T>
+	T extends ToString,
+	N extends GridNode<T> = PortalGridNode<T>
 > extends GridGraph<T, N> {
 	public constructor() {
 		super();
 	}
 
-	public static fromTorus<T = string, N extends PortalGridNode<T> = PortalGridNode<T>>(
+	public static fromTorus<T = string, N extends GridNode<T> = PortalGridNode<T>>(
 		matrix: T[][],
 		options: {
-			weighter?: Heuristic<PortalGridNode<T>>;
+			weighter?: Weighter<PortalGridNode<T>>;
 			under?: (v: T) => T[];
 			filter?: (n: Vec2) => boolean;
 			portalOf: (n: Vec2) => string | undefined;
@@ -23,7 +25,7 @@ export class PortalGridGraph<
 		}
 	): PortalGridGraph<T, N> {
 		const under = options?.under ?? ((v: T) => [v]);
-		const weigther =
+		const weigther: Weighter<PortalGridNode<T>> =
 			options.weighter ??
 			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value !== b.value ? Infinity : 0));
 		const connectionDirections = options?.connectionDirections ?? Direction.cardinalDirections;
@@ -36,7 +38,8 @@ export class PortalGridGraph<
 				const p = new Vec2(x, y);
 				if (!options.filter || options.filter(p)) {
 					const node = new PortalGridNode<T>(p, options.portalOf(p), ...under(v));
-					node.attachNeightbours(graph, connectionDirections, weigther);
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
+					node.attachNeightbours(graph as any, connectionDirections, weigther);
 				}
 			}
 		}
