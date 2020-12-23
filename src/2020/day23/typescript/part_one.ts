@@ -1,43 +1,29 @@
-import { bench, read, split } from '@lib';
-import { drawMapStatic } from '@lib/functions';
-import { Vec2 } from '@lib/model';
+import { bench, read } from '@lib';
+import { rotateArrayTimes } from '@lib/functions';
+import { asc } from '@lib/math';
 import { day, year } from '.';
 
-export interface Parsed {
-	a: string;
-	b: string;
-}
-
-export const parse = (line: string): Parsed => {
-	const [a, b] = line.split(' ');
-	return { a, b };
-};
-
 export const runner = (input: string): number => {
-	const lines = split(input);
-	const map = new Map<string, string>();
-	let y = 0;
-	const height = lines.length;
-	const width = lines[0]?.length;
-	for (const line of lines) {
-		const parsed = parse(line);
-		console.log(line, parsed);
-		let x = 0;
-		for (const letter of line) {
-			const vec = new Vec2(x, y);
-			map.set(vec.toString(), letter);
-			x++;
+	const circle = input.split('').map((s) => parseInt(s, 10));
+	for (let i = 0; i < 100; i++) {
+		const firstThree = circle.splice(1, 3);
+		const rollerWheel = [...circle].sort(asc);
+		while (rollerWheel[0] !== circle[0]) {
+			rotateArrayTimes(rollerWheel, 1);
 		}
-		y++;
+		const target = rollerWheel.pop();
+		const destinationIndex = circle.findIndex((c) => c === target);
+		circle.splice(destinationIndex + 1, 0, ...firstThree);
+		rotateArrayTimes(circle, 1);
 	}
-	drawMapStatic(map, (t) => t ?? ' ', 0, height, 0, width);
-	console.log('y', y);
-	return 0;
+	while (circle[0] !== 1) {
+		rotateArrayTimes(circle, 1);
+	}
+	circle.shift();
+	return parseInt(circle.join(''), 10);
 };
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 265 ~0.3ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 74698532 ~0.07ms
 }
