@@ -21,7 +21,6 @@ describe('Integer length', () => {
 	});
 });
 
-// tslint:disable: deprecation
 describe('Integer length (Math)', () => {
 	it('should work with numbers larger than 1', async () => {
 		expect(integerLengthMath(123)).to.equal(3);
