@@ -1,5 +1,4 @@
 import { bench, read } from '@lib';
-import { invModEgdcBigInt, posModBigInt } from '@lib/math';
 import { day, year } from '.';
 import { parse } from './parse';
 
@@ -14,16 +13,15 @@ export const runner = (deckSize = 119315717514047n, repeat = 101741582076661n, t
 		const bn = isNaN(nn) ? 0n : BigInt(nn);
 		if (line.startsWith('deal into new stack')) {
 			increment = increment * -1n;
-			increment = posModBigInt(increment, deckSize);
+			increment = increment.posMod(deckSize);
 			offset = offset + increment;
-			offset = posModBigInt(offset, deckSize);
+			offset = offset.posMod(deckSize);
 		} else if (line.startsWith('cut')) {
 			offset = offset + increment * bn;
-			offset = posModBigInt(offset, deckSize);
+			offset = offset.posMod(deckSize);
 		} else if (line.startsWith('deal with increment')) {
-			invModEgdcBigInt;
-			increment = increment * invModEgdcBigInt(bn, deckSize);
-			increment = posModBigInt(increment, deckSize);
+			increment = increment * bn.invMod(deckSize);
+			increment = increment.posMod(deckSize);
 		}
 	}
 
