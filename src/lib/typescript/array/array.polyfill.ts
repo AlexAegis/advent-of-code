@@ -1,3 +1,4 @@
+import { addAllToSet } from '@lib/set';
 import { cutSubSegment } from './cut-subsegment.function';
 import { findEndOfPair } from './find-end-of-pair.function';
 import { matrixFlipFlop } from './flip-flop.generator';
@@ -8,12 +9,22 @@ declare global {
 	interface Array<T> {
 		findEndOfPair(pairs: [T, T], from: number): number | undefined;
 		cutSubSegment(pairs: [T, T], from: number): T[] | undefined;
-		removeItem(item: T): this;
+		removeItem(item: T): boolean;
 		flipMatrix<T>(axis: 'y' | 'x'): T[][];
 		rotateMatrix<T>(direction: 'r' | 'l'): T[][];
 		flipFlop<T>(): Generator<T[][]>;
+		contains(item: T): boolean;
+		intoSet(set?: Set<T>): Set<T>;
 	}
 }
+
+Array.prototype.intoSet = function <T>(set?: Set<T>): Set<T> {
+	return addAllToSet(this, set);
+};
+
+Array.prototype.contains = function <T>(item: T): boolean {
+	return this.find((i) => i === item) !== undefined;
+};
 
 Array.prototype.flipFlop = function* <T>(): Generator<T[][]> {
 	yield* matrixFlipFlop(this);
@@ -35,10 +46,10 @@ Array.prototype.cutSubSegment = function <T>(pairs: [T, T], from = 0): T[] | und
 	return cutSubSegment(this, pairs, from);
 };
 
-Array.prototype.removeItem = function <T>(item: T): Array<T> {
+Array.prototype.removeItem = function <T>(item: T): boolean {
 	const index = this.findIndex((e) => e === item);
 	if (index >= 0) {
 		this.splice(index, 1);
 	}
-	return this;
+	return index >= 0;
 };
