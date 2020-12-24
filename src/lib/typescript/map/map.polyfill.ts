@@ -2,8 +2,13 @@ declare global {
 	interface Map<K, V> {
 		getOrAdd(key: K, creator: (key: K) => V): V;
 		isTheSameAs(other: Map<K, V>): boolean;
+		findKey(value: V): K | undefined;
 	}
 }
+
+Map.prototype.findKey = function <K, V>(value: V): K | undefined {
+	return [...this.entries()].find((e) => e[1] === value) as K | undefined;
+};
 
 Map.prototype.getOrAdd = function <K, V>(key: K, creator: (key: K) => V): V {
 	const value = this.get(key);
