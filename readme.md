@@ -49,7 +49,7 @@
 | Day 21                     |                                                    |      |                                                     |      |
 | [Day 22](/src/2020/day22/) | [0.06ms](/src/2020/day22/typescript/part_one.ts)   |      | [1495.10ms](/src/2020/day22/typescript/part_two.ts) |      |
 | [Day 23](/src/2020/day23/) | [0.01ms](/src/2020/day23/typescript/part_one.ts)   |      | [3717.03ms](/src/2020/day23/typescript/part_two.ts) |      |
-| Day 24                     |                                                    |      |                                                     |      |
+| [Day 24](/src/2020/day24/) | [1.22ms](/src/2020/day24/typescript/part_one.ts)   |      | [391.98ms](/src/2020/day24/typescript/part_two.ts)  |      |
 | Day 25                     |                                                    |      |                                                     |      |
 
 <!-- markdownlint-enable MD013 -->

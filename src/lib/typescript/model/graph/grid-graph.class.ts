@@ -7,7 +7,7 @@ import { GridNode } from './grid-node.class';
 import { Heuristic } from './heuristic.type';
 
 export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
-	extends Graph<T, N>
+	extends Graph<T, Direction, N>
 	implements ToString {
 	public constructor() {
 		super();
