@@ -8,7 +8,7 @@ import { Vertice } from './vertice.type';
 /**
  *
  */
-export class GridNode<T = string> extends Node<T> {
+export class GridNode<T = string> extends Node<T, Direction> {
 	public constructor(public p: Vec2, ...values: T[]) {
 		super(...values);
 	}
@@ -46,7 +46,7 @@ export class GridNode<T = string> extends Node<T> {
 	}
 
 	public attachNeightbours(
-		graph: Graph<T, this>,
+		graph: Graph<T, Direction, this>,
 		directions: Direction[] = Direction.cardinalDirections,
 		h?: Heuristic<this>
 	): void {

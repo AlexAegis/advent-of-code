@@ -1,8 +1,14 @@
+import { Direction } from '../direction.class';
+import { ToString } from '../to-string.interface';
 import { Heuristic } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';
 
-export class Graph<T = string, N extends Node<T> = Node<T>> {
+export class Graph<
+	T = string,
+	Dir extends ToString = Direction,
+	N extends Node<T, Dir> = Node<T, Dir>
+> {
 	public nodes = new Map<string, N>();
 	public vertices = new Set<Vertice<N>>();
 

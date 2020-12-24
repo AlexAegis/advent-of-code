@@ -23,6 +23,16 @@ export class Node<T = string, Dir extends ToString = Direction> implements ToStr
 		yield* this.neighbours.values();
 	}
 
+	public *walk(visited: Set<this> = new Set()): IterableIterator<this> {
+		yield this;
+		visited.add(this);
+		for (const neighbour of this.neighbours.values()) {
+			if (neighbour.to && !visited.has(neighbour.to)) {
+				yield* neighbour.to.walk(visited);
+			}
+		}
+	}
+
 	public removeTop(): T | undefined {
 		return this.values.shift();
 	}
