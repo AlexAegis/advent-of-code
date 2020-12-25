@@ -1,28 +1,9 @@
-import { bench, read, split } from '@lib';
-import { sum } from '@lib/math';
+import { bench, read } from '@lib';
 import { day, year } from '.';
+import { parse } from './parse.function';
 
 export const runner = (input: string): number => {
-	const lines = split(input);
-
-	const certainAllergens = new Map<string, string>();
-	const allIngredientsAppearences = new Map<string, number>();
-	const entries: { ingredients: string[]; allergens: string[] }[] = [];
-
-	for (const line of lines) {
-		const [rawIngredients, rawAllergens] = line.split(' (contains ');
-		const ingredients = rawIngredients.split(' ');
-		const allergens = rawAllergens.substring(0, rawAllergens.length - 1).split(', ');
-		// console.log('ing', JSON.stringify(ingredients), 'all', JSON.stringify(allergens));
-		entries.push({ ingredients, allergens });
-
-		for (const ingredient of ingredients) {
-			allIngredientsAppearences.set(
-				ingredient,
-				(allIngredientsAppearences.get(ingredient) ?? 0) + 1
-			);
-		}
-	}
+	const entries = parse(input);
 
 	const findSingleOverlap = (uncommonAllowed = false) => {
 		for (let i = 0; i < entries.length; i++) {
@@ -79,7 +60,6 @@ export const runner = (input: string): number => {
 			// entries[next.j].ingredients.removeItem(next.commonIngredient);
 
 			if (next.commonAllergen) {
-				certainAllergens.set(next.commonIngredient, next.commonAllergen);
 				entries[next.i].allergens.removeItem(next.commonAllergen);
 				entries[next.j].allergens.removeItem(next.commonAllergen);
 			}
@@ -99,13 +79,7 @@ export const runner = (input: string): number => {
 	}
 	//console.log('certainAllergens', JSON.stringify([...certainAllergens.entries()]));
 
-	const allergenFreeIngredients = [...allIngredientsAppearences.keys()].filter(
-		(i) => !certainAllergens.has(i)
-	);
-
-	return allergenFreeIngredients
-		.map((afi) => allIngredientsAppearences.get(afi) ?? 0)
-		.reduce(sum, 0);
+	return 0;
 };
 
 // istanbul ignore next
