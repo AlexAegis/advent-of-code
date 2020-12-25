@@ -1,43 +1,38 @@
 import { bench, read, split } from '@lib';
-import { drawMapStatic } from '@lib/functions';
-import { Vec2 } from '@lib/model';
 import { day, year } from '.';
 
-export interface Parsed {
-	a: string;
-	b: string;
-}
+const magicNumber = 20201227;
 
-export const parse = (line: string): Parsed => {
-	const [a, b] = line.split(' ');
-	return { a, b };
+export const handshake = (subjectNumber: number, loopSize: number): number => {
+	return subjectNumber.modExp(loopSize, magicNumber);
+};
+
+export const findLoopsize = (subjectNumber: number, publicKey: number): number => {
+	for (let loopsize = 1; loopsize < 20000000; loopsize++) {
+		const handshakeResult = handshake(subjectNumber, loopsize);
+		if (handshakeResult === publicKey) {
+			return loopsize;
+		}
+	}
+	return -1;
 };
 
 export const runner = (input: string): number => {
-	const lines = split(input);
-	const map = new Map<string, string>();
-	let y = 0;
-	const height = lines.length;
-	const width = lines[0]?.length;
-	for (const line of lines) {
-		const parsed = parse(line);
-		console.log(line, parsed);
-		let x = 0;
-		for (const letter of line) {
-			const vec = new Vec2(x, y);
-			map.set(vec.toString(), letter);
-			x++;
-		}
-		y++;
-	}
-	drawMapStatic(map, (t) => t ?? ' ', 0, height, 0, width);
-	console.log('y', y);
-	return 0;
+	const [cardPublicKey, doorPublicKey] = split(input).map((l) => parseInt(l, 10));
+	const subjectNumber = 7;
+	const cardLoopSize = findLoopsize(subjectNumber, cardPublicKey);
+	const doorLoopSize = findLoopsize(subjectNumber, doorPublicKey);
+
+	console.log('cardLoopSize', cardLoopSize); // 8
+	console.log('doorLoopSize', doorLoopSize); // 11
+
+	const encryptionKey = handshake(doorPublicKey, cardLoopSize);
+
+	console.log('encryptionKey', encryptionKey); // 14897079
+	return encryptionKey;
 };
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 265 ~0.3ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 12181021 ~100s
 }

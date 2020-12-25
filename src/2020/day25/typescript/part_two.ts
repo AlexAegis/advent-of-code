@@ -1,32 +1,58 @@
 import { bench, read, split } from '@lib';
-import { drawMapStatic } from '@lib/functions';
-import { Vec2 } from '@lib/model';
 import { day, year } from '.';
 
-export const runner = (input: string): number => {
-	const lines = split(input);
-	const map = new Map<string, string>();
-	let y = 0;
-	const height = lines.length;
-	const width = lines[0]?.length;
-	for (const line of lines) {
-		console.log(line);
-		let x = 0;
-		for (const letter of line) {
-			const vec = new Vec2(x, y);
-			map.set(vec.toString(), letter);
-			x++;
+const magicNumber = 20201227;
+/**
+ *
+ * @param subject starts with 7
+ * @param loopSize
+ */
+export const handshake = (subjectNumber: number, loopSize: number): number => {
+	return subjectNumber.modExp(loopSize, magicNumber);
+};
+
+export const findLoopsize = (subjectNumber: number, publicKey: number): number => {
+	for (let loopsize = 1; loopsize < 20000000; loopsize++) {
+		const handshakeResult = handshake(subjectNumber, loopsize);
+		if (handshakeResult === publicKey) {
+			return loopsize;
 		}
-		y++;
 	}
-	drawMapStatic(map, (t) => t ?? ' ', 0, height, 0, width);
-	console.log('y', y);
-	return 0;
+	return -1;
+};
+
+export class Agent {
+	secretLoopSize: number | undefined;
+	constructor(public publicKey: number) {}
+}
+
+export const runner = (input: string): number => {
+	const publicKeys = split(input).map((l) => parseInt(l, 10));
+	const [cardPublicKey, doorPublicKey] = publicKeys;
+	const subjectNumber = 7;
+	// for (const publicKey of publicKeys) {
+	// 	const result = handshake(publicKey, 7);
+	// 	console.log(result);
+	// }
+
+	const cardLoopSize = findLoopsize(subjectNumber, cardPublicKey);
+	const doorLoopSize = findLoopsize(subjectNumber, doorPublicKey);
+
+	// const cardLoopSize = handshake(subjectNumber, cardPublicKey);
+	// const doorLoopSize = handshake(subjectNumber, doorPublicKey);
+
+	console.log('cardLoopSize', cardLoopSize); // 8
+	console.log('doorLoopSize', doorLoopSize); // 11
+
+	const encryptionKey = handshake(doorPublicKey, cardLoopSize);
+	// const encryptionKey2 = handshake(cardPublicKey, doorLoopSize); // same result as the other
+
+	console.log('encryptionKey', encryptionKey); // 14897079
+	// console.log('encryptionKey2', encryptionKey2); // 14897079
+	return encryptionKey;
 };
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 265 ~0.3ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 12181021 ~100s
 }
