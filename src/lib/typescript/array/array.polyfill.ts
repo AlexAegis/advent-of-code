@@ -16,6 +16,7 @@ declare global {
 		flipFlop(): Generator<T[]>;
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
+		has(item: T): boolean;
 		sum(): number;
 		product(): number;
 		min(): T;
@@ -25,6 +26,10 @@ declare global {
 		clone(): T[];
 	}
 }
+
+Array.prototype.has = function <T>(item: T): boolean {
+	return this.find((i) => i === item) !== undefined;
+};
 
 Array.prototype.clone = function <T>(): T[] {
 	return Array.from(this);
