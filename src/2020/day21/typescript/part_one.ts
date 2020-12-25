@@ -6,18 +6,25 @@ export const runner = (input: string): number => {
 	const lines = split(input);
 
 	const certainAllergens = new Map<string, string>();
-	const allIngredients = new Set<string>();
+	const allIngredientsAppearences = new Map<string, number>();
 	const entries: { ingredients: string[]; allergens: string[] }[] = [];
+
 	for (const line of lines) {
 		const [rawIngredients, rawAllergens] = line.split(' (contains ');
 		const ingredients = rawIngredients.split(' ');
 		const allergens = rawAllergens.substring(0, rawAllergens.length - 1).split(', ');
 		// console.log('ing', JSON.stringify(ingredients), 'all', JSON.stringify(allergens));
 		entries.push({ ingredients, allergens });
-		ingredients.forEach((i) => allIngredients.add(i));
+
+		for (const ingredient of ingredients) {
+			allIngredientsAppearences.set(
+				ingredient,
+				(allIngredientsAppearences.get(ingredient) ?? 0) + 1
+			);
+		}
 	}
 
-	const findSingleOverlap = () => {
+	const findSingleOverlap = (uncommonAllowed = false) => {
 		for (let i = 0; i < entries.length; i++) {
 			const a = entries[i];
 			for (let j = i + 1; j < entries.length; j++) {
@@ -28,9 +35,15 @@ export const runner = (input: string): number => {
 				}));
 				const app0 = aAppear.filter((ac) => ac.appC === 0);
 				const app1 = aAppear.filter((ac) => ac.appC === 1);
-				let commonAllergen = a.allergens.find((aa) => b.allergens.find((ba) => aa == ba));
+				const commonAllergens = b.allergens.filter((aa) =>
+					a.allergens.find((ba) => aa == ba)
+				);
+				let commonAllergen: string | undefined = undefined;
+				if (commonAllergens.length === 1) {
+					commonAllergen = commonAllergens[0];
+				}
 
-				if (!commonAllergen) {
+				if (uncommonAllowed && !commonAllergen) {
 					if (a.allergens.length === 0 && b.allergens.length === 1) {
 						commonAllergen = b.allergens[0];
 					} else if (a.allergens.length === 1 && b.allergens.length === 0) {
@@ -51,94 +64,53 @@ export const runner = (input: string): number => {
 		return undefined;
 	};
 
-	//let i = 0;
-	for (;;) {
-		const next = findSingleOverlap();
+	let i = 0;
+	let uncommon = false;
+	while (entries.some((e) => e.allergens.length > 0)) {
+		const next = findSingleOverlap(uncommon);
+
+		console.log('trz', uncommon);
 		if (next) {
 			// remove from everywhere else
 			for (const item of entries) {
 				item.ingredients.removeItem(next.commonIngredient);
 			}
-			certainAllergens.set(next.commonIngredient, next.commonAllergen);
-			entries[next.i].allergens.removeItem(next.commonAllergen);
-			entries[next.j].allergens.removeItem(next.commonAllergen);
+			// entries[next.i].ingredients.removeItem(next.commonIngredient);
+			// entries[next.j].ingredients.removeItem(next.commonIngredient);
+
+			if (next.commonAllergen) {
+				certainAllergens.set(next.commonIngredient, next.commonAllergen);
+				entries[next.i].allergens.removeItem(next.commonAllergen);
+				entries[next.j].allergens.removeItem(next.commonAllergen);
+			}
+
+			uncommon = false;
+		} else if (uncommon === false) {
+			uncommon = true;
 		} else {
-			//console.log('NATURAL');
 			break;
 		}
-		// console.log('next', JSON.stringify(next, undefined, 2));
-		// console.log('ENTRIES', JSON.stringify(entries, undefined, 2));
-		//if (i > 20) {
-		//	console.log('INFINITE');
-		//	break;
-		//}
-		//i++;
+
+		if (i > 1000) {
+			console.log('INFINITE');
+			break;
+		}
+		i++;
 	}
-
-	//console.log('ENTRIES', JSON.stringify(entries, undefined, 2));
-
 	//console.log('certainAllergens', JSON.stringify([...certainAllergens.entries()]));
 
-	const allergenFreeIngredients = [...allIngredients].filter((i) => !certainAllergens.has(i));
-	console.log('allergenFreeIngredients', JSON.stringify(allergenFreeIngredients));
+	const allergenFreeIngredients = [...allIngredientsAppearences.keys()].filter(
+		(i) => !certainAllergens.has(i)
+	);
+
 	return allergenFreeIngredients
-		.map((afi) =>
-			entries.map((e) => e.ingredients.filter((i) => i === afi).length).reduce(sum, 0)
-		)
+		.map((afi) => allIngredientsAppearences.get(afi) ?? 0)
 		.reduce(sum, 0);
 };
 
 // istanbul ignore next
 if (require.main === module) {
 	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day, 'example.1.txt'), runner)}`))(); // 265 ~0.3ms
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 265 ~0.3ms
+	(async () => console.log(`Result: ${await bench(read(year, day, 'example.2.txt'), runner)}`))();
 }
 // TOO HIGH 3053
-
-/** TACS 3
- *
- *  nincs átfedés, 1 elemet leszámítva akkor az allergén amelyik mindkét sorba szerepel az azé az egyé
- *
- *  * ezután ki lehet venni mind az allergént ebből a két sorból (!) és az összetevőt az összesből
- *
- * mxmxvkd kfcds sqjhc nhms (dairy, fish)
- * trh fvjkl sbzzf mxmxvkd (dairy)
- * sqjhc fvjkl (soy)
- * sqjhc mxmxvkd sbzzf (fish)
- *
- * kfcds sqjhc nhms (fish)
- * trh fvjkl sbzzf
- * sqjhc fvjkl (soy)
- * sqjhc sbzzf (fish)
- *
- * kfcds nhms ()
- * trh fvjkl sbzzf
- * fvjkl (soy)
- * sbzzf ()
- *
- * kfcds nhms ()
- * trh sbzzf
- *
- * sbzzf ()
- *
- * Addig amíg az allergén lista mindenhol üres
- */
-
-/** TACS 3
- *
- *  nincs átfedés, 1 elemet leszámítva akkor az allergén amelyik mindkét sorba szerepel az azé az egyé
- *
- *  * ezután ki lehet venni mind az allergént ebből a két sorból (!) és az összetevőt az összesből
- *
- * trh fvjkl sbzzf mxmxvkd (dairy)
- * sqjhc fvjkl (soy)
- * sqjhc mxmxvkd sbzzf (fish)
- * mxmxvkd kfcds sqjhc nhms (dairy, fish)
- *
- * trh fvjkl sbzzf mxmxvkd (dairy)
- * sqjhc fvjkl (soy)
- * sqjhc mxmxvkd sbzzf (fish)
- * mxmxvkd kfcds sqjhc nhms (dairy, fish)
-
- */
