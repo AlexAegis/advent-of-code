@@ -34,21 +34,17 @@
 		"**/.DS_Store": true
 	},
 	"files.associations": {
-		"*.json": "jsonc",
-		".mocharc": "json"
+		"*.json": "jsonc"
 	},
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"terminal.integrated.windowsEnableConpty": true,
 	"[rust]": {
 		"editor.defaultFormatter": "matklad.rust-analyzer"
 	},
-	"rust.build_on_save": true,
-	"rust.clippy_preference": "on",
-	"rust.racer_completion": true,
-	"rust.show_hover_context": true,
 	"rust-analyzer.checkOnSave.enable": true,
 	"rust-analyzer.checkOnSave.allFeatures": true,
 	"rust-analyzer.checkOnSave.allTargets": true,
+	"rust-analyzer.linkedProjects": ["./solutions/rust/"],
 	"debug.javascript.usePreview": true,
 	"mocha.files.glob": "src/**/*.spec.ts",
 	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],

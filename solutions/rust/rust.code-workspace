@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+
+	},
+	"extensions": {
+		"recommendations": ["serayuzgur.crates", "matklad.rust-analyzer"]
+	}
+}
