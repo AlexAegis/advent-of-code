@@ -1,42 +1,7 @@
 {
-	"compilerOptions": {
-		"lib": ["ES2020", "ESNext.AsyncIterable", "ESNext", "ESNext.BigInt"],
-		"module": "CommonJS",
-		"alwaysStrict": true,
-		"target": "ES2020",
-		"rootDir": "./src/",
-		"outDir": "./dist/",
-		"sourceMap": true,
-		"noUnusedLocals": true,
-		"declaration": false,
-		"moduleResolution": "node",
-		"esModuleInterop": true,
-		"incremental": true,
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"resolveJsonModule": true,
-		"strict": true,
-		"importHelpers": true,
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
-		"noImplicitThis": true,
-		"noUnusedParameters": true,
-		"strictNullChecks": true,
-		"strictFunctionTypes": true,
-		"strictPropertyInitialization": true,
-		"baseUrl": "./",
-		"paths": {
-			"@lib": ["src/lib/typescript"],
-			"@lib/*": ["src/lib/typescript/*"],
-			"@2015/*": ["src/2015/*"],
-			"@2016/*": ["src/2016/*"],
-			"@2017/*": ["src/2017/*"],
-			"@2018/*": ["src/2018/*"],
-			"@2019/*": ["src/2019/*"],
-			"@2020/*": ["src/2020/*"]
-		},
-		"typeRoots": ["./node_modules/@types"]
-	},
-	"include": ["./src/**/*"],
-	"exclude": ["**/node_modules/**/*"]
+	"references": [
+		{
+			"path": "solutions/typescript/tsconfig.json"
+		}
+	]
 }

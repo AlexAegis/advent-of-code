@@ -4,9 +4,19 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"label": "cargo run current",
+			"type": "shell",
+			"command": "cargo",
+			"options": { "cwd": "${fileDirname}" },
+			"args": ["run"],
+			"group": "none"
+		},
+		{
 			"label": "cargo build",
 			"type": "shell",
-			"command": "cargo build",
+			"command": "cargo",
+			"options": { "cwd": "${workspaceFolder}/solutions/rust/" },
+			"args": ["build"],
 			"group": "build"
 		},
 		{
@@ -19,6 +29,12 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"type": "shell",
+			"label": "link descriptions",
+			"command": "./scripts/link-descriptions.sh",
+			"problemMatcher": []
 		}
 	]
 }
