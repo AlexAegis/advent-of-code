@@ -1,8 +1,8 @@
 {
-	"name": "advent-of-code",
+	"name": "advent-of-code-workspace",
 	"displayName": "Advent of Code Solutions",
 	"description": "Advent of Code Solutions",
-	"version": "0.14.3",
+	"version": "1.0.0",
 	"author": {
 		"name": "Alex Aegis",
 		"email": "alexaegis@gmail.com",
@@ -13,27 +13,6 @@
 		"email": "alexaegis@gmail.com",
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
-	"scripts": {
-		"lint": "eslint --max-warnings=0 .",
-		"lint:fix": "eslint --fix .",
-		"lint:css": "stylelint --allow-empty-input --syntax=css ./**/*.css",
-		"lint:scss": "stylelint --allow-empty-input --syntax=scss ./**/*.scss",
-		"lint:md": "markdownlint --ignore-path '.gitignore' .",
-		"lint:rmd": "remark .",
-		"fmt": "prettier --write \"src/**/*.ts\"",
-		"fmt:check": "prettier --check .",
-		"test": "mocha --config ./.mocharc.json",
-		"test:parallel": "mocha --parallel --config ./.mocharc.json",
-		"test:coverage": "nyc npm test",
-		"clean": "rimraf ./dist ./coverage ./.codacy-coverage ./cache",
-		"self-destruct": "rimraf ./dist ./coverage ./.codacy-coverage ./cache ./node-modules ./package-lock.json ./yarn.lock ./pnpm-lock.yaml",
-		"codecov": "codecov",
-		"ncu": "ncu -u",
-		"bench:open": "live-server benchmark/results/reduce.chart.html --port=8989",
-		"_postinstall": "husky install",
-		"prepublish": "pinst --disable",
-		"postpublish": "pinst --enable"
-	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/AlexAegis/advent-of-code/"
@@ -41,45 +20,33 @@
 	"categories": [
 		"Other"
 	],
+	"workspaces": [
+		"./solutions/typescript"
+	],
 	"license": "mit",
 	"private": true,
-	"dependencies": {
-		"@thi.ng/iterators": "^5.1.45",
-		"@thi.ng/memoize": "^2.1.8",
-		"@thi.ng/transducers": "^7.5.4",
-		"big-integer": "^1.6.48",
-		"is-ci": "^2.0.0",
-		"iterare": "^1.2.1",
-		"ix": "^4.0.0",
-		"rxjs": "^6.6.3",
-		"workerpool": "^6.0.3"
+	"scripts": {
+		"lint": "npm run lint:md && npm run lint:rmd",
+		"lint:md": "markdownlint --ignore-path '.gitignore' .",
+		"lint:rmd": "remark .",
+		"fmt": "prettier --write .",
+		"fmt:check": "prettier --check ."
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^11.0.0",
 		"@commitlint/config-conventional": "^11.0.0",
-		"@types/chai": "^4.2.14",
-		"@types/is-ci": "^2.0.0",
-		"@types/mocha": "^8.2.0",
 		"@types/node": "^14.14.20",
-		"@types/workerpool": "^6.0.0",
 		"@typescript-eslint/eslint-plugin": "^4.12.0",
 		"@typescript-eslint/parser": "^4.12.0",
-		"benny": "^3.6.15",
-		"chai": "^4.2.0",
-		"codecov": "^3.8.1",
 		"commitlint": "^11.0.0",
-		"concurrently": "^5.3.0",
 		"eslint": "^7.17.0",
 		"eslint-config-prettier": "^7.1.0",
 		"eslint-plugin-prettier": "^3.3.1",
 		"husky": "^5.0.1",
 		"lint-staged": "^10.5.3",
-		"live-server": "^1.2.1",
 		"markdownlint": "^0.22.0",
 		"markdownlint-cli": "^0.26.0",
-		"mocha": "^8.2.1",
 		"npm-check-updates": "^10.2.5",
-		"nyc": "^15.1.0",
 		"pinst": "^2.1.1",
 		"prettier": "^2.2.1",
 		"remark": "^13.0.0",
@@ -88,7 +55,6 @@
 		"remark-preset-lint-consistent": "^4.0.0",
 		"remark-preset-lint-recommended": "^5.0.0",
 		"rimraf": "^3.0.2",
-		"source-map-support": "^0.5.19",
 		"ts-node": "9.1.1",
 		"tsconfig-paths": "^3.9.0",
 		"typescript": "4.1.3",
@@ -97,25 +63,5 @@
 	"engines": {
 		"node": ">= 14.15.1",
 		"npm": "7.x"
-	},
-	"nyc": {
-		"extension": [
-			".ts",
-			".tsx"
-		],
-		"include": [
-			"src/**/*.ts"
-		],
-		"exclude": [
-			"node_modules/",
-			"src/**/*.d.ts",
-			"src/**/*.spec.ts",
-			"src/**/deque.class.ts",
-			"src/**/bench.ts"
-		],
-		"reporter": [
-			"lcov"
-		],
-		"all": true
 	}
 }

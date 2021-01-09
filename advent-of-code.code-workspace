@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "typescript",
+			"path": "solutions/typescript"
+		},
+		{
+			"name": "rust",
+			"path": "solutions/rust"
+		},
+		{
+			"name": "python",
+			"path": "solutions/python"
+		},
+		{
+			"name": "workspace",
+			"path": "."
+		}
+	]
+}

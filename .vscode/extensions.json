@@ -1,14 +1,7 @@
 {
 	"recommendations": [
 		"esbenp.prettier-vscode",
-		"dbaeumer.vscode-eslint",
 		"pkief.material-icon-theme",
-		"msjsdiag.debugger-for-chrome",
-		"wix.vscode-import-cost",
-		"msjsdiag.debugger-for-chrome",
-		"serayuzgur.crates",
-		"matklad.rust-analyzer",
-		"ms-vscode.cpptools",
 		"equinusocio.vsc-material-theme",
 		"mhutchie.git-graph",
 		"ritwickdey.liveserver"

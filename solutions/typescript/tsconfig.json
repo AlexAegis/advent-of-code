@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		"lib": ["ES2020", "ESNext.AsyncIterable", "ESNext", "ESNext.BigInt"],
+		"composite": true,
+		"module": "CommonJS",
+		"alwaysStrict": true,
+		"target": "ES2020",
+		"rootDir": "./",
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"incremental": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"importHelpers": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedParameters": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictPropertyInitialization": true,
+		"baseUrl": "./",
+		"paths": {
+			"@lib": ["./lib"],
+			"@lib/*": ["./lib/*"],
+			"@2015/*": ["./2015/*"],
+			"@2016/*": ["./2016/*"],
+			"@2017/*": ["./2017/*"],
+			"@2018/*": ["./2018/*"],
+			"@2019/*": ["./2019/*"],
+			"@2020/*": ["./2020/*"]
+		},
+		"typeRoots": ["../../node_modules/@types"]
+	},
+	"include": ["./**/*"],
+	"exclude": ["**/node_modules/**/*"]
+}

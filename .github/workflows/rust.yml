@@ -1,6 +1,10 @@
-name: Rust CI
+name: Rust
 
 on: [push, pull_request]
+
+defaults:
+  run:
+    working-directory: solutions/rust
 
 jobs:
   check:

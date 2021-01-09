@@ -1,0 +1,2780 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoclib'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoclib"],
+				"filter": {
+					"name": "aoclib",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'scaffold'",
+			"cargo": {
+				"args": ["build", "--bin=scaffold", "--package=scaffold"],
+				"filter": {
+					"name": "scaffold",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'scaffold'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=scaffold", "--package=scaffold"],
+				"filter": {
+					"name": "scaffold",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc_query'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc_query"],
+				"filter": {
+					"name": "aoc_query",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc_query'",
+			"cargo": {
+				"args": ["build", "--bin=aoc_query", "--package=aoc_query"],
+				"filter": {
+					"name": "aoc_query",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc_query'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc_query", "--package=aoc_query"],
+				"filter": {
+					"name": "aoc_query",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201501'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201501"],
+				"filter": {
+					"name": "aoc201501",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201501'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201501", "--package=aoc201501"],
+				"filter": {
+					"name": "aoc201501",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201501'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201501", "--package=aoc201501"],
+				"filter": {
+					"name": "aoc201501",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201501"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201501"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201501"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201502'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201502"],
+				"filter": {
+					"name": "aoc201502",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201502'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201502", "--package=aoc201502"],
+				"filter": {
+					"name": "aoc201502",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201502'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201502", "--package=aoc201502"],
+				"filter": {
+					"name": "aoc201502",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201502"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201502"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201502"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201503'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201503"],
+				"filter": {
+					"name": "aoc201503",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201503'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201503", "--package=aoc201503"],
+				"filter": {
+					"name": "aoc201503",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201503'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201503", "--package=aoc201503"],
+				"filter": {
+					"name": "aoc201503",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201503"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201503"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201503"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201504'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201504"],
+				"filter": {
+					"name": "aoc201504",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201504'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201504", "--package=aoc201504"],
+				"filter": {
+					"name": "aoc201504",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201504'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201504", "--package=aoc201504"],
+				"filter": {
+					"name": "aoc201504",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201504"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201504"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201504"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201505'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201505"],
+				"filter": {
+					"name": "aoc201505",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201505'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201505", "--package=aoc201505"],
+				"filter": {
+					"name": "aoc201505",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201505'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201505", "--package=aoc201505"],
+				"filter": {
+					"name": "aoc201505",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201505"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201505"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201505"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201601'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201601"],
+				"filter": {
+					"name": "aoc201601",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201601'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201601", "--package=aoc201601"],
+				"filter": {
+					"name": "aoc201601",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201601'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201601", "--package=aoc201601"],
+				"filter": {
+					"name": "aoc201601",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201601"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201601"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201601"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201701'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201701"],
+				"filter": {
+					"name": "aoc201701",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201701'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201701", "--package=aoc201701"],
+				"filter": {
+					"name": "aoc201701",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201701'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201701", "--package=aoc201701"],
+				"filter": {
+					"name": "aoc201701",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201701"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201701"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201701"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201801'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201801"],
+				"filter": {
+					"name": "aoc201801",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201801'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201801", "--package=aoc201801"],
+				"filter": {
+					"name": "aoc201801",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201801'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201801", "--package=aoc201801"],
+				"filter": {
+					"name": "aoc201801",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201801"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201801"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201801"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201901'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201901"],
+				"filter": {
+					"name": "aoc201901",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201901'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201901", "--package=aoc201901"],
+				"filter": {
+					"name": "aoc201901",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201901'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201901", "--package=aoc201901"],
+				"filter": {
+					"name": "aoc201901",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201901"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201901"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201901"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201902'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201902"],
+				"filter": {
+					"name": "aoc201902",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201902'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201902", "--package=aoc201902"],
+				"filter": {
+					"name": "aoc201902",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201902'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201902", "--package=aoc201902"],
+				"filter": {
+					"name": "aoc201902",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201902"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201902"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201902"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201903'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201903"],
+				"filter": {
+					"name": "aoc201903",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201903'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201903", "--package=aoc201903"],
+				"filter": {
+					"name": "aoc201903",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201903'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201903", "--package=aoc201903"],
+				"filter": {
+					"name": "aoc201903",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201903"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201903"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201903"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201904'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201904"],
+				"filter": {
+					"name": "aoc201904",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201904'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201904", "--package=aoc201904"],
+				"filter": {
+					"name": "aoc201904",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201904'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201904", "--package=aoc201904"],
+				"filter": {
+					"name": "aoc201904",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201904"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201904"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201904"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201905'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201905"],
+				"filter": {
+					"name": "aoc201905",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201905'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201905", "--package=aoc201905"],
+				"filter": {
+					"name": "aoc201905",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201905'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201905", "--package=aoc201905"],
+				"filter": {
+					"name": "aoc201905",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201905"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201905"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201905"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201906'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201906"],
+				"filter": {
+					"name": "aoc201906",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201906'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201906", "--package=aoc201906"],
+				"filter": {
+					"name": "aoc201906",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201906'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201906", "--package=aoc201906"],
+				"filter": {
+					"name": "aoc201906",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201906"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201906"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201906"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201907'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201907"],
+				"filter": {
+					"name": "aoc201907",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201907'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201907", "--package=aoc201907"],
+				"filter": {
+					"name": "aoc201907",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201907'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201907", "--package=aoc201907"],
+				"filter": {
+					"name": "aoc201907",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201907"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201907"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201907"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201908'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201908"],
+				"filter": {
+					"name": "aoc201908",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201908'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201908", "--package=aoc201908"],
+				"filter": {
+					"name": "aoc201908",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201908'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201908", "--package=aoc201908"],
+				"filter": {
+					"name": "aoc201908",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201908"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201908"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201908"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201909'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201909"],
+				"filter": {
+					"name": "aoc201909",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201909'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201909", "--package=aoc201909"],
+				"filter": {
+					"name": "aoc201909",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201909'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201909", "--package=aoc201909"],
+				"filter": {
+					"name": "aoc201909",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201909"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201909"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201909"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201910'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201910"],
+				"filter": {
+					"name": "aoc201910",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201910'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201910", "--package=aoc201910"],
+				"filter": {
+					"name": "aoc201910",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201910'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201910", "--package=aoc201910"],
+				"filter": {
+					"name": "aoc201910",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201910"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201910"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201910"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201911'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201911"],
+				"filter": {
+					"name": "aoc201911",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201911'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201911", "--package=aoc201911"],
+				"filter": {
+					"name": "aoc201911",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201911'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201911", "--package=aoc201911"],
+				"filter": {
+					"name": "aoc201911",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201911"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201911"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201911"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201912'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201912"],
+				"filter": {
+					"name": "aoc201912",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201912'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201912", "--package=aoc201912"],
+				"filter": {
+					"name": "aoc201912",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201912'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201912", "--package=aoc201912"],
+				"filter": {
+					"name": "aoc201912",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201912"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201912"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201912"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201913'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201913"],
+				"filter": {
+					"name": "aoc201913",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201913'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201913", "--package=aoc201913"],
+				"filter": {
+					"name": "aoc201913",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201913'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201913", "--package=aoc201913"],
+				"filter": {
+					"name": "aoc201913",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201913"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201913"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201913"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201914'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201914"],
+				"filter": {
+					"name": "aoc201914",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201914'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201914", "--package=aoc201914"],
+				"filter": {
+					"name": "aoc201914",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201914'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201914", "--package=aoc201914"],
+				"filter": {
+					"name": "aoc201914",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201914"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201914"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201914"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201915'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201915"],
+				"filter": {
+					"name": "aoc201915",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201915'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201915", "--package=aoc201915"],
+				"filter": {
+					"name": "aoc201915",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201915'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201915", "--package=aoc201915"],
+				"filter": {
+					"name": "aoc201915",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201915"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201915"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201915"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201916'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201916"],
+				"filter": {
+					"name": "aoc201916",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201916'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201916", "--package=aoc201916"],
+				"filter": {
+					"name": "aoc201916",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201916'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201916", "--package=aoc201916"],
+				"filter": {
+					"name": "aoc201916",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201916"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201916"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201916"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201917'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201917"],
+				"filter": {
+					"name": "aoc201917",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201917'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201917", "--package=aoc201917"],
+				"filter": {
+					"name": "aoc201917",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201917'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201917", "--package=aoc201917"],
+				"filter": {
+					"name": "aoc201917",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201917"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201917"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201917"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201918'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201918"],
+				"filter": {
+					"name": "aoc201918",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201918'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201918", "--package=aoc201918"],
+				"filter": {
+					"name": "aoc201918",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201918'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201918", "--package=aoc201918"],
+				"filter": {
+					"name": "aoc201918",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201918"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201918"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201918"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201919'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201919"],
+				"filter": {
+					"name": "aoc201919",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201919'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201919", "--package=aoc201919"],
+				"filter": {
+					"name": "aoc201919",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201919'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201919", "--package=aoc201919"],
+				"filter": {
+					"name": "aoc201919",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201919"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201919"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201919"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201920'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201920"],
+				"filter": {
+					"name": "aoc201920",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201920'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201920", "--package=aoc201920"],
+				"filter": {
+					"name": "aoc201920",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201920'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201920", "--package=aoc201920"],
+				"filter": {
+					"name": "aoc201920",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201920"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201920"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201920"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201921'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201921"],
+				"filter": {
+					"name": "aoc201921",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201921'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201921", "--package=aoc201921"],
+				"filter": {
+					"name": "aoc201921",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201921'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201921", "--package=aoc201921"],
+				"filter": {
+					"name": "aoc201921",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201921"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201921"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201921"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201922'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201922"],
+				"filter": {
+					"name": "aoc201922",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201922'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201922", "--package=aoc201922"],
+				"filter": {
+					"name": "aoc201922",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201922'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201922", "--package=aoc201922"],
+				"filter": {
+					"name": "aoc201922",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201922"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201922"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201922"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201923'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201923"],
+				"filter": {
+					"name": "aoc201923",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201923'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201923", "--package=aoc201923"],
+				"filter": {
+					"name": "aoc201923",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201923'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201923", "--package=aoc201923"],
+				"filter": {
+					"name": "aoc201923",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201923"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201923"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201923"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'aoc201924'",
+			"cargo": {
+				"args": ["test", "--no-run", "--lib", "--package=aoc201924"],
+				"filter": {
+					"name": "aoc201924",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'aoc201924'",
+			"cargo": {
+				"args": ["build", "--bin=aoc201924", "--package=aoc201924"],
+				"filter": {
+					"name": "aoc201924",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'aoc201924'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bin=aoc201924", "--package=aoc201924"],
+				"filter": {
+					"name": "aoc201924",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_one'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_one", "--package=aoc201924"],
+				"filter": {
+					"name": "part_one",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug integration test 'part_two'",
+			"cargo": {
+				"args": ["test", "--no-run", "--test=part_two", "--package=aoc201924"],
+				"filter": {
+					"name": "part_two",
+					"kind": "test"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug benchmark 'bench'",
+			"cargo": {
+				"args": ["test", "--no-run", "--bench=bench", "--package=aoc201924"],
+				"filter": {
+					"name": "bench",
+					"kind": "bench"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}
