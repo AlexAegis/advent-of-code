@@ -5,11 +5,17 @@ authors = ["AlexAegis <alexaegis@gmail.com>"]
 license = "mit"
 edition = "2018"
 
-default-run = "aoc201501"
+[[bin]]
+name = "aoc201501part1"
+path = "src/part_1.rs"
+
+[[bin]]
+name = "aoc201501part2"
+path = "src/part_2.rs"
 
 [lib]
 name = "aoc201501"
-path = "./src/lib.rs"
+path = "src/lib.rs"
 
 [dependencies]
 aoclib = { path = "../../lib" }
