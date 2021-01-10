@@ -37,9 +37,9 @@ jobs:
           ls -al
           pipenv install
           pipenv run freeze
-          .venv3/bin/activate
+          . .venv3/bin/activate
           pip freeze
-          ls-al
+          ls -al
       - name: Lint
         run: pipenv run lint
   fmt:
