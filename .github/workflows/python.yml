@@ -36,6 +36,7 @@ jobs:
         run: |
           ls -al
           pipenv install
+          pipenv sync
           pipenv run freeze
           . .venv3/bin/activate
           pip freeze
