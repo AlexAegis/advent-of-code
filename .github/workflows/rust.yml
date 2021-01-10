@@ -106,7 +106,10 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: fmt
-          args: --all -- --check
+          args: |
+            --all
+            --manifest-path solutions/rust/Cargo.toml
+            -- --check
   clippy:
     name: Clippy
     runs-on: ubuntu-latest
