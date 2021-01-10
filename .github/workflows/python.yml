@@ -42,7 +42,9 @@ jobs:
         run: pip install pipenv
       - name: Install venv
         if: steps.cache-packages.outputs.cache-hit != 'true'
-        run: pipenv install
+        run: |
+          pipenv install
+          echo "$PWD/.venv3/bin" >> GITHUB_PATH
       - name: Lint
         run: pipenv run lint
   fmt:
@@ -66,7 +68,9 @@ jobs:
         run: pip install pipenv
       - name: Install venv
         if: steps.cache-packages.outputs.cache-hit != 'true'
-        run: pipenv install
+        run: |
+          pipenv install
+          echo "$PWD/.venv3/bin" >> GITHUB_PATH
       - name: Format check
         run: pipenv run fmt
   test:
@@ -90,6 +94,8 @@ jobs:
         run: pip install pipenv
       - name: Install venv
         if: steps.cache-packages.outputs.cache-hit != 'true'
-        run: pipenv install
+        run: |
+          pipenv install
+          echo "$PWD/.venv3/bin" >> GITHUB_PATH
       - name: Test
         run: pipenv run test
