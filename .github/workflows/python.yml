@@ -44,9 +44,7 @@ jobs:
         if: steps.cache-packages.outputs.cache-hit != 'true'
         run: pipenv install
       - name: Lint
-        run: |
-          . .venv3/bin/activate
-          pipenv run lint
+        run: pipenv run lint
   fmt:
     runs-on: ubuntu-latest
     strategy:
@@ -70,9 +68,7 @@ jobs:
         if: steps.cache-packages.outputs.cache-hit != 'true'
         run: pipenv install
       - name: Format check
-        run: |
-          . .venv3/bin/activate
-          pipenv run fmt
+        run: pipenv run fmt
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -96,6 +92,4 @@ jobs:
         if: steps.cache-packages.outputs.cache-hit != 'true'
         run: pipenv install
       - name: Test
-        run: |
-          . .venv3/bin/activate
-          pipenv run test
+        run: pipenv run test
