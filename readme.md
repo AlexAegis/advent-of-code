@@ -38,6 +38,10 @@ Rustfmt's config file is symlinked to the repository root because the
 The github action `actions-rs/cargo@v1` [cannot be run in a subdirectory either](https://github.com/actions-rs/cargo/issues/86)
 so `--manifest-path` has to be set for each step.
 
+The github action `actions-rs/audit-check@v1` is disabled because it too
+cannot be run in a subdirectory but additional argument cannot be passed
+[until this pr is merged](https://github.com/actions-rs/audit-check/pull/133)
+
 ## [Python](./solutions/python)
 
 [![2020 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2020.json)](/solutions/python/2020/)
