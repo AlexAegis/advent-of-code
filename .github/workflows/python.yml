@@ -36,8 +36,9 @@ jobs:
         run: pip install pipenv
       - name: Install dependencies
         run: |
+          pip freeze
           ls -al
-          pipenv install
+          pipenv install -d
           pipenv run freeze
           . .venv3/bin/activate
           pip freeze
@@ -62,7 +63,7 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
-        run: pipenv install
+        run: pipenv install -d
       - name: Format check
         run: pipenv run fmt
   test:
@@ -83,6 +84,6 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
-        run: pipenv install
+        run: pipenv install -d
       - name: Test
         run: pipenv run test
