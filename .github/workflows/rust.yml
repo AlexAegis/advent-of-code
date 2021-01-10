@@ -39,7 +39,9 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: check
-          args: --workspace
+          args: |
+            --manifest-path solutions/rust/Cargo.toml
+            --workspace
   test:
     name: Test Suite
     runs-on: ubuntu-latest
@@ -71,7 +73,9 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: test
-          args: --workspace
+          args: |
+            --manifest-path solutions/rust/Cargo.toml
+            --workspace
   fmt:
     name: Rustfmt
     runs-on: ubuntu-latest
@@ -134,4 +138,7 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: clippy
-          args: --all -- -D warnings
+          args: |
+            --all
+            --manifest-path solutions/rust/Cargo.toml
+            -- -D warnings
