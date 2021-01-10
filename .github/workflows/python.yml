@@ -13,6 +13,8 @@ on:
 defaults:
   run:
     working-directory: solutions/python
+    env:
+      PIPENV_IGNORE_VIRTUALENVS: 1
 
 jobs:
   lint:
