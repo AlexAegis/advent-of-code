@@ -39,7 +39,7 @@ pub fn args() -> Result<(i16, i8), Box<dyn std::error::Error>> {
 				.index(2)
 				.validator(|s| match s.parse::<u8>() {
 					Ok(day) => {
-						if day >= 1 && day <= 25 {
+						if (1..=25).contains(&day) {
 							Ok(())
 						} else {
 							Err("Non-existent day".to_string())
