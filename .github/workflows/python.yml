@@ -23,6 +23,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      - name: Cache
+        id: cache-packages
+        uses: actions/cache@v2
+        with:
+          path: solutions/python/.venv3
+          key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -30,9 +36,12 @@ jobs:
           architecture: x64
       - name: Install pipenv
         run: pip install pipenv
+      - name: Install venv
+        if: steps.cache-packages.outputs.cache-hit != 'true'
+        run: pipenv install
       - name: Lint
         run: |
-          pipenv shell
+          . .venv3/bin/activate
           pipenv run lint
   fmt:
     runs-on: ubuntu-latest
@@ -51,9 +60,12 @@ jobs:
           architecture: x64
       - name: Install pipenv
         run: pip install pipenv
+      - name: Install venv
+        if: steps.cache-packages.outputs.cache-hit != 'true'
+        run: pipenv install
       - name: Format check
         run: |
-          pipenv shell
+          . .venv3/bin/activate
           pipenv run fmt
   test:
     runs-on: ubuntu-latest
@@ -72,7 +84,10 @@ jobs:
           architecture: x64
       - name: Install pipenv
         run: pip install pipenv
+      - name: Install venv
+        if: steps.cache-packages.outputs.cache-hit != 'true'
+        run: pipenv install
       - name: Test
         run: |
-          pipenv shell
+          . .venv3/bin/activate
           pipenv run test
