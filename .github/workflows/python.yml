@@ -36,6 +36,8 @@ jobs:
         run: |
           ls -al
           pipenv install
+          pip freeze
+          ls-al
       - name: Lint
         run: pipenv run lint
   fmt:
