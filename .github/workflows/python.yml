@@ -20,13 +20,17 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.9']
-    env:
-      PIPENV_IGNORE_VIRTUALENVS: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      - name: Cache
+        id: cache-venv
+        uses: actions/cache@v2
+        with:
+          path: solutions/python/.venv3
+          key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -35,14 +39,8 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
-        run: |
-          pip freeze
-          ls -al
-          pipenv install -d
-          pipenv run freeze
-          . .venv3/bin/activate
-          pip freeze
-          ls -al
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: pipenv install -d
       - name: Lint
         run: pipenv run lint
   fmt:
@@ -55,6 +53,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      - name: Cache
+        id: cache-venv
+        uses: actions/cache@v2
+        with:
+          path: solutions/python/.venv3
+          key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -63,6 +67,7 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
+        if: steps.cache-venv.outputs.cache-hit != 'true'
         run: pipenv install -d
       - name: Format check
         run: pipenv run fmt
@@ -76,6 +81,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      - name: Cache
+        id: cache-venv
+        uses: actions/cache@v2
+        with:
+          path: solutions/python/.venv3
+          key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -84,6 +95,7 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
+        if: steps.cache-venv.outputs.cache-hit != 'true'
         run: pipenv install -d
       - name: Test
         run: pipenv run test
