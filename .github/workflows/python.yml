@@ -1,6 +1,12 @@
 name: Python
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'solutions/python/**'
+  pull_request:
+    paths:
+      - 'solutions/python/**'
 
 defaults:
   run:
