@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+profilehooks = "*"
 
 [packages.aoclib]
 path = "./aoclib"
@@ -14,7 +15,6 @@ autopep8 = "*"
 flake8 = "*"
 pytest = "*"
 pycodestyle = "*"
-profilehooks = "*"
 rope = "*"
 
 [requires]

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cffaee3a740d6cb016e420954460fbacb1fea5059c9121a7ef0db578db681fe4"
+            "sha256": "9a8a7ce51e279d59aac776b30bfc30d9660515ba3f288c6fcfa2eb801029e046"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -19,6 +19,14 @@
         "aoclib": {
             "editable": true,
             "path": "./aoclib"
+        },
+        "profilehooks": {
+            "hashes": [
+                "sha256:05b87589df8a8c630fd701bae6008cc1cfff4457bd0064887ad25248327a5ba3",
+                "sha256:dc87f319c9596b8c50fd374e3c08c51fa29a61553f1d9281482e4ca31829b021"
+            ],
+            "index": "pypi",
+            "version": "==1.12.0"
         }
     },
     "develop": {
@@ -75,14 +83,6 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==0.13.1"
         },
-        "profilehooks": {
-            "hashes": [
-                "sha256:05b87589df8a8c630fd701bae6008cc1cfff4457bd0064887ad25248327a5ba3",
-                "sha256:dc87f319c9596b8c50fd374e3c08c51fa29a61553f1d9281482e4ca31829b021"
-            ],
-            "index": "pypi",
-            "version": "==1.12.0"
-        },
         "py": {
             "hashes": [
                 "sha256:21b81bda15b66ef5e1a777a21c4dcd9c20ad3efd0b3f817e7a809035269e1bd3",
@@ -112,7 +112,7 @@
                 "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1",
                 "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.4.7"
         },
         "pytest": {
@@ -135,7 +135,7 @@
                 "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
                 "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==0.10.2"
         }
     }
