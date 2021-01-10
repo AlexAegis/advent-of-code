@@ -281,3 +281,16 @@ cargo bench --all
 ```bash
 cargo run -p scaffold 2016 01
 ```
+
+## Notes
+
+Rustfmt's config file is symlinked to the repository root because the
+[rust-analyser extension can't pick it up otherwise.](https://github.com/rust-analyzer/rust-analyzer/issues/7227)
+
+The github action `actions-rs/cargo@v1` [cannot be run in a subdirectory either](https://github.com/actions-rs/cargo/issues/86)
+so `--manifest-path` has to be set for each step.
+
+The github action `actions-rs/audit-check@v1` is disabled because it too
+cannot be run in a subdirectory but additional argument cannot be passed
+[until this pr is merged](https://github.com/actions-rs/audit-check/pull/133).
+Until that, this step is done manually.
