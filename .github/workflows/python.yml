@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - 'solutions/python/**'
+      - '.github/workflows/python.yml'
   pull_request:
     paths:
       - 'solutions/python/**'
+      - '.github/workflows/python.yml'
 
 defaults:
   run:
