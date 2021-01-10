@@ -1,6 +1,12 @@
 name: TypeScript
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'solutions/typescript/**'
+  pull_request:
+    paths:
+      - 'solutions/typescript/**'
 
 defaults:
   run:

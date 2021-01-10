@@ -1,6 +1,12 @@
 name: Rust
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'solutions/rust/**'
+  pull_request:
+    paths:
+      - 'solutions/rust/**'
 
 defaults:
   run:
