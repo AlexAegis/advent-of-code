@@ -15,26 +15,41 @@
 ## [TypeScript](./solutions/typescript)
 
 [![2020 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2020.json)](/solutions/typescript/2020/)
+
 [![2019 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2019.json)](/solutions/typescript/2019/)
+
 [![2018 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2018.json)](/solutions/typescript/2018/)
+
 [![2017 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2017.json)](/solutions/typescript/2017/)
+
 [![2016 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2016.json)](/solutions/typescript/2016/)
+
 [![2015 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2015.json)](/solutions/typescript/2015/)
 
 ## [Rust](./solutions/rust)
 
 [![2020 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2020.json)](/solutions/rust/2020/)
+
 [![2019 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2019.json)](/solutions/rust/2019/)
+
 [![2018 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2018.json)](/solutions/rust/2018/)
+
 [![2017 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2017.json)](/solutions/rust/2017/)
+
 [![2016 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2016.json)](/solutions/rust/2016/)
+
 [![2015 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2015.json)](/solutions/rust/2015/)
 
 ## [Python](./solutions/python)
 
 [![2020 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2020.json)](/solutions/python/2020/)
+
 [![2019 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2019.json)](/solutions/python/2019/)
+
 [![2018 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2018.json)](/solutions/python/2018/)
+
 [![2017 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2017.json)](/solutions/python/2017/)
+
 [![2016 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2016.json)](/solutions/python/2016/)
+
 [![2015 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2015.json)](/solutions/python/2015/)
