@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - 'solutions/rust/**'
+      - '.github/workflows/rust.yml'
   pull_request:
     paths:
       - 'solutions/rust/**'
+      - '.github/workflows/rust.yml'
 
 defaults:
   run:
