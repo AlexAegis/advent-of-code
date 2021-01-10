@@ -40,7 +40,8 @@ so `--manifest-path` has to be set for each step.
 
 The github action `actions-rs/audit-check@v1` is disabled because it too
 cannot be run in a subdirectory but additional argument cannot be passed
-[until this pr is merged](https://github.com/actions-rs/audit-check/pull/133)
+[until this pr is merged](https://github.com/actions-rs/audit-check/pull/133).
+Until that, this step is done manually.
 
 ## [Python](./solutions/python)
 

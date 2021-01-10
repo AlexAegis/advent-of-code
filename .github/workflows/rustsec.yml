@@ -25,3 +25,13 @@ jobs:
         if: false # skipped until https://github.com/actions-rs/audit-check/pull/133 is merged
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Install Cargo Audit
+        run: cargo install cargo-audit
+      - name: Cargo Check
+        run: cargo audit
