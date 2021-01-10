@@ -3,7 +3,8 @@
 ## [Part One](https://adventofcode.com/2015/day/1#part1)
 
 > [TypeScript](/solutions/typescript/2015/01/part_one.ts)\
-> [Rust](/solutions/rust/2015/01/src/lib.rs)
+> [Rust](/solutions/rust/2015/01/src/lib.rs)\
+> [Python](/solutions/python/2015/01/part_1.py)
 
 Santa was hoping for a white Christmas, but his weather machine's "snow"
 function is powered by stars, and he's fresh out! To save Christmas, he needs
@@ -41,7 +42,8 @@ Your puzzle answer was `74`.
 ## [Part Two](https://adventofcode.com/2015/day/1#part2)
 
 > [TypeScript](/solutions/typescript/2015/01/part_two.ts)\
-> [Rust](/solutions/rust/2015/01/src/lib.rs)
+> [Rust](/solutions/rust/2015/01/src/lib.rs)\
+> [Python](/solutions/python/2015/01/part_2.py)
 
 Now, given the same instructions, find the **position** of the first character
 that causes him to enter the basement (floor `-1`). The first character in the
