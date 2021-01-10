@@ -36,12 +36,14 @@ jobs:
         run: |
           ls -al
           pipenv install
+          pipenv run freeze
+          .venv3/bin/activate
           pip freeze
           ls-al
       - name: Lint
         run: pipenv run lint
   fmt:
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ['3.9']
