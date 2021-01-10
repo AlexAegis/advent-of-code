@@ -31,11 +31,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
       - name: Install dependecies
-        uses: VaultVulp/action-pipenv@v2
+        uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: install -d
       - name: Test
-        uses: VaultVulp/action-pipenv@v2
+        uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: run lint
   fmt:
@@ -54,11 +54,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
       - name: Install dependecies
-        uses: VaultVulp/action-pipenv@v2
+        uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: install -d
       - name: Test
-        uses: VaultVulp/action-pipenv@v2
+        uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: run fmt
   test:
@@ -83,4 +83,4 @@ jobs:
       - name: Test
         uses: VaultVulp/action-pipenv@v2.0.1
         with:
-          command: run test
+          command: run lint
