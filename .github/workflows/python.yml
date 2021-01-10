@@ -33,7 +33,9 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
-        run: pipenv install --system
+        run: |
+          ls -al
+          pipenv install
       - name: Lint
         run: pipenv run lint
   fmt:
@@ -54,7 +56,7 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
-        run: pipenv install --system
+        run: pipenv install
       - name: Format check
         run: pipenv run fmt
   test:
@@ -75,6 +77,6 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
       - name: Install dependencies
-        run: pipenv install --system
+        run: pipenv install
       - name: Test
         run: pipenv run test
