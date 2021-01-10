@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - 'solutions/typescript/**'
+      - '.github/workflows/typescript.yml'
   pull_request:
     paths:
       - 'solutions/typescript/**'
+      - '.github/workflows/typescript.yml'
 
 defaults:
   run:
