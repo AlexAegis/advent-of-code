@@ -3,5 +3,17 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": true
-	}
+	},
+	"python.formatting.provider": "autopep8",
+	"python.autoComplete.extraPaths": ["./solutions/python/", "./"],
+	"python.formatting.autopep8Args": ["--aggressive", "--aggressive"],
+	"python.linting.enabled": true,
+	"[python]": {
+		"editor.stickyTabStops": true,
+		"editor.tabSize": 2,
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true
+	},
+	"python.terminal.activateEnvironment": false,
+	"python.pythonPath": ".venv3/bin/python"
 }
