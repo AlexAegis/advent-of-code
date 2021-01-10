@@ -10,7 +10,10 @@
 			"request": "launch",
 			"program": "${file}",
 			"cwd": "${workspaceRoot}",
-			"console": "integratedTerminal"
+			"console": "integratedTerminal",
+			"redirectOutput": true,
+			"justMyCode": true,
+			"envFile": "${workspaceRoot}/.env"
 		}
 	]
 }
