@@ -2,7 +2,7 @@
 
 ## [2015](https://adventofcode.com/2015/)
 
-[![2015 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2015.json)](/solutions/python/2015/)
+[![2015 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2015.json)](/solutions/python/year2015/)
 
 <!-- markdownlint-disable MD013 -->
 
