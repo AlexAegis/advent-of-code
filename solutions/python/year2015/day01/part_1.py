@@ -2,12 +2,13 @@
 
 import itertools
 
-from aoclib import read_resource
 from profilehooks import timecall
+
+from aoclib import read_resource
 
 
 @timecall()
-def solve(input: list) -> int:
+def solve(input: list[str]) -> int:
     p = 0
     for c in itertools.chain.from_iterable(input):
         if c == '(':

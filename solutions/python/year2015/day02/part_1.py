@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 
-import itertools
-
 from profilehooks import timecall
 
 from aoclib import read_resource
 
 
 @timecall()
-def solve(input: list) -> int:
+def solve(input: list[str]) -> int:
     result = 0
     for c in input:
         l, w, h = map(int, c.split('x'))
