@@ -3,7 +3,8 @@
 ## [Part One](https://adventofcode.com/2015/day/3#part1)
 
 > [TypeScript](/solutions/typescript/2015/03/part_one.ts)\
-> [Rust](/solutions/rust/2015/03/src/lib.rs)
+> [Rust](/solutions/rust/2015/03/src/lib.rs)\
+> [Python](/solutions/python/year2015/day03/part_1.py)
 
 Santa is delivering presents to an infinite two-dimensional grid of houses.
 
@@ -31,7 +32,8 @@ Your puzzle answer was `2572`.
 ## [Part Two](https://adventofcode.com/2015/day/3#part2)
 
 > [TypeScript](/solutions/typescript/2015/03/part_two.ts)\
-> [Rust](/solutions/rust/2015/03/src/lib.rs)
+> [Rust](/solutions/rust/2015/03/src/lib.rs)\
+> [Python](/solutions/python/year2015/day03/part_2.py)
 
 The next year, to speed up the process, Santa creates a robot version of
 himself, **Robo-Santa**, to deliver presents with him.
