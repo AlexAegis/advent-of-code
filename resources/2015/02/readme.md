@@ -3,7 +3,8 @@
 ## [Part One](https://adventofcode.com/2015/day/2#part1)
 
 > [TypeScript](/solutions/typescript/2015/02/part_one.ts)\
-> [Rust](/solutions/rust/2015/02/src/lib.rs)
+> [Rust](/solutions/rust/2015/02/src/lib.rs)\
+> [Python](/solutions/python/year2015/day02/part_1.py)
 
 The elves are running low on wrapping paper, and so they need to submit an
 order for more. They have a list of the dimensions (length `l`, width `w`, and
@@ -12,9 +13,10 @@ need.
 
 Fortunately, every present is a box (a perfect
 [right rectangular prism](https://en.wikipedia.org/wiki/Cuboid#Rectangular_cuboid)),
-which makes calculating the required wrapping paper for each gift a little easier:
-find the surface area of the box, which is `2*l*w + 2*w*h + 2*h*l`. The elves
-also need a little extra paper for each present: the area of the smallest side.
+which makes calculating the required wrapping paper for each gift a little
+easier: find the surface area of the box, which is `2*l*w + 2*w*h + 2*h*l`.
+The elves also need a little extra paper for each present: the area of the
+smallest side.
 
 For example:
 
@@ -33,7 +35,8 @@ Your puzzle answer was `1606483`.
 ## [Part Two](https://adventofcode.com/2015/day/2#part2)
 
 > [TypeScript](/solutions/typescript/2015/02/part_two.ts)\
-> [Rust](/solutions/rust/2015/02/src/lib.rs)
+> [Rust](/solutions/rust/2015/02/src/lib.rs)\
+> [Python](/solutions/python/year2015/day02/part_2.py)
 
 The elves are also running low on ribbon. Ribbon is all the same width, so they
 only have to worry about the length they need to order, which they would again

@@ -6,33 +6,33 @@
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                                 | Part One                                      | Part Two                                      |
-| ----------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| [Day 1](/solutions/python/2015/01/) | [~0.1ms](/solutions/python/2015/01/part_1.py) | [~0.1ms](/solutions/python/2015/01/part_2.py) |
-| Day 2                               |                                               |                                               |
-| Day 3                               |                                               |                                               |
-| Day 4                               |                                               |                                               |
-| Day 5                               |                                               |                                               |
-| Day 6                               |                                               |                                               |
-| Day 7                               |                                               |                                               |
-| Day 8                               |                                               |                                               |
-| Day 9                               |                                               |                                               |
-| Day 10                              |                                               |                                               |
-| Day 11                              |                                               |                                               |
-| Day 12                              |                                               |                                               |
-| Day 13                              |                                               |                                               |
-| Day 14                              |                                               |                                               |
-| Day 15                              |                                               |                                               |
-| Day 16                              |                                               |                                               |
-| Day 17                              |                                               |                                               |
-| Day 18                              |                                               |                                               |
-| Day 19                              |                                               |                                               |
-| Day 20                              |                                               |                                               |
-| Day 21                              |                                               |                                               |
-| Day 22                              |                                               |                                               |
-| Day 23                              |                                               |                                               |
-| Day 24                              |                                               |                                               |
-| Day 25                              |                                               |                                               |
+| Day                                        | Part One                                             | Part Two                                             |
+| ------------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------- |
+| [Day 1](/solutions/python/year2015/day01/) | [~0.1ms](/solutions/python/year2015/day01/part_1.py) | [~0.1ms](/solutions/python/year2015/day01/part_2.py) |
+| [Day 2](/solutions/python/year2015/day02/) | [~0.1ms](/solutions/python/year2015/day02/part_1.py) | [~0.1ms](/solutions/python/year2015/day02/part_2.py) |
+| Day 3                                      |                                                      |                                                      |
+| Day 4                                      |                                                      |                                                      |
+| Day 5                                      |                                                      |                                                      |
+| Day 6                                      |                                                      |                                                      |
+| Day 7                                      |                                                      |                                                      |
+| Day 8                                      |                                                      |                                                      |
+| Day 9                                      |                                                      |                                                      |
+| Day 10                                     |                                                      |                                                      |
+| Day 11                                     |                                                      |                                                      |
+| Day 12                                     |                                                      |                                                      |
+| Day 13                                     |                                                      |                                                      |
+| Day 14                                     |                                                      |                                                      |
+| Day 15                                     |                                                      |                                                      |
+| Day 16                                     |                                                      |                                                      |
+| Day 17                                     |                                                      |                                                      |
+| Day 18                                     |                                                      |                                                      |
+| Day 19                                     |                                                      |                                                      |
+| Day 20                                     |                                                      |                                                      |
+| Day 21                                     |                                                      |                                                      |
+| Day 22                                     |                                                      |                                                      |
+| Day 23                                     |                                                      |                                                      |
+| Day 24                                     |                                                      |                                                      |
+| Day 25                                     |                                                      |                                                      |
 
 ## Setup
 
@@ -76,7 +76,7 @@ the virtual environment using `pipenv`.
 
 ```sh
 pipenv shell
-python 2015/01/part_1.py
+python year2015/day01/part_1.py
 ```
 
 ### Test

@@ -20,10 +20,10 @@ for readme in ./resources/**/**/readme.md; do
 		cd "./solutions/rust/${year}/${day}" || exit 1
 		ln -f -s "../../../../resources/${year}/${day}/readme.md" readme.md
 	)
-	echo "	to solutions/python/$year/$day"
+	echo "	to solutions/python/year$year/day$day"
 	(
-		mkdir -p "./solutions/python/${year}/${day}"
-		cd "./solutions/python/${year}/${day}" || exit 1
+		mkdir -p "./solutions/python/year${year}/day${day}"
+		cd "./solutions/python/year${year}/day${day}" || exit 1
 		ln -f -s "../../../../resources/${year}/${day}/readme.md" readme.md
 	)
 done
