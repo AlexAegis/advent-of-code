@@ -9,6 +9,12 @@
 			"options": {
 				"tabWidth": 2
 			}
+		},
+		{
+			"files": "*.{py}",
+			"options": {
+				"useTabs": false
+			}
 		}
 	]
 }

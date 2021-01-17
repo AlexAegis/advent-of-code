@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
 
 from aoclib import read_resource
-from part_2 import solve
+
+from .part_2 import solve
 
 
 def test_solve():

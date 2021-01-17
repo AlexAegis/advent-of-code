@@ -2,6 +2,9 @@
 	"editor.formatOnSave": true,
 	"editor.autoIndent": "full",
 	"editor.tabCompletion": "off",
+	"editor.tabSize": 4,
+	"editor.stickyTabStops": true,
+	"editor.useTabStops": true,
 	"editor.rulers": [
 		{
 			"color": "#bdbdbd11",
