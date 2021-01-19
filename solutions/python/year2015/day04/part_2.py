@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import itertools
-
 from profilehooks import timecall
 
 from aoclib import read_resource
