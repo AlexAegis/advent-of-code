@@ -41,6 +41,7 @@ jobs:
         run: npm i -g npm@7
       - name: Install packages
         if: steps.cache-packages.outputs.cache-hit != 'true'
+        working-directory: .
         run: npm ci
       - name: Lint
         run: npm run lint
@@ -72,6 +73,7 @@ jobs:
         run: npm i -g npm@7
       - name: Install packages
         if: steps.cache-packages.outputs.cache-hit != 'true'
+        working-directory: .
         run: npm ci
       - name: Test
         run: npm run test:coverage
