@@ -17,7 +17,7 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		has(item: T): boolean;
-		toInt(): number[];
+		toInt(radix?: number): number[];
 		sum(): number;
 		product(): number;
 		min(): T;
