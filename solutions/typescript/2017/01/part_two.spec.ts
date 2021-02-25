@@ -1,11 +1,11 @@
 import { read } from '@lib';
 import { expect } from 'chai';
-import { day, results, year } from '.';
+import { day, year } from '.';
 import { runner } from './part_two';
 
 describe('2017 - Day 1 - Part Two', () => {
 	it('should solve the input', async () => {
-		expect(await runner((await read(year, day)()).input)).to.equal(results.two.input);
+		expect(await runner((await read(year, day)()).input)).to.equal(1060);
 	});
 
 	it('should be that that the first example resolves to 3', async () => {
