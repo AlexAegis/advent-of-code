@@ -9,8 +9,16 @@ declare global {
 		toMatrix(): string[][];
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
+		splitToInt(
+			delimiter?: { [Symbol.split](string: string, limit?: number): string[] },
+			radix?: number
+		): number[];
 	}
 }
+
+String.prototype.splitToInt = function (delimiter = /\s+/g, radix = 10): number[] {
+	return this.split(delimiter).toInt(radix);
+};
 
 String.prototype.toMatrix = function (
 	rowSeparator: RegExp | string = NEWLINE,
