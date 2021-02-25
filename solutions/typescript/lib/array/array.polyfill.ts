@@ -17,6 +17,7 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		has(item: T): boolean;
+		toInt(): number[];
 		sum(): number;
 		product(): number;
 		min(): T;
@@ -24,11 +25,31 @@ declare global {
 		asc(): T[];
 		desc(): T[];
 		clone(): T[];
+		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
 
+Array.prototype.bubbleFindPair = function <T>(
+	comparator: (a: T, b: T) => boolean
+): [T | undefined, T | undefined] {
+	for (let i = 0; i < this.length - 1; i++) {
+		const ei = this[i];
+		for (let j = i + 1; j < this.length; j++) {
+			const ej = this[j];
+			if (comparator(ei, ej)) {
+				return [ei, ej];
+			}
+		}
+	}
+	return [undefined, undefined];
+};
+
 Array.prototype.has = function <T>(item: T): boolean {
 	return this.find((i) => i === item) !== undefined;
+};
+
+Array.prototype.toInt = function (radix = 10): number[] {
+	return this.map((i) => parseInt(i, radix));
 };
 
 Array.prototype.clone = function <T>(): T[] {
@@ -44,11 +65,11 @@ Array.prototype.asc = function <T>(): T[] {
 };
 
 Array.prototype.min = function <T>(): T {
-	return this.reduce(min, undefined);
+	return this.length ? this.reduce(min, Infinity) : undefined;
 };
 
 Array.prototype.max = function <T>(): T {
-	return this.reduce(max, undefined);
+	return this.length ? this.reduce(max, -Infinity) : undefined;
 };
 
 Array.prototype.sum = function (): number {
