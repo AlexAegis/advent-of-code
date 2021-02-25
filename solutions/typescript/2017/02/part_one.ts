@@ -4,7 +4,7 @@ import { day, year } from '.';
 export const runner = (input: string): number =>
 	split(input)
 		.map((line) => {
-			const e = line.split(/\s+/g).toInt();
+			const e = line.splitToInt();
 			const min = e.min();
 			const max = e.max();
 			return max - min;
