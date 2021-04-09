@@ -4,6 +4,7 @@ import { cutSubSegment } from './cut-subsegment.function';
 import { findEndOfPair } from './find-end-of-pair.function';
 import { matrixFlipFlop } from './flip-flop.generator';
 import { flipMatrix } from './flip-matrix.function';
+import { partition } from './partition.function';
 import { rotateMatrix } from './rotate-matrix.function';
 
 declare global {
@@ -25,9 +26,14 @@ declare global {
 		asc(): T[];
 		desc(): T[];
 		clone(): T[];
+		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
+
+Array.prototype.partition = function <T>(partitioner: (a: T) => boolean): [T[], T[]] {
+	return partition(this, partitioner);
+};
 
 Array.prototype.bubbleFindPair = function <T>(
 	comparator: (a: T, b: T) => boolean
