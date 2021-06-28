@@ -9,7 +9,6 @@
 		"outDir": "./dist/",
 		"sourceMap": true,
 		"noUnusedLocals": true,
-		"declaration": false,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"incremental": true,
