@@ -1,14 +1,7 @@
 # Editor configuration, see https://editorconfig.org
 root = true
 
-[*]
-charset = utf-8
-indent_style = tab
-indent_size = 4
-insert_final_newline = true
-trim_trailing_whitespace = true
-
-[*.ts]
+[*.{ts,js}]
 quote_type = single
 
 [*.{md,yml}]
@@ -23,3 +16,12 @@ indent_size = 4
 
 [*.txt]
 insert_final_newline = false
+
+# ! For any given rule only the first matching rule will be applied, meaning
+# ! if you want to define defaults like this, they have to be at the bottom.
+[*]
+charset = utf-8
+indent_style = tab
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true

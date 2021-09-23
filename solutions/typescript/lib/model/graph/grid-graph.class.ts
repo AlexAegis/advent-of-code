@@ -8,7 +8,8 @@ import { Weighter } from './heuristic.type';
 
 export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	extends Graph<T, Direction, N>
-	implements ToString {
+	implements ToString
+{
 	public constructor() {
 		super();
 	}

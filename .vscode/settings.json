@@ -39,18 +39,39 @@
 	"files.associations": {
 		"*.json": "jsonc"
 	},
-	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"typescript.tsdk": "node_modules/typescript/lib",
 	"terminal.integrated.windowsEnableConpty": true,
 	"[rust]": {
 		"editor.defaultFormatter": "matklad.rust-analyzer"
 	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.vscode-pylance"
+	},
+	"python.formatting.provider": "autopep8",
 	"rust-analyzer.checkOnSave.enable": true,
 	"rust-analyzer.checkOnSave.allFeatures": true,
 	"rust-analyzer.checkOnSave.allTargets": true,
 	"rust-analyzer.linkedProjects": ["./solutions/rust/"],
-	"debug.javascript.usePreview": true,
+	"prettier.prettierPath": "./node_modules/prettier",
 	"mocha.files.glob": "src/**/*.spec.ts",
 	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
-	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"],
-	"python.pythonPath": "solutions/python/.venv3/bin/python"
+	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"]
 }

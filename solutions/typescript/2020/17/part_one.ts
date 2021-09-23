@@ -15,26 +15,25 @@ const getNeighbours3 = (v: Vec3): Vec3[] => {
 		.filter((gv) => !gv.equals(v));
 };
 
-export const makeCubeStepper = <T extends ToString>(
-	vec: (s: string) => T,
-	getNeighbours: (v: T) => T[]
-) => (cubes: Set<string>): Set<string> => {
-	const nextCubes = new Set<string>();
-	const bubble = new Set(
-		[...cubes.values()].flatMap((v) => getNeighbours(vec(v))).map((v) => v.toString())
-	);
-	for (const v of bubble) {
-		const neighbours = getNeighbours(vec(v));
-		const activeNeighbours = neighbours.filter((nss) => cubes.has(nss.toString())).length;
-		if (
-			(cubes.has(v) && (activeNeighbours === 2 || activeNeighbours === 3)) ||
-			(!cubes.has(v) && activeNeighbours === 3)
-		) {
-			nextCubes.add(v);
+export const makeCubeStepper =
+	<T extends ToString>(vec: (s: string) => T, getNeighbours: (v: T) => T[]) =>
+	(cubes: Set<string>): Set<string> => {
+		const nextCubes = new Set<string>();
+		const bubble = new Set(
+			[...cubes.values()].flatMap((v) => getNeighbours(vec(v))).map((v) => v.toString())
+		);
+		for (const v of bubble) {
+			const neighbours = getNeighbours(vec(v));
+			const activeNeighbours = neighbours.filter((nss) => cubes.has(nss.toString())).length;
+			if (
+				(cubes.has(v) && (activeNeighbours === 2 || activeNeighbours === 3)) ||
+				(!cubes.has(v) && activeNeighbours === 3)
+			) {
+				nextCubes.add(v);
+			}
 		}
-	}
-	return nextCubes;
-};
+		return nextCubes;
+	};
 
 export const runner = (input: string): number => {
 	let cubes = parse(input, 3);

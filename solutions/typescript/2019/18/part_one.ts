@@ -10,23 +10,22 @@ import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse';
  *
  * @param inventory
  */
-export const weighter = (inventory: Set<string>) => (
-	n: GridNode<string>,
-	_a: GridNode<string>
-): number => {
-	const v = n.value;
-	if (v === Tile.WALL) {
-		return Infinity;
-	} else if (v === Tile.EMPTY) {
-		return 0;
-	} else if (v === Tile.ENTRANCE) {
-		return 0;
-	} else if (v && v.match(doorMatcher) && inventory.has(v)) {
-		return 0;
-	} else {
-		return Infinity;
-	}
-};
+export const weighter =
+	(inventory: Set<string>) =>
+	(n: GridNode<string>, _a: GridNode<string>): number => {
+		const v = n.value;
+		if (v === Tile.WALL) {
+			return Infinity;
+		} else if (v === Tile.EMPTY) {
+			return 0;
+		} else if (v === Tile.ENTRANCE) {
+			return 0;
+		} else if (v && v.match(doorMatcher) && inventory.has(v)) {
+			return 0;
+		} else {
+			return Infinity;
+		}
+	};
 
 export const under = (tile: Tile | Key | Door): (Tile | Key | Door)[] => {
 	if (tile === Tile.WALL || tile === Tile.EMPTY) {

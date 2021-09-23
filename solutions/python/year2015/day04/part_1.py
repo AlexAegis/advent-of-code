@@ -23,7 +23,7 @@ def solve(input: list[str]) -> int:
 
 
 def main():
-    result = solve(read_resource(2015, 4))
+    result = solve(read_resource())
     print(f'Result: {result}')
 
 

@@ -15,7 +15,7 @@ export class PortalGridNode<T = string> extends GridNode<T> {
 
 	public portal(): Vertice<this> | undefined {
 		return this.portalLabel
-			? this.neighbours.get((this.portalLabel as unknown) as Direction)
+			? this.neighbours.get(this.portalLabel as unknown as Direction)
 			: undefined;
 	}
 
@@ -34,14 +34,14 @@ export class PortalGridNode<T = string> extends GridNode<T> {
 			const portal = this.portal();
 			if (node && portal) {
 				const forwardVertice = this.neighbours.getOrAdd(
-					(this.portalLabel as unknown) as Direction,
+					this.portalLabel as unknown as Direction,
 					() => ({
 						from: this,
 						to: node,
 					})
 				);
 				const backVertice = node.neighbours.getOrAdd(
-					(this.portalLabel as unknown) as Direction,
+					this.portalLabel as unknown as Direction,
 					() => ({
 						from: node,
 						to: this,

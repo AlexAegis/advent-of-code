@@ -34,7 +34,7 @@ describe('flipMatrix', () => {
 	});
 
 	it('should throw an error for one dimensional arrays', () => {
-		expect(() => flipMatrix(([1, 2, 3] as unknown) as number[][])).to.throw();
+		expect(() => flipMatrix([1, 2, 3] as unknown as number[][])).to.throw();
 	});
 
 	it('should return an empty array for an empty array', () => {
