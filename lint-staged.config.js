@@ -7,5 +7,8 @@ module.exports = {
 	'*.md': ["markdownlint --ignore 'CHANGELOG.md' --ignore-path '.gitignore'", 'prettier --check'],
 	'*.(yml|yaml)': ['prettier --check'],
 	'*.rs': ['cargo fmt -- --check'],
-	'*.py': [''],
+	'*.py': [
+		'sh -c "cd solutions/python && pipenv -v run lint"',
+		'sh -c "cd solutions/python && pipenv -v run test"',
+	],
 };

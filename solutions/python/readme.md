@@ -49,7 +49,7 @@ Create virtualenv and install dependencies using `pipenv`.
 > project as the interpreter is already selected in the `settings.json` file
 
 ```sh
-pipenv install
+pipenv install -d
 ```
 
 > If pipenv wants to use the global python version instead of pyenvs, make

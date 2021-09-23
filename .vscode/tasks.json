@@ -7,7 +7,9 @@
 			"label": "cargo run current",
 			"type": "shell",
 			"command": "cargo",
-			"options": { "cwd": "${fileDirname}" },
+			"options": {
+				"cwd": "${fileDirname}"
+			},
 			"args": ["run"],
 			"group": "none"
 		},
@@ -15,7 +17,9 @@
 			"label": "cargo build",
 			"type": "shell",
 			"command": "cargo",
-			"options": { "cwd": "${workspaceFolder}/solutions/rust/" },
+			"options": {
+				"cwd": "${workspaceFolder}/solutions/rust/"
+			},
 			"args": ["build"],
 			"group": "build"
 		},

@@ -83,24 +83,24 @@ export const split = (input: string, emptyLines = false): string[] => {
  * @param day of the task
  * @param file in the resources folder of the task
  */
-export const read = <A>(year: number, day: number, file = 'input.txt') => async (): Promise<
-	Input<string, A>
-> => {
-	const baseUrl = `../../resources/${year}/${day < 10 ? '0' + day : day}/`;
+export const read =
+	<A>(year: number, day: number, file = 'input.txt') =>
+	async (): Promise<Input<string, A>> => {
+		const baseUrl = `../../resources/${year}/${day < 10 ? '0' + day : day}/`;
 
-	const [input, args] = await Promise.all([
-		promises.readFile(`${baseUrl}${file}`, {
-			encoding: 'utf-8',
-		}) as Promise<string>,
-		promises
-			.readFile(`${baseUrl}${file.split(/(.*)\..*/)[1]}.args.json`, {
+		const [input, args] = await Promise.all([
+			promises.readFile(`${baseUrl}${file}`, {
 				encoding: 'utf-8',
-			})
-			.catch(() => undefined) as Promise<string>,
-	]);
+			}) as Promise<string>,
+			promises
+				.readFile(`${baseUrl}${file.split(/(.*)\..*/)[1]}.args.json`, {
+					encoding: 'utf-8',
+				})
+				.catch(() => undefined) as Promise<string>,
+		]);
 
-	return { input, args: args && JSON.parse(args) };
-};
+		return { input, args: args && JSON.parse(args) };
+	};
 
 /**
  * Wrapper for running read/compute pairs. Benchmarks both using the performance api.

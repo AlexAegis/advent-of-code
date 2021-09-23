@@ -40,7 +40,7 @@ export const runner = (input: string): string => {
 			}
 			return acc;
 		},
-		{ vec: (undefined as unknown) as Vec2, sum: -Infinity }
+		{ vec: undefined as unknown as Vec2, sum: -Infinity }
 	);
 	return `${max.vec} (${max.sum})`;
 };
