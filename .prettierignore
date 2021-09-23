@@ -8,3 +8,5 @@ CHANGELOG.md
 target
 /.nyc_output
 node_modules
+*.lock
+.pytest_cache
