@@ -70,43 +70,45 @@ const shrink = (level: Map<number, Tile[][]>): void => {
 	}
 };
 
-export const runner = (genTarget = 200) => (input: string): number => {
-	let levels = new Map<number, Tile[][]>();
-	levels.set(0, parse(input) as Tile[][]);
+export const runner =
+	(genTarget = 200) =>
+	(input: string): number => {
+		let levels = new Map<number, Tile[][]>();
+		levels.set(0, parse(input) as Tile[][]);
 
-	for (let gen = 0; gen < genTarget; gen++) {
-		const nextLevels = new Map<number, Tile[][]>();
-		expand(levels);
-		for (const [dimension, map] of levels.entries()) {
-			const nextGen: Tile[][] = [];
-			for (let y = 0; y < map.length; y++) {
-				const row = map[y];
-				const nextRow = [];
-				for (let x = 0; x < map.length; x++) {
-					if (x === 2 && y === 2) {
-						nextRow[x] = Tile.EMTPY;
-					} else {
-						const tile = row[x];
-						const adj = recursiveAdjacents(x, y, dimension);
-
-						if (tile === Tile.BUG && isDie(adj, levels)) {
+		for (let gen = 0; gen < genTarget; gen++) {
+			const nextLevels = new Map<number, Tile[][]>();
+			expand(levels);
+			for (const [dimension, map] of levels.entries()) {
+				const nextGen: Tile[][] = [];
+				for (let y = 0; y < map.length; y++) {
+					const row = map[y];
+					const nextRow = [];
+					for (let x = 0; x < map.length; x++) {
+						if (x === 2 && y === 2) {
 							nextRow[x] = Tile.EMTPY;
-						} else if (tile === Tile.EMTPY && isBirth(adj, levels)) {
-							nextRow[x] = Tile.BUG;
 						} else {
-							nextRow[x] = tile;
+							const tile = row[x];
+							const adj = recursiveAdjacents(x, y, dimension);
+
+							if (tile === Tile.BUG && isDie(adj, levels)) {
+								nextRow[x] = Tile.EMTPY;
+							} else if (tile === Tile.EMTPY && isBirth(adj, levels)) {
+								nextRow[x] = Tile.BUG;
+							} else {
+								nextRow[x] = tile;
+							}
 						}
 					}
+					nextGen[y] = nextRow;
 				}
-				nextGen[y] = nextRow;
+				nextLevels.set(dimension, nextGen);
 			}
-			nextLevels.set(dimension, nextGen);
+			levels = nextLevels;
+			shrink(levels);
 		}
-		levels = nextLevels;
-		shrink(levels);
-	}
-	return [...levels.values()].flat(2).filter((t) => t === Tile.BUG).length;
-};
+		return [...levels.values()].flat(2).filter((t) => t === Tile.BUG).length;
+	};
 
 // istanbul ignore next
 if (require.main === module) {

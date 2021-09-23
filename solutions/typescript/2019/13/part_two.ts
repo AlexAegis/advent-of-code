@@ -43,40 +43,42 @@ const draw = (m: Map<string, number>, score: number): void => {
 	console.log(score + '\n' + printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
-export const runner = (render = false, speed = 10) => async (input: string): Promise<number> => {
-	const comp = new IntCodeComputer(parse(input));
-	comp.tape.set(0, 2);
-	const i = comp.iter();
-	const m = new Map<string, number>();
-	const sd = new Vec2(-1, 0);
-	let s = 0;
-	let p: Vec2 | undefined;
-	comp.pushInput(Joy.NEUT);
-	while (!comp.isHalt()) {
-		const [x, y, t] = [i.next().value, i.next().value, i.next().value];
-		const c = new Vec2(x, y);
-		if (c.equals(sd)) {
-			s = t;
-		} else {
-			if (t === TileType.BALL && p) {
-				const j: Joy = clamp(c.x - p.x);
-				p.x += j;
-				comp.pushInput(j);
-			} else if (t === TileType.PAD) {
-				p = c;
-			}
+export const runner =
+	(render = false, speed = 10) =>
+	async (input: string): Promise<number> => {
+		const comp = new IntCodeComputer(parse(input));
+		comp.tape.set(0, 2);
+		const i = comp.iter();
+		const m = new Map<string, number>();
+		const sd = new Vec2(-1, 0);
+		let s = 0;
+		let p: Vec2 | undefined;
+		comp.pushInput(Joy.NEUT);
+		while (!comp.isHalt()) {
+			const [x, y, t] = [i.next().value, i.next().value, i.next().value];
+			const c = new Vec2(x, y);
+			if (c.equals(sd)) {
+				s = t;
+			} else {
+				if (t === TileType.BALL && p) {
+					const j: Joy = clamp(c.x - p.x);
+					p.x += j;
+					comp.pushInput(j);
+				} else if (t === TileType.PAD) {
+					p = c;
+				}
 
-			if (render) {
-				m.set(c.toString(), t);
-				if (m.size > W * H) {
-					draw(m, s);
-					await sleep(speed);
+				if (render) {
+					m.set(c.toString(), t);
+					if (m.size > W * H) {
+						draw(m, s);
+						await sleep(speed);
+					}
 				}
 			}
 		}
-	}
-	return s;
-};
+		return s;
+	};
 
 // istanbul ignore next
 if (require.main === module) {

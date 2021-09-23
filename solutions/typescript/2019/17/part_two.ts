@@ -92,40 +92,42 @@ const encode = (s: string): number[] => {
 	return [...r].map((c) => c.charCodeAt(0));
 };
 
-export const runner = (video = false) => (input: string): number => {
-	const intCode = new IntCodeComputer(parse(input));
-	intCode.tape.set(0, 2);
-	const fullPath = getFullPath(input);
-	let main = fullPath.join(',') + ',';
-	const r = compress([main]);
-	if (r) {
-		r.forEach(
-			(fr, i) =>
-				(main = main.replace(new RegExp(fr, 'gi'), String.fromCharCode(65 + i) + ','))
-		);
+export const runner =
+	(video = false) =>
+	(input: string): number => {
+		const intCode = new IntCodeComputer(parse(input));
+		intCode.tape.set(0, 2);
+		const fullPath = getFullPath(input);
+		let main = fullPath.join(',') + ',';
+		const r = compress([main]);
+		if (r) {
+			r.forEach(
+				(fr, i) =>
+					(main = main.replace(new RegExp(fr, 'gi'), String.fromCharCode(65 + i) + ','))
+			);
 
-		intCode.pushInput(...encode(main));
-		r.forEach((fn) => intCode.pushInput(...encode(fn)));
-		intCode.pushInput((video ? 'y' : 'n').charCodeAt(0));
-		intCode.pushInput('\n'.charCodeAt(0));
+			intCode.pushInput(...encode(main));
+			r.forEach((fn) => intCode.pushInput(...encode(fn)));
+			intCode.pushInput((video ? 'y' : 'n').charCodeAt(0));
+			intCode.pushInput('\n'.charCodeAt(0));
 
-		let row = '';
-		for (const o of intCode.iter()) {
-			const s = String.fromCharCode(o);
-			if (s === '\n') {
-				if (video) {
-					console.log(row);
+			let row = '';
+			for (const o of intCode.iter()) {
+				const s = String.fromCharCode(o);
+				if (s === '\n') {
+					if (video) {
+						console.log(row);
+					}
+					row = '';
+				} else if (o < 1000) {
+					row += s;
+				} else {
+					return o;
 				}
-				row = '';
-			} else if (o < 1000) {
-				row += s;
-			} else {
-				return o;
 			}
 		}
-	}
-	return 0;
-};
+		return 0;
+	};
 
 // istanbul ignore next
 if (require.main === module) {

@@ -34,14 +34,14 @@ describe('rotateMatrix', () => {
 	});
 
 	it('should be able to rotate one dimensional arrays', () => {
-		expect(joinMatrix(rotateMatrix((['1', '2', '3'] as unknown) as string[][], 'l'))).to.equal(
+		expect(joinMatrix(rotateMatrix(['1', '2', '3'] as unknown as string[][], 'l'))).to.equal(
 			'123'
 		);
 	});
 
 	it('should be able to rotate rectangles', () => {
 		expect(
-			joinMatrix(rotateMatrix(([['1'], ['2'], ['3']] as unknown) as string[][], 'r'))
+			joinMatrix(rotateMatrix([['1'], ['2'], ['3']] as unknown as string[][], 'r'))
 		).to.equal('321');
 	});
 
