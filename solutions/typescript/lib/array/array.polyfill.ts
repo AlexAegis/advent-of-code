@@ -18,7 +18,7 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		has(item: T): boolean;
-		toInt(radix?: number): number[];
+		toInt(options?: { radix?: number; safe?: boolean }): number[];
 		sum(): number;
 		product(): number;
 		min(): T;
@@ -54,8 +54,12 @@ Array.prototype.has = function <T>(item: T): boolean {
 	return this.find((i) => i === item) !== undefined;
 };
 
-Array.prototype.toInt = function (radix = 10): number[] {
-	return this.map((i) => parseInt(i, radix));
+Array.prototype.toInt = function (options?: { radix?: number; safe?: boolean }): number[] {
+	let result = this.map((i) => parseInt(i, options?.radix ?? 10));
+	if (options?.safe) {
+		result = result.filter((i) => !isNaN(i));
+	}
+	return result;
 };
 
 Array.prototype.clone = function <T>(): T[] {
