@@ -57,7 +57,7 @@ front desk. What is the **bathroom code**?
 
 Your puzzle answer was `24862`.
 
-## [Part Twp](https://adventofcode.com/2016/day/2#part2)
+## [Part Two](https://adventofcode.com/2016/day/2#part2)
 
 > [TypeScript](/solutions/typescript/2016/02/part_two.ts)\
 > [Rust](/solutions/rust/2016/02/src/lib.rs)
