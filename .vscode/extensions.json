@@ -1,9 +1,3 @@
 {
-	"recommendations": [
-		"esbenp.prettier-vscode",
-		"pkief.material-icon-theme",
-		"equinusocio.vsc-material-theme",
-		"mhutchie.git-graph",
-		"ritwickdey.liveserver"
-	]
+	"recommendations": ["esbenp.prettier-vscode", "mhutchie.git-graph"]
 }

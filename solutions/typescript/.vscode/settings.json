@@ -1,7 +1,72 @@
 {
 	"editor.formatOnSave": true,
+	"editor.autoIndent": "full",
+	"editor.tabCompletion": "off",
+	"editor.tabSize": 4,
+	"editor.stickyTabStops": true,
+	"editor.useTabStops": true,
+	"editor.rulers": [
+		{
+			"color": "#bdbdbd11",
+			"column": 80
+		},
+		{
+			"color": "#6d6d6d75",
+			"column": 100
+		}
+	],
+	"editor.quickSuggestionsDelay": 0,
+	"editor.quickSuggestions": {
+		"other": true,
+		"comments": false,
+		"strings": false
+	},
+	"editor.wordBasedSuggestions": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
-		"source.organizeImports": true
-	}
+		"source.organizeImports": true,
+		// For ESLint
+		"source.fixAll.eslint": true,
+		// For Stylelint
+		"source.fixAll.stylelint": true
+	},
+	"editor.fontLigatures": true,
+	"editor.mouseWheelZoom": true,
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true
+	},
+	"files.associations": {
+		"*.json": "jsonc"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"terminal.integrated.windowsEnableConpty": true,
+	"[rust]": {
+		"editor.defaultFormatter": "matklad.rust-analyzer"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.vscode-pylance"
+	},
+	"prettier.prettierPath": "../../node_modules/prettier",
+	"mocha.files.glob": "src/**/*.spec.ts",
+	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
+	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"]
 }

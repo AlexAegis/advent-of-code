@@ -2,23 +2,23 @@
 	"folders": [
 		{
 			"name": "typescript",
-			"path": "solutions/typescript"
+			"path": "../solutions/typescript"
 		},
 		{
 			"name": "rust",
-			"path": "solutions/rust"
+			"path": "../solutions/rust"
 		},
 		{
 			"name": "python",
-			"path": "solutions/python"
+			"path": "../solutions/python"
 		},
 		{
 			"name": "resources",
-			"path": "resources"
+			"path": "../resources"
 		},
 		{
 			"name": "workspace",
-			"path": "."
+			"path": ".."
 		}
 	]
 }
