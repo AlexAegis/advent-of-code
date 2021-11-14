@@ -1,7 +1,4 @@
 {
 	"extends": "../../.eslintrc",
-	"$schema": "https://github.com/SchemaStore/schemastore/blob/master/src/schemas/json/eslintrc.json",
-	"parserOptions": {
-		"project": "tsconfig.json"
-	}
+	"$schema": "https://github.com/SchemaStore/schemastore/blob/master/src/schemas/json/eslintrc.json"
 }

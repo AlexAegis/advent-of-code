@@ -23,11 +23,16 @@ export class Node {
 		if (this.totalNumberOfChildren === this.processedChildren) {
 			this.data = input.splice(0, this.totalNumberOfData);
 			if (this.parent) {
-				this.parent.processedChildren++;
-				this.parent.process(input);
+				const p = this.parent;
+
+				p.processedChildren++;
+				p.process(input);
 			}
+
 			return undefined;
-		} else return new Node(input, this);
+		} else {
+			return new Node(input, this);
+		}
 	}
 
 	// part one
