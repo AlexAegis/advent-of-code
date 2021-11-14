@@ -225,7 +225,7 @@
 
 4. Install the required crates
 
-   ```bash
+   ```sh
    cargo build
    ```
 
@@ -233,7 +233,7 @@
    > focusing in debug mode.
    > Set Rust to default to `nightly`
 
-   ```bash
+   ```sh
    rustup default nightly
    ```
 
@@ -244,7 +244,7 @@
 
 ### Running individual days
 
-```bash
+```sh
 cargo run -p aoc201601
 ```
 
@@ -252,13 +252,13 @@ cargo run -p aoc201601
 
 Run in the cargo you'd like to test
 
-```bash
+```sh
 cargo test
 ```
 
 Or in the workspace cargo if you'd like to run all tests
 
-```bash
+```sh
 cargo test --all
 ```
 
@@ -266,19 +266,19 @@ cargo test --all
 
 Run a specific days benchmark
 
-```bash
+```sh
 cargo bench -p aoc201501
 ```
 
 Or in the workspace cargo if you'd like to run all benchmarks (Takes a while!)
 
-```bash
+```sh
 cargo bench --all
 ```
 
 ## Scaffolding
 
-```bash
+```sh
 cargo run -p scaffold 2016 01
 ```
 

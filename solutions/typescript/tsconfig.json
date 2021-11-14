@@ -24,6 +24,7 @@
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"strictPropertyInitialization": true,
+		"strictBindCallApply": true,
 		"baseUrl": "./",
 		"paths": {
 			"@lib": ["./lib"],
@@ -33,7 +34,8 @@
 			"@2017/*": ["./2017/*"],
 			"@2018/*": ["./2018/*"],
 			"@2019/*": ["./2019/*"],
-			"@2020/*": ["./2020/*"]
+			"@2020/*": ["./2020/*"],
+			"@2021/*": ["./2021/*"]
 		},
 		"typeRoots": ["../../node_modules/@types"]
 	},

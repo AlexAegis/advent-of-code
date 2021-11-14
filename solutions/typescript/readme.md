@@ -226,7 +226,7 @@
 
 4. Install the required packages
 
-   ```bash
+   ```sh
    npm i
    ```
 
@@ -241,14 +241,23 @@ Use the `Current File` launch config to run the focused typescript file.
 
 There are tests on every task. You can run them all with
 
-```bash
+```sh
 npm test
 ```
 
 With coverage report
 
-```bash
+```sh
 npm run test:coverage
 ```
 
 or if you installed the recommended mocha extension you can run them with that.
+
+### Benchmarking
+
+Run the `bench` files as normal scripts. The resulting report can be opened
+via:
+
+```sh
+npm run bench:open
+```

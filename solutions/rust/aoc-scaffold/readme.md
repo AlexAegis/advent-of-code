@@ -29,7 +29,7 @@ for automation. If you abuse the endpoint it could get you restricted anyways.
 
 2. With Cargo from the root of the repository
 
-```bash
+```sh
 cargo run -p scaffold 2015 4
 ```
 
@@ -50,7 +50,7 @@ $env:SESSION="value"
 
 Bash
 
-```bash
+```sh
 export SESSION="value"
 ```
 

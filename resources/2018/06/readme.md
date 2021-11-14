@@ -60,7 +60,7 @@ This view is partial - the actual grid extends infinitely in all directions.
 Using the Manhattan distance, each location's closest coordinate can be
 determined, shown here in lowercase:
 
-```bash
+```sh
 aaaaa.cccc
 aAaaa.cccc
 aaaddecccc
