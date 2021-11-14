@@ -4,11 +4,9 @@ import { isTriangle, Triangle } from './is-triangle.function';
 
 export const runner = (input: string): number => {
 	const splitOptions = { toIntOptions: { safe: true } };
-	const result = split(input).reduce((acc, line) => {
-		const sides = line.splitToInt(splitOptions) as Triangle;
-		return isTriangle(sides) ? acc + 1 : acc;
-	}, 0);
-	return result;
+	return split(input)
+		.map((line) => line.splitToInt(splitOptions) as Triangle)
+		.filter(isTriangle).length;
 };
 
 // istanbul ignore next
