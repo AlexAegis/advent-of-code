@@ -5,4 +5,4 @@ export * from './flip-flop.generator';
 export * from './flip-matrix.function';
 export * from './partition.function';
 export * from './rotate-matrix.function';
-export * from './slide-window.generator';
+export * from './slide-window.function';

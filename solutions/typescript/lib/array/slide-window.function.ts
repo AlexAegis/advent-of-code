@@ -1,16 +1,17 @@
 import { SizedTuple } from '@lib/model';
 
-export function* slideWindow<T, N extends number>(
+export const slideWindow = <T, N extends number>(
 	array: T[],
 	windowSize: N = 2 as N
-): Generator<SizedTuple<T, N>> {
+): SizedTuple<T, N>[] => {
+	const result: SizedTuple<T, N>[] = [];
 	const window = [];
 	for (const element of array) {
 		window.push(element);
 		if (window.length === windowSize) {
-			yield [...window] as SizedTuple<T, N>;
+			result.push([...window] as SizedTuple<T, N>);
 			window.shift();
 		}
 	}
-	return [];
-}
+	return result;
+};
