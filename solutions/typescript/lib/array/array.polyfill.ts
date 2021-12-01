@@ -7,7 +7,7 @@ import { matrixFlipFlop } from './flip-flop.generator';
 import { flipMatrix } from './flip-matrix.function';
 import { partition } from './partition.function';
 import { rotateMatrix } from './rotate-matrix.function';
-import { slideWindow } from './slide-window.generator';
+import { slideWindow } from './slide-window.function';
 
 declare global {
 	interface Array<T> {
@@ -28,16 +28,27 @@ declare global {
 		asc(): T[];
 		desc(): T[];
 		clone(): T[];
+		count(predicate: (t: T) => boolean): number;
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
 
+Array.prototype.count = function <T>(predicate: (t: T) => boolean): number {
+	let count = 0;
+	for (const element of this) {
+		if (predicate(element)) {
+			count++;
+		}
+	}
+	return count;
+};
+
 Array.prototype.slideWindow = function <T, N extends number>(
 	windowSize: N = 2 as N
 ): SizedTuple<T, N>[] {
-	return [...slideWindow(this, windowSize)];
+	return slideWindow(this, windowSize);
 };
 
 Array.prototype.partition = function <T>(partitioner: (a: T) => boolean): [T[], T[]] {
