@@ -34,7 +34,7 @@ export const matchRule = (
 
 export const runner = (input: string): number => {
 	const { ruleBook, words } = parse(input);
-	return words.filter((word) => matchRule(word, ruleBook, 0) === word.length).length;
+	return words.count((word) => matchRule(word, ruleBook, 0) === word.length);
 };
 
 // istanbul ignore next

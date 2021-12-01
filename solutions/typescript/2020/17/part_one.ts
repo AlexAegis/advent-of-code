@@ -24,7 +24,7 @@ export const makeCubeStepper =
 		);
 		for (const v of bubble) {
 			const neighbours = getNeighbours(vec(v));
-			const activeNeighbours = neighbours.filter((nss) => cubes.has(nss.toString())).length;
+			const activeNeighbours = neighbours.count((nss) => cubes.has(nss.toString()));
 			if (
 				(cubes.has(v) && (activeNeighbours === 2 || activeNeighbours === 3)) ||
 				(!cubes.has(v) && activeNeighbours === 3)

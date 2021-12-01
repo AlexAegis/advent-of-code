@@ -5,9 +5,9 @@ export const runner = (input: string): number =>
 	input
 		.splitToInt()
 		.slideWindow()
-		.filter(([a, b]) => a < b).length;
+		.count(([a, b]) => a < b);
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1451 ~0.33ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1451 ~0.22ms
 }

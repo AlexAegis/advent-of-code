@@ -50,7 +50,7 @@ export const runner = (input: string): number => {
 		}
 	}
 
-	return [...g.nodes.values()].filter((node) => node.value === TileColor.BLACK).length;
+	return [...g.nodes.values()].count((node) => node.value === TileColor.BLACK);
 };
 
 // istanbul ignore next
