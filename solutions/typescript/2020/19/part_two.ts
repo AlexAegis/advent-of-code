@@ -38,7 +38,7 @@ export const runner = (input: string): number => {
 		[42, 11, 31],
 	]);
 
-	return words.filter((word) => memoizedMatchRule(word, ruleBook, 0)[0] === word.length).length;
+	return words.count((word) => memoizedMatchRule(word, ruleBook, 0)[0] === word.length);
 };
 
 // istanbul ignore next

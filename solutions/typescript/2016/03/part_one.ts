@@ -6,7 +6,7 @@ export const runner = (input: string): number => {
 	const splitOptions = { toIntOptions: { safe: true } };
 	return split(input)
 		.map((line) => line.splitToInt(splitOptions) as Triangle)
-		.filter(isTriangle).length;
+		.count(isTriangle);
 };
 
 // istanbul ignore next

@@ -29,7 +29,7 @@ export const runner = (input: string): number => {
 		}
 	);
 
-	return result.triangles.filter(isTriangle).length;
+	return result.triangles.count(isTriangle);
 };
 
 // istanbul ignore next

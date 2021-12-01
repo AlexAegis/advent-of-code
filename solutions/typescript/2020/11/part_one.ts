@@ -16,7 +16,7 @@ const dirs = [
 ];
 
 export const nextState = (v: Vec2, map: Map<string, SeatState>): SeatState => {
-	const occCount = dirs.filter((d) => map.get(v.add(d).toString()) === SeatState.OCCUPIED).length;
+	const occCount = dirs.count((d) => map.get(v.add(d).toString()) === SeatState.OCCUPIED);
 	const me = map.get(v.toString()) ?? SeatState.FLOOR;
 	if (me === SeatState.OCCUPIED && occCount >= 4) {
 		return SeatState.EMPTY;
@@ -48,7 +48,7 @@ export const runner = (input: string): number => {
 		map = nextMap;
 	}
 
-	return [...map.values()].filter(is(SeatState.OCCUPIED)).length;
+	return [...map.values()].count(is(SeatState.OCCUPIED));
 };
 
 // istanbul ignore next

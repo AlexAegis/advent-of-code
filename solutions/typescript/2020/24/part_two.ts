@@ -104,7 +104,7 @@ export const runner = (input: string): number => {
 		flipTile(g, currentNode, cursor.toString());
 	}
 
-	// let blackCount = [...g.nodes.values()].filter((node) => node.value === TileColor.BLACK).length;
+	// let blackCount = [...g.nodes.values()].count((node) => node.value === TileColor.BLACK);
 	for (let i = 0; i < 100; i++) {
 		const toFlip = [...g.nodes.entries()].filter(([, node]) => {
 			const blackNeighbours = [...node.neighbours.values()].filter(
@@ -121,10 +121,10 @@ export const runner = (input: string): number => {
 			flipTile(g, currentNode, key);
 		}
 
-		// blackCount = [...g.nodes.values()].filter((node) => node.value === TileColor.BLACK).length;
+		// blackCount = [...g.nodes.values()].count((node) => node.value === TileColor.BLACK);
 	}
 
-	return [...g.nodes.values()].filter((node) => node.value === TileColor.BLACK).length;
+	return [...g.nodes.values()].count((node) => node.value === TileColor.BLACK);
 };
 
 // istanbul ignore next

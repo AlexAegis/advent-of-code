@@ -11,7 +11,7 @@ const charRepeats = (line: string, times = 2): number => {
 			processed.set(letter, line.split(letter).length - 1);
 		}
 	}
-	return [...processed].filter(([_, v]) => v === times).length;
+	return [...processed].count(([_, v]) => v === times);
 };
 
 const atLeastOne = (n: number): boolean => n >= 1;

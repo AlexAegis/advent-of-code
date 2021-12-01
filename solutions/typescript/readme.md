@@ -8,7 +8,7 @@
 
 | Day                                     | Part One                                            | Part Two                                            |
 | --------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| [Day 1](/solutions/typescript/2021/01/) | [0.33ms](/solutions/typescript/2021/01/part_one.ts) | [0.56ms](/solutions/typescript/2021/01/part_two.ts) |
+| [Day 1](/solutions/typescript/2021/01/) | [0.22ms](/solutions/typescript/2021/01/part_one.ts) | [0.39ms](/solutions/typescript/2021/01/part_two.ts) |
 | Day 2                                   |                                                     |                                                     |
 | Day 3                                   |                                                     |                                                     |
 | Day 4                                   |                                                     |                                                     |

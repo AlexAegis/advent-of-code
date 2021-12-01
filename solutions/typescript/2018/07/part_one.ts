@@ -45,7 +45,7 @@ export const runner = async (input: string): Promise<string> => {
 	const result: string[] = [];
 	while (unprocessedNodes.length !== 0) {
 		for (const node of unprocessedNodes) {
-			if (unprocessedVertices.filter((vertice) => vertice.to === node).length === 0) {
+			if (unprocessedVertices.count((vertice) => vertice.to === node) === 0) {
 				unprocessedNodes.splice(unprocessedNodes.indexOf(node), 1);
 				unprocessedVertices = unprocessedVertices.filter(
 					(vertice) => vertice.from !== node

@@ -7,9 +7,9 @@ export const runner = (input: string): number =>
 		.slideWindow(3)
 		.map((window) => window.sum())
 		.slideWindow()
-		.filter(([a, b]) => a < b).length;
+		.count(([a, b]) => a < b);
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1395 ~0.56ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1395 ~0.39ms
 }
