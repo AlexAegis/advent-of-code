@@ -1,4 +1,5 @@
 import { asc, desc, max, min, mult, sum } from '@lib/math';
+import { SizedTuple } from '@lib/model';
 import { addAllToSet } from '@lib/set';
 import { cutSubSegment } from './cut-subsegment.function';
 import { findEndOfPair } from './find-end-of-pair.function';
@@ -6,6 +7,7 @@ import { matrixFlipFlop } from './flip-flop.generator';
 import { flipMatrix } from './flip-matrix.function';
 import { partition } from './partition.function';
 import { rotateMatrix } from './rotate-matrix.function';
+import { slideWindow } from './slide-window.generator';
 
 declare global {
 	interface Array<T> {
@@ -27,9 +29,16 @@ declare global {
 		desc(): T[];
 		clone(): T[];
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
+		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
+
+Array.prototype.slideWindow = function <T, N extends number>(
+	windowSize: N = 2 as N
+): SizedTuple<T, N>[] {
+	return [...slideWindow(this, windowSize)];
+};
 
 Array.prototype.partition = function <T>(partitioner: (a: T) => boolean): [T[], T[]] {
 	return partition(this, partitioner);
