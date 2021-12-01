@@ -20,7 +20,9 @@ String.prototype.splitToInt = function (options?: {
 	delimiter?: { [Symbol.split](string: string, limit?: number): string[] };
 	toIntOptions?: { radix?: number; safe?: boolean };
 }): number[] {
-	return this.split(options?.delimiter ?? /\s+/g).toInt(options?.toIntOptions);
+	return this.split(options?.delimiter ?? /\s+/g)
+		.filter((line) => !!line) // Filter out empty lines
+		.toInt(options?.toIntOptions);
 };
 
 String.prototype.toMatrix = function (
