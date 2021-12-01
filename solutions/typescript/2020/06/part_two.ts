@@ -13,7 +13,7 @@ export const runner = (input: string): number =>
 					new Map<string, number>()
 				)
 				.values();
-			return [...letterCounts].filter((v) => v === group.length).length;
+			return [...letterCounts].count((v) => v === group.length);
 		})
 		.reduce(sum);
 

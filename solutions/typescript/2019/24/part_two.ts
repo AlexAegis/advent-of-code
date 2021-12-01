@@ -48,7 +48,7 @@ export const isDie = (adj: Vec3[], map: Map<number, Tile[][]>): boolean => {
 export const isBirth = (adj: Vec3[], map: Map<number, Tile[][]>): boolean => {
 	const adjBugs = adj
 		.map((a) => map.get(a.z)?.[a.y][a.x] ?? Tile.EMTPY)
-		.filter((t) => t === Tile.BUG).length;
+		.count((t) => t === Tile.BUG);
 	return adjBugs === 1 || adjBugs === 2;
 };
 
@@ -62,10 +62,10 @@ const shrink = (level: Map<number, Tile[][]>): void => {
 	const low = level.get(lowKey);
 	const highKey = [...level.keys()].reduce(max);
 	const high = level.get(highKey);
-	if (low && low.flat().filter((t) => t === Tile.BUG).length === 0) {
+	if (low && low.flat().count((t) => t === Tile.BUG) === 0) {
 		level.delete(lowKey);
 	}
-	if (high && high.flat().filter((t) => t === Tile.BUG).length === 0) {
+	if (high && high.flat().count((t) => t === Tile.BUG) === 0) {
 		level.delete(highKey);
 	}
 };
@@ -107,7 +107,7 @@ export const runner =
 			levels = nextLevels;
 			shrink(levels);
 		}
-		return [...levels.values()].flat(2).filter((t) => t === Tile.BUG).length;
+		return [...levels.values()].flat(2).count((t) => t === Tile.BUG);
 	};
 
 // istanbul ignore next

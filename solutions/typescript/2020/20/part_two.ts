@@ -46,7 +46,7 @@ export const runner = (input: string): number => {
 		}
 	}
 
-	// return [...allTiles.values()].filter((at) => !monsterTiles.has(at)).length;
+	// return [...allTiles.values()].count((at) => !monsterTiles.has(at));
 	return (mergedMap.match(/#/g)?.length ?? 0) - monsterTiles.size;
 };
 

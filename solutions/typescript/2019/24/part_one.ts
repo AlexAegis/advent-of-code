@@ -9,11 +9,11 @@ export enum Tile {
 }
 
 export const bugDie = (adj: Vec2[], map: Tile[][]): boolean => {
-	return adj.map((a) => map[a.y][a.x]).filter((t) => t === Tile.BUG).length !== 1;
+	return adj.map((a) => map[a.y][a.x]).count((t) => t === Tile.BUG) !== 1;
 };
 
 export const infest = (adj: Vec2[], map: Tile[][]): boolean => {
-	const adjBugs = adj.map((a) => map[a.y][a.x]).filter((t) => t === Tile.BUG).length;
+	const adjBugs = adj.map((a) => map[a.y][a.x]).count((t) => t === Tile.BUG);
 	return adjBugs === 1 || adjBugs === 2;
 };
 

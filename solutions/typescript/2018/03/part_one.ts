@@ -15,7 +15,7 @@ export const runner = (input: string): number => {
 			}
 		}
 	}
-	return [...fabric].filter(([_, v]) => v.length >= 2).length;
+	return [...fabric].count(([_, v]) => v.length >= 2);
 };
 
 // istanbul ignore next

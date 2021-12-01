@@ -29,7 +29,7 @@ export const parsePassports = (input: string): Partial<Passport>[] =>
 export const isPassport = (passport: Partial<Passport>): passport is Passport =>
 	Object.values(RelevantField).every((pf) => Object.keys(passport).find((k) => k === pf));
 
-export const runner = (input: string): number => parsePassports(input).filter(isPassport).length;
+export const runner = (input: string): number => parsePassports(input).count(isPassport);
 
 // istanbul ignore next
 if (require.main === module) {

@@ -15,7 +15,7 @@ export const mostLos = (flat: Vec2[]): CoordWithLosCount | undefined => {
 			losCount: flat
 				.filter((fo) => !fo.equals(f))
 				.map((o) => iterate(f.reach(o)).find((l) => !!flat.find((fl) => fl.equals(l))))
-				.filter((n) => !n).length,
+				.count((n) => !n),
 			coord: f,
 		}))
 		.reduce(

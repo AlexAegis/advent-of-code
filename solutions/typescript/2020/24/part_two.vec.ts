@@ -29,12 +29,12 @@ export const runner = (input: string): number => {
 		const whites = blackVecs.flatMap(getHexNeighbours).filter((w) => !blacks.has(w.toString()));
 
 		const toFlipBlacks = blackVecs.filter((bv) => {
-			const bn = getHexNeighbours(bv).filter((s) => blacks.has(s.toString())).length;
+			const bn = getHexNeighbours(bv).count((s) => blacks.has(s.toString()));
 			return bn === 0 || bn > 2;
 		});
 
 		const toFlipWhites = whites.filter((wv) => {
-			const bn = getHexNeighbours(wv).filter((s) => blacks.has(s.toString())).length;
+			const bn = getHexNeighbours(wv).count((s) => blacks.has(s.toString()));
 			return bn === 2;
 		});
 
