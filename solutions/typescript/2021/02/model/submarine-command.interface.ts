@@ -5,10 +5,12 @@ export interface SubmarineCommand {
 	amplitude: number;
 }
 
-export const parseSubmarineCommand = (line: string): SubmarineCommand | undefined => {
+export const parseSubmarineCommand = (line: string): SubmarineCommand => {
 	const [a, b] = line.split(' ');
 	if (isSubmarineInstruction(a)) {
 		const amplitude = parseInt(b, 10);
 		return { instruction: a, amplitude };
-	} else return undefined;
+	} else {
+		throw new Error(`Not a valid submarine command: ${line}`);
+	}
 };

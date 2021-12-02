@@ -9,7 +9,7 @@
 | Day                                     | Part One                                            | Part Two                                            |
 | --------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | [Day 1](/solutions/typescript/2021/01/) | [0.22ms](/solutions/typescript/2021/01/part_one.ts) | [0.39ms](/solutions/typescript/2021/01/part_two.ts) |
-| [Day 2](/solutions/typescript/2021/02/) | [0.34ms](/solutions/typescript/2021/02/part_one.ts) | [0.30ms](/solutions/typescript/2021/02/part_two.ts) |
+| [Day 2](/solutions/typescript/2021/02/) | [0.34ms](/solutions/typescript/2021/02/part_one.ts) | [0.34ms](/solutions/typescript/2021/02/part_two.ts) |
 | Day 3                                   |                                                     |                                                     |
 | Day 4                                   |                                                     |                                                     |
 | Day 5                                   |                                                     |                                                     |
