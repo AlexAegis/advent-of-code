@@ -9,12 +9,18 @@ declare global {
 		toMatrix(): string[][];
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
+		lines(keepEmpty?: boolean): string[];
 		splitToInt(options?: {
 			delimiter?: { [Symbol.split](string: string, limit?: number): string[] };
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): number[];
 	}
 }
+
+String.prototype.lines = function (keepEmpty = false): string[] {
+	const lines = this.split(/\n+/g);
+	return keepEmpty ? lines : lines.filter((line) => !!line);
+};
 
 String.prototype.splitToInt = function (options?: {
 	delimiter?: { [Symbol.split](string: string, limit?: number): string[] };
