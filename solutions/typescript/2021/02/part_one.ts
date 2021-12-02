@@ -1,27 +1,22 @@
 import { bench, read } from '@lib';
 import { Direction, Vec2 } from '@lib/model';
 import { day, year } from '.';
+import { parseSubmarineCommand } from './model';
 import { SubmarineInstruction } from './model/submarine-instruction.enum';
 
 export const runner = (input: string): number => {
 	const result = input
 		.lines()
-		.map((line) => {
-			const [dir, num] = line.split(' ');
-			const velocity = parseInt(num, 10);
+		.map(parseSubmarineCommand)
+		.reduce((acc, next) => {
 			let direction = Direction.EAST;
-			if (dir === SubmarineInstruction.UP) {
+			if (next.instruction === SubmarineInstruction.UP) {
 				direction = Direction.SOUTH;
-			} else if (dir === SubmarineInstruction.DOWN) {
+			} else if (next.instruction === SubmarineInstruction.DOWN) {
 				direction = Direction.NORTH;
 			}
-			return { direction, velocity };
-		})
-		.reduce(
-			(acc, next) => acc.addMut(next.direction, { times: next.velocity }),
-			Vec2.ORIGIN.clone()
-		);
-
+			return acc.addMut(direction, { times: next.amplitude });
+		}, Vec2.ORIGIN.clone());
 	return result.x * result.y;
 };
 
