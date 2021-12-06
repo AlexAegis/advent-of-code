@@ -5,7 +5,8 @@
  */
 export const posMod = (n: number, m: number): number => {
 	const mod = n % m;
-	return mod >= 0 ? mod : (mod + m) % m;
+	// Math abs eliminates -0
+	return Math.abs(mod >= 0 ? mod : (mod + m) % m);
 };
 
 /**
