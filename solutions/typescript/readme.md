@@ -6,33 +6,33 @@
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                                     | Part One                                             | Part Two                                             |
-| --------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| [Day 1](/solutions/typescript/2021/01/) | [0.22ms](/solutions/typescript/2021/01/part_one.ts)  | [0.39ms](/solutions/typescript/2021/01/part_two.ts)  |
-| [Day 2](/solutions/typescript/2021/02/) | [0.34ms](/solutions/typescript/2021/02/part_one.ts)  | [0.34ms](/solutions/typescript/2021/02/part_two.ts)  |
-| [Day 3](/solutions/typescript/2021/03/) | [0.12ms](/solutions/typescript/2021/03/part_one.ts)  | [0.65ms](/solutions/typescript/2021/03/part_two.ts)  |
-| [Day 4](/solutions/typescript/2021/04/) | [3.65ms](/solutions/typescript/2021/04/part_one.ts)  | [53.56ms](/solutions/typescript/2021/04/part_two.ts) |
-| [Day 5](/solutions/typescript/2021/05/) | [35.34ms](/solutions/typescript/2021/05/part_one.ts) | [70.71ms](/solutions/typescript/2021/05/part_two.ts) |
-| Day 6                                   |                                                      |                                                      |
-| Day 7                                   |                                                      |                                                      |
-| Day 8                                   |                                                      |                                                      |
-| Day 9                                   |                                                      |                                                      |
-| Day 10                                  |                                                      |                                                      |
-| Day 11                                  |                                                      |                                                      |
-| Day 12                                  |                                                      |                                                      |
-| Day 13                                  |                                                      |                                                      |
-| Day 14                                  |                                                      |                                                      |
-| Day 15                                  |                                                      |                                                      |
-| Day 16                                  |                                                      |                                                      |
-| Day 17                                  |                                                      |                                                      |
-| Day 18                                  |                                                      |                                                      |
-| Day 19                                  |                                                      |                                                      |
-| Day 20                                  |                                                      |                                                      |
-| Day 21                                  |                                                      |                                                      |
-| Day 22                                  |                                                      |                                                      |
-| Day 23                                  |                                                      |                                                      |
-| Day 24                                  |                                                      |                                                      |
-| Day 25                                  |                                                      |                                                      |
+| Day                                     | Part One                                              | Part Two                                             |
+| --------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |
+| [Day 1](/solutions/typescript/2021/01/) | [0.22ms](/solutions/typescript/2021/01/part_one.ts)   | [0.39ms](/solutions/typescript/2021/01/part_two.ts)  |
+| [Day 2](/solutions/typescript/2021/02/) | [0.34ms](/solutions/typescript/2021/02/part_one.ts)   | [0.34ms](/solutions/typescript/2021/02/part_two.ts)  |
+| [Day 3](/solutions/typescript/2021/03/) | [0.12ms](/solutions/typescript/2021/03/part_one.ts)   | [0.65ms](/solutions/typescript/2021/03/part_two.ts)  |
+| [Day 4](/solutions/typescript/2021/04/) | [3.65ms](/solutions/typescript/2021/04/part_one.ts)   | [53.56ms](/solutions/typescript/2021/04/part_two.ts) |
+| [Day 5](/solutions/typescript/2021/05/) | [35.34ms](/solutions/typescript/2021/05/part_one.ts)  | [70.71ms](/solutions/typescript/2021/05/part_two.ts) |
+| [Day 6](/solutions/typescript/2021/06/) | [118.92ms](/solutions/typescript/2021/06/part_one.ts) | [0.03ms](/solutions/typescript/2021/06/part_two.ts)  |
+| Day 7                                   |                                                       |                                                      |
+| Day 8                                   |                                                       |                                                      |
+| Day 9                                   |                                                       |                                                      |
+| Day 10                                  |                                                       |                                                      |
+| Day 11                                  |                                                       |                                                      |
+| Day 12                                  |                                                       |                                                      |
+| Day 13                                  |                                                       |                                                      |
+| Day 14                                  |                                                       |                                                      |
+| Day 15                                  |                                                       |                                                      |
+| Day 16                                  |                                                       |                                                      |
+| Day 17                                  |                                                       |                                                      |
+| Day 18                                  |                                                       |                                                      |
+| Day 19                                  |                                                       |                                                      |
+| Day 20                                  |                                                       |                                                      |
+| Day 21                                  |                                                       |                                                      |
+| Day 22                                  |                                                       |                                                      |
+| Day 23                                  |                                                       |                                                      |
+| Day 24                                  |                                                       |                                                      |
+| Day 25                                  |                                                       |                                                      |
 
 <!-- markdownlint-enable MD013 -->
 
