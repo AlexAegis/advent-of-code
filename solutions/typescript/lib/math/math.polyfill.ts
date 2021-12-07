@@ -2,6 +2,8 @@ import {
 	invMod,
 	invModBigInt,
 	isBetween,
+	lerp1D,
+	Lerp1DOptions,
 	modExp,
 	modExpBigInt,
 	posMod,
@@ -24,6 +26,7 @@ declare global {
 		isBetweenRange(range: Range<number>): boolean;
 		invMod(n: number): number;
 		modExp(b: number, n: number): number;
+		lerp(to: number, options?: Lerp1DOptions): number[];
 	}
 
 	interface BigInt {
@@ -41,6 +44,10 @@ declare global {
 		toInt(radix?: number): number | undefined;
 	}
 }
+
+Number.prototype.lerp = function (this: number, to: number, options?: Lerp1DOptions): number[] {
+	return lerp1D(this, to, options);
+};
 
 Number.prototype.posMod = function (this: number, m: number): number {
 	return posMod(this, m);
