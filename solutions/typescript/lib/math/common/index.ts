@@ -3,3 +3,4 @@ export * from './divisible.function';
 export * from './egcd.function';
 export * from './gcd.function';
 export * from './lcm.function';
+export * from './lerp1d.function';
