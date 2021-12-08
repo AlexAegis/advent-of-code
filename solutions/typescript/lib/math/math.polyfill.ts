@@ -42,6 +42,7 @@ declare global {
 
 	interface String {
 		toInt(radix?: number): number | undefined;
+		tryInt(radix?: number): number;
 	}
 }
 
@@ -86,6 +87,14 @@ BigInt.prototype.modExp = function (this: bigint, b: bigint, n: bigint): bigint 
 };
 
 String.prototype.toInt = function (this: string, radix = 10): number | undefined {
-	const n = parseInt(this, radix);
-	return isNaN(n) ? undefined : n;
+	const result = parseInt(this, radix);
+	return isNaN(result) ? undefined : result;
+};
+
+String.prototype.tryInt = function (this: string, radix = 10): number {
+	const result = parseInt(this, radix);
+	if (isNaN(result)) {
+		throw new Error(`Number::tryInt Converting '${this}' resulted in NaN!`);
+	}
+	return result;
 };
