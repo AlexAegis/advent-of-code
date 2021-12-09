@@ -2,11 +2,13 @@ import { Vec2 } from '@lib/model';
 import { NEWLINE } from '@lib/regex';
 import { rightSplit } from './right-split.function';
 import { stringToMatrix } from './string-to-matrix.function';
+import { stringToVectorMap } from './string-to-vectormap.function';
 import { vectorsInStringTile } from './vectors-in-string-tile.function';
 
 declare global {
 	interface String {
 		toMatrix(): string[][];
+		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<string, V>;
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];
@@ -16,6 +18,12 @@ declare global {
 		}): number[];
 	}
 }
+
+String.prototype.toVectorMap = function <V = string>(
+	valueConverter?: (value: string) => V
+): Map<string, V> {
+	return stringToVectorMap(this as string, valueConverter);
+};
 
 String.prototype.lines = function (keepEmpty = false): string[] {
 	const lines = this.split(/\n+/g);
