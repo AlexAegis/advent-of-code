@@ -6,6 +6,7 @@ import { findEndOfPair } from './find-end-of-pair.function';
 import { matrixFlipFlop } from './flip-flop.generator';
 import { flipMatrix } from './flip-matrix.function';
 import { partition } from './partition.function';
+import { peek } from './peek.function';
 import { rotateMatrix } from './rotate-matrix.function';
 import { slideWindow } from './slide-window.function';
 
@@ -29,11 +30,19 @@ declare global {
 		desc(): T[];
 		clone(): T[];
 		count(predicate: (t: T) => boolean): number;
+		/**
+		 * Returns the last element
+		 */
+		peek(): T;
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
+
+Array.prototype.peek = function <T>(): T {
+	return peek(this);
+};
 
 Array.prototype.count = function <T>(predicate: (t: T) => boolean): number {
 	let count = 0;
