@@ -1,3 +1,4 @@
+import { isNumberArray } from '@lib/functions';
 import { asc, desc, max, min, mult, sum } from '@lib/math';
 import { SizedTuple } from '@lib/model';
 import { addAllToSet } from '@lib/set';
@@ -5,6 +6,8 @@ import { cutSubSegment } from './cut-subsegment.function';
 import { findEndOfPair } from './find-end-of-pair.function';
 import { matrixFlipFlop } from './flip-flop.generator';
 import { flipMatrix } from './flip-matrix.function';
+import { mean } from './mean.function';
+import { median } from './median.function';
 import { partition } from './partition.function';
 import { peek } from './peek.function';
 import { rotateMatrix } from './rotate-matrix.function';
@@ -34,11 +37,33 @@ declare global {
 		 * Returns the last element
 		 */
 		peek(): T;
+		/**
+		 * Return the middle element
+		 */
+		median(): number;
+		/**
+		 * Return the average value of the array
+		 */
+		mean(): number;
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
+
+Array.prototype.mean = function (): number {
+	if (!isNumberArray(this)) {
+		throw new Error('Mean can only be calculated for number[]');
+	}
+	return mean(this);
+};
+
+Array.prototype.median = function (): number {
+	if (!isNumberArray(this)) {
+		throw new Error('Median can only be calculated for number[]');
+	}
+	return median(this);
+};
 
 Array.prototype.peek = function <T>(): T {
 	return peek(this);
