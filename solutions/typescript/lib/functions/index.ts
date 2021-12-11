@@ -6,6 +6,7 @@ export * from './frequency-map.function';
 export * from './generate-string-tile.function';
 export * from './identity.function';
 export * from './integer-length.function';
+export * from './is-numeric.function';
 export * from './is.function';
 export * from './memoize.function';
 export * from './merge-tile-matrix.function';
