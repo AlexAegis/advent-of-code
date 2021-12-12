@@ -1,7 +1,6 @@
 [workspace]
 members = [
 	"lib",
-	"aoc-derive",
 	"aoc-scaffold",
 	"aoc-scaffold/aoc-query",
 	"2015/01",
