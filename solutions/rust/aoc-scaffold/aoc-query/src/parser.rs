@@ -2,7 +2,7 @@ use ego_tree::NodeRef;
 use scraper::Node;
 use scraper::{Html, Selector};
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct Wrapper<'a> {
 	prefix: &'a str,
 	suffix: &'a str,
@@ -44,17 +44,8 @@ impl<'a> Wrapper<'a> {
 	}
 }
 
-impl<'a> Default for Wrapper<'a> {
-	fn default() -> Self {
-		Wrapper {
-			prefix: "",
-			suffix: "",
-		}
-	}
-}
-
 pub fn transform(html: &str, year: i16, day: i8) -> String {
-	let fragment = Html::parse_document(&html);
+	let fragment = Html::parse_document(html);
 	let selector = Selector::parse("main").unwrap();
 
 	let main = fragment.select(&selector).next().unwrap();
