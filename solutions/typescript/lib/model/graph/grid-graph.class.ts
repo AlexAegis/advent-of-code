@@ -86,7 +86,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 		} else {
 			keyStr = key;
 		}
-		return this.nodes.get(keyStr);
+		return super.getNode(keyStr);
 	}
 
 	public addNode(
