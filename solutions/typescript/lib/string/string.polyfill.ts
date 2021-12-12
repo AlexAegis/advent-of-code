@@ -20,8 +20,18 @@ declare global {
 			delimiter?: { [Symbol.split](string: string, limit?: number): string[] };
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): number[];
+		isLowerCase(): boolean;
+		isUpperCase(): boolean;
 	}
 }
+
+String.prototype.isLowerCase = function (): boolean {
+	return this.toLowerCase() === this;
+};
+
+String.prototype.isUpperCase = function (): boolean {
+	return this.toUpperCase() === this;
+};
 
 String.prototype.toGridGraph = function <T>(
 	gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
