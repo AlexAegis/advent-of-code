@@ -6,7 +6,7 @@ module.exports = {
 	'(*.json|.eslintrc|.prettierrc|.stylelintrc|.markdownlintrc)': [('eslint', 'prettier --check')],
 	'*.md': ["markdownlint --ignore 'CHANGELOG.md' --ignore-path '.gitignore'", 'prettier --check'],
 	'*.(yml|yaml)': ['prettier --check'],
-	'*.rs': ['cargo fmt -- --check'],
+	'*.rs': ['cargo fmt --all --manifest-path solutions/rust/Cargo.toml -- --check'],
 	'*.py': [
 		'sh -c "cd solutions/python && pipenv -v run lint"',
 		'sh -c "cd solutions/python && pipenv -v run test"',
