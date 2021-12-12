@@ -20,14 +20,14 @@ impl Instruction {
 }
 
 pub fn compute(mut v: Vec<usize>) -> Option<usize> {
-	let mut crs: usize = 0;
-	while let Some(i) = Instruction::new(v[crs]) {
-		let index = v[crs + 3];
+	let mut cursor: usize = 0;
+	while let Some(i) = Instruction::new(v[cursor]) {
+		let index = v[cursor + 3];
 		v[index] = match i {
-			Instruction::ADD => v[v[crs + 1]] + v[v[crs + 2]],
-			Instruction::MUL => v[v[crs + 1]] * v[v[crs + 2]],
+			Instruction::ADD => v[v[cursor + 1]] + v[v[cursor + 2]],
+			Instruction::MUL => v[v[cursor + 1]] * v[v[cursor + 2]],
 		};
-		crs += 4;
+		cursor += 4;
 	}
 	v.get(0).copied()
 }
