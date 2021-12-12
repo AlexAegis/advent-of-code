@@ -46,6 +46,7 @@ export class Direction extends Vec2 {
 
 	/**
 	 * Main directions
+	 * E, N, W, S
 	 *
 	 * Counter-Clockwise from east
 	 */
@@ -57,7 +58,8 @@ export class Direction extends Vec2 {
 	];
 
 	/**
-	 * Diagonal directions
+	 * Diagonal directions (Intercardinal)
+	 * NE, SE, SW, NW
 	 *
 	 * Clockwise from north
 	 */
@@ -70,10 +72,11 @@ export class Direction extends Vec2 {
 
 	/**
 	 * All 8 directions, cardinal and ordinal combined
+	 * E, NE, N, NW, W, SW, S, SE
 	 *
 	 * Counter-Clockwise from east
 	 */
-	public static readonly directions: Direction[] = [
+	public static readonly allDirections: Direction[] = [
 		Direction.EAST,
 		Direction.NORTHEAST,
 		Direction.NORTH,
@@ -143,8 +146,8 @@ export class Direction extends Vec2 {
 			throw new Error(`Angle must be a multiple of 45, it was ${angle} instead`);
 		}
 		const step = (this.angularValue + (angle % 360)) / 45;
-		return Direction.directions[
-			(step + Direction.directions.length) % Direction.directions.length
+		return Direction.allDirections[
+			(step + Direction.allDirections.length) % Direction.allDirections.length
 		];
 	}
 
