@@ -1,58 +1,42 @@
 import { bench, read } from '@lib';
-import { Direction, Vec2 } from '@lib/model';
+import { Direction } from '@lib/model';
+import { GridGraph } from '@lib/model/graph';
 import { day, year } from '.';
 
-const flash = (map: Map<string, number>, flashed: Set<string>) => {
-	let doAnother = false;
-	[...map.entries()]
-		.filter(([key, value]) => value > 9 && !flashed.has(key))
-		.forEach(([key]) => {
+const flash = (graph: GridGraph<number>, flashed = new Set<string>()): Set<string> => {
+	const flashes = [...graph.nodes]
+		.filter(([key, node]) => node.value > 9 && !flashed.has(key))
+		.tap(([key, node]) => {
 			flashed.add(key);
-			doAnother = true;
-			Direction.directions
-				.map((direction) => new Vec2(key).addMut(direction).toString())
-				.filter((neighbour) => map.has(neighbour))
-				.forEach((neighbour) => {
-					map.change(
-						neighbour,
-						(v) => v + 1,
-						() => 1
-					);
-				});
-		});
-	if (doAnother) {
-		flash(map, flashed);
+			[...node.neighbours.values()].forEach((neightbour) =>
+				neightbour.to.updateValue((v) => v + 1)
+			);
+		}).length;
+	if (flashes) {
+		flash(graph, flashed);
 	}
+	return flashed;
 };
 
-export const next = (map: Map<string, number>): number => {
-	const flashed = new Set<string>();
-	// Increment everything by 1
-	[...map.keys()].forEach((key) =>
-		map.change(
-			key,
-			(v) => v + 1,
-			() => 1
-		)
-	);
-
-	// Flash 9s
-	flash(map, flashed);
-	// All flashed set to 0
-	[...flashed.values()].forEach((key) => map.set(key, 0));
+export const next = (graph: GridGraph<number>): number => {
+	graph.forEach((node) => node.updateValue((v) => v + 1)); // Increment everything by 1
+	const flashed = flash(graph); // Flash 9s
+	flashed.forEach((key) => graph.getNode(key)?.setValue(0)); // All flashed set to 0
 	return flashed.size;
 };
 
-export const runner = (input: string): number => {
-	const om = input.toVectorMap((s) => s.tryInt());
-	let totalFlashes = 0;
-	for (let step = 0; step < 100; step++) {
-		totalFlashes += next(om);
-	}
-	return totalFlashes;
+export const runner = (input: string, totalSteps = 100): number => {
+	const graph = input.toGridGraph({
+		valueConverter: (s) => s.tryInt(),
+		connectionDirections: Direction.allDirections,
+	});
+	return totalSteps
+		.iterate()
+		.map(() => next(graph))
+		.sum();
 };
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 193275 ~10.45ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1669 ~4.74ms
 }

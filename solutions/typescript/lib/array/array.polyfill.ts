@@ -24,6 +24,7 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		has(item: T): boolean;
+		tap(callbackFn: (item: T) => void): T[];
 		toInt(options?: { radix?: number; safe?: boolean }): number[];
 		sum(): number;
 		product(): number;
@@ -50,6 +51,13 @@ declare global {
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 	}
 }
+
+Array.prototype.tap = function <T>(callbackFn: (item: T) => void): T[] {
+	for (const item of this) {
+		callbackFn(item);
+	}
+	return this;
+};
 
 Array.prototype.mean = function (): number {
 	if (!isNumberArray(this)) {

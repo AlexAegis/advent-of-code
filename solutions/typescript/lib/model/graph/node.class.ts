@@ -11,8 +11,20 @@ export class Node<T extends ToString, Dir extends ToString = Direction> implemen
 		this.values.push(...values);
 	}
 
-	public get value(): T | undefined {
+	public get value(): T {
 		return this.values[0];
+	}
+
+	public set value(t: T) {
+		this.values[0] = t;
+	}
+
+	public updateValue(change: (t: T) => T, index = 0): void {
+		this.values[index] = change(this.values[index]);
+	}
+
+	public setValue(t: T, index = 0): void {
+		this.values[index] = t;
 	}
 
 	public get bottomValue(): T | undefined {

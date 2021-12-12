@@ -44,6 +44,14 @@ export class Graph<
 		return s;
 	}
 
+	public get size(): number {
+		return this.nodes.size;
+	}
+
+	public forEach(callbackFn: (node: N) => void): void {
+		this.nodes.forEach(callbackFn);
+	}
+
 	public dijkstra(start: N | undefined, target: N | undefined, _doFull = false): N[] {
 		if (!start || !target) {
 			return [];
