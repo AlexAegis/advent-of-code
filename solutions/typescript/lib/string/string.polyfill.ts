@@ -1,4 +1,5 @@
 import { Vec2 } from '@lib/model';
+import { GridGraph, GridGraphOptions } from '@lib/model/graph';
 import { NEWLINE } from '@lib/regex';
 import { rightSplit } from './right-split.function';
 import { stringToMatrix } from './string-to-matrix.function';
@@ -8,6 +9,9 @@ import { vectorsInStringTile } from './vectors-in-string-tile.function';
 declare global {
 	interface String {
 		toMatrix(): string[][];
+		toGridGraph<T>(
+			gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
+		): GridGraph<T>;
 		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<string, V>;
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
@@ -18,6 +22,12 @@ declare global {
 		}): number[];
 	}
 }
+
+String.prototype.toGridGraph = function <T>(
+	gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
+): GridGraph<T> {
+	return GridGraph.fromString(this as string, gridOptions);
+};
 
 String.prototype.toVectorMap = function <V = string>(
 	valueConverter?: (value: string) => V

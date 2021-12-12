@@ -27,6 +27,7 @@ declare global {
 		invMod(n: number): number;
 		modExp(b: number, n: number): number;
 		lerp(to: number, options?: Lerp1DOptions): number[];
+		iterate(from?: number): number[];
 	}
 
 	interface BigInt {
@@ -45,6 +46,10 @@ declare global {
 		tryInt(radix?: number): number;
 	}
 }
+
+Number.prototype.iterate = function (this: number, from = 0): number[] {
+	return lerp1D(from, this, { excludeStart: false, excludeEnd: true });
+};
 
 Number.prototype.lerp = function (this: number, to: number, options?: Lerp1DOptions): number[] {
 	return lerp1D(this, to, options);

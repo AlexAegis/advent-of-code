@@ -1,4 +1,4 @@
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { NEWLINE } from '@lib/regex';
 import { stringToMatrix } from './string-to-matrix.function';
 
@@ -15,9 +15,9 @@ export const stringToVectorMap = <V = string>(
 	valueConverter?: (value: string) => V,
 	rowSeparator: RegExp | string = NEWLINE,
 	itemSeparator: RegExp | string = ''
-): Map<string, V> => {
+): Map<Vec2String, V> => {
 	const matrix = stringToMatrix(s, rowSeparator, itemSeparator);
-	const map = new Map<string, V>();
+	const map = new Map<Vec2String, V>();
 	for (let y = 0; y < matrix.length; y++) {
 		const row = matrix[y];
 		for (let x = 0; x < row.length; x++) {
