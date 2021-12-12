@@ -19,7 +19,7 @@
 | [Day 9](/solutions/typescript/2021/09/)  | [9.63ms](/solutions/typescript/2021/09/part_one.ts)   | [26.36ms](/solutions/typescript/2021/09/part_two.ts)  |
 | [Day 10](/solutions/typescript/2021/10/) | [0.27ms](/solutions/typescript/2021/10/part_one.ts)   | [0.30ms](/solutions/typescript/2021/10/part_two.ts)   |
 | [Day 11](/solutions/typescript/2021/11/) | [4.74ms](/solutions/typescript/2021/11/part_one.ts)   | [14.20ms](/solutions/typescript/2021/11/part_two.ts)  |
-| Day 12                                   |                                                       |                                                       |
+| [Day 12](/solutions/typescript/2021/12/) | [5.83ms](/solutions/typescript/2021/12/part_one.ts)   | [~42s](/solutions/typescript/2021/12/part_two.ts)     |
 | Day 13                                   |                                                       |                                                       |
 | Day 14                                   |                                                       |                                                       |
 | Day 15                                   |                                                       |                                                       |

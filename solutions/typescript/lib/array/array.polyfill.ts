@@ -1,4 +1,4 @@
-import { isNumberArray } from '@lib/functions';
+import { isNumberArray, nonNullish } from '@lib/functions';
 import { asc, desc, max, min, mult, sum } from '@lib/math';
 import { SizedTuple } from '@lib/model';
 import { addAllToSet } from '@lib/set';
@@ -46,11 +46,34 @@ declare global {
 		 * Return the average value of the array
 		 */
 		mean(): number;
+		mapFilter<V>(mapFn: (t: T) => V | undefined): V[];
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
+		unique(comparator?: (a: T, b: T) => boolean): T[];
 	}
 }
+
+Array.prototype.unique = function <T>(comparator?: (a: T, b: T) => boolean): T[] {
+	const result: T[] = [];
+	for (const item of this) {
+		if (!result.some((r) => (comparator ? comparator(r, item) : r === item))) {
+			result.push(item);
+		}
+	}
+	return result;
+};
+
+Array.prototype.mapFilter = function <T, V>(mapFn: (t: T) => V | undefined): V[] {
+	const result: V[] = [];
+	for (const item of this) {
+		const value = mapFn(item);
+		if (nonNullish(value)) {
+			result.push(value);
+		}
+	}
+	return result;
+};
 
 Array.prototype.tap = function <T>(callbackFn: (item: T) => void): T[] {
 	for (const item of this) {

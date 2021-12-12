@@ -18,6 +18,7 @@ export interface GraphTraversalOptions<N> {
 	recalc?: boolean; // evaluate need
 }
 
+// TODO take out DIR, it doesnt make sense here
 export class Graph<
 	T = string,
 	Dir extends ToString = Direction,
@@ -25,6 +26,48 @@ export class Graph<
 > {
 	public nodes = new Map<string, N>();
 	public vertices = new Set<Vertice<N>>();
+
+	public static fromUniqueValueVertices<T>(
+		vertices: { from: T; to: T; bidirection?: boolean }[],
+		keyer?: (t: T) => string,
+		forcedBidirection?: boolean
+	): Graph<T, number> {
+		const graph = new Graph<T, number>();
+		for (const vertice of vertices) {
+			const [, from] = graph.tryAddNode(vertice.from, keyer?.(vertice.from));
+			const [, to] = graph.tryAddNode(vertice.to, keyer?.(vertice.to));
+			const fromToVertice = { from, to };
+			graph.vertices.add(fromToVertice);
+			from.neighbours.set(from.neighbours.size + 1, fromToVertice);
+			if (forcedBidirection || (vertice.bidirection && forcedBidirection !== false)) {
+				const toFromVertice = { from: to, to: from };
+				graph.vertices.add(toFromVertice);
+				to.neighbours.set(to.neighbours.size + 1, toFromVertice);
+			}
+		}
+		return graph;
+	}
+
+	private tryAddNode(value: T, key?: string): [string, N] {
+		let existing: [string, N] | undefined;
+		if (key) {
+			const node = this.getNode(key);
+			existing = node ? [key, node] : undefined;
+		} else {
+			existing = [...this.nodes.entries()].find((existing) => existing[1].value === value);
+		}
+
+		if (existing) {
+			return existing;
+		} else {
+			const node = new Node(value) as N;
+			if (!key) {
+				key = (this.nodes.size + 1).toString();
+			}
+			this.nodes.set(key, node);
+			return [key, node];
+		}
+	}
 
 	private static generatePath<T, Dir extends ToString, N extends Node<T, Dir>>(
 		cameFrom: Map<N, N>,
@@ -42,6 +85,10 @@ export class Graph<
 			}
 		}
 		return s;
+	}
+
+	public getNode(key: string): N | undefined {
+		return this.nodes.get(key);
 	}
 
 	public get size(): number {
