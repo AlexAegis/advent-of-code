@@ -168,11 +168,11 @@ export class Vec2 implements Vec2Like {
 		return this;
 	}
 
-	public sub(o: Vec2, times = 1): Vec2 {
+	public sub(o: Vec2Like, times = 1): Vec2 {
 		return new Vec2(this.x - o.x * times, this.y - o.y * times);
 	}
 
-	public subMut(o: Vec2, times = 1): Vec2 {
+	public subMut(o: Vec2Like, times = 1): Vec2 {
 		this.x -= o.x * times;
 		this.y -= o.y * times;
 		return this;
