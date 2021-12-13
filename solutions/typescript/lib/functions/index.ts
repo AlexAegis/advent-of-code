@@ -16,6 +16,6 @@ export * from './num-start.function';
 export * from './output';
 export * from './pairs.function';
 export * from './perm.function';
-export * from './print-grid.function';
+export * from './print-vectors.function';
 export * from './rotate-array.function';
 export * from './using-map.function';
