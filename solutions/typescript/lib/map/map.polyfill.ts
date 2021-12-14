@@ -4,7 +4,6 @@ declare global {
 		isTheSameAs(other: Map<K, V>): boolean;
 		findKey(value: V): K | undefined;
 		update(key: K, change: (value: V | undefined) => V): Map<K, V>;
-		change(key: K, change: (value: V) => V, initialize: () => V): void;
 		copy(): Map<K, V>;
 		intoDictionary(): Record<string | number, V>;
 		intoArray(): [K, V][];
@@ -39,19 +38,6 @@ Map.prototype.update = function <K extends string | number, V>(
 ): Map<K, V> {
 	this.set(key, change(this.get(key)));
 	return this;
-};
-
-Map.prototype.change = function <K extends string | number, V>(
-	key: K,
-	change: (value: V) => V,
-	initialize: () => V
-): void {
-	const existing = this.get(key);
-	if (existing) {
-		this.set(key, change(existing));
-	} else {
-		this.set(key, initialize());
-	}
 };
 
 Map.prototype.findKey = function <K extends string | number, V>(value: V): K | undefined {
