@@ -15,6 +15,8 @@ import { slideWindow } from './slide-window.function';
 
 declare global {
 	interface Array<T> {
+		first(): T;
+		last(): T;
 		findEndOfPair(pairs: [T, T], from: number): number | undefined;
 		cutSubSegment(pairs: [T, T], from: number): T[] | undefined;
 		removeItem(item: T): boolean;
@@ -53,6 +55,14 @@ declare global {
 		unique(comparator?: (a: T, b: T) => boolean): T[];
 	}
 }
+
+Array.prototype.first = function <T>(): T {
+	return this[0];
+};
+
+Array.prototype.last = function <T>(): T {
+	return this[this.length - 1];
+};
 
 Array.prototype.unique = function <T>(comparator?: (a: T, b: T) => boolean): T[] {
 	const result: T[] = [];
