@@ -6,21 +6,13 @@ export const runner = (input: string, maxDay = 256): number => {
 	// period, fishCount
 	const groupedFishes = new Map<number, number>();
 	for (const fish of initial) {
-		groupedFishes.change(
-			fish,
-			(v) => v + 1,
-			() => 1
-		);
+		groupedFishes.update(fish, (value = 0) => value + 1);
 	}
 
 	let day = 0;
 	while (day < maxDay) {
 		const previous = groupedFishes.get(day % 9) ?? 0;
-		groupedFishes.change(
-			(day + 7) % 9,
-			(value) => value + previous,
-			() => previous
-		);
+		groupedFishes.update((day + 7) % 9, (value = 0) => value + previous);
 		day++;
 	}
 
@@ -29,5 +21,5 @@ export const runner = (input: string, maxDay = 256): number => {
 
 // istanbul ignore next
 if (require.main === module) {
-	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 7468 ~0.03ms
+	(async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 1634946868992 ~0.03ms
 }
