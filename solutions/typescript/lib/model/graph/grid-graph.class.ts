@@ -71,6 +71,10 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 		return graph;
 	}
 
+	public allCoordinates(): Vec2[] {
+		return [...this.nodes.keys()].map((key) => new Vec2(key));
+	}
+
 	public changeOf(key: Vec2Like | string, change: (t: T) => T): void {
 		this.getNode(key)?.updateValue(change);
 	}
@@ -94,7 +98,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 		weighter?: Weighter<N>,
 		connectionDirections: Direction[] = Direction.cardinalDirections
 	): N {
-		this.nodes.set(node.p.toString(), node);
+		this.nodes.set(node.coordinate.toString(), node);
 		node.attachNeightbours(this, connectionDirections, weighter);
 		return node;
 	}
@@ -124,13 +128,13 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	public toString(highlight?: GridNode<T>[], highlightCharacter = '0'): string {
 		const result: string[][] = [];
 		[...this.nodes.values()].forEach((node) => {
-			const row = (result[node.p.y] = result[node.p.y] ?? []);
+			const row = (result[node.coordinate.y] = result[node.coordinate.y] ?? []);
 			const v = node.value as { toString?: () => string };
-			row[node.p.x] = v?.toString ? v.toString() : ' ';
+			row[node.coordinate.x] = v?.toString ? v.toString() : ' ';
 		});
 		if (highlight) {
 			for (const node of highlight) {
-				result[node.p.y][node.p.x] = highlightCharacter;
+				result[node.coordinate.y][node.coordinate.x] = highlightCharacter;
 			}
 		}
 		return result.map((row) => row.join('')).join('\n');
