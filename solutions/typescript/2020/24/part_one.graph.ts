@@ -14,9 +14,8 @@ export const runner = (input: string): number => {
 	const tilesToFlip = parse(input);
 
 	const g = new Graph<TileColor, HexagonalDirection>();
-	const center = new Node<TileColor, HexagonalDirection>(TileColor.WHITE);
-	const centerKey = Vec2.ORIGIN.toString();
-	g.nodes.set(centerKey, center);
+	const center = new Node<TileColor, HexagonalDirection>(Vec2.ORIGIN.toString(), TileColor.WHITE);
+	g.nodes.set(center.key, center);
 
 	for (const ttf of tilesToFlip) {
 		let currentNode = center;
@@ -28,7 +27,8 @@ export const runner = (input: string): number => {
 				from: currentNode,
 				to: g.nodes.getOrAdd(
 					cursor.toString(),
-					() => new Node<TileColor, HexagonalDirection>(TileColor.WHITE)
+					() =>
+						new Node<TileColor, HexagonalDirection>(cursor.toString(), TileColor.WHITE)
 				),
 				weight: 1,
 			}));

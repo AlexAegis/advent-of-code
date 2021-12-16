@@ -14,7 +14,7 @@ export interface GraphTraversalOptions<N> {
 	// generateNode?: (graph: Graph<N>, path: Map<N, N>) => N | undefined;
 	verticeGenerator?: (nodeMap: Map<string, N>, from: N, path: N[]) => Generator<Vertice<N>>;
 	heuristic?: Heuristic<N>;
-	weigther?: Weighter<N>;
+	weighter?: Weighter<N>;
 	recalc?: boolean; // evaluate need
 }
 
@@ -60,10 +60,10 @@ export class Graph<
 		if (existing) {
 			return existing;
 		} else {
-			const node = new Node(value) as N;
 			if (!key) {
 				key = (this.nodes.size + 1).toString();
 			}
+			const node = new Node(key, value) as N;
 			this.nodes.set(key, node);
 			return [key, node];
 		}
@@ -178,7 +178,7 @@ export class Graph<
 		gScore.set(start, 0);
 
 		const fScore = new Map<N, number>(); // Infinity
-		fScore.set(start, h(start, cameFrom));
+		fScore.set(start, h(start, []));
 
 		let goal: N | undefined;
 
@@ -212,7 +212,7 @@ export class Graph<
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Infinity)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);
-					fScore.set(neighbour.to, tentativegScore + h(neighbour.to, cameFrom));
+					fScore.set(neighbour.to, tentativegScore + h(neighbour.to, currentPath));
 					if (!openSet.has(neighbour.to)) {
 						openSet.add(neighbour.to);
 					}

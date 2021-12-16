@@ -6,8 +6,12 @@ import { PortalGridGraph } from './portal-grid-graph.class';
 import { Vertice } from './vertice.type';
 
 export class PortalGridNode<T = string> extends GridNode<T> {
-	public constructor(public p: Vec2, public portalLabel: string | undefined, ...values: T[]) {
-		super(p, ...values);
+	public constructor(
+		public coordinate: Vec2,
+		public portalLabel: string | undefined,
+		...values: T[]
+	) {
+		super(coordinate, ...values);
 		if (portalLabel) {
 			// this.neighbours.set(portalLabel, { from: this, to: undefined, data: Infinity }); // portal
 		}

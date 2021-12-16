@@ -1,5 +1,5 @@
 export const printMatrix = (
-	matrix: string[][],
+	matrix: (string | number)[][],
 	flipVertical = false,
 	flipHorizontal = false
 ): string => {

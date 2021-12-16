@@ -7,7 +7,7 @@ export class Node<T extends ToString, Dir extends ToString = Direction> implemen
 
 	public values: T[] = [];
 
-	public constructor(...values: T[]) {
+	public constructor(public key: string, ...values: T[]) {
 		this.values.push(...values);
 	}
 

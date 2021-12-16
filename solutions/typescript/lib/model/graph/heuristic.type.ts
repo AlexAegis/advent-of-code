@@ -1,7 +1,7 @@
 /**
  * Determines a value to a node
  */
-export type Heuristic<N> = (n: N, path: Map<N, N>) => number;
+export type Heuristic<N> = (n: N, tentativePath: N[]) => number;
 /**
  * Determines a value to a vertice
  */

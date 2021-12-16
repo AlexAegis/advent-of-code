@@ -40,7 +40,7 @@ describe('Grid Graph', () => {
 			const g = GridGraph.fromMatrix(matrix);
 			const goal = g.getNode(finish)!;
 			const path = g.aStar(g.getNode(start), goal, {
-				heuristic: (a) => a.p.manhattan(goal.p),
+				heuristic: (a) => a.coordinate.manhattan(goal.coordinate),
 			});
 			expect(path.length).to.equal(10);
 		});
@@ -51,7 +51,7 @@ describe('Grid Graph', () => {
 			});
 			const goal = g.getNode(finish)!;
 			const path = g.aStar(g.getNode(start), goal, {
-				heuristic: (a) => a.p.manhattan(goal.p),
+				heuristic: (a) => a.coordinate.manhattan(goal.coordinate),
 			});
 			expect(path.length).to.equal(6);
 		});

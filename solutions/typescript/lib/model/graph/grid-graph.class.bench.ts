@@ -25,12 +25,16 @@ const graph = GridGraph.fromString(mazeStr, {
 graph.print();
 const start = graph.getNode(new Vec2(1, 1))!;
 const goal = graph.getNode(new Vec2(11, 12))!;
-const p = graph.aStar(start, goal, { weigther: (a, b) => a.p.dist(b.p) });
+const p = graph.aStar(start, goal, { weighter: (a, b) => a.coordinate.dist(b.coordinate) });
 console.log(graph.toString(p));
 
 defaultBench(
 	'Grid Graph',
 	add('Dijkstra', () => graph.dijkstra(start, goal)),
-	add('Astar', () => graph.aStar(start, goal, { weigther: (a, g) => a.p.dist(g.p) })),
-	add('Astar h2', () => graph.aStar(start, goal, { weigther: (a, g) => 140 - a.p.dist(g.p) }))
+	add('Astar', () =>
+		graph.aStar(start, goal, { weighter: (a, g) => a.coordinate.dist(g.coordinate) })
+	),
+	add('Astar h2', () =>
+		graph.aStar(start, goal, { weighter: (a, g) => 140 - a.coordinate.dist(g.coordinate) })
+	)
 );
