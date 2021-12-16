@@ -1,0 +1,100 @@
+import { read } from '@lib';
+import { expect } from 'chai';
+import { day, year } from '.';
+import { runner } from './part_one';
+
+describe('2021 - Day 16 - Part One', () => {
+	it(`should resolve when using the input`, async () => {
+		expect(await runner((await read(year, day)()).input)).to.equal(920);
+	});
+
+	describe('D2FE28', () => {
+		it('should resolve to 6', async () => {
+			expect(await runner('D2FE28')).to.equal(6);
+		});
+	});
+
+	describe('38006F45291200', () => {
+		it('should resolve to 9', async () => {
+			expect(await runner('38006F45291200')).to.equal(9);
+		});
+	});
+
+	describe('EE00D40C823060', () => {
+		it('should resolve to 14', async () => {
+			expect(await runner('EE00D40C823060')).to.equal(14);
+		});
+	});
+
+	describe('8A004A801A8002F478', () => {
+		it('should resolve to 16', async () => {
+			expect(await runner('8A004A801A8002F478')).to.equal(16);
+		});
+	});
+
+	describe('620080001611562C8802118E34', () => {
+		it('should resolve to 12', async () => {
+			expect(await runner('620080001611562C8802118E34')).to.equal(12);
+		});
+	});
+
+	describe('C0015000016115A2E0802F182340', () => {
+		it('should resolve to 23', async () => {
+			expect(await runner('C0015000016115A2E0802F182340')).to.equal(23);
+		});
+	});
+
+	describe('A0016C880162017C3686B18A3D4780', () => {
+		it('should resolve to 31', async () => {
+			expect(await runner('A0016C880162017C3686B18A3D4780')).to.equal(31);
+		});
+	});
+
+	describe('C200B40A82', () => {
+		it('should resolve to 14', async () => {
+			expect(await runner('C200B40A82')).to.equal(14);
+		});
+	});
+
+	describe('04005AC33890', () => {
+		it('should resolve to 8', async () => {
+			expect(await runner('04005AC33890')).to.equal(8);
+		});
+	});
+
+	describe('880086C3E88112', () => {
+		it('should resolve to 15', async () => {
+			expect(await runner('880086C3E88112')).to.equal(15);
+		});
+	});
+
+	describe('CE00C43D881120', () => {
+		it('should resolve to 11', async () => {
+			expect(await runner('CE00C43D881120')).to.equal(11);
+		});
+	});
+
+	describe('D8005AC2A8F0', () => {
+		it('should resolve to 13', async () => {
+			expect(await runner('D8005AC2A8F0')).to.equal(13);
+		});
+	});
+
+	describe('F600BC2D8F', () => {
+		it('should resolve to 19', async () => {
+			expect(await runner('F600BC2D8F')).to.equal(19);
+		});
+	});
+
+	describe('9C005AC2F8F0', () => {
+		it('should resolve to 16', async () => {
+			expect(await runner('9C005AC2F8F0')).to.equal(16);
+		});
+	});
+
+	describe('9C0141080250320F1802104A08', () => {
+		it('should resolve to 20', async () => {
+			expect(await runner('9C0141080250320F1802104A08')).to.equal(20);
+		});
+	});
+});
