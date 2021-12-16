@@ -1,3 +1,4 @@
+import { BoundingBox, boundingBoxOf } from '@lib/functions';
 import { Vec2 } from '@lib/model';
 import { stringToVectorMap } from '@lib/string';
 import { Direction } from '../direction.class';
@@ -69,6 +70,10 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 			graph.addNode(node, options?.weighter, options?.connectionDirections);
 		}
 		return graph;
+	}
+
+	public boundingBox(): BoundingBox {
+		return boundingBoxOf(this.allCoordinates());
 	}
 
 	public allCoordinates(): Vec2[] {
