@@ -85,7 +85,7 @@ export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
 export const runner = (input: string): number =>
 	GridGraph.fromMap(computeMap(input)[0])
 		.getIntersections((n) => n?.value === Tile.SCAFFOLD)
-		.map((i) => i.p.x * i.p.y)
+		.map((i) => i.coordinate.x * i.coordinate.y)
 		.reduce(sum, 0);
 
 // istanbul ignore next
