@@ -1,5 +1,5 @@
 import { bench, read } from '@lib';
-import { DirectionMarker, directionMarkerAssociationMap, Vec2 } from '@lib/model';
+import { DirectionMarker, directionMarkerAssociationMap, Vec2, Vec2String } from '@lib/model';
 import { day, year } from '.';
 
 export const runner = (input: string): number =>
@@ -11,7 +11,7 @@ export const runner = (input: string): number =>
 			return acc;
 		},
 		{
-			locations: new Map<string, number>([[new Vec2(0, 0).toString(), 1]]),
+			locations: new Map<Vec2String, number>([[new Vec2(0, 0).toString(), 1]]),
 			current: new Vec2(0, 0),
 		}
 	).locations.size;

@@ -1,4 +1,4 @@
-import { Vector } from '@lib/model/vector.class';
+import { Vector } from '@lib/model';
 
 export const parse = (input: string): Vector[][] => {
 	return input.split(/\r?\n/).map((line) =>

@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { is } from '@lib/functions';
-import { Area, Vec2 } from '@lib/model';
+import { Area, Vec2, Vec2String } from '@lib/model';
 import { day, year } from '.';
 import { parse, SeatState } from './parse.function';
 
@@ -15,7 +15,7 @@ const dirs = [
 	new Vec2(-1, 1),
 ];
 
-export const nextState = (v: Vec2, map: Map<string, SeatState>, limit: Area): SeatState => {
+export const nextState = (v: Vec2, map: Map<Vec2String, SeatState>, limit: Area): SeatState => {
 	const nextVisible = dirs.map((dir) => {
 		for (let next = v.add(dir); next.isWithin(limit); next.addMut(dir)) {
 			if (map.has(next.toString())) {
@@ -36,8 +36,8 @@ export const nextState = (v: Vec2, map: Map<string, SeatState>, limit: Area): Se
 	}
 };
 
-export const tick = (map: Map<string, SeatState>, limit: Area): Map<string, SeatState> => {
-	const nextMap = new Map<string, SeatState>();
+export const tick = (map: Map<Vec2String, SeatState>, limit: Area): Map<Vec2String, SeatState> => {
+	const nextMap = new Map<Vec2String, SeatState>();
 	[...map.keys()].forEach((key) => {
 		nextMap.set(key, nextState(new Vec2(key), map, limit));
 	});

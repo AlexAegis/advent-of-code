@@ -1,8 +1,8 @@
 import { bench, read } from '@lib';
-import { Direction, Vec2 } from '@lib/model';
+import { Direction, Vec2, Vec2String } from '@lib/model';
 import { day, year } from '.';
 
-export const getLowPoints = (map: Map<string, number>): [string, number][] =>
+export const getLowPoints = (map: Map<Vec2String, number>): [Vec2String, number][] =>
 	[...map.entries()].filter(([key, value]) => {
 		const coord = new Vec2(key);
 		return Direction.cardinalDirections

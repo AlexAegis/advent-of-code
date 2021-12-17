@@ -1,11 +1,6 @@
 import { bench, read } from '@lib';
-import { Vec2 } from '@lib/model';
 import { day, year } from '.';
-
-const parseLine = (line: string): { start: Vec2; end: Vec2 } => {
-	const [start, end] = line.split(' -> ').map((coordinate) => new Vec2(coordinate));
-	return { start, end };
-};
+import { parseLine } from './part_one';
 
 export const runner = (input: string): number => {
 	const lines = input.lines().map(parseLine);
