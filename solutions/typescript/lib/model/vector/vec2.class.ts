@@ -1,3 +1,4 @@
+import { BoundingBox } from '@lib/functions';
 import { gcd } from '@lib/math';
 import { NUM } from '@lib/regex';
 import { DirectionArrowSymbol } from '../direction/direction-arrow-symbol.enum';
@@ -8,11 +9,6 @@ import { DirectionMarker, isDirectionMarker } from '../direction/direction-marke
 export interface Vec2Like {
 	x: number;
 	y: number;
-}
-
-export interface Area {
-	cornerA: Vec2Like;
-	cornerB: Vec2Like;
 }
 
 export type Vec2String = `${number},${number}`;
@@ -91,24 +87,24 @@ export class Vec2 implements Vec2Like {
 		return Vec2.compareRowFirst(this, o);
 	}
 
-	public static isWithin(v: Vec2Like, area: Area): boolean {
+	public static isWithin(v: Vec2Like, area: BoundingBox): boolean {
 		return (
-			Math.min(area.cornerA.x, area.cornerB.x) <= v.x &&
-			v.x <= Math.max(area.cornerA.x, area.cornerB.x) &&
-			Math.min(area.cornerA.y, area.cornerB.y) <= v.y &&
-			v.y <= Math.max(area.cornerA.y, area.cornerB.y)
+			Math.min(area.topLeft.x, area.bottomRight.x) <= v.x &&
+			v.x <= Math.max(area.topLeft.x, area.bottomRight.x) &&
+			Math.min(area.topLeft.y, area.bottomRight.y) <= v.y &&
+			v.y <= Math.max(area.topLeft.y, area.bottomRight.y)
 		);
 	}
 
-	public isWithin(area: Area): boolean {
+	public isWithin(area: BoundingBox): boolean {
 		return Vec2.isWithin(this, area);
 	}
 
-	public clamp(area: Area): Vec2 {
-		const xMax = Math.max(area.cornerA.x, area.cornerB.x);
-		const yMax = Math.max(area.cornerA.y, area.cornerB.y);
-		const xMin = Math.min(area.cornerA.x, area.cornerB.x);
-		const yMin = Math.min(area.cornerA.y, area.cornerB.y);
+	public clamp(area: BoundingBox): Vec2 {
+		const xMax = Math.max(area.topLeft.x, area.bottomRight.x);
+		const yMax = Math.max(area.topLeft.y, area.bottomRight.y);
+		const xMin = Math.min(area.topLeft.x, area.bottomRight.x);
+		const yMin = Math.min(area.topLeft.y, area.bottomRight.y);
 
 		if (this.x > xMax) {
 			this.x = xMax;
@@ -129,7 +125,7 @@ export class Vec2 implements Vec2Like {
 		coord: Vec2Like,
 		options?: {
 			times?: number;
-			limit?: Area | ((v: Vec2Like) => boolean);
+			limit?: BoundingBox | ((v: Vec2Like) => boolean);
 		}
 	): Vec2 {
 		return this.clone().addMut(coord, options);
@@ -139,7 +135,7 @@ export class Vec2 implements Vec2Like {
 		v: Vec2Like,
 		options?: {
 			times?: number;
-			limit?: Area | ((v: Vec2Like) => boolean);
+			limit?: BoundingBox | ((v: Vec2Like) => boolean);
 			flipX?: boolean;
 			flipY?: boolean;
 		}
