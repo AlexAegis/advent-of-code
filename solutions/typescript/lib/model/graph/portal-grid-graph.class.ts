@@ -1,6 +1,6 @@
-import { Direction } from '../direction.class';
+import { Direction } from '../direction/direction.class';
 import { ToString } from '../to-string.interface';
-import { Vec2 } from '../vec2.class';
+import { Vec2 } from '../vector/vec2.class';
 import { GridGraph } from './grid-graph.class';
 import { GridNode } from './grid-node.class';
 import { Weighter } from './heuristic.type';
@@ -18,13 +18,11 @@ export class PortalGridGraph<
 		matrix: T[][],
 		options: {
 			weighter?: Weighter<PortalGridNode<T>>;
-			under?: (v: T) => T[];
 			filter?: (n: Vec2) => boolean;
 			portalOf: (n: Vec2) => string | undefined;
 			connectionDirections?: Direction[];
 		}
 	): PortalGridGraph<T, N> {
-		const under = options?.under ?? ((v: T) => [v]);
 		const weigther: Weighter<PortalGridNode<T>> =
 			options.weighter ??
 			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value !== b.value ? Infinity : 0));
@@ -37,7 +35,7 @@ export class PortalGridGraph<
 				const v = row[x];
 				const p = new Vec2(x, y);
 				if (!options.filter || options.filter(p)) {
-					const node = new PortalGridNode<T>(p, options.portalOf(p), ...under(v));
+					const node = new PortalGridNode<T>(p, options.portalOf(p), v);
 					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					node.attachNeightbours(graph as any, connectionDirections, weigther);
 				}

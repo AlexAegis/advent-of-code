@@ -1,38 +1,32 @@
 import { ToString } from '@lib/model/to-string.interface';
-import { Direction } from '../direction.class';
+import { Direction } from '../direction/direction.class';
 import { Vertice } from './vertice.type';
 
 export class Node<T extends ToString, Dir extends ToString = Direction> implements ToString {
 	public neighbours = new Map<Dir, Vertice<this>>();
 
-	public values: T[] = [];
+	public constructor(public key: string, public value: T) {}
 
-	public constructor(public key: string, ...values: T[]) {
-		this.values.push(...values);
+	public updateValue(change: (t: T) => T): this {
+		this.value = change(this.value);
+		return this;
 	}
 
-	public get value(): T {
-		return this.values[0];
-	}
-
-	public set value(t: T) {
-		this.values[0] = t;
-	}
-
-	public updateValue(change: (t: T) => T, index = 0): void {
-		this.values[index] = change(this.values[index]);
-	}
-
-	public setValue(t: T, index = 0): void {
-		this.values[index] = t;
-	}
-
-	public get bottomValue(): T | undefined {
-		return this.values[this.values.length - 1];
+	public setValue(t: T): this {
+		this.value = t;
+		return this;
 	}
 
 	*[Symbol.iterator](): IterableIterator<Vertice<this>> {
 		yield* this.neighbours.values();
+	}
+
+	public get neighbourNodes(): this[] {
+		return this.neighbourVertices.map((vertice) => vertice.to);
+	}
+
+	public get neighbourVertices(): Vertice<this>[] {
+		return [...this.neighbours.values()];
 	}
 
 	public *walk(visited: Set<this> = new Set()): IterableIterator<this> {
@@ -45,21 +39,11 @@ export class Node<T extends ToString, Dir extends ToString = Direction> implemen
 		}
 	}
 
-	public removeTop(): T | undefined {
-		return this.values.shift();
-	}
-
-	public putValue(v: T): this {
-		this.values.unshift(v);
-		return this;
-	}
-
-	public toString(layer = 0): string {
-		const toPrint = this.values.length > layer ? this.values[layer] : this.bottomValue;
-		if (typeof toPrint === 'string') {
-			return toPrint;
-		} else if ((toPrint as ToString).toString !== undefined) {
-			return (toPrint as ToString).toString();
+	public toString(): string {
+		if (typeof this.value === 'string') {
+			return this.value;
+		} else if ((this.value as ToString).toString !== undefined) {
+			return (this.value as ToString).toString();
 		} else {
 			return ' ';
 		}

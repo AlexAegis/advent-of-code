@@ -1,7 +1,6 @@
 import { bench, read } from '@lib';
 import { max, min } from '@lib/math';
-import { Direction } from '@lib/model';
-import { Vec3 } from '@lib/model/vec3.class';
+import { Direction, Vec3 } from '@lib/model';
 import { day, year } from '.';
 import { parse } from './parse';
 import { Tile } from './part_one';

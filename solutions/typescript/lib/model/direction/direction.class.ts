@@ -1,36 +1,43 @@
-import {
-	CardinalDirectionValueClockwise,
-	DirectionArrowSymbol,
-	DirectionCardinalGeographicLetter,
-	DirectionCardinalLiteralLetter,
-	DirectionMarker,
-} from './direction-marker.type';
-import { Vec2, Vec2Like } from './vec2.class';
+import { Vec2, Vec2Like, Vec2String } from '../vector/vec2.class';
+import { DirectionArrowSymbol } from './direction-arrow-symbol.enum';
+import { DirectionCardinalGeographicLetter } from './direction-cardinal-geographic-letter.enum';
+import { DirectionCardinalLiteralLetter } from './direction-cardinal-literal-letter.enum';
+import { DirectionCardinalNumericClockwiseIndex } from './direction-cardinal-numeric-clockwise-index.enum';
+import { DirectionMarker } from './direction-marker.type';
+
+export type DirectionNoopLetter = ' ';
 
 export class Direction extends Vec2 {
 	private constructor(marker: DirectionMarker);
-	private constructor(vec2: Vec2Like | string);
+	private constructor(vec2: Vec2Like | Vec2String);
 	private constructor(x: number, y: number);
-	private constructor(x: number | string | Vec2Like | DirectionMarker, y?: number);
-	private constructor(x: number | string | Vec2Like | DirectionMarker, y?: number) {
+	private constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number);
+	private constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number) {
 		super(x, y);
 	}
 
-	public get cardinalValue(): CardinalDirectionValueClockwise | undefined {
+	/**
+	 * Returns the cardinal index of this direction clockwise
+	 * NORTH: 0
+	 * EAST: 1
+	 * SOUTH: 2
+	 * WEST: 3
+	 */
+	public get cardinalValue(): DirectionCardinalNumericClockwiseIndex | undefined {
 		if (this.equals(Direction.NORTH)) {
-			return CardinalDirectionValueClockwise.NORTH;
+			return DirectionCardinalNumericClockwiseIndex.NORTH;
 		} else if (this.equals(Direction.EAST)) {
-			return CardinalDirectionValueClockwise.EAST;
+			return DirectionCardinalNumericClockwiseIndex.EAST;
 		} else if (this.equals(Direction.SOUTH)) {
-			return CardinalDirectionValueClockwise.SOUTH;
+			return DirectionCardinalNumericClockwiseIndex.SOUTH;
 		} else if (this.equals(Direction.WEST)) {
-			return CardinalDirectionValueClockwise.WEST;
+			return DirectionCardinalNumericClockwiseIndex.WEST;
 		} else {
 			return undefined;
 		}
 	}
 
-	public get reverseValue(): CardinalDirectionValueClockwise | undefined {
+	public get reverseValue(): DirectionCardinalNumericClockwiseIndex | undefined {
 		return Direction.reverseValue(this.cardinalValue);
 	}
 
@@ -50,12 +57,12 @@ export class Direction extends Vec2 {
 	 *
 	 * Counter-Clockwise from east
 	 */
-	public static readonly cardinalDirections: Direction[] = [
+	public static readonly cardinalDirections = Object.freeze([
 		Direction.EAST,
 		Direction.NORTH,
 		Direction.WEST,
 		Direction.SOUTH,
-	];
+	]);
 
 	/**
 	 * Diagonal directions (Intercardinal)
@@ -63,12 +70,12 @@ export class Direction extends Vec2 {
 	 *
 	 * Clockwise from north
 	 */
-	public static readonly ordinalDirections: Direction[] = [
+	public static readonly ordinalDirections = Object.freeze([
 		Direction.NORTHEAST,
 		Direction.SOUTHEAST,
 		Direction.SOUTHWEST,
 		Direction.NORTHWEST,
-	];
+	]);
 
 	/**
 	 * All 8 directions, cardinal and ordinal combined
@@ -76,7 +83,7 @@ export class Direction extends Vec2 {
 	 *
 	 * Counter-Clockwise from east
 	 */
-	public static readonly allDirections: Direction[] = [
+	public static readonly allDirections = Object.freeze([
 		Direction.EAST,
 		Direction.NORTHEAST,
 		Direction.NORTH,
@@ -85,7 +92,7 @@ export class Direction extends Vec2 {
 		Direction.SOUTHWEST,
 		Direction.SOUTH,
 		Direction.SOUTHEAST,
-	];
+	]);
 
 	public static isHorizonal(marker: DirectionMarker): boolean {
 		return (
@@ -114,17 +121,17 @@ export class Direction extends Vec2 {
 	}
 
 	public static reverseValue(
-		v?: CardinalDirectionValueClockwise
-	): CardinalDirectionValueClockwise | undefined {
+		v?: DirectionCardinalNumericClockwiseIndex
+	): DirectionCardinalNumericClockwiseIndex | undefined {
 		switch (v) {
-			case CardinalDirectionValueClockwise.NORTH:
-				return CardinalDirectionValueClockwise.SOUTH;
-			case CardinalDirectionValueClockwise.EAST:
-				return CardinalDirectionValueClockwise.WEST;
-			case CardinalDirectionValueClockwise.SOUTH:
-				return CardinalDirectionValueClockwise.NORTH;
-			case CardinalDirectionValueClockwise.WEST:
-				return CardinalDirectionValueClockwise.EAST;
+			case DirectionCardinalNumericClockwiseIndex.NORTH:
+				return DirectionCardinalNumericClockwiseIndex.SOUTH;
+			case DirectionCardinalNumericClockwiseIndex.EAST:
+				return DirectionCardinalNumericClockwiseIndex.WEST;
+			case DirectionCardinalNumericClockwiseIndex.SOUTH:
+				return DirectionCardinalNumericClockwiseIndex.NORTH;
+			case DirectionCardinalNumericClockwiseIndex.WEST:
+				return DirectionCardinalNumericClockwiseIndex.EAST;
 			default:
 				return undefined;
 		}

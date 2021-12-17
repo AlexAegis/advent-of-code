@@ -1,5 +1,5 @@
 import { bench, read } from '@lib';
-import { flattenVectors } from '@lib/model/vector.class';
+import { flattenVectors } from '@lib/model';
 import { day, year } from '.';
 import { parse } from './parse';
 

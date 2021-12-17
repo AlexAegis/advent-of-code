@@ -1,12 +1,9 @@
 import { gcd } from '@lib/math';
 import { NUM } from '@lib/regex';
-import {
-	DirectionArrowSymbol,
-	DirectionCardinalGeographicLetter,
-	DirectionCardinalLiteralLetter,
-	DirectionMarker,
-	isDirectionMarker,
-} from './direction-marker.type';
+import { DirectionArrowSymbol } from '../direction/direction-arrow-symbol.enum';
+import { DirectionCardinalGeographicLetter } from '../direction/direction-cardinal-geographic-letter.enum';
+import { DirectionCardinalLiteralLetter } from '../direction/direction-cardinal-literal-letter.enum';
+import { DirectionMarker, isDirectionMarker } from '../direction/direction-marker.type';
 
 export interface Vec2Like {
 	x: number;
@@ -27,10 +24,10 @@ export class Vec2 implements Vec2Like {
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
 	 */
 	public constructor(marker: DirectionMarker);
-	public constructor(vec2: Vec2Like | string);
+	public constructor(vec2: Vec2Like | Vec2String);
 	public constructor(x: number, y: number);
-	public constructor(x: number | string | Vec2Like | DirectionMarker, y?: number);
-	public constructor(x: number | string | Vec2Like | DirectionMarker, y?: number) {
+	public constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number);
+	public constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number) {
 		if (typeof x === 'object') {
 			this.x = x.x;
 			this.y = x.y;

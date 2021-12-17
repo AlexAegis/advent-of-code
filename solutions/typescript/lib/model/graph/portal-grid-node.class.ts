@@ -1,17 +1,13 @@
 import { Vec2 } from '@lib/model';
-import { Direction } from '../direction.class';
+import { Direction } from '../direction/direction.class';
 import { GridNode } from './grid-node.class';
 import { Weighter } from './heuristic.type';
 import { PortalGridGraph } from './portal-grid-graph.class';
 import { Vertice } from './vertice.type';
 
 export class PortalGridNode<T = string> extends GridNode<T> {
-	public constructor(
-		public coordinate: Vec2,
-		public portalLabel: string | undefined,
-		...values: T[]
-	) {
-		super(coordinate, ...values);
+	public constructor(public coordinate: Vec2, public portalLabel: string | undefined, value: T) {
+		super(coordinate, value);
 		if (portalLabel) {
 			// this.neighbours.set(portalLabel, { from: this, to: undefined, data: Infinity }); // portal
 		}
@@ -26,7 +22,7 @@ export class PortalGridNode<T = string> extends GridNode<T> {
 	public attachNeightbours(
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		graph: PortalGridGraph<T, any>,
-		directions: Direction[] = Direction.cardinalDirections,
+		directions = Direction.cardinalDirections,
 		weighter?: Weighter<this>
 	): void {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any

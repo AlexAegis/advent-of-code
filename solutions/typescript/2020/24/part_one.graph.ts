@@ -44,9 +44,9 @@ export const runner = (input: string): number => {
 			currentNode = nextNode;
 		}
 		if (currentNode.value === TileColor.BLACK) {
-			currentNode.putValue(TileColor.WHITE);
+			currentNode.setValue(TileColor.WHITE);
 		} else if (currentNode.value === TileColor.WHITE) {
-			currentNode.putValue(TileColor.BLACK);
+			currentNode.setValue(TileColor.BLACK);
 		}
 	}
 

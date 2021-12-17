@@ -9,8 +9,8 @@ import { Vertice } from './vertice.type';
  *
  */
 export class GridNode<T = string> extends Node<T, Direction> {
-	public constructor(public coordinate: Vec2, ...values: T[]) {
-		super(coordinate.toString(), ...values);
+	public constructor(public coordinate: Vec2, value: T) {
+		super(coordinate.toString(), value);
 	}
 
 	public get north(): Vertice<this> | undefined {
@@ -54,7 +54,7 @@ export class GridNode<T = string> extends Node<T, Direction> {
 
 	public attachNeightbours(
 		graph: Graph<T, Direction, this>,
-		directions: Direction[] = Direction.cardinalDirections,
+		directions = Direction.cardinalDirections,
 		weighter?: Weighter<this>
 	): void {
 		for (const dir of directions) {

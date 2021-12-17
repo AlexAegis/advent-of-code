@@ -1,4 +1,4 @@
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { GridGraph, GridGraphOptions } from '@lib/model/graph';
 import { NEWLINE } from '@lib/regex';
 import { rightSplit } from './right-split.function';
@@ -12,7 +12,7 @@ declare global {
 		toGridGraph<T>(
 			gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
 		): GridGraph<T>;
-		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<string, V>;
+		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<Vec2String, V>;
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];
@@ -41,7 +41,7 @@ String.prototype.toGridGraph = function <T>(
 
 String.prototype.toVectorMap = function <V = string>(
 	valueConverter?: (value: string) => V
-): Map<string, V> {
+): Map<Vec2String, V> {
 	return stringToVectorMap(this as string, valueConverter);
 };
 

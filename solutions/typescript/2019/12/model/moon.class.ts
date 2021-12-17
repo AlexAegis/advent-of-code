@@ -1,4 +1,4 @@
-import { Vec3 } from '@lib/model/vec3.class';
+import { Vec3 } from '@lib/model';
 
 export class Moon {
 	public constructor(public pos: Vec3, public vel: Vec3 = new Vec3(0, 0, 0)) {}

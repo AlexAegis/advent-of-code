@@ -2,7 +2,7 @@ import { bench, read } from '@lib';
 import { drawMapStatic, printMatrix } from '@lib/functions';
 import { IntCodeComputer } from '@lib/intcode';
 import { sum } from '@lib/math';
-import { Direction, DirectionArrowSymbol, Vec2 } from '@lib/model';
+import { Direction, DirectionArrowSymbol, Vec2, Vec2String } from '@lib/model';
 import { GridGraph } from '@lib/model/graph';
 import { day, year } from '.';
 import { parse } from './parse';
@@ -42,10 +42,10 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 	console.log(printMatrix(mat, true, false));
 };
 
-export const computeMap = (input: string): [Map<string, Tile>, Vacuum] => {
+export const computeMap = (input: string): [Map<Vec2String, Tile>, Vacuum] => {
 	const i = new IntCodeComputer(parse(input));
 	const it = i.iter();
-	const map = new Map<string, Tile>();
+	const map = new Map<Vec2String, Tile>();
 	const cursor = new Vec2(0, 0);
 	let vacuum!: Vacuum;
 	while (!i.isHalt()) {

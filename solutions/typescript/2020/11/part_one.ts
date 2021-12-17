@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
 import { is } from '@lib/functions';
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { day, year } from '.';
 import { parse, SeatState } from './parse.function';
 
@@ -27,8 +27,8 @@ export const nextState = (v: Vec2, map: Map<string, SeatState>): SeatState => {
 	}
 };
 
-export const tick = (map: Map<string, SeatState>): Map<string, SeatState> => {
-	const nextMap = new Map<string, SeatState>();
+export const tick = (map: Map<Vec2String, SeatState>): Map<Vec2String, SeatState> => {
+	const nextMap = new Map<Vec2String, SeatState>();
 	[...map.keys()].forEach((key) => {
 		nextMap.set(key, nextState(new Vec2(key), map));
 	});

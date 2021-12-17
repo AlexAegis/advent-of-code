@@ -36,8 +36,8 @@ export const under = (tile: Tile | Key | Door): (Tile | Key | Door)[] => {
 	}
 };
 
-export const draw = (m: Map<string, GridNode<string>>, size: Vec2, level = 0): void => {
-	const mat = drawMapStatic(m, (t) => t?.toString(level) ?? ' ', 0, size.y, 0, size.x, false);
+export const draw = (m: Map<string, GridNode<string>>, size: Vec2): void => {
+	const mat = drawMapStatic(m, (t) => t?.toString() ?? ' ', 0, size.y, 0, size.x, false);
 	console.log(printMatrix(mat, true, false));
 };
 
@@ -45,10 +45,10 @@ export const runner = (input: string): number => {
 	const matrix = parseLines(input);
 	const { size } = parseMatrix(matrix);
 	const inventory = new Set<Key>();
-	const graph = GridGraph.fromMatrix(matrix, { weighter: weighter(inventory), under });
-
+	const graph = GridGraph.fromMatrix(matrix, { weighter: weighter(inventory) });
+	GridGraph.toString();
 	// console.log('map: ', map, 'doors: ', doors, 'keys: ', keys, 'size: ', size, 'g', graph);
-	draw(graph.nodes, size, 0);
+	draw(graph.nodes, size);
 	return 0;
 };
 
