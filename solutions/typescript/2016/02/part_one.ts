@@ -1,5 +1,6 @@
 import { bench, read, split } from '@lib';
-import { Area, Direction, isDirectionMarker, Vec2 } from '@lib/model';
+import { BoundingBox } from '@lib/functions';
+import { Direction, isDirectionMarker, Vec2 } from '@lib/model';
 import { day, year } from '.';
 
 const toKeypadNumber = (vec: Vec2): number => (2 - vec.y) * 3 + vec.x + 1;
@@ -7,7 +8,7 @@ const toKeypadNumber = (vec: Vec2): number => (2 - vec.y) * 3 + vec.x + 1;
 export const runner = (input: string): number => {
 	const position = new Vec2(1, 1);
 
-	const keypadArea: Area = { cornerA: Vec2.ORIGIN, cornerB: new Vec2(2, 2) };
+	const keypadArea: BoundingBox = { topLeft: Vec2.ORIGIN, bottomRight: new Vec2(2, 2) };
 
 	const result = split(input).reduce((acc, line) => {
 		line.split('')
