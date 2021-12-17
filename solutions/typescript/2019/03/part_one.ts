@@ -1,6 +1,6 @@
 import { bench, read } from '@lib';
-import { Vec2 } from '@lib/model/vec2.class';
-import { flattenVectors } from '@lib/model/vector.class';
+import { flattenVectors } from '@lib/model';
+import { Vec2 } from '@lib/model/vector/vec2.class';
 import { day, year } from '.';
 import { parse } from './parse';
 

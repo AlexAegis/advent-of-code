@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Direction } from './direction.class';
+import { Direction } from './direction/direction.class';
 
 describe('Direction', () => {
 	it('should have correct angular values', () => {

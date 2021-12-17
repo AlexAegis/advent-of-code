@@ -1,9 +1,9 @@
-import { Direction, Vec2 } from '@lib/model';
+import { Direction, Vec2, Vec2String } from '@lib/model';
 
 export class Bingo {
-	numbers = new Map<string, number>();
+	numbers = new Map<Vec2String, number>();
 	coords = new Map<number, Vec2[]>();
-	markedNumbers = new Set<string>();
+	markedNumbers = new Set<Vec2String>();
 	size: number;
 	justMarked?: number;
 	won = false;

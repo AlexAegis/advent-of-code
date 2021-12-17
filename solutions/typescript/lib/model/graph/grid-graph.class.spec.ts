@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { Direction } from '../direction.class';
-import { Vec2 } from '../vec2.class';
+import { Direction } from '../direction/direction.class';
+import { Vec2 } from '../vector/vec2.class';
 import { GridGraph } from './grid-graph.class';
 
 describe('Grid Graph', () => {

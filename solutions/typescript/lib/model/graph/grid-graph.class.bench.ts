@@ -2,7 +2,7 @@ import { defaultBench } from '@lib/benchmark';
 import { add } from 'benny';
 import { GridGraph } from '.';
 import { Vec2 } from '..';
-import { Direction } from '../direction.class';
+import { Direction } from '../direction';
 
 const mazeStr = `#############
 #..##.....#.#
@@ -26,7 +26,11 @@ graph.print();
 const start = graph.getNode(new Vec2(1, 1))!;
 const goal = graph.getNode(new Vec2(11, 12))!;
 const p = graph.aStar(start, goal, { weighter: (a, b) => a.coordinate.dist(b.coordinate) });
-console.log(graph.toString(p));
+console.log(
+	graph.toString((node) =>
+		p.find((pc) => node.coordinate.equals(pc.coordinate)) ? '#' : undefined
+	)
+);
 
 defaultBench(
 	'Grid Graph',

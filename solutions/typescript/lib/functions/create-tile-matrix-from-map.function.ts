@@ -1,4 +1,4 @@
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { ToString } from '@lib/model/to-string.interface';
 import { NEWLINE } from '@lib/regex';
 import { findCorners } from './find-corners.function';
@@ -11,7 +11,7 @@ import { generateStringTile } from './generate-string-tile.function';
  * @param emptyTileBase
  */
 export const createTileMatrixFromMap = <T>(
-	tileMap: Map<string, T>,
+	tileMap: Map<Vec2String, T>,
 	tileToString: (t: T) => string = (t) => (t as ToString).toString?.() ?? '_',
 	emptyTileBase = '_'
 ): string[][] => {

@@ -1,4 +1,4 @@
-import { Direction } from './direction.class';
+import { Direction } from '../direction';
 import { Vec2 } from './vec2.class';
 
 /**

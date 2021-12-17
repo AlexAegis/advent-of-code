@@ -1,5 +1,5 @@
 import { bench, read } from '@lib';
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { Graph, Node } from '@lib/model/graph';
 import { day, year } from '.';
 import {
@@ -20,11 +20,11 @@ export const runner = (input: string): number => {
 	const expandNode = (
 		g: Graph<TileColor, HexagonalDirection>,
 		node: Node<TileColor, HexagonalDirection>,
-		key?: string
+		key?: Vec2String
 	) => {
 		const vs = key ?? g.nodes.findKey(node);
 		if (vs) {
-			const atCoord = new Vec2(vs);
+			const atCoord = new Vec2(vs as Vec2String);
 			for (const instruction in invertedHexagonalDirections) {
 				const cursor = atCoord
 					.clone()
@@ -69,12 +69,12 @@ export const runner = (input: string): number => {
 	const flipTile = (
 		g: Graph<TileColor, HexagonalDirection>,
 		node: Node<TileColor, HexagonalDirection>,
-		key?: string
+		key?: Vec2String
 	) => {
 		if (node.value === TileColor.BLACK) {
-			node.putValue(TileColor.WHITE);
+			node.setValue(TileColor.WHITE);
 		} else if (node.value === TileColor.WHITE) {
-			node.putValue(TileColor.BLACK);
+			node.setValue(TileColor.BLACK);
 			expandNode(g, node, key);
 		}
 	};
@@ -122,7 +122,7 @@ export const runner = (input: string): number => {
 		});
 
 		for (const [key, currentNode] of toFlip) {
-			flipTile(g, currentNode, key);
+			flipTile(g, currentNode, key as Vec2String);
 		}
 
 		// blackCount = [...g.nodes.values()].count((node) => node.value === TileColor.BLACK);

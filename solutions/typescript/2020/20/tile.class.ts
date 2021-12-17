@@ -1,5 +1,5 @@
 import { flipMatrix, rotateMatrix } from '@lib/array';
-import { Direction, Vec2 } from '@lib/model';
+import { Direction, Vec2, Vec2String } from '@lib/model';
 
 export class Tile {
 	tiles: string[][] = [];
@@ -83,7 +83,7 @@ export class Tile {
 		tile: Tile | undefined,
 		currentPosition: Vec2,
 		allTiles: Tile[],
-		tileMap: Map<string, Tile>,
+		tileMap: Map<Vec2String, Tile>,
 		checkedPositions = new Set<string>(),
 		found = new Set<Tile>()
 	): void {

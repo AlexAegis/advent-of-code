@@ -1,5 +1,5 @@
 import { split } from '@lib';
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 
 export enum SeatState {
 	FLOOR = '.',
@@ -9,9 +9,9 @@ export enum SeatState {
 
 export const parse = (
 	input: string
-): { seats: Map<string, SeatState>; height: number; width: number } => {
+): { seats: Map<Vec2String, SeatState>; height: number; width: number } => {
 	const lines = split(input);
-	const seats = new Map<string, SeatState>();
+	const seats = new Map<Vec2String, SeatState>();
 	let y = 0;
 	const height = lines.length;
 	const width = lines[0]?.length;

@@ -1,11 +1,11 @@
 import { bench, read } from '@lib';
 import { renderVectors } from '@lib/functions';
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { day, year } from '.';
 
 export const runner = (input: string): string => {
 	const [points, foldInstructions] = input.split(/\n\n/);
-	const vectors = points.lines().map((line) => new Vec2(line));
+	const vectors = points.lines().map((line) => new Vec2(line as Vec2String));
 
 	const folds = foldInstructions.lines().map((line) => {
 		const [, instruction] = line.split(/fold along /);

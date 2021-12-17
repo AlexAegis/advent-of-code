@@ -1,5 +1,6 @@
-import { Direction } from '../direction.class';
+import { Direction } from '../direction/direction.class';
 import { ToString } from '../to-string.interface';
+import { Vec2String } from '../vector/vec2.class';
 import { Heuristic, Weighter } from './heuristic.type';
 import { Node } from './node.class';
 import { Vertice } from './vertice.type';
@@ -48,6 +49,22 @@ export class Graph<
 		return graph;
 	}
 
+	public get nodeValues(): N[] {
+		return [...this.nodes.values()];
+	}
+
+	/**
+	 * Every node where the node and all its neighbours return true for the
+	 * matcher is considered an intersection.
+	 *
+	 * @param matcher
+	 */
+	public getIntersections(matcher: (node?: N) => boolean): N[] {
+		return this.nodeValues.filter(
+			(node) => matcher(node) && node.neighbourNodes.every((node) => matcher(node))
+		);
+	}
+
 	private tryAddNode(value: T, key?: string): [string, N] {
 		let existing: [string, N] | undefined;
 		if (key) {
@@ -87,7 +104,8 @@ export class Graph<
 		return s;
 	}
 
-	public getNode(key: string): N | undefined {
+	public getNode(key: string): N | undefined;
+	public getNode(key: string | Vec2String): N | undefined {
 		return this.nodes.get(key);
 	}
 

@@ -1,14 +1,14 @@
 import { bench, read } from '@lib';
 import { mergeTileMatrix } from '@lib/functions';
 import { createTileMatrixFromMap } from '@lib/functions/create-tile-matrix-from-map.function';
-import { Vec2 } from '@lib/model';
+import { Vec2, Vec2String } from '@lib/model';
 import { day, year } from '.';
 import { parse } from './parse.function';
 import { Tile } from './tile.class';
 
 export const runner = (input: string): number => {
 	const tiles = parse(input);
-	const tileMap = new Map<string, Tile>();
+	const tileMap = new Map<Vec2String, Tile>();
 	Tile.alignTiles(tiles[0], Vec2.ORIGIN, tiles, tileMap);
 
 	const mergedMap = mergeTileMatrix(createTileMatrixFromMap(tileMap, (t) => t.toString(false)));
