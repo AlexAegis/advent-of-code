@@ -36,11 +36,6 @@
 		"**/.git": true,
 		"**/.DS_Store": true
 	},
-	"files.associations": {
-		"*.json": "jsonc"
-	},
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"terminal.integrated.windowsEnableConpty": true,
 	"[rust]": {
 		"editor.defaultFormatter": "matklad.rust-analyzer"
 	},
@@ -66,7 +61,5 @@
 		"editor.defaultFormatter": "ms-python.vscode-pylance"
 	},
 	"prettier.prettierPath": "../../node_modules/prettier",
-	"mocha.files.glob": "src/**/*.spec.ts",
-	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
-	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"]
+	"mochaExplorer.mochaPath": "../../node_modules/mocha"
 }

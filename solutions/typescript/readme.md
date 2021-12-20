@@ -6,33 +6,33 @@
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                                      | Part One                                              | Part Two                                              |
-| ---------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| [Day 1](/solutions/typescript/2021/01/)  | [0.22ms](/solutions/typescript/2021/01/part_one.ts)   | [0.39ms](/solutions/typescript/2021/01/part_two.ts)   |
-| [Day 2](/solutions/typescript/2021/02/)  | [0.34ms](/solutions/typescript/2021/02/part_one.ts)   | [0.34ms](/solutions/typescript/2021/02/part_two.ts)   |
-| [Day 3](/solutions/typescript/2021/03/)  | [0.12ms](/solutions/typescript/2021/03/part_one.ts)   | [0.65ms](/solutions/typescript/2021/03/part_two.ts)   |
-| [Day 4](/solutions/typescript/2021/04/)  | [3.65ms](/solutions/typescript/2021/04/part_one.ts)   | [53.56ms](/solutions/typescript/2021/04/part_two.ts)  |
-| [Day 5](/solutions/typescript/2021/05/)  | [35.34ms](/solutions/typescript/2021/05/part_one.ts)  | [70.71ms](/solutions/typescript/2021/05/part_two.ts)  |
-| [Day 6](/solutions/typescript/2021/06/)  | [118.92ms](/solutions/typescript/2021/06/part_one.ts) | [0.03ms](/solutions/typescript/2021/06/part_two.ts)   |
-| [Day 7](/solutions/typescript/2021/07/)  | [23.57ms](/solutions/typescript/2021/07/part_one.ts)  | [712.10ms](/solutions/typescript/2021/07/part_two.ts) |
-| [Day 8](/solutions/typescript/2021/08/)  | [0.22ms](/solutions/typescript/2021/08/part_one.ts)   | [0.95ms](/solutions/typescript/2021/08/part_two.ts)   |
-| [Day 9](/solutions/typescript/2021/09/)  | [9.63ms](/solutions/typescript/2021/09/part_one.ts)   | [26.36ms](/solutions/typescript/2021/09/part_two.ts)  |
-| [Day 10](/solutions/typescript/2021/10/) | [0.27ms](/solutions/typescript/2021/10/part_one.ts)   | [0.30ms](/solutions/typescript/2021/10/part_two.ts)   |
-| [Day 11](/solutions/typescript/2021/11/) | [4.74ms](/solutions/typescript/2021/11/part_one.ts)   | [14.20ms](/solutions/typescript/2021/11/part_two.ts)  |
-| [Day 12](/solutions/typescript/2021/12/) | [5.83ms](/solutions/typescript/2021/12/part_one.ts)   | [~42s](/solutions/typescript/2021/12/part_two.ts)     |
-| [Day 13](/solutions/typescript/2021/13/) | [1.88ms](/solutions/typescript/2021/13/part_one.ts)   | [1.21ms](/solutions/typescript/2021/13/part_two.ts)   |
-| [Day 14](/solutions/typescript/2021/14/) | [1.82ms](/solutions/typescript/2021/14/part_one.ts)   | [1.13ms](/solutions/typescript/2021/14/part_two.ts)   |
-| [Day 15](/solutions/typescript/2021/15/) | [153.42ms](/solutions/typescript/2021/15/part_one.ts) | [~30s](/solutions/typescript/2021/15/part_two.ts)     |
-| [Day 16](/solutions/typescript/2021/16/) | [0.26ms](/solutions/typescript/2021/16/part_one.ts)   | [0.26ms](/solutions/typescript/2021/16/part_two.ts)   |
-| [Day 17](/solutions/typescript/2021/17/) | [73.71ms](/solutions/typescript/2021/17/part_one.ts)  | [75.94ms](/solutions/typescript/2021/17/part_two.ts)  |
-| Day 18                                   |                                                       |                                                       |
-| Day 19                                   |                                                       |                                                       |
-| Day 20                                   |                                                       |                                                       |
-| Day 21                                   |                                                       |                                                       |
-| Day 22                                   |                                                       |                                                       |
-| Day 23                                   |                                                       |                                                       |
-| Day 24                                   |                                                       |                                                       |
-| Day 25                                   |                                                       |                                                       |
+| Day                                      | Part One                                              | Part Two                                               |
+| ---------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| [Day 1](/solutions/typescript/2021/01/)  | [0.22ms](/solutions/typescript/2021/01/part_one.ts)   | [0.39ms](/solutions/typescript/2021/01/part_two.ts)    |
+| [Day 2](/solutions/typescript/2021/02/)  | [0.34ms](/solutions/typescript/2021/02/part_one.ts)   | [0.34ms](/solutions/typescript/2021/02/part_two.ts)    |
+| [Day 3](/solutions/typescript/2021/03/)  | [0.12ms](/solutions/typescript/2021/03/part_one.ts)   | [0.65ms](/solutions/typescript/2021/03/part_two.ts)    |
+| [Day 4](/solutions/typescript/2021/04/)  | [3.65ms](/solutions/typescript/2021/04/part_one.ts)   | [53.56ms](/solutions/typescript/2021/04/part_two.ts)   |
+| [Day 5](/solutions/typescript/2021/05/)  | [35.34ms](/solutions/typescript/2021/05/part_one.ts)  | [70.71ms](/solutions/typescript/2021/05/part_two.ts)   |
+| [Day 6](/solutions/typescript/2021/06/)  | [118.92ms](/solutions/typescript/2021/06/part_one.ts) | [0.03ms](/solutions/typescript/2021/06/part_two.ts)    |
+| [Day 7](/solutions/typescript/2021/07/)  | [23.57ms](/solutions/typescript/2021/07/part_one.ts)  | [712.10ms](/solutions/typescript/2021/07/part_two.ts)  |
+| [Day 8](/solutions/typescript/2021/08/)  | [0.22ms](/solutions/typescript/2021/08/part_one.ts)   | [0.95ms](/solutions/typescript/2021/08/part_two.ts)    |
+| [Day 9](/solutions/typescript/2021/09/)  | [9.63ms](/solutions/typescript/2021/09/part_one.ts)   | [26.36ms](/solutions/typescript/2021/09/part_two.ts)   |
+| [Day 10](/solutions/typescript/2021/10/) | [0.27ms](/solutions/typescript/2021/10/part_one.ts)   | [0.30ms](/solutions/typescript/2021/10/part_two.ts)    |
+| [Day 11](/solutions/typescript/2021/11/) | [4.74ms](/solutions/typescript/2021/11/part_one.ts)   | [14.20ms](/solutions/typescript/2021/11/part_two.ts)   |
+| [Day 12](/solutions/typescript/2021/12/) | [5.83ms](/solutions/typescript/2021/12/part_one.ts)   | [~42s](/solutions/typescript/2021/12/part_two.ts)      |
+| [Day 13](/solutions/typescript/2021/13/) | [1.88ms](/solutions/typescript/2021/13/part_one.ts)   | [1.21ms](/solutions/typescript/2021/13/part_two.ts)    |
+| [Day 14](/solutions/typescript/2021/14/) | [1.82ms](/solutions/typescript/2021/14/part_one.ts)   | [1.13ms](/solutions/typescript/2021/14/part_two.ts)    |
+| [Day 15](/solutions/typescript/2021/15/) | [153.42ms](/solutions/typescript/2021/15/part_one.ts) | [~30s](/solutions/typescript/2021/15/part_two.ts)      |
+| [Day 16](/solutions/typescript/2021/16/) | [0.26ms](/solutions/typescript/2021/16/part_one.ts)   | [0.26ms](/solutions/typescript/2021/16/part_two.ts)    |
+| [Day 17](/solutions/typescript/2021/17/) | [73.71ms](/solutions/typescript/2021/17/part_one.ts)  | [75.94ms](/solutions/typescript/2021/17/part_two.ts)   |
+| [Day 18](/solutions/typescript/2021/18/) | [70.82ms](/solutions/typescript/2021/18/part_one.ts)  | [1053.30ms](/solutions/typescript/2021/18/part_two.ts) |
+| Day 19                                   |                                                       |                                                        |
+| Day 20                                   |                                                       |                                                        |
+| Day 21                                   |                                                       |                                                        |
+| Day 22                                   |                                                       |                                                        |
+| Day 23                                   |                                                       |                                                        |
+| Day 24                                   |                                                       |                                                        |
+| Day 25                                   |                                                       |                                                        |
 
 <!-- markdownlint-enable MD013 -->
 

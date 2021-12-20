@@ -16,7 +16,7 @@
 			"args": ["${relativeFile}"],
 			"runtimeArgs": [
 				"-r",
-				"ts-node/register",
+				"ts-node/register/transpile-only",
 				"-r",
 				"tsconfig-paths/register",
 				"--max-old-space-size=8192"
