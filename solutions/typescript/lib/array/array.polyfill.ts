@@ -2,6 +2,7 @@ import { isNumberArray, nonNullish } from '@lib/functions';
 import { asc, desc, max, min, mult, sum } from '@lib/math';
 import { SizedTuple } from '@lib/model';
 import { addAllToSet } from '@lib/set';
+import { pairsWith } from '.';
 import { cutSubSegment } from './cut-subsegment.function';
 import { findEndOfPair } from './find-end-of-pair.function';
 import { matrixFlipFlop } from './flip-flop.generator';
@@ -53,8 +54,13 @@ declare global {
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 		unique(comparator?: (a: T, b: T) => boolean): T[];
+		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 	}
 }
+
+Array.prototype.pairsWith = function <T, N = T>(other?: N[], onlyUnique = false): [T, N][] {
+	return pairsWith(this, other, onlyUnique);
+};
 
 Array.prototype.first = function <T>(): T {
 	return this[0];

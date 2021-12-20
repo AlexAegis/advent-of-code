@@ -72,6 +72,11 @@
 	"rust-analyzer.linkedProjects": ["./solutions/rust/"],
 	"prettier.prettierPath": "./node_modules/prettier",
 	"mocha.files.glob": "src/**/*.spec.ts",
-	"mocha.node_options": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
-	"mocha.requires": ["ts-node/register", "tsconfig-paths/register"]
+	"mocha.node_options": [
+		"-r",
+		"ts-node/registe/transpile-onlyr",
+		"-r",
+		"tsconfig-paths/register"
+	],
+	"mocha.requires": ["ts-node/register/transpile-only", "tsconfig-paths/register"]
 }
