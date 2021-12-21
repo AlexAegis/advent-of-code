@@ -1,3 +1,4 @@
+export * from './add-within-range.function';
 export * from './clamp.function';
 export * from './divisible.function';
 export * from './egcd.function';

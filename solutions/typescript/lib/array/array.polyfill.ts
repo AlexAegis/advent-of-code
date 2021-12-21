@@ -29,6 +29,8 @@ declare global {
 		has(item: T): boolean;
 		tap(callbackFn: (item: T) => void): T[];
 		toInt(options?: { radix?: number; safe?: boolean }): number[];
+		intoIter(): IterableIterator<T>;
+		repeat(until?: (element: T, iteration: number) => boolean): IterableIterator<T>;
 		sum(): number;
 		product(): number;
 		min(): T;
@@ -57,6 +59,25 @@ declare global {
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 	}
 }
+
+Array.prototype.intoIter = function* <T>(): IterableIterator<T> {
+	for (const element of this) {
+		yield element;
+	}
+};
+
+Array.prototype.repeat = function* <T>(
+	until: (element: T, iteration: number) => boolean
+): IterableIterator<T> {
+	for (let i = 0; ; i++) {
+		for (const element of this) {
+			yield element;
+			if (until?.(element, i)) {
+				return;
+			}
+		}
+	}
+};
 
 Array.prototype.pairsWith = function <T, N = T>(other?: N[], onlyUnique = false): [T, N][] {
 	return pairsWith(this, other, onlyUnique);
