@@ -28,7 +28,7 @@
 | [Day 18](/solutions/typescript/2021/18/) | [70.82ms](/solutions/typescript/2021/18/part_one.ts)  | [1053.30ms](/solutions/typescript/2021/18/part_two.ts) |
 | Day 19                                   |                                                       |                                                        |
 | Day 20                                   |                                                       |                                                        |
-| Day 21                                   |                                                       |                                                        |
+| [Day 21](/solutions/typescript/2021/21/) | [0.14ms](/solutions/typescript/2021/21/part_one.ts)   | [0.0036ms](/solutions/typescript/2021/21/part_two.ts)  |
 | Day 22                                   |                                                       |                                                        |
 | Day 23                                   |                                                       |                                                        |
 | Day 24                                   |                                                       |                                                        |
