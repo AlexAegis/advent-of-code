@@ -1,4 +1,5 @@
 import {
+	addWithinRange,
 	invMod,
 	invModBigInt,
 	isBetween,
@@ -28,6 +29,7 @@ declare global {
 		modExp(b: number, n: number): number;
 		lerp(to: number, options?: Lerp1DOptions): number[];
 		iterate(from?: number): number[];
+		addWithinRange(add: number, fromOrTo?: number, to?: number): number;
 	}
 
 	interface BigInt {
@@ -46,6 +48,15 @@ declare global {
 		tryInt(radix?: number): number;
 	}
 }
+
+Number.prototype.addWithinRange = function (
+	this: number,
+	add: number,
+	fromOrTo?: number,
+	optionalTo?: number
+): number {
+	return addWithinRange(this, add, fromOrTo, optionalTo);
+};
 
 Number.prototype.iterate = function (this: number, from = 0): number[] {
 	return lerp1D(from, this, { excludeStart: false, excludeEnd: true });
