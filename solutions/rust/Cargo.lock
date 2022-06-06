@@ -294,7 +294,7 @@ dependencies = [
  "scraper",
  "serde",
  "serde_json",
- "tokio 0.2.24",
+ "tokio 1.8.4",
 ]
 
 [[package]]
@@ -309,7 +309,7 @@ dependencies = [
  "num-traits",
  "rayon",
  "regex",
- "tokio 1.0.1",
+ "tokio 1.8.4",
 ]
 
 [[package]]
@@ -1651,29 +1651,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "mio-named-pipes"
-version = "0.1.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0840c1c50fd55e521b247f949c241c9997709f23bd7f023b9762cd561e935656"
-dependencies = [
- "log",
- "mio 0.6.23",
- "miow 0.3.6",
- "winapi 0.3.9",
-]
-
-[[package]]
-name = "mio-uds"
-version = "0.6.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "afcb699eb26d4332647cc848492bbc15eafb26f08d0304550d5aa1f612e066f0"
-dependencies = [
- "iovec",
- "libc",
- "mio 0.6.23",
-]
-
-[[package]]
 name = "miow"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2307,7 +2284,7 @@ dependencies = [
  "cpt",
  "serde",
  "serde_json",
- "tokio 1.0.1",
+ "tokio 1.8.4",
 ]
 
 [[package]]
@@ -2765,24 +2742,17 @@ dependencies = [
  "futures-core",
  "iovec",
  "lazy_static",
- "libc",
  "memchr",
  "mio 0.6.23",
- "mio-named-pipes",
- "mio-uds",
- "num_cpus",
  "pin-project-lite 0.1.11",
- "signal-hook-registry",
  "slab",
- "tokio-macros 0.2.6",
- "winapi 0.3.9",
 ]
 
 [[package]]
 name = "tokio"
-version = "1.0.1"
+version = "1.8.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d258221f566b6c803c7b4714abadc080172b272090cdc5e244a6d4dd13c3a6bd"
+checksum = "50dae83881bc9b0403dd5b44ea9deed3e939856cc8722d5be37f0d6e5c6d53dd"
 dependencies = [
  "autocfg",
  "bytes 1.0.0",
@@ -2794,26 +2764,15 @@ dependencies = [
  "parking_lot",
  "pin-project-lite 0.2.3",
  "signal-hook-registry",
- "tokio-macros 1.0.0",
+ "tokio-macros",
  "winapi 0.3.9",
 ]
 
 [[package]]
 name = "tokio-macros"
-version = "0.2.6"
+version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e44da00bfc73a25f814cd8d7e57a68a5c31b74b3152a0a1d1f590c97ed06265a"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "tokio-macros"
-version = "1.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "42517d2975ca3114b22a16192634e8241dc5cc1f130be194645970cc1c371494"
+checksum = "9724f9a975fb987ef7a3cd9be0350edcbe130698af5b8f7a631e23d42d052484"
 dependencies = [
  "proc-macro2",
  "quote",
