@@ -1,7 +1,7 @@
-import { Vec2 } from '@lib/model';
-import { printMatrix } from '.';
+import type { BoundingBox } from '../model/vector/bounding-box.type.js';
+import { Vec2 } from '../model/vector/vec2.class.js';
+import { printMatrix } from './output/index.js';
 
-export type BoundingBox = { topLeft: Vec2; bottomRight: Vec2 };
 export const boundingBoxOf = (vects: Vec2[]): BoundingBox => {
 	let minX = 0;
 	let minY = 0;

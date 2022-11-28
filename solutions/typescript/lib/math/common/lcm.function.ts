@@ -1,4 +1,4 @@
-import { gcd } from './gcd.function';
+import { gcd } from './gcd.function.js';
 
 /**
  * Least common multiple

@@ -1,9 +1,9 @@
-export * from './combinatorics';
-export * from './common';
-export * from './discrete';
-export * from './huffman';
-export * from './lz';
-export * from './math.polyfill';
+export * from './combinatorics/index.js';
+export * from './common/index.js';
+export * from './discrete/index.js';
+export * from './huffman/index.js';
+export * from './lz/index.js';
+export * from './math.polyfill.js';
 
 export const max = (a: number, b: number): number => (a < b ? b : a);
 export const min = (a: number, b: number): number => (a > b ? b : a);

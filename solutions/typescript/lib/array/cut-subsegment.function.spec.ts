@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { cutSubSegment } from './cut-subsegment.function';
+import { describe, expect, it } from 'vitest';
+import { cutSubSegment } from './cut-subsegment.function.js';
 
 describe('cutSubSegment', () => {
 	it('should leave behind everything else but the matched part', () => {

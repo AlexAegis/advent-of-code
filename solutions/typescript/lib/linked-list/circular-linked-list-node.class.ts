@@ -1,4 +1,4 @@
-import { LinkedListNode } from './linked-list-node.class';
+import { LinkedListNode } from './linked-list-node.class.js';
 
 export class CircularLinkedListNode<T> extends LinkedListNode<T> {
 	public prev: CircularLinkedListNode<T>;

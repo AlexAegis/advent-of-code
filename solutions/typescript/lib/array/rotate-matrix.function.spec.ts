@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { rotateMatrix } from './rotate-matrix.function';
+import { describe, expect, it } from 'vitest';
+import { rotateMatrix } from './rotate-matrix.function.js';
 
 describe('rotateMatrix', () => {
 	const matrix = [

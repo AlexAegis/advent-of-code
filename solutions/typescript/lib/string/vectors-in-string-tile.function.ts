@@ -1,5 +1,5 @@
-import { Vec2 } from '@lib/model';
-import { NEWLINE } from '@lib/regex';
+import { Vec2 } from '../model/vector/vec2.class.js';
+import { NEWLINE } from '../regex/index.js';
 
 /**
  * Returns all the matching points from the tile as Vectors

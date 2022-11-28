@@ -1,5 +1,5 @@
-import { egcdBigInt } from '../common/egcd.function';
-import { posModBigInt } from './positive-modulo.function';
+import { egcdBigInt } from '../common/egcd.function.js';
+import { posModBigInt } from './positive-modulo.function.js';
 
 /**
  * Inverse Modulo
@@ -53,11 +53,9 @@ export const invModBigInt = (a: bigint, m: bigint): bigint => {
 /**
  * Inverse Modulo using egdc
  *
- * This one is slower than the non egdc variant
- *
  * @param a number
  * @param m modulo
- * @deprecated
+ * @deprecated this one is slower than the non egdc variant
  */
 export const invModEgdc = (a: number, m: number): number => {
 	return Number(invModEgdcBigInt(BigInt(a), BigInt(m)));
@@ -66,11 +64,9 @@ export const invModEgdc = (a: number, m: number): number => {
 /**
  * Inverse Module directly for bigints using egdc
  *
- * This one is slower than the non egdc variant
- *
  * @param a number
  * @param m modulo
- * @deprecated
+ * @deprecated this one is slower than the non egdc variant
  */
 export const invModEgdcBigInt = (a: bigint, m: bigint): bigint => {
 	const [g, x] = egcdBigInt(a, m);

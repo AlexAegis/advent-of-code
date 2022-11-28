@@ -1,4 +1,4 @@
-import { Vec2, Vec2Like } from '@lib/model';
+import { Vec2, Vec2Like } from '../model/index.js';
 
 export interface Corners<T extends Vec2Like> {
 	bottomLeft: T;

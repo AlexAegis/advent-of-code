@@ -1,5 +1,5 @@
-import { ToString } from '@lib/model/to-string.interface';
-import { NEWLINE } from '@lib/regex';
+import type { ToString } from '../model/index.js';
+import { NEWLINE } from '../regex/index.js';
 
 /**
  * Joins a matrix of strings together while respecting the newlines in them

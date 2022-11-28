@@ -1,11 +1,13 @@
-import { Vec2 } from '@lib/model';
-import { Direction } from '../direction/direction.class';
-import { GridNode } from './grid-node.class';
-import { Weighter } from './heuristic.type';
-import { PortalGridGraph } from './portal-grid-graph.class';
-import { Vertice } from './vertice.type';
+import { Direction } from '../direction/direction.class.js';
+import type { ToString } from '../to-string.interface.js';
+import type { Vec2 } from '../vector/vec2.class.js';
+import type { PortalGridGraph } from './grid-graph.class.js';
 
-export class PortalGridNode<T = string> extends GridNode<T> {
+import { GridNode } from './grid-node.class.js';
+import type { Weighter } from './heuristic.type.js';
+import type { Vertice } from './vertice.type.js';
+
+export class PortalGridNode<T extends ToString = string> extends GridNode<T> {
 	public constructor(public coordinate: Vec2, public portalLabel: string | undefined, value: T) {
 		super(coordinate, value);
 		if (portalLabel) {

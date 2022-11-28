@@ -1,74 +1,103 @@
 {
-	"name": "advent-of-code-workspace",
-	"displayName": "Advent of Code Solutions",
+	"name": "@alexaegis/advent-of-code-workspace",
 	"description": "Advent of Code Solutions",
 	"version": "1.0.0",
+	"license": "mit",
 	"author": {
 		"name": "Alex Aegis",
 		"email": "alexaegis@gmail.com",
 		"url": "https://github.com/AlexAegis"
 	},
 	"homepage": "https://github.com/AlexAegis",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AlexAegis/advent-of-code"
+	},
 	"bugs": {
 		"email": "alexaegis@gmail.com",
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/AlexAegis/advent-of-code/"
-	},
-	"categories": [
-		"Other"
-	],
-	"workspaces": [
-		"./solutions/typescript"
-	],
-	"license": "mit",
+	"type": "module",
 	"private": true,
+	"workspaces": [
+		"solutions/typescript/lib",
+		"solutions/typescript/2015/*",
+		"solutions/typescript/2016/*",
+		"solutions/typescript/2017/*",
+		"solutions/typescript/2018/*",
+		"solutions/typescript/2019/*",
+		"solutions/typescript/2020/*",
+		"solutions/typescript/2021/*",
+		"solutions/typescript/2022/*"
+	],
+	"keywords": [
+		"advent-of-code",
+		"turbo",
+		"eslint",
+		"tsconfig",
+		"ts",
+		"typescript",
+		"js",
+		"javascript"
+	],
+	"config": {
+		"engine-strict": true
+	},
+	"engines": {
+		"node": ">=16.10.0",
+		"vscode": "^1.73.1"
+	},
+	"packageManager": "pnpm@7.17.1",
 	"scripts": {
-		"lint": "npm run lint:md && npm run lint:rmd",
-		"lint:md": "markdownlint --ignore-path '.gitignore' .",
-		"lint:rmd": "remark .",
-		"fmt": "prettier --write .",
-		"fmt:check": "prettier --check .",
-		"postinstall": "husky install",
-		"prepublishOnly": "pinst --disable && npm run build",
-		"postpublish": "pinst --enable",
-		"ncu": "ncu -u && npm --workspaces run ncu",
-		"test": "npm --workspaces run test",
+		"build": "turbo run build --concurrency 6",
+		"start": "turbo run start --concurrency 6",
+		"test": "turbo run test --concurrency 6",
+		"lint": "turbo run lint --concurrency 6",
+		"lint:es": "turbo run lint:es --concurrency 6",
+		"lint:svelte": "turbo run lint:svelte --concurrency 6",
+		"lint:style": "turbo run lint:style --concurrency 6",
+		"lint:md": "turbo run lint:md --concurrency 6",
+		"lint:md:workspace": "markdownlint --ignore-path '.gitignore' --ignore CHANGELOG.md *.md",
+		"lint:rmd": "turbo run lint:rmd --concurrency 6",
+		"lint:format": "turbo run lint:format --concurrency 6",
+		"lint:format:workspace": "prettier --check *.{json,ts,js,mjs,md,yml,yaml}",
+		"postinstall": "husky install && turbo run build",
+		"ncu": "ncu --deep --peer --upgrade",
+		"format": "prettier --write .",
 		"nuke": "rimraf ./dist ./coverage ./.codacy-coverage ./cache ./node_modules ./package-lock.json ./yarn.lock ./pnpm-lock.yaml ./solutions/typescript/node_modules ./solutions/typescript/.nyc_output ./solutions/typescript/.benchmark ./solutions/typescript/coverage"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^15.0.0",
-		"@commitlint/config-conventional": "^15.0.0",
-		"@types/node": "^16.11.11",
-		"@typescript-eslint/eslint-plugin": "^5.5.0",
-		"@typescript-eslint/parser": "^5.5.0",
-		"commitlint": "^15.0.0",
-		"eslint": "^8.3.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"husky": "^7.0.4",
-		"lint-staged": "^12.1.2",
-		"markdownlint": "^0.24.0",
-		"markdownlint-cli": "^0.30.0",
-		"npm-check-updates": "^12.0.2",
+		"@commitlint/cli": "^17.3.0",
+		"@commitlint/config-conventional": "^17.3.0",
+		"@types/node": "^18.11.9",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"commitlint": "^17.3.0",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"husky": "^8.0.2",
+		"lint-staged": "^13.0.4",
+		"markdownlint": "^0.26.2",
+		"markdownlint-cli": "^0.32.2",
+		"npm-check-updates": "^16.4.3",
 		"nyc": "^15.1.0",
-		"pinst": "^2.1.6",
-		"prettier": "^2.5.0",
+		"pinst": "^3.0.0",
+		"prettier": "^2.8.0",
 		"remark": "^14.0.2",
-		"remark-cli": "^10.0.1",
-		"remark-lint-maximum-line-length": "^3.1.1",
-		"remark-preset-lint-consistent": "^5.1.0",
-		"remark-preset-lint-recommended": "^6.1.1",
+		"remark-cli": "^11.0.0",
+		"remark-lint-maximum-line-length": "^3.1.2",
+		"remark-preset-lint-consistent": "^5.1.1",
+		"remark-preset-lint-recommended": "^6.1.2",
 		"rimraf": "^3.0.2",
-		"ts-node": "10.4.0",
-		"tsconfig-paths": "^3.12.0",
-		"typescript": "4.5.2",
-		"yaml-lint": "^1.2.4"
-	},
-	"engines": {
-		"node": ">= 14.15.1",
-		"npm": "7.x"
+		"ts-node": "10.9.1",
+		"tsconfig-paths": "^4.1.0",
+		"typescript": "4.9.3",
+		"yaml-lint": "^1.7.0",
+		"turbo": "~1.6.3",
+		"vitest": "^0.25.3",
+		"@vitest/coverage-c8": "^0.25.3",
+		"@vitest/ui": "^0.25.3",
+		"vite": "^3.2.4"
 	}
 }

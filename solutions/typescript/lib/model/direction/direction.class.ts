@@ -1,9 +1,10 @@
-import { Vec2, Vec2Like, Vec2String } from '../vector/vec2.class';
-import { DirectionArrowSymbol } from './direction-arrow-symbol.enum';
-import { DirectionCardinalGeographicLetter } from './direction-cardinal-geographic-letter.enum';
-import { DirectionCardinalLiteralLetter } from './direction-cardinal-literal-letter.enum';
-import { DirectionCardinalNumericClockwiseIndex } from './direction-cardinal-numeric-clockwise-index.enum';
-import { DirectionMarker } from './direction-marker.type';
+import { Vec2 } from '../vector/vec2.class.js';
+import type { Vec2Like, Vec2String } from '../vector/vec2.class.types.js';
+import { DirectionArrowSymbol } from './direction-arrow-symbol.enum.js';
+import { DirectionCardinalGeographicLetter } from './direction-cardinal-geographic-letter.enum.js';
+import { DirectionCardinalLiteralLetter } from './direction-cardinal-literal-letter.enum.js';
+import { DirectionCardinalNumericClockwiseIndex } from './direction-cardinal-numeric-clockwise-index.enum.js';
+import type { DirectionMarker } from './direction-marker.type.js';
 
 export type DirectionNoopLetter = ' ';
 

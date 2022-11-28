@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { PairTree } from './pair-tree.class';
+import { describe, expect, it } from 'vitest';
+import { PairTree } from './pair-tree.class.js';
 
 describe('pair tree', () => {
 	let tree!: PairTree<number>;

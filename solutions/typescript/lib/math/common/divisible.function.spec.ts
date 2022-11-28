@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import { divisible } from './divisible.function';
+import { describe, expect, it } from 'vitest';
+import { divisible } from './divisible.function.js';
 
-describe('Divisible', () => {
+describe('divisible', () => {
 	it('should return true if divisible', async () => {
 		expect(divisible(4, 2)).to.be.true;
 	});

@@ -1,5 +1,5 @@
-import { NUM } from '@lib/regex';
-import { Vec3Like } from './vec3.class';
+import { NUM } from '../../regex/index.js';
+import type { Vec3Like } from './vec3.class.js';
 
 export interface Vec4Like extends Vec3Like {
 	w: number;

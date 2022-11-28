@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { findEndOfPair } from './find-end-of-pair.function';
+import { describe, expect, it } from 'vitest';
+import { findEndOfPair } from './find-end-of-pair.function.js';
 
 describe('findEndOfPair', () => {
 	const a = '(123)';

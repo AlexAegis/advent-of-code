@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { peek } from './peek.function';
+import { describe, expect, it } from 'vitest';
+import { peek } from './peek.function.js';
 
 describe('peek', () => {
 	it('should return the last value', () => {

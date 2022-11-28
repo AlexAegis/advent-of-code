@@ -32,6 +32,17 @@
 	},
 	"editor.fontLigatures": true,
 	"editor.mouseWheelZoom": true,
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"*.ts": "${capture}*",
+		"*.js": "${capture}*",
+		"*.jsx": "${capture}*",
+		"*.tsx": "${capture}*",
+		"*.json": "${capture}*",
+		".eslintrc.*": ".eslintignore",
+		".prettierrc.*": ".prettierignore",
+		".gitignore": ".gitattributes"
+	},
 	"files.exclude": {
 		"**/.git": true,
 		"**/.DS_Store": true
@@ -78,5 +89,9 @@
 		"-r",
 		"tsconfig-paths/register"
 	],
-	"mocha.requires": ["ts-node/register/transpile-only", "tsconfig-paths/register"]
+	"mocha.requires": ["ts-node/register/transpile-only", "tsconfig-paths/register"],
+	"stylelint.enable": true,
+	"stylelint.validate": ["css", "scss", "postcss"],
+	"vitest.enable": true,
+	"vitest.commandLine": "npx vitest --coverage"
 }

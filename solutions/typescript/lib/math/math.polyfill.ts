@@ -9,7 +9,7 @@ import {
 	modExpBigInt,
 	posMod,
 	posModBigInt,
-} from '@lib/math';
+} from '../math/index.js';
 
 export interface Range<T = number> {
 	low: T;

@@ -1,9 +1,10 @@
-import { Direction } from '../direction/direction.class';
-import { ToString } from '../to-string.interface';
-import { Vec2String } from '../vector/vec2.class';
-import { Heuristic, Weighter } from './heuristic.type';
-import { Node } from './node.class';
-import { Vertice } from './vertice.type';
+import type { Direction } from '../direction/direction.class.js';
+import type { ToString } from '../to-string.interface.js';
+import type { Vec2String } from '../vector/vec2.class.types.js';
+
+import type { Heuristic, Weighter } from './heuristic.type.js';
+import { Node } from './node.class.js';
+import type { Vertice } from './vertice.type.js';
 
 export interface GraphTraversalOptions<N> {
 	/**
@@ -21,14 +22,14 @@ export interface GraphTraversalOptions<N> {
 
 // TODO take out DIR, it doesnt make sense here
 export class Graph<
-	T = string,
+	T extends ToString = string,
 	Dir extends ToString = Direction,
 	N extends Node<T, Dir> = Node<T, Dir>
 > {
 	public nodes = new Map<string, N>();
 	public vertices = new Set<Vertice<N>>();
 
-	public static fromUniqueValueVertices<T>(
+	public static fromUniqueValueVertices<T extends ToString>(
 		vertices: { from: T; to: T; bidirection?: boolean }[],
 		keyer?: (t: T) => string,
 		forcedBidirection?: boolean
@@ -86,7 +87,7 @@ export class Graph<
 		}
 	}
 
-	private static generatePath<T, Dir extends ToString, N extends Node<T, Dir>>(
+	private static generatePath<T extends ToString, Dir extends ToString, N extends Node<T, Dir>>(
 		cameFrom: Map<N, N>,
 		start: N,
 		goal?: N

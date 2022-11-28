@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { stringToMatrix } from './string-to-matrix.function';
+import { describe, expect, it } from 'vitest';
+import { stringToMatrix } from './string-to-matrix.function.js';
 
 describe('stringToMatrix', () => {
 	it('should be able to split a string apart', () => {

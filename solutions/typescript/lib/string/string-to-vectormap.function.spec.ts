@@ -1,6 +1,6 @@
-import { Vec2 } from '@lib/model';
-import { expect } from 'chai';
-import { stringToVectorMap } from './string-to-vectormap.function';
+import { describe, expect, it } from 'vitest';
+import { Vec2 } from '../model/vector/vec2.class.js';
+import { stringToVectorMap } from './string-to-vectormap.function.js';
 
 describe('stringToVectormap', () => {
 	it('should be able to split a string apart', () => {

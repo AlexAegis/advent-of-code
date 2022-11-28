@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { vectorsInStringTile } from './vectors-in-string-tile.function';
+import { describe, expect, it } from 'vitest';
+import { vectorsInStringTile } from './vectors-in-string-tile.function.js';
 
 describe('vectorsInStringTile', () => {
 	const tile = '.#\n#.';

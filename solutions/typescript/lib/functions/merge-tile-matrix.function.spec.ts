@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { describe, expect, it } from 'vitest';
 import { mergeTileMatrix } from './merge-tile-matrix.function';
 
 describe('mergeTileMatrix', () => {

@@ -1,1 +1,1 @@
-export * from './cartesian.function';
+export * from './cartesian.function.js';

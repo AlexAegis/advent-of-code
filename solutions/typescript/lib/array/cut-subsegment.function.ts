@@ -1,4 +1,4 @@
-import { findEndOfPair } from './find-end-of-pair.function';
+import { findEndOfPair } from './find-end-of-pair.function.js';
 
 /**
  * Splices out a part of an array between a defined pair. Can optionally leave

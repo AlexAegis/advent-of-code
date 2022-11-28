@@ -1,4 +1,4 @@
-import { addAllToSet } from './add-all-to-set.function';
+import { addAllToSet } from './add-all-to-set.function.js';
 
 declare global {
 	interface Set<T> {

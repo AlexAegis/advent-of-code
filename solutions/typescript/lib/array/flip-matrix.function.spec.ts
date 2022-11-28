@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { flipMatrix } from './flip-matrix.function';
+import { describe, expect, it } from 'vitest';
+import { flipMatrix } from './flip-matrix.function.js';
 
 describe('flipMatrix', () => {
 	const matrix = [

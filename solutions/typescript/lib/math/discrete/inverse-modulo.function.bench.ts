@@ -1,6 +1,6 @@
-import { defaultBench } from '@lib/benchmark';
 import { add } from 'benny';
-import { invMod, invModBigInt, invModEgdc, invModEgdcBigInt } from './inverse-modulo.function';
+import { defaultBench } from '../../benchmark/index.js';
+import { invMod, invModBigInt, invModEgdc, invModEgdcBigInt } from './inverse-modulo.function.js';
 
 defaultBench(
 	'Inverse Modulo',

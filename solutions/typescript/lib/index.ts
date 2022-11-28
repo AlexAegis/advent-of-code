@@ -1,8 +1,10 @@
-import { promises } from 'fs';
+import { existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
+import { join, normalize } from 'node:path';
 import { performance, PerformanceObserver } from 'perf_hooks';
-import { MonoTypeOperatorFunction } from 'rxjs';
+import type { MonoTypeOperatorFunction } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { NEWLINE } from './regex';
+import { NEWLINE } from './regex/index.js';
 
 export type Awaitable<T> = Promise<T> | T;
 
@@ -76,6 +78,24 @@ export const split = (input: string, emptyLines = false): string[] => {
 	}
 };
 
+export const findNearestDirectoryNamed = (
+	directoryName: string,
+	cwd: string = process.cwd(),
+	collection: string[] = []
+): string | undefined => {
+	const path = normalize(cwd);
+	if (existsSync(join(path, directoryName))) {
+		return path;
+	}
+
+	const parentPath = join(path, '..');
+	if (parentPath !== path) {
+		return findNearestDirectoryNamed(directoryName, parentPath, collection);
+	} else {
+		return undefined;
+	}
+};
+
 /**
  * Factory function to create an input supplier
  *
@@ -86,17 +106,26 @@ export const split = (input: string, emptyLines = false): string[] => {
 export const read =
 	<A>(year: number, day: number, file = 'input.txt') =>
 	async (): Promise<Input<string, A>> => {
-		const baseUrl = `../../resources/${year}/${day < 10 ? '0' + day : day}/`;
+		const resourcesRoot = findNearestDirectoryNamed('resources');
+		if (!resourcesRoot) {
+			throw new Error('resource directory not found');
+		}
+
+		const baseUrl = join(
+			resourcesRoot,
+			'resources',
+			year.toString(),
+			day.toString().padStart(2, '0')
+		);
 
 		const [input, args] = await Promise.all([
-			promises.readFile(`${baseUrl}${file}`, {
+			readFile(join(baseUrl, file), {
 				encoding: 'utf-8',
 			}) as Promise<string>,
-			promises
-				.readFile(`${baseUrl}${file.split(/(.*)\..*/)[1]}.args.json`, {
-					encoding: 'utf-8',
-				})
-				.catch(() => undefined) as Promise<string>,
+			// TODO: redo with @aa/node-common (strip extension and replace)
+			readFile(join(baseUrl, `${file.split(/(.*)\..*/)[1]}.args.json`), {
+				encoding: 'utf-8',
+			}).catch(() => undefined) as Promise<string>,
 		]);
 
 		return { input, args: args && JSON.parse(args) };
@@ -136,4 +165,4 @@ export const bench = async <T, R = string, A = undefined>(
 	return result;
 };
 
-export * from './polyfills';
+export * from './polyfills/index.js';

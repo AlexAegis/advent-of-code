@@ -1,19 +1,22 @@
-import { BoundingBox, boundingBoxOf, hasToString } from '@lib/functions';
-import { Vec2 } from '@lib/model';
-import { stringToVectorMap } from '@lib/string';
-import { Direction } from '../direction/direction.class';
-import { ToString } from '../to-string.interface';
-import { Vec2Like, Vec2String } from '../vector/vec2.class';
-import { Graph } from './graph.class';
-import { GridNode } from './grid-node.class';
-import { Weighter } from './heuristic.type';
+import { hasToString } from '../../functions/assertions/has-to-string.assert.js';
+import { boundingBoxOf } from '../../functions/print-vectors.function.js';
+import { stringToVectorMap } from '../../string/string-to-vectormap.function.js';
+import { Direction } from '../direction/direction.class.js';
+import type { ToString } from '../to-string.interface.js';
+import type { BoundingBox } from '../vector/bounding-box.type.js';
+import { Vec2 } from '../vector/vec2.class.js';
+import type { Vec2Like, Vec2String } from '../vector/vec2.class.types.js';
+import { Graph } from './graph.class.js';
+import { GridNode } from './grid-node.class.js';
+import type { Weighter } from './heuristic.type.js';
+import { PortalGridNode } from './portal-grid-node.class.js';
 
-export interface GridGraphOptions<T> {
+export interface GridGraphOptions<T extends ToString> {
 	weighter?: Weighter<GridNode<T>>;
 	connectionDirections?: readonly Readonly<Direction>[];
 }
 
-export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
+export class GridGraph<T extends ToString = string, N extends GridNode<T> = GridNode<T>>
 	extends Graph<T, Direction, N>
 	implements ToString
 {
@@ -23,7 +26,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 		super();
 	}
 
-	private static fillDefaultGridGraphOptions<T>(
+	private static fillDefaultGridGraphOptions<T extends ToString>(
 		gridGraphOptions?: GridGraphOptions<T>
 	): Required<GridGraphOptions<T>> {
 		return {
@@ -36,9 +39,11 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	/**
 	 * @returns a GridGraph from a rectangle like string where every single character is a node
 	 */
-	public static fromString<T = string>(
+	public static fromString<T extends ToString = string>(
 		str: string,
-		gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
+		gridOptions?: GridGraphOptions<T> & {
+			valueConverter?: (value: string) => T;
+		}
 	): GridGraph<T> {
 		const normalizedGridOptions = GridGraph.fillDefaultGridGraphOptions(gridOptions);
 		const map = stringToVectorMap(str, gridOptions?.valueConverter);
@@ -48,7 +53,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	/**
 	 * @returns a GridGraph from a matrix
 	 */
-	public static fromMatrix<T = string>(
+	public static fromMatrix<T extends ToString = string>(
 		matrix: T[][],
 		options?: GridGraphOptions<T>
 	): GridGraph<T> {
@@ -68,7 +73,7 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 	/**
 	 * @returns a GridGraph from a Map where the keys are serialized Vec2s
 	 */
-	public static fromMap<T = string>(
+	public static fromMap<T extends ToString = string>(
 		map: Map<Vec2String, T>,
 		options?: GridGraphOptions<T>
 	): GridGraph<T> {
@@ -144,5 +149,48 @@ export class GridGraph<T = string, N extends GridNode<T> = GridNode<T>>
 
 	public print(nodeToString?: (node: GridNode<T>) => string): void {
 		console.log(this.toString(nodeToString));
+	}
+}
+
+/**
+ * ? Has to be here because of circular imports.
+ * TODO: Refactor it into a common graph solution that is not inheritance based.
+ */
+export class PortalGridGraph<
+	T extends ToString,
+	N extends GridNode<T> = PortalGridNode<T>
+> extends GridGraph<T, N> {
+	public constructor() {
+		super();
+	}
+
+	public static fromTorus<T extends ToString = string, N extends GridNode<T> = PortalGridNode<T>>(
+		matrix: T[][],
+		options: {
+			weighter?: Weighter<PortalGridNode<T>>;
+			filter?: (n: Vec2) => boolean;
+			portalOf: (n: Vec2) => string | undefined;
+			connectionDirections?: Direction[];
+		}
+	): PortalGridGraph<T, N> {
+		const weigther: Weighter<PortalGridNode<T>> =
+			options.weighter ??
+			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value !== b.value ? Infinity : 0));
+		const connectionDirections = options?.connectionDirections ?? Direction.cardinalDirections;
+
+		const graph = new PortalGridGraph<T, N>();
+		for (let y = 0; y < matrix.length; y++) {
+			const row = matrix[y];
+			for (let x = 0; x < row.length; x++) {
+				const v = row[x];
+				const p = new Vec2(x, y);
+				if (!options.filter || options.filter(p)) {
+					const node = new PortalGridNode<T>(p, options.portalOf(p), v);
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
+					node.attachNeightbours(graph as any, connectionDirections, weigther);
+				}
+			}
+		}
+		return graph;
 	}
 }

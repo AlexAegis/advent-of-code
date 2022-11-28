@@ -1,6 +1,6 @@
-import { Vec2 } from '@lib/model';
-import { expect } from 'chai';
-import { findCorners } from './find-corners.function';
+import { describe, expect, it } from 'vitest';
+import { Vec2 } from '../model/vector/vec2.class.js';
+import { findCorners } from './find-corners.function.js';
 
 describe('findCorners', () => {
 	const vectors = [new Vec2(0, 0), new Vec2(1, 1), new Vec2(1, 2)];

@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { lerp1D } from './lerp1d.function';
+import { describe, expect, it } from 'vitest';
+import { lerp1D } from './lerp1d.function.js';
 
 describe('LERP 1D', () => {
 	it('should return numbers from 2 to 6 when generating a range with boundaries', async () => {

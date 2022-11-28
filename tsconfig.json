@@ -1,7 +1,37 @@
 {
-	"references": [
-		{
-			"path": "solutions/typescript/tsconfig.json"
-		}
-	]
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "base",
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"outDir": "dist/out-tsc",
+		"composite": false,
+		"target": "es2022",
+		"module": "esnext",
+		"lib": ["es2022", "dom"],
+		"sourceMap": true,
+		"declaration": true,
+		"declarationMap": true,
+		"noUnusedLocals": false,
+		"moduleResolution": "nodenext",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"downlevelIteration": false,
+		"importHelpers": true,
+		"inlineSources": false,
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"checkJs": true,
+		"preserveWatchOutput": true,
+		"baseUrl": ".",
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"importsNotUsedAsValues": "error"
+	},
+	"include": ["*.ts", "*.mjs", "*.cjs", ".eslintrc.cjs"],
+	"exclude": ["node_modules", "tmp", "dist", "coverage"]
 }

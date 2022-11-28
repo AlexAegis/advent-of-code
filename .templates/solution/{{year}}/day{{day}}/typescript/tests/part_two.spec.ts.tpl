@@ -1,11 +1,15 @@
-import { read } from '@lib';
-import { expect } from 'chai';
+import { read } from '@alexaegis/advent-of-code-lib';
+import { describe, expect, it } from 'vitest';
+import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json' assert { type: 'json' };
 import { day, results, year } from '..';
 import { runner } from '../part_two';
 
 describe('${year} - Day ${day} - Part Two', () => {
 	it('should solve for the input', async () => {
-		expect(await runner((await read(year, day)()).input)).to.equal(results.two.input);
+		const input = await read(packageJson.aoc.year, packageJson.aoc.day)();
+		expect(runner(input.input)).to.equal(Infinity);
 	});
 
 	it('should be that that the first example resolves to 0', async () => {

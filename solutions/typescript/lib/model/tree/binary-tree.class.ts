@@ -1,4 +1,4 @@
-import { PairSide } from './pair-tree.class';
+import type { PairSide } from './pair-tree.class.js';
 
 export class BinaryTree<T = number> {
 	public parent?: BinaryTree<T>;

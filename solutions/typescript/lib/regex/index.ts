@@ -1,2 +1,2 @@
-export * from './number.regex';
-export * from './whitespace.regex';
+export * from './number.regex.js';
+export * from './whitespace.regex.js';

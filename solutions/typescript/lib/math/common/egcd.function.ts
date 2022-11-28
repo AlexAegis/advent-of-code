@@ -1,4 +1,4 @@
-import { posMod, posModBigInt } from '../discrete/positive-modulo.function';
+import { posMod, posModBigInt } from '../discrete/positive-modulo.function.js';
 
 /**
  * Greatest Common Divisor using the Extended Euclidean Algorithm

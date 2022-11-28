@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { nonNullish } from './non-nullish.function';
+import { describe, expect, it } from 'vitest';
+import { nonNullish } from './non-nullish.function.js';
 
 describe('Non Nullish', () => {
 	it('should return true for non nullish values', async () => {

@@ -1,2 +1,2 @@
-export * from './lz-pointer.class';
-export * from './lzw.class';
+export * from './lz-pointer.class.js';
+export * from './lzw.class.js';

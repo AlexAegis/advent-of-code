@@ -1,4 +1,4 @@
-import { invModBigInt } from './inverse-modulo.function';
+import { invModBigInt } from './inverse-modulo.function.js';
 
 export interface CongruentModulo<T extends number | bigint> {
 	remainder: T;
