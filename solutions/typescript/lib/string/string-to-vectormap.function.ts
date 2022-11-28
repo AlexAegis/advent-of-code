@@ -1,6 +1,6 @@
-import { Vec2, Vec2String } from '@lib/model';
-import { NEWLINE } from '@lib/regex';
-import { stringToMatrix } from './string-to-matrix.function';
+import { Vec2, Vec2String } from '../model/index.js';
+import { NEWLINE } from '../regex/index.js';
+import { stringToMatrix } from './string-to-matrix.function.js';
 
 /**
  * Splits a string into a matrix along row and item separators. By default it

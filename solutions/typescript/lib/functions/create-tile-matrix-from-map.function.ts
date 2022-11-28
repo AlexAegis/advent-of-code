@@ -1,8 +1,9 @@
-import { Vec2, Vec2String } from '@lib/model';
-import { ToString } from '@lib/model/to-string.interface';
-import { NEWLINE } from '@lib/regex';
-import { findCorners } from './find-corners.function';
-import { generateStringTile } from './generate-string-tile.function';
+import type { ToString } from '../model/to-string.interface.js';
+import { Vec2 } from '../model/vector/vec2.class.js';
+import type { Vec2String } from '../model/vector/vec2.class.types.js';
+import { NEWLINE } from '../regex/index.js';
+import { findCorners } from './find-corners.function.js';
+import { generateStringTile } from './generate-string-tile.function.js';
 
 /**
  *

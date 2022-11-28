@@ -1,17 +1,11 @@
-import { BoundingBox } from '@lib/functions';
-import { gcd } from '@lib/math';
-import { NUM } from '@lib/regex';
-import { DirectionArrowSymbol } from '../direction/direction-arrow-symbol.enum';
-import { DirectionCardinalGeographicLetter } from '../direction/direction-cardinal-geographic-letter.enum';
-import { DirectionCardinalLiteralLetter } from '../direction/direction-cardinal-literal-letter.enum';
-import { DirectionMarker, isDirectionMarker } from '../direction/direction-marker.type';
-
-export interface Vec2Like {
-	x: number;
-	y: number;
-}
-
-export type Vec2String = `${number},${number}`;
+import { gcd } from '../../math/common/gcd.function.js';
+import { NUM } from '../../regex/index.js';
+import { DirectionArrowSymbol } from '../direction/direction-arrow-symbol.enum.js';
+import { DirectionCardinalGeographicLetter } from '../direction/direction-cardinal-geographic-letter.enum.js';
+import { DirectionCardinalLiteralLetter } from '../direction/direction-cardinal-literal-letter.enum.js';
+import { DirectionMarker, isDirectionMarker } from '../direction/direction-marker.type.js';
+import type { BoundingBox } from './bounding-box.type.js';
+import type { Vec2Like, Vec2String } from './vec2.class.types.js';
 
 export class Vec2 implements Vec2Like {
 	public static ORIGIN = Object.freeze(new Vec2(0, 0));

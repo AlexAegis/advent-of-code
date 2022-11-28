@@ -1,3 +1,8 @@
 {
-	"recommendations": ["esbenp.prettier-vscode", "mhutchie.git-graph"]
+	"recommendations": [
+		"editorconfig.editorconfig",
+		"esbenp.prettier-vscode",
+		"mhutchie.git-graph",
+		"dbaeumer.vscode-eslint"
+	]
 }

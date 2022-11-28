@@ -1,4 +1,4 @@
-import { asc } from '@lib/math';
+import { asc } from '../math/index.js';
 
 export const median = (array: number[], skipSort = false): number => {
 	const sortedArray = skipSort ? array : [...array].sort(asc);

@@ -1,1 +1,1 @@
-export * from './map.polyfill';
+export * from './map.polyfill.js';

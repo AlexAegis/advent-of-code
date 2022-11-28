@@ -1,5 +1,5 @@
-import { ToString } from '@lib/model/to-string.interface';
-import { CircularLinkedListNode } from './circular-linked-list-node.class';
+import type { ToString } from '../functions/index.js';
+import { CircularLinkedListNode } from './circular-linked-list-node.class.js';
 
 export class CircularLinkedList<T> implements ToString {
 	public start: CircularLinkedListNode<T>;

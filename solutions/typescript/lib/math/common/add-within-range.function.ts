@@ -1,4 +1,4 @@
-import { nonNullish } from '@lib/functions';
+import { nonNullish } from '../../functions/non-nullish.function.js';
 
 /**
  * `to` is the last number included in the range!

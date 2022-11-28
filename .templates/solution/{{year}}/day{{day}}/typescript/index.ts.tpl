@@ -1,4 +1,4 @@
-import { DayResults } from '@lib';
+import { DayResults } from '@alexaegis/advent-of-code-lib';
 
 export const year = {{year}};
 export const day = {{short_day}};

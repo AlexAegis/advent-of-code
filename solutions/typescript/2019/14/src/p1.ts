@@ -1,0 +1,45 @@
+import { bench, read } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json' assert { type: 'json' };
+import { parse } from './parse.js';
+import type { Reaction } from './reaction.class.js';
+import { MainResource } from './resource.type.js';
+
+export const calcOreForSurplus = (surplus: Map<string, number>, reactions: Reaction[]): number => {
+	return [...surplus.entries()].reduce((a, [k, v]) => {
+		const m = new Map<string, number>();
+		const ocm = reactions.find((r) => r.to === k)?.oreCost(m) ?? 0;
+		let ex = 0;
+		if (m.size) {
+			ex = calcOreForSurplus(m, reactions);
+		}
+		return ocm * v + a + ex;
+	}, 0);
+};
+
+export const runner = (input: string): number | undefined => {
+	const reactions = parse(input);
+	const fuelReact = reactions.find((r) => r.to === MainResource.FUEL);
+
+	reactions.forEach((r) => {
+		reactions
+			.filter((pre) => r.from.has(pre.to))
+			.map((pre) => [pre, r.from.get(pre.to) as number])
+			.forEach(([pre, q]) => {
+				r.preceeding.add([pre as Reaction, q as number]);
+			});
+	});
+
+	const surplus = new Map<string, number>();
+	if (fuelReact) {
+		const a = fuelReact.oreCost(surplus);
+		// const asd = calcOreForSurplus(surplus, reactions);
+		return a;
+	}
+
+	return undefined;
+};
+
+if (process.env.RUN) {
+	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
+	console.log(`Result: ${await bench(input, runner)}`); // 783895 ~22ms
+}

@@ -1,11 +1,11 @@
-import { ToString } from '@lib/model/to-string.interface';
-import { LinkedListNode } from './linked-list-node.class';
+import type { ToString } from '../functions/index.js';
+import { LinkedListNode } from './linked-list-node.class.js';
 
 export class LinkedList<T> implements ToString {
 	public start?: LinkedListNode<T>;
 	public end?: LinkedListNode<T>;
 
-	#length = 0;
+	private _length = 0;
 
 	public constructor(...initialData: T[]) {
 		for (const item of initialData) {
@@ -24,12 +24,12 @@ export class LinkedList<T> implements ToString {
 				this.end.next = link;
 				this.end = link;
 			}
-			this.#length++;
+			this._length++;
 		}
 	}
 
 	get length(): number {
-		return this.#length;
+		return this._length;
 	}
 
 	*[Symbol.iterator](): IterableIterator<T> {

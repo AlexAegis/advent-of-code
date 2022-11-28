@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import { gcd } from './gcd.function';
+import { describe, expect, it } from 'vitest';
+import { gcd } from './gcd.function.js';
 
-describe('Greatest Common Divisor', () => {
+describe('gcd', () => {
 	it('should return 20 with 120 and -20', async () => {
 		expect(gcd(120, -20)).to.equal(20);
 	});

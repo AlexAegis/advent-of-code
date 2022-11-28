@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { median } from './median.function';
+import { describe, expect, it } from 'vitest';
+import { median } from './median.function.js';
 
 describe('median', () => {
 	it('should return get the middle one from an odd length array', () => {

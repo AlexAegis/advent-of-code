@@ -1,1 +1,1 @@
-export * from './benny.utils';
+export * from './benny.utils.js';

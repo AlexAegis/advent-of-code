@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { rightSplit } from './right-split.function';
+import { describe, expect, it } from 'vitest';
+import { rightSplit } from './right-split.function.js';
 
 describe('rightSplit', () => {
 	it('should be able to split a string apart', () => {

@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { addAllToSet } from './add-all-to-set.function';
+import { describe, expect, it } from 'vitest';
+import { addAllToSet } from './add-all-to-set.function.js';
 
 describe('addAllToSet', () => {
 	it('should create a set that has all the elements', () => {

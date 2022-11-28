@@ -1,23 +1,29 @@
-import { Vec2, Vec2String } from '@lib/model';
-import { GridGraph, GridGraphOptions } from '@lib/model/graph';
-import { NEWLINE } from '@lib/regex';
-import { rightSplit } from './right-split.function';
-import { stringToMatrix } from './string-to-matrix.function';
-import { stringToVectorMap } from './string-to-vectormap.function';
-import { vectorsInStringTile } from './vectors-in-string-tile.function';
+import type { ToString } from '../functions/index.js';
+import { GridGraph, GridGraphOptions } from '../model/graph/index.js';
+import type { Vec2, Vec2String } from '../model/index.js';
+import { NEWLINE } from '../regex/index.js';
+import { rightSplit } from './right-split.function.js';
+import { stringToMatrix } from './string-to-matrix.function.js';
+import { stringToVectorMap } from './string-to-vectormap.function.js';
+import { vectorsInStringTile } from './vectors-in-string-tile.function.js';
+export * from '../array/array.polyfill.js'; // `toInt` is used in `splitToInt`
 
 declare global {
 	interface String {
 		toMatrix(): string[][];
-		toGridGraph<T>(
-			gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
+		toGridGraph<T extends ToString>(
+			gridOptions?: GridGraphOptions<T> & {
+				valueConverter?: (value: string) => T;
+			}
 		): GridGraph<T>;
 		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<Vec2String, V>;
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];
 		splitToInt(options?: {
-			delimiter?: { [Symbol.split](string: string, limit?: number): string[] };
+			delimiter?: {
+				[Symbol.split](string: string, limit?: number): string[];
+			};
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): number[];
 		isLowerCase(): boolean;
@@ -33,8 +39,10 @@ String.prototype.isUpperCase = function (): boolean {
 	return this.toUpperCase() === this;
 };
 
-String.prototype.toGridGraph = function <T>(
-	gridOptions?: GridGraphOptions<T> & { valueConverter?: (value: string) => T }
+String.prototype.toGridGraph = function <T extends ToString>(
+	gridOptions?: GridGraphOptions<T> & {
+		valueConverter?: (value: string) => T;
+	}
 ): GridGraph<T> {
 	return GridGraph.fromString(this as string, gridOptions);
 };

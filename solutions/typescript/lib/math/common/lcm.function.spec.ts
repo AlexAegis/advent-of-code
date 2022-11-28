@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { lcm } from './lcm.function';
+import { describe, expect, it } from 'vitest';
+import { lcm } from './lcm.function.js';
 
 describe('Least common multiple', () => {
 	it('should return 120 with 120 and -20', async () => {

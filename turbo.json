@@ -1,0 +1,100 @@
+{
+	"$schema": "https://turborepo.org/schema.json",
+
+	"pipeline": {
+		"prebuild": {
+			"outputs": ["dist/**"],
+			"dependsOn": ["^//#prebuild:workspace"]
+		},
+		"//#prebuild:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"build": {
+			"env": ["BASE_HREF"],
+			"dependsOn": ["^prebuild", "^build", "^//#build:workspace"],
+			"outputs": ["dist/**"]
+		},
+		"//#build:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint": {
+			"outputs": [],
+			"dependsOn": [
+				"lint:es",
+				"lint:svelte",
+				"lint:style",
+				"lint:md",
+				"lint:rmd",
+				"lint:format"
+			]
+		},
+		"//#lint:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint:es": {
+			"outputs": [],
+			"dependsOn": ["^//#lint:es:workspace"]
+		},
+		"//#lint:es:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint:svelte": {
+			"outputs": [],
+			"dependsOn": ["^//#lint:svelte:workspace"]
+		},
+		"//#lint:svelte:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint:style": {
+			"outputs": [],
+			"dependsOn": ["^//#lint:style:workspace"]
+		},
+		"//#lint:style:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint:md": {
+			"outputs": [],
+			"dependsOn": ["^//#lint:md:workspace"]
+		},
+		"//#lint:md:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint:rmd": {
+			"outputs": [],
+			"dependsOn": ["^//#lint:rmd:workspace"]
+		},
+		"//#lint:rmd:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"lint:format": {
+			"outputs": [],
+			"dependsOn": ["^//#lint:format:workspace"]
+		},
+		"//#lint:format:workspace": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"typedoc": {
+			"outputs": ["typedoc/**"]
+		},
+		"test": {
+			"env": ["VITEST"],
+			"outputs": ["coverage"],
+			"dependsOn": ["build"]
+		},
+		"start": {
+			"cache": false
+		},
+		"dev": {
+			"cache": false
+		}
+	}
+}

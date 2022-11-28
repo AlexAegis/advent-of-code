@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { partition } from './partition.function';
+import { describe, expect, it } from 'vitest';
+import { partition } from './partition.function.js';
 
 describe('partition', () => {
 	it('should partition by evenness', () => {

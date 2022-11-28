@@ -1,2 +1,2 @@
-export * from './huffman-node.class';
-export * from './huffman.class';
+export * from './huffman-node.class.js';
+export * from './huffman.class.js';

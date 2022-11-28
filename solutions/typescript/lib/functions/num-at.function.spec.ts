@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { describe, expect, it } from 'vitest';
 import { numAt, numAtMath } from './num-at.function';
 
 describe('Number at', () => {

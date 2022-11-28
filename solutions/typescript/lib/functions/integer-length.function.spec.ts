@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { describe, expect, it } from 'vitest';
 import { integerLength, integerLengthMath } from './integer-length.function';
 
 describe('Integer length', () => {

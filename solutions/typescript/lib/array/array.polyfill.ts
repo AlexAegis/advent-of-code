@@ -1,18 +1,18 @@
-import { isNumberArray, nonNullish } from '@lib/functions';
-import { asc, desc, max, min, mult, sum } from '@lib/math';
-import { SizedTuple } from '@lib/model';
-import { addAllToSet } from '@lib/set';
-import { pairsWith } from '.';
-import { cutSubSegment } from './cut-subsegment.function';
-import { findEndOfPair } from './find-end-of-pair.function';
-import { matrixFlipFlop } from './flip-flop.generator';
-import { flipMatrix } from './flip-matrix.function';
-import { mean } from './mean.function';
-import { median } from './median.function';
-import { partition } from './partition.function';
-import { peek } from './peek.function';
-import { rotateMatrix } from './rotate-matrix.function';
-import { slideWindow } from './slide-window.function';
+import { isNumberArray, nonNullish } from '../functions/index.js';
+import { asc, desc, max, min, mult, sum } from '../math/index.js';
+import type { SizedTuple } from '../model/index.js';
+import { addAllToSet } from '../set/index.js';
+import { cutSubSegment } from './cut-subsegment.function.js';
+import { findEndOfPair } from './find-end-of-pair.function.js';
+import { matrixFlipFlop } from './flip-flop.generator.js';
+import { flipMatrix } from './flip-matrix.function.js';
+import { pairsWith } from './index.js';
+import { mean } from './mean.function.js';
+import { median } from './median.function.js';
+import { partition } from './partition.function.js';
+import { peek } from './peek.function.js';
+import { rotateMatrix } from './rotate-matrix.function.js';
+import { slideWindow } from './slide-window.function.js';
 
 declare global {
 	interface Array<T> {

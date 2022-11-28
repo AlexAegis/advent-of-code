@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { addWithinRange } from './add-within-range.function';
+import { describe, expect, it } from 'vitest';
+import { addWithinRange } from './add-within-range.function.js';
 
 describe('Add Withing Range', () => {
 	it('should return 2 when adding 4 to 8 within a range from 1 to 10', async () => {

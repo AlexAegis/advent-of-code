@@ -1,4 +1,4 @@
-import { nonNullish } from '@lib/functions';
+import { nonNullish } from '../../functions/index.js';
 
 export type NestedPairs<T> = [T | NestedPairs<T>, T | NestedPairs<T>];
 

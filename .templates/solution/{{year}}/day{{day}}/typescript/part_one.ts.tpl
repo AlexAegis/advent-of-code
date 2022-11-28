@@ -1,12 +1,12 @@
-import { bench, read } from '@lib';
-import { day, year } from '.';
+import { bench, read } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const runner = async (input: string) => {
 	return 0;
 };
 
-// istanbul ignore next
-if (require.main === module) {
-	(async () => console.log(`Result: ${await runner('')}`))();
-	// (async () => console.log(`Result: ${await bench(read(year, day), runner)}`))(); // 0 ~0ms
+if (process.env.RUN) {
+	console.log(`Result: ${await runner('')}`)
+	// const input = await read(packageJson.aoc.year, packageJson.aoc.day);
+	// console.log(`Result: ${await bench(input, runner)}`); // 0 ~0ms
 }

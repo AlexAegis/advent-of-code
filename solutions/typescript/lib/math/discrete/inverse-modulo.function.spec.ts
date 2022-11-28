@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { invModEgdc, invModEgdcBigInt } from './inverse-modulo.function';
+import { describe, expect, it } from 'vitest';
+import { invModEgdc, invModEgdcBigInt } from './inverse-modulo.function.js';
 
 describe('Inverse Modulo', () => {
 	it('should return 9 with 3 and 26', async () => {

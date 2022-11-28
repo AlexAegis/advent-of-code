@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { modExp, modExpBigInt } from './modular-exponentiation.function';
+import { describe, expect, it } from 'vitest';
+import { modExp, modExpBigInt } from './modular-exponentiation.function.js';
 
 describe('Modular Exponentiation', () => {
 	it('should return 11 with 11, 13 and 19', async () => {

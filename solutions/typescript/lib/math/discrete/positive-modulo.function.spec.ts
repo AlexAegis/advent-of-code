@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { posMod, posModBigInt } from './positive-modulo.function';
+import { describe, expect, it } from 'vitest';
+import { posMod, posModBigInt } from './positive-modulo.function.js';
 
 describe('Positive Modulo', () => {
 	it('should return 2 with 2 and 4', async () => {

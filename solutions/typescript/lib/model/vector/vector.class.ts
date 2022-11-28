@@ -1,5 +1,5 @@
-import { Direction } from '../direction';
-import { Vec2 } from './vec2.class';
+import { Direction } from '../direction/index.js';
+import { Vec2 } from './vec2.class.js';
 
 /**
  * R12, L32...
@@ -34,10 +34,16 @@ export const flattenVectors = (v: Vector[]): { c: Vec2; steps: number }[] => {
 			for (let d = 0; d < n.amount; d++) {
 				acc.curs.pos.addMut(n.direction);
 				acc.curs.step += 1;
-				acc.res.push({ c: new Vec2(acc.curs.pos), steps: acc.curs.step });
+				acc.res.push({
+					c: new Vec2(acc.curs.pos),
+					steps: acc.curs.step,
+				});
 			}
 			return acc;
 		},
-		{ res: [] as { c: Vec2; steps: number }[], curs: { pos: new Vec2(0, 0), step: 0 } }
+		{
+			res: [] as { c: Vec2; steps: number }[],
+			curs: { pos: new Vec2(0, 0), step: 0 },
+		}
 	).res;
 };

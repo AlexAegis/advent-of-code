@@ -1,6 +1,6 @@
-import { gcd } from '@lib/math';
-import { NUM } from '@lib/regex';
-import { Vec2Like } from './vec2.class';
+import { gcd } from '../../math/index.js';
+import { NUM } from '../../regex/index.js';
+import type { Vec2Like } from './vec2.class.types.js';
 
 export interface Vec3Like extends Vec2Like {
 	z: number;

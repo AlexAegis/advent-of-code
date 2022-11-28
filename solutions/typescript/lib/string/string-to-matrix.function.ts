@@ -1,4 +1,4 @@
-import { NEWLINE } from '@lib/regex';
+import { NEWLINE } from '../regex/index.js';
 
 /**
  * Splits a string into a matrix along row and item separators. By default it

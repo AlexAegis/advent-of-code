@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { slideWindow } from './slide-window.function';
+import { describe, expect, it } from 'vitest';
+import { slideWindow } from './slide-window.function.js';
 
 describe('slideWindow', () => {
 	it('should emit pairs by default', () => {

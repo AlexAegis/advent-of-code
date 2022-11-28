@@ -1,0 +1,26 @@
+import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import type { Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import { interpret } from './interpret.function.js';
+
+import packageJson from '../package.json' assert { type: 'json' };
+
+export const runner = (input: string): number => {
+	const fabric: Map<Vec2String, number[]> = new Map<Vec2String, number[]>(); // Contains each claim for each coordinate
+	for (const line of split(input)) {
+		const claim = interpret(line);
+		for (let i = claim.starting.x; i < claim.starting.x + claim.size.x; i++) {
+			for (let j = claim.starting.y; j < claim.starting.y + claim.size.y; j++) {
+				const coordKey: Vec2String = `${i},${j}`;
+				const claims: number[] = fabric.get(coordKey) || [];
+				claims.push(claim.id);
+				fabric.set(coordKey, claims);
+			}
+		}
+	}
+	return [...fabric].count(([_, v]) => v.length >= 2);
+};
+
+if (process.env.RUN) {
+	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
+	console.log(`Result: ${await bench(input, runner)}`); // 116920 ~265ms
+}

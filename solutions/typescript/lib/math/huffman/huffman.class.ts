@@ -1,5 +1,5 @@
-import { frequencyMap } from '@lib/functions';
-import { HuffmannNode } from './huffman-node.class';
+import { frequencyMap } from '../../functions/frequency-map.function.js';
+import { HuffmannNode } from './huffman-node.class.js';
 
 export class Huffmann {
 	private frequencies: Map<string, number>;

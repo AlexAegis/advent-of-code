@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import { egcd } from './egcd.function';
+import { describe, expect, it } from 'vitest';
+import { egcd } from './egcd.function.js';
 
-describe('Extended Euclidean Algorithm - Greatest Common Divisor', () => {
+describe('egcd', () => {
 	it('should return 20 with 120 and -20', async () => {
 		expect(egcd(120, -20)[0]).to.equal(20);
 	});

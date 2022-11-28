@@ -1,4 +1,4 @@
-/*import { Vec2 } from '@lib/model';
+/*import { Vec2 } from '../model/vector/vec2.class.js';
 
 export const drawMapDynamic = <T>(map: Map<string, T>, renderTile: (t: T) => string, defaultTile = '.'): string[][] => {
 	const res: string[][] = [];

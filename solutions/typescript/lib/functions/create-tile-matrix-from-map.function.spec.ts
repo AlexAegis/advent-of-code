@@ -1,7 +1,7 @@
-import { Vec2, Vec2String } from '@lib/model';
-import { expect } from 'chai';
-import { createTileMatrixFromMap } from './create-tile-matrix-from-map.function';
-import { mergeTileMatrix } from './merge-tile-matrix.function';
+import { describe, expect, it } from 'vitest';
+import { Vec2, Vec2String } from '../model/index.js';
+import { createTileMatrixFromMap } from './create-tile-matrix-from-map.function.js';
+import { mergeTileMatrix } from './merge-tile-matrix.function.js';
 
 describe('createTileMatrixFromMap', () => {
 	const tileMap = new Map<Vec2String, string>();

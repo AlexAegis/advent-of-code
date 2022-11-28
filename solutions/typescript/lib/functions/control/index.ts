@@ -1,1 +1,1 @@
-export * from './sleep.function';
+export * from './sleep.function.js';

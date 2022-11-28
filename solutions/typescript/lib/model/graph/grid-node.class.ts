@@ -1,14 +1,18 @@
-import { Direction, Vec2 } from '@lib/model';
-import '../../map/map.polyfill';
-import { Graph } from './graph.class';
-import { Weighter } from './heuristic.type';
-import { Node } from './node.class';
-import { Vertice } from './vertice.type';
+import '../../map/map.polyfill.js';
+import { Direction } from '../direction/direction.class.js';
+import type { ToString } from '../to-string.interface.js';
+import { Vec2 } from '../vector/vec2.class.js';
+import type { Graph } from './graph.class.js';
+import type { Weighter } from './heuristic.type.js';
+import { Node } from './node.class.js';
+import type { Vertice } from './vertice.type.js';
+
+Vec2.ORIGIN;
 
 /**
  *
  */
-export class GridNode<T = string> extends Node<T, Direction> {
+export class GridNode<T extends ToString = string> extends Node<T, Direction> {
 	public constructor(public coordinate: Vec2, value: T) {
 		super(coordinate.toString(), value);
 	}

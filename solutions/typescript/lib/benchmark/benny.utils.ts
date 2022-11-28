@@ -1,5 +1,5 @@
 import { add, complete, cycle, save as rawSave, suite } from 'benny';
-import { SaveOptions } from 'benny/lib/internal/common-types';
+import type { SaveOptions } from 'benny/lib/internal/common-types.js';
 
 const saveDefaults: SaveOptions = {
 	file: 'reduce',

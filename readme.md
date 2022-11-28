@@ -1,16 +1,21 @@
 # [Advent of Code](https://adventofcode.com/)
 
+[![typescript ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/typescript.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/typescript.yml)
+[![rust ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/rust.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/rust.yml)
+[![python ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/python.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/python.yml)
+
 [![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b135807698614bf19dab83afeac9bd15)](https://www.codacy.com/gh/AlexAegis/advent-of-code/dashboard?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage)
 [![codecov](https://img.shields.io/codecov/c/github/AlexAegis/advent-of-code.svg?label=node%20coverage)](https://codecov.io/gh/AlexAegis/advent-of-code)
 [![Coverage Status](https://img.shields.io/coveralls/github/AlexAegis/advent-of-code.svg?label=rust%20coverage)](https://coveralls.io/github/AlexAegis/advent-of-code?branch=master)
-[![snyk: vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/AlexAegis/advent-of-code.svg?style=popout)](https://app.snyk.io/org/alexaegis/project/82929b9b-f679-4b1c-8804-bff40110b7dd)
-[![Last Commit on GitHub](https://img.shields.io/github/last-commit/AlexAegis/advent-of-code.svg)](https://github.com/AlexAegis/advent-of-code)
+
+[![Last commit on GitHub](https://img.shields.io/github/last-commit/AlexAegis/advent-of-code.svg)](https://github.com/AlexAegis/advent-of-code)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> See the individual language workspaces for the solutions and their benchmark results
+> See the individual language workspaces for the solutions and their benchmark
+> results
 
 ## [TypeScript](./solutions/typescript)
 

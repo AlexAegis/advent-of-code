@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import { Direction } from '../direction/direction.class';
-import { Vec2 } from '../vector/vec2.class';
-import { GridGraph } from './grid-graph.class';
+import { describe, expect, it } from 'vitest';
+import { Direction } from '../direction/direction.class.js';
+import { Vec2 } from '../vector/vec2.class.js';
+import { GridGraph } from './grid-graph.class.js';
 
 describe('Grid Graph', () => {
 	const matrix = [

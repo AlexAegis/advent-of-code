@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { mean } from './mean.function';
+import { describe, expect, it } from 'vitest';
+import { mean } from './mean.function.js';
 
 describe('mean', () => {
 	it('should return 1.5 as the average of 0, 1, 2', () => {

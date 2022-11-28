@@ -1,0 +1,27 @@
+{
+	"name": "@alexaegis/advent-of-code-2018-02",
+	"description": "Advent of Code 2018 02 solutions",
+	"version": "1.0.0",
+	"license": "mit",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
+		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts",
+		"test": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests --coverage",
+		"format": "prettier --write .",
+		"lint:es": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
+		"lint:format": "prettier --check ."
+	},
+	"dependencies": {
+		"@alexaegis/advent-of-code-lib": "*"
+	},
+	"devDependencies": {
+		"benny": "^3.7.1"
+	},
+	"aoc": {
+		"year": 2018,
+		"day": 2
+	}
+}

@@ -1,6 +1,6 @@
-import { integerLength, numAt } from '@lib/functions';
-import { Instruction, toInstruction } from './instruction.enum';
-import { Mode } from './mode.enum';
+import { integerLength, numAt } from '../functions/index.js';
+import { Instruction, toInstruction } from './instruction.enum.js';
+import { Mode } from './mode.enum.js';
 
 export class IntCodeComputer implements Iterable<number | undefined> {
 	public tape: Map<number, number>;
