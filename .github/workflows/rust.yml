@@ -2,13 +2,13 @@ name: Rust
 
 on:
   push:
-    paths:
-      - 'solutions/rust/**'
-      - '.github/workflows/rust.yml'
+    paths-ignore:
+      - 'solutions/typescript/**'
+      - 'solutions/python/**'
   pull_request:
-    paths:
-      - 'solutions/rust/**'
-      - '.github/workflows/rust.yml'
+    paths-ignore:
+      - 'solutions/typescript/**'
+      - 'solutions/python/**'
 
 defaults:
   run:
@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
@@ -63,7 +63,7 @@ jobs:
           - nightly
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
@@ -95,7 +95,7 @@ jobs:
           - stable
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
@@ -129,7 +129,7 @@ jobs:
           - stable
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
@@ -153,3 +153,18 @@ jobs:
             --all
             --manifest-path solutions/rust/Cargo.toml
             -- -D warnings
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Install Cargo Audit
+        run: cargo install cargo-audit
+      - name: Cargo Check
+        run: cargo audit
