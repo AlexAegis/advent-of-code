@@ -53,7 +53,7 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"terminal.integrated.windowsEnableConpty": true,
 	"[rust]": {
-		"editor.defaultFormatter": "matklad.rust-analyzer"
+		"editor.defaultFormatter": "rust-lang.rust-analyzer"
 	},
 	"[typescript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
