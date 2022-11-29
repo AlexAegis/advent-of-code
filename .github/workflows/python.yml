@@ -2,13 +2,13 @@ name: Python
 
 on:
   push:
-    paths:
-      - 'solutions/python/**'
-      - '.github/workflows/python.yml'
+    paths-ignore:
+      - 'solutions/rust/**'
+      - 'solutions/typescript/**'
   pull_request:
-    paths:
-      - 'solutions/python/**'
-      - '.github/workflows/python.yml'
+    paths-ignore:
+      - 'solutions/rust/**'
+      - 'solutions/typescript/**'
 
 defaults:
   run:
@@ -22,7 +22,7 @@ jobs:
         python-version: ['3.9']
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
@@ -50,7 +50,7 @@ jobs:
         python-version: ['3.9']
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
@@ -78,7 +78,7 @@ jobs:
         python-version: ['3.9']
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Cache
