@@ -80,16 +80,8 @@
 	"rust-analyzer.checkOnSave.enable": true,
 	"rust-analyzer.checkOnSave.allFeatures": true,
 	"rust-analyzer.checkOnSave.allTargets": true,
-	"rust-analyzer.linkedProjects": ["./solutions/rust/"],
+	"rust-analyzer.linkedProjects": ["solutions/rust/"],
 	"prettier.prettierPath": "./node_modules/prettier",
-	"mocha.files.glob": "src/**/*.spec.ts",
-	"mocha.node_options": [
-		"-r",
-		"ts-node/registe/transpile-onlyr",
-		"-r",
-		"tsconfig-paths/register"
-	],
-	"mocha.requires": ["ts-node/register/transpile-only", "tsconfig-paths/register"],
 	"stylelint.enable": true,
 	"stylelint.validate": ["css", "scss", "postcss"],
 	"vitest.enable": true,
