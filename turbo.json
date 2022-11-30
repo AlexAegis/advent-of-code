@@ -1,23 +1,26 @@
 {
 	"$schema": "https://turborepo.org/schema.json",
-
 	"pipeline": {
 		"prebuild": {
 			"outputs": ["dist/**"],
-			"dependsOn": ["^//#prebuild:workspace"]
+			"dependsOn": [],
+			"outputMode": "new-only"
 		},
 		"//#prebuild:workspace": {
+			"outputs": ["dist/**"],
 			"dependsOn": [],
-			"outputs": []
+			"outputMode": "new-only"
 		},
 		"build": {
 			"env": ["BASE_HREF"],
-			"dependsOn": ["^prebuild", "^build", "^//#build:workspace"],
-			"outputs": ["dist/**"]
+			"dependsOn": ["prebuild"],
+			"outputs": ["dist/**"],
+			"outputMode": "new-only"
 		},
 		"//#build:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint": {
 			"outputs": [],
@@ -28,67 +31,87 @@
 				"lint:md",
 				"lint:rmd",
 				"lint:format"
-			]
+			],
+			"outputMode": "new-only"
 		},
 		"//#lint:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint:es": {
 			"outputs": [],
-			"dependsOn": ["^//#lint:es:workspace"]
+			"dependsOn": [],
+			"outputMode": "new-only"
 		},
 		"//#lint:es:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint:svelte": {
 			"outputs": [],
-			"dependsOn": ["^//#lint:svelte:workspace"]
+			"dependsOn": [],
+			"outputMode": "new-only"
 		},
 		"//#lint:svelte:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint:style": {
 			"outputs": [],
-			"dependsOn": ["^//#lint:style:workspace"]
+			"dependsOn": [],
+			"outputMode": "new-only"
 		},
 		"//#lint:style:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint:md": {
 			"outputs": [],
-			"dependsOn": ["^//#lint:md:workspace"]
+			"dependsOn": [],
+			"outputMode": "new-only"
 		},
 		"//#lint:md:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint:rmd": {
+			"env": [],
 			"outputs": [],
-			"dependsOn": ["^//#lint:rmd:workspace"]
+			"dependsOn": [],
+			"outputMode": "new-only"
 		},
 		"//#lint:rmd:workspace": {
+			"env": [],
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"lint:format": {
+			"env": [],
+			"dependsOn": [],
 			"outputs": [],
-			"dependsOn": ["^//#lint:format:workspace"]
+			"outputMode": "new-only"
 		},
 		"//#lint:format:workspace": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [],
+			"outputMode": "new-only"
 		},
 		"typedoc": {
-			"outputs": ["typedoc/**"]
+			"dependsOn": [],
+			"outputs": ["typedoc/**"],
+			"outputMode": "new-only"
 		},
 		"test": {
 			"env": ["VITEST"],
+			"dependsOn": ["^build"],
 			"outputs": ["coverage"],
-			"dependsOn": ["build"]
+			"outputMode": "new-only"
 		},
 		"start": {
 			"cache": false
