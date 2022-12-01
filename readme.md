@@ -4,7 +4,6 @@
 [![rust ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/rust.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/rust.yml)
 [![python ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/python.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/python.yml)
 
-[![Build Status](https://travis-ci.com/AlexAegis/advent-of-code.svg?branch=master)](https://travis-ci.com/AlexAegis/advent-of-code)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b135807698614bf19dab83afeac9bd15)](https://www.codacy.com/gh/AlexAegis/advent-of-code/dashboard?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/advent-of-code&utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/maintainability)](https://codeclimate.com/github/AlexAegis/advent-of-code/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5df3d3d67dfe389dc929/test_coverage)](https://codeclimate.com/github/AlexAegis/advent-of-code/test_coverage)
@@ -18,6 +17,8 @@
 > results
 
 ## [TypeScript](./solutions/typescript)
+
+[![2022 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2022.json)](/solutions/typescript/2022/)
 
 [![2021 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2021.json)](/solutions/typescript/2021/)
 
@@ -35,6 +36,8 @@
 
 ## [Rust](./solutions/rust)
 
+[![2022 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2022.json)](/solutions/rust/2022/)
+
 [![2021 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2021.json)](/solutions/rust/2021/)
 
 [![2020 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2020.json)](/solutions/rust/2020/)
@@ -50,6 +53,8 @@
 [![2015 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2015.json)](/solutions/rust/2015/)
 
 ## [Python](./solutions/python)
+
+[![2022 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2022.json)](/solutions/python/year2022/)
 
 [![2021 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2021.json)](/solutions/python/year2021/)
 

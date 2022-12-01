@@ -14,7 +14,7 @@ export const benchTask = async <T, R = string, A = undefined>(
 ): Promise<R> => {
 	const obs = new PerformanceObserver((list) => {
 		list.getEntries().forEach((entry) => {
-			console.log(`${entry.name}: ${roundToDecimal(entry.duration, 4)} ms`);
+			console.log(`${entry.name}: ${roundToDecimal(entry.duration, 2)} ms`);
 		});
 	});
 	obs.observe({ entryTypes: ['measure'], buffered: true });

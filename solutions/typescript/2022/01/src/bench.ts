@@ -6,7 +6,7 @@ import { p1 } from './p1.js';
 import { p2 } from './p2.js';
 
 defaultBench(
-	'2021 - Day 1',
+	'2022 - Day 1',
 	add('Part One', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc);
 		return () => p1(input);

@@ -5,6 +5,7 @@
 	"editor.tabSize": 4,
 	"editor.stickyTabStops": true,
 	"editor.useTabStops": true,
+
 	"editor.rulers": [
 		{
 			"color": "#bdbdbd11",
@@ -76,6 +77,7 @@
 	"[python]": {
 		"editor.defaultFormatter": "ms-python.vscode-pylance"
 	},
+	"typescript.preferences.importModuleSpecifier": "relative",
 	"python.formatting.provider": "autopep8",
 	"rust-analyzer.checkOnSave.enable": true,
 	"rust-analyzer.checkOnSave.allFeatures": true,

@@ -3,6 +3,7 @@ export * from './cut-subsegment.function.js';
 export * from './find-end-of-pair.function.js';
 export * from './flip-flop.generator.js';
 export * from './flip-matrix.function.js';
+export * from './group-by-falsy.function.js';
 export * from './pairs-with.function.js';
 export * from './partition.function.js';
 export * from './peek.function.js';

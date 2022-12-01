@@ -31,4 +31,5 @@ target
 
 # others
 .cache
+.benchmark
 CHANGELOG.md

@@ -51,9 +51,9 @@
 	"scripts": {
 		"build": "turbo run build --concurrency 6",
 		"start": "turbo run start --concurrency 6",
-		"test": "turbo run test --concurrency 2",
-		"lint:es": "turbo run lint:es --concurrency 2",
-		"lint:tsc": "turbo run lint:tsc --concurrency 2",
+		"test": "turbo run test --concurrency 6",
+		"lint:es": "turbo run lint:es --concurrency 6",
+		"lint:tsc": "turbo run lint:tsc --concurrency 6",
 		"lint:svelte": "turbo run lint:svelte --concurrency 6",
 		"lint:style": "turbo run lint:style --concurrency 6",
 		"lint:md": "turbo run lint:md --concurrency 6",
