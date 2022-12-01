@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './model/args.interface.js';
 import type { Graph } from './model/graph.interface.js';
@@ -97,7 +97,7 @@ const interpret = (input: string): Graph => {
 	return graph;
 };
 
-export const runner = (input: string, args: Args = { workers: 2 }): number => {
+export const p2 = (input: string, args: Args = { workers: 2 }): number => {
 	const graph: Graph = interpret(input);
 
 	const workers = [...Array(args.workers)].map((i) => new Worker(i, graph, args.workers === 5));
@@ -114,6 +114,6 @@ export const runner = (input: string, args: Args = { workers: 2 }): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read<Args>(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 1115 ~24ms
+	const resources = await loadTaskResources<Args>(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 1115 ~24ms
 }

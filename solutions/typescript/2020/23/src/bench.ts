@@ -1,23 +1,23 @@
-import { read } from '@alexaegis/advent-of-code-lib';
+import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { defaultBench } from '@alexaegis/advent-of-code-lib/benchmark';
 import { add } from 'benny';
 import packageJson from '../package.json' assert { type: 'json' };
-import { runner as partOneArrayRunner } from './p1.array.js';
-import { runner as partOneRunner } from './p1.js';
-import { runner as partTwoRunner } from './p2.js';
+import { p1array } from './p1.array.js';
+import { p1 } from './p1.js';
+import { p2 } from './p2.js';
 
 defaultBench(
 	'2020 - Day 23',
 	add('Part One', async () => {
-		const input = (await read(packageJson.aoc.year, packageJson.aoc.day)()).input;
-		return () => partOneRunner()(input);
+		const { input } = await loadTaskResources(packageJson.aoc);
+		return () => p1()(input);
 	}),
 	add('Part One - Array', async () => {
-		const input = (await read(packageJson.aoc.year, packageJson.aoc.day)()).input;
-		return () => partOneArrayRunner()(input);
+		const { input } = await loadTaskResources(packageJson.aoc);
+		return () => p1array()(input);
 	}),
 	add('Part Two', async () => {
-		const input = (await read(packageJson.aoc.year, packageJson.aoc.day)()).input;
-		return () => partTwoRunner(input);
+		const { input } = await loadTaskResources(packageJson.aoc);
+		return () => p2(input);
 	})
 );

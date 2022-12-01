@@ -1,10 +1,10 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 import type { Reaction } from './reaction.class.js';
 import { MainResource } from './resource.type.js';
 
-export const runner = (input: string): number | undefined => {
+export const p2 = (input: string): number | undefined => {
 	const reactions = parse(input);
 	const fuelReact = reactions.find((r) => r.to === MainResource.FUEL);
 
@@ -74,6 +74,6 @@ if (process.env.RUN) {
 	// const input = await read(packageJson.aoc.year, packageJson.aoc.day , 'example.3.txt');
 	// const input = await read(packageJson.aoc.year, packageJson.aoc.day , 'example.4.txt');
 	// const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.5.txt');
-	console.log(`Result: ${await bench(input, runner)}`); // 165 ~0ms
+	const resources = await loadTaskResources(packageJson.aoc, 'example.5.txt');
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 165 ~0ms
 }

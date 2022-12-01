@@ -1,8 +1,8 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
-export const runner =
+export const p2 =
 	(deckSize = 119315717514047n, repeat = 101741582076661n, target = 2020n) =>
 	(input: string): number => {
 		const lines = parse(input);
@@ -34,6 +34,6 @@ export const runner =
 	};
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner())}`); // 81781678911487 ~1ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2(), resources)}`); // 81781678911487 ~1ms
 }

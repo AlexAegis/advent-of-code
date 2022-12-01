@@ -1,4 +1,5 @@
 import { add } from 'benny';
+
 import { defaultBench } from '../../benchmark/index.js';
 import { invMod, invModBigInt, invModEgdc, invModEgdcBigInt } from './inverse-modulo.function.js';
 

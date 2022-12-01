@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mergeTileMatrix } from './merge-tile-matrix.function';
+import { mergeTileMatrix } from './merge-tile-matrix.function.js';
 
 describe('mergeTileMatrix', () => {
 	const tiles = [['12\n56\n', '34\n78\n']];

@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, printMatrix, sleep } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
@@ -43,7 +43,7 @@ const draw = (m: Map<string, number>, score: number): void => {
 	console.log(score + '\n' + printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
-export const runner =
+export const p2 =
 	(render = false, speed = 10) =>
 	async (input: string): Promise<number> => {
 		const comp = new IntCodeComputer(parse(input));
@@ -81,6 +81,6 @@ export const runner =
 	};
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner())}`); // 12338 ~220ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2(), resources)}`); // 12338 ~220ms
 }

@@ -1,8 +1,8 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import { divisible } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 
-export const runner = (input: string): number =>
+export const p2 = (input: string): number =>
 	split(input)
 		.map((line) => {
 			const [big, small] = line.splitToInt().desc().bubbleFindPair(divisible);
@@ -11,6 +11,6 @@ export const runner = (input: string): number =>
 		.sum();
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 250 ~0.0505ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 250 ~0.0505ms
 }

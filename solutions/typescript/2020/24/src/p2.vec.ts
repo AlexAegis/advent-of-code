@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { hexagonalAxialDirections, parse } from './parse.function.js';
@@ -10,7 +10,7 @@ const getHexNeighbours = (v: Vec2): Vec2[] => {
 /**
  * TODO: Fix, not working (I think it would be slow anyway)
  */
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const blacks = parse(input)
 		.map((ttf) =>
 			ttf
@@ -51,6 +51,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.1.txt');
-	console.log(`Result: ${await bench(input, runner)}`); // 265 ~0.3ms
+	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 265 ~0.3ms
 }

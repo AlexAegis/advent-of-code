@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 class LanternFish {
@@ -14,7 +14,7 @@ class LanternFish {
 	}
 }
 
-export const runner = (input: string, maxDay = 80): number => {
+export const p1 = (input: string, maxDay = 80): number => {
 	const fishes = input.splitToInt({ delimiter: /,/ }).map((time) => new LanternFish(time));
 	let day = 0;
 	while (day < maxDay) {
@@ -28,6 +28,6 @@ export const runner = (input: string, maxDay = 80): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read<number>(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 361169 ~118.92ms
+	const resources = await loadTaskResources<number>(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 361169 ~118.92ms
 }

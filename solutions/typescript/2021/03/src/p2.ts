@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const getMostCommonBit = (lines: string[], bitIndex: number): '1' | '0' => {
@@ -16,7 +16,7 @@ const getMostCommonBit = (lines: string[], bitIndex: number): '1' | '0' => {
 	return c1 >= c0 ? '1' : '0';
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const lines = input.lines();
 	const bitCount = lines[0].length;
 
@@ -38,6 +38,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 2845944 ~0.65ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 2845944 ~0.65ms
 }

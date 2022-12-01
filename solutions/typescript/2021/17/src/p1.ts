@@ -1,10 +1,10 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parseBoundary } from './functions/parse.function.js';
 import { Probe } from './model/probe.class.js';
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const line = input.lines()[0];
 	const boundary = parseBoundary(line);
 	let result = 0;
@@ -31,6 +31,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 5995 ~73.71ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 5995 ~73.71ms
 }

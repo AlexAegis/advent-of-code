@@ -1,10 +1,10 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import packageJson from '../package.json' assert { type: 'json' };
 import { execute } from './p1.js';
 import { parse } from './parse.js';
 
-export const runner =
+export const p2 =
 	(print = false) =>
 	(input: string): number | undefined => {
 		const i = new IntCodeComputer(parse(input));
@@ -27,6 +27,6 @@ export const runner =
 	};
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner(false))}`); // 1141251258 ~168ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2(false), resources)}`); // 1141251258 ~168ms
 }

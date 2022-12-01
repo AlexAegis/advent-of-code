@@ -1,7 +1,7 @@
 /*import { Cave } from './cave.class';
 import { reader } from './reader.function';
 
-export const runner = async (input = 'input'): Promise<any> =>
+export const p1 = async (input = 'input'): Promise<any> =>
 	new Promise<any>((res) => {
 		const cave: Cave = await reader(input);
 		for (const unit of cave.units()) {

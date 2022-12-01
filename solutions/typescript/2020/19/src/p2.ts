@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
@@ -27,7 +27,7 @@ export const matchRule = (
 const cache = new Map();
 const memoizedMatchRule = memoize(matchRule, cache);
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const { ruleBook, words } = parse(input);
 
 	cache.clear(); // For benchmarking
@@ -42,6 +42,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 316 ~480.55ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 316 ~480.55ms
 }

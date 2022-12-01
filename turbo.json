@@ -22,24 +22,8 @@
 			"outputs": [],
 			"outputMode": "new-only"
 		},
-		"lint": {
-			"outputs": [],
-			"dependsOn": [
-				"lint:es",
-				"lint:svelte",
-				"lint:style",
-				"lint:md",
-				"lint:rmd",
-				"lint:format"
-			],
-			"outputMode": "new-only"
-		},
-		"//#lint:workspace": {
-			"dependsOn": [],
-			"outputs": [],
-			"outputMode": "new-only"
-		},
 		"lint:es": {
+			"env": [],
 			"outputs": [],
 			"dependsOn": [],
 			"outputMode": "new-only"
@@ -47,6 +31,12 @@
 		"//#lint:es:workspace": {
 			"dependsOn": [],
 			"outputs": [],
+			"outputMode": "new-only"
+		},
+		"lint:tsc": {
+			"env": [],
+			"outputs": [],
+			"dependsOn": [],
 			"outputMode": "new-only"
 		},
 		"lint:svelte": {

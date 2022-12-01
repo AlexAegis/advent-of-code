@@ -1,11 +1,12 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { split } from '@alexaegis/advent-of-code-lib';
 import type { BoundingBox } from '@alexaegis/advent-of-code-lib/model';
 import { Direction, isDirectionMarker, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const toKeypadNumber = (vec: Vec2): number => (2 - vec.y) * 3 + vec.x + 1;
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const position = new Vec2(1, 1);
 
 	const keypadArea: BoundingBox = {
@@ -25,6 +26,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 24862 ~2.6ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 24862 ~2.6ms
 }

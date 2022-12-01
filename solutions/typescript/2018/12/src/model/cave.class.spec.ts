@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Cave } from './cave.class';
+import { Cave } from './cave.class.js';
 
 describe('2018 - Day 12 - Cave', () => {
 	const inputs: string[] = [

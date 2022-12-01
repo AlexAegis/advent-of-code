@@ -1,9 +1,9 @@
-import { read } from '@alexaegis/advent-of-code-lib';
+import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './model/args.interface.js';
 import { Node } from './model/node.class.js';
-import { runner } from './p2.js';
+import { p2 } from './p2.js';
 
 describe('2018 - Day 7 - Part Two', () => {
 	const NODE_A: Node = new Node('a');
@@ -36,16 +36,12 @@ describe('2018 - Day 7 - Part Two', () => {
 	});
 
 	it('should solve the input', async () => {
-		const { input, args } = await read<Args>(packageJson.aoc.year, packageJson.aoc.day)();
-		expect(await runner(input, args)).to.equal(1115);
+		const { input, args } = await loadTaskResources<Args>(packageJson.aoc);
+		expect(await p2(input, args)).to.equal(1115);
 	});
 
 	it('should solve the example', async () => {
-		const { input, args } = await read<Args>(
-			packageJson.aoc.year,
-			packageJson.aoc.day,
-			'example.txt'
-		)();
-		expect(await runner(input, args)).to.equal(15);
+		const { input, args } = await loadTaskResources<Args>(packageJson.aoc, 'example.txt');
+		expect(await p2(input, args)).to.equal(15);
 	});
 });

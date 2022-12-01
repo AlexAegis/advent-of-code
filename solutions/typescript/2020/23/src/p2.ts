@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import {
 	CircularLinkedList,
 	CircularLinkedListNode,
@@ -6,7 +6,7 @@ import {
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const circle = input.split('').map((s) => parseInt(s, 10));
 	let high = circle.reduce(max);
 	const low = circle.reduce(min);
@@ -66,6 +66,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 286194102744 ~3717.03ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 286194102744 ~3717.03ms
 }

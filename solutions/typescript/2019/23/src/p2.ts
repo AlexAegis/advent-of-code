@@ -1,10 +1,10 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Network, NETWORK_SIZE } from './network.class.js';
 import type { Packet } from './packet.interface.js';
 import { parse } from './parse.js';
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const tape = parse(input);
 	let result: number | undefined;
 	let nat: Packet | undefined;
@@ -35,6 +35,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 19216 ~146ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 19216 ~146ms
 }

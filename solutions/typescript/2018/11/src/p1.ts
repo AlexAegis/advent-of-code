@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { range } from './functions/range.generator.js';
@@ -15,7 +15,7 @@ export const rackDirections = [
 	new Vec2(2, 2),
 ];
 
-export const runner = (input: string): string => {
+export const p1 = (input: string): string => {
 	const serialNumber = parseInt(input, 10);
 	const map: Map<string, number> = new Map();
 	for (const vec of range({ from: 1, to: 300 }, { from: 1, to: 300 })) {
@@ -46,6 +46,6 @@ export const runner = (input: string): string => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 21,37 (30) ~165ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 21,37 (30) ~165ms
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { integerLength, integerLengthMath } from './integer-length.function';
+import { integerLength, integerLengthMath } from './integer-length.function.js';
 
 describe('Integer length', () => {
 	it('should work with numbers larger than 1', async () => {

@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export class DeterministicDie {
@@ -40,7 +40,7 @@ export const parse = (line: string): Player => {
 	return new Player(parseInt(a, 10), parseInt(b, 10));
 };
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const players = input.lines().map(parse);
 	const die = new DeterministicDie();
 
@@ -54,6 +54,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.1.txt');
-	console.log(`Result: ${await bench(input, runner)}`); // 752745 ~0.14ms
+	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 752745 ~0.14ms
 }

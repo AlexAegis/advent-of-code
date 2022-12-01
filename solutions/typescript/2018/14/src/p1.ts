@@ -1,6 +1,6 @@
-import { bench } from '@alexaegis/advent-of-code-lib';
+import { benchTask } from '@alexaegis/advent-of-code-lib';
 
-export const runner = (input: number): string => {
+export const p1 = (input: number): string => {
 	const recipes: number[] = [3, 7];
 	let a = 0;
 	let b = 1;
@@ -19,6 +19,5 @@ export const runner = (input: number): string => {
 };
 
 if (process.env.RUN) {
-	const input = () => ({ input: 327901 });
-	console.log(`Result: ${await bench(input, runner)}`); // 1115317115 ~9.6ms
+	console.log(`Result: ${await benchTask(p1, { input: 327901 })}`); // 1115317115 ~9.6ms
 }

@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { interpret } from './interpret.function.js';
 import type { Args } from './model/args.interface.js';
@@ -9,7 +9,7 @@ import { Coord } from './model/coord.class.js';
  * @param input in this task the input is slightly modified. There were extra data in the
  * description of the task so I added that as the first line of the input.
  */
-export const runner = (input: string, args: Args | undefined): number | undefined => {
+export const p2 = (input: string, args: Args | undefined): number | undefined => {
 	const points = interpret(input);
 	let boundaryTop: Coord | undefined;
 	let boundaryRight: Coord | undefined;
@@ -52,6 +52,6 @@ export const runner = (input: string, args: Args | undefined): number | undefine
 };
 
 if (process.env.RUN) {
-	const input = await read<Args>(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 42998 ~46ms
+	const resources = await loadTaskResources<Args>(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 42998 ~46ms
 }

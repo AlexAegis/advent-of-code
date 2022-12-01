@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import type { Vec2Like } from '@alexaegis/advent-of-code-lib/model';
 import * as WorkerPool from 'workerpool';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -10,7 +10,7 @@ export interface Result {
 	size: number;
 }
 
-export const runner = async (input: string): Promise<string> => {
+export const p2 = async (input: string): Promise<string> => {
 	const serialNumber = parseInt(input, 10);
 	const _mapSize = 300;
 	const pool = WorkerPool.pool();
@@ -71,6 +71,6 @@ export const runner = async (input: string): Promise<string> => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 236,146,12 (160) ~63007ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 236,146,12 (160) ~63007ms
 }

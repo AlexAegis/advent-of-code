@@ -5,13 +5,14 @@ module.exports = {
 		ecmaVersion: 2020,
 		sourceType: 'module',
 		project: ['tsconfig.json'],
+		extraFileExtensions: ['.json'],
 		tsconfigRootDir: __dirname,
 	},
 	env: {
 		browser: true,
 		node: true,
 	},
-	ignorePatterns: ['dist', 'node_modules', 'typedocs', 'coverage'],
+	ignorePatterns: ['dist', 'node_modules', 'typedocs', 'coverage', '!.vscode'],
 	plugins: ['@typescript-eslint'],
 	extends: [
 		'eslint:recommended',

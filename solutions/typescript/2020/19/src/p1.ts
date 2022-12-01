@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
@@ -32,12 +32,12 @@ export const matchRule = (
 	return undefined;
 };
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const { ruleBook, words } = parse(input);
 	return words.count((word) => matchRule(word, ruleBook, 0) === word.length);
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 208 ~2.49ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 208 ~2.49ms
 }

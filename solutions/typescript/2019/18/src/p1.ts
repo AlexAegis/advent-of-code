@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, printMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import type { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import { GridGraph, GridNode } from '@alexaegis/advent-of-code-lib/model';
@@ -41,7 +41,7 @@ export const draw = (m: Map<string, GridNode<string>>, size: Vec2): void => {
 	console.log(printMatrix(mat, true, false));
 };
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const matrix = parseLines(input);
 	const { size } = parseMatrix(matrix);
 	const inventory = new Set<Key>();
@@ -55,6 +55,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.1.txt');
-	console.log(`Result: ${await bench(input, runner)}`); // 0 ~0ms
+	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 0 ~0ms
 }

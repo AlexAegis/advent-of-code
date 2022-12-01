@@ -1,9 +1,9 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { hasBeam } from './p1.js';
 import { parse } from './parse.js';
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const tape = parse(input);
 	const targetSide = 100 - 1;
 	let prevX = 0;
@@ -28,6 +28,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 17302065 ~905ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 17302065 ~905ms
 }

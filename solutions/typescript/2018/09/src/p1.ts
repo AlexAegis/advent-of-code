@@ -1,9 +1,9 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { interpreter } from './interpreter.function.js';
 import { Deque } from './model/deque.class.js';
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const setup = interpreter(input);
 	const ring: Deque<number> = new Deque<number>(undefined, 0);
 	const score: number[] = new Array<number>(setup.players).fill(0);
@@ -21,6 +21,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 361466 ~9ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 361466 ~9ms
 }

@@ -1,4 +1,4 @@
-import { bench } from '@alexaegis/advent-of-code-lib';
+import { benchTask } from '@alexaegis/advent-of-code-lib';
 
 function shift(window: string, last: number, length: number): string {
 	if (window.length >= length) {
@@ -6,7 +6,7 @@ function shift(window: string, last: number, length: number): string {
 	} else return window + last;
 }
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const recipes: number[] = [3, 7];
 	let a = 0;
 	let b = 1;
@@ -32,6 +32,5 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = () => ({ input: '327901' });
-	console.log(`Result: ${await bench(input, runner)}`); // 20229822 ~ 900ms
+	console.log(`Result: ${await benchTask(p2, { input: '327901' })}`); // 20229822 ~ 900ms
 }

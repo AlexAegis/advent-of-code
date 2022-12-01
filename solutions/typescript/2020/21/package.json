@@ -12,6 +12,7 @@
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"format": "prettier --write .",
 		"lint:es": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
+		"lint:tsc": "tsc --noEmit",
 		"lint:format": "prettier --check ."
 	},
 	"dependencies": {

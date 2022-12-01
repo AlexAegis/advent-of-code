@@ -1,6 +1,6 @@
-import { blockRepresentations } from './block/block.factory';
-import { creatureRepresentations } from './creature/creature.factory';
-import { Element } from './element.class';
+import { blockRepresentations } from './block/block.factory.js';
+import { creatureRepresentations } from './creature/creature.factory.js';
+import type { Element } from './element.class.js';
 
 export const elementRepresentations: { [r: string]: () => Element } = Object.assign(
 	{},

@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 /**
@@ -16,7 +16,7 @@ const charRepeats = (line: string, times = 2): number => {
 
 const atLeastOne = (n: number): boolean => n >= 1;
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	let twiceAppearCount = 0;
 	let thriceAppearCount = 0;
 	for (const line of split(input)) {
@@ -27,6 +27,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 5456 ~9ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 5456 ~9ms
 }

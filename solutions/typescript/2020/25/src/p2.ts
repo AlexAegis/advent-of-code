@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const magicNumber = 20201227;
@@ -26,7 +26,7 @@ export class Agent {
 	constructor(public publicKey: number) {}
 }
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const publicKeys = split(input).map((l) => parseInt(l, 10));
 	const [cardPublicKey, doorPublicKey] = publicKeys;
 	const subjectNumber = 7;
@@ -53,6 +53,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 12181021 ~100s
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 12181021 ~100s
 }

@@ -1,9 +1,9 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { renderVectors } from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
-export const runner = (input: string): string => {
+export const p2 = (input: string): string => {
 	const [points, foldInstructions] = input.split(/\n\n/);
 	const vectors = points.lines().map((line) => new Vec2(line as Vec2String));
 
@@ -25,6 +25,6 @@ export const runner = (input: string): string => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // REUPUPKR ~1.21ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // REUPUPKR ~1.21ms
 }

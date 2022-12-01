@@ -1,9 +1,9 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Notable, Planet } from './model/planet.class.js';
 import { parse } from './parse.js';
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const orbits = parse(input);
 	const planets: Map<string, Planet> = new Map();
 
@@ -44,6 +44,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 430 ~35ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 430 ~35ms
 }

@@ -8,7 +8,7 @@ import { runner } from '../part_one';
 
 describe(`${year} - Day ${day} - Part One`, () => {
 	it(`should resolve to ${results.one.input} when using the input`, async () => {
-		const input = await read(packageJson.aoc.year, packageJson.aoc.day)();
+		const resources = await loadTaskResources(packageJson.aoc);
 		expect(runner(input.input)).to.equal(Infinity);
 	});
 

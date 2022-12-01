@@ -1,24 +1,20 @@
-import { read } from '@alexaegis/advent-of-code-lib';
+import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './args.interface.js';
-import { hasComponents, runner } from './p1.js';
+import { hasComponents, p1 } from './p1.js';
 
 describe('2020 - Day 9 - Part One', () => {
 	const preamble = Array.from({ length: 25 }, (_, i) => i + 1);
 
 	it('should solve the input', async () => {
-		const { input, args } = await read<Args>(packageJson.aoc.year, packageJson.aoc.day)();
-		expect(await runner(input, args)).to.equal(217430975);
+		const { input, args } = await loadTaskResources<Args>(packageJson.aoc);
+		expect(await p1(input, args)).to.equal(217430975);
 	});
 
 	it('should solve for the first example', async () => {
-		const { input, args } = await read<Args>(
-			packageJson.aoc.year,
-			packageJson.aoc.day,
-			'example.1.txt'
-		)();
-		expect(await runner(input, args)).to.equal(127);
+		const { input, args } = await loadTaskResources<Args>(packageJson.aoc, 'example.1.txt');
+		expect(await p1(input, args)).to.equal(127);
 	});
 
 	it('should find a pair in the preamble that adds to 26', () =>

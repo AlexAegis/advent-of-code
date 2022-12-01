@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { isPassport, parsePassports, Passport, RelevantField } from './p1.js';
 
@@ -29,9 +29,9 @@ export const isValidPassport = (passport: Partial<Passport>): passport is Passpo
 	isPassport(passport) &&
 	Object.values(RelevantField).every((f) => passportChecks[f](passport[f]));
 
-export const runner = (input: string): number => parsePassports(input).count(isValidPassport);
+export const p2 = (input: string): number => parsePassports(input).count(isValidPassport);
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 224 ~7.8ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 224 ~7.8ms
 }

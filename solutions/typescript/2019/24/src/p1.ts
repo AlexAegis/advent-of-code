@@ -1,5 +1,5 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
@@ -27,7 +27,7 @@ export const adjacents = (x: number, y: number): Vec2[] => {
 export const bio = (map: Tile[][]): number =>
 	map.flat().reduce((a, t, i) => (t === Tile.BUG ? a + Math.pow(2, i) : a), 0);
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	let map = parse(input) as Tile[][];
 
 	const history = new Set<number>();
@@ -65,6 +65,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 13500447 ~3ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 13500447 ~3ms
 }
