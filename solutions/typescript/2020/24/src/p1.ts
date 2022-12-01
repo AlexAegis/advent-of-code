@@ -1,9 +1,9 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { hexagonalAxialDirections, parse } from './parse.function.js';
 
-export const runner = (input: string): number =>
+export const p1 = (input: string): number =>
 	parse(input)
 		.map((ttf) =>
 			ttf
@@ -16,6 +16,6 @@ export const runner = (input: string): number =>
 		}, new Set<string>()).size;
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.1.txt');
-	console.log(`Result: ${await bench(input, runner)}`); // 479 ~1.22ms
+	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 479 ~1.22ms
 }

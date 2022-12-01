@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { ADDRESS_LENGTH, parse } from './p1.js';
@@ -25,7 +25,7 @@ export const applyMask = (n: number, mask: string): number[] => {
 	return result.map((r) => parseInt(r.join(''), 2));
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const memory = new Map<number, number>();
 
 	let mask = '0'.repeat(36);
@@ -42,6 +42,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 4200656704538 ~78.17ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 4200656704538 ~78.17ms
 }

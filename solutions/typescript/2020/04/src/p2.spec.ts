@@ -1,36 +1,32 @@
-import { read } from '@alexaegis/advent-of-code-lib';
+import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json' assert { type: 'json' };
-import { passportChecks, runner } from './p2.js';
+import { p2, passportChecks } from './p2.js';
 
 describe('2020 - Day 4 - Part Two', () => {
 	it('should solve the input', async () => {
-		const input = await read(packageJson.aoc.year, packageJson.aoc.day)();
-		expect(runner(input.input)).to.equal(224);
+		const resources = await loadTaskResources(packageJson.aoc);
+		expect(p2(resources.input)).to.equal(224);
 	});
 
 	it('should solve the first example', async () => {
-		const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.1.txt')();
-		expect(runner(input.input)).to.equal(2);
+		const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
+		expect(p2(resources.input)).to.equal(2);
 	});
 
 	it('should solve the all valid example', async () => {
-		const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'example.valid.txt')();
-		expect(runner(input.input)).to.equal(4);
+		const resources = await loadTaskResources(packageJson.aoc, 'example.valid.txt');
+		expect(p2(resources.input)).to.equal(4);
 	});
 
 	it('should solve the all invalid example', async () => {
-		const input = await read(
-			packageJson.aoc.year,
-			packageJson.aoc.day,
-			'example.invalid.txt'
-		)();
-		expect(runner(input.input)).to.equal(0);
+		const resources = await loadTaskResources(packageJson.aoc, 'example.invalid.txt');
+		expect(p2(resources.input)).to.equal(0);
 	});
 
 	it('should solve for the second input', async () => {
-		const input = await read(packageJson.aoc.year, packageJson.aoc.day, 'input.2.txt')();
-		expect(runner(input.input)).to.equal(198);
+		const resources = await loadTaskResources(packageJson.aoc, 'input.2.txt');
+		expect(p2(resources.input)).to.equal(198);
 	});
 
 	it('should have a working byr check', async () => {

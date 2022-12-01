@@ -5,7 +5,7 @@ import * as WorkerPool from 'workerpool';
 
 export type Result = { coord: Coord; sum: number; size: number };
 
-export const runner = async (input: number = 8561): Promise<string> =>
+export const p2 = async (input: number = 8561): Promise<string> =>
 	new Promise<string>(async res => {
 		const mapSize = 300;
 		let pool = WorkerPool.pool();

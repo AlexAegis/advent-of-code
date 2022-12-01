@@ -1,8 +1,8 @@
-import { read } from '@alexaegis/advent-of-code-lib';
+import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json' assert { type: 'json' };
-import { runner } from './p2.js';
+import { p2 } from './p2.js';
 import { parse } from './parse.js';
 
 describe('2019 - Day 5 - Part Two', () => {
@@ -11,8 +11,8 @@ describe('2019 - Day 5 - Part Two', () => {
 	);
 
 	it('should solve the input', async () => {
-		const input = await read(packageJson.aoc.year, packageJson.aoc.day)();
-		expect(runner(input.input)).to.equal(6959377);
+		const resources = await loadTaskResources(packageJson.aoc);
+		expect(p2(resources.input)).to.equal(6959377);
 	});
 
 	it('should be that that the first example resolves to 1 when the input is 8', async () => {

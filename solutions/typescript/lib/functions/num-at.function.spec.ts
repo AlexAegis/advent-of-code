@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { numAt, numAtMath } from './num-at.function';
+import { numAt, numAtMath } from './num-at.function.js';
 
 describe('Number at', () => {
 	it('should work with numbers longer than the position', () => {

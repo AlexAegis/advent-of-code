@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Graph, Node, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import {
@@ -9,7 +9,7 @@ import {
 	TileColor,
 } from './parse.function.js';
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const tilesToFlip = parse(input);
 
 	const g = new Graph<TileColor, HexagonalDirection>();
@@ -131,6 +131,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 4135 ~391.98ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 4135 ~391.98ms
 }

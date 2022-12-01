@@ -6,8 +6,10 @@
 	"private": false,
 	"scripts": {
 		"lint:es": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
+		"lint:tsc": "tsc --noEmit",
 		"lint:format": "prettier --check .",
 		"format": "prettier --write .",
+		"lint:rmd": "remark --frail --quiet --no-stdout *.md",
 		"test": "vitest --passWithNoTests --coverage --run",
 		"self-destruct": "rimraf ./dist ./coverage ./.codacy-coverage ./cache ./node-modules ./package-lock.json ./yarn.lock ./pnpm-lock.yaml",
 		"codecov": "codecov",
@@ -24,6 +26,7 @@
 		"./math": "./math/index.ts",
 		"./model": "./model/index.ts",
 		"./polyfill": "./polyfills/index.ts",
+		"./platform": "./platform/index.ts",
 		"./regex": "./regex/index.ts",
 		"./set": "./set/index.ts",
 		"./string": "./string/index.ts"
@@ -53,7 +56,7 @@
 		"@types/chai-spies": "^1.0.3",
 		"@types/is-ci": "^3.0.0",
 		"@types/mocha": "^10.0.1",
-		"@types/node": "^18.11.9",
+		"@types/node": "^18.11.10",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"benny": "^3.7.1",
@@ -68,7 +71,7 @@
 		"prettier": "^2.8.0",
 		"source-map-support": "^0.5.21",
 		"ts-node": "10.9.1",
-		"tsconfig-paths": "^4.1.0",
+		"tsconfig-paths": "^4.1.1",
 		"typescript": "4.9.3"
 	}
 }

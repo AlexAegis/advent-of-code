@@ -1,4 +1,5 @@
 import { add } from 'benny';
+
 import { defaultBench } from '../../benchmark/index.js';
 import { Direction } from '../direction/index.js';
 import { Vec2 } from '../vector/vec2.class.js';

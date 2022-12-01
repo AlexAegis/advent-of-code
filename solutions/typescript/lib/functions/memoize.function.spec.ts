@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { memoize } from './memoize.function';
+import { memoize } from './memoize.function.js';
 
 describe('Memoize', () => {
 	it('should call the original function only once', async () => {

@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const magicNumber = 20201227;
@@ -17,7 +17,7 @@ export const findLoopsize = (subjectNumber: number, publicKey: number): number =
 	return -1;
 };
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const [cardPublicKey, doorPublicKey] = split(input).map((l) => parseInt(l, 10));
 	const subjectNumber = 7;
 	const cardLoopSize = findLoopsize(subjectNumber, cardPublicKey);
@@ -33,6 +33,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 12181021 ~100s
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 12181021 ~100s
 }

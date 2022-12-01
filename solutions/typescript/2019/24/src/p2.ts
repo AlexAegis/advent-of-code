@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
 import { Direction, Vec3 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -69,7 +69,7 @@ const shrink = (level: Map<number, Tile[][]>): void => {
 	}
 };
 
-export const runner =
+export const p2 =
 	(genTarget = 200) =>
 	(input: string): number => {
 		let levels = new Map<number, Tile[][]>();
@@ -110,6 +110,6 @@ export const runner =
 	};
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner())}`); // 2120 ~741ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2(), resources)}`); // 2120 ~741ms
 }

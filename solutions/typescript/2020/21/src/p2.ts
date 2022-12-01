@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { findPossibleCombinations } from './p1.js';
 import { parse } from './parse.function.js';
@@ -8,7 +8,7 @@ export interface AllergenicIngredient {
 	allergen: string;
 }
 
-export const runner = (input: string): string => {
+export const p2 = (input: string): string => {
 	const entries = parse(input);
 
 	const possibleCombinations = findPossibleCombinations(entries);
@@ -56,6 +56,6 @@ export const runner = (input: string): string => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // xlxknk,cskbmx,cjdmk,bmhn,jrmr,tzxcmr,fmgxh,fxzh ~0.53ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // xlxknk,cskbmx,cjdmk,bmhn,jrmr,tzxcmr,fmgxh,fxzh ~0.53ms
 }

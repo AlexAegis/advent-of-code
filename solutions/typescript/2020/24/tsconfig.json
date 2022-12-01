@@ -6,6 +6,6 @@
 		"outDir": "./dist/out-tsc"
 	},
 	"files": [".eslintrc.cjs"],
-	"include": ["**/*.ts"],
+	"include": ["**/*.ts", "**/*.json"],
 	"exclude": ["node_modules", "coverage"]
 }

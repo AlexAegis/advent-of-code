@@ -1,11 +1,11 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { pairs } from '@alexaegis/advent-of-code-lib/functions';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Moon } from './model/moon.class.js';
 import { parseLines } from './parse.js';
 
-export const runner =
+export const p1 =
 	(target = 1000) =>
 	(input: string): number => {
 		const ms = parseLines(input).map((m) => new Moon(m));
@@ -30,6 +30,6 @@ export const runner =
 	};
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner())}`); // 8625 ~3ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1(), resources)}`); // 8625 ~3ms
 }

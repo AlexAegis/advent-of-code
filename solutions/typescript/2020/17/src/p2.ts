@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { cartesianCombinations } from '@alexaegis/advent-of-code-lib/math';
 import { Vec4 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -15,7 +15,7 @@ const getNeighbours4 = (v: Vec4): Vec4[] => {
 		.filter((gv) => !gv.equals(v));
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	let cubes = parse(input, 4);
 	const stepCubes = makeCubeStepper((s) => new Vec4(s), getNeighbours4);
 	for (let i = 0; i < 6; i++) {
@@ -25,6 +25,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 1868 ~1618.00ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 1868 ~1618.00ms
 }

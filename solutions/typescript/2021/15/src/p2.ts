@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { printMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { Direction } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -40,7 +40,7 @@ const expand = (input: string, factor = 5): string => {
 	return printMatrix(first);
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const graph = expand(input).toGridGraph<number>({
 		valueConverter: (s) => parseInt(s, 10),
 		weighter: (b, a) => (a.value as number) - (b.value as number),
@@ -61,6 +61,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 2703 ~30s
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 2703 ~30s
 }

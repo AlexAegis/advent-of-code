@@ -32,6 +32,6 @@
 		"forceConsistentCasingInFileNames": true,
 		"importsNotUsedAsValues": "error"
 	},
-	"include": ["*.ts", "*.mjs", "*.cjs", ".eslintrc.cjs"],
+	"include": ["*.ts", "*.mjs", "*.cjs", "*.json", ".vscode/*.json", ".eslintrc.cjs"],
 	"exclude": ["node_modules", "tmp", "dist", "coverage"]
 }

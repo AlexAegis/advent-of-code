@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { scoreDecks, SpaceCardDecks } from './p1.js';
 import { parse } from './parse.function.js';
@@ -39,13 +39,13 @@ const playGame = (decks: SpaceCardDecks, history = new Set<string>()): number =>
 	}
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const decks = parse(input);
 	playGame(decks);
 	return scoreDecks(decks);
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 32528 ~1495.10ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 32528 ~1495.10ms
 }

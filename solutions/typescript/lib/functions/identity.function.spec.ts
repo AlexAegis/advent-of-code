@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { identity } from './identity.function';
+import { identity } from './identity.function.js';
 
 describe('identity', () => {
 	it('should be true for a non-nullish value', () => {

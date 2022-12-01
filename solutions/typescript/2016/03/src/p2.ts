@@ -1,8 +1,8 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { isTriangle, Triangle } from './is-triangle.function.js';
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const splitOptions = { toIntOptions: { safe: true } };
 	const result = split(input).reduce(
 		(acc, line) => {
@@ -38,6 +38,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 1544 ~1.0257ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 1544 ~1.0257ms
 }

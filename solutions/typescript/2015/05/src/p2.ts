@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const isNice = (line: string): boolean => {
@@ -35,11 +35,11 @@ export const isNice = (line: string): boolean => {
 	return hasWrapping && hasNonOverlapping;
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	return input.split('\n').reduce((a, n) => a + (isNice(n) ? 1 : 0), 0);
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 51 ~21ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 51 ~21ms
 }

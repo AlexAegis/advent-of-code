@@ -1,4 +1,4 @@
-import { Creature } from './creature.class';
+import { Creature } from './creature.class.js';
 
 export class Elf extends Creature {
 	constructor() {

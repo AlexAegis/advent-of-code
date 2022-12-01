@@ -1,4 +1,4 @@
-import { bench, Range, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, Range } from '@alexaegis/advent-of-code-lib';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { invalidFields } from './p1.js';
@@ -64,13 +64,13 @@ export const getMyClarifiedTicket = (input: string): ClarifiedTicket => {
 	return clarifyFields(myTicket, validTickets, fieldRanges);
 };
 
-export const runner = (input: string): number =>
+export const p2 = (input: string): number =>
 	getMyClarifiedTicket(input)
 		.filter((p) => p.fieldName?.startsWith('departure'))
 		.map((p) => p.value)
 		.reduce(mult, 1);
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 3173135507987 ~1.79ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 3173135507987 ~1.79ms
 }

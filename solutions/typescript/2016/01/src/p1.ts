@@ -1,8 +1,8 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
-export const runner = (input: string): number =>
+export const p1 = (input: string): number =>
 	input
 		.split(', ')
 		.reduce(
@@ -19,6 +19,6 @@ export const runner = (input: string): number =>
 		.position.manhattan(Vec2.ORIGIN);
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 300 ~0.37ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 300 ~0.37ms
 }

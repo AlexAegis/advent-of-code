@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
@@ -10,7 +10,7 @@ export const scoreDecks = (decks: SpaceCardDecks): number => {
 	return winnerDeck.map((a, i) => a * (winnerDeck.length - i)).reduce(sum);
 };
 
-export const runner = (input: string): number => {
+export const p1 = (input: string): number => {
 	const decks = parse(input);
 	for (;;) {
 		const p1card = decks[1].shift()!;
@@ -30,6 +30,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 31455 ~0.06ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 31455 ~0.06ms
 }

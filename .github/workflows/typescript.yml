@@ -29,8 +29,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: lint
+  lint:es:
+    name: lint:es
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -66,8 +66,211 @@ jobs:
       - name: install
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install
-      - name: lint
-        run: pnpm lint
+      - name: lint:es
+        run: pnpm lint:es
+  lint:tsc:
+    name: lint:tsc
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+      - name: output pnpm store directory
+        id: pnpm-store
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+            **/node_modules
+            **/.turbo
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install
+      - name: lint:tsc
+        run: pnpm lint:tsc
+  lint:format:
+    name: lint:format
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+      - name: output pnpm store directory
+        id: pnpm-store
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+            **/node_modules
+            **/.turbo
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install
+      - name: lint:format
+        run: pnpm lint:format
+      - name: lint:format:workspace
+        run: pnpm lint:format:workspace
+  lint:style:
+    name: lint:style
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+      - name: output pnpm store directory
+        id: pnpm-store
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+            **/node_modules
+            **/.turbo
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install
+      - name: lint:style
+        run: pnpm lint:style
+  lint:svelte:
+    name: lint:svelte
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+      - name: output pnpm store directory
+        id: pnpm-store
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+            **/node_modules
+            **/.turbo
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install
+      - name: lint:svelte
+        run: pnpm lint:svelte
+  lint:md:
+    name: lint:md
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: false
+      - name: output pnpm store directory
+        id: pnpm-store
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+            **/node_modules
+            **/.turbo
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install
+      - name: lint:md
+        run: pnpm lint:md
+      - name: lint:md:workspace
+        run: pnpm lint:md:workspace
+      - name: lint:rmd
+        run: pnpm lint:rmd
+      - name: lint:rmd:workspace
+        run: pnpm lint:rmd:workspace
   test:
     name: test
     runs-on: ubuntu-latest

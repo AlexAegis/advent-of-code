@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const lineMatcher = /^(\d+)-(\d+) (\w): (\w+)$/;
@@ -17,7 +17,7 @@ export const parseLine = (line: string): TobogganPasswordPolicy => {
 	return { low, high, letter, password };
 };
 
-export const runner = (input: string): number =>
+export const p1 = (input: string): number =>
 	split(input)
 		.map(parseLine)
 		.filter(({ low, high, letter, password }) => {
@@ -26,6 +26,6 @@ export const runner = (input: string): number =>
 		}).length;
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 493 ~2.6ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 493 ~2.6ms
 }

@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { perm } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -6,7 +6,7 @@ import { parse } from './parse.js';
 
 export const PHASE = [5, 6, 7, 8, 9];
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const a = parse(input);
 	const p = perm(PHASE);
 
@@ -50,6 +50,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 15432220 ~13.5ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 15432220 ~13.5ms
 }

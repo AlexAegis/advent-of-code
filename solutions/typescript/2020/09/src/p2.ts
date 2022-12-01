@@ -1,9 +1,9 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import { asc } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './args.interface.js';
 
-export const runner = (input: string, args?: Args): number => {
+export const p2 = (input: string, args?: Args): number => {
 	const xmas = split(input).map((line) => parseInt(line, 10));
 	const target = args?.target ?? NaN;
 	for (let i = 0; i < xmas.length; i++) {
@@ -25,6 +25,6 @@ export const runner = (input: string, args?: Args): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read<Args>(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 28509180 ~2.8ms
+	const resources = await loadTaskResources<Args>(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 28509180 ~2.8ms
 }

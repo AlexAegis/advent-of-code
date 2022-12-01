@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { numStart } from './num-start.function';
+import { numStart } from './num-start.function.js';
 
 describe('Number start', () => {
 	it('should work with numbers larger than the sliced part', async () => {

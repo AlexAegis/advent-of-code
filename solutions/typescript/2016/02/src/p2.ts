@@ -1,4 +1,4 @@
-import { bench, read, split } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 import { Direction, isDirectionMarker, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -12,7 +12,7 @@ const keypad = [
 
 const toKeypadNumber = (vec: Vec2Like): number | string | undefined => keypad[vec.y]?.[vec.x];
 
-export const runner = (input: string): string => {
+export const p2 = (input: string): string => {
 	const position = new Vec2(0, 2);
 
 	const result = split(input).reduce((acc, line) => {
@@ -31,6 +31,6 @@ export const runner = (input: string): string => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 46C91 ~1.9ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 46C91 ~1.9ms
 }

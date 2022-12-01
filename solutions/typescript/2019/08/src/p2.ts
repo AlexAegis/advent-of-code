@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { chunksOfArray } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
@@ -9,7 +9,7 @@ export enum COLOR {
 	TRANSPARENT = 2,
 }
 
-export const runner = (input: string): string => {
+export const p2 = (input: string): string => {
 	const h = 6;
 	const w = 25;
 
@@ -50,6 +50,6 @@ export const runner = (input: string): string => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // LGYHB ~3.26ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // LGYHB ~3.26ms
 }

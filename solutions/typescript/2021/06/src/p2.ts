@@ -1,7 +1,7 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
-export const runner = (input: string, maxDay = 256): number => {
+export const p2 = (input: string, maxDay = 256): number => {
 	const initial = input.splitToInt({ delimiter: /,/ });
 	// period, fishCount
 	const groupedFishes = new Map<number, number>();
@@ -20,6 +20,6 @@ export const runner = (input: string, maxDay = 256): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read<number>(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 1634946868992 ~0.03ms
+	const resources = await loadTaskResources<number>(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 1634946868992 ~0.03ms
 }

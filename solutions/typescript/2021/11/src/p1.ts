@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Direction, GridGraph } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -24,7 +24,7 @@ export const next = (graph: GridGraph<number>): number => {
 	return flashed.size;
 };
 
-export const runner = (input: string, totalSteps = 100): number => {
+export const p1 = (input: string, totalSteps = 100): number => {
 	const graph = input.toGridGraph({
 		valueConverter: (s) => s.tryInt(),
 		connectionDirections: Direction.allDirections,
@@ -36,6 +36,6 @@ export const runner = (input: string, totalSteps = 100): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read<number>(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 1669 ~4.74ms
+	const resources = await loadTaskResources<number>(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 1669 ~4.74ms
 }

@@ -1,7 +1,7 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
-export const runner = (input: string): string | undefined => {
+export const p2 = (input: string): string | undefined => {
 	const lineCache: string[] = [];
 	for (const line of input.split(/\r?\n/)) {
 		for (const cachedLine of lineCache) {
@@ -26,6 +26,6 @@ export const runner = (input: string): string | undefined => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // megsdlpulxvinkatfoyzxcbvq ~9.6ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // megsdlpulxvinkatfoyzxcbvq ~9.6ms
 }

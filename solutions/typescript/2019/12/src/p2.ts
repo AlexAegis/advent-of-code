@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { pairs } from '@alexaegis/advent-of-code-lib/functions';
 import { clamp, lcm } from '@alexaegis/advent-of-code-lib/math';
 import { Vec3 } from '@alexaegis/advent-of-code-lib/model';
@@ -23,7 +23,7 @@ export const findCycle = (ms: Moon[], ps: Moon[][], plane: 'x' | 'y' | 'z'): num
 	}
 };
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const ms = parseLines(input).map((m) => new Moon(m));
 	const ps = pairs(ms);
 	const cx = findCycle(ms, ps, 'x');
@@ -33,6 +33,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 332477126821644 ~89ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 332477126821644 ~89ms
 }

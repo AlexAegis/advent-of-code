@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
@@ -10,7 +10,7 @@ const initialPairs = (polymer: string): Map<string, number> =>
 const initialScores = (polymer: string): Map<string, number> =>
 	[...polymer].reduce((a, n) => a.update(n, (score = 0) => score + 1), new Map<string, number>());
 
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const { polymer, rules } = parse(input);
 	let pairMap = initialPairs(polymer);
 	const scoreMap = initialScores(polymer);
@@ -37,6 +37,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 2984946368465 ~1.13ms
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 2984946368465 ~1.13ms
 }

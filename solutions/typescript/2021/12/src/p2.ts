@@ -1,4 +1,4 @@
-import { bench, read } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { Graph, Node } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -39,7 +39,7 @@ const getPaths = (
  * @param input
  * @returns
  */
-export const runner = (input: string): number => {
+export const p2 = (input: string): number => {
 	const valueVertices = input.lines().map((line) => {
 		const [from, to] = line.split('-');
 		return { from, to };
@@ -59,6 +59,6 @@ export const runner = (input: string): number => {
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	console.log(`Result: ${await bench(input, runner)}`); // 98441 ~42s
+	const resources = await loadTaskResources(packageJson.aoc);
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 98441 ~42s
 }

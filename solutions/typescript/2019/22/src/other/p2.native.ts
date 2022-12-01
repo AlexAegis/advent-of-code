@@ -14,7 +14,7 @@ export function expmod(base: bigint, exp: bigint, m: bigint): bigint {
 	}
 }
 
-export const runner = (
+export const p2 = (
 	deckSize: bigint = 119315717514047n,
 	repeat: bigint = 101741582076661n,
 	target: bigint = 2020n
@@ -53,7 +53,7 @@ export const runner = (
 };
 
 if (process.env.RUN) {
-	const input = await read(packageJson.aoc.year, packageJson.aoc.day);
+	const resources = await loadTaskResources(packageJson.aoc);
 	console.log(`Result: ${await bench(input, runner())}`); // 81781678911487 ~0.62ms
 }
 
