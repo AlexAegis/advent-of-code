@@ -1,8 +1,8 @@
-import type { ToString } from '../functions/index.js';
 import { GridGraph, GridGraphOptions } from '../model/graph/index.js';
-import type { Vec2, Vec2String } from '../model/index.js';
+import type { ToString, Vec2, Vec2String } from '../model/index.js';
 import { NEWLINE } from '../regex/index.js';
 import { rightSplit } from './right-split.function.js';
+import { splitToIntAndGroupByWhitespace } from './split-to-int-and-group-by-whitespace.function.js';
 import { stringToMatrix } from './string-to-matrix.function.js';
 import { stringToVectorMap } from './string-to-vectormap.function.js';
 import { vectorsInStringTile } from './vectors-in-string-tile.function.js';
@@ -10,6 +10,7 @@ export * from '../array/array.polyfill.js'; // `toInt` is used in `splitToInt`
 
 declare global {
 	interface String {
+		toInt(radix?: number): number;
 		toMatrix(): string[][];
 		toGridGraph<T extends ToString>(
 			gridOptions?: GridGraphOptions<T> & {
@@ -20,16 +21,22 @@ declare global {
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];
+
 		splitToInt(options?: {
 			delimiter?: {
 				[Symbol.split](string: string, limit?: number): string[];
 			};
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): number[];
+		splitToIntAndGroupByWhitespace(radix?: number): number[][];
 		isLowerCase(): boolean;
 		isUpperCase(): boolean;
 	}
 }
+
+String.prototype.toInt = function (radix = 10): number {
+	return parseInt(this as string, radix);
+};
 
 String.prototype.isLowerCase = function (): boolean {
 	return this.toLowerCase() === this;
@@ -65,6 +72,10 @@ String.prototype.splitToInt = function (options?: {
 	return this.split(options?.delimiter ?? /\s+/g)
 		.filter((line) => !!line) // Filter out empty lines
 		.toInt(options?.toIntOptions);
+};
+
+String.prototype.splitToIntAndGroupByWhitespace = function (radix?: number): number[][] {
+	return splitToIntAndGroupByWhitespace(this as string, radix);
 };
 
 String.prototype.toMatrix = function (

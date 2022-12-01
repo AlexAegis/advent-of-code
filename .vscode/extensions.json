@@ -3,6 +3,7 @@
 		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
 		"mhutchie.git-graph",
-		"dbaeumer.vscode-eslint"
+		"dbaeumer.vscode-eslint",
+		"ipatalas.vscode-postfix-ts"
 	]
 }

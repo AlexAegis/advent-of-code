@@ -148,7 +148,7 @@ target
 
 # Benchmarking
 /benchmark
-/.benchmark
+.benchmark
 
 # turbo
 .turbo

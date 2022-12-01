@@ -1,5 +1,5 @@
 import { isNumberArray, nonNullish } from '../functions/index.js';
-import { asc, desc, max, min, mult, sum } from '../math/index.js';
+import { asc, desc, mult, sum } from '../math/index.js';
 import type { SizedTuple } from '../model/index.js';
 import { addAllToSet } from '../set/index.js';
 import { cutSubSegment } from './cut-subsegment.function.js';
@@ -7,8 +7,10 @@ import { findEndOfPair } from './find-end-of-pair.function.js';
 import { matrixFlipFlop } from './flip-flop.generator.js';
 import { flipMatrix } from './flip-matrix.function.js';
 import { pairsWith } from './index.js';
+import { maxOf } from './max-of.function.js';
 import { mean } from './mean.function.js';
 import { median } from './median.function.js';
+import { minOf } from './min-of.function.js';
 import { partition } from './partition.function.js';
 import { peek } from './peek.function.js';
 import { rotateMatrix } from './rotate-matrix.function.js';
@@ -33,8 +35,12 @@ declare global {
 		repeat(until?: (element: T, iteration: number) => boolean): IterableIterator<T>;
 		sum(): number;
 		product(): number;
-		min(): T;
-		max(): T;
+		min(): number;
+		min(count: number): number[];
+		min(count?: number): number | number[];
+		max(): number;
+		max(count: number): number[];
+		max(count?: number): number | number[];
 		asc(): T[];
 		desc(): T[];
 		clone(): T[];
@@ -196,13 +202,17 @@ Array.prototype.asc = function <T>(): T[] {
 	return this.sort(asc);
 };
 
-Array.prototype.min = function <T>(): T {
-	return this.length ? this.reduce(min, Infinity) : undefined;
+const min = function (this: number[], count?: number): number | number[] {
+	return minOf(this, count);
 };
 
-Array.prototype.max = function <T>(): T {
-	return this.length ? this.reduce(max, -Infinity) : undefined;
+Object.assign(Array.prototype, { min });
+
+const max = function (this: number[], count?: number): number | number[] {
+	return maxOf(this, count);
 };
+
+Object.assign(Array.prototype, { max });
 
 Array.prototype.sum = function (): number {
 	return this.reduce(sum, 0);

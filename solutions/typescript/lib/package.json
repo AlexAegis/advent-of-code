@@ -11,6 +11,7 @@
 		"format": "prettier --write .",
 		"lint:rmd": "remark --frail --quiet --no-stdout *.md",
 		"test": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests",
 		"self-destruct": "rimraf ./dist ./coverage ./.codacy-coverage ./cache ./node-modules ./package-lock.json ./yarn.lock ./pnpm-lock.yaml",
 		"codecov": "codecov",
 		"bench:open": "live-server benchmark/results/reduce.chart.html --port=8989"
@@ -32,9 +33,9 @@
 		"./string": "./string/index.ts"
 	},
 	"dependencies": {
-		"@thi.ng/iterators": "^6.1.29",
-		"@thi.ng/memoize": "^3.1.17",
-		"@thi.ng/transducers": "^8.3.24",
+		"@thi.ng/iterators": "^6.1.30",
+		"@thi.ng/memoize": "^3.1.18",
+		"@thi.ng/transducers": "^8.3.25",
 		"big-integer": "^1.6.51",
 		"ix": "^5.0.0",
 		"rxjs": "^7.5.7"

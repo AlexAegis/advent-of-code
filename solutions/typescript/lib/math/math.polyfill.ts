@@ -94,18 +94,21 @@ BigInt.prototype.invMod = function (this: bigint, n: bigint): bigint {
 	return invModBigInt(this, n);
 };
 
-Number.prototype.modExp = function (this: number, b: number, n: number): number {
+const numberProtoModExp = function (this: number, b: number, n: number): number {
 	return modExp(this, b, n);
 };
+Object.assign(Number.prototype, { modExp: numberProtoModExp });
 
-BigInt.prototype.modExp = function (this: bigint, b: bigint, n: bigint): bigint {
+const bigIntProtoModExp = function (this: bigint, b: bigint, n: bigint): bigint {
 	return modExpBigInt(this, b, n);
 };
+Object.assign(BigInt.prototype, { modExp: bigIntProtoModExp });
 
-String.prototype.toInt = function (this: string, radix = 10): number | undefined {
+const toInt = function (this: string, radix = 10): number | undefined {
 	const result = parseInt(this, radix);
 	return isNaN(result) ? undefined : result;
 };
+Object.assign(String.prototype, { toInt });
 
 String.prototype.tryInt = function (this: string, radix = 10): number {
 	const result = parseInt(this, radix);

@@ -12,7 +12,7 @@ module.exports = {
 		browser: true,
 		node: true,
 	},
-	ignorePatterns: ['dist', 'node_modules', 'typedocs', 'coverage', '!.vscode'],
+	ignorePatterns: ['dist', 'node_modules', 'typedocs', 'coverage', '!.vscode', '!.github'],
 	plugins: ['@typescript-eslint'],
 	extends: [
 		'eslint:recommended',
