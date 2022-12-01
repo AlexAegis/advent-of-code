@@ -1,5 +1,5 @@
-import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number =>

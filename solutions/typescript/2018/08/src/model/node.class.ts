@@ -1,61 +1,45 @@
-export class Node {
-	public constructor(input: number[], private parent?: Node) {
-		if (this.parent) {
-			this.parent.children.push(this);
+export class MemoryNode {
+	private readonly children: MemoryNode[] = [];
+	private readonly metadata: number[] = [];
+	private childrenRead = 0;
+	private metadataRead = 0;
+
+	constructor(private readonly childrenCount: number, private readonly metadataCount: number) {}
+
+	read(tape: number[], cursor: number): number {
+		while (this.childrenRead !== this.childrenCount) {
+			const child = new MemoryNode(tape[cursor], tape[cursor + 1]);
+			this.children.push(child);
+			cursor += 2;
+			this.childrenRead += 1;
+			cursor = child.read(tape, cursor);
 		}
-		this.identifier = String.fromCharCode(++Node.currCharIndex);
-		this.level = this.parent ? this.parent.level + 1 : 0;
-		this.totalNumberOfChildren = input.shift();
-		this.totalNumberOfData = input.shift();
-		this.process(input);
-	}
 
-	public static currCharIndex = 96;
-	public identifier: string;
-	public level: number;
-	public data: number[] | undefined;
-	public children: Node[] = [];
-	public processedChildren = 0;
-	public totalNumberOfChildren: number | undefined;
-	public totalNumberOfData: number | undefined;
-
-	public process(input: number[]): Node | undefined {
-		if (this.totalNumberOfChildren === this.processedChildren) {
-			this.data = input.splice(0, this.totalNumberOfData);
-			if (this.parent) {
-				const p = this.parent;
-
-				p.processedChildren++;
-				p.process(input);
-			}
-
-			return undefined;
-		} else {
-			return new Node(input, this);
+		while (this.metadataRead !== this.metadataCount) {
+			this.metadata.push(tape[cursor]);
+			cursor += 1;
+			this.metadataRead += 1;
 		}
+
+		return cursor;
 	}
 
-	// part one
-	public sum(): number {
-		return this.children
-			.map((child) => child.sum())
-			.concat(this.data ? this.data : [])
-			.reduce((acc, next) => acc + next);
+	/**
+	 * Part One
+	 */
+	sum(): number {
+		return this.metadata.sum() + this.children.map((child) => child.sum()).sum();
 	}
 
-	// part two
-	public value(): number {
-		return this.data && this.children.length > 0
-			? this.data
+	/**.
+	 * Part Two
+	 */
+	value(): number {
+		return this.metadata && this.children.length > 0
+			? this.metadata
 					.filter((index) => index > 0 && index < this.children.length + 1)
 					.map((index) => this.children[--index].value())
-					.reduce((acc, next) => acc + next, 0)
+					.sum()
 			: this.sum();
-	}
-
-	public toString(): string {
-		return `[${this.data} - ${this.children
-			.map((child) => child.toString())
-			.reduce((acc, next) => acc + next, '')}]`;
 	}
 }
