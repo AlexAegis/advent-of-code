@@ -1,7 +1,7 @@
-// @ts-nocheck
 // For the glob features check out https://github.com/micromatch/micromatch
 module.exports = {
-	'*.(js|ts)': ['eslint --max-warnings=0', 'prettier --check'],
+	'*.(ts|tsx|cts|mts)': ['sh -c tsc --noEmit'],
+	'*.(ts|tsx|cts|mts|js|jsx|cjs|mjs)': ['eslint --max-warnings=0', 'prettier --check'],
 	'*.css': ['stylelint', 'prettier --list-different'],
 	'*.scss': ['stylelint --syntax=scss', 'prettier --check'],
 	'(*.json|.eslintrc|.prettierrc|.stylelintrc|.markdownlintrc)': [
@@ -10,7 +10,7 @@ module.exports = {
 	],
 	'*.md': ["markdownlint --ignore 'CHANGELOG.md' --ignore-path '.gitignore'", 'prettier --check'],
 	'*.(yml|yaml)': ['prettier --check'],
-	'*.rs': (fs) => {
+	'*.rs': (/** @type {string[]} */ fs) => {
 		return [
 			`cargo fmt --all --manifest-path solutions/rust/Cargo.toml -- --check ${fs.join(' ')}`,
 			'cargo clippy --manifest-path solutions/rust/Cargo.toml -- ',
