@@ -29,7 +29,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:es:
+  lint-es:
     name: lint:es
     runs-on: ubuntu-latest
     strategy:
@@ -68,7 +68,7 @@ jobs:
         run: pnpm install
       - name: lint:es
         run: pnpm lint:es
-  lint:tsc:
+  lint-tsc:
     name: lint:tsc
     runs-on: ubuntu-latest
     strategy:
@@ -107,7 +107,7 @@ jobs:
         run: pnpm install
       - name: lint:tsc
         run: pnpm lint:tsc
-  lint:format:
+  lint-format:
     name: lint:format
     runs-on: ubuntu-latest
     strategy:
@@ -148,7 +148,7 @@ jobs:
         run: pnpm lint:format
       - name: lint:format:workspace
         run: pnpm lint:format:workspace
-  lint:style:
+  lint-style:
     name: lint:style
     runs-on: ubuntu-latest
     strategy:
@@ -187,7 +187,7 @@ jobs:
         run: pnpm install
       - name: lint:style
         run: pnpm lint:style
-  lint:svelte:
+  lint-svelte:
     name: lint:svelte
     runs-on: ubuntu-latest
     strategy:
@@ -226,7 +226,7 @@ jobs:
         run: pnpm install
       - name: lint:svelte
         run: pnpm lint:svelte
-  lint:md:
+  lint-md:
     name: lint:md
     runs-on: ubuntu-latest
     strategy:
