@@ -1,4 +1,4 @@
-import type { ToString } from '../functions/index.js';
+import type { ToString } from '../model/index.js';
 
 export class LinkedListNode<T> implements ToString {
 	public prev?: LinkedListNode<T>;
