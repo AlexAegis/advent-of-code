@@ -52,6 +52,7 @@
 		"build": "turbo run build --concurrency 6",
 		"start": "turbo run start --concurrency 6",
 		"test": "turbo run test --concurrency 6",
+		"lint": "pnpm lint:es && pnpm lint:tsc && pnpm lint:svelte && pnpm lint:style && pnpm lint:format && pnpm lint:format:workspace && pnpm lint:md && pnpm lint:md:workspace && pnpm lint:rmd && pnpm lint:rmd:workspace",
 		"lint:es": "turbo run lint:es --concurrency 6",
 		"lint:tsc": "turbo run lint:tsc --concurrency 6",
 		"lint:svelte": "turbo run lint:svelte --concurrency 6",
