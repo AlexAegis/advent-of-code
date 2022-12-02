@@ -24,5 +24,5 @@ export const p1 = (input: string): number =>
 
 if (process.env.RUN) {
 	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 0 ~0ms
+	console.log(`Result: ${await benchTask(p1, resources)}`); // 11063 ~0.78ms
 }

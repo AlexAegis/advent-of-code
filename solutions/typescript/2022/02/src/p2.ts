@@ -35,7 +35,6 @@ export const p2 = (input: string): number =>
 		.sum();
 
 if (process.env.RUN) {
-	//const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
 	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 0 ~0ms
+	console.log(`Result: ${await benchTask(p2, resources)}`); // 10349 ~0.74ms
 }
