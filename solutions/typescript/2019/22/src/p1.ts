@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { rotateArrayTimes } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
@@ -27,7 +27,4 @@ export const p1 =
 		return deck.indexOf(2019);
 	};
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1(), resources)}`); // 6831 ~164ms
-}
+await task(p1(), packageJson.aoc); // 6831 ~164ms

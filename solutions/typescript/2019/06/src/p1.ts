@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Planet } from './model/planet.class.js';
 import { parse } from './parse.js';
@@ -26,7 +26,4 @@ export const p1 = (input: string): number => {
 	return [...planets.entries()].reduce((acc, [_, p]) => acc + [...p].length, 0);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 223251 526ms
-}
+await task(p1, packageJson.aoc); // 223251 526ms

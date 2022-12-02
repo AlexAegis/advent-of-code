@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import {
 	DirectionMarker,
 	directionMarkerAssociationMap,
@@ -24,7 +24,4 @@ export const p2 = (input: string): number =>
 		}
 	).locations.size;
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 2631 ~2.8ms
-}
+await task(p2, packageJson.aoc); // 2631 ~2.8ms

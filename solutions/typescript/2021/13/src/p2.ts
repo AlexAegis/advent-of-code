@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { renderVectors } from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -24,7 +24,4 @@ export const p2 = (input: string): string => {
 	return '\n' + renderVectors(vectors);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // REUPUPKR ~1.21ms
-}
+await task(p2, packageJson.aoc); // REUPUPKR ~1.21ms

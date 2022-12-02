@@ -1,5 +1,6 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { lcm } from '@alexaegis/advent-of-code-lib/math';
-// import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
 export const pattern = [0, 1, 0, -1] as const;
@@ -50,10 +51,4 @@ export const p2 = (input: string): string => {
 	return phaser(a, 1, fft(1)).slice(0, 8).join('');
 };
 
-if (process.env.RUN) {
-	console.log(`Result: ${await p2('12345678')}`);
-	// console.log(`Result: ${await runner('03036732577212944063491565474664')}`)
-
-	// const input = await read(packageJson.aoc.year, packageJson.aoc.day);
-	// console.log(`Result: ${await benchTask(p2, resources)}`); // 783895 ~22ms
-}
+await task(p2, packageJson.aoc, { input: '12345678' }); // 1115317115 ~9.6ms

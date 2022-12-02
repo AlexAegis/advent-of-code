@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { FerryAction, parse } from './parse.function.js';
@@ -34,7 +34,4 @@ export const p2 = (input: string): number => {
 	return Vec2.ORIGIN.manhattan(position);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 39140 ~1.07ms
-}
+await task(p2, packageJson.aoc); // 39140 ~1.07ms

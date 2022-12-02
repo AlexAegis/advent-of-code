@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Network, NETWORK_SIZE } from './network.class.js';
 import type { Packet } from './packet.interface.js';
@@ -34,7 +34,4 @@ export const p2 = (input: string): number => {
 	return result;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 19216 ~146ms
-}
+await task(p2, packageJson.aoc); // 19216 ~146ms

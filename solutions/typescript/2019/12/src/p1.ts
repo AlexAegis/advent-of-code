@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { pairs } from '@alexaegis/advent-of-code-lib/functions';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -29,7 +29,4 @@ export const p1 =
 		return ms.reduce((acc, m) => acc + m.totalEnergy(), 0);
 	};
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1(), resources)}`); // 8625 ~3ms
-}
+await task(p1(), packageJson.aoc); // 8625 ~3ms

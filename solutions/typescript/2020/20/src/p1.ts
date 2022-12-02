@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { findCorners } from '@alexaegis/advent-of-code-lib/functions';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
@@ -17,7 +17,4 @@ export const p1 = (input: string): number => {
 		.reduce(mult, 1);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 22878471088273 ~170.90ms
-}
+await task(p1, packageJson.aoc); // 22878471088273 ~170.90ms

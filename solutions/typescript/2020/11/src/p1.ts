@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { is } from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -51,7 +51,4 @@ export const p1 = (input: string): number => {
 	return [...map.values()].count(is(SeatState.OCCUPIED));
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 2406 ~900ms
-}
+await task(p1, packageJson.aoc); // 2406 ~900ms

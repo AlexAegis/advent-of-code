@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
@@ -37,7 +37,4 @@ export const p1 = (input: string): number => {
 	return words.count((word) => matchRule(word, ruleBook, 0) === word.length);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 208 ~2.49ms
-}
+await task(p1, packageJson.aoc); // 208 ~2.49ms

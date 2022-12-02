@@ -1,3 +1,4 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import {
 	Direction,
 	PortalGridGraph,
@@ -5,7 +6,6 @@ import {
 	Vec2,
 	Weighter,
 } from '@alexaegis/advent-of-code-lib/model';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parseLines } from './parse.js';
 
@@ -57,7 +57,4 @@ export const p1 = (input: string): number => {
 	return 0;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 783895 ~22ms
-}
+await task(p1, packageJson.aoc); // 783895 ~22ms

@@ -1,7 +1,7 @@
 import { hexToBits } from './model/hex-to-bits.function.js';
 import { interpretPacket, isLiteralPacket, Packet } from './model/packet.interface.js';
 
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const calculatePacketValue = (packet: Packet): number => {
@@ -36,7 +36,4 @@ export const p2 = (input: string): number => {
 	return calculatePacketValue(packet);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 10185143721112 ~0.26ms
-}
+await task(p2, packageJson.aoc); // 10185143721112 ~0.26ms

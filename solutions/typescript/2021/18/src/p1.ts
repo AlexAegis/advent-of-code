@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import {
 	addSnailfishNumbers,
@@ -12,7 +12,4 @@ export const p1 = (input: string): number => {
 	return getMagnitude(sum);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 4184 ~70.82ms
-}
+await task(p1, packageJson.aoc); // 4184 ~70.82ms

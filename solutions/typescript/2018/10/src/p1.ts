@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Boundary } from './boundary.interface.js';
@@ -65,7 +65,4 @@ export const p1 = (input: string): number => {
 	return i; // result of part two
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // KBJHEZCB - 10369 ~305ms
-}
+await task(p1, packageJson.aoc); // KBJHEZCB - 10369 ~305ms

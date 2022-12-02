@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 interface Graph {
 	nodes: string[];
@@ -57,7 +57,4 @@ export const p1 = async (input: string): Promise<string> => {
 	return result.join('');
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~1ms
-}
+await task(p1, packageJson.aoc); // GRTAHKLQVYWXMUBCZPIJFEDNSO ~1ms

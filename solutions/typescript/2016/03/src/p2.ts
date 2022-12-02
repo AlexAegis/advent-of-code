@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { isTriangle, Triangle } from './is-triangle.function.js';
 
@@ -37,7 +37,4 @@ export const p2 = (input: string): number => {
 	return result.triangles.count(isTriangle);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 1544 ~1.0257ms
-}
+await task(p2, packageJson.aoc); // 1544 ~1.0257ms

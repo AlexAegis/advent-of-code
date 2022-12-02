@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { range } from './functions/range.generator.js';
@@ -45,7 +45,4 @@ export const p1 = (input: string): string => {
 	return `${max.vec} (${max.sum})`;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 21,37 (30) ~165ms
-}
+await task(p1, packageJson.aoc); // 21,37 (30) ~165ms

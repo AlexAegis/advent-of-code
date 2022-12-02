@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
@@ -41,7 +41,4 @@ export const p2 = (input: string): number => {
 	return words.count((word) => memoizedMatchRule(word, ruleBook, 0)[0] === word.length);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 316 ~480.55ms
-}
+await task(p2, packageJson.aoc); // 316 ~480.55ms

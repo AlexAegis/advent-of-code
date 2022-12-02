@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { printMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { Direction } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -60,7 +60,4 @@ export const p2 = (input: string): number => {
 	return path.map((p) => p.value).sum() - (start?.value ?? 0);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 2703 ~30s
-}
+await task(p2, packageJson.aoc); // 2703 ~30s

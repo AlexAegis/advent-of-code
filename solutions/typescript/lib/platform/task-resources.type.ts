@@ -1,10 +1,11 @@
-export type Awaitable<T> = Promise<T> | T;
-
 export interface TaskMetadata {
 	year: number;
 	day: number;
 	part?: 1 | 2;
 }
+
+export const isTaskMetadata = (o: object): o is TaskMetadata =>
+	Object.hasOwn(o, 'year') && Object.hasOwn(o, 'day');
 
 /**
  * Some tasks define different handling for their examples than the real input.

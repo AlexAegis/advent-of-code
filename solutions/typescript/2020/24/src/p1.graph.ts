@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Graph, Node, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import {
@@ -52,7 +52,4 @@ export const p1g = (input: string): number => {
 	return [...g.nodes.values()].count((node) => node.value === TileColor.BLACK);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1g, resources)}`); // 479 ~2.61ms
-}
+await task(p1g, packageJson.aoc); // 479 ~2.61ms

@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const calculate =
@@ -45,7 +45,4 @@ export const calculate =
 
 export const p1 = calculate(2020);
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 1015 ~0.08ms
-}
+await task(p1, packageJson.aoc); // 1015 ~0.08ms

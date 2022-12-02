@@ -1,5 +1,5 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parseSubmarineCommand } from './model/submarine-command.interface.js';
 import { SubmarineInstruction } from './model/submarine-instruction.enum.js';
@@ -20,7 +20,4 @@ export const p1 = (input: string): number => {
 	return result.x * result.y;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 1882980 ~0.34ms
-}
+await task(p1, packageJson.aoc); // 1882980 ~0.34ms

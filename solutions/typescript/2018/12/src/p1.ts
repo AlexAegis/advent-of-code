@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { interpreter } from './interpreter.function.js';
 
@@ -27,7 +27,4 @@ export const p1 = (input: string): number | undefined => {
 	}
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 3230 ~0.8ms
-}
+await task(p1, packageJson.aoc); // 3230 ~0.8ms

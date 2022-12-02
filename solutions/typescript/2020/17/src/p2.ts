@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { cartesianCombinations } from '@alexaegis/advent-of-code-lib/math';
 import { Vec4 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -24,7 +24,4 @@ export const p2 = (input: string): number => {
 	return cubes.size;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 1868 ~1618.00ms
-}
+await task(p2, packageJson.aoc); // 1868 ~1618.00ms

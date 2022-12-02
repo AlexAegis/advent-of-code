@@ -52,9 +52,5 @@ export const p2 = (
 	return modn(offset + target * i, deckSize);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await bench(input, runner())}`); // 81781678911487 ~0.62ms
-}
-
+await task(p2, packageJson.aoc); // 81781678911487 ~0.62ms
 */

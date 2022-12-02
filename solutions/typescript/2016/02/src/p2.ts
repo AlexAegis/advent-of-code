@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { Direction, isDirectionMarker, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -30,7 +30,4 @@ export const p2 = (input: string): string => {
 	return result;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 46C91 ~1.9ms
-}
+await task(p2, packageJson.aoc); // 46C91 ~1.9ms

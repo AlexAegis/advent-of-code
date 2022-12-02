@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parseLine } from './p1.js';
 
@@ -15,7 +15,4 @@ export const p2 = (input: string): number => {
 	return [...seabed.values()].count((pipeHeight) => pipeHeight >= 2);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 22364 ~70.72ms
-}
+await task(p2, packageJson.aoc); // 22364 ~70.72ms

@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, Range } from '@alexaegis/advent-of-code-lib';
+import { Range, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
@@ -18,7 +18,4 @@ export const p1 = (input: string): number => {
 	return nearbyTickets.flatMap((ticket) => invalidFields(ticket, fieldRanges)).reduce(sum);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 27870 ~0.60ms
-}
+await task(p1, packageJson.aoc); // 27870 ~0.60ms

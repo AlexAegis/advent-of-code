@@ -1,5 +1,5 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const getLowPoints = (map: Map<Vec2String, number>): [Vec2String, number][] =>
@@ -20,7 +20,4 @@ export const p1 = (input: string): number => {
 		.sum();
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 456 ~9.63ms
-}
+await task(p1, packageJson.aoc); // 456 ~9.63ms

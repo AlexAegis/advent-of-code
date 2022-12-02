@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -14,7 +14,4 @@ export const countTrees = (lines: string[], slope: Vec2, position = new Vec2(0, 
 
 export const p1 = (input: string): number => countTrees(split(input), new Vec2(3, 1));
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 265 ~0.3ms
-}
+await task(p1, packageJson.aoc); // 265 ~0.3ms
