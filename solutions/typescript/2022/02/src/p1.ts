@@ -1,12 +1,26 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
 
 import packageJson from '../package.json' assert { type: 'json' };
+import {
+	getOutcome,
+	Shape,
+	shapeKeyMap,
+	Strategy,
+	StrategyResponse,
+} from './rock-paper-scissors.type.js';
 
-export const p1 = (input: string): number => {
-	const tape = input.splitToInt();
-	console.log(tape);
-	return 0;
+const simpleShapeStrategyMap: Record<StrategyResponse, Shape> = {
+	X: Shape.ROCK,
+	Y: Shape.PAPER,
+	Z: Shape.SCISSORS,
 };
+
+export const p1 = (input: string): number =>
+	split(input)
+		.map((line) => line.split(' ') as Strategy)
+		.map(([opponent, strategy]) => [shapeKeyMap[opponent], simpleShapeStrategyMap[strategy]])
+		.map(([opponentShape, myShape]) => myShape + getOutcome(opponentShape, myShape))
+		.sum();
 
 if (process.env.RUN) {
 	const resources = await loadTaskResources(packageJson.aoc);
