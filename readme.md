@@ -69,3 +69,12 @@
 [![2016 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2016.json)](/solutions/python/year2016/)
 
 [![2015 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2015.json)](/solutions/python/year2015/)
+
+## Disclaimer
+
+All the puzzle prose present here is the work of [Eric Wastl](http://was.tl/)
+and are a markdown recreations of the original tasks from the
+[Advent of Code](https://adventofcode.com/) site.
+
+[Advent of Code](https://adventofcode.com/) is made by
+[Eric Wastl](http://was.tl/).
