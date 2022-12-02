@@ -1,4 +1,5 @@
-import { benchTask } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json' assert { type: 'json' };
 
 function shift(window: string, last: number, length: number): string {
 	if (window.length >= length) {
@@ -31,6 +32,4 @@ export const p2 = (input: string): number => {
 	return recipes.length - input.length;
 };
 
-if (process.env.RUN) {
-	console.log(`Result: ${await benchTask(p2, { input: '327901' })}`); // 20229822 ~ 900ms
-}
+await task(p2, packageJson.aoc, { input: '327901' }); // 20229822 ~ 900ms

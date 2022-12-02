@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { ADDRESS_LENGTH, parse } from './p1.js';
@@ -41,7 +41,4 @@ export const p2 = (input: string): number => {
 	return [...memory.values()].reduce(sum);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 4200656704538 ~78.17ms
-}
+await task(p2, packageJson.aoc); // 4200656704538 ~78.17ms

@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { hexagonalAxialDirections, parse } from './parse.function.js';
@@ -50,7 +50,4 @@ export const p2 = (input: string): number => {
 	return blacks.size;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 265 ~0.3ms
-}
+await task(p2, packageJson.aoc, 'example.1.txt'); // 265 ~0.3ms

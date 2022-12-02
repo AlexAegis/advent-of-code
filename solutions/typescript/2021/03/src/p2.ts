@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const getMostCommonBit = (lines: string[], bitIndex: number): '1' | '0' => {
@@ -37,7 +37,4 @@ export const p2 = (input: string): number => {
 	return oxygenRating * co2ScrubberRating;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 2845944 ~0.65ms
-}
+await task(p2, packageJson.aoc); // 2845944 ~0.65ms

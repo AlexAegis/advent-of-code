@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string, maxDay = 256): number => {
@@ -19,7 +19,4 @@ export const p2 = (input: string, maxDay = 256): number => {
 	return [...groupedFishes.values()].sum();
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources<number>(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 1634946868992 ~0.03ms
-}
+await task(p2, packageJson.aoc); // 1634946868992 ~0.03ms

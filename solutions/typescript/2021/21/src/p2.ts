@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -75,7 +75,4 @@ export const p2 = (input: string): number => {
 	return Object.values(result).max();
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 4184 ~0.0036ms
-}
+await task(p2, packageJson.aoc); // 4184 ~0.0036ms

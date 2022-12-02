@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { flattenVectors } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
@@ -27,7 +27,4 @@ export const p2 = (input: string): number => {
 	return min;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 91518 ~151ms
-}
+await task(p2, packageJson.aoc); // 91518 ~151ms

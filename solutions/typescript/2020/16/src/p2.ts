@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, Range } from '@alexaegis/advent-of-code-lib';
+import { Range, task } from '@alexaegis/advent-of-code-lib';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { invalidFields } from './p1.js';
@@ -70,7 +70,4 @@ export const p2 = (input: string): number =>
 		.map((p) => p.value)
 		.reduce(mult, 1);
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 3173135507987 ~1.79ms
-}
+await task(p2, packageJson.aoc); // 3173135507987 ~1.79ms

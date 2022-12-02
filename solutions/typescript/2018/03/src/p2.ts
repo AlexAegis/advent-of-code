@@ -1,9 +1,8 @@
-import { split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import type { Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import { interpret } from './interpret.function.js';
 import type { Claim } from './model/claim.interface.js';
 
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string): number | undefined => {
@@ -37,7 +36,4 @@ export const p2 = (input: string): number | undefined => {
 	return undefined;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 382 ~234ms
-}
+await task(p2, packageJson.aoc); // 382 ~234ms

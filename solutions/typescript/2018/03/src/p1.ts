@@ -1,9 +1,7 @@
-import { split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import type { Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import { interpret } from './interpret.function.js';
-
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
+import { interpret } from './interpret.function.js';
 
 export const p1 = (input: string): number => {
 	const fabric: Map<Vec2String, number[]> = new Map<Vec2String, number[]>(); // Contains each claim for each coordinate
@@ -21,7 +19,4 @@ export const p1 = (input: string): number => {
 	return [...fabric].count(([_, v]) => v.length >= 2);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 116920 ~265ms
-}
+await task(p1, packageJson.aoc); // 116920 ~265ms

@@ -1,7 +1,5 @@
-import { split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { min, sum } from '@alexaegis/advent-of-code-lib/math';
-
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = async (input: string): Promise<number> =>
@@ -11,7 +9,4 @@ export const p1 = async (input: string): Promise<number> =>
 		.map((sides) => sides.reduce(min) + sides.reduce(sum) * 2)
 		.reduce(sum, 0);
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 3803038 ~2ms
-}
+await task(p1, packageJson.aoc); // 3803038 ~2ms

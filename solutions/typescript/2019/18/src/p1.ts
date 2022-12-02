@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, printMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import type { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import { GridGraph, GridNode } from '@alexaegis/advent-of-code-lib/model';
@@ -54,7 +54,4 @@ export const p1 = (input: string): number => {
 	return 0;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 0 ~0ms
-}
+await task(p1, packageJson.aoc, 'example.1.txt'); // 0 ~0ms

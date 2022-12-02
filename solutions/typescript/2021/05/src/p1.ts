@@ -1,5 +1,5 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const parseLine = (line: string): { start: Vec2; end: Vec2 } => {
@@ -23,7 +23,4 @@ export const p1 = (input: string): number => {
 	return [...seabed.values()].count((pipeHeight) => pipeHeight >= 2);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 7468 ~35.34ms
-}
+await task(p1, packageJson.aoc); // 7468 ~35.34ms

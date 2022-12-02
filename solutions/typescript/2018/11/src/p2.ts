@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import type { Vec2Like } from '@alexaegis/advent-of-code-lib/model';
 import * as WorkerPool from 'workerpool';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -70,7 +70,4 @@ export const p2 = async (input: string): Promise<string> => {
 	return `${max.vec ? max.vec.x + ', ' + max.vec.y : 'undefined'},${max.size} (${max.sum})`;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 236,146,12 (160) ~63007ms
-}
+await task(p2, packageJson.aoc); // 236,146,12 (160) ~63007ms

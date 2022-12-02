@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { getLowPoints } from './p1.js';
@@ -24,7 +24,4 @@ export const p2 = (input: string): number => {
 	return largestThreeBasins.map((basin) => basin.length).reduce((a, n) => a * n, 1);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 1047744 ~26.36ms
-}
+await task(p2, packageJson.aoc); // 1047744 ~26.36ms

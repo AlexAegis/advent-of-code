@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { rotateArrayTimes } from '@alexaegis/advent-of-code-lib/functions';
 import { asc } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -25,7 +25,4 @@ export const p1array =
 		return parseInt(circle.join(''), 10);
 	};
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1array(), resources)}`); // 74698532 ~0.08ms
-}
+await task(p1array(), packageJson.aoc); // 74698532 ~0.08ms

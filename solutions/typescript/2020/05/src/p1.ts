@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { max } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -40,7 +40,4 @@ export const calculateSeatId = (line: string): number => {
 
 export const p1 = (input: string): number => split(input).map(calculateSeatId).reduce(max);
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 848 ~4ms
-}
+await task(p1, packageJson.aoc); // 848 ~4ms

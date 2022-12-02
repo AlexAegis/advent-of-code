@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -135,7 +135,4 @@ export const p2 = (input: string): string => {
 	return printMatrix(drawMap(map, colorCodeToColor, -6, 2, -2, 50));
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // AGALRGJE ~10ms
-}
+await task(p2, packageJson.aoc); // AGALRGJE ~10ms

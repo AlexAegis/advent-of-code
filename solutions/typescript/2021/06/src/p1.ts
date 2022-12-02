@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 class LanternFish {
@@ -27,7 +27,4 @@ export const p1 = (input: string, maxDay = 80): number => {
 	return fishes.length;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources<number>(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 361169 ~118.92ms
-}
+await task(p1, packageJson.aoc); // 361169 ~118.92ms

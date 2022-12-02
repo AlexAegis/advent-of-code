@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export class DeterministicDie {
@@ -53,7 +53,4 @@ export const p1 = (input: string): number => {
 	return die.totalRolls * loser.score;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 752745 ~0.14ms
-}
+await task(p1, packageJson.aoc, 'example.1.txt'); // 752745 ~0.14ms

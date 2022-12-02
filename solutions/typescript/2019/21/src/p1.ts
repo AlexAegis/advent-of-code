@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
@@ -40,7 +40,4 @@ export const p1 =
 		return execute(i, print);
 	};
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1(), resources)}`); // 19352638 ~23ms
-}
+await task(p1(), packageJson.aoc); // 19352638 ~23ms

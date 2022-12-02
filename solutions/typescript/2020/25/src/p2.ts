@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const magicNumber = 20201227;
@@ -52,7 +52,4 @@ export const p2 = (input: string): number => {
 	return encryptionKey;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 12181021 ~100s
-}
+await task(p2, packageJson.aoc); // 12181021 ~100s

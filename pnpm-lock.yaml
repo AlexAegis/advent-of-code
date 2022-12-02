@@ -943,6 +943,7 @@ importers:
       eslint-plugin-prettier: ^4.2.1
       husky: ^8.0.2
       ix: ^5.0.0
+      kolorist: ^1.6.0
       lint-staged: ^13.0.4
       live-server: ^1.2.2
       markdownlint: ^0.26.2
@@ -985,6 +986,7 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@8.28.0
       eslint-plugin-prettier: 4.2.1_cwlo2dingkvfydnaculr42urve
       husky: 8.0.2
+      kolorist: 1.6.0
       lint-staged: 13.0.4
       live-server: 1.2.2
       markdownlint: 0.26.2
@@ -4940,6 +4942,10 @@ packages:
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
+    dev: true
+
+  /kolorist/1.6.0:
+    resolution: {integrity: sha512-dLkz37Ab97HWMx9KTes3Tbi3D1ln9fCAy2zr2YVExJasDRPGRaKcoE4fycWNtnCAJfjFqe0cnY+f8KT2JePEXQ==}
     dev: true
 
   /latest-version/7.0.0:

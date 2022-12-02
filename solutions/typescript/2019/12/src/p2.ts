@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { pairs } from '@alexaegis/advent-of-code-lib/functions';
 import { clamp, lcm } from '@alexaegis/advent-of-code-lib/math';
 import { Vec3 } from '@alexaegis/advent-of-code-lib/model';
@@ -32,7 +32,4 @@ export const p2 = (input: string): number => {
 	return lcm(lcm(cx, cy), cz);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 332477126821644 ~89ms
-}
+await task(p2, packageJson.aoc); // 332477126821644 ~89ms

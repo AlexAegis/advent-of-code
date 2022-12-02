@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number =>
@@ -11,7 +11,4 @@ export const p1 = (input: string): number =>
 		})
 		.sum();
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 47136 ~0.0356ms
-}
+await task(p1, packageJson.aoc); // 47136 ~0.0356ms

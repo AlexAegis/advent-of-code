@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { createTileMatrixFromMap, mergeTileMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -49,7 +49,4 @@ export const p2 = (input: string): number => {
 	return (mergedMap.match(/#/g)?.length ?? 0) - monsterTiles.size;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 1680 ~197.06ms
-}
+await task(p2, packageJson.aoc); // 1680 ~197.06ms

@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
@@ -33,7 +33,4 @@ export const p2 =
 		return Number((offset + i * target).posMod(deckSize));
 	};
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2(), resources)}`); // 81781678911487 ~1ms
-}
+await task(p2(), packageJson.aoc); // 81781678911487 ~1ms

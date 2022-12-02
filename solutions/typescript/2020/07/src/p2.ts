@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Bag } from './bag.class.js';
 import { parse } from './parse.function.js';
@@ -9,7 +9,4 @@ export const p2 = (input: string): number => {
 	return goldBag.howManyBagsCanItContain();
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 85324 ~3.9ms
-}
+await task(p2, packageJson.aoc); // 85324 ~3.9ms

@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
@@ -29,7 +29,4 @@ export const p2memoized = (input: string): number => {
 	return makeBranchCounter(jolts, builtIn)(0);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2memoized, resources)}`); // 169255295254528 ~0.06ms
-}
+await task(p2memoized, packageJson.aoc); // 169255295254528 ~0.06ms

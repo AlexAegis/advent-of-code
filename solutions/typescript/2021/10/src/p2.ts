@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import { identity } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json' assert { type: 'json' };
 import { ClosingTag, closingTagMap, isOpeningTag, OpeningTag } from './model/index.js';
@@ -34,7 +34,4 @@ export const p2 = (input: string): number =>
 		.map((fixedLine) => fixedLine.reduce((acc, next) => acc * 5 + scoreMap[next], 0))
 		.median();
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 2429644557 ~0.30ms
-}
+await task(p2, packageJson.aoc); // 2429644557 ~0.30ms

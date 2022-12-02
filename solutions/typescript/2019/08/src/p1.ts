@@ -1,5 +1,5 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { chunksOfArray } from '@alexaegis/advent-of-code-lib/functions';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
@@ -16,7 +16,4 @@ export const p1 = (input: string): number => {
 	return resultLine.count((n) => n === 1) * resultLine.count((n) => n === 2);
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 1088 ~2.3ms
-}
+await task(p1, packageJson.aoc); // 1088 ~2.3ms

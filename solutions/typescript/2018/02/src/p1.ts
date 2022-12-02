@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 /**
@@ -26,7 +26,4 @@ export const p1 = (input: string): number => {
 	return twiceAppearCount * thriceAppearCount;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 5456 ~9ms
-}
+await task(p1, packageJson.aoc); // 5456 ~9ms

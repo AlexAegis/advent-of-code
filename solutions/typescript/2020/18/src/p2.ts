@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources, split } from '@alexaegis/advent-of-code-lib';
+import { split, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -39,7 +39,4 @@ export const p2 = (input: string): number =>
 		.map((line) => parseInt(calcSegment(line.replace(/ /g, '').split('')), 10))
 		.reduce(sum, 0);
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 297139939002972 ~262.85ms
-}
+await task(p2, packageJson.aoc); // 297139939002972 ~262.85ms

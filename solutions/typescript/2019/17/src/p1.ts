@@ -1,3 +1,4 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, printMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
@@ -8,7 +9,6 @@ import {
 	Vec2,
 	Vec2String,
 } from '@alexaegis/advent-of-code-lib/model';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
@@ -93,7 +93,4 @@ export const p1 = (input: string): number =>
 		.map((i) => i.coordinate.x * i.coordinate.y)
 		.reduce(sum, 0);
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 4864 ~42ms
-}
+await task(p1, packageJson.aoc); // 4864 ~42ms

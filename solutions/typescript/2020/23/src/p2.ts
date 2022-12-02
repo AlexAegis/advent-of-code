@@ -1,4 +1,4 @@
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import {
 	CircularLinkedList,
 	CircularLinkedListNode,
@@ -65,7 +65,4 @@ export const p2 = (input: string): number => {
 	return cup.next.value * cup.next.next.value;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p2, resources)}`); // 286194102744 ~3717.03ms
-}
+await task(p2, packageJson.aoc); // 286194102744 ~3717.03ms

@@ -1,5 +1,5 @@
+import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import { benchTask, loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number => {
@@ -17,7 +17,4 @@ export const p1 = (input: string): number => {
 	return vectors.unique((a, b) => a.equals(b)).length;
 };
 
-if (process.env.RUN) {
-	const resources = await loadTaskResources(packageJson.aoc);
-	console.log(`Result: ${await benchTask(p1, resources)}`); // 775 ~1.88ms
-}
+await task(p1, packageJson.aoc); // 775 ~1.88ms
