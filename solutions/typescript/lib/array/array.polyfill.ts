@@ -6,11 +6,12 @@ import { cutSubSegment } from './cut-subsegment.function.js';
 import { findEndOfPair } from './find-end-of-pair.function.js';
 import { matrixFlipFlop } from './flip-flop.generator.js';
 import { flipMatrix } from './flip-matrix.function.js';
-import { pairsWith } from './index.js';
+import { getSizedGroups } from './get-sized-groups.function.js';
 import { maxOf } from './max-of.function.js';
 import { mean } from './mean.function.js';
 import { median } from './median.function.js';
 import { minOf } from './min-of.function.js';
+import { pairsWith } from './pairs-with.function.js';
 import { partition } from './partition.function.js';
 import { peek } from './peek.function.js';
 import { rotateMatrix } from './rotate-matrix.function.js';
@@ -63,8 +64,13 @@ declare global {
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 		unique(comparator?: (a: T, b: T) => boolean): T[];
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
+		getSizedGroups(groupSize: number): T[][];
 	}
 }
+
+Array.prototype.getSizedGroups = function <T>(groupSize: number): T[][] {
+	return getSizedGroups(this, groupSize);
+};
 
 Array.prototype.intoIter = function* <T>(): IterableIterator<T> {
 	for (const element of this) {

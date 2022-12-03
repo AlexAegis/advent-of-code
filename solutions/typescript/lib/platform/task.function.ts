@@ -9,9 +9,9 @@ export const task = async <Input extends string | number, Result, Args>(
 	taskMetadata: TaskMetadata,
 	resourcesOverride?: TaskResources<Input, Args> | string
 ): Promise<Result | undefined> => {
-	const log = createLogger(taskMetadata);
-	log('starting...');
 	if (process && process.env.RUN) {
+		const log = createLogger(taskMetadata);
+		log('starting...');
 		let resources: TaskResources<Input, Args>;
 		if (typeof resourcesOverride === 'object') {
 			resources = resourcesOverride;
