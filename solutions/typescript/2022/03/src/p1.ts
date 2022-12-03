@@ -8,7 +8,7 @@ export const p1 = (input: string): number =>
 		.map(splitRucksackIntoCompartments)
 		.map((rucksackSplitIntoCompartments) =>
 			rucksackSplitIntoCompartments.map((compartment) => [
-				...new Set<string>().addAll(compartment.split('')),
+				...new Set<string>(compartment.split('')),
 			])
 		)
 		.map((rucksackSplitIntoCompartments) =>
