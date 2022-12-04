@@ -938,6 +938,15 @@ importers:
     devDependencies:
       benny: 3.7.1
 
+  solutions/typescript/2022/05:
+    specifiers:
+      '@alexaegis/advent-of-code-lib': '*'
+      benny: ^3.7.1
+    dependencies:
+      '@alexaegis/advent-of-code-lib': link:../../lib
+    devDependencies:
+      benny: 3.7.1
+
   solutions/typescript/lib:
     specifiers:
       '@commitlint/cli': ^17.3.0
