@@ -17,8 +17,5 @@ module.exports = {
 			'cargo clippy --manifest-path solutions/rust/Cargo.toml -- ',
 		];
 	},
-	'*.py': [
-		'sh -c "cd solutions/python && pipenv -v run lint"',
-		'sh -c "cd solutions/python && pipenv -v run test"',
-	],
+	'*.py': ['pipenv -v run lint', 'pipenv -v run test'],
 };

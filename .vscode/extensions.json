@@ -4,6 +4,8 @@
 		"esbenp.prettier-vscode",
 		"mhutchie.git-graph",
 		"dbaeumer.vscode-eslint",
-		"ipatalas.vscode-postfix-ts"
+		"ipatalas.vscode-postfix-ts",
+		"ms-python.python",
+		"ms-python.vscode-pylance"
 	]
 }

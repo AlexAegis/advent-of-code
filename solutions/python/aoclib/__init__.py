@@ -1,3 +1,3 @@
 #!/usr/bin/env python3
-
-from .read import *
+# flake8: noqa
+from .aoclib import *

@@ -5,7 +5,6 @@
 	"editor.tabSize": 4,
 	"editor.stickyTabStops": true,
 	"editor.useTabStops": true,
-
 	"editor.rulers": [
 		{
 			"color": "#bdbdbd11",
@@ -75,17 +74,26 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[python]": {
-		"editor.defaultFormatter": "ms-python.vscode-pylance"
+		"editor.defaultFormatter": "ms-python.python",
+		"editor.tabSize": 4,
+		"editor.insertSpaces": true
 	},
-	"typescript.preferences.importModuleSpecifier": "relative",
+	"python.autoComplete.extraPaths": ["./solutions/python/", "./", "__pypackages__/3.11/lib"],
+	"python.analysis.extraPaths": ["__pypackages__/3.11/lib"],
+	"python.envFile": "${workspaceFolder}/.env",
 	"python.formatting.provider": "autopep8",
+	"python.formatting.autopep8Args": ["--aggressive", "--aggressive"],
+	"python.linting.enabled": true,
+	"python.terminal.activateEnvironment": false,
+	"python.defaultInterpreterPath": ".venv3/bin/python",
+	"typescript.preferences.importModuleSpecifier": "relative",
 	"rust-analyzer.checkOnSave.enable": true,
-	"rust-analyzer.checkOnSave.allFeatures": true,
 	"rust-analyzer.checkOnSave.allTargets": true,
 	"rust-analyzer.linkedProjects": ["solutions/rust/"],
 	"prettier.prettierPath": "./node_modules/prettier",
 	"stylelint.enable": true,
 	"stylelint.validate": ["css", "scss", "postcss"],
 	"vitest.enable": true,
-	"vitest.commandLine": "npx vitest --coverage"
+	"vitest.commandLine": "npx vitest --coverage",
+	"python.analysis.typeCheckingMode": "basic"
 }

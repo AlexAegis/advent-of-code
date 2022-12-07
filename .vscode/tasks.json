@@ -39,6 +39,31 @@
 			"label": "link descriptions",
 			"command": "./scripts/link-descriptions.sh",
 			"problemMatcher": []
+		},
+		{
+			"type": "shell",
+			"label": "pipenv",
+			"command": "pipenv shell",
+			"isBackground": false,
+			"options": {},
+			"problemMatcher": [
+				{
+					"applyTo": "openDocuments",
+
+					"pattern": [
+						{
+							"regexp": "^Spawning.*$",
+							"file": 1,
+							"location": 2,
+							"message": 3
+						}
+					],
+					"background": {
+						"beginsPattern": "^.*$",
+						"endsPattern": "^Spawning.*$"
+					}
+				}
+			]
 		}
 	]
 }
