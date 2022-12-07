@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9']
+        python-version: ['3.11']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,12 +27,12 @@ jobs:
           fetch-depth: 1
       - name: Cache
         id: cache-venv
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
-          path: solutions/python/.venv3
+          path: .venv3
           key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9']
+        python-version: ['3.11']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -55,12 +55,12 @@ jobs:
           fetch-depth: 1
       - name: Cache
         id: cache-venv
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
-          path: solutions/python/.venv3
+          path: .venv3
           key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9']
+        python-version: ['3.11']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -83,12 +83,12 @@ jobs:
           fetch-depth: 1
       - name: Cache
         id: cache-venv
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
-          path: solutions/python/.venv3
+          path: .venv3
           key: ${{ runner.os }}-${{ hashFiles('**/Pipfile.lock') }}
       - name: Setup python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
