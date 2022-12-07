@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+profilehooks = "*"
+
+[packages.aoclib]
+path = "./solutions/python/aoclib"
+editable = true
+
+[dev-packages]
+autopep8 = "*"
+flake8 = "*"
+pytest = "*"
+pycodestyle = "*"
+rope = "*"
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+test = "pytest"
+lint = "flake8"
+fmt = "pycodestyle"
+nuke = "rm -rf .venv3 Pipfile.lock"
+freeze = "pip freeze"

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
+from setuptools import setup
 
-import setuptools
-
-setuptools.setup(
-    name="aoclib",
-    version="0.0.1",
-    python_requires='>=3.8',
+setup(
+    name="advent-of-code",
+    version="0.0.2",
+    python_requires='>=3.11',
 )

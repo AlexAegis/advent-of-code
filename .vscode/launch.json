@@ -2,7 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "[TS-ESM] Current File",
+			"name": "[TS] Current File",
 			"type": "node",
 			"request": "launch",
 			"cwd": "${workspaceRoot}",
@@ -21,6 +21,17 @@
 			"args": ["${relativeFile}"],
 			"internalConsoleOptions": "openOnSessionStart",
 			"resolveSourceMapLocations": ["${workspaceFolder}/", "!/node_modules/**"]
+		},
+		{
+			"name": "[PY] Current File",
+			"type": "python",
+			"request": "launch",
+			"program": "${file}",
+			"cwd": "${workspaceRoot}",
+			"console": "integratedTerminal",
+			"redirectOutput": true,
+			"justMyCode": true,
+			"envFile": "${workspaceRoot}/.env"
 		}
 	]
 }
