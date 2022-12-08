@@ -1,1 +1,1 @@
-solutions/rust/.rustfmt.toml
+hard_tabs = true
