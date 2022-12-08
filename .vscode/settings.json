@@ -89,7 +89,6 @@
 	"typescript.preferences.importModuleSpecifier": "relative",
 	"rust-analyzer.checkOnSave.enable": true,
 	"rust-analyzer.checkOnSave.allTargets": true,
-	"rust-analyzer.linkedProjects": ["solutions/rust/"],
 	"prettier.prettierPath": "./node_modules/prettier",
 	"stylelint.enable": true,
 	"stylelint.validate": ["css", "scss", "postcss"],

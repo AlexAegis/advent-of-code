@@ -15,7 +15,7 @@ impl aoclib::Solvable<&str, u32> for PartOne {
 					&& r2.is_match(l).unwrap_or(false)
 					&& r3.is_match(l).unwrap_or(false)
 			})
-			.map(|m| u32::from(m))
+			.map(u32::from)
 			.sum::<u32>())
 	}
 }
@@ -27,7 +27,7 @@ impl aoclib::Solvable<&str, u32> for PartTwo {
 		Ok(input
 			.lines()
 			.map(|l| r1.is_match(l).unwrap_or(false) && r2.is_match(l).unwrap_or(false))
-			.map(|m| u32::from(m))
+			.map(u32::from)
 			.sum::<u32>())
 	}
 }

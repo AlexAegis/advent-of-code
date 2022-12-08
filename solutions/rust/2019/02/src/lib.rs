@@ -29,7 +29,7 @@ pub fn compute(mut v: Vec<usize>) -> Option<usize> {
 		};
 		cursor += 4;
 	}
-	v.get(0).copied()
+	v.first().copied()
 }
 
 pub fn parse(input: &str) -> Vec<usize> {

@@ -9,7 +9,7 @@ impl aoclib::Solvable<&str, u32> for PartOne {
 			.collect::<Vec<u8>>();
 
 		let mut sum: u32 = 0;
-		for (i, n) in (&v).iter().enumerate() {
+		for (i, n) in v.iter().enumerate() {
 			if n == v.get((i + 1) % v.len()).unwrap() {
 				sum += *n as u32;
 			}
@@ -26,7 +26,7 @@ impl aoclib::Solvable<&str, u32> for PartTwo {
 			.collect::<Vec<u8>>();
 
 		let mut sum: u32 = 0;
-		for (i, n) in (&v).iter().enumerate() {
+		for (i, n) in v.iter().enumerate() {
 			if n == v.get((i + v.len() / 2) % v.len()).unwrap() {
 				sum += *n as u32;
 			}
