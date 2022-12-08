@@ -88,14 +88,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "aoc201602"
-version = "1.0.0"
-dependencies = [
- "aoclib",
- "criterion",
-]
-
-[[package]]
 name = "aoc201701"
 version = "1.0.0"
 dependencies = [

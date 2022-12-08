@@ -3,7 +3,7 @@ name = "aoc201501"
 version = "1.0.0"
 authors = ["AlexAegis <alexaegis@gmail.com>"]
 license = "mit"
-edition = "2018"
+edition = "2021"
 
 [[bin]]
 name = "aoc201501part1"
