@@ -3,7 +3,7 @@ name = "aoclib"
 version = "1.0.0"
 authors = ["AlexAegis <alexaegis@gmail.com>"]
 license = "mit"
-edition = "2018"
+edition = "2021"
 repository = "https://github.com/AlexAegis/advent-of-code"
 
 [lib]
