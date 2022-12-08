@@ -6,7 +6,9 @@ declare global {
 		update(key: K, change: (value: V | undefined) => V): Map<K, V>;
 		copy(): Map<K, V>;
 		intoDictionary(): Record<string | number, V>;
-		intoArray(): [K, V][];
+		keyArray(): V[];
+		entryArray(): [K, V][];
+		valueArray(): V[];
 		toString(): string;
 		print(): void;
 	}
@@ -20,7 +22,15 @@ Map.prototype.toString = function (): string {
 	return JSON.stringify(this.intoDictionary());
 };
 
-Map.prototype.intoArray = function <K extends string | number, V>(): [K, V][] {
+Map.prototype.keyArray = function <K extends string | number>(): K[] {
+	return [...this.keys()];
+};
+
+Map.prototype.valueArray = function <V>(): V[] {
+	return [...this.values()];
+};
+
+Map.prototype.entryArray = function <K extends string | number, V>(): [K, V][] {
 	return [...this.entries()];
 };
 
