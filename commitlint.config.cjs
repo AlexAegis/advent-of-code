@@ -7,8 +7,9 @@ module.exports = {
 			'always',
 			[
 				'core',
-				'rust',
 				'typescript',
+				'rust',
+				'python',
 				'haskell',
 				'java',
 				'package',

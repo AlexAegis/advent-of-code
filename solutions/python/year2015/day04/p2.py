@@ -3,7 +3,7 @@
 from aoclib import read_resource
 from profilehooks import timecall
 
-from solutions.python.year2015.day04.p1 import search_index_for_hash
+from .p1 import search_index_for_hash
 
 
 @timecall()
