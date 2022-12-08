@@ -9,12 +9,63 @@ import type { Vertice } from './vertice.type.js';
 
 Vec2.ORIGIN;
 
+type WalkResult<T extends ToString = string> = { nodes: GridNode<T>[]; walkedToTheEnd: boolean };
 /**
  *
  */
 export class GridNode<T extends ToString = string> extends Node<T, Direction> {
 	public constructor(public coordinate: Vec2, value: T) {
 		super(coordinate.toString(), value);
+	}
+
+	public walkNorth(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.NORTH, until);
+	}
+
+	public walkNorthEast(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.NORTHEAST, until);
+	}
+
+	public walkEast(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.EAST, until);
+	}
+
+	public walkSouthEast(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.SOUTHEAST, until);
+	}
+
+	public walkSouth(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.SOUTH, until);
+	}
+
+	public walkSouthWest(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.SOUTHWEST, until);
+	}
+
+	public walkWest(until?: (next: this) => boolean): WalkResult<T> {
+		return this.walkDirection(Direction.WEST, until);
+	}
+
+	public walkNorthWest(until?: (next: this) => boolean): {
+		nodes: GridNode<T>[];
+		walkedToTheEnd: boolean;
+	} {
+		return this.walkDirection(Direction.NORTHWEST, until);
+	}
+
+	public walkDirection(direction: Direction, whileTrue?: (next: this) => boolean): WalkResult<T> {
+		const nodes: this[] = [];
+		let neighbour = this.neighbours.get(direction)?.to;
+		let walkedToTheEnd = true;
+		while (neighbour) {
+			nodes.push(neighbour);
+			if (whileTrue && !whileTrue(neighbour)) {
+				walkedToTheEnd = false;
+				break;
+			}
+			neighbour = neighbour.neighbours.get(direction)?.to;
+		}
+		return { nodes, walkedToTheEnd };
 	}
 
 	public get north(): Vertice<this> | undefined {

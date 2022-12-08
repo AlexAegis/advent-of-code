@@ -29,10 +29,7 @@ export const p2 = (input: string): number => {
 		pairMap = nextPairMap;
 	}
 
-	const sortedCounts = scoreMap
-		.intoArray()
-		.map(([, score]) => score)
-		.asc();
+	const sortedCounts = scoreMap.valueArray().asc();
 	return sortedCounts.last() - sortedCounts.first();
 };
 
