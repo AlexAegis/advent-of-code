@@ -12,10 +12,7 @@ module.exports = {
 	'*.md': ["markdownlint --ignore 'CHANGELOG.md' --ignore-path '.gitignore'", 'prettier --check'],
 	'*.(yml|yaml)': ['prettier --check'],
 	'*.rs': (/** @type {string[]} */ fs) => {
-		return [
-			`cargo fmt --all --manifest-path solutions/rust/Cargo.toml -- --check ${fs.join(' ')}`,
-			'cargo clippy --manifest-path solutions/rust/Cargo.toml -- ',
-		];
+		return [`cargo fmt --all -- --check ${fs.join(' ')}`, 'cargo clippy -- '];
 	},
 	'*.py': ['pipenv -v run lint'],
 };

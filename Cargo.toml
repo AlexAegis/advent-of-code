@@ -1,0 +1,20 @@
+[workspace]
+members = [
+	"solutions/rust/lib",
+	"solutions/rust/aoc-scaffold",
+	"solutions/rust/aoc-scaffold/aoc-query",
+	"solutions/rust/2015/*",
+	"solutions/rust/2016/*",
+	"solutions/rust/2017/*",
+	"solutions/rust/2018/*",
+	"solutions/rust/2019/*",
+]
+
+[profile.bench]
+lto = true
+
+[profile.release]
+overflow-checks = true
+
+[profile.dev]
+opt-level = 3
