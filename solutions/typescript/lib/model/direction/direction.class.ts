@@ -117,6 +117,10 @@ export class Direction extends Vec2 {
 		);
 	}
 
+	public sameAxis(other: Direction): boolean {
+		return this.isHorizonal() ? other.isHorizonal() : other.isVertical();
+	}
+
 	public static fromMarker(marker: DirectionMarker): Direction {
 		return directionMarkerAssociationMap[marker];
 	}

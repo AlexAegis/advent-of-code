@@ -181,7 +181,7 @@ export class Vec2 implements Vec2Like {
 		return Math.sqrt(Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2));
 	}
 
-	public stepVec(to: Vec2Like): Vec2Like {
+	public stepVec(to: Vec2Like): Vec2 {
 		const dx = to.x - this.x;
 		const dy = to.y - this.y;
 		let g = gcd(dx, dy);
@@ -267,6 +267,22 @@ export class Vec2 implements Vec2Like {
 			this.x = y;
 			this.addMut(around);
 		}
+		return this;
+	}
+
+	public isNeighbour(o: Vec2Like): boolean {
+		return Math.abs(this.x - o.x) <= 1 && Math.abs(this.y - o.y) <= 1;
+	}
+
+	public normalizeMut(): Vec2 {
+		this.x = Math.max(Math.min(this.x, 1), -1);
+		this.y = Math.max(Math.min(this.y, 1), -1);
+		return this;
+	}
+
+	public set(o: Vec2Like): Vec2 {
+		this.x = o.x;
+		this.y = o.y;
 		return this;
 	}
 }

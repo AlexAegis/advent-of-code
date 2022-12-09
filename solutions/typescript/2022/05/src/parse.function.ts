@@ -12,7 +12,7 @@ export type StockPile = Stack[];
 
 export const parseStacks = (rawStacks: string): StockPile =>
 	split(rawStacks).reduce((stockPile, stackLine) => {
-		for (let i = 0; i < stackLine.length; i = i + 4) {
+		for (let i = 0; i < stackLine.length; i += 4) {
 			const crateId = stackLine[i + 1];
 			const stock = stockPile[i / 4] ?? [];
 			if (/[A-Z]/.test(crateId)) {
