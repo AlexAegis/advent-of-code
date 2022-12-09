@@ -5,10 +5,28 @@ on:
     paths-ignore:
       - 'solutions/rust/**'
       - 'solutions/typescript/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '**/*.js'
+      - '**/*.cjs'
+      - '**/*.ts'
+      - '**/*.md'
   pull_request:
     paths-ignore:
       - 'solutions/rust/**'
       - 'solutions/typescript/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '**/*.js'
+      - '**/*.cjs'
+      - '**/*.ts'
+      - '**/*.md'
 
 defaults:
   run:
