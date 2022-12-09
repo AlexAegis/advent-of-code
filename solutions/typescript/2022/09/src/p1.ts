@@ -14,7 +14,7 @@ export const p1 = (input: string): number => {
 		for (let i = 0; i < move.count; i++) {
 			head.addMut(move.direction);
 			if (!head.isNeighbour(tail)) {
-				tail.addMut(tail.stepVec(head).normalizeMut());
+				tail.addMut(tail.subtract(head).normalizeMut());
 				tailTrail.add(tail.toString());
 			}
 		}
@@ -23,4 +23,4 @@ export const p1 = (input: string): number => {
 	return tailTrail.size;
 };
 
-await task(p1, packageJson.aoc); // 6023 ~2.11ms
+await task(p1, packageJson.aoc); // 6023 ~1.95ms

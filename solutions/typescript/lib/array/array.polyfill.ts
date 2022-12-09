@@ -7,6 +7,7 @@ import { findEndOfPair } from './find-end-of-pair.function.js';
 import { matrixFlipFlop } from './flip-flop.generator.js';
 import { flipMatrix } from './flip-matrix.function.js';
 import { getSizedGroups } from './get-sized-groups.function.js';
+import { pairwise, slideWindow } from './groups/index.js';
 import { maxOf } from './max-of.function.js';
 import { mean } from './mean.function.js';
 import { median } from './median.function.js';
@@ -15,7 +16,6 @@ import { pairsWith } from './pairs-with.function.js';
 import { partition } from './partition.function.js';
 import { peek } from './peek.function.js';
 import { rotateMatrix } from './rotate-matrix.function.js';
-import { slideWindow } from './slide-window.function.js';
 
 declare global {
 	interface Array<T> {
@@ -60,6 +60,7 @@ declare global {
 		mean(): number;
 		mapFilter<V>(mapFn: (t: T) => V | undefined): V[];
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
+		pairwise(callback: (a: T, b: T) => void): void;
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 		unique(comparator?: (a: T, b: T) => boolean): T[];
@@ -163,6 +164,10 @@ Array.prototype.slideWindow = function <T, N extends number>(
 	windowSize: N = 2 as N
 ): SizedTuple<T, N>[] {
 	return slideWindow(this, windowSize);
+};
+
+Array.prototype.pairwise = function <T>(callback: (a: T, b: T) => void): void {
+	return pairwise(this, callback);
 };
 
 Array.prototype.partition = function <T>(partitioner: (a: T) => boolean): [T[], T[]] {
