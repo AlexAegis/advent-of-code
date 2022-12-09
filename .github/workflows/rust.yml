@@ -5,10 +5,28 @@ on:
     paths-ignore:
       - 'solutions/typescript/**'
       - 'solutions/python/**'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '**/*.js'
+      - '**/*.cjs'
+      - '**/*.ts'
+      - '**/*.md'
   pull_request:
     paths-ignore:
       - 'solutions/typescript/**'
       - 'solutions/python/**'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '**/*.js'
+      - '**/*.cjs'
+      - '**/*.ts'
+      - '**/*.md'
 
 jobs:
   check:
