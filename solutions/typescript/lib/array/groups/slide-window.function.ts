@@ -1,4 +1,4 @@
-import type { SizedTuple } from '../model/index.js';
+import type { SizedTuple } from '../../model/index.js';
 
 export const slideWindow = <T, N extends number>(
 	array: T[],

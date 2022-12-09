@@ -194,6 +194,28 @@ export class Vec2 implements Vec2Like {
 		return step;
 	}
 
+	public subtract(o: Vec2Like): Vec2 {
+		const dx = o.x - this.x;
+		const dy = o.y - this.y;
+		return new Vec2(dx, dy);
+	}
+
+	public subtractMut(o: Vec2Like): Vec2 {
+		this.x = o.x - this.x;
+		this.y = o.y - this.y;
+		return this;
+	}
+
+	public negateMut(): Vec2 {
+		this.x = -this.x;
+		this.y = -this.y;
+		return this;
+	}
+
+	public negate(): Vec2 {
+		return new Vec2(-this.x, -this.y);
+	}
+
 	public *reach(o: Vec2Like, yieldStart = false, yieldEnd = false): IterableIterator<Vec2> {
 		const stepVec = this.stepVec(o);
 		const current = this.add(stepVec);
