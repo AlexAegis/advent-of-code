@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { drawMapStatic, printMatrix } from '@alexaegis/advent-of-code-lib/functions';
+import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import type { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import { GridGraph, GridNode } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
@@ -38,7 +38,7 @@ export const under = (tile: Tile | Key | Door): (Tile | Key | Door)[] => {
 
 export const draw = (m: Map<string, GridNode<string>>, size: Vec2): void => {
 	const mat = drawMapStatic(m, (t) => t?.toString() ?? ' ', 0, size.y, 0, size.x, false);
-	console.log(printMatrix(mat, true, false));
+	console.log(renderMatrix(mat, true, false));
 };
 
 export const p1 = (input: string): number => {

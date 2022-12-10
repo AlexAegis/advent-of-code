@@ -1,6 +1,6 @@
 import type { BoundingBox } from '../model/vector/bounding-box.type.js';
 import { Vec2 } from '../model/vector/vec2.class.js';
-import { printMatrix } from './output/index.js';
+import { renderMatrix } from './output/index.js';
 
 export const boundingBoxOf = (vects: Vec2[]): BoundingBox => {
 	let minX = 0;
@@ -70,7 +70,7 @@ export const renderVectorLayers = (
 	for (const { vectors, symbol } of layers) {
 		applyLayerToMatrix(matrix, vectors, topLeft, symbol);
 	}
-	const str = printMatrix(matrix, options?.flipVertical, options?.flipHorizontal);
+	const str = renderMatrix(matrix, options?.flipVertical, options?.flipHorizontal);
 	if (options?.print) {
 		console.log(str);
 	}

@@ -1,4 +1,4 @@
-export const printMatrix = (
+export const renderMatrix = (
 	matrix: (string | number)[][],
 	flipVertical = false,
 	flipHorizontal = false

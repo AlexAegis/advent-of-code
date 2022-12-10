@@ -1,10 +1,34 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
+import { renderMatrix, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
+import { parse } from './parse.function.js';
 
-export const p2 = (input: string): number => {
-	const lines = split(input);
-	console.log('lines', lines);
-	return 0;
+const CRT_WIDTH = 40;
+const CRT_HEIGHT = 6;
+
+export const p2 = (input: string): string => {
+	const instructions = parse(input);
+	let x = 1;
+	let cycle = 0;
+
+	const display: string[][] = Array.from({ length: CRT_HEIGHT }, () =>
+		Array.from({ length: CRT_WIDTH }, () => '.')
+	);
+
+	for (const instruction of instructions) {
+		const currentRow = Math.floor(cycle / 40);
+		const currentPixelInRow = cycle % 40;
+
+		if (x.isBetweenRange({ low: currentPixelInRow - 1, high: currentPixelInRow + 1 })) {
+			display[currentRow][currentPixelInRow] = '#';
+		}
+
+		cycle += 1;
+		if (typeof instruction === 'number') {
+			x += instruction;
+		}
+	}
+
+	return renderMatrix(display);
 };
 
-await task(p2, packageJson.aoc); // 0 ~0ms
+await task(p2, packageJson.aoc); // PZULBAUA ~0.06ms

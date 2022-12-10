@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { printMatrix } from '@alexaegis/advent-of-code-lib/functions';
+import { renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { Direction } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -37,7 +37,7 @@ const expand = (input: string, factor = 5): string => {
 		}, [] as number[]);
 		first[r] = expandedRow;
 	}
-	return printMatrix(first);
+	return renderMatrix(first);
 };
 
 export const p2 = (input: string): number => {
