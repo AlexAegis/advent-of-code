@@ -23,7 +23,7 @@ export const task = async <Input extends string | number, Result, Args>(
 		}
 
 		const result = await benchTask(solution, resources, log);
-		log(`result: ${result}`);
+		log(`result:\n${result}`);
 		return result;
 	} else {
 		return undefined;

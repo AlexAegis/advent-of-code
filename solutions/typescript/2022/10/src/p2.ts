@@ -15,10 +15,10 @@ export const p2 = (input: string): string => {
 	);
 
 	for (const instruction of instructions) {
-		const currentRow = Math.floor(cycle / 40);
-		const currentPixelInRow = cycle % 40;
+		const currentRow = Math.floor(cycle / CRT_WIDTH);
+		const currentPixelInRow = cycle % CRT_WIDTH;
 
-		if (x.isBetweenRange({ low: currentPixelInRow - 1, high: currentPixelInRow + 1 })) {
+		if (x.isBetween(currentPixelInRow - 1, currentPixelInRow + 1)) {
 			display[currentRow][currentPixelInRow] = '#';
 		}
 
