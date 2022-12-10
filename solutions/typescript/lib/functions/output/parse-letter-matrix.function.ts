@@ -8,11 +8,10 @@ import {
 const LETTER_SPACING = 1;
 
 /**
- * Parses letters out of a characterMatrix. Works with 6x4 letters (HxW)
+ * Parses letters out of a characterMatrix.
  *
- * @param matrix
- * @param litCharacter is the "pixel" that counts as on. Only this will be
- * treated as part of the letter being parsed.
+ * Works with 4x6 letters as seen in 2016 day 8, 2019 day 8 and 2019 day 11 or
+ * with 6x10 letters like in 2018 day 10 if letterType is set to 'big'
  */
 export const parseLetterMatrix = (
 	matrix: string[][],
