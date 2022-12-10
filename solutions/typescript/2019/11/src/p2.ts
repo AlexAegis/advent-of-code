@@ -80,7 +80,7 @@ export const drawMap = <T>(
 	return res;
 };
 
-export const printMatrix = (matrix: string[][]): string => {
+export const renderMatrix = (matrix: string[][]): string => {
 	return matrix
 		.map((row) => row.join(''))
 		.reverse()
@@ -95,7 +95,7 @@ export const outputMap = <T>(
 	startX: number,
 	endX: number
 ): void => {
-	console.log(printMatrix(drawMap(map, renderTile, startY, endY, startX, endX)));
+	console.log(renderMatrix(drawMap(map, renderTile, startY, endY, startX, endX)));
 };
 
 export const p2 = (input: string): string => {
@@ -132,7 +132,7 @@ export const p2 = (input: string): string => {
 		nextColor = iter.next();
 		nextDir = iter.next();
 	}
-	return printMatrix(drawMap(map, colorCodeToColor, -6, 2, -2, 50));
+	return renderMatrix(drawMap(map, colorCodeToColor, -6, 2, -2, 50));
 };
 
 await task(p2, packageJson.aoc); // AGALRGJE ~10ms

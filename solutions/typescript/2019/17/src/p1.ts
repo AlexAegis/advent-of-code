@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { drawMapStatic, printMatrix } from '@alexaegis/advent-of-code-lib/functions';
+import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import {
@@ -44,7 +44,7 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 		true
 	);
 	mat[vacuum.pos.y + 1][vacuum.pos.x + 1] = vacuum.dir.reverse('v').marker + '!';
-	console.log(printMatrix(mat, true, false));
+	console.log(renderMatrix(mat, true, false));
 };
 
 export const computeMap = (input: string): [Map<Vec2String, Tile>, Vacuum] => {

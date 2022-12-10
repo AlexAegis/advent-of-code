@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { drawMapStatic, printMatrix, sleep } from '@alexaegis/advent-of-code-lib/functions';
+import { drawMapStatic, renderMatrix, sleep } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
@@ -40,7 +40,7 @@ const W = 22;
 const H = 37;
 
 const draw = (m: Map<string, number>, score: number): void => {
-	console.log(score + '\n' + printMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
+	console.log(score + '\n' + renderMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
 export const p2 =
