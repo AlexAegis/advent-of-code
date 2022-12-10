@@ -75,7 +75,6 @@ describe('pair tree', () => {
 			}
 			let next: PairTree<number> | undefined = leftMostTree;
 			while (next) {
-				console.log(next);
 				if (next.leftValue) {
 					inOrderNumbers.push(next.leftValue);
 				}
@@ -114,7 +113,6 @@ describe('pair tree', () => {
 		it('should emit nodes in order', () => {
 			const values: number[] = [];
 			for (const node of tree.leftToRightNodes()) {
-				console.log('inord left:', node.leftValue, 'right:', node.rightValue);
 				if (node.leftValue) {
 					values.push(node.leftValue);
 				}
