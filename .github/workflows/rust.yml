@@ -3,6 +3,7 @@ name: Rust
 on:
   push:
     paths-ignore:
+      - '.github/!(workflows)/**'
       - 'solutions/typescript/**'
       - 'solutions/python/**'
       - 'Pipfile'
@@ -16,6 +17,7 @@ on:
       - '**/*.md'
   pull_request:
     paths-ignore:
+      - '.github/!(workflows)/**'
       - 'solutions/typescript/**'
       - 'solutions/python/**'
       - 'Pipfile'
