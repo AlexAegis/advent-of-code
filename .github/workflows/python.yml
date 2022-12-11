@@ -3,6 +3,7 @@ name: Python
 on:
   push:
     paths-ignore:
+      - '.github/!(workflows)/**'
       - 'solutions/rust/**'
       - 'solutions/typescript/**'
       - 'Cargo.toml'
@@ -16,6 +17,7 @@ on:
       - '**/*.md'
   pull_request:
     paths-ignore:
+      - '.github/!(workflows)/**'
       - 'solutions/rust/**'
       - 'solutions/typescript/**'
       - 'Cargo.toml'
