@@ -7,9 +7,7 @@ export const p1 = (input: string): number => {
 
 	for (let round = 0; round < 20; round++) {
 		for (const monkey of monkeys) {
-			while (monkey.items.length) {
-				const item = monkey.items.shift()!;
-
+			for (const item of monkey.items) {
 				const afterBored = Math.floor(monkey.operation(item) / 3);
 				if (afterBored % monkey.test === 0) {
 					const target = monkeyMap[monkey.trueTarget];
@@ -21,6 +19,8 @@ export const p1 = (input: string): number => {
 
 				monkey.inspects++;
 			}
+
+			monkey.items = [];
 		}
 	}
 
@@ -30,4 +30,4 @@ export const p1 = (input: string): number => {
 		.product();
 };
 
-await task(p1, packageJson.aoc); // 108240 ~0.09ms
+await task(p1, packageJson.aoc); // 108240 ~0.08ms
