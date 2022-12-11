@@ -44,8 +44,7 @@
 		"engine-strict": true
 	},
 	"engines": {
-		"node": ">=18.12.1",
-		"vscode": "^1.73.1"
+		"node": ">=18.12.1"
 	},
 	"packageManager": "pnpm@7.18.1",
 	"scripts": {
