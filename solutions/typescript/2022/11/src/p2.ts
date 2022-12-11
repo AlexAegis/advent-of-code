@@ -1,11 +1,34 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
+import { lcm, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
+import { parse } from './parse.function.js';
 
 export const p2 = (input: string): number => {
-	const lines = split(input);
+	const { monkeyMap, monkeys } = parse(input);
+	const leastCommonTest = lcm(monkeys.map((m) => m.test));
 
-	console.log(lines);
-	return 0;
+	for (let round = 0; round < 10000; round++) {
+		for (const monkey of monkeys) {
+			while (monkey.items.length) {
+				const item = monkey.items.shift()!;
+				const afterBored = monkey.operation(item);
+
+				if (afterBored % monkey.test === 0) {
+					const target = monkeyMap[monkey.trueTarget];
+					target.items.push(afterBored % leastCommonTest);
+				} else {
+					const target = monkeyMap[monkey.falseTarget];
+					target.items.push(afterBored % leastCommonTest);
+				}
+
+				monkey.inspects++;
+			}
+		}
+	}
+
+	return monkeys
+		.map((m) => m.inspects)
+		.max(2)
+		.product();
 };
 
-await task(p2, packageJson.aoc); // 0 ~0ms
+await task(p2, packageJson.aoc); // 25712998901 ~45.15ms

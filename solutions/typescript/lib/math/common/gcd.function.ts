@@ -1,7 +1,7 @@
 /**
  * Greatest common divisor
  */
-export const gcd = (x = 0, y = 0): number => {
+const gcdOverTwo = (x = 0, y = 0): number => {
 	x = Math.abs(x);
 	y = Math.abs(y);
 	while (y) {
@@ -11,3 +11,6 @@ export const gcd = (x = 0, y = 0): number => {
 	}
 	return x;
 };
+
+export const gcd = (x?: number | number[], y?: number): number =>
+	Array.isArray(x) ? x.reduce((a, n) => gcdOverTwo(a, n), 1) : gcdOverTwo(x, y);
