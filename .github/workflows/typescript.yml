@@ -4,13 +4,13 @@ on:
   push:
     branches: '**'
     paths-ignore:
-      - '.github/!workflows/**'
+      - '.github/!(workflows)/**'
       - 'solutions/rust/**'
       - 'solutions/python/**'
   pull_request:
     branches: '**'
     paths-ignore:
-      - '.github/!workflows/**'
+      - '.github/!(workflows)/**'
       - 'solutions/rust/**'
       - 'solutions/python/**'
 
