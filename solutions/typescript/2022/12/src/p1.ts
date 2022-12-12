@@ -8,7 +8,7 @@ export const p1 = (input: string): number => {
 			// Using forward weights
 			const fromValue = getHeightValue(from.value.toString());
 			const toValue = getHeightValue(to.value.toString());
-			return toValue - fromValue > 1 ? Infinity : toValue < fromValue ? 0 : 1;
+			return toValue - fromValue > 1 ? Infinity : 0;
 		},
 	});
 
