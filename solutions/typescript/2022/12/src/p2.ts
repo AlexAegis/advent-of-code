@@ -8,7 +8,7 @@ export const p2 = (input: string): number => {
 			// Using reverse weights
 			const toValue = getHeightValue(to.value.toString());
 			const fromValue = getHeightValue(from.value.toString());
-			return fromValue - toValue > 1 ? Infinity : fromValue < toValue ? 0 : 1;
+			return fromValue - toValue > 1 ? Infinity : 0;
 		},
 	});
 
