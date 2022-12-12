@@ -1,6 +1,8 @@
+import { slideWindow } from '../../array/groups/slide-window.function.js';
 import { hasToString } from '../../functions/assertions/has-to-string.assert.js';
 import { boundingBoxOf } from '../../functions/print-vectors.function.js';
 import { stringToVectorMap } from '../../string/string-to-vectormap.function.js';
+import { DirectionArrowUnicodeSymbol } from '../direction/direction-arrow-unicode.symbol.enum.js';
 import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import type { BoundingBox } from '../vector/bounding-box.type.js';
@@ -111,6 +113,15 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 		return super.getNode(keyStr);
 	}
 
+	public findNode(predicate: (node: GridNode<T>) => boolean): GridNode<T> | undefined {
+		for (const node of this.nodes.values()) {
+			if (predicate(node)) {
+				return node;
+			}
+		}
+		return undefined;
+	}
+
 	public addNode(
 		node: N,
 		weighter?: Weighter<N>,
@@ -145,6 +156,25 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 		});
 
 		return result.map((row) => row.join('')).join('\n');
+	}
+
+	public printPath(path: GridNode<T>[], nodeToString?: (node: GridNode<T>) => string): void {
+		const pathSymbols = slideWindow(path, 2).reduce((accumulator, [prev, next]) => {
+			let sym = '#';
+			if (prev.north?.to.key === next.key) {
+				sym = DirectionArrowUnicodeSymbol.SOUTH;
+			} else if (prev.east?.to.key === next.key) {
+				sym = DirectionArrowUnicodeSymbol.EAST;
+			} else if (prev.south?.to.key === next.key) {
+				sym = DirectionArrowUnicodeSymbol.NORTH;
+			} else if (prev.west?.to.key === next.key) {
+				sym = DirectionArrowUnicodeSymbol.WEST;
+			}
+			accumulator.set(prev.key, sym);
+			return accumulator;
+		}, new Map<string, string>());
+
+		this.print((node) => pathSymbols.get(node.key) ?? nodeToString?.(node) ?? '░');
 	}
 
 	public print(nodeToString?: (node: GridNode<T>) => string): void {
