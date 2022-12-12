@@ -7,9 +7,11 @@ import { stringToMatrix } from './string-to-matrix.function.js';
 import { stringToVectorMap } from './string-to-vectormap.function.js';
 import { vectorsInStringTile } from './vectors-in-string-tile.function.js';
 export * from '../array/array.polyfill.js'; // `toInt` is used in `splitToInt`
+import { alphabeticalOrder } from './alphabetical-order.function.js';
 
 declare global {
 	interface String {
+		alphabeticalOrder(): number;
 		toInt(radix?: number): number;
 		toMatrix(): string[][];
 		toGridGraph<T extends ToString>(
@@ -21,7 +23,6 @@ declare global {
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];
-
 		splitToInt(options?: {
 			delimiter?: {
 				[Symbol.split](string: string, limit?: number): string[];
@@ -33,6 +34,10 @@ declare global {
 		isUpperCase(): boolean;
 	}
 }
+
+String.prototype.alphabeticalOrder = function (): number {
+	return alphabeticalOrder(this as string);
+};
 
 String.prototype.toInt = function (radix = 10): number {
 	return parseInt(this as string, radix);
