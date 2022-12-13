@@ -19,10 +19,8 @@ export const signalComparator: Comparator<Signal> = (a: Signal, b: Signal): numb
 			i++;
 		}
 
-		if (i < a.length && result === 0) {
-			return 1;
-		} else if (i < b.length && result === 0) {
-			return -1;
+		if (result === 0) {
+			return a.length - b.length;
 		} else {
 			return result;
 		}

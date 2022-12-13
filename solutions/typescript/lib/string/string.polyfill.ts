@@ -1,13 +1,12 @@
 import { GridGraph, GridGraphOptions } from '../model/graph/index.js';
 import type { ToString, Vec2, Vec2String } from '../model/index.js';
 import { NEWLINE } from '../regex/index.js';
+import { alphabeticalOrder } from './alphabetical-order.function.js';
 import { rightSplit } from './right-split.function.js';
-import { splitToIntAndGroupByWhitespace } from './split-to-int-and-group-by-whitespace.function.js';
 import { stringToMatrix } from './string-to-matrix.function.js';
 import { stringToVectorMap } from './string-to-vectormap.function.js';
 import { vectorsInStringTile } from './vectors-in-string-tile.function.js';
 export * from '../array/array.polyfill.js'; // `toInt` is used in `splitToInt`
-import { alphabeticalOrder } from './alphabetical-order.function.js';
 
 declare global {
 	interface String {
@@ -27,9 +26,27 @@ declare global {
 			delimiter?: {
 				[Symbol.split](string: string, limit?: number): string[];
 			};
+			keepEmptyLines: false;
+			trim?: boolean;
+
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): number[];
-		splitToIntAndGroupByWhitespace(radix?: number): number[][];
+		splitToInt(options?: {
+			delimiter?: {
+				[Symbol.split](string: string, limit?: number): string[];
+			};
+			keepEmptyLines: true;
+			trim?: boolean;
+			toIntOptions?: { radix?: number; safe?: boolean };
+		}): (number | undefined)[];
+		splitToInt(options?: {
+			delimiter?: {
+				[Symbol.split](string: string, limit?: number): string[];
+			};
+			keepEmptyLines?: boolean;
+			trim?: boolean;
+			toIntOptions?: { radix?: number; safe?: boolean };
+		}): number[];
 		isLowerCase(): boolean;
 		isUpperCase(): boolean;
 	}
@@ -72,15 +89,16 @@ String.prototype.lines = function (keepEmpty = false): string[] {
 
 String.prototype.splitToInt = function (options?: {
 	delimiter?: { [Symbol.split](string: string, limit?: number): string[] };
+	keepEmptyLines?: boolean;
 	toIntOptions?: { radix?: number; safe?: boolean };
+	trim?: boolean;
 }): number[] {
-	return this.split(options?.delimiter ?? /\s+/g)
-		.filter((line) => !!line) // Filter out empty lines
-		.toInt(options?.toIntOptions);
-};
-
-String.prototype.splitToIntAndGroupByWhitespace = function (radix?: number): number[][] {
-	return splitToIntAndGroupByWhitespace(this as string, radix);
+	const trimmed = options?.trim !== false ? this.trim() : this;
+	let split = trimmed.split(options?.delimiter ?? /\r?\s/g);
+	if (!options?.keepEmptyLines) {
+		split = split.filter((line) => !!line); // Filter out empty lines
+	}
+	return split.toInt({ ...options?.toIntOptions, keepNonNumbers: options?.keepEmptyLines });
 };
 
 String.prototype.toMatrix = function (

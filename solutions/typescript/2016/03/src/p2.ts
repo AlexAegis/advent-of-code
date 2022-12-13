@@ -3,10 +3,9 @@ import packageJson from '../package.json' assert { type: 'json' };
 import { isTriangle, Triangle } from './is-triangle.function.js';
 
 export const p2 = (input: string): number => {
-	const splitOptions = { toIntOptions: { safe: true } };
 	const result = split(input).reduce(
 		(acc, line) => {
-			const sides = line.splitToInt(splitOptions) as Triangle;
+			const sides = line.splitToInt() as Triangle;
 			if (acc.side === 0) {
 				acc.bufferSidesA = sides;
 				acc.side = 1;
