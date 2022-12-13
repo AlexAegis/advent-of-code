@@ -23,6 +23,7 @@
 		"./functions": "./functions/index.ts",
 		"./intcode": "./intcode/index.ts",
 		"./linked-list": "./linked-list/index.ts",
+		"./logic": "./logic/index.ts",
 		"./map": "./map/index.ts",
 		"./math": "./math/index.ts",
 		"./model": "./model/index.ts",

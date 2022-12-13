@@ -1,5 +1,6 @@
 export * from './array/index.js';
 export * from './functions/index.js';
+export * from './logic/index.js';
 export * from './map/index.js';
 export * from './math/index.js';
 export * from './model/index.js';
