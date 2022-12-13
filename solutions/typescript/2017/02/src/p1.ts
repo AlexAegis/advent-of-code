@@ -4,10 +4,8 @@ import packageJson from '../package.json' assert { type: 'json' };
 export const p1 = (input: string): number =>
 	split(input)
 		.map((line) => {
-			const e = line.splitToInt();
-			const min = e.min();
-			const max = e.max();
-			return max - min;
+			const values = line.splitToInt();
+			return values.max() - values.min();
 		})
 		.sum();
 

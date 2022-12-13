@@ -4,7 +4,7 @@ export * from './find-end-of-pair.function.js';
 export * from './flip-flop.generator.js';
 export * from './flip-matrix.function.js';
 export * from './get-sized-groups.function.js';
-export * from './group-by-falsy.function.js';
+export * from './group-by-delimiter.function.js';
 export * from './groups/slide-window.function.js';
 export * from './pairs-with.function.js';
 export * from './partition.function.js';

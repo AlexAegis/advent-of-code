@@ -7,6 +7,7 @@ import { findEndOfPair } from './find-end-of-pair.function.js';
 import { matrixFlipFlop } from './flip-flop.generator.js';
 import { flipMatrix } from './flip-matrix.function.js';
 import { getSizedGroups } from './get-sized-groups.function.js';
+import { groupByDelimiter } from './group-by-delimiter.function.js';
 import { pairwise, slideWindow } from './groups/index.js';
 import { maxOf } from './max-of.function.js';
 import { mean } from './mean.function.js';
@@ -31,7 +32,13 @@ declare global {
 		intoSet(set?: Set<T>): Set<T>;
 		has(item: T): boolean;
 		tap(callbackFn: (item: T) => void): T[];
-		toInt(options?: { radix?: number; safe?: boolean }): number[];
+		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers: false }): number[];
+		toInt(options?: {
+			radix?: number;
+			safe?: boolean;
+			keepNonNumbers: true;
+		}): (number | undefined)[];
+		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers?: boolean }): number[];
 		intoIter(): IterableIterator<T>;
 		repeat(until?: (element: T, iteration: number) => boolean): IterableIterator<T>;
 		sum(): number;
@@ -66,8 +73,17 @@ declare global {
 		unique(comparator?: (a: T, b: T) => boolean): T[];
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 		getSizedGroups(groupSize: number): T[][];
+		/**
+		 *
+		 * @param isDelimiter by default it checks if a value is falsy or not
+		 */
+		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
 	}
 }
+
+Array.prototype.groupByDelimiter = function <T>(isDelimiter?: (t: T) => boolean): T[][] {
+	return groupByDelimiter(this, isDelimiter);
+};
 
 Array.prototype.getSizedGroups = function <T>(groupSize: number): T[][] {
 	return getSizedGroups(this, groupSize);
@@ -193,12 +209,18 @@ Array.prototype.has = function <T>(item: T): boolean {
 	return this.find((i) => i === item) !== undefined;
 };
 
-Array.prototype.toInt = function (options?: { radix?: number; safe?: boolean }): number[] {
-	let result = this.map((i) => parseInt(i, options?.radix ?? 10));
-	if (options?.safe) {
-		result = result.filter((i) => !isNaN(i));
+Array.prototype.toInt = function (options?: {
+	radix?: number;
+	safe?: boolean;
+	keepNonNumbers?: boolean;
+}): number[] {
+	let result: (number | undefined)[] = this.map((i) => parseInt(i, options?.radix ?? 10));
+	if (options?.safe !== false && !options?.keepNonNumbers) {
+		result = result.filter((i) => i !== undefined && !isNaN(i));
+	} else if (options?.keepNonNumbers) {
+		result = result.map((i) => (i !== undefined && isNaN(i) ? undefined : i));
 	}
-	return result;
+	return result as number[];
 };
 
 Array.prototype.clone = function <T>(): T[] {
