@@ -137,7 +137,7 @@ export class Entity {
 }
 
 const shiftPositionToViewport = (position: Vec2, viewport: BoundingBox): Vec2 => {
-	return viewport.topLeft.subtract(position);
+	return viewport.topRight.sub(position);
 };
 
 /**
@@ -151,9 +151,9 @@ export class GridWorld {
 	components = new Map<Constructor<Component>, Component[]>();
 	private readonly _entitiesByPosition = new Map<Vec2String, Entity[]>();
 
-	entityBoundingBox = new BoundingBox(new Vec2(0, 0), new Vec2(0, 0));
+	entityBoundingBox = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(0, 0));
 
-	viewport = new BoundingBox(new Vec2(0, 0), new Vec2(10, 10));
+	viewport = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(10, 10));
 
 	systems: System[] = [];
 
@@ -354,16 +354,16 @@ export class GridWorld {
 
 	calculateEntityBoundingBox(): void {
 		this.entityBoundingBox = new BoundingBox(
-			...this.getComponentsByType(StaticPositionComponent).map((entity) => entity.position),
-			...this.getComponentsByType(PositionComponent).map((entity) => entity.position)
+			this.getComponentsByType(StaticPositionComponent)
+				.map((entity) => entity.position)
+				.concat(
+					this.getComponentsByType(PositionComponent).map((entity) => entity.position)
+				)
 		);
 	}
 
 	focusViewportToEntities(): void {
-		this.viewport = new BoundingBox(
-			this.entityBoundingBox.bottomRight,
-			this.entityBoundingBox.topLeft
-		);
+		this.viewport = this.entityBoundingBox.clone();
 		this.viewport.extend(1);
 	}
 
@@ -375,9 +375,9 @@ export class GridWorld {
 
 		const matrix: string[][] = [];
 
-		for (let y = this.viewport.topLeft.y; y <= this.viewport.bottomRight.y; y++) {
+		for (let y = this.viewport.bottom; y <= this.viewport.top; y++) {
 			const row: string[] = [];
-			for (let x = this.viewport.topLeft.x; x <= this.viewport.bottomRight.x; x++) {
+			for (let x = this.viewport.left; x <= this.viewport.right; x++) {
 				row.push('.');
 			}
 			matrix.push(row);
@@ -398,7 +398,7 @@ export class GridWorld {
 			}
 		}
 
-		return renderMatrix(matrix);
+		return renderMatrix(matrix, true);
 	}
 
 	print(autoViewport?: boolean): void {

@@ -9,9 +9,9 @@ export const p1 = (input: string): number => {
 		connectionDirections: Direction.cardinalDirections,
 	});
 
-	const { topLeft, bottomRight } = graph.boundingBox();
-	const start = graph.getNode(topLeft);
-	const end = graph.getNode(bottomRight);
+	const boundingBox = graph.boundingBox();
+	const start = graph.getNode(boundingBox.bottomLeft);
+	const end = graph.getNode(boundingBox.topRight);
 
 	const path = graph.aStar(start, end, {
 		heuristic: (_currentNode, tentativePath) => tentativePath.map((n) => n.value).sum(),

@@ -10,7 +10,9 @@ export const p2 = (input: string): number => {
 		world.tick();
 	}
 
+	world.print(true);
+
 	return world.query(StaticPositionComponent, SandKindComponent).length;
 };
 
-await task(p2, packageJson.aoc); // 25434 ~0ms
+await task(p2, packageJson.aoc, 'example.1.txt'); // 25434 ~0ms
