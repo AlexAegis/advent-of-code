@@ -1,11 +1,10 @@
 import { slideWindow } from '../../array/groups/slide-window.function.js';
 import { hasToString } from '../../functions/assertions/has-to-string.assert.js';
-import { boundingBoxOf } from '../../functions/print-vectors.function.js';
 import { stringToVectorMap } from '../../string/string-to-vectormap.function.js';
 import { DirectionArrowUnicodeSymbol } from '../direction/direction-arrow-unicode.symbol.enum.js';
 import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
-import type { BoundingBox } from '../vector/bounding-box.type.js';
+import { BoundingBox } from '../vector/bounding-box.class.js';
 import { Vec2 } from '../vector/vec2.class.js';
 import type { Vec2Like, Vec2String } from '../vector/vec2.class.types.js';
 import { Graph } from './graph.class.js';
@@ -92,7 +91,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 	 * @returns two Vec2s that are not necessarily point to a node but all the nodes are between
 	 */
 	public boundingBox(): BoundingBox {
-		return boundingBoxOf(this.allCoordinates());
+		return new BoundingBox(...this.allCoordinates());
 	}
 
 	public allCoordinates(): Vec2[] {

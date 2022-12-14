@@ -1,46 +1,24 @@
-import type { BoundingBox } from '../model/vector/bounding-box.type.js';
+import { BoundingBox } from '../model/vector/bounding-box.class.js';
 import { Vec2 } from '../model/vector/vec2.class.js';
 import { renderMatrix } from './output/index.js';
 
-export const boundingBoxOf = (vects: Vec2[]): BoundingBox => {
-	let minX = 0;
-	let minY = 0;
-	let maxX = 0;
-	let maxY = 0;
-	for (const vec of vects) {
-		if (vec.x < minX) {
-			minX = vec.x;
-		}
-		if (vec.y < minY) {
-			minY = vec.y;
-		}
-		if (vec.x > maxX) {
-			maxX = vec.x;
-		}
-		if (vec.y > maxY) {
-			maxY = vec.y;
-		}
-	}
-	return { topLeft: new Vec2(minX, minY), bottomRight: new Vec2(maxX, maxY) };
-};
-
 export const getMatrixRenderBase = (
-	vects: Vec2[],
-	padding = 0
-): { matrix: string[][] } & BoundingBox => {
-	const { topLeft, bottomRight } = boundingBoxOf(vects);
+	vects: Vec2[]
+): { matrix: string[][]; boundingBox: BoundingBox } => {
+	const boundingBox = new BoundingBox(...vects);
 	const matrix: string[][] = [];
-	for (let y = topLeft.y - padding; y <= bottomRight.y + padding; y++) {
+
+	for (let y = boundingBox.topLeft.y; y <= boundingBox.bottomRight.y; y++) {
 		const row: string[] = [];
-		for (let x = topLeft.x - padding; x <= bottomRight.x + padding; x++) {
+		for (let x = boundingBox.topLeft.x; x <= boundingBox.bottomRight.x; x++) {
 			row.push('.');
 		}
 		matrix.push(row);
 	}
+
 	return {
 		matrix,
-		topLeft: new Vec2(topLeft).addMut({ x: padding, y: padding }),
-		bottomRight: new Vec2(bottomRight).addMut({ x: padding, y: padding }),
+		boundingBox,
 	};
 };
 
@@ -66,9 +44,9 @@ export const renderVectorLayers = (
 	}
 ): string => {
 	const allVectors = layers.flatMap((layer) => layer.vectors);
-	const { matrix, topLeft } = getMatrixRenderBase(allVectors, options?.padding);
+	const { matrix, boundingBox } = getMatrixRenderBase(allVectors);
 	for (const { vectors, symbol } of layers) {
-		applyLayerToMatrix(matrix, vectors, topLeft, symbol);
+		applyLayerToMatrix(matrix, vectors, boundingBox.topLeft, symbol);
 	}
 	const str = renderMatrix(matrix, options?.flipVertical, options?.flipHorizontal);
 	if (options?.print) {

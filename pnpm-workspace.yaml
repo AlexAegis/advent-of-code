@@ -1,5 +1,5 @@
 packages:
-  - 'solutions/typescript/lib'
+  - 'solutions/typescript/libs/*'
   - 'solutions/typescript/2015/*'
   - 'solutions/typescript/2016/*'
   - 'solutions/typescript/2017/*'

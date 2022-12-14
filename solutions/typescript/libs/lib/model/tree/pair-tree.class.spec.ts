@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { PairTree } from './pair-tree.class.js';
 
 describe('pair tree', () => {

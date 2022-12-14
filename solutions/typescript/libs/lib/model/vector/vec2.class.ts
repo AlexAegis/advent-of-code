@@ -4,7 +4,7 @@ import { DirectionArrowSymbol } from '../direction/direction-arrow-symbol.enum.j
 import { DirectionCardinalGeographicLetter } from '../direction/direction-cardinal-geographic-letter.enum.js';
 import { DirectionCardinalLiteralLetter } from '../direction/direction-cardinal-literal-letter.enum.js';
 import { DirectionMarker, isDirectionMarker } from '../direction/direction-marker.type.js';
-import type { BoundingBox } from './bounding-box.type.js';
+import type { BoundingBox } from './bounding-box.class.js';
 import type { Vec2Like, Vec2String } from './vec2.class.types.js';
 
 export class Vec2 implements Vec2Like {
@@ -194,6 +194,11 @@ export class Vec2 implements Vec2Like {
 		return step;
 	}
 
+	/**
+	 * TODO: remove duplicate method
+	 * @param o
+	 * @returns
+	 */
 	public subtract(o: Vec2Like): Vec2 {
 		const dx = o.x - this.x;
 		const dy = o.y - this.y;
@@ -262,8 +267,8 @@ export class Vec2 implements Vec2Like {
 		return Vec2.toString(this);
 	}
 
-	public static toString(v: Vec2Like): Vec2String {
-		return `${v.x},${v.y}` as Vec2String;
+	public static toString(v: Vec2Like | Vec2String): Vec2String {
+		return typeof v === 'string' ? v : `${v.x},${v.y}`;
 	}
 
 	public clone(): Vec2 {

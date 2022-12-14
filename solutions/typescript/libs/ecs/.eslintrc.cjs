@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['../../../.eslintrc.cjs'],
+	extends: ['../../../../.eslintrc.cjs'],
 	parserOptions: {
 		ecmaVersion: 2020,
 		sourceType: 'module',
