@@ -4,8 +4,13 @@ declare global {
 	interface Set<T> {
 		addAll(items: T[]): Set<T>;
 		flip(item: T): boolean;
+		valueArray(): T[];
 	}
 }
+
+Set.prototype.valueArray = function <T>(): T[] {
+	return [...this.values()];
+};
 
 Set.prototype.addAll = function <T>(items: T[]): Set<T> {
 	return addAllToSet(items, this);

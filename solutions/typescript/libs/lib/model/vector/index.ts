@@ -1,4 +1,4 @@
-export * from './bounding-box.type.js';
+export * from './bounding-box.class.js';
 export * from './vec2.class.js';
 export * from './vec2.class.types.js';
 export * from './vec3.class.js';

@@ -1,10 +1,16 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
+import { StaticPositionComponent } from '@alexaegis/ecs';
 import packageJson from '../package.json' assert { type: 'json' };
+import { createSandWorld, SandKindComponent } from './sand-world.class.js';
 
 export const p2 = (input: string): number => {
-	const lines = split(input);
-	console.log('lines', lines);
-	return 0;
+	const world = createSandWorld(input);
+
+	while (!world.systemsSettled) {
+		world.tick();
+	}
+
+	return world.query(StaticPositionComponent, SandKindComponent).length;
 };
 
-await task(p2, packageJson.aoc); // 0 ~0ms
+await task(p2, packageJson.aoc); // 25434 ~0ms

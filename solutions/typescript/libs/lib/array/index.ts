@@ -1,5 +1,6 @@
 export * from './array.polyfill.js';
 export * from './cut-subsegment.function.js';
+export * from './filter-map.function.js';
 export * from './find-end-of-pair.function.js';
 export * from './flip-flop.generator.js';
 export * from './flip-matrix.function.js';

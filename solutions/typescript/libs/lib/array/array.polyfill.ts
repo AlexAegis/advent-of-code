@@ -1,8 +1,9 @@
-import { isNumberArray, nonNullish } from '../functions/index.js';
+import { isNumberArray } from '../functions/index.js';
 import { asc, desc, mult, sum } from '../math/index.js';
 import type { SizedTuple } from '../model/index.js';
 import { addAllToSet } from '../set/index.js';
 import { cutSubSegment } from './cut-subsegment.function.js';
+import { filterMap } from './filter-map.function.js';
 import { findEndOfPair } from './find-end-of-pair.function.js';
 import { matrixFlipFlop } from './flip-flop.generator.js';
 import { flipMatrix } from './flip-matrix.function.js';
@@ -65,7 +66,7 @@ declare global {
 		 * Return the average value of the array
 		 */
 		mean(): number;
-		mapFilter<V>(mapFn: (t: T) => V | undefined): V[];
+		filterMap<V>(mapFn: (t: T) => V | undefined): V[];
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		pairwise(callback: (a: T, b: T) => void): void;
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
@@ -130,15 +131,8 @@ Array.prototype.unique = function <T>(comparator?: (a: T, b: T) => boolean): T[]
 	return result;
 };
 
-Array.prototype.mapFilter = function <T, V>(mapFn: (t: T) => V | undefined): V[] {
-	const result: V[] = [];
-	for (const item of this) {
-		const value = mapFn(item);
-		if (nonNullish(value)) {
-			result.push(value);
-		}
-	}
-	return result;
+Array.prototype.filterMap = function <T, V>(mapFn: (t: T) => V | undefined): V[] {
+	return filterMap(this, mapFn);
 };
 
 Array.prototype.tap = function <T>(callbackFn: (item: T) => void): T[] {

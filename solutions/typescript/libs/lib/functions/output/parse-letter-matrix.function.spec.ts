@@ -1,4 +1,4 @@
-import { describe, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { stringToMatrix } from '../../string/string-to-matrix.function.js';
 import {
 	A_LETTER_BIG,
