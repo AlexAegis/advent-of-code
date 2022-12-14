@@ -91,7 +91,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 	 * @returns two Vec2s that are not necessarily point to a node but all the nodes are between
 	 */
 	public boundingBox(): BoundingBox {
-		return new BoundingBox(...this.allCoordinates());
+		return new BoundingBox(this.allCoordinates());
 	}
 
 	public allCoordinates(): Vec2[] {

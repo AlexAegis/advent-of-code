@@ -1,5 +1,4 @@
-import type { BoundingBox } from '@alexaegis/advent-of-code-lib/model';
-import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { BoundingBox, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 
 export const parseBoundary = (input: string): BoundingBox => {
 	const [, boundaryString] = input.split(': ');
@@ -22,8 +21,5 @@ export const parseBoundary = (input: string): BoundingBox => {
 		x: Math.max(xAxis.first, xAxis.second),
 		y: Math.min(yAxis.first, yAxis.second),
 	});
-	return {
-		topLeft,
-		bottomRight,
-	};
+	return BoundingBox.fromVectors(topLeft, bottomRight);
 };

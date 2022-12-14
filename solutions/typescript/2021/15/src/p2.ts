@@ -43,13 +43,13 @@ const expand = (input: string, factor = 5): string => {
 export const p2 = (input: string): number => {
 	const graph = expand(input).toGridGraph<number>({
 		valueConverter: (s) => parseInt(s, 10),
-		weighter: (b, a) => (a.value as number) - (b.value as number),
+		weighter: (b, a) => a.value - b.value,
 		connectionDirections: Direction.cardinalDirections,
 	});
 
-	const { topLeft, bottomRight } = graph.boundingBox();
-	const start = graph.getNode(topLeft);
-	const end = graph.getNode(bottomRight);
+	const boundingBox = graph.boundingBox();
+	const start = graph.getNode(boundingBox.bottomLeft);
+	const end = graph.getNode(boundingBox.topRight);
 
 	const path = graph.aStar(start, end, {
 		heuristic: (_a, p) => {

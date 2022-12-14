@@ -52,7 +52,7 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	world.calculateEntityBoundingBox();
 	world.focusViewportToEntities();
 
-	const floor = world.entityBoundingBox.bottomRight.y + 2;
+	const floor = world.entityBoundingBox.topRight.y + 2;
 
 	const tryMoveLikeSand = (c: PositionComponent): boolean =>
 		c.position.y + 1 < floor &&

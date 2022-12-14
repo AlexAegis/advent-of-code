@@ -11,7 +11,7 @@ describe('2021 - Day 15 - Part Two', () => {
 	});
 
 	describe('example 1', () => {
-		it('should resolve to 215', async () => {
+		it('should resolve to 315', async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
 			expect(p2(resources.input)).to.equal(315);
 		});

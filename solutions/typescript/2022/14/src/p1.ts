@@ -10,7 +10,7 @@ import {
 export const p1 = (input: string): number => {
 	const world = createSandWorld(input);
 
-	const treshhold = world.entityBoundingBox.bottomRight.y + 1;
+	const treshhold = world.entityBoundingBox.topRight.y + 1;
 
 	// Despawn and turn off the spawner when a sand entity reaches beyond the
 	// last wall entity

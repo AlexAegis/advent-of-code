@@ -1,5 +1,9 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { renderVectors } from '@alexaegis/advent-of-code-lib/functions';
+import {
+	parseLetterMatrix,
+	renderMatrix,
+	vectorsToMatrix,
+} from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
@@ -21,7 +25,13 @@ export const p2 = (input: string): string => {
 		}
 	}
 
-	return '\n' + renderVectors(vectors);
+	const matrix = vectorsToMatrix(vectors).matrix;
+
+	try {
+		return parseLetterMatrix(matrix);
+	} catch {
+		return renderMatrix(matrix);
+	}
 };
 
 await task(p2, packageJson.aoc); // REUPUPKR ~1.21ms

@@ -17,6 +17,6 @@ export * from './num-start.function.js';
 export * from './output/index.js';
 export * from './pairs.function.js';
 export * from './perm.function.js';
-export * from './print-vectors.function.js';
 export * from './rotate-array.function.js';
 export * from './using-map.function.js';
+export * from './vectors-to-matrix.function.js';
