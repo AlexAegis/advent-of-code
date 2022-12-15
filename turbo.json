@@ -36,7 +36,7 @@
 		"lint:tsc": {
 			"env": [],
 			"outputs": [],
-			"dependsOn": [],
+			"dependsOn": ["^lint:tsc"],
 			"outputMode": "new-only"
 		},
 		"lint:svelte": {
