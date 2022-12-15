@@ -39,6 +39,7 @@
 		"*.json",
 		".vscode/*.json",
 		".github/**/*.json",
+		"resources/**/*.json",
 		".eslintrc.cjs"
 	],
 	"exclude": ["node_modules", "tmp", "dist", "coverage"]

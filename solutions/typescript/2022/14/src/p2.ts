@@ -10,8 +10,6 @@ export const p2 = (input: string): number => {
 		world.tick();
 	}
 
-	world.print(true);
-
 	return world.query(StaticPositionComponent, SandKindComponent).length;
 };
 

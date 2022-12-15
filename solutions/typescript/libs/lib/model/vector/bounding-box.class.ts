@@ -56,6 +56,14 @@ export class BoundingBox {
 		return this.bottomRight.x;
 	}
 
+	get height(): number {
+		return this.top - this.bottom;
+	}
+
+	get width(): number {
+		return this.right - this.left;
+	}
+
 	shift(offset: Vec2Like): void {
 		this.topLeft.addMut(offset);
 		this.topRight.addMut(offset);
