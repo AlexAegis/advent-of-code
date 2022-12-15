@@ -38,4 +38,4 @@ export const p1 = (input: string): number => {
 	return world.query(StaticPositionComponent, SandKindComponent).length;
 };
 
-await task(p1, packageJson.aoc); // 665 ~0ms (example 24)
+await task(p1, packageJson.aoc); // 665 ~109.35ms (example 24)
