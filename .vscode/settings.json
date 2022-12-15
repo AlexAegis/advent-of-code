@@ -33,6 +33,7 @@
 	"editor.fontLigatures": true,
 	"editor.mouseWheelZoom": true,
 	"explorer.fileNesting.enabled": true,
+	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"explorer.fileNesting.patterns": {
 		"*.ts": "${capture}*",
 		"*.js": "${capture}*",

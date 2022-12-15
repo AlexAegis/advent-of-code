@@ -1,5 +1,5 @@
 import { isNumberArray } from '../functions/index.js';
-import { asc, desc, mult, sum } from '../math/index.js';
+import { ascend, descend, mult, sum } from '../math/index.js';
 import type { SizedTuple } from '../model/index.js';
 import { addAllToSet } from '../set/index.js';
 import { cutSubSegment } from './cut-subsegment.function.js';
@@ -222,11 +222,11 @@ Array.prototype.clone = function <T>(): T[] {
 };
 
 Array.prototype.desc = function <T>(): T[] {
-	return this.sort(desc);
+	return this.sort(descend);
 };
 
 Array.prototype.asc = function <T>(): T[] {
-	return this.sort(asc);
+	return this.sort(ascend);
 };
 
 const min = function (this: number[], count?: number): number | number[] {

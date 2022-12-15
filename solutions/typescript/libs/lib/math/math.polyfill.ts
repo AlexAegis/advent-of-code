@@ -2,19 +2,15 @@ import {
 	addWithinRange,
 	invMod,
 	invModBigInt,
-	isBetween,
 	lerp1D,
 	Lerp1DOptions,
 	modExp,
 	modExpBigInt,
 	posMod,
 	posModBigInt,
+	Span,
+	SpanLike,
 } from '../math/index.js';
-
-export interface Range<T = number> {
-	low: T;
-	high: T;
-}
 
 declare global {
 	interface Number {
@@ -23,11 +19,12 @@ declare global {
 		 * @param m modulo
 		 */
 		posMod(m: number): number;
-		isBetween(l: number | Range<number>, h: number): boolean;
+		isContainedInSpan(span: SpanLike): boolean;
 		invMod(n: number): number;
 		modExp(b: number, n: number): number;
 		lerp(to: number, options?: Lerp1DOptions): number[];
 		iterate(from?: number): number[];
+		span(to: number): Span;
 		addWithinRange(add: number, fromOrTo?: number, to?: number): number;
 	}
 
@@ -37,7 +34,6 @@ declare global {
 		 * @param m modulo
 		 */
 		posMod(m: bigint): bigint;
-		isBetween(l: bigint | Range<bigint>, h: bigint): boolean;
 		invMod(n: bigint): bigint;
 		modExp(b: bigint, n: bigint): bigint;
 	}
@@ -47,6 +43,10 @@ declare global {
 		tryInt(radix?: number): number;
 	}
 }
+
+Number.prototype.span = function (this: number, to: number): Span {
+	return new Span(this, to);
+};
 
 Number.prototype.addWithinRange = function (
 	this: number,
@@ -73,20 +73,8 @@ BigInt.prototype.posMod = function (this: bigint, m: bigint): bigint {
 	return posModBigInt(this, m);
 };
 
-Number.prototype.isBetween = function (
-	this: number,
-	l: number | Range<number>,
-	h: number
-): boolean {
-	return typeof l === 'number' ? isBetween(this, l, h) : isBetween(this, l.low, l.high);
-};
-
-BigInt.prototype.isBetween = function (
-	this: bigint,
-	l: bigint | Range<bigint>,
-	h: bigint
-): boolean {
-	return typeof l === 'bigint' ? isBetween(this, l, h) : isBetween(this, l.low, l.high);
+Number.prototype.isContainedInSpan = function (this: number, span: SpanLike): boolean {
+	return Span.contains(span, this);
 };
 
 Number.prototype.invMod = function (this: number, n: number): number {
