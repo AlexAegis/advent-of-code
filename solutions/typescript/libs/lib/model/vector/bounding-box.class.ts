@@ -64,6 +64,13 @@ export class BoundingBox {
 		return this.right - this.left;
 	}
 
+	middle(): Vec2 {
+		return new Vec2(
+			this.left + Math.floor(this.width / 2),
+			this.bottom + Math.floor(this.height / 2)
+		);
+	}
+
 	shift(offset: Vec2Like): void {
 		this.topLeft.addMut(offset);
 		this.topRight.addMut(offset);
