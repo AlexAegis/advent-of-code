@@ -39,4 +39,4 @@ export const p2 = (input: string): number => {
 	return -1;
 };
 
-await task(p2, packageJson.aoc); // 12518502636475 ~70s
+await task(p2, packageJson.aoc, 'example.1.txt'); // 12518502636475 ~70s

@@ -125,6 +125,30 @@ export class Vec2 implements Vec2Like {
 		return this.clone().addMut(coord, options);
 	}
 
+	*generateVectorsAroundInManhattanRadius(radius: number): Generator<Vec2> {
+		if (radius === 0) {
+			yield this;
+			return;
+		}
+
+		const leftEdge = this.x - radius;
+		const rightEdge = this.x + radius;
+
+		yield new Vec2(leftEdge, this.y); // left
+		yield new Vec2(rightEdge, this.y); // right
+		yield new Vec2(this.x, this.y + radius); // top
+		yield new Vec2(this.x, this.y - radius); // bottom
+
+		// all edges at once
+		for (let i = leftEdge + 1; i < this.x; i++) {
+			const yDiff = i - leftEdge;
+			yield new Vec2(leftEdge + i, this.y + yDiff);
+			yield new Vec2(leftEdge + i, this.y - yDiff);
+			yield new Vec2(rightEdge - i, this.y + yDiff);
+			yield new Vec2(rightEdge - i, this.y - yDiff);
+		}
+	}
+
 	public addMut(
 		v: Vec2Like,
 		options?: {
