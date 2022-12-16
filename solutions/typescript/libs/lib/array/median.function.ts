@@ -1,7 +1,7 @@
-import { ascend } from '../math/index.js';
+import { ascending } from '../math/index.js';
 
 export const median = (array: number[], skipSort = false): number => {
-	const sortedArray = skipSort ? array : [...array].sort(ascend);
+	const sortedArray = skipSort ? array : [...array].sort(ascending);
 	const half = sortedArray.length / 2;
 	if (sortedArray.length % 2 === 0) {
 		const first = sortedArray[half - 1];
