@@ -18,7 +18,7 @@ export const p2 = (input: string): string => {
 		const currentRow = Math.floor(cycle / CRT_WIDTH);
 		const currentPixelInRow = cycle % CRT_WIDTH;
 
-		if (x.isBetween(currentPixelInRow - 1, currentPixelInRow + 1)) {
+		if (x.isContainedInSpan((currentPixelInRow - 1).span(currentPixelInRow + 1))) {
 			display[currentRow][currentPixelInRow] = '#';
 		}
 

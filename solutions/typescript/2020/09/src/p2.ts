@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import { asc } from '@alexaegis/advent-of-code-lib/math';
+import { ascending } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './args.interface.js';
 
@@ -15,7 +15,7 @@ export const p2 = (input: string, args?: Args): number => {
 			sum += num;
 			seq.push(num);
 			if (sum === target) {
-				const sorted = seq.sort(asc);
+				const sorted = seq.sort(ascending);
 				return sorted[0] + sorted[sorted.length - 1];
 			}
 			window++;

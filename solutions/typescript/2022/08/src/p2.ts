@@ -1,4 +1,4 @@
-import { desc, Direction, task } from '@alexaegis/advent-of-code-lib';
+import { descending, Direction, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string): number => {
@@ -10,7 +10,7 @@ export const p2 = (input: string): number => {
 				.map((d) => node.walkDirection(d, (n) => n.value < node.value).nodes.length)
 				.product()
 		)
-		.sort(desc)
+		.sort(descending)
 		.first();
 };
 
