@@ -71,6 +71,7 @@ declare global {
 		pairwise(callback: (a: T, b: T) => void): void;
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
+		walkPairs(): Generator<[T, T]>;
 		unique(comparator?: (a: T, b: T) => boolean): T[];
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 		getSizedGroups(groupSize: number): T[][];
@@ -81,6 +82,14 @@ declare global {
 		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
 	}
 }
+
+Array.prototype.walkPairs = function* <T>(): Generator<[T, T]> {
+	for (let i = 0; i < this.length - 1; i++) {
+		for (let j = i + 1; j < this.length; j++) {
+			yield [this[i], this[j]];
+		}
+	}
+};
 
 Array.prototype.groupByDelimiter = function <T>(isDelimiter?: (t: T) => boolean): T[][] {
 	return groupByDelimiter(this, isDelimiter);
