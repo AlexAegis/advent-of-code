@@ -1,5 +1,4 @@
-import { it } from 'node:test';
-import { describe, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { Vec2 } from '../../model/vector/vec2.class.js';
 import { ManhattanCircle } from './manhattan-circle.class.js';
 
