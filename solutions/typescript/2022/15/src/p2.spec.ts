@@ -5,8 +5,7 @@ import { p2 } from './p2.js';
 
 describe('2022 15 p2', () => {
 	describe('the input', () => {
-		// Skip, takes too long
-		it.skip('should solve the input', async () => {
+		it('should solve the input', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
 			expect(p2(input)).to.equal(12518502636475);
 		});

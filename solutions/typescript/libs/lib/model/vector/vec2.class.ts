@@ -218,6 +218,22 @@ export class Vec2 implements Vec2Like {
 		return step;
 	}
 
+	public isInt(): boolean {
+		return Math.floor(this.x) === this.x && Math.floor(this.y) === this.y;
+	}
+
+	public floor(): Vec2 {
+		this.x = Math.floor(this.x);
+		this.y = Math.floor(this.y);
+		return this;
+	}
+
+	public ceil(): Vec2 {
+		this.x = Math.ceil(this.x);
+		this.y = Math.ceil(this.y);
+		return this;
+	}
+
 	/**
 	 * TODO: remove duplicate method
 	 * @param o
@@ -334,6 +350,12 @@ export class Vec2 implements Vec2Like {
 	public set(o: Vec2Like): Vec2 {
 		this.x = o.x;
 		this.y = o.y;
+		return this;
+	}
+
+	public applyChange(fn: (n: number) => number): Vec2 {
+		this.x = fn(this.x);
+		this.y = fn(this.y);
 		return this;
 	}
 }

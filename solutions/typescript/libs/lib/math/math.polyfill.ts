@@ -25,6 +25,7 @@ declare global {
 		lerp(to: number, options?: Lerp1DOptions): number[];
 		iterate(from?: number): number[];
 		span(to: number): Span;
+		isInt(): boolean;
 		addWithinRange(add: number, fromOrTo?: number, to?: number): number;
 	}
 
@@ -43,6 +44,10 @@ declare global {
 		tryInt(radix?: number): number;
 	}
 }
+
+Number.prototype.isInt = function (this: number): boolean {
+	return Math.floor(this) === this;
+};
 
 Number.prototype.span = function (this: number, to: number): Span {
 	return new Span(this, to);
