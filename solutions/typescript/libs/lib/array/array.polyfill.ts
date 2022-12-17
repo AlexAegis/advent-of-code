@@ -72,9 +72,12 @@ declare global {
 		slideWindow<N extends number>(windowSize?: N): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 		walkPairs(): Generator<[T, T]>;
+		pairs(): [T, T][];
 		unique(comparator?: (a: T, b: T) => boolean): T[];
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 		getSizedGroups(groupSize: number): T[][];
+		findLast<V extends T>(predicate: (t: T) => t is V): V | undefined;
+		clear(): void;
 		/**
 		 *
 		 * @param isDelimiter by default it checks if a value is falsy or not
@@ -82,6 +85,23 @@ declare global {
 		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
 	}
 }
+
+Array.prototype.clear = function (): void {
+	this.splice(0);
+};
+
+Array.prototype.findLast = function <T, V extends T>(predicate: (t: T) => t is V): T | undefined {
+	for (let i = this.length - 1; i >= 0; i--) {
+		if (predicate(this[i])) {
+			return this[i];
+		}
+	}
+	return undefined;
+};
+
+Array.prototype.pairs = function <T>(): [T, T][] {
+	return [...this.walkPairs()];
+};
 
 Array.prototype.walkPairs = function* <T>(): Generator<[T, T]> {
 	for (let i = 0; i < this.length - 1; i++) {

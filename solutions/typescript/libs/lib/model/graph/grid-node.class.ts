@@ -4,16 +4,19 @@ import type { ToString } from '../to-string.interface.js';
 import { Vec2 } from '../vector/vec2.class.js';
 import type { Graph } from './graph.class.js';
 import type { Weighter } from './heuristic.type.js';
-import { Node } from './node.class.js';
+import { GraphNode } from './node.class.js';
 import type { Vertice } from './vertice.type.js';
 
 Vec2.ORIGIN;
 
-type WalkResult<T extends ToString = string> = { nodes: GridNode<T>[]; walkedToTheEnd: boolean };
+type WalkResult<T extends ToString = string> = {
+	nodes: GridGraphNode<T>[];
+	walkedToTheEnd: boolean;
+};
 /**
  *
  */
-export class GridNode<T extends ToString = string> extends Node<T, Direction> {
+export class GridGraphNode<T extends ToString = string> extends GraphNode<T, Direction> {
 	public constructor(public coordinate: Vec2, value: T) {
 		super(coordinate.toString(), value);
 	}
@@ -47,7 +50,7 @@ export class GridNode<T extends ToString = string> extends Node<T, Direction> {
 	}
 
 	public walkNorthWest(until?: (next: this) => boolean): {
-		nodes: GridNode<T>[];
+		nodes: GridGraphNode<T>[];
 		walkedToTheEnd: boolean;
 	} {
 		return this.walkDirection(Direction.NORTHWEST, until);

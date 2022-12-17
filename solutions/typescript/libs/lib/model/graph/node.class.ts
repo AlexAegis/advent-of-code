@@ -2,7 +2,7 @@ import type { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import type { Vertice } from './vertice.type.js';
 
-export class Node<T extends ToString, Dir extends ToString = Direction> implements ToString {
+export class GraphNode<T extends ToString, Dir extends ToString = Direction> implements ToString {
 	public neighbours = new Map<Dir, Vertice<this>>();
 
 	public constructor(public key: string, public value: T) {}

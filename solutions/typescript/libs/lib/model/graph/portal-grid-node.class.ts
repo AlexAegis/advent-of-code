@@ -3,11 +3,11 @@ import type { ToString } from '../to-string.interface.js';
 import type { Vec2 } from '../vector/vec2.class.js';
 import type { PortalGridGraph } from './grid-graph.class.js';
 
-import { GridNode } from './grid-node.class.js';
+import { GridGraphNode } from './grid-node.class.js';
 import type { Weighter } from './heuristic.type.js';
 import type { Vertice } from './vertice.type.js';
 
-export class PortalGridNode<T extends ToString = string> extends GridNode<T> {
+export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T> {
 	public constructor(public coordinate: Vec2, public portalLabel: string | undefined, value: T) {
 		super(coordinate, value);
 		if (portalLabel) {
