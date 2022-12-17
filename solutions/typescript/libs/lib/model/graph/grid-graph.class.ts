@@ -8,16 +8,16 @@ import { BoundingBox } from '../vector/bounding-box.class.js';
 import { Vec2 } from '../vector/vec2.class.js';
 import type { Vec2Like, Vec2String } from '../vector/vec2.class.types.js';
 import { Graph } from './graph.class.js';
-import { GridNode } from './grid-node.class.js';
+import { GridGraphNode } from './grid-node.class.js';
 import type { Weighter } from './heuristic.type.js';
 import { PortalGridNode } from './portal-grid-node.class.js';
 
 export interface GridGraphOptions<T extends ToString> {
-	weighter?: Weighter<GridNode<T>>;
+	weighter?: Weighter<GridGraphNode<T>>;
 	connectionDirections?: readonly Readonly<Direction>[];
 }
 
-export class GridGraph<T extends ToString = string, N extends GridNode<T> = GridNode<T>>
+export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> = GridGraphNode<T>>
 	extends Graph<T, Direction, N>
 	implements ToString
 {
@@ -32,7 +32,8 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 	): Required<GridGraphOptions<T>> {
 		return {
 			connectionDirections: Direction.cardinalDirections,
-			weighter: (a: GridNode<T>, b: GridNode<T>) => (a.value !== b.value ? Infinity : 0),
+			weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) =>
+				a.value !== b.value ? Infinity : 0,
 			...gridGraphOptions,
 		};
 	}
@@ -64,7 +65,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 		for (let y = 0; y < matrix.length; y++) {
 			const row = matrix[y];
 			for (let x = 0; x < row.length; x++) {
-				const node = new GridNode<T>(new Vec2(x, y), row[x]);
+				const node = new GridGraphNode<T>(new Vec2(x, y), row[x]);
 				graph.addNode(node, weighter, connectionDirections);
 			}
 		}
@@ -80,7 +81,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 	): GridGraph<T> {
 		const graph = new GridGraph<T>();
 		for (const [k, v] of map.entries()) {
-			const node = new GridNode<T>(new Vec2(k), v);
+			const node = new GridGraphNode<T>(new Vec2(k), v);
 			graph.addNode(node, options?.weighter, options?.connectionDirections);
 		}
 		return graph;
@@ -112,7 +113,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 		return super.getNode(keyStr);
 	}
 
-	public findNode(predicate: (node: GridNode<T>) => boolean): GridNode<T> | undefined {
+	public findNode(predicate: (node: GridGraphNode<T>) => boolean): GridGraphNode<T> | undefined {
 		for (const node of this.nodes.values()) {
 			if (predicate(node)) {
 				return node;
@@ -135,7 +136,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 	 * Simple string representation of the grid
 	 * @param nodeToString: if returns a string that will be used as a symbol for printing
 	 */
-	public toString(nodeToString?: (node: GridNode<T>) => string | undefined): string {
+	public toString(nodeToString?: (node: GridGraphNode<T>) => string | undefined): string {
 		const result: string[][] = [];
 		this.nodeValues.forEach((node) => {
 			const row = (result[node.coordinate.y] = result[node.coordinate.y] ?? []);
@@ -157,7 +158,10 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 		return result.map((row) => row.join('')).join('\n');
 	}
 
-	public printPath(path: GridNode<T>[], nodeToString?: (node: GridNode<T>) => string): void {
+	public printPath(
+		path: GridGraphNode<T>[],
+		nodeToString?: (node: GridGraphNode<T>) => string
+	): void {
 		const pathSymbols = slideWindow(path, 2).reduce((accumulator, [prev, next]) => {
 			let sym = '#';
 			if (prev.north?.to.key === next.key) {
@@ -176,7 +180,7 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
 		this.print((node) => pathSymbols.get(node.key) ?? nodeToString?.(node) ?? '░');
 	}
 
-	public print(nodeToString?: (node: GridNode<T>) => string): void {
+	public print(nodeToString?: (node: GridGraphNode<T>) => string): void {
 		console.log(this.toString(nodeToString));
 	}
 }
@@ -187,13 +191,16 @@ export class GridGraph<T extends ToString = string, N extends GridNode<T> = Grid
  */
 export class PortalGridGraph<
 	T extends ToString,
-	N extends GridNode<T> = PortalGridNode<T>
+	N extends GridGraphNode<T> = PortalGridNode<T>
 > extends GridGraph<T, N> {
 	public constructor() {
 		super();
 	}
 
-	public static fromTorus<T extends ToString = string, N extends GridNode<T> = PortalGridNode<T>>(
+	public static fromTorus<
+		T extends ToString = string,
+		N extends GridGraphNode<T> = PortalGridNode<T>
+	>(
 		matrix: T[][],
 		options: {
 			weighter?: Weighter<PortalGridNode<T>>;

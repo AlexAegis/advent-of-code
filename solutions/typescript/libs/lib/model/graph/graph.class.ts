@@ -3,7 +3,7 @@ import type { ToString } from '../to-string.interface.js';
 import type { Vec2String } from '../vector/vec2.class.types.js';
 
 import type { Heuristic, Weighter } from './heuristic.type.js';
-import { Node } from './node.class.js';
+import { GraphNode } from './node.class.js';
 import type { Vertice } from './vertice.type.js';
 
 export interface GraphTraversalOptions<N> {
@@ -24,7 +24,7 @@ export interface GraphTraversalOptions<N> {
 export class Graph<
 	T extends ToString = string,
 	Dir extends ToString = Direction,
-	N extends Node<T, Dir> = Node<T, Dir>
+	N extends GraphNode<T, Dir> = GraphNode<T, Dir>
 > {
 	public nodes = new Map<string, N>();
 	public vertices = new Set<Vertice<N>>();
@@ -81,17 +81,17 @@ export class Graph<
 			if (!key) {
 				key = (this.nodes.size + 1).toString();
 			}
-			const node = new Node(key, value) as N;
+			const node = new GraphNode(key, value) as N;
 			this.nodes.set(key, node);
 			return [key, node];
 		}
 	}
 
-	private static generatePath<T extends ToString, Dir extends ToString, N extends Node<T, Dir>>(
-		cameFrom: Map<N, N>,
-		start: N,
-		goal?: N
-	): N[] {
+	private static generatePath<
+		T extends ToString,
+		Dir extends ToString,
+		N extends GraphNode<T, Dir>
+	>(cameFrom: Map<N, N>, start: N, goal?: N): N[] {
 		const s: N[] = [];
 		if (goal) {
 			let u: N | undefined = goal;
