@@ -5,6 +5,7 @@
 	"type": "module",
 	"private": false,
 	"scripts": {
+		"example": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/example.ts",
 		"lint:es": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
 		"lint:tsc": "tsc --noEmit",
 		"lint:format": "prettier --check .",
@@ -19,9 +20,11 @@
 		".": "./src/index.ts"
 	},
 	"dependencies": {
-		"@alexaegis/advent-of-code-lib": "*"
+		"@alexaegis/advent-of-code-lib": "*",
+		"terminal-kit": "^3.0.0"
 	},
 	"devDependencies": {
+		"@types/terminal-kit": "^2.5.1",
 		"markdownlint": "^0.26.2",
 		"markdownlint-cli": "^0.32.2",
 		"remark": "^14.0.2",
@@ -32,11 +35,11 @@
 		"yaml-lint": "^1.7.0",
 		"@commitlint/cli": "^17.3.0",
 		"@commitlint/config-conventional": "^17.3.0",
-		"@types/node": "^18.11.13",
-		"@typescript-eslint/eslint-plugin": "^5.46.0",
-		"@typescript-eslint/parser": "^5.46.0",
+		"@types/node": "^18.11.17",
+		"@typescript-eslint/eslint-plugin": "^5.47.0",
+		"@typescript-eslint/parser": "^5.47.0",
 		"benny": "^3.7.1",
-		"eslint": "^8.29.0",
+		"eslint": "^8.30.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"prettier": "^2.8.1",

@@ -1,4 +1,4 @@
-import { Span, Vec2Like } from '../../index.js';
+import { Interval, Vec2Like } from '../../index.js';
 import { Vec2 } from '../../model/vector/vec2.class.js';
 
 export class ManhattanCircle {
@@ -45,12 +45,12 @@ export class ManhattanCircle {
 		return Math.max(this.radius - this.center.manhattan(pos), 0);
 	}
 
-	spanAtY(y: number): Span {
+	spanAtY(y: number): Interval {
 		const effectiveRange = this.getEffectiveRange({
 			x: this.center.x,
 			y,
 		});
-		return new Span(this.center.x - effectiveRange, this.center.x + effectiveRange);
+		return new Interval(this.center.x - effectiveRange, this.center.x + effectiveRange);
 	}
 
 	/**

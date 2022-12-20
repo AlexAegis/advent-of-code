@@ -1,188 +1,70 @@
 import {
-	BoundingBox,
+	Constructor,
 	filterMap,
-	renderMatrix,
+	InstanceTypeOfConstructorTuple,
 	Vec2,
 	Vec2Like,
 	Vec2String,
 } from '@alexaegis/advent-of-code-lib';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Constructor<T> = abstract new (...args: any[]) => T;
-
-export type InstanceTypeOfConstructorTuple<C extends Constructor<unknown>[]> = {
-	[K in keyof C]: C[K] extends C[number] ? InstanceType<C[K]> : never;
-};
-
-export type ComponentFilterFn<C extends Component> = (component: C) => boolean;
-export interface ComponentFilter<C extends Component> {
-	componentType: Constructor<C>;
-	filter: ComponentFilterFn<C>;
-}
-
-export type ComponentFilterTypeOfTuple<C extends Component[]> = {
-	[K in keyof C]: C[K] extends C[number] ? ComponentFilter<C[K]> : never;
-};
-
-export type ComponentFilterFnTypeOfTuple<C extends Component[]> = {
-	[K in keyof C]: C[K] extends C[number] ? ComponentFilterFn<C[K]> : never;
-};
-
-export abstract class Component {
-	belongsTo: Entity[] = [];
-	_world: GridWorld | undefined;
-
-	is<C extends Component>(component: Constructor<C>): boolean {
-		return this instanceof component;
-	}
-
-	world(): GridWorld {
-		if (this._world) {
-			return this._world;
-		} else {
-			throw new Error('Component is not attached to any world');
-		}
-	}
-
-	attachWorld(world: GridWorld): void {
-		this._world = world;
-	}
-
-	componentType(): Constructor<this> {
-		return Object.getPrototypeOf(this).constructor as Constructor<this>;
-	}
-
-	componentName(): string {
-		return this.componentType().name;
-	}
-}
-
-export class MetadataKindComponent extends Component {}
-
-export class NameComponent extends Component {
-	constructor(public name: string) {
-		super();
-	}
-}
-
-export class AsciiDisplayComponent extends Component {
-	constructor(public displayChar: string) {
-		super();
-	}
-}
-
-export class AnyPositionComponent extends Component {
-	constructor(public readonly position: Vec2) {
-		super();
-	}
-
-	attachWorld(world: GridWorld): void {
-		super.attachWorld(world);
-		const position = this.position.toString();
-		for (const entity of this.belongsTo) {
-			world.indexEntityAddedToPosition(entity, position);
-		}
-	}
-}
-
-export class PositionComponent extends AnyPositionComponent {
-	move(offset: Vec2Like): boolean {
-		const sourcePosition = this.position.toString();
-		const targetPosition = this.position.add(offset).toString();
-		const world = this.world();
-		const entitiesAtTarget = world.getEntitiesByPosition(targetPosition);
-
-		// Right now it can't move to occupied spaces but a collider fn can be added later
-		if (entitiesAtTarget.length === 0) {
-			this.position.addMut(offset);
-			for (const entity of this.belongsTo) {
-				world.indexEntityPositionMove(entity, sourcePosition, targetPosition);
-			}
-			return true;
-		} else {
-			return false;
-		}
-	}
-}
-
-/**
- * Signals that the entity it's attached to is immutable.
- * Components with this are always rendered first
- */
-export class StaticPositionComponent extends AnyPositionComponent {}
-
-export class Entity {
-	constructor(private readonly world: GridWorld, public entityId: number) {}
-
-	components = new Map<Constructor<Component>, Component>();
-
-	getComponent<C extends Component>(componentType: Constructor<C>): C | undefined {
-		return this.components.get(componentType) as C | undefined;
-	}
-
-	despawn(): void {
-		this.world.despawn(this);
-	}
-
-	freezePosition(): void {
-		const positionComponent = this.getComponent(PositionComponent);
-		if (positionComponent) {
-			this.world.deattachComponent(this, positionComponent);
-			this.world.attachComponent(
-				this,
-				new StaticPositionComponent(positionComponent.position.clone())
-			);
-		}
-	}
-}
-
-const shiftPositionToViewport = (position: Vec2, viewport: BoundingBox): Vec2 => {
-	return viewport.topRight.sub(position);
-};
-
-/**
- * Systems should return if they did something to the world or not, so the
- * world can halt once all systems settled
- */
-export type System = (world: GridWorld) => boolean;
+import type { ComponentFilterTypeOfTuple } from './components/component-filter.interface.js';
+import type { Component } from './components/component.class.js';
+import { CameraComponent } from './components/prebuilt/camera.component.js';
+import {
+	EntityPositionUpdater,
+	PositionComponent,
+	StaticPositionComponent,
+} from './components/prebuilt/position.component.js';
+import { Entity } from './entity/index.js';
+import { GridWorldOptions, normalizeGridWorldOptions } from './grid-world.class.options.js';
+import { TerminalKitRendererBackend } from './renderer/backend/terminal-kit-renderer-backend.class.js';
+import { RendererSystem } from './renderer/renderer.system.js';
+import type { SystemLike } from './system/system.type.js';
 
 export class GridWorld {
-	entities = new Set<Entity>();
-	components = new Map<Constructor<Component>, Component[]>();
+	private readonly options: Required<GridWorldOptions>;
+
+	public readonly entities = new Set<Entity>();
+	public readonly components = new Map<Constructor<Component>, Component[]>();
+	public readonly systems: SystemLike[] = [];
+
 	private readonly _entitiesByPosition = new Map<Vec2String, Entity[]>();
 
-	entityBoundingBox = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(0, 0));
+	/**
+	 * If one was added, it's reference is made easily accessible
+	 */
+	private rendererSystem?: RendererSystem;
 
-	viewport = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(10, 10));
+	private _time = 0;
+	private _systemsSettled = false;
+	private nextEntityId = 0;
 
-	systems: System[] = [];
-
-	time = 0;
-	_systemsSettled = false;
-
-	nextEntityId = 0;
+	constructor(options?: GridWorldOptions) {
+		this.options = normalizeGridWorldOptions(options);
+	}
 
 	getEntitiesByPosition(position: Vec2Like | Vec2String): Entity[] {
 		return this._entitiesByPosition.get(Vec2.toString(position)) ?? [];
 	}
 
-	indexEntityPositionMove(
+	private indexEntityPositionMove(
 		entity: Entity,
-		fromPosition: Vec2Like | Vec2String,
+		fromPosition: Vec2Like | Vec2String | undefined,
 		toPosition: Vec2Like | Vec2String
 	): void {
-		this.indexEntityRemovedFromPosition(entity, fromPosition);
+		if (fromPosition) {
+			this.indexEntityRemovedFromPosition(entity, fromPosition);
+		}
 		this.indexEntityAddedToPosition(entity, toPosition);
 	}
 
-	indexEntityRemovedFromPosition(entity: Entity, position: Vec2Like | Vec2String): void {
+	private indexEntityRemovedFromPosition(entity: Entity, position: Vec2Like | Vec2String): void {
 		const entitiesThere = this.getEntitiesByPosition(position);
 		if (entitiesThere.has(entity)) {
 			entitiesThere.removeItem(entity);
 		}
 	}
 
-	indexEntityAddedToPosition(entity: Entity, position: Vec2Like | Vec2String): void {
+	private indexEntityAddedToPosition(entity: Entity, position: Vec2Like | Vec2String): void {
 		const entitiesThere = this.getEntitiesByPosition(position);
 		if (!entitiesThere.has(entity)) {
 			entitiesThere.push(entity);
@@ -193,16 +75,23 @@ export class GridWorld {
 		}
 	}
 
-	addSystem(system: System): void {
+	addSystem(system: SystemLike): void {
+		if (system instanceof RendererSystem) {
+			this.rendererSystem = system;
+		}
 		this.systems.push(system);
 	}
 
 	tick(): number {
 		this._systemsSettled = this.systems
-			.map((system) => system(this))
+			.map((system) => (typeof system === 'function' ? system(this) : system.tick(this)))
 			.every((didSomething) => !didSomething);
-		this.time += 1;
-		return this.time;
+		this._time += 1;
+		return this._time;
+	}
+
+	get time(): number {
+		return this._time;
 	}
 
 	get systemsSettled(): boolean {
@@ -220,8 +109,20 @@ export class GridWorld {
 		return entity;
 	}
 
+	private createPositionUpdater(entity: Entity): EntityPositionUpdater {
+		return (from, to) => this.indexEntityPositionMove(entity, from, to);
+	}
+
 	attachComponent(entity: Entity, component: Component): void {
 		entity.components.set(component.componentType(), component);
+
+		if (
+			component instanceof PositionComponent ||
+			component instanceof StaticPositionComponent
+		) {
+			component.registerPositionUpdater(this.createPositionUpdater(entity));
+		}
+
 		if (!component.belongsTo.has(entity)) {
 			component.belongsTo.push(entity);
 		}
@@ -348,60 +249,17 @@ export class GridWorld {
 		);
 	}
 
-	setViewport(viewport: BoundingBox): void {
-		this.viewport = viewport;
-	}
-
-	calculateEntityBoundingBox(): void {
-		this.entityBoundingBox = new BoundingBox(
-			this.getComponentsByType(StaticPositionComponent)
-				.map((entity) => entity.position)
-				.concat(
-					this.getComponentsByType(PositionComponent).map((entity) => entity.position)
-				)
-		);
-	}
-
-	focusViewportToEntities(): void {
-		this.viewport = this.entityBoundingBox.clone();
-		this.viewport.extend(1);
-	}
-
-	render(autoViewport = false): string {
-		if (autoViewport) {
-			this.calculateEntityBoundingBox();
-			this.focusViewportToEntities();
+	createDefaultCameraAndRenderer(): void {
+		if (this.getComponentsByType(CameraComponent).length === 0) {
+			this.spawn(new CameraComponent());
 		}
 
-		const matrix: string[][] = [];
-
-		for (let y = this.viewport.bottom; y <= this.viewport.top; y++) {
-			const row: string[] = [];
-			for (let x = this.viewport.left; x <= this.viewport.right; x++) {
-				row.push('.');
-			}
-			matrix.push(row);
+		if (!this.rendererSystem) {
+			this.addSystem(new RendererSystem(new TerminalKitRendererBackend()));
 		}
-
-		for (const [_entity, positionComponent, displayComponent] of [
-			...this.query(StaticPositionComponent, AsciiDisplayComponent),
-			...this.query(PositionComponent, AsciiDisplayComponent),
-		]) {
-			const viewPosition = shiftPositionToViewport(positionComponent.position, this.viewport);
-			if (
-				viewPosition.x >= 0 &&
-				viewPosition.x <= this.viewport.size.x &&
-				viewPosition.y >= 0 &&
-				viewPosition.y <= this.viewport.size.y
-			) {
-				matrix[viewPosition.y][viewPosition.x] = displayComponent.displayChar;
-			}
-		}
-
-		return renderMatrix(matrix, true);
 	}
 
-	print(autoViewport?: boolean): void {
-		console.log(this.render(autoViewport));
+	print(): void {
+		this.rendererSystem?.printCurrentFrame();
 	}
 }
