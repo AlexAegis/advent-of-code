@@ -60,4 +60,4 @@ export const p2 = (input: string): number => {
 	return outerSurface.length;
 };
 
-await task(p2, packageJson.aoc); // 0 ~0ms
+await task(p2, packageJson.aoc); // 0 ~8302.90ms
