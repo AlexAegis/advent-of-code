@@ -1,5 +1,7 @@
 import {
 	addWithinRange,
+	Interval,
+	IntervalLike,
 	invMod,
 	invModBigInt,
 	lerp1D,
@@ -8,8 +10,6 @@ import {
 	modExpBigInt,
 	posMod,
 	posModBigInt,
-	Span,
-	SpanLike,
 } from '../math/index.js';
 
 declare global {
@@ -19,12 +19,12 @@ declare global {
 		 * @param m modulo
 		 */
 		posMod(m: number): number;
-		isContainedInSpan(span: SpanLike): boolean;
+		isContainedInSpan(span: IntervalLike): boolean;
 		invMod(n: number): number;
 		modExp(b: number, n: number): number;
 		lerp(to: number, options?: Lerp1DOptions): number[];
 		iterate(from?: number): number[];
-		span(to: number): Span;
+		span(to: number): Interval;
 		isInt(): boolean;
 		addWithinRange(add: number, fromOrTo?: number, to?: number): number;
 	}
@@ -49,8 +49,8 @@ Number.prototype.isInt = function (this: number): boolean {
 	return Math.floor(this) === this;
 };
 
-Number.prototype.span = function (this: number, to: number): Span {
-	return new Span(this, to);
+Number.prototype.span = function (this: number, to: number): Interval {
+	return new Interval(this, to);
 };
 
 Number.prototype.addWithinRange = function (
@@ -78,8 +78,8 @@ BigInt.prototype.posMod = function (this: bigint, m: bigint): bigint {
 	return posModBigInt(this, m);
 };
 
-Number.prototype.isContainedInSpan = function (this: number, span: SpanLike): boolean {
-	return Span.contains(span, this);
+Number.prototype.isContainedInSpan = function (this: number, span: IntervalLike): boolean {
+	return Interval.contains(span, this);
 };
 
 Number.prototype.invMod = function (this: number, n: number): number {

@@ -82,6 +82,7 @@ export class Vec2 implements Vec2Like {
 	}
 
 	public static isWithin(v: Vec2Like, area: BoundingBox): boolean {
+		// TODO: use intervals
 		return (
 			Math.min(area.topLeft.x, area.bottomRight.x) <= v.x &&
 			v.x <= Math.max(area.topLeft.x, area.bottomRight.x) &&
@@ -95,6 +96,7 @@ export class Vec2 implements Vec2Like {
 	}
 
 	public clamp(area: BoundingBox): Vec2 {
+		// TODO: use intervals, it does not respect openness
 		const xMax = Math.max(area.topLeft.x, area.bottomRight.x);
 		const yMax = Math.max(area.topLeft.y, area.bottomRight.y);
 		const xMin = Math.min(area.topLeft.x, area.bottomRight.x);

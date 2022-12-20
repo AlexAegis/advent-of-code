@@ -17,7 +17,8 @@
 		"lint:format": "prettier --check ."
 	},
 	"dependencies": {
-		"@alexaegis/advent-of-code-lib": "*"
+		"@alexaegis/advent-of-code-lib": "*",
+		"@alexaegis/ecs": "*"
 	},
 	"devDependencies": {
 		"benny": "^3.7.1"
