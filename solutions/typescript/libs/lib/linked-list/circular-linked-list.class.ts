@@ -2,12 +2,12 @@ import type { ToString } from '../model/index.js';
 import { CircularLinkedListNode } from './circular-linked-list-node.class.js';
 
 export class CircularLinkedList<T> implements ToString {
-	public start: CircularLinkedListNode<T>;
-	public end: CircularLinkedListNode<T>;
+	public head: CircularLinkedListNode<T>;
+
 	public constructor(initialData: T[]) {
 		const mainLink = initialData[0];
-		this.start = new CircularLinkedListNode(mainLink);
-		this.end = this.start;
+		this.head = new CircularLinkedListNode(mainLink);
+
 		let skipped = false;
 		for (const item of initialData) {
 			if (skipped) {
@@ -18,18 +18,26 @@ export class CircularLinkedList<T> implements ToString {
 		}
 	}
 
-	public add(t: T): void {
-		const link = new CircularLinkedListNode(t, this.end, this.start);
-		this.end.next = link;
-		this.start.prev = link;
-		this.end = link;
+	public length(): number {
+		return [...this.singleIterationNodes()].length;
 	}
 
+	public add(t: T): CircularLinkedListNode<T> {
+		return new CircularLinkedListNode(t, this.head.prev, this.head);
+	}
+
+	public find(t: T): CircularLinkedListNode<T> {
+		let cursor = this.head;
+		while (cursor.value !== t) {
+			cursor = cursor.next;
+		}
+		return cursor;
+	}
 	/**
 	 * Infinite iterator
 	 */
 	*[Symbol.iterator](): IterableIterator<T> {
-		let current = this.start;
+		let current = this.head;
 		while (current) {
 			yield current.value;
 			current = current.next;
@@ -37,12 +45,19 @@ export class CircularLinkedList<T> implements ToString {
 	}
 
 	public *singleIteration(): IterableIterator<T> {
-		let current = this.start;
-		while (current !== this.end) {
+		let current = this.head;
+		do {
 			yield current.value;
 			current = current.next;
-		}
-		yield current.value;
+		} while (current !== this.head);
+	}
+
+	public *singleIterationNodes(): IterableIterator<CircularLinkedListNode<T>> {
+		let current = this.head;
+		do {
+			yield current;
+			current = current.next;
+		} while (current !== this.head);
 	}
 
 	public toString(): string {

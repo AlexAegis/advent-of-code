@@ -23,4 +23,4 @@ export const p1 = (input: string): number => {
 	return r.length;
 };
 
-await task(p1, packageJson.aoc); // 0 ~0ms
+await task(p1, packageJson.aoc); // 4.85ms
