@@ -29,7 +29,7 @@ export const p2 = (input: string): number => {
 					.clone()
 					.addMut(hexagonalAxialDirections[instruction as HexagonalDirection]);
 				// console.log('argare', cursor.toString());
-				const nextVertice = node.neighbours.getOrAdd(
+				const nextEdge = node.neighbours.getOrAdd(
 					instruction as HexagonalDirection,
 					() => ({
 						from: node,
@@ -45,7 +45,7 @@ export const p2 = (input: string): number => {
 					})
 				);
 
-				const nextNode = nextVertice.to;
+				const nextNode = nextEdge.to;
 
 				const inv = invertedHexagonalDirections[instruction as HexagonalDirection];
 				nextNode.neighbours.getOrAdd(inv, () => ({
@@ -84,7 +84,7 @@ export const p2 = (input: string): number => {
 		for (const instruction of ttf) {
 			cursor.addMut(hexagonalAxialDirections[instruction]);
 
-			const nextVertice = currentNode.neighbours.getOrAdd(instruction, () => ({
+			const nextEdge = currentNode.neighbours.getOrAdd(instruction, () => ({
 				from: currentNode,
 				to: g.nodes.getOrAdd(
 					cursor.toString(),
@@ -93,7 +93,7 @@ export const p2 = (input: string): number => {
 				),
 				weight: 1,
 			}));
-			const nextNode = nextVertice.to;
+			const nextNode = nextEdge.to;
 
 			const inv = invertedHexagonalDirections[instruction];
 			nextNode.neighbours.getOrAdd(inv, () => ({

@@ -3,9 +3,9 @@ import type { ToString } from '../to-string.interface.js';
 import type { Vec2 } from '../vector/vec2.class.js';
 import type { PortalGridGraph } from './grid-graph.class.js';
 
+import type { Edge } from './edge.type.js';
 import { GridGraphNode } from './grid-node.class.js';
 import type { Weighter } from './heuristic.type.js';
-import type { Vertice } from './vertice.type.js';
 
 export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T> {
 	public constructor(public coordinate: Vec2, public portalLabel: string | undefined, value: T) {
@@ -15,7 +15,7 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 		}
 	}
 
-	public portal(): Vertice<this> | undefined {
+	public portal(): Edge<this> | undefined {
 		return this.portalLabel
 			? this.neighbours.get(this.portalLabel as unknown as Direction)
 			: undefined;
@@ -35,14 +35,14 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 			)?.[1];
 			const portal = this.portal();
 			if (node && portal) {
-				const forwardVertice = this.neighbours.getOrAdd(
+				const forwardEdge = this.neighbours.getOrAdd(
 					this.portalLabel as unknown as Direction,
 					() => ({
 						from: this,
 						to: node,
 					})
 				);
-				const backVertice = node.neighbours.getOrAdd(
+				const backEdge = node.neighbours.getOrAdd(
 					this.portalLabel as unknown as Direction,
 					() => ({
 						from: node,
@@ -50,15 +50,15 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 					})
 				);
 
-				forwardVertice.to = node;
-				backVertice.to = this;
-				graph.vertices.add(forwardVertice);
-				//graph.vertices.add(backVertice);
+				forwardEdge.to = node;
+				backEdge.to = this;
+				graph.edges.add(forwardEdge);
+				//graph.edges.add(backEdge);
 				if (weighter) {
-					forwardVertice.weight = weighter(this, node);
-					backVertice.weight = weighter(node, this);
-					forwardVertice.weighter = () => weighter(this, node);
-					backVertice.weighter = () => weighter(node, this);
+					forwardEdge.weight = weighter(this, node);
+					backEdge.weight = weighter(node, this);
+					forwardEdge.weighter = () => weighter(this, node);
+					backEdge.weighter = () => weighter(node, this);
 				}
 			}
 		}

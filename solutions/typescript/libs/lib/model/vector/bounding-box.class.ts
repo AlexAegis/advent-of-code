@@ -88,19 +88,19 @@ export class BoundingBox {
 		}
 	}
 
-	*walkCells(): Generator<Vec2Like> {
-		for (let y = this.bottom; y <= this.top; y++) {
-			for (let x = this.left; x <= this.right; x++) {
-				yield { x, y };
+	*walkCells(resolution = 1): Generator<Vec2> {
+		for (let y = this.bottom; y <= this.top; y += resolution) {
+			for (let x = this.left; x <= this.right; x += resolution) {
+				yield new Vec2(x, y);
 			}
 		}
 	}
 
 	createBlankMatrix(): undefined[][];
-	createBlankMatrix<T>(map: (position: Vec2Like) => T): T[][];
-	createBlankMatrix<T>(map?: (position: Vec2Like) => T): (T | undefined)[][] {
+	createBlankMatrix<T>(map: (position: Vec2) => T): T[][];
+	createBlankMatrix<T>(map?: (position: Vec2) => T): (T | undefined)[][] {
 		return Array.from({ length: this.height }, (_e, y) =>
-			Array.from({ length: this.width }, (_e, x) => map?.({ x, y }) ?? undefined)
+			Array.from({ length: this.width }, (_e, x) => map?.(new Vec2(x, y)) ?? undefined)
 		);
 	}
 
@@ -139,6 +139,10 @@ export class BoundingBox {
 		return new BoundingBox(vectors);
 	}
 
+	static fromSize(size: Vec2Like): BoundingBox {
+		return new BoundingBox([Vec2.ORIGIN, size]);
+	}
+
 	static fromMatrix<M>(matrix: M[][]): BoundingBox {
 		const anchors = [Vec2.ORIGIN, Vec2.ORIGIN];
 		if (matrix.length) {
@@ -165,11 +169,11 @@ export class BoundingBox {
 	}
 
 	get height(): number {
-		return this.top - this.bottom;
+		return this.vertical.length;
 	}
 
 	get width(): number {
-		return this.right - this.left;
+		return this.horizontal.length;
 	}
 
 	contains(vec: Vec2Like): boolean {

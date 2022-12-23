@@ -22,7 +22,7 @@ export const p1g = (input: string): number => {
 		for (const instruction of ttf) {
 			cursor.addMut(hexagonalAxialDirections[instruction]);
 
-			const nextVertice = currentNode.neighbours.getOrAdd(instruction, () => ({
+			const nextEdge = currentNode.neighbours.getOrAdd(instruction, () => ({
 				from: currentNode,
 				to: g.nodes.getOrAdd(
 					cursor.toString(),
@@ -31,7 +31,7 @@ export const p1g = (input: string): number => {
 				),
 				weight: 1,
 			}));
-			const nextNode = nextVertice.to;
+			const nextNode = nextEdge.to;
 
 			const inv = invertedHexagonalDirections[instruction];
 			nextNode.neighbours.getOrAdd(inv, () => ({

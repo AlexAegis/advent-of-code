@@ -1,5 +1,8 @@
 import { slideWindow } from '../../array/groups/slide-window.function.js';
+import { mapFirst } from '../../array/map-first.function.js';
 import { hasToString } from '../../functions/assertions/has-to-string.assert.js';
+import { mapLast, renderMatrix } from '../../index.js';
+
 import { stringToVectorMap } from '../../string/string-to-vectormap.function.js';
 import { DirectionArrowUnicodeSymbol } from '../direction/direction-arrow-unicode.symbol.enum.js';
 import { Direction } from '../direction/direction.class.js';
@@ -15,6 +18,7 @@ import { PortalGridNode } from './portal-grid-node.class.js';
 export interface GridGraphOptions<T extends ToString> {
 	weighter?: Weighter<GridGraphNode<T>>;
 	connectionDirections?: readonly Readonly<Direction>[];
+	ignoreNodes?: (s: string) => boolean;
 }
 
 export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> = GridGraphNode<T>>
@@ -32,6 +36,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	): Required<GridGraphOptions<T>> {
 		return {
 			connectionDirections: Direction.cardinalDirections,
+			ignoreNodes: (s) => s === ' ',
 			weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) =>
 				a.value !== b.value ? Infinity : 0,
 			...gridGraphOptions,
@@ -48,7 +53,8 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		}
 	): GridGraph<T> {
 		const normalizedGridOptions = GridGraph.fillDefaultGridGraphOptions(gridOptions);
-		const map = stringToVectorMap(str, gridOptions?.valueConverter);
+		const map = stringToVectorMap(str, { valueConverter: gridOptions?.valueConverter });
+
 		return GridGraph.fromMap(map, normalizedGridOptions);
 	}
 
@@ -133,29 +139,79 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	}
 
 	/**
+	 * Adds edges between edge vertices so that in each column each northmost
+	 * node will have an edge pointing to the southmost and vice-versa
+	 */
+	public connectEdgeNodesWrappingAround(
+		weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) => number = (a, b) =>
+			a.value !== b.value ? Infinity : 0
+	): void {
+		const box = this.boundingBox();
+		const verticalIndices = box.vertical.collectValues();
+		const horizontalIndices = box.horizontal.collectValues();
+
+		for (const x of horizontalIndices) {
+			const first = mapFirst(verticalIndices, (y) => this.getNode({ x, y }));
+			const last = mapLast(verticalIndices, (y) => this.getNode({ x, y }));
+
+			if (first !== undefined && last !== undefined) {
+				first.neighbours.set(Direction.SOUTH, {
+					from: first,
+					to: last,
+					weight: weighter(first, last),
+				});
+				last.neighbours.set(Direction.NORTH, {
+					from: last,
+					to: first,
+					weight: weighter(last, first),
+				});
+			}
+		}
+
+		for (const y of verticalIndices) {
+			const first = mapFirst(horizontalIndices, (x) => this.getNode({ x, y }));
+			const last = mapLast(horizontalIndices, (x) => this.getNode({ x, y }));
+
+			if (first !== undefined && last !== undefined) {
+				first.neighbours.set(Direction.WEST, {
+					from: first,
+					to: last,
+					weight: weighter(first, last),
+				});
+				last.neighbours.set(Direction.EAST, {
+					from: last,
+					to: first,
+					weight: weighter(last, first),
+				});
+			}
+		}
+	}
+
+	/**
 	 * Simple string representation of the grid
 	 * @param nodeToString: if returns a string that will be used as a symbol for printing
 	 */
 	public toString(nodeToString?: (node: GridGraphNode<T>) => string | undefined): string {
-		const result: string[][] = [];
-		this.nodeValues.forEach((node) => {
-			const row = (result[node.coordinate.y] = result[node.coordinate.y] ?? []);
-			let nodeRepresentation: string;
-			let optionalToStringRep: string | undefined;
-			if (nodeToString) {
-				optionalToStringRep = nodeToString(node);
+		const box = this.boundingBox();
+		const result = box.createBlankMatrix(() => ' ');
+		for (const cell of box.walkCells()) {
+			const node = this.getNode(cell);
+			let nodeRepresentation = ' ';
+			if (node) {
+				let optionalToStringRep: string | undefined;
+				if (nodeToString) {
+					optionalToStringRep = nodeToString(node);
+				}
+				if (optionalToStringRep) {
+					nodeRepresentation = optionalToStringRep;
+				} else if (hasToString(node.value)) {
+					nodeRepresentation = node.value.toString();
+				}
 			}
-			if (optionalToStringRep) {
-				nodeRepresentation = optionalToStringRep;
-			} else if (hasToString(node.value)) {
-				nodeRepresentation = node.value.toString();
-			} else {
-				nodeRepresentation = ' ';
-			}
-			row[node.coordinate.x] = nodeRepresentation;
-		});
+			result[cell.y][cell.x] = nodeRepresentation;
+		}
 
-		return result.map((row) => row.join('')).join('\n');
+		return renderMatrix(result);
 	}
 
 	public printPath(
@@ -177,7 +233,13 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 			return accumulator;
 		}, new Map<string, string>());
 
-		this.print((node) => pathSymbols.get(node.key) ?? nodeToString?.(node) ?? '░');
+		const last = path[path.length - 1];
+		pathSymbols.set(last.coordinate.toString(), 'X');
+
+		this.print(
+			(node) =>
+				pathSymbols.get(node.key) ?? nodeToString?.(node) ?? node.value.toString() ?? '░'
+		);
 	}
 
 	public print(nodeToString?: (node: GridGraphNode<T>) => string): void {

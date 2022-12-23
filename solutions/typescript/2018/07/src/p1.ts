@@ -2,11 +2,11 @@ import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 interface Graph {
 	nodes: string[];
-	vertices: Array<{ from: string; to: string }>;
+	edges: Array<{ from: string; to: string }>;
 }
 
 const interpret = async (input: string) => {
-	const graph: Graph = { nodes: [], vertices: [] };
+	const graph: Graph = { nodes: [], edges: [] };
 
 	for (const line of split(input)) {
 		const splitLine: string[] = line.split(/ /);
@@ -16,7 +16,7 @@ const interpret = async (input: string) => {
 		if (!graph.nodes.find((node) => node === splitLine[7])) {
 			graph.nodes.push(splitLine[7]);
 		}
-		graph.vertices.push({ from: splitLine[1], to: splitLine[7] });
+		graph.edges.push({ from: splitLine[1], to: splitLine[7] });
 	}
 	return graph;
 };
@@ -30,7 +30,7 @@ export const p1 = async (input: string): Promise<string> => {
 			return a > b ? 1 : -1;
 		}
 	});
-	let unprocessedVertices = graph.vertices.sort((a, b) => {
+	let unprocessedEdges = graph.edges.sort((a, b) => {
 		if (a.from === b.from) {
 			if (a.to === b.to) {
 				return 0;
@@ -44,11 +44,9 @@ export const p1 = async (input: string): Promise<string> => {
 	const result: string[] = [];
 	while (unprocessedNodes.length !== 0) {
 		for (const node of unprocessedNodes) {
-			if (unprocessedVertices.count((vertice) => vertice.to === node) === 0) {
+			if (unprocessedEdges.count((edge) => edge.to === node) === 0) {
 				unprocessedNodes.splice(unprocessedNodes.indexOf(node), 1);
-				unprocessedVertices = unprocessedVertices.filter(
-					(vertice) => vertice.from !== node
-				);
+				unprocessedEdges = unprocessedEdges.filter((edge) => edge.from !== node);
 				result.push(node);
 				break;
 			}

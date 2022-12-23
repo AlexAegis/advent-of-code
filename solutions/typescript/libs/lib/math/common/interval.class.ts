@@ -99,8 +99,39 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return new Interval(asVec.x, asVec.y);
 	}
 
+	isClosedInterval(): boolean {
+		return (
+			this.lowQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER &&
+			this.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
+		);
+	}
+
+	isOpenInterval(): boolean {
+		return (
+			this.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER &&
+			this.highQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
+		);
+	}
+
+	isClosedOpenInterval(): boolean {
+		return (
+			this.lowQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER &&
+			this.highQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
+		);
+	}
+
+	isOpenClosedInterval(): boolean {
+		return (
+			this.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER &&
+			this.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
+		);
+	}
+
 	get length(): number {
-		return this.high - this.low;
+		const bothClosedOffset = this.isClosedInterval() ? 1 : 0;
+		const bothOpenOffset = this.isOpenInterval() ? -1 : 0;
+
+		return Math.max(bothClosedOffset + bothOpenOffset + this.high - this.low, 0);
 	}
 
 	moveBy(by: number): Interval {
@@ -180,8 +211,8 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		highQualifier: IntervalEndpointQualifier = INTERVAL_ENDPOINT_CLOSED_QUALIFIER
 	): boolean {
 		return highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
-			? interval.high <= n
-			: interval.high < n;
+			? interval.high < n
+			: interval.high <= n;
 	}
 
 	static isBelowHigh(

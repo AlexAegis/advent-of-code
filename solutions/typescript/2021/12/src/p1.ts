@@ -31,11 +31,11 @@ const getPaths = (
  * @returns
  */
 export const p1 = (input: string): number => {
-	const valueVertices = input.lines().map((line) => {
+	const valueEdges = input.lines().map((line) => {
 		const [from, to] = line.split('-');
 		return { from, to };
 	});
-	const graph = Graph.fromUniqueValueVertices<string>(valueVertices, (t) => t, true);
+	const graph = Graph.fromUniqueValueEdges<string>(valueEdges, (t) => t, true);
 	const start = graph.getNode('start')!;
 	const allPaths: Node<string, number>[][] = [];
 	getPaths(start, (node) => node.value === 'end', allPaths);

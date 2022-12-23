@@ -40,11 +40,11 @@ const getPaths = (
  * @returns
  */
 export const p2 = (input: string): number => {
-	const valueVertices = input.lines().map((line) => {
+	const valueEdges = input.lines().map((line) => {
 		const [from, to] = line.split('-');
 		return { from, to };
 	});
-	const graph = Graph.fromUniqueValueVertices<string>(valueVertices, (t) => t, true);
+	const graph = Graph.fromUniqueValueEdges<string>(valueEdges, (t) => t, true);
 	const start = graph.getNode('start')!;
 
 	const smallCaves = [...graph.nodes.values()].filter((node) => node.value.isLowerCase());
