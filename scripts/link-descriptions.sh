@@ -16,21 +16,21 @@ for readme in ./resources/**/**/readme.md; do
 		echo "	to solutions/typescript/$year/$day"
 		(
 			cd "./solutions/typescript/${year}/${day}" || exit 1
-			ln -f -s "../../../../resources/${year}/${day}/readme.md" readme.md
+			rm readme.md
 		)
 	fi
 	if [ -d "./solutions/rust/${year}/${day}" ]; then
 		echo "	to solutions/rust/$year/$day"
 		(
 			cd "./solutions/rust/${year}/${day}" || exit 1
-			ln -f -s "../../../../resources/${year}/${day}/readme.md" readme.md
+			rm readme.md
 		)
 	fi
 	if [ -d "./solutions/python/year${year}/day${day}" ]; then
 		echo "	to solutions/python/year$year/day$day"
 		(
 			cd "./solutions/python/year${year}/day${day}" || exit 1
-			ln -f -s "../../../../resources/${year}/${day}/readme.md" readme.md
+			rm readme.md
 		)
 	fi
 done
