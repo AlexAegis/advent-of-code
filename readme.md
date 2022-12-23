@@ -120,9 +120,5 @@ pipenv shell
 
 ## Disclaimer
 
-All the puzzle prose present here is the work of [Eric Wastl](http://was.tl/)
-and are a markdown recreations of the original tasks from the
-[Advent of Code](https://adventofcode.com/) site.
-
 [Advent of Code](https://adventofcode.com/) is made by
 [Eric Wastl](http://was.tl/).
