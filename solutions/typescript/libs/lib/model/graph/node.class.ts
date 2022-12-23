@@ -1,9 +1,9 @@
 import type { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
-import type { Vertice } from './vertice.type.js';
+import type { Edge } from './edge.type.js';
 
 export class GraphNode<T extends ToString, Dir extends ToString = Direction> implements ToString {
-	public neighbours = new Map<Dir, Vertice<this>>();
+	public neighbours = new Map<Dir, Edge<this>>();
 
 	public constructor(public key: string, public value: T) {}
 
@@ -17,15 +17,15 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction> imp
 		return this;
 	}
 
-	*[Symbol.iterator](): IterableIterator<Vertice<this>> {
+	*[Symbol.iterator](): IterableIterator<Edge<this>> {
 		yield* this.neighbours.values();
 	}
 
 	public get neighbourNodes(): this[] {
-		return this.neighbourVertices.map((vertice) => vertice.to);
+		return this.neighbourEdges.map((edge) => edge.to);
 	}
 
-	public get neighbourVertices(): Vertice<this>[] {
+	public get neighbourEdges(): Edge<this>[] {
 		return [...this.neighbours.values()];
 	}
 

@@ -1,9 +1,9 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './model/args.interface.js';
+import { Edge } from './model/edge.class.js';
 import type { Graph } from './model/graph.interface.js';
 import { Node } from './model/node.class.js';
-import { Vertice } from './model/vertice.class.js';
 
 export interface Result {
 	tick: number;
@@ -21,11 +21,11 @@ export class Worker {
 			for (const node of this.graph.nodes) {
 				if (
 					node.available() &&
-					this.graph.vertices.filter(
-						(vertice) =>
-							vertice.to === node &&
-							(!vertice.fulfilled(this.withBaseCost) ||
-								vertice.from.finishedOnTick === tick)
+					this.graph.edges.filter(
+						(edge) =>
+							edge.to === node &&
+							(!edge.fulfilled(this.withBaseCost) ||
+								edge.from.finishedOnTick === tick)
 					).length === 0
 				) {
 					this.workingOn = node;
@@ -57,7 +57,7 @@ export class Worker {
 }
 
 const interpret = (input: string): Graph => {
-	const graph: Graph = { nodes: [], vertices: [] };
+	const graph: Graph = { nodes: [], edges: [] };
 
 	for (const line of split(input)) {
 		const splitLine: string[] = line.split(/ /);
@@ -71,7 +71,7 @@ const interpret = (input: string): Graph => {
 			to = new Node(splitLine[7]);
 			graph.nodes.push(to);
 		}
-		graph.vertices.push(new Vertice(from, to));
+		graph.edges.push(new Edge(from, to));
 	}
 
 	graph.nodes = graph.nodes.sort((a, b) => {
@@ -81,7 +81,7 @@ const interpret = (input: string): Graph => {
 			return a.node > b.node ? 1 : -1;
 		}
 	});
-	graph.vertices = graph.vertices.sort((a, b) => {
+	graph.edges = graph.edges.sort((a, b) => {
 		// TODO: Math this out
 		if (a.from === b.from) {
 			if (a.to === b.to) {

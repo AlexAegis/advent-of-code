@@ -2,19 +2,19 @@ import type { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import type { Vec2String } from '../vector/vec2.class.types.js';
 
+import type { Edge } from './edge.type.js';
 import type { Heuristic, Weighter } from './heuristic.type.js';
 import { GraphNode } from './node.class.js';
-import type { Vertice } from './vertice.type.js';
 
 export interface GraphTraversalOptions<N> {
 	/**
-	 * When traversing a vertice that doesn't have a node at it's end, how to
+	 * When traversing an edge that doesn't have a node at it's end, how to
 	 * generate it? By default it always generates an `undefined` meaning
 	 * by default no new nodes will be created and the graph is treated as
 	 * complete
 	 */
 	// generateNode?: (graph: Graph<N>, path: Map<N, N>) => N | undefined;
-	verticeGenerator?: (nodeMap: Map<string, N>, from: N, path: N[]) => Generator<Vertice<N>>;
+	edgeGenerator?: (nodeMap: Map<string, N>, from: N, path: N[]) => Generator<Edge<N>>;
 	heuristic?: Heuristic<N>;
 	weighter?: Weighter<N>;
 	recalc?: boolean; // evaluate need
@@ -27,24 +27,24 @@ export class Graph<
 	N extends GraphNode<T, Dir> = GraphNode<T, Dir>
 > {
 	public nodes = new Map<string, N>();
-	public vertices = new Set<Vertice<N>>();
+	public edges = new Set<Edge<N>>();
 
-	public static fromUniqueValueVertices<T extends ToString>(
-		vertices: { from: T; to: T; bidirection?: boolean }[],
+	public static fromUniqueValueEdges<T extends ToString>(
+		edges: { from: T; to: T; bidirection?: boolean }[],
 		keyer?: (t: T) => string,
 		forcedBidirection?: boolean
 	): Graph<T, number> {
 		const graph = new Graph<T, number>();
-		for (const vertice of vertices) {
-			const [, from] = graph.tryAddNode(vertice.from, keyer?.(vertice.from));
-			const [, to] = graph.tryAddNode(vertice.to, keyer?.(vertice.to));
-			const fromToVertice = { from, to };
-			graph.vertices.add(fromToVertice);
-			from.neighbours.set(from.neighbours.size + 1, fromToVertice);
-			if (forcedBidirection || (vertice.bidirection && forcedBidirection !== false)) {
-				const toFromVertice = { from: to, to: from };
-				graph.vertices.add(toFromVertice);
-				to.neighbours.set(to.neighbours.size + 1, toFromVertice);
+		for (const edge of edges) {
+			const [, from] = graph.tryAddNode(edge.from, keyer?.(edge.from));
+			const [, to] = graph.tryAddNode(edge.to, keyer?.(edge.to));
+			const fromToEdge = { from, to };
+			graph.edges.add(fromToEdge);
+			from.neighbours.set(from.neighbours.size + 1, fromToEdge);
+			if (forcedBidirection || (edge.bidirection && forcedBidirection !== false)) {
+				const toFromEdge = { from: to, to: from };
+				graph.edges.add(toFromEdge);
+				to.neighbours.set(to.neighbours.size + 1, toFromEdge);
 			}
 		}
 		return graph;
@@ -223,7 +223,7 @@ export class Graph<
 			}
 			openSet.delete(current);
 
-			for (const neighbour of options?.verticeGenerator?.(this.nodes, current, currentPath) ??
+			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, currentPath) ??
 				current) {
 				const tentativegScore =
 					(gScore.get(current) ?? Infinity) +

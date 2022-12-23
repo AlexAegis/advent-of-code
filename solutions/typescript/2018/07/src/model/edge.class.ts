@@ -1,6 +1,6 @@
 import type { Node } from './node.class.js';
 
-export class Vertice {
+export class Edge {
 	public constructor(public from: Node, public to: Node) {}
 
 	public fulfilled(useBaseCost = false): boolean {

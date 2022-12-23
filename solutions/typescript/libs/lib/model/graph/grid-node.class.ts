@@ -2,10 +2,10 @@ import '../../map/map.polyfill.js';
 import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import { Vec2 } from '../vector/vec2.class.js';
+import type { Edge } from './edge.type.js';
 import type { Graph } from './graph.class.js';
 import type { Weighter } from './heuristic.type.js';
 import { GraphNode } from './node.class.js';
-import type { Vertice } from './vertice.type.js';
 
 Vec2.ORIGIN;
 
@@ -71,42 +71,42 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T, Dir
 		return { nodes, walkedToTheEnd };
 	}
 
-	public get north(): Vertice<this> | undefined {
+	public get north(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.NORTH);
 	}
 
-	public get northEast(): Vertice<this> | undefined {
+	public get northEast(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.NORTHEAST);
 	}
 
-	public get east(): Vertice<this> | undefined {
+	public get east(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.EAST);
 	}
 
-	public get southEast(): Vertice<this> | undefined {
+	public get southEast(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.SOUTHEAST);
 	}
 
-	public get south(): Vertice<this> | undefined {
+	public get south(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.SOUTH);
 	}
 
-	public get southWest(): Vertice<this> | undefined {
+	public get southWest(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.SOUTHWEST);
 	}
 
-	public get west(): Vertice<this> | undefined {
+	public get west(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.WEST);
 	}
 
-	public get northWest(): Vertice<this> | undefined {
+	public get northWest(): Edge<this> | undefined {
 		return this.neighbours.get(Direction.NORTHWEST);
 	}
 
 	public calculateWeights(weighter: Weighter<this>) {
-		this.neighbours.forEach((vertice) => {
-			vertice.weight = weighter(this, vertice.to);
-			vertice.weighter = () => weighter(this, vertice.to);
+		this.neighbours.forEach((edge) => {
+			edge.weight = weighter(this, edge.to);
+			edge.weighter = () => weighter(this, edge.to);
 		});
 	}
 
@@ -119,24 +119,24 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T, Dir
 			const node = graph.nodes.get(this.coordinate.clone().add(dir).toString());
 			const reverse = dir.turn(180);
 			if (node) {
-				const forwardVertice = this.neighbours.getOrAdd(dir, () => ({
+				const forwardEdge = this.neighbours.getOrAdd(dir, () => ({
 					from: this,
 					to: node,
 				}));
-				const backVertice = node.neighbours.getOrAdd(reverse, () => ({
+				const backEdge = node.neighbours.getOrAdd(reverse, () => ({
 					from: node,
 					to: this,
 				}));
-				forwardVertice.to = node;
-				backVertice.to = this;
-				graph.vertices.add(forwardVertice);
-				//graph.vertices.add(backVertice);
+				forwardEdge.to = node;
+				backEdge.to = this;
+				graph.edges.add(forwardEdge);
+				graph.edges.add(backEdge);
 				if (weighter) {
-					// this.calculateWeights(weighter);
-					forwardVertice.weight = weighter(this, node);
-					backVertice.weight = weighter(node, this);
-					forwardVertice.weighter = () => weighter(this, node);
-					backVertice.weighter = () => weighter(node, this);
+					this.calculateWeights(weighter);
+					forwardEdge.weight = weighter(this, node);
+					backEdge.weight = weighter(node, this);
+					forwardEdge.weighter = () => weighter(this, node);
+					backEdge.weighter = () => weighter(node, this);
 				}
 			}
 		}

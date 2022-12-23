@@ -1,21 +1,13 @@
 import { Element } from '../element.class.js';
-import type { Vertice } from './vertice.interface.js';
+import type { Edge } from './edge.interface.js';
 
 export abstract class Block extends Element {
-	protected _vertices: Vertice[] = [];
+	protected _edges: Edge[] = [];
 	constructor(tile: string, protected _weight: number = 0) {
 		super(tile);
 	}
 
-	get vertices(): Vertice[] {
-		return this._vertices;
+	get edges(): Edge[] {
+		return this._edges;
 	}
-	/*
-	get bottomBlock(): Block {
-		return this.vertices[0].to === this ? this.vertices[0].from : this.vertices[0].to;
-	}
-
-	get bottom(): Vertice {
-		return this.vertices.length > 0 ? this.vertices[0]: undefined;
-	}*/
 }

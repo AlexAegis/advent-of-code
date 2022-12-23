@@ -79,7 +79,7 @@ String.prototype.toGridGraph = function <T extends ToString>(
 String.prototype.toVectorMap = function <V = string>(
 	valueConverter?: (value: string) => V
 ): Map<Vec2String, V> {
-	return stringToVectorMap(this as string, valueConverter);
+	return stringToVectorMap(this as string, { valueConverter });
 };
 
 String.prototype.lines = function (keepEmpty = false): string[] {

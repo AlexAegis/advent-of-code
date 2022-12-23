@@ -5,11 +5,14 @@ import { addAllToSet } from '../set/index.js';
 import { cutSubSegment } from './cut-subsegment.function.js';
 import { filterMap } from './filter-map.function.js';
 import { findEndOfPair } from './find-end-of-pair.function.js';
+import { findLast } from './find-last.function.js';
 import { matrixFlipFlop } from './flip-flop.generator.js';
 import { flipMatrix } from './flip-matrix.function.js';
 import { getSizedGroups } from './get-sized-groups.function.js';
 import { groupByDelimiter } from './group-by-delimiter.function.js';
 import { pairwise, slideWindow } from './groups/index.js';
+import { mapFirst } from './map-first.function.js';
+import { mapLast } from './map-last.function.js';
 import { maxOf } from './max-of.function.js';
 import { mean } from './mean.function.js';
 import { median } from './median.function.js';
@@ -77,6 +80,8 @@ declare global {
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 		getSizedGroups(groupSize: number): T[][];
 		findLast<V extends T>(predicate: (t: T) => t is V): V | undefined;
+		mapFirst<V>(map: (t: T) => V): V | undefined;
+		mapLast<V>(map: (t: T) => V): V | undefined;
 		clear(): void;
 		/**
 		 *
@@ -86,17 +91,20 @@ declare global {
 	}
 }
 
+Array.prototype.mapFirst = function <T, V>(mapFn: (t: T) => V): V | undefined {
+	return mapFirst(this, mapFn);
+};
+
+Array.prototype.mapLast = function <T, V>(mapFn: (t: T) => V): V | undefined {
+	return mapLast(this, mapFn);
+};
+
 Array.prototype.clear = function (): void {
 	this.splice(0);
 };
 
 Array.prototype.findLast = function <T, V extends T>(predicate: (t: T) => t is V): T | undefined {
-	for (let i = this.length - 1; i >= 0; i--) {
-		if (predicate(this[i])) {
-			return this[i];
-		}
-	}
-	return undefined;
+	return findLast(this, predicate);
 };
 
 Array.prototype.pairs = function <T>(): [T, T][] {

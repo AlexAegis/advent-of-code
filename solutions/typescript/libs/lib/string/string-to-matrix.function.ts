@@ -14,6 +14,6 @@ export const stringToMatrix = (
 	itemSeparator: RegExp | string = ''
 ): string[][] =>
 	s
-		.trim()
+		.trimEnd()
 		.split(rowSeparator)
 		.map((l) => l.split(itemSeparator));
