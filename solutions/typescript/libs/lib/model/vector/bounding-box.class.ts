@@ -1,9 +1,13 @@
-import { Interval, max } from '../../index.js';
+import { Direction, Interval, max } from '../../index.js';
 import { Vec2 } from './vec2.class.js';
 import type { Vec2Like } from './vec2.class.types.js';
 
 /**
  * It consists of two closed intervals from left to right and bottom to top
+ *
+ * It uses a screen coordinate system where 0,0 is at the top left, and Y
+ * grows downwards. This means top is the smallest Y value and bottom is the
+ * largest
  *
  * TODO: Investigate if Y flipping is needed
  */
@@ -89,7 +93,7 @@ export class BoundingBox {
 	}
 
 	*walkCells(resolution = 1): Generator<Vec2> {
-		for (let y = this.bottom; y <= this.top; y += resolution) {
+		for (let y = this.top; y <= this.bottom; y += resolution) {
 			for (let x = this.left; x <= this.right; x += resolution) {
 				yield new Vec2(x, y);
 			}
@@ -143,6 +147,10 @@ export class BoundingBox {
 		return new BoundingBox([Vec2.ORIGIN, size]);
 	}
 
+	static fromLength(length: number): BoundingBox {
+		return new BoundingBox([Vec2.ORIGIN, new Vec2(length, length)]);
+	}
+
 	static fromMatrix<M>(matrix: M[][]): BoundingBox {
 		const anchors = [Vec2.ORIGIN, Vec2.ORIGIN];
 		if (matrix.length) {
@@ -153,11 +161,11 @@ export class BoundingBox {
 	}
 
 	get top(): number {
-		return this.vertical.high;
+		return this.vertical.low;
 	}
 
 	get bottom(): number {
-		return this.vertical.low;
+		return this.vertical.high;
 	}
 
 	get left(): number {
@@ -236,6 +244,41 @@ export class BoundingBox {
 	extend(vectors: Vec2Like[]): BoundingBox {
 		this.calc([this.topLeft, this.bottomRight, ...vectors]);
 		return this;
+	}
+
+	getEdge(direction: Direction): Vec2[] {
+		if (direction.equals(Direction.NORTH)) {
+			return this.getTopEdge();
+		} else if (direction.equals(Direction.SOUTH)) {
+			return this.getBottomEdge();
+		} else if (direction.equals(Direction.WEST)) {
+			return this.getLeftEdge();
+		} else if (direction.equals(Direction.EAST)) {
+			return this.getRightEdge();
+		} else {
+			throw new Error('Non-valid direction');
+		}
+	}
+
+	getTopEdge(): Vec2[] {
+		return this.horizontal.collectValues().map((n) => new Vec2(n, this.top));
+	}
+	getRightEdge(): Vec2[] {
+		return this.vertical.collectValues().map((n) => new Vec2(this.right, n));
+	}
+
+	getBottomEdge(): Vec2[] {
+		return this.horizontal
+			.collectValues()
+			.map((n) => new Vec2(n, this.bottom))
+			.reverse();
+	}
+
+	getLeftEdge(): Vec2[] {
+		return this.vertical
+			.collectValues()
+			.map((n) => new Vec2(this.left, n))
+			.reverse();
 	}
 
 	clone(): BoundingBox {

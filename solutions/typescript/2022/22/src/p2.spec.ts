@@ -17,4 +17,8 @@ describe('2022 22 p2', () => {
 			expect(p2(input)).to.equal(0);
 		});
 	});
+
+	describe('createEdgeGenerator', () => {
+		it('should ');
+	});
 });

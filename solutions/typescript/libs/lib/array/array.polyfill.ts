@@ -21,6 +21,7 @@ import { pairsWith } from './pairs-with.function.js';
 import { partition } from './partition.function.js';
 import { peek } from './peek.function.js';
 import { rotateMatrix } from './rotate-matrix.function.js';
+import { zip } from './zip.function.js';
 
 declare global {
 	interface Array<T> {
@@ -82,6 +83,7 @@ declare global {
 		findLast<V extends T>(predicate: (t: T) => t is V): V | undefined;
 		mapFirst<V>(map: (t: T) => V): V | undefined;
 		mapLast<V>(map: (t: T) => V): V | undefined;
+		zip<U>(other: U[]): [T, U][];
 		clear(): void;
 		/**
 		 *
@@ -90,6 +92,10 @@ declare global {
 		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
 	}
 }
+
+Array.prototype.zip = function <T, U>(other: U[]): [T, U][] {
+	return zip(this, other);
+};
 
 Array.prototype.mapFirst = function <T, V>(mapFn: (t: T) => V): V | undefined {
 	return mapFirst(this, mapFn);

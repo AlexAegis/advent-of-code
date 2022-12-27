@@ -460,10 +460,10 @@ const get5PathDownRightDownRight = (initialDirection: Direction): Vec2[] =>
 	]);
 
 /**
- * In this collection of paths, every paths should either be not fully matching,
- * (for every vector there is a node in the flat cubemap) or when there is,
- * the last node in the path is connected to the source node in the direction of
- * initialDirection
+ * In this collection of paths, every path should either be fully matching,
+ * (for every coordinate there is a node in the flat cubemap) or none at all,
+ * the last node in the path will be connected to the source node in the
+ * direction of initialDirection
  */
 export const everyCubeFacePath = (initialDirection: Direction, shiftBy: Vec2Like): Vec2[][] => [
 	...walkCubeFacePaths(initialDirection, shiftBy),

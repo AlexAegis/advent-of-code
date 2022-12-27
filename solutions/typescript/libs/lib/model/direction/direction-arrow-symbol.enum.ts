@@ -5,6 +5,13 @@ export const enum DirectionArrowSymbol {
 	WEST = '<',
 }
 
+export const enum DirectionNames {
+	NORTH = 'NORTH',
+	EAST = 'EAST',
+	SOUTH = 'SOUTH',
+	WEST = 'WEST',
+}
+
 export type HorizontalDirectionArrowSymbol = DirectionArrowSymbol.EAST | DirectionArrowSymbol.WEST;
 export type VericalDirectionArrowSymbol = DirectionArrowSymbol.NORTH | DirectionArrowSymbol.NORTH;
 

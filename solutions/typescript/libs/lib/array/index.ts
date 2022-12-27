@@ -15,3 +15,4 @@ export * from './partition.function.js';
 export * from './peek.function.js';
 export * from './present-in-all.function.js';
 export * from './rotate-matrix.function.js';
+export * from './zip.function.js';

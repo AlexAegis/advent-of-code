@@ -1,6 +1,6 @@
 import { Vec2 } from '../vector/vec2.class.js';
 import type { Vec2Like, Vec2String } from '../vector/vec2.class.types.js';
-import { DirectionArrowSymbol } from './direction-arrow-symbol.enum.js';
+import { DirectionArrowSymbol, DirectionNames } from './direction-arrow-symbol.enum.js';
 import { DirectionCardinalGeographicLetter } from './direction-cardinal-geographic-letter.enum.js';
 import { DirectionCardinalLiteralLetter } from './direction-cardinal-literal-letter.enum.js';
 import { DirectionCardinalNumericClockwiseIndex } from './direction-cardinal-numeric-clockwise-index.enum.js';
@@ -42,27 +42,27 @@ export class Direction extends Vec2 {
 		return Direction.reverseValue(this.cardinalValue);
 	}
 
-	public static readonly NOOP = Object.freeze(new Direction(0, 0));
+	public static readonly ZERO = Object.freeze(new Direction(0, 0));
 	public static readonly EAST = Object.freeze(new Direction(1, 0));
-	public static readonly NORTHEAST = Object.freeze(new Direction(1, 1));
-	public static readonly NORTH = Object.freeze(new Direction(0, 1));
-	public static readonly NORTHWEST = Object.freeze(new Direction(-1, 1));
+	public static readonly NORTHEAST = Object.freeze(new Direction(1, -1));
+	public static readonly NORTH = Object.freeze(new Direction(0, -1));
+	public static readonly NORTHWEST = Object.freeze(new Direction(-1, -1));
 	public static readonly WEST = Object.freeze(new Direction(-1, 0));
-	public static readonly SOUTHWEST = Object.freeze(new Direction(-1, -1));
-	public static readonly SOUTH = Object.freeze(new Direction(0, -1));
-	public static readonly SOUTHEAST = Object.freeze(new Direction(1, -1));
+	public static readonly SOUTHWEST = Object.freeze(new Direction(-1, 1));
+	public static readonly SOUTH = Object.freeze(new Direction(0, 1));
+	public static readonly SOUTHEAST = Object.freeze(new Direction(1, 1));
 
 	/**
 	 * Main directions
-	 * E, N, W, S
+	 * N, W, S, E
 	 *
 	 * Counter-Clockwise from east
 	 */
 	public static readonly cardinalDirections = Object.freeze([
-		Direction.EAST,
 		Direction.NORTH,
 		Direction.WEST,
 		Direction.SOUTH,
+		Direction.EAST,
 	]);
 
 	/**
@@ -217,7 +217,18 @@ export class Direction extends Vec2 {
 		else if (this.equals(Direction.SOUTH)) return DirectionArrowSymbol.SOUTH;
 		else return ' ';
 	}
+
+	static getNameOf(direction: Direction): string {
+		return Object.entries(directionNameMap).find(([, d]) => direction.equals(d))?.[0] ?? '';
+	}
 }
+
+export const directionNameMap = {
+	[DirectionNames.NORTH]: Direction.NORTH,
+	[DirectionNames.EAST]: Direction.EAST,
+	[DirectionNames.SOUTH]: Direction.SOUTH,
+	[DirectionNames.WEST]: Direction.WEST,
+};
 
 export const directionMarkerAssociationMap = {
 	[DirectionArrowSymbol.NORTH]: Direction.NORTH,
@@ -232,7 +243,7 @@ export const directionMarkerAssociationMap = {
 	[DirectionArrowSymbol.WEST]: Direction.WEST,
 	[DirectionCardinalGeographicLetter.WEST]: Direction.WEST,
 	[DirectionCardinalLiteralLetter.WEST]: Direction.WEST,
-	'': Direction.NOOP,
+	'': Direction.ZERO,
 };
 
 export const directionMarkerInvertMap = {

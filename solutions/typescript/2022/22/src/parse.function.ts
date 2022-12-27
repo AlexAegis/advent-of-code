@@ -27,11 +27,11 @@ export const parseMovementInstructions = (instructions: string): MovementInstruc
 export const getFacingScore = (direction: Direction): number => {
 	if (direction === Direction.EAST) {
 		return 0;
-	} else if (direction === Direction.NORTH) {
+	} else if (direction === Direction.SOUTH) {
 		return 1;
 	} else if (direction === Direction.WEST) {
 		return 2;
-	} else if (direction === Direction.SOUTH) {
+	} else if (direction === Direction.NORTH) {
 		return 3;
 	} else {
 		return 0;

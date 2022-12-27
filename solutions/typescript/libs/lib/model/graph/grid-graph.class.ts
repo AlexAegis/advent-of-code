@@ -221,11 +221,11 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		const pathSymbols = slideWindow(path, 2).reduce((accumulator, [prev, next]) => {
 			let sym = '#';
 			if (prev.north?.to.key === next.key) {
-				sym = DirectionArrowUnicodeSymbol.SOUTH;
+				sym = DirectionArrowUnicodeSymbol.NORTH;
 			} else if (prev.east?.to.key === next.key) {
 				sym = DirectionArrowUnicodeSymbol.EAST;
 			} else if (prev.south?.to.key === next.key) {
-				sym = DirectionArrowUnicodeSymbol.NORTH;
+				sym = DirectionArrowUnicodeSymbol.SOUTH;
 			} else if (prev.west?.to.key === next.key) {
 				sym = DirectionArrowUnicodeSymbol.WEST;
 			}
