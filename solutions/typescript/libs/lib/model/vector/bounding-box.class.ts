@@ -8,8 +8,6 @@ import type { Vec2Like } from './vec2.class.types.js';
  * It uses a screen coordinate system where 0,0 is at the top left, and Y
  * grows downwards. This means top is the smallest Y value and bottom is the
  * largest
- *
- * TODO: Investigate if Y flipping is needed
  */
 export class BoundingBox {
 	/**

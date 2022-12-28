@@ -37,8 +37,6 @@ export class CubeMap<T extends ToString> {
 	}
 
 	solve(): void {
-		this.cubeGraph.print();
-
 		for (const node of this.cubeGraph.nodes.values()) {
 			for (const direction of Direction.cardinalDirections) {
 				for (const facePath of walkCubeFacePaths(direction, node.coordinate)) {
@@ -60,12 +58,6 @@ export class CubeMap<T extends ToString> {
 								alreadyFoundNeighbour &&
 								neighbouringNode !== alreadyFoundNeighbour.to
 							) {
-								console.log(
-									direction,
-									node.coordinate,
-									neighbouringNode.coordinate,
-									alreadyFoundNeighbour.to.coordinate
-								);
 								throw new Error('Found a different face for an existing neighbour');
 							}
 						}

@@ -31,9 +31,7 @@ export const p1 = (input: string): number => {
 			direction = direction.right();
 		} else {
 			for (let i = 0; i < instruction; i++) {
-				const edge = position.neighbours.get(
-					direction.isVertical() ? direction.right(180) : direction
-				);
+				const edge = position.neighbours.get(direction);
 				if (edge && edge.weight !== Infinity) {
 					position = edge.to;
 					path.push(position);
@@ -53,4 +51,4 @@ export const p1 = (input: string): number => {
 	);
 };
 
-await task(p1, packageJson.aoc); // 97356 ~0ms
+await task(p1, packageJson.aoc); // 97356 ~67.88ms

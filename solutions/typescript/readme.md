@@ -29,7 +29,7 @@
 | Day 19                                   |                                                    |                                                      |
 | [Day 20](/solutions/typescript/2022/20/) | [75.38ms](/solutions/typescript/2022/20/src/p1.ts) | [930.06ms](/solutions/typescript/2022/20/src/p2.ts)  |
 | Day 21                                   |                                                    |                                                      |
-| Day 22                                   |                                                    |                                                      |
+| [Day 22](/solutions/typescript/2022/22/) | [67.88ms](/solutions/typescript/2022/22/src/p1.ts) | [63.39ms](/solutions/typescript/2022/22/src/p2.ts)   |
 | Day 23                                   |                                                    |                                                      |
 | Day 24                                   |                                                    |                                                      |
 | Day 25                                   |                                                    |                                                      |

@@ -155,12 +155,12 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 			const last = mapLast(verticalIndices, (y) => this.getNode({ x, y }));
 
 			if (first !== undefined && last !== undefined) {
-				first.neighbours.set(Direction.SOUTH, {
+				first.neighbours.set(Direction.NORTH, {
 					from: first,
 					to: last,
 					weight: weighter(first, last),
 				});
-				last.neighbours.set(Direction.NORTH, {
+				last.neighbours.set(Direction.SOUTH, {
 					from: last,
 					to: first,
 					weight: weighter(last, first),
