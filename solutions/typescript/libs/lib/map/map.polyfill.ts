@@ -6,7 +6,7 @@ declare global {
 		update(key: K, change: (value: V | undefined) => V): Map<K, V>;
 		copy(): Map<K, V>;
 		intoDictionary(): Record<string | number, V>;
-		keyArray(): V[];
+		keyArray(): K[];
 		entryArray(): [K, V][];
 		valueArray(): V[];
 		toString(): string;

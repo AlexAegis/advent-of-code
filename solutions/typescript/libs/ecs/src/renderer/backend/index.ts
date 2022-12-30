@@ -1,3 +1,4 @@
-export * from './console-log-renderer-backend.class.js';
-export * from './renderer-backend.class.js';
-export * from './terminal-kit-renderer-backend.class.js';
+export * from './blessed-io-backend.class.js';
+export * from './console-log-io-backend.class.js';
+export * from './io-backend.interface.js';
+export * from './terminal-kit-io-backend.class.js';

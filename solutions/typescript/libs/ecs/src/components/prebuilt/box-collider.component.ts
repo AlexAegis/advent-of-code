@@ -1,13 +1,13 @@
 import { BoundingBox, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib';
 import type { Sprite } from '../../renderer/sprite.class.js';
-import { Component } from '../component.class.js';
+import { ColliderComponent } from './collider.component.js';
 
-export class BoxColliderComponent extends Component {
-	constructor(private readonly colliders: BoundingBox[]) {
+export class BoxColliderComponent extends ColliderComponent {
+	constructor(public readonly colliders: BoundingBox[]) {
 		super();
 	}
 
-	fromRender(
+	static fromRender(
 		render: Sprite,
 		cellCollides: (tile: string) => boolean = (tile) => tile !== ' ' && tile !== '.'
 	): BoxColliderComponent {
@@ -36,7 +36,7 @@ export class BoxColliderComponent extends Component {
 		return new BoxColliderComponent(boundingBoxes);
 	}
 
-	fromBoundingBoxes(...colliders: BoundingBox[]): BoxColliderComponent {
+	static fromBoundingBoxes(...colliders: BoundingBox[]): BoxColliderComponent {
 		return new BoxColliderComponent(colliders);
 	}
 

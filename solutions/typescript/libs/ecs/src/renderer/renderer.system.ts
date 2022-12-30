@@ -6,35 +6,32 @@ import {
 	StaticPositionComponent,
 } from '../components/prebuilt/position.component.js';
 import type { Entity } from '../entity/entity.class.js';
-import type { GridWorld } from '../grid-world.class.js';
+import type { Initializable } from '../system/initializable.interface.js';
 import { System } from '../system/system.type.js';
-import type { RendererBackend } from './backend/renderer-backend.class.js';
+import type { GridWorld } from '../world/grid-world.class.js';
+import type { IOBackend } from './backend/io-backend.interface.js';
 import { Sprite } from './sprite.class.js';
 
-export class RendererSystem extends System {
+export class RendererSystem extends System implements Initializable {
 	order = Infinity;
-	cameraEntity?: Entity;
-	camera?: CameraComponent;
-	lastFrame?: Sprite;
+	cameraEntity: Entity;
+	camera: CameraComponent;
 	currentFrame?: Sprite;
 
-	backend: RendererBackend;
+	backend: IOBackend;
 
-	constructor(rendererBackend: RendererBackend) {
+	constructor(cameraEntity: Entity, rendererBackend: IOBackend) {
 		super();
+		this.cameraEntity = cameraEntity;
+		this.camera = this.cameraEntity.getComponent(CameraComponent)!;
 		this.backend = rendererBackend;
 	}
 
-	tick(world: GridWorld): boolean {
-		// Find the camera if it's not set
-		if (!this.camera) {
-			// Will error out if no camera is found.
-			const [cameraEntity, cameraComponent] = world.queryOne(CameraComponent);
-			this.cameraEntity = cameraEntity;
-			this.camera = cameraComponent;
-		}
+	async init(): Promise<void> {
+		await this.backend.init((size) => this.camera.resize(size));
+	}
 
-		this.lastFrame = this.currentFrame;
+	tick(world: GridWorld): boolean {
 		this.currentFrame = this.render(world);
 		this.backend.pushFrame(this.currentFrame);
 		return false;
@@ -50,12 +47,11 @@ export class RendererSystem extends System {
 		for (const [_entity, positionComponent, displayComponent] of [
 			...world.query(StaticPositionComponent, AsciiDisplayComponent),
 			...world.query(PositionComponent, AsciiDisplayComponent),
-		]) {
+		].sort((a, b) => a[1].z - b[1].z)) {
 			const screenPosition = this.camera.getScreenPositionFromWorldPosition(
 				positionComponent.position
 			);
-
-			const entityRender = displayComponent.render;
+			const entityRender = displayComponent.sprite;
 
 			const entityScreenBox = entityRender.boundingBox.clone().moveTopLeftTo(screenPosition);
 
@@ -67,7 +63,10 @@ export class RendererSystem extends System {
 						if (displayRow) {
 							for (let x = 0; x < entityRenderRow.length; x++) {
 								if (this.camera.screenViewport.horizontal.contains(x)) {
-									displayRow[screenPosition.x + x] = entityRenderRow[x];
+									const cell = entityRenderRow[x];
+									if (cell) {
+										displayRow[screenPosition.x + x] = cell;
+									}
 								}
 							}
 						}

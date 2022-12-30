@@ -4,9 +4,10 @@ import {
 	PositionComponent,
 	StaticPositionComponent,
 } from '../components/prebuilt/position.component.js';
-import type { GridWorld } from '../grid-world.class.js';
+import type { GridWorld } from '../world/grid-world.class.js';
 
 export class Entity {
+	spawned = false;
 	constructor(private readonly world: GridWorld, public entityId: number) {}
 
 	components = new Map<Constructor<Component>, Component>();

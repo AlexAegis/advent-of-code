@@ -1,15 +1,20 @@
+import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
 import { Sprite } from '../../renderer/sprite.class.js';
 import { Component } from '../component.class.js';
 
 export class AsciiDisplayComponent extends Component {
-	render: Sprite;
+	sprite: Sprite;
 
-	constructor(public displayChar: string) {
+	constructor(public matrix: string[][]) {
 		super();
-		this.render = Sprite.fromString(displayChar);
+		this.sprite = Sprite.fromMatrix(matrix);
 	}
 
 	static fromString(char: string): AsciiDisplayComponent {
-		return new AsciiDisplayComponent(char);
+		return new AsciiDisplayComponent(stringToMatrix(char));
+	}
+
+	static fromMatrix(matrix: string[][]): AsciiDisplayComponent {
+		return new AsciiDisplayComponent(matrix);
 	}
 }

@@ -2,6 +2,8 @@ import { isNumberArray } from '../functions/index.js';
 import { ascending, descending, mult, sum } from '../math/index.js';
 import type { SizedTuple } from '../model/index.js';
 import { addAllToSet } from '../set/index.js';
+import { arrayContains } from './array-contains.function.js';
+import { arrayDiff, ArrayDiffResult } from './array-diff.function.js';
 import { cutSubSegment } from './cut-subsegment.function.js';
 import { filterMap } from './filter-map.function.js';
 import { findEndOfPair } from './find-end-of-pair.function.js';
@@ -35,7 +37,6 @@ declare global {
 		flipFlop(): Generator<T[]>;
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
-		has(item: T): boolean;
 		tap(callbackFn: (item: T) => void): T[];
 		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers: false }): number[];
 		toInt(options?: {
@@ -84,6 +85,7 @@ declare global {
 		mapFirst<V>(map: (t: T) => V): V | undefined;
 		mapLast<V>(map: (t: T) => V): V | undefined;
 		zip<U>(other: U[]): [T, U][];
+		diff(other: T[]): ArrayDiffResult<T>;
 		clear(): void;
 		/**
 		 *
@@ -92,6 +94,10 @@ declare global {
 		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
 	}
 }
+
+Array.prototype.diff = function <T>(other: T[]): ArrayDiffResult<T> {
+	return arrayDiff(this, other);
+};
 
 Array.prototype.zip = function <T, U>(other: U[]): [T, U][] {
 	return zip(this, other);
@@ -242,8 +248,8 @@ Array.prototype.bubbleFindPair = function <T>(
 	return [undefined, undefined];
 };
 
-Array.prototype.has = function <T>(item: T): boolean {
-	return this.find((i) => i === item) !== undefined;
+Array.prototype.contains = function <T>(item: T): boolean {
+	return arrayContains(this, item);
 };
 
 Array.prototype.toInt = function (options?: {
@@ -294,10 +300,6 @@ Array.prototype.product = function (): number {
 
 Array.prototype.intoSet = function <T>(set?: Set<T>): Set<T> {
 	return addAllToSet(this, set);
-};
-
-Array.prototype.contains = function <T>(item: T): boolean {
-	return this.find((i) => i === item) !== undefined;
 };
 
 Array.prototype.flipFlop = function* <T>(): Generator<T[][]> {

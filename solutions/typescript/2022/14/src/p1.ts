@@ -7,11 +7,10 @@ import {
 	SandSpawnerKindComponent,
 } from './sand-world.class.js';
 
-export const p1 = (input: string): number => {
+export const p1 = async (input: string): Promise<number> => {
 	const world = createSandWorld(input);
 
-	const treshhold = world.entityBoundingBox.topRight.y + 1;
-
+	const treshhold = world.getVisibleEntityBoundingBox().bottom + 1;
 	// Despawn and turn off the spawner when a sand entity reaches beyond the
 	// last wall entity
 	world.addSystem((world) => {
@@ -21,21 +20,21 @@ export const p1 = (input: string): number => {
 			StaticPositionComponent,
 			SandKindComponent
 		)) {
-			if (positionComponent.position.y === treshhold) {
+			if (positionComponent.position.y >= treshhold) {
 				sandEntity.despawn();
 				const [_e, sandspawnerData] = world.queryOne(SandSpawnerKindComponent);
 				sandspawnerData.enabled = false;
-				didSomething = true;
+				didSomething = false;
 			}
 		}
 		return didSomething;
 	});
 
-	while (!world.systemsSettled) {
-		world.tick();
-	}
+	world.centerCameraOnEntities();
 
-	return world.query(StaticPositionComponent, SandKindComponent).length;
+	await world.run();
+
+	return world.query(SandKindComponent).length;
 };
 
 await task(p1, packageJson.aoc); // 665 ~109.35ms (example 24)

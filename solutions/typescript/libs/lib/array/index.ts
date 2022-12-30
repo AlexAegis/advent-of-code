@@ -1,3 +1,5 @@
+export * from './array-contains.function.js';
+export * from './array-diff.function.js';
 export * from './array.polyfill.js';
 export * from './cut-subsegment.function.js';
 export * from './filter-map.function.js';
