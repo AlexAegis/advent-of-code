@@ -1,9 +1,11 @@
 import { Direction, split, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib';
 import {
 	AsciiDisplayComponent,
+	CellColliderComponent,
 	Component,
 	GridWorld,
 	PositionComponent,
+	spawnWall,
 	StaticPositionComponent,
 } from '@alexaegis/ecs';
 
@@ -20,45 +22,67 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	);
 
 	const sandKind = new SandKindComponent();
-	const rockKind = new RockKindComponent();
+	const sandDisplay = AsciiDisplayComponent.fromString('o');
 
-	const sandDisplay = new AsciiDisplayComponent('o');
-	const rockDisplay = new AsciiDisplayComponent('#');
-	const world = new GridWorld();
+	const world = new GridWorld({
+		executorSpeed: process.env.RUN ? 60 : 'instant',
+		executorHaltCondition: 'untilSettled',
+		io: process.env.RUN ? 'terminalKit' : undefined,
+	});
+
 	const sandSpawner = world.spawn(
 		new SandSpawnerKindComponent(),
 		new StaticPositionComponent(new Vec2(500, 0)),
-		new AsciiDisplayComponent('+')
+		AsciiDisplayComponent.fromString('+')
 	);
 
-	const spawnRock = (at: Vec2) => {
-		// It appears that the input has duplicated lines so it's not given that
-		// every segment is unique
-		if (world.getEntitiesByPosition(at).length === 0) {
-			world.spawn(rockKind, new StaticPositionComponent(at), rockDisplay);
-		}
-	};
-	const spawnSand = (at: Vec2) => world.spawn(sandKind, new PositionComponent(at), sandDisplay);
+	const spawnSand = (at: Vec2) =>
+		world.spawn(sandKind, new PositionComponent(at), sandDisplay, CellColliderComponent.unit);
 
 	for (const rockLine of rockLines) {
 		rockLine.pairwise((from, to) => {
-			spawnRock(from);
-			for (const rockPiecePosition of from.reach(to, false, true)) {
-				spawnRock(rockPiecePosition);
-			}
+			spawnWall(world, from, to);
 		});
 	}
 
-	world.calculateEntityBoundingBox();
-	world.focusViewportToEntities();
+	world.centerCameraOnEntities();
 
-	const floor = world.entityBoundingBox.topRight.y + 2;
+	const floor = world.getVisibleEntityBoundingBox().bottom + 2;
 
 	const tryMoveLikeSand = (c: PositionComponent): boolean =>
-		c.position.y + 1 < floor &&
-		(c.move(Direction.NORTH) || c.move(Direction.NORTHWEST) || c.move(Direction.NORTHEAST));
+		c.position.y < floor &&
+		(c.move(Direction.SOUTH) || c.move(Direction.SOUTHWEST) || c.move(Direction.SOUTHEAST));
 
 	// Spawn and settle sand
+	world.addSystem((world) => {
+		let didSomething = false;
+
+		const [_e, sandSpawnerData, position] = world.queryOne(
+			SandSpawnerKindComponent,
+			StaticPositionComponent
+		);
+		if (
+			sandSpawnerData.enabled &&
+			world.entitiesAt(position.position).filter((e) => e !== sandSpawner).length === 0
+		) {
+			const spawnedSand = spawnSand(position.position.clone());
+			const positionComponent = spawnedSand.getComponent(PositionComponent)!;
+			let moving = true;
+			while (moving) {
+				moving = tryMoveLikeSand(positionComponent);
+			}
+
+			spawnedSand.freezePosition();
+
+			didSomething = true;
+		}
+
+		return didSomething;
+	});
+
+	// Looks prettier, but slow
+	/*
+	// spawn sand when there are no movable sand on the map
 	world.addSystem((world) => {
 		let didSomething = false;
 
@@ -68,21 +92,32 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 		);
 		if (
 			sandSpawnerData.enabled &&
-			world.entitiesAt(sandSpawnerPosition.position).filter((e) => e !== sandSpawner)
-				.length === 0
+			world.query(PositionComponent, SandKindComponent).length === 0 &&
+			world.entitiesAt(position.position).filter((e) => e !== sandSpawner).length === 0
 		) {
-			const spawnedSand = spawnSand(sandSpawnerPosition.position.clone());
-			const positionComponent = spawnedSand.getComponent(PositionComponent)!;
-			let moving = true;
-			while (moving) {
-				moving = tryMoveLikeSand(positionComponent);
-			}
-			spawnedSand.freezePosition();
+			spawnSand(sandSpawnerPosition.position.clone());
 			didSomething = true;
 		}
 
 		return didSomething;
 	});
 
+	// move sand
+	world.addSystem((world) => {
+		let didSomething = false;
+
+		for (const [sand, positionComponent] of world.query(PositionComponent, SandKindComponent)) {
+			const moving = tryMoveLikeSand(positionComponent);
+
+			if (!moving) {
+				sand.freezePosition();
+			}
+
+			didSomething = didSomething || moving;
+		}
+
+		return didSomething;
+	});
+*/
 	return world;
 };

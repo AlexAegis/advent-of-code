@@ -1,4 +1,4 @@
-import { BoundingBox } from '@alexaegis/advent-of-code-lib';
+import { BoundingBox, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
 
 /**
@@ -8,16 +8,31 @@ import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
  */
 export class Sprite {
 	matrix: string[][] = [];
-	private _boundingBox: BoundingBox;
+	private _boundingBox!: BoundingBox;
+	private _visibleAt!: Vec2[];
 
 	constructor(matrix?: string[][]) {
 		this.matrix = matrix ?? [];
-		this._boundingBox = BoundingBox.fromMatrix(this.matrix);
+		this.update();
 	}
 
-	static fromString(render: string, flipY = false): Sprite {
+	private update(): void {
+		this._boundingBox = BoundingBox.fromMatrix(this.matrix);
+		this._visibleAt = [];
+		this.forEach((position, cell) => {
+			if (cell) {
+				this._visibleAt.push(position);
+			}
+		});
+	}
+
+	static fromString(render: string): Sprite {
 		const matrix = stringToMatrix(render);
-		return new Sprite(flipY ? matrix.reverse() : matrix);
+		return new Sprite(matrix);
+	}
+
+	static fromMatrix(matrix: string[][]) {
+		return new Sprite(matrix);
 	}
 
 	/**
@@ -31,16 +46,15 @@ export class Sprite {
 		return this._boundingBox;
 	}
 
-	/**
-	 * Copies the content of this render onto another
-	 */
-	apply(targetFrame: Sprite): void {
-		const offset = 1;
+	get visibleAt(): Vec2[] {
+		return this._visibleAt;
+	}
+
+	forEach(callback: (coordinate: Vec2, cell: string) => void): void {
 		for (let y = 0; y < this.matrix.length; y++) {
 			const row = this.matrix[y];
-			const renderRow = targetFrame.matrix[y + offset];
-			for (let x = 0; x < this.matrix.length; x++) {
-				renderRow[x + offset] = row[x];
+			for (let x = 0; x < row.length; x++) {
+				callback(new Vec2(x, y), row[x]);
 			}
 		}
 	}

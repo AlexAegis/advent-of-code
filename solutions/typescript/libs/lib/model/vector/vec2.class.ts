@@ -81,6 +81,14 @@ export class Vec2 implements Vec2Like {
 		return Vec2.compareRowFirst(this, o);
 	}
 
+	public static comparator(a: Vec2Like, b: Vec2Like): number {
+		return a.y === b.y ? a.x - b.x : a.y - b.y;
+	}
+
+	public static sort(a: Vec2[]): Vec2[] {
+		return a.sort(Vec2.comparator);
+	}
+
 	public static isWithin(v: Vec2Like, area: BoundingBox): boolean {
 		// TODO: use intervals
 		return (

@@ -76,12 +76,16 @@ export class BoundingBox {
 			this._center = new Vec2(Infinity, Infinity);
 			this._size = new Vec2(Infinity, Infinity);
 		} else {
-			this._size = this.topRight.sub(this.bottomLeft);
+			this._size = new Vec2(this.horizontal.length, this.vertical.length);
 			this._center = new Vec2(
 				this.left + Math.floor(this.width / 2),
-				this.bottom + Math.floor(this.height / 2)
+				this.top + Math.floor(this.height / 2)
 			);
 		}
+	}
+
+	resize(size: Vec2Like): void {
+		this.calc([this.topLeft, this.topLeft.add(size)]);
 	}
 
 	*rows(): Generator<number> {
@@ -104,6 +108,14 @@ export class BoundingBox {
 		return Array.from({ length: this.height }, (_e, y) =>
 			Array.from({ length: this.width }, (_e, x) => map?.(new Vec2(x, y)) ?? undefined)
 		);
+	}
+
+	normalize(): BoundingBox {
+		return this.clone().moveTopLeftTo(Vec2.ORIGIN);
+	}
+
+	renderIntoVectors(): Vec2[] {
+		return [...this.walkCells()];
 	}
 
 	get center(): Readonly<Vec2> {

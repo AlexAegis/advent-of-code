@@ -12,8 +12,4 @@ export const stringToMatrix = (
 	s: string,
 	rowSeparator: RegExp | string = NEWLINE,
 	itemSeparator: RegExp | string = ''
-): string[][] =>
-	s
-		.trimEnd()
-		.split(rowSeparator)
-		.map((l) => l.split(itemSeparator));
+): string[][] => s.split(rowSeparator).map((line) => line.split(itemSeparator));
