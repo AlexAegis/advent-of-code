@@ -228,7 +228,9 @@ export const p2 = (input: string): number => {
 			console.log(`The elephant opens valve ${elephantCurrentlyAtValve.name}`);
 		}
 	}
-	return pressureReleasedSoFar;
+	console.log('pressureReleasedSoFar', pressureReleasedSoFar);
+	return 0;
+	// return pressureReleasedSoFar;
 };
 
 await task(p2, packageJson.aoc, 'example.1.txt'); // 1580 ~0ms

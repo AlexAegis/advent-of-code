@@ -5,10 +5,13 @@ import packageJson from '../package.json' assert { type: 'json' };
 const lineTetronimo = '####';
 
 const spawnTetronimo = (world: GridWorld): void => {
-	world.spawn(new PositionComponent(new Vec2(2, 2)), new AsciiDisplayComponent(lineTetronimo));
+	world.spawn(
+		new PositionComponent(new Vec2(2, 2)),
+		AsciiDisplayComponent.fromString(lineTetronimo)
+	);
 };
 
-export const p1 = (input: string): number => {
+export const p1 = async (input: string): Promise<number> => {
 	const inputCommands = split(input)[0].split('');
 	console.log('lines', inputCommands);
 
@@ -18,9 +21,8 @@ export const p1 = (input: string): number => {
 	spawnWall(world, new Vec2(-3, 0), new Vec2(3, 0)); // Bottom
 	spawnWall(world, new Vec2(-3, 0), new Vec2(-3, 8)); // Left
 	spawnWall(world, new Vec2(3, 0), new Vec2(3, 8)); // Right
+	await world.run();
 
-	world.tick();
-	world.print();
 	return 0;
 };
 

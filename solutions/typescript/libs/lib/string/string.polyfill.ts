@@ -19,6 +19,9 @@ declare global {
 			}
 		): GridGraph<T>;
 		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<Vec2String, V>;
+		/**
+		 * @deprecated TODO: remove
+		 */
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];

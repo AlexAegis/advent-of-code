@@ -34,16 +34,16 @@
 		"./string": "./string/index.ts"
 	},
 	"dependencies": {
-		"@thi.ng/iterators": "^6.1.33",
+		"@thi.ng/iterators": "^6.1.34",
 		"@thi.ng/memoize": "^3.1.21",
-		"@thi.ng/transducers": "^8.3.28",
+		"@thi.ng/transducers": "^8.3.29",
 		"big-integer": "^1.6.51",
 		"ix": "^5.0.0",
 		"rxjs": "^7.8.0"
 	},
 	"devDependencies": {
 		"kolorist": "^1.6.0",
-		"markdownlint": "^0.26.2",
+		"markdownlint": "^0.27.0",
 		"markdownlint-cli": "^0.32.2",
 		"remark": "^14.0.2",
 		"remark-cli": "^11.0.0",
@@ -54,7 +54,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.47.1",
 		"@typescript-eslint/parser": "^5.47.1",
 		"benny": "^3.7.1",
-		"eslint": "^8.30.0",
+		"eslint": "^8.31.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"prettier": "^2.8.1",

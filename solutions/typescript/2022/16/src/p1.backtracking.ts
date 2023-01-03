@@ -113,7 +113,7 @@ export const p1 = (input: string): number => {
 		// It's its worth opening and wasn't already opened this round, or this path wasnt tried
 		if (
 			currentValve.flowRate > 0 &&
-			!currentSolution.openValves.has(currentValve) &&
+			!currentSolution.openValves.contains(currentValve) &&
 			!solutionGraph.has(`${currentPathSerialized},${OPEN}`)
 		) {
 			nextOptions.push(OPEN);

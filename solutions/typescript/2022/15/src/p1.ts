@@ -1,4 +1,4 @@
-import { Span, task } from '@alexaegis/advent-of-code-lib';
+import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
@@ -11,7 +11,7 @@ export const p1 = (input: string, args?: Args): number => {
 	// The example overrides the y level
 	const y = args?.y ?? 2000000;
 
-	return Span.merge(sensors.map((sensor) => sensor.spanAtY(y)))
+	return Interval.merge(sensors.map((sensor) => sensor.spanAtY(y)))
 		.map((span) => span.length)
 		.sum();
 };

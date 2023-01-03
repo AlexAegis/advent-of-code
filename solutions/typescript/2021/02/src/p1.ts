@@ -11,9 +11,9 @@ export const p1 = (input: string): number => {
 		.reduce((acc, next) => {
 			let direction = Direction.EAST;
 			if (next.instruction === SubmarineInstruction.UP) {
-				direction = Direction.SOUTH;
-			} else if (next.instruction === SubmarineInstruction.DOWN) {
 				direction = Direction.NORTH;
+			} else if (next.instruction === SubmarineInstruction.DOWN) {
+				direction = Direction.SOUTH;
 			}
 			return acc.addMut(direction, { times: next.amplitude });
 		}, Vec2.ORIGIN.clone());

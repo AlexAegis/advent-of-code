@@ -12,12 +12,8 @@ export const p2 = (input: string): number => {
 		for (let y = -250; y < 250; y++) {
 			const initialVelocity = new Vec2(x, y);
 			const probe = new Probe(initialVelocity.clone());
-			let maxYposition = undefined;
-			stepping: while (!probe.isPastPoint(boundary.bottomRight)) {
-				const position = probe.step();
-				if (!maxYposition || position.y > maxYposition.y) {
-					maxYposition = position;
-				}
+			stepping: while (!probe.isPastPoint(boundary.topRight)) {
+				probe.step();
 				if (probe.isWithin(boundary)) {
 					initialVelocities.push(initialVelocity);
 					break stepping;

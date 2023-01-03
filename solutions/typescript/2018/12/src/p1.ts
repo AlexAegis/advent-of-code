@@ -11,7 +11,7 @@ export const p1 = (input: string): number | undefined => {
 			let nextGen = '..';
 			for (let p = 2; p < cave.row.length - 2; p++) {
 				const char = cave.row.charAt(p);
-				if (cave.rules.indexOf(cave.row.substr(p - 2, 5)) >= 0) {
+				if (cave.rules.indexOf(cave.row.substring(p - 2, p + 3)) >= 0) {
 					nextGen += char === '.' ? '#' : '.';
 				} else {
 					nextGen += char;

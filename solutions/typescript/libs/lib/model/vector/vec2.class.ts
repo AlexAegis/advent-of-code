@@ -10,6 +10,9 @@ import type { Vec2Like, Vec2String } from './vec2.class.types.js';
 export class Vec2 implements Vec2Like {
 	public static ORIGIN = Object.freeze(new Vec2(0, 0));
 
+	public x!: number;
+	public y!: number;
+
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
 	 */
@@ -59,9 +62,6 @@ export class Vec2 implements Vec2Like {
 		}
 	}
 
-	public x!: number;
-	public y!: number;
-
 	public static compareColumnFirst(a: Vec2, b: Vec2): number {
 		return a.x === b.x ? a.y - b.y : a.x - b.x;
 	}
@@ -90,13 +90,7 @@ export class Vec2 implements Vec2Like {
 	}
 
 	public static isWithin(v: Vec2Like, area: BoundingBox): boolean {
-		// TODO: use intervals
-		return (
-			Math.min(area.topLeft.x, area.bottomRight.x) <= v.x &&
-			v.x <= Math.max(area.topLeft.x, area.bottomRight.x) &&
-			Math.min(area.topLeft.y, area.bottomRight.y) <= v.y &&
-			v.y <= Math.max(area.topLeft.y, area.bottomRight.y)
-		);
+		return area.horizontal.contains(v.x) && area.vertical.contains(v.y);
 	}
 
 	public isWithin(area: BoundingBox): boolean {

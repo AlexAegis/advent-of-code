@@ -1,16 +1,16 @@
-import { Span, split } from '@alexaegis/advent-of-code-lib';
+import { Interval, split } from '@alexaegis/advent-of-code-lib';
 
 export type Ticket = number[];
 
 export interface TicketObservation {
-	fieldRanges: Map<string, Span[]>;
+	fieldRanges: Map<string, Interval[]>;
 	myTicket: number[];
 	nearbyTickets: number[][];
 }
 
 export const parse = (input: string): TicketObservation => {
 	const lines = split(input);
-	const fieldRanges = new Map<string, Span[]>();
+	const fieldRanges = new Map<string, Interval[]>();
 	let myTicket: Ticket = [];
 	const nearbyTickets: Ticket[] = [];
 	let currentSection: undefined | string;

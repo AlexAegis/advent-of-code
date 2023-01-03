@@ -8,4 +8,4 @@ export const p2 = async (input: string): Promise<number> => {
 	return world.query(SandKindComponent).length;
 };
 
-await task(p2, packageJson.aoc, 'example.1.txt'); // 25434 ~0ms
+await task(p2, packageJson.aoc); // 25434 ~0ms

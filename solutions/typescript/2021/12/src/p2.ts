@@ -1,21 +1,21 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Graph, Node } from '@alexaegis/advent-of-code-lib/model';
+import { Graph, GraphNode } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const pathContains = (
-	path: Node<string, number>[],
-	node: Node<string, number>,
+	path: GraphNode<string, number>[],
+	node: GraphNode<string, number>,
 	atMost = 1
 ): boolean => {
 	return path.count((pathNode) => pathNode.value === node.value) >= atMost;
 };
 
 const getPaths = (
-	current: Node<string, number>,
-	until: (node: Node<string, number>) => boolean,
-	allPaths: Node<string, number>[][],
+	current: GraphNode<string, number>,
+	until: (node: GraphNode<string, number>) => boolean,
+	allPaths: GraphNode<string, number>[][],
 	visitTwice: string | undefined,
-	path: Node<string, number>[] = []
+	path: GraphNode<string, number>[] = []
 ): void => {
 	path.push(current);
 	if (until(current)) {
@@ -48,8 +48,8 @@ export const p2 = (input: string): number => {
 	const start = graph.getNode('start')!;
 
 	const smallCaves = [...graph.nodes.values()].filter((node) => node.value.isLowerCase());
-	const allPaths: Node<string, number>[][] = smallCaves.flatMap((smallCave) => {
-		const paths: Node<string, number>[][] = [];
+	const allPaths: GraphNode<string, number>[][] = smallCaves.flatMap((smallCave) => {
+		const paths: GraphNode<string, number>[][] = [];
 		getPaths(start, (node) => node.value === 'end', paths, smallCave.value);
 		return paths;
 	});

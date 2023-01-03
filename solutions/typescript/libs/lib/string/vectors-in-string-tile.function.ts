@@ -6,6 +6,8 @@ import { NEWLINE } from '../regex/index.js';
  * 0, 0 will be the top left unless fromBottom is true, in which case it will
  * be bottom left
  *
+ * @deprecated
+ *
  * @param tile To get the vectors from
  * @param character to get the vectors of
  * @param fromBottom start row indexing from the bottom instead of the top

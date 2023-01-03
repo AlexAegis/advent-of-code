@@ -1,8 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import packageJson from '../package.json' assert { type: 'json' };
-import { computeMap, Tile } from './p1.js';
-import { parse } from './parse.js';
+import { computeMap, parse, Tile } from './parse.js';
 
 export enum MovementFunction {
 	A = 'A',
@@ -73,7 +72,7 @@ export const compress = (
 		return [fragments[0]];
 	}
 	for (let w = 6; w < maxLen; w++) {
-		const c = fragments[0].substr(0, w);
+		const c = fragments[0].substring(0, w);
 		const f = fragments.flatMap((fragment) => fragment.split(c)).filter((fr) => !!fr);
 		const result = compress(f, prevRes, maxDepth - 1);
 		if (result) {
@@ -86,7 +85,7 @@ export const compress = (
 const encode = (s: string): number[] => {
 	let r = s;
 	if (s.endsWith(',')) {
-		r = s.substr(0, s.length - 1);
+		r = s.substring(0, s.length - 1);
 	}
 	r = r + '\n';
 	return [...r].map((c) => c.charCodeAt(0));

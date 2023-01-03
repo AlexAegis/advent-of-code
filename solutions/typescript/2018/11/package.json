@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"benny": "^3.7.1",
-		"@types/workerpool": "^6.1.0"
+		"@types/workerpool": "^6.1.1"
 	},
 	"aoc": {
 		"year": 2018,

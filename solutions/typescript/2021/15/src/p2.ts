@@ -5,6 +5,7 @@ import packageJson from '../package.json' assert { type: 'json' };
 
 const expand = (input: string, factor = 5): string => {
 	const matrix = input.toMatrix().map((row) => row.map((e) => parseInt(e, 10)));
+
 	const first = factor.iterate().reduce((acc, n) => {
 		for (const row of matrix) {
 			acc.push(
@@ -43,21 +44,19 @@ const expand = (input: string, factor = 5): string => {
 export const p2 = (input: string): number => {
 	const graph = expand(input).toGridGraph<number>({
 		valueConverter: (s) => parseInt(s, 10),
-		weighter: (b, a) => a.value - b.value,
+		weighter: (a, b) => b.value - a.value,
 		connectionDirections: Direction.cardinalDirections,
 	});
 
 	const boundingBox = graph.boundingBox();
-	const start = graph.getNode(boundingBox.bottomLeft);
-	const end = graph.getNode(boundingBox.topRight);
+	const start = graph.getNode(boundingBox.topLeft);
+	const end = graph.getNode(boundingBox.bottomRight);
 
 	const path = graph.aStar(start, end, {
-		heuristic: (_a, p) => {
-			return p.map((n) => n.value).sum();
-		},
+		heuristic: (_a, p) => p.map((n) => n.value).sum(),
 	});
 
 	return path.map((p) => p.value).sum() - (start?.value ?? 0);
 };
 
-await task(p2, packageJson.aoc); // 2703 ~30s
+await task(p2, packageJson.aoc); // 2925 ~30s

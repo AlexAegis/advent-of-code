@@ -13,13 +13,14 @@ export const parseBoundary = (input: string): BoundingBox => {
 		xAxis = axis2;
 		yAxis = axis1;
 	}
+
 	const topLeft = new Vec2({
 		x: Math.min(xAxis.first, xAxis.second),
-		y: Math.max(yAxis.first, yAxis.second),
+		y: Math.min(yAxis.first, yAxis.second),
 	});
 	const bottomRight = new Vec2({
 		x: Math.max(xAxis.first, xAxis.second),
-		y: Math.min(yAxis.first, yAxis.second),
+		y: Math.max(yAxis.first, yAxis.second),
 	});
 	return BoundingBox.fromVectors(topLeft, bottomRight);
 };

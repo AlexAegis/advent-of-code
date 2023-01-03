@@ -1,12 +1,12 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Graph, Node } from '@alexaegis/advent-of-code-lib/model';
+import { Graph, GraphNode } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 
 const getPaths = (
-	current: Node<string, number>,
-	until: (node: Node<string, number>) => boolean,
-	allPaths: Node<string, number>[][],
-	path: Node<string, number>[] = []
+	current: GraphNode<string, number>,
+	until: (node: GraphNode<string, number>) => boolean,
+	allPaths: GraphNode<string, number>[][],
+	path: GraphNode<string, number>[] = []
 ): void => {
 	path.push(current);
 	if (until(current)) {
@@ -37,7 +37,7 @@ export const p1 = (input: string): number => {
 	});
 	const graph = Graph.fromUniqueValueEdges<string>(valueEdges, (t) => t, true);
 	const start = graph.getNode('start')!;
-	const allPaths: Node<string, number>[][] = [];
+	const allPaths: GraphNode<string, number>[][] = [];
 	getPaths(start, (node) => node.value === 'end', allPaths);
 	return allPaths.length;
 };
