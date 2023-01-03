@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
-import type { Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import { GridGraph, GridNode } from '@alexaegis/advent-of-code-lib/model';
+import type { GridGraphNode, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { GridGraph } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse.js';
 
@@ -12,7 +12,7 @@ import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse.j
  */
 export const weighter =
 	(inventory: Set<string>) =>
-	(n: GridNode<string>, _a: GridNode<string>): number => {
+	(n: GridGraphNode<string>, _a: GridGraphNode<string>): number => {
 		const v = n.value;
 		if (v === Tile.WALL) {
 			return Infinity;
@@ -36,7 +36,7 @@ export const under = (tile: Tile | Key | Door): (Tile | Key | Door)[] => {
 	}
 };
 
-export const draw = (m: Map<string, GridNode<string>>, size: Vec2): void => {
+export const draw = (m: Map<string, GridGraphNode<string>>, size: Vec2): void => {
 	const mat = drawMapStatic(m, (t) => t?.toString() ?? ' ', 0, size.y, 0, size.x, false);
 	console.log(renderMatrix(mat, true, false));
 };

@@ -12,7 +12,7 @@ export const findPossibleCombinations = (
 			const a = possibleCombinations.get(allergen);
 			if (a) {
 				for (const ingredient of a) {
-					if (!ingredients.has(ingredient)) {
+					if (!ingredients.contains(ingredient)) {
 						a.delete(ingredient);
 					}
 				}

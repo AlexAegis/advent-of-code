@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Graph, Node, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import { Graph, GraphNode, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import {
 	hexagonalAxialDirections,
@@ -13,12 +13,15 @@ export const p2 = (input: string): number => {
 	const tilesToFlip = parse(input);
 
 	const g = new Graph<TileColor, HexagonalDirection>();
-	const center = new Node<TileColor, HexagonalDirection>(Vec2.ORIGIN.toString(), TileColor.WHITE);
+	const center = new GraphNode<TileColor, HexagonalDirection>(
+		Vec2.ORIGIN.toString(),
+		TileColor.WHITE
+	);
 	g.nodes.set(center.key, center);
 
 	const expandNode = (
 		g: Graph<TileColor, HexagonalDirection>,
-		node: Node<TileColor, HexagonalDirection>,
+		node: GraphNode<TileColor, HexagonalDirection>,
 		key?: Vec2String
 	) => {
 		const vs = key ?? g.nodes.findKey(node);
@@ -36,7 +39,7 @@ export const p2 = (input: string): number => {
 						to: g.nodes.getOrAdd(
 							cursor.toString(),
 							() =>
-								new Node<TileColor, HexagonalDirection>(
+								new GraphNode<TileColor, HexagonalDirection>(
 									cursor.toString(),
 									TileColor.WHITE
 								)
@@ -67,7 +70,7 @@ export const p2 = (input: string): number => {
 
 	const flipTile = (
 		g: Graph<TileColor, HexagonalDirection>,
-		node: Node<TileColor, HexagonalDirection>,
+		node: GraphNode<TileColor, HexagonalDirection>,
 		key?: Vec2String
 	) => {
 		if (node.value === TileColor.BLACK) {
@@ -89,7 +92,10 @@ export const p2 = (input: string): number => {
 				to: g.nodes.getOrAdd(
 					cursor.toString(),
 					() =>
-						new Node<TileColor, HexagonalDirection>(cursor.toString(), TileColor.WHITE)
+						new GraphNode<TileColor, HexagonalDirection>(
+							cursor.toString(),
+							TileColor.WHITE
+						)
 				),
 				weight: 1,
 			}));

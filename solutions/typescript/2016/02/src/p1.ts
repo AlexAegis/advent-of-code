@@ -17,7 +17,7 @@ export const p1 = (input: string): number => {
 	const result = split(input).reduce((acc, line) => {
 		line.split('')
 			.filter(isDirectionMarker)
-			.map(Direction.fromMarker)
+			.map((marker) => Direction.fromMarker(marker).reverse('v'))
 			.forEach((direction) => position.addMut(direction, { limit: keypadArea }));
 		return acc * 10 + toKeypadNumber(position);
 	}, 0);

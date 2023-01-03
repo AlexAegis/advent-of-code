@@ -7,7 +7,7 @@ export const vectorsToMatrix = (
 	const boundingBox = new BoundingBox(vects);
 	const matrix: string[][] = [];
 
-	for (let y = boundingBox.bottom; y <= boundingBox.top; y++) {
+	for (let y = boundingBox.top; y <= boundingBox.bottom; y++) {
 		const row: string[] = [];
 		for (let x = boundingBox.left; x <= boundingBox.right; x++) {
 			if (vects.find((v) => v.x === x && v.y === y)) {

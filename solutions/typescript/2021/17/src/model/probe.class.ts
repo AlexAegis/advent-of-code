@@ -6,7 +6,7 @@ export class Probe {
 
 	constructor(public velocity = Vec2.ORIGIN.clone()) {}
 
-	public step(): Vec2 {
+	public step(): void {
 		this.position.addMut(this.velocity);
 		// Drag
 		if (this.velocity.x > 0) {
@@ -16,7 +16,6 @@ export class Probe {
 		}
 		// Gravity
 		this.velocity.y = this.velocity.y - 1;
-		return this.position.clone();
 	}
 
 	public isWithin(boundingBox: BoundingBox): boolean {

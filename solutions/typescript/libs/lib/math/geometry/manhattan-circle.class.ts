@@ -8,6 +8,10 @@ export class ManhattanCircle {
 		return this.center.manhattan(point) <= this.radius;
 	}
 
+	isOnEdge(point: Vec2Like): boolean {
+		return this.center.manhattan(point) === this.radius;
+	}
+
 	vertices(): Vec2[] {
 		if (this.radius === 0) {
 			return [this.center];
@@ -63,29 +67,61 @@ export class ManhattanCircle {
 	 *
 	 * taking the half of that,
 	 */
-	static intersect(a: ManhattanCircle, b: ManhattanCircle): [Vec2, Vec2] | undefined {
-		const verticesOfAInsideB = a.vertices().filter((vertex) => b.contains(vertex));
-		const verticesOfBInsideA = b.vertices().filter((vertex) => a.contains(vertex));
+	static intersect(ac: ManhattanCircle, bc: ManhattanCircle): [Vec2, Vec2] | undefined {
+		const verticesOfAInsideB = ac.vertices().filter((vertex) => bc.contains(vertex));
+		const verticesOfBInsideA = bc.vertices().filter((vertex) => ac.contains(vertex));
+		const verticesInsideEachother = [...verticesOfAInsideB, ...verticesOfBInsideA];
 
-		if (verticesOfAInsideB.length !== 1 || verticesOfBInsideA.length !== 1) {
+		if (verticesInsideEachother.length !== 2) {
 			// Either there are "infinite" or 0 intersecting points
 			return undefined;
 		} else {
-			const vertexOfAInsideB = verticesOfAInsideB[0];
-			const vertexOfBInsideA = verticesOfBInsideA[0];
+			const [av, bv] = verticesInsideEachother;
 
 			// This distance is the same as between the intersecting points!
-			const d = vertexOfAInsideB.manhattan(vertexOfBInsideA);
+			const d = av.manhattan(bv);
 
-			const hd = d / 2;
+			const areFromTheSameCircle =
+				verticesOfAInsideB.length === 2 || verticesOfBInsideA.length === 2;
+			const halver = areFromTheSameCircle ? 4 : 2;
+			const hd = d / halver;
 
-			const y1 = vertexOfAInsideB.y + hd;
-			const y2 = vertexOfBInsideA.y - hd;
+			const y1 = av.y + hd;
+			const y2 = av.y - hd;
+			const y3 = bv.y + hd;
+			const y4 = bv.y - hd;
 
-			const x1 = vertexOfAInsideB.x - hd;
-			const x2 = vertexOfBInsideA.x + hd;
+			const x1 = av.x - hd;
+			const x2 = av.x + hd;
+			const x3 = bv.x - hd;
+			const x4 = bv.x + hd;
 
-			return [new Vec2(x1, y1), new Vec2(x2, y2)];
+			// A "bit" brute-forcey
+			return [
+				new Vec2(x1, y1),
+				// new Vec2(x1, y2),
+				// new Vec2(x1, y3),
+				// new Vec2(x1, y4),
+				new Vec2(x2, y1),
+				new Vec2(x2, y2),
+				// new Vec2(x2, y3),
+				// new Vec2(x2, y4),
+				// new Vec2(x3, y1),
+				// new Vec2(x3, y2),
+				new Vec2(x3, y3),
+				new Vec2(x3, y4),
+				// new Vec2(x4, y1),
+				new Vec2(x4, y2),
+				// new Vec2(x4, y3),
+				new Vec2(x4, y4),
+			]
+				.filter((v) => ac.isOnEdge(v) && bc.isOnEdge(v))
+				.reduce((a, n) => {
+					if (!a.find((v) => v.equals(n))) {
+						a.push(n);
+					}
+					return a;
+				}, [] as Vec2[]) as [Vec2, Vec2];
 		}
 	}
 
@@ -93,24 +129,11 @@ export class ManhattanCircle {
 		circles: ManhattanCircle[],
 		onlyIntegerIntersections = true
 	): Generator<Vec2> {
-		const gen = circles.walkPairs();
+		for (const [a, b] of circles.walkPairs()) {
+			const intersecion = a.intersect(b);
 
-		for (const [a, b] of gen) {
-			const i0 = a.intersect(b);
-
-			if (i0) {
-				for (const v of i0) {
-					if (!onlyIntegerIntersections || v.isInt()) {
-						yield v;
-					}
-				}
-			}
-
-			// TODO: Because of a bug, intersect is not the same backwards..
-			const i1 = b.intersect(a);
-
-			if (i1) {
-				for (const v of i1) {
+			if (intersecion) {
+				for (const v of intersecion) {
 					if (!onlyIntegerIntersections || v.isInt()) {
 						yield v;
 					}

@@ -8,7 +8,11 @@ import type { DirectionMarker } from './direction-marker.type.js';
 
 export type DirectionNoopLetter = ' ';
 
+// TODO: make use of something like this, change NORTH and SOUTH according to this
+export type GlobalCoordinateSystem = 'Y-UP' | 'Y-DOWN';
 export class Direction extends Vec2 {
+	static SYSTEM: GlobalCoordinateSystem = 'Y-DOWN';
+
 	private constructor(marker: DirectionMarker);
 	private constructor(vec2: Vec2Like | Vec2String);
 	private constructor(x: number, y: number);

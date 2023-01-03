@@ -4,7 +4,9 @@ import { stringToVectorMap } from './string-to-vectormap.function.js';
 
 describe('stringToVectormap', () => {
 	it('should be able to split a string apart', () => {
-		const vectorMap = stringToVectorMap('123\n542\n', (s) => s.tryInt());
+		const vectorMap = stringToVectorMap('123\n542\n', {
+			valueConverter: (s) => parseInt(s, 10),
+		});
 		expect(vectorMap.get(new Vec2(1, 1).toString())).to.equal(4);
 	});
 });

@@ -1,4 +1,4 @@
-import { Span, task } from '@alexaegis/advent-of-code-lib';
+import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json' assert { type: 'json' };
 import { invalidFields } from './p1.js';
@@ -20,7 +20,7 @@ export type ClarifiedTicket = CertainField[];
 export const clarifyFields = (
 	ticket: Ticket,
 	otherTickets: Ticket[],
-	fieldRanges: Map<string, Span[]>
+	fieldRanges: Map<string, Interval[]>
 ): ClarifiedTicket => {
 	const categoryRangeEntries = [...fieldRanges.entries()];
 	const myFields = ticket.map((value, index) => {
@@ -28,7 +28,7 @@ export const clarifyFields = (
 		const possibleFieldNames = categoryRangeEntries
 			.filter(([, ranges]) =>
 				otherTicketsFields.every((ticketField) =>
-					ranges.some((range) => range.to >= ticketField && range.from <= ticketField)
+					ranges.some((range) => range.contains(ticketField))
 				)
 			)
 			.map((p) => p[0]);

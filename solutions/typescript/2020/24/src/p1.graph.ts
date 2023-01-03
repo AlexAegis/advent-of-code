@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Graph, Node, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { Graph, GraphNode, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import {
 	hexagonalAxialDirections,
@@ -13,7 +13,10 @@ export const p1g = (input: string): number => {
 	const tilesToFlip = parse(input);
 
 	const g = new Graph<TileColor, HexagonalDirection>();
-	const center = new Node<TileColor, HexagonalDirection>(Vec2.ORIGIN.toString(), TileColor.WHITE);
+	const center = new GraphNode<TileColor, HexagonalDirection>(
+		Vec2.ORIGIN.toString(),
+		TileColor.WHITE
+	);
 	g.nodes.set(center.key, center);
 
 	for (const ttf of tilesToFlip) {
@@ -27,7 +30,10 @@ export const p1g = (input: string): number => {
 				to: g.nodes.getOrAdd(
 					cursor.toString(),
 					() =>
-						new Node<TileColor, HexagonalDirection>(cursor.toString(), TileColor.WHITE)
+						new GraphNode<TileColor, HexagonalDirection>(
+							cursor.toString(),
+							TileColor.WHITE
+						)
 				),
 				weight: 1,
 			}));

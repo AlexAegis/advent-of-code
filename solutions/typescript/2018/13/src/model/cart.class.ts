@@ -13,7 +13,7 @@ export class Cart {
 	}
 
 	public step(mine: Mine): Vec2 | undefined {
-		this.position = this.position.clone().addMut(this.direction, { flipY: true });
+		this.position = this.position.clone().addMut(this.direction);
 		const rail = mine.rail.get(this.position.toString());
 		if (rail === '+') {
 			switch (this.turnsAtIntersection % 3) {

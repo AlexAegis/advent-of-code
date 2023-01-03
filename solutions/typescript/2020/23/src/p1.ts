@@ -14,7 +14,7 @@ export const p1 =
 		const low = circle.reduce(min);
 		const ll = new CircularLinkedList<number>(circle);
 
-		let cursor = ll.start;
+		let cursor = ll.head;
 
 		const m = new Map<number, CircularLinkedListNode<number>>();
 		for (const link of [...cursor.forward()]) {

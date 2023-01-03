@@ -1,25 +1,9 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
-import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import {
-	Direction,
-	DirectionArrowSymbol,
-	GridGraph,
-	Vec2,
-	Vec2String,
-} from '@alexaegis/advent-of-code-lib/model';
+import { GridGraph } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
-import { parse } from './parse.js';
-
-export enum Tile {
-	SCAFFOLD = '#',
-	OPEN = '.',
-}
-
-export class Vacuum {
-	public constructor(public pos: Vec2, public dir: Direction) {}
-}
+import { computeMap, Tile, Vacuum } from './parse.js';
 
 const W = 50;
 const H = 50;
@@ -47,50 +31,10 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 	console.log(renderMatrix(mat, true, false));
 };
 
-export const computeMap = (input: string): [Map<Vec2String, Tile>, Vacuum] => {
-	const i = new IntCodeComputer(parse(input));
-	const it = i.iter();
-	const map = new Map<Vec2String, Tile>();
-	const cursor = new Vec2(0, 0);
-	let vacuum!: Vacuum;
-	while (!i.isHalt()) {
-		const res = it.next().value;
-		const resc: DirectionArrowSymbol | Tile | '\n' = String.fromCharCode(res) as
-			| DirectionArrowSymbol
-			| Tile
-			| '\n';
-
-		switch (resc) {
-			case Tile.OPEN:
-				map.set(cursor.toString(), Tile.OPEN);
-				break;
-			case Tile.SCAFFOLD:
-				map.set(cursor.toString(), Tile.SCAFFOLD);
-				break;
-			case DirectionArrowSymbol.NORTH:
-			case DirectionArrowSymbol.EAST:
-			case DirectionArrowSymbol.SOUTH:
-			case DirectionArrowSymbol.WEST:
-				map.set(cursor.toString(), Tile.SCAFFOLD);
-				vacuum = new Vacuum(
-					cursor.clone(),
-					Direction.fromMarker(resc as DirectionArrowSymbol).reverse()
-				);
-				break;
-			case '\n':
-				cursor.x = -1;
-				cursor.y++;
-				break;
-		}
-		cursor.x++;
-	}
-	return [map, vacuum];
-};
-
 export const p1 = (input: string): number =>
 	GridGraph.fromMap(computeMap(input)[0])
 		.getIntersections((n) => n?.value === Tile.SCAFFOLD)
-		.map((i) => i.coordinate.x * i.coordinate.y)
+		.map((i) => Math.abs(i.coordinate.x * i.coordinate.y))
 		.reduce(sum, 0);
 
 await task(p1, packageJson.aoc); // 4864 ~42ms

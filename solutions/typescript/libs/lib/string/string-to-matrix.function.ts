@@ -12,4 +12,11 @@ export const stringToMatrix = (
 	s: string,
 	rowSeparator: RegExp | string = NEWLINE,
 	itemSeparator: RegExp | string = ''
-): string[][] => s.split(rowSeparator).map((line) => line.split(itemSeparator));
+): string[][] => {
+	const lines = s.split(rowSeparator);
+	if (lines[lines.length - 1] === '') {
+		lines.pop();
+	}
+	const matrix = lines.map((line) => line.split(itemSeparator));
+	return matrix;
+};

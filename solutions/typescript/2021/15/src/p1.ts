@@ -10,8 +10,8 @@ export const p1 = (input: string): number => {
 	});
 
 	const boundingBox = graph.boundingBox();
-	const start = graph.getNode(boundingBox.bottomLeft);
-	const end = graph.getNode(boundingBox.topRight);
+	const start = graph.getNode(boundingBox.topLeft);
+	const end = graph.getNode(boundingBox.bottomRight);
 
 	const path = graph.aStar(start, end, {
 		heuristic: (_currentNode, tentativePath) => tentativePath.map((n) => n.value).sum(),

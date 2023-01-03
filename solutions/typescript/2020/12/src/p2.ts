@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json' assert { type: 'json' };
 import { FerryAction, parse } from './parse.function.js';
 
@@ -9,16 +9,16 @@ export const p2 = (input: string): number => {
 	for (const { action, value } of split(input).map(parse)) {
 		switch (action) {
 			case FerryAction.NORTH:
-				waypoint.addMut(Direction.NORTH, { times: value });
+				waypoint.addMut({ x: 0, y: 1 }, { times: value });
 				break;
 			case FerryAction.EAST:
-				waypoint.addMut(Direction.EAST, { times: value });
+				waypoint.addMut({ x: 1, y: 0 }, { times: value });
 				break;
 			case FerryAction.SOUTH:
-				waypoint.addMut(Direction.SOUTH, { times: value });
+				waypoint.addMut({ x: 0, y: -1 }, { times: value });
 				break;
 			case FerryAction.WEST:
-				waypoint.addMut(Direction.WEST, { times: value });
+				waypoint.addMut({ x: -1, y: 0 }, { times: value });
 				break;
 			case FerryAction.LEFT:
 				waypoint.rotateLeft(value / 90);

@@ -4,11 +4,11 @@ export const addTickerSystem = (world: GridWorld) =>
 	world.addSystem((world) =>
 		console.log(
 			'tick:',
-			world.tickcount,
+			world.timeData.tick,
 			'dt:',
-			world.lastDeltaTime.toFixed(2),
+			world.timeData.deltaTime.toFixed(2),
 			't:',
-			world.time.toFixed(2),
+			world.timeData.time.toFixed(2),
 			'frametime:',
 			world.lastFrameTime.toFixed(2)
 		)
