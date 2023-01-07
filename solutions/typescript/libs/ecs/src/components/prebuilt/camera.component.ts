@@ -37,8 +37,8 @@ export class CameraComponent extends Component {
 	}
 
 	resize(size: Vec2Like): void {
-		this.worldViewport.resize(size);
-		this.screenViewport.resize(size);
+		this.worldViewport.resizeFromTopleft(size);
+		this.screenViewport.resizeFromTopleft(size);
 	}
 
 	getScreenPositionFromWorldPosition(gamePosition: WorldPosition): ScreenPosition {

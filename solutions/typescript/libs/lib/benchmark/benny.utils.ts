@@ -22,7 +22,7 @@ export const cycleTime = (options?: {
 }): ReturnType<typeof cycle> => {
 	const precision = options?.precision ?? 4;
 	return cycle((c): void => {
-		console.log(`${c.name}, mean: ${(c.details.mean * 1000).toFixed(precision)}ms`);
+		console.info(`${c.name}, mean: ${(c.details.mean * 1000).toFixed(precision)}ms`);
 	});
 };
 

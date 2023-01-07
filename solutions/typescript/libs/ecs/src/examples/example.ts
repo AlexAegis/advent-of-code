@@ -10,13 +10,16 @@ import { GridWorld } from '../world/grid-world.class.js';
 const world = new GridWorld({
 	io: 'terminalKit',
 	executorHaltCondition: 'none',
-	executorSpeed: 60,
+	executorSpeed: 30,
+	rendererOptions: {
+		renderColliders: false,
+	},
 });
 
 spawnCompass(world);
-spawnFloor(world, new Vec2(5, 3), { x: 6, y: 7 });
+spawnFloor(world, new Vec2(2, 3), { x: 3, y: 3 });
 spawnWall(world, new Vec2(6, 0), new Vec2(5, 0));
-spawnWall(world, new Vec2(7, 0), new Vec2(7, 8));
+spawnWall(world, new Vec2(7, 0), new Vec2(8, 8));
 
 spawnPlayer(world, new Vec2(3, 3));
 

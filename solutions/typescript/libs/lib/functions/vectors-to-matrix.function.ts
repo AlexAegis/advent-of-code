@@ -4,7 +4,7 @@ import type { Vec2 } from '../model/vector/vec2.class.js';
 export const vectorsToMatrix = (
 	vects: Vec2[]
 ): { matrix: string[][]; boundingBox: BoundingBox } => {
-	const boundingBox = new BoundingBox(vects);
+	const boundingBox = BoundingBox.fromVectors(...vects);
 	const matrix: string[][] = [];
 
 	for (let y = boundingBox.top; y <= boundingBox.bottom; y++) {

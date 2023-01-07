@@ -4,10 +4,14 @@ import type { GridWorld } from '../world/grid-world.class.js';
 
 export abstract class Component {
 	belongsTo: Entity[] = [];
-	private _world: GridWorld | undefined;
+	protected _world: GridWorld | undefined;
 
 	is<C extends Component>(component: Constructor<C>): boolean {
 		return this instanceof component;
+	}
+
+	set world(world: GridWorld) {
+		this._world = world;
 	}
 
 	get world(): GridWorld {
@@ -21,13 +25,16 @@ export abstract class Component {
 	componentType(): Constructor<this> {
 		return Object.getPrototypeOf(this).constructor as Constructor<this>;
 	}
-
+	/*
+	static componentType<T extends Component>(t: T): Constructor<T> {
+		return Object.getPrototypeOf(t).constructor as Constructor<T>;
+	}
+*/
 	componentName(): string {
 		return this.componentType().name;
 	}
 
-	onSpawn(world: GridWorld): void {
-		this._world = world;
+	onSpawn(): void {
 		return;
 	}
 }

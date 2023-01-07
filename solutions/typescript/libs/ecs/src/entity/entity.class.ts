@@ -6,9 +6,11 @@ import {
 } from '../components/prebuilt/position.component.js';
 import type { GridWorld } from '../world/grid-world.class.js';
 
+export type EntityId = number;
+
 export class Entity {
 	spawned = false;
-	constructor(private readonly world: GridWorld, public entityId: number) {}
+	constructor(private readonly world: GridWorld, public entityId: EntityId) {}
 
 	components = new Map<Constructor<Component>, Component>();
 

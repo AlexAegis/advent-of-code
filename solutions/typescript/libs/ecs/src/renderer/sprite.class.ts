@@ -7,23 +7,22 @@ import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
  * position
  */
 export class Sprite {
-	matrix: string[][] = [];
-	private _boundingBox!: BoundingBox;
-	private _visibleAt!: Vec2[];
+	render: string[][] = [];
+	private _renderBox: BoundingBox;
+	private _box: BoundingBox;
 
-	constructor(matrix?: string[][]) {
-		this.matrix = matrix ?? [];
-		this.update();
-	}
-
-	private update(): void {
-		this._boundingBox = BoundingBox.fromMatrix(this.matrix);
-		this._visibleAt = [];
-		this.forEach((position, cell) => {
-			if (cell) {
-				this._visibleAt.push(position);
-			}
-		});
+	/**
+	 *
+	 * @param render a matrix that will represent the look of this Sprite
+	 * @param boundingBox when not set, it will be calculated from the size
+	 * of the render. When set it will let the render to be repeated within
+	 * the box.
+	 * TODO: repeat anchor
+	 */
+	constructor(render: string[][] = [[]], boundingBox?: BoundingBox) {
+		this.render = render;
+		this._renderBox = BoundingBox.fromMatrix(render);
+		this._box = boundingBox ?? this._renderBox;
 	}
 
 	static fromString(render: string): Sprite {
@@ -31,31 +30,43 @@ export class Sprite {
 		return new Sprite(matrix);
 	}
 
-	static fromMatrix(matrix: string[][]) {
-		return new Sprite(matrix);
+	static fromMatrix(matrix: string[][], boundingBox?: BoundingBox) {
+		return new Sprite(matrix, boundingBox);
+	}
+
+	getCellAt(x: number, y: number): string | undefined {
+		if (this._box.contains(x, y)) {
+			return this.render[y % this._renderBox.height]?.[x % this._renderBox.width];
+		} else {
+			return undefined;
+		}
 	}
 
 	/**
 	 * Resets the frame to a sized matrix
 	 */
 	blank(size: BoundingBox): void {
-		this.matrix = size.createBlankMatrix(() => ' ');
+		this.render = size.createBlankMatrix(() => ' ');
 	}
 
 	get boundingBox(): BoundingBox {
-		return this._boundingBox;
+		return this._box;
 	}
 
-	get visibleAt(): Vec2[] {
-		return this._visibleAt;
-	}
+	//get visibleAt(): Vec2[] {
+	//	return this._visibleAt;
+	//}
 
 	forEach(callback: (coordinate: Vec2, cell: string) => void): void {
-		for (let y = 0; y < this.matrix.length; y++) {
-			const row = this.matrix[y];
+		for (let y = 0; y < this.render.length; y++) {
+			const row = this.render[y];
 			for (let x = 0; x < row.length; x++) {
 				callback(new Vec2(x, y), row[x]);
 			}
 		}
+	}
+
+	put(x: number, y: number, cell: string): void {
+		this.render[y][x] = cell;
 	}
 }
