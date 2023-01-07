@@ -1,17 +1,20 @@
-import { arrayDiff, nonNullish, Vec2, Vec2Like, Vec2String } from '@alexaegis/advent-of-code-lib';
-import type { Entity } from '../../index.js';
-import type { GridWorld } from '../../world/grid-world.class.js';
+import {
+	arrayContains,
+	nonNullish,
+	partition,
+	Vec2,
+	Vec2Like,
+} from '@alexaegis/advent-of-code-lib';
 import { Component } from '../component.class.js';
-import { AsciiDisplayComponent } from './ascii-display.component.js';
-import { CellColliderComponent } from './cell-collider.component.js';
+import { SpatialComponent } from '../spatial-component.class.js';
+import { ColliderComponent } from './collider.component.js';
 
 export abstract class AnyPositionComponent extends Component {
 	constructor(protected _position: Vec2, public readonly z = 0) {
 		super();
 	}
 
-	override onSpawn(world: GridWorld): void {
-		super.onSpawn(world);
+	override onSpawn(): void {
 		this.indexEntityMove(undefined, this.position);
 	}
 
@@ -19,64 +22,28 @@ export abstract class AnyPositionComponent extends Component {
 		return this._position;
 	}
 
-	static updateEntityPositionCache(
-		entity: Entity,
-		cache: Map<Vec2String, Entity[]>,
-		oldPositions: Vec2String[],
-		newPositions: Vec2String[]
-	): void {
-		const { onlyInFirst, onlyInSecond } = arrayDiff(oldPositions, newPositions);
-
-		for (const noLongerAt of onlyInFirst) {
-			const entitiesThere = cache.get(noLongerAt);
-			if (entitiesThere) {
-				const next = entitiesThere.filter((entityThere) => entityThere !== entity);
-				if (next.length) {
-					cache.set(noLongerAt, next);
-				} else {
-					cache.delete(noLongerAt);
-				}
-			}
-		}
-
-		for (const nowAt of onlyInSecond) {
-			const entitiesThere = cache.get(nowAt) ?? [];
-			entitiesThere.push(entity);
-
-			cache.set(nowAt, entitiesThere);
-		}
-	}
-
 	protected indexEntityMove(from: Vec2 | undefined, to: Vec2): void {
 		for (const entity of this.belongsTo) {
-			const display = entity.getComponent(AsciiDisplayComponent);
-			if (display) {
-				const previouslyVisibleAt = from
-					? display.sprite.visibleAt.map((at) => at.add(from).toString())
-					: [];
-				const willBeVisibleAt = display.sprite.visibleAt.map((at) => at.add(to).toString());
+			for (const component of entity.components.values()) {
+				if (SpatialComponent.isSpatialComponent(component)) {
+					const cache = component.getSpatialCache();
+					const lastPositions = from ? component.getLastPositions(from) : [];
+					const toArea = component.area(to);
+					const [finiteArea, infiniteArea] = partition(toArea, (area) => area.isFinite());
+					const nextPositions = finiteArea.flatMap((area) => area.renderIntoVectors());
+					const nextPositionsString = nextPositions.map((p) => p.toString());
+					component.lastPositions = nextPositions;
 
-				AnyPositionComponent.updateEntityPositionCache(
-					entity,
-					this.world.entitiesDisplayedAtPosition,
-					previouslyVisibleAt,
-					willBeVisibleAt
-				);
-			}
+					cache.move(
+						entity,
+						lastPositions.map((p) => p.toString()),
+						nextPositionsString
+					);
 
-			const cellCollider = entity.getComponent(CellColliderComponent);
-			if (cellCollider) {
-				const previouslyCollidingAt = from
-					? cellCollider.colliders.map((at) => at.add(from).toString())
-					: [];
-				const willBeCollidingAt = cellCollider.colliders.map((at) => at.add(to).toString());
-
-				AnyPositionComponent.updateEntityPositionCache(
-					entity,
-					this.world.entitiesCollidingAtPosition,
-					previouslyCollidingAt,
-					willBeCollidingAt
-				);
+					if (infiniteArea.length) {
+						cache.infiniteBoxes;
+					}
+				}
 			}
 		}
 	}
@@ -104,13 +71,23 @@ export class PositionComponent extends AnyPositionComponent {
 
 	/**
 	 * Can only move if all the colliders ofattached entities are free to move.
+	 * ? Self collider
 	 */
 	canMove(offset: Vec2Like): boolean {
 		return this.belongsTo
-			.map((entity) => entity.getComponent(CellColliderComponent))
+			.map((entity) => entity.getComponent(ColliderComponent))
 			.filter(nonNullish)
-			.flatMap((c) => c.colliders.map((p) => p.add(this.position).addMut(offset)))
-			.every((p) => !this.world.entitiesCollidingAtPosition.get(p.toString())?.length);
+			.flatMap((collider) =>
+				collider.getLastPositions(this.position).map((p) => p.add(offset))
+			)
+			.every(
+				(p) =>
+					this.world
+						.entitiesCollidingAt(p)
+						.filter(
+							(collidingEntity) => !arrayContains(this.belongsTo, collidingEntity)
+						).length === 0
+			);
 	}
 
 	onMove(callback: (position: Readonly<Vec2>) => void) {

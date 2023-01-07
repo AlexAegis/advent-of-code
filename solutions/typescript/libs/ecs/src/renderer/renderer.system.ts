@@ -1,4 +1,4 @@
-import { renderMatrix } from '@alexaegis/advent-of-code-lib';
+import { renderMatrix, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { AsciiDisplayComponent } from '../components/prebuilt/ascii-display.component.js';
 import { CameraComponent } from '../components/prebuilt/camera.component.js';
 import {
@@ -12,28 +12,43 @@ import type { GridWorld } from '../world/grid-world.class.js';
 import type { IOBackend } from './backend/io-backend.interface.js';
 import { Sprite } from './sprite.class.js';
 
+export interface RendererSystemOptions {
+	cameraEntity: Entity;
+	backend: IOBackend;
+	renderColliders?: boolean;
+}
+
+export type NormalizedRendererSystemOptions = Required<RendererSystemOptions>;
+
+const normalizeRendererSystemOptions = (
+	options: RendererSystemOptions
+): NormalizedRendererSystemOptions => {
+	return {
+		renderColliders: false,
+		...options,
+	};
+};
+
 export class RendererSystem extends System implements Initializable {
 	order = Infinity;
-	cameraEntity: Entity;
 	camera: CameraComponent;
 	currentFrame?: Sprite;
 
-	backend: IOBackend;
+	options: NormalizedRendererSystemOptions;
 
-	constructor(cameraEntity: Entity, rendererBackend: IOBackend) {
+	constructor(options: RendererSystemOptions) {
 		super();
-		this.cameraEntity = cameraEntity;
-		this.camera = this.cameraEntity.getComponent(CameraComponent)!;
-		this.backend = rendererBackend;
+		this.options = normalizeRendererSystemOptions(options);
+		this.camera = this.options.cameraEntity.getComponent(CameraComponent)!;
 	}
 
 	async init(): Promise<void> {
-		await this.backend.init((size) => this.camera.resize(size));
+		await this.options.backend.init((size) => this.camera.resize(size));
 	}
 
 	tick(world: GridWorld): boolean {
 		this.currentFrame = this.render(world);
-		this.backend.pushFrame(this.currentFrame);
+		this.options.backend.pushFrame(this.currentFrame);
 		return false;
 	}
 
@@ -56,31 +71,45 @@ export class RendererSystem extends System implements Initializable {
 			const entityScreenBox = entityRender.boundingBox.clone().moveTopLeftTo(screenPosition);
 
 			if (this.camera.screenViewport.intersects(entityScreenBox)) {
-				for (let y = 0; y < entityRender.matrix.length; y++) {
-					if (this.camera.screenViewport.vertical.contains(y)) {
-						const displayRow = frame.matrix[screenPosition.y + y];
-						const entityRenderRow = entityRender.matrix[y];
-						if (displayRow) {
-							for (let x = 0; x < entityRenderRow.length; x++) {
-								if (this.camera.screenViewport.horizontal.contains(x)) {
-									const cell = entityRenderRow[x];
-									if (cell) {
-										displayRow[screenPosition.x + x] = cell;
-									}
-								}
-							}
+				entityRender.boundingBox.forEach((x, y) => {
+					const screenX = screenPosition.x + x;
+					const screenY = screenPosition.y + y;
+
+					if (
+						this.camera.screenViewport.horizontal.contains(screenX) &&
+						this.camera.screenViewport.vertical.contains(screenY)
+					) {
+						const cell = entityRender.getCellAt(x, y);
+						if (cell) {
+							frame.render[screenY][screenX] = cell;
 						}
 					}
-				}
+				});
 			}
+		}
+
+		if (this.options.renderColliders) {
+			this.renderCollidersOntoSprite(frame);
 		}
 
 		return frame;
 	}
 
+	private renderCollidersOntoSprite(frame: Sprite): void {
+		// TODO: only change colors once colors are supported, so entities stay visible
+		this.camera.screenViewport.forEach((x, y) => {
+			const sp = new Vec2(x, y);
+			const wp = this.camera.getWorldPositionFromScreenPosition(sp);
+			const collidingEntities = this.camera.world.entitiesCollidingAt(wp).length;
+			if (collidingEntities) {
+				frame.put(x, y, collidingEntities.toString());
+			}
+		});
+	}
+
 	printCurrentFrame(): void {
 		if (this.currentFrame) {
-			const render = renderMatrix(this.currentFrame.matrix);
+			const render = renderMatrix(this.currentFrame.render);
 			console.log(render);
 		}
 	}

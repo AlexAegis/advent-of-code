@@ -5,21 +5,21 @@ import {
 	filterMap,
 	hzToMs,
 	InstanceTypeOfConstructorTuple,
-	Vec2,
 	Vec2Like,
-	Vec2String,
 } from '@alexaegis/advent-of-code-lib';
 import type { ComponentFilterTypeOfTuple } from '../components/component-filter.interface.js';
 import type { Component } from '../components/component.class.js';
-import {
-	PositionComponent,
-	StaticPositionComponent,
-} from '../components/prebuilt/position.component.js';
-import { Entity } from '../entity/index.js';
+import { Entity, EntityId } from '../entity/index.js';
 import { spawnCamera } from '../entity/prebuilt/camera.entity.js';
 import { IntervalExecutor } from '../executor/interval-executor.class.js';
 import { StepperExecutor } from '../executor/stepper-executor.class.js';
-import { CameraComponent, Executor, UntilHaltExecutor } from '../index.js';
+import {
+	AsciiDisplayComponent,
+	CameraComponent,
+	ColliderComponent,
+	Executor,
+	UntilHaltExecutor,
+} from '../index.js';
 import { BlessedIOBackend } from '../renderer/backend/blessed-io-backend.class.js';
 import { TerminalKitIOBackend } from '../renderer/backend/terminal-kit-io-backend.class.js';
 import { ConsoleLogIOBackend, IOBackend } from '../renderer/index.js';
@@ -30,6 +30,7 @@ import {
 	NormalizedGridWorldOptions,
 	normalizeGridWorldOptions,
 } from './grid-world.class.options.js';
+import type { SpatialCache } from './spatial-cache.class.js';
 import type { TimeData } from './time-data.interface.js';
 
 export const defaultGridWorldAocOptions: GridWorldOptions = {
@@ -41,13 +42,16 @@ export const defaultGridWorldAocOptions: GridWorldOptions = {
 export class GridWorld {
 	private readonly options: NormalizedGridWorldOptions;
 
-	public readonly entities = new Map<number, Entity>();
+	public readonly entities = new Map<EntityId, Entity>();
 	public readonly components = new Map<Constructor<Component>, Component[]>();
 	public readonly systems: System[] = [];
 
-	// This should hold large entities at multiple positions
-	readonly entitiesDisplayedAtPosition = new Map<Vec2String, Entity[]>();
-	readonly entitiesCollidingAtPosition = new Map<Vec2String, Entity[]>();
+	/**
+	 * Any component that can be cached spacially will be cached here with relation
+	 * to the PositionComponent. Any other component that defines an Area
+	 * will be cached here and updated as the PositionComponent is updated.
+	 */
+	public readonly componentSpatialCache = new Map<Constructor<Component>, SpatialCache>();
 
 	/**
 	 * If one was added, it's reference is made easily accessible
@@ -96,42 +100,47 @@ export class GridWorld {
 		if (this._io) {
 			const cameraEntity = spawnCamera(this);
 			if (!this.rendererSystem) {
-				this.addSystem(new RendererSystem(cameraEntity, this._io));
+				this.addSystem(
+					new RendererSystem({
+						...this.options.rendererOptions,
+						cameraEntity,
+						backend: this._io,
+					})
+				);
 			}
 		}
 	}
 
 	getVisibleEntityBoundingBox(): BoundingBox {
-		return new BoundingBox(this.entitiesDisplayedAtPosition.keyArray().map((v) => new Vec2(v)));
+		return AsciiDisplayComponent.getSpatialCache(
+			this,
+			AsciiDisplayComponent
+		).areaOfAllNonInfiniteEntities();
 	}
 
 	getCollidingEntityBoundingBox(): BoundingBox {
-		return new BoundingBox(this.entitiesCollidingAtPosition.keyArray().map((v) => new Vec2(v)));
+		return ColliderComponent.getSpatialCache(
+			this,
+			AsciiDisplayComponent
+		).areaOfAllNonInfiniteEntities();
 	}
 
 	centerCameraOnEntities(): void {
 		try {
 			const [, camera] = this.queryOne(CameraComponent);
-
 			const entityBoundingBox = this.getVisibleEntityBoundingBox();
-			console.log(
-				'entityBoundingBox.center',
-				entityBoundingBox.topLeft.toString(),
-				entityBoundingBox.bottomRight.toString(),
-				entityBoundingBox.center.toString()
-			);
 			camera.centerOn(entityBoundingBox.center);
 		} catch {
 			return;
 		}
 	}
 
-	entitiesVisibleAt(position: Vec2Like | Vec2String): Entity[] {
-		return this.entitiesDisplayedAtPosition.get(Vec2.toString(position)) ?? [];
+	entitiesVisibleAt(position: Vec2Like): Entity[] {
+		return AsciiDisplayComponent.getSpatialCache(this, AsciiDisplayComponent).get(position);
 	}
 
-	entitiesCollidingAt(position: Vec2Like | Vec2String): Entity[] {
-		return this.entitiesCollidingAtPosition.get(Vec2.toString(position)) ?? [];
+	entitiesCollidingAt(position: Vec2Like): Entity[] {
+		return ColliderComponent.getSpatialCache(this, ColliderComponent).get(position);
 	}
 
 	addSystem(systemLike: SystemLike): void {
@@ -223,13 +232,14 @@ export class GridWorld {
 			this.attachComponent(entity, component);
 		}
 		this.entities.set(entity.entityId, entity);
-		entity.components.forEach((component) => component.onSpawn(this));
+		entity.components.forEach((component) => component.onSpawn());
 		entity.spawned = true;
 		this.nextEntityId += 1;
 		return entity;
 	}
 
 	attachComponent(entity: Entity, component: Component): void {
+		component.world = this;
 		entity.components.set(component.componentType(), component);
 
 		if (!arrayContains(component.belongsTo, entity)) {
@@ -249,15 +259,6 @@ export class GridWorld {
 		if (component.belongsTo.length === 0) {
 			this.components.get(component.componentType())?.removeItem(component);
 		}
-	}
-
-	entitiesAt(position: Vec2Like): Entity[] {
-		return [
-			...this.getComponentsByType(StaticPositionComponent),
-			...this.getComponentsByType(PositionComponent),
-		]
-			.filter((p) => p.position.equals(position))
-			.flatMap((c) => c.belongsTo);
 	}
 
 	despawn(entity: Entity): void {

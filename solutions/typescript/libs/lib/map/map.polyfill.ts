@@ -1,3 +1,5 @@
+import { mapGetOrSet } from './map-get-or-set.function.js';
+
 declare global {
 	interface Map<K, V> {
 		getOrAdd(key: K, creator: (key: K) => V): V;
@@ -15,7 +17,7 @@ declare global {
 }
 
 Map.prototype.print = function (): void {
-	console.log(this.toString());
+	console.info(this.toString());
 };
 
 Map.prototype.toString = function (): string {
@@ -56,16 +58,9 @@ Map.prototype.findKey = function <K extends string | number, V>(value: V): K | u
 
 Map.prototype.getOrAdd = function <K extends string | number, V>(
 	key: K,
-	creator: (key: K) => V
+	initialize: (key: K) => V
 ): V {
-	const value = this.get(key);
-	if (value) {
-		return value;
-	} else {
-		const newValue = creator(key);
-		this.set(key, newValue);
-		return newValue;
-	}
+	return mapGetOrSet(this, key, initialize);
 };
 
 Map.prototype.isTheSameAs = function <K extends string | number, V>(other: Map<K, V>): boolean {

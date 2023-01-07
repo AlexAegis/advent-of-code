@@ -36,11 +36,11 @@ export interface IntervalQualifier {
 	/**
 	 * @default 'open'
 	 */
-	lowQualifier: IntervalEndpointQualifier;
+	lowQualifier?: IntervalEndpointQualifier;
 	/**
 	 * @default 'closed'
 	 */
-	highQualifier: IntervalEndpointQualifier;
+	highQualifier?: IntervalEndpointQualifier;
 }
 
 /**
@@ -74,8 +74,8 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	constructor(low: number, high: number, options: IntervalQualifier = INTERVAL_CLOSED_OPEN) {
 		this.low = Math.min(low, high);
 		this.high = Math.max(low, high);
-		this.lowQualifier = options?.lowQualifier;
-		this.highQualifier = options?.highQualifier;
+		this.lowQualifier = options?.lowQualifier ?? INTERVAL_ENDPOINT_CLOSED_QUALIFIER;
+		this.highQualifier = options?.highQualifier ?? INTERVAL_ENDPOINT_OPEN_QUALIFIER;
 	}
 
 	static closed(low: number, high: number): Interval {
@@ -141,17 +141,32 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	moveLowTo(low: number): Interval {
-		const size = this.length;
+		const diff = this.low - low;
 		this.low = low;
-		this.high = low + size;
+		this.high = this.high - diff;
 		return this;
 	}
 
 	moveHighTo(high: number): Interval {
-		const size = this.length;
-		this.low = high - size;
+		const diff = this.high - high;
+		this.low = high - diff;
 		this.high = high;
 		return this;
+	}
+
+	map<U>(mapper: (n: number) => U): U[] {
+		return this.reduce((acc, next) => {
+			acc.push(mapper(next));
+			return acc;
+		}, [] as U[]);
+	}
+
+	reduce<A>(reducer: (accumulator: A, next: number) => A, initialValue: A): A {
+		let accumulator = initialValue;
+		for (const item of this.walk()) {
+			accumulator = reducer(accumulator, item);
+		}
+		return accumulator;
 	}
 
 	merge(...others: Interval[]): Interval[] {
@@ -205,56 +220,42 @@ export class Interval implements IntervalLike, IntervalQualifier {
 			: this.high - 1;
 	}
 
-	static isTooHigh(
-		interval: IntervalLike,
-		n: number,
-		highQualifier: IntervalEndpointQualifier = INTERVAL_ENDPOINT_CLOSED_QUALIFIER
-	): boolean {
-		return highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
+	static isTooHigh(interval: IntervalLike, n: number): boolean {
+		// ? Check for closedness as the high qualifier is open by default
+		return interval.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
 			? interval.high < n
 			: interval.high <= n;
 	}
 
-	static isBelowHigh(
-		interval: IntervalLike,
-		n: number,
-		highQualifier: IntervalEndpointQualifier = INTERVAL_ENDPOINT_CLOSED_QUALIFIER
-	): boolean {
-		return !Interval.isTooHigh(interval, n, highQualifier);
+	static isBelowHigh(interval: IntervalLike, n: number): boolean {
+		return !Interval.isTooHigh(interval, n);
 	}
 
-	static isTooLow(
-		interval: IntervalLike,
-		n: number,
-		lowQualifier: IntervalEndpointQualifier = INTERVAL_ENDPOINT_CLOSED_QUALIFIER
-	): boolean {
-		return lowQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
-			? n < interval.low
-			: n <= interval.low;
+	static isTooLow(interval: IntervalLike, n: number): boolean {
+		// ? Check for openness as the low qualifier is closed by default
+		return interval.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
+			? n <= interval.low
+			: n < interval.low;
 	}
 
-	static isAboveLow(
-		interval: IntervalLike,
-		n: number,
-		lowQualifier: IntervalEndpointQualifier = INTERVAL_ENDPOINT_CLOSED_QUALIFIER
-	): boolean {
-		return !Interval.isTooLow(interval, n, lowQualifier);
+	static isAboveLow(interval: IntervalLike, n: number): boolean {
+		return !Interval.isTooLow(interval, n);
 	}
 
 	isTooHigh(n: number): boolean {
-		return Interval.isTooHigh(this, n, this.highQualifier);
+		return Interval.isTooHigh(this, n);
 	}
 
 	isBelowHigh(n: number): boolean {
-		return Interval.isBelowHigh(this, n, this.highQualifier);
+		return Interval.isBelowHigh(this, n);
 	}
 
 	isTooLow(n: number): boolean {
-		return Interval.isTooLow(this, n, this.lowQualifier);
+		return Interval.isTooLow(this, n);
 	}
 
 	isAboveLow(n: number): boolean {
-		return Interval.isAboveLow(this, n, this.lowQualifier);
+		return Interval.isAboveLow(this, n);
 	}
 
 	*walk(): Generator<number> {
@@ -288,23 +289,71 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		});
 	}
 
-	contains(n: number, options?: IntervalQualifier): boolean {
-		return Interval.contains(this, n, options);
+	contains(n: number): boolean {
+		return Interval.contains(this, n);
 	}
 
-	intersects(other: IntervalLike, options?: IntervalQualifier): boolean {
-		return Interval.intersects(this, other, options);
+	intersection(other: IntervalLike): Interval | undefined {
+		return Interval.intersection(this, other);
 	}
 
-	static intersects(a: IntervalLike, b: IntervalLike, options?: IntervalQualifier): boolean {
-		return Interval.contains(a, b.low, options) || Interval.contains(a, b.high, options);
+	static intersection(a: IntervalLike, b: IntervalLike): Interval | undefined {
+		if (!Interval.intersects(a, b)) {
+			return undefined;
+		}
+
+		const [_lowestLow, highestLow] = [a, b].sort(Interval.compareByLow);
+		const [lowestHigh, _highestHigh] = [a, b].sort(Interval.compareByLow);
+
+		return new Interval(highestLow.low, lowestHigh.high, {
+			lowQualifier: highestLow.lowQualifier,
+			highQualifier: lowestHigh.highQualifier,
+		});
 	}
 
-	static contains(interval: IntervalLike, n: number, options?: IntervalQualifier): boolean {
-		return (
-			Interval.isAboveLow(interval, n, options?.lowQualifier) &&
-			Interval.isBelowHigh(interval, n, options?.highQualifier)
-		);
+	/**
+	 * Comparator, comparing only the low end of an interval. When they are
+	 * equal, use the qualifier.
+	 *
+	 * For the low end, closed comes earlier
+	 */
+	static compareByLow(a: IntervalLike, b: IntervalLike): number {
+		// Check for openness because the default for the highQualifier
+		// when it's not defined is CLOSED
+		return a.low === b.low
+			? a.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
+				? 1
+				: -1
+			: a.low - b.low;
+	}
+
+	/**
+	 * Comparator, comparing only the high end of an interval. When they are
+	 * equal, use the qualifier.
+	 *
+	 * For the high end, open comes earlier
+	 */
+	static compareByHigh(a: IntervalLike, b: IntervalLike): number {
+		//
+		// Check for closedness because the default for the highQualifier
+		// when it's not defined is OPEN
+		return a.high === b.high
+			? a.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
+				? 1
+				: -1
+			: a.high - b.high;
+	}
+
+	intersects(other: IntervalLike): boolean {
+		return Interval.intersects(this, other);
+	}
+
+	static intersects(a: IntervalLike, b: IntervalLike): boolean {
+		return Interval.contains(a, b.low) || Interval.contains(a, b.high);
+	}
+
+	static contains(interval: IntervalLike, n: number): boolean {
+		return Interval.isAboveLow(interval, n) && Interval.isBelowHigh(interval, n);
 	}
 
 	toString(): string {

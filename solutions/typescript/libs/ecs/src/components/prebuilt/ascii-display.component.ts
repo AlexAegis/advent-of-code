@@ -1,20 +1,30 @@
+import type { BoundingBox, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
 import { Sprite } from '../../renderer/sprite.class.js';
-import { Component } from '../component.class.js';
+import { SpatialComponent } from '../spatial-component.class.js';
 
-export class AsciiDisplayComponent extends Component {
+export class AsciiDisplayComponent extends SpatialComponent {
 	sprite: Sprite;
 
-	constructor(public matrix: string[][]) {
+	constructor(sprite: Sprite) {
 		super();
-		this.sprite = Sprite.fromMatrix(matrix);
+		this.sprite = sprite;
 	}
 
-	static fromString(char: string): AsciiDisplayComponent {
-		return new AsciiDisplayComponent(stringToMatrix(char));
+	area(at: Vec2): BoundingBox[] {
+		// TODO: This could be more granular by leaving out empty spaces
+		return [this.sprite.boundingBox.clone().moveTopLeftTo(at)];
 	}
 
-	static fromMatrix(matrix: string[][]): AsciiDisplayComponent {
-		return new AsciiDisplayComponent(matrix);
+	static fromSprite(sprite: Sprite): AsciiDisplayComponent {
+		return new AsciiDisplayComponent(sprite);
+	}
+
+	static fromString(char: string, box?: BoundingBox): AsciiDisplayComponent {
+		return new AsciiDisplayComponent(Sprite.fromMatrix(stringToMatrix(char), box));
+	}
+
+	static fromMatrix(matrix: string[][], box?: BoundingBox): AsciiDisplayComponent {
+		return new AsciiDisplayComponent(Sprite.fromMatrix(matrix, box));
 	}
 }

@@ -97,6 +97,14 @@ export class Vec2 implements Vec2Like {
 		return Vec2.isWithin(this, area);
 	}
 
+	public static isFinite(v: Vec2Like): boolean {
+		return isFinite(v.x) && isFinite(v.y);
+	}
+
+	public isFinite(): boolean {
+		return Vec2.isFinite(this);
+	}
+
 	public clamp(area: BoundingBox): Vec2 {
 		// TODO: use intervals, it does not respect openness
 		const xMax = Math.max(area.topLeft.x, area.bottomRight.x);
