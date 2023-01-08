@@ -42,7 +42,7 @@ export class BlessedIOBackend implements IOBackend {
 		frame.forEach(({ x, y }, cell) => {
 			this.program.move(x, y);
 			this.program.bg('black');
-			this.program.write(cell);
+			this.program.write(cell.char ?? ' ');
 		});
 
 		this.program.flush();

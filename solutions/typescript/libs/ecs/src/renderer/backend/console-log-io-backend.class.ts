@@ -23,7 +23,7 @@ export class ConsoleLogIOBackend implements IOBackend {
 	}
 
 	pushFrame(frame: Sprite): void {
-		console.log(renderMatrix(frame.render));
+		console.log(renderMatrix(frame.asStringMatrix()));
 	}
 	onKeyPress(_callback: KeyboardEventCallback): void {
 		return;

@@ -12,6 +12,7 @@ export * from './group-by-delimiter.function.js';
 export * from './groups/slide-window.function.js';
 export * from './map-first.function.js';
 export * from './map-last.function.js';
+export * from './map-matrix.function.js';
 export * from './pairs-with.function.js';
 export * from './partition.function.js';
 export * from './peek.function.js';

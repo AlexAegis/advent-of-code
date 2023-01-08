@@ -76,9 +76,9 @@ export class RendererSystem extends System implements Initializable {
 				const worldY = this.camera.worldAnchor.y + screenY;
 				const localX = worldX - positionComponent.position.x;
 				const localY = worldY - positionComponent.position.y;
-				const cell = displayComponent.sprite.getCellAt(localX, localY);
-				if (cell) {
-					frame.render[screenY][screenX] = cell;
+				const tile = displayComponent.sprite.getTileAt(localX, localY);
+				if (tile) {
+					frame.merge(screenX, screenY, tile);
 				}
 			});
 		}
@@ -104,8 +104,8 @@ export class RendererSystem extends System implements Initializable {
 
 	printCurrentFrame(): void {
 		if (this.currentFrame) {
-			const render = renderMatrix(this.currentFrame.render);
-			console.log(render);
+			const render = renderMatrix(this.currentFrame.asStringMatrix());
+			console.info(render);
 		}
 	}
 }

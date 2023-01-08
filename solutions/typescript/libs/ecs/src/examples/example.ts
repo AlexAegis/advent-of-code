@@ -6,11 +6,10 @@ import { spawnPlayer } from '../entity/prebuilt/player.entity.js';
 import { GridWorld } from '../world/grid-world.class.js';
 
 // TODO: add z level
-// TODO: colors
 const world = new GridWorld({
 	io: 'terminalKit',
 	executorHaltCondition: 'none',
-	executorSpeed: 30,
+	executorSpeed: 60,
 	rendererOptions: {
 		renderColliders: false,
 	},
