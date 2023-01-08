@@ -41,7 +41,9 @@ export abstract class AnyPositionComponent extends Component {
 					);
 
 					if (infiniteArea.length) {
-						cache.infiniteBoxes;
+						for (const entity of this.belongsTo) {
+							cache.infiniteBoxes.set(entity.entityId, infiniteArea);
+						}
 					}
 				}
 			}
