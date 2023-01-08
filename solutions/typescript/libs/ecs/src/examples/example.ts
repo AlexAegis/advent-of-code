@@ -12,7 +12,7 @@ const world = new GridWorld({
 	executorHaltCondition: 'none',
 	executorSpeed: 30,
 	rendererOptions: {
-		renderColliders: true,
+		renderColliders: false,
 	},
 });
 
