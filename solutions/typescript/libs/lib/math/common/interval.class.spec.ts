@@ -49,6 +49,13 @@ describe('Interval', () => {
 			);
 		});
 
+		it('should return the smaller if the larger completely encompasses it', () => {
+			const a = new Interval(1, 8, { lowQualifier: 'open', highQualifier: 'closed' });
+			const b = new Interval(4, 6, { lowQualifier: 'closed', highQualifier: 'open' });
+
+			expect(a.intersection(b)).toEqual(b);
+		});
+
 		it('should use the stronger qualifier when their ends are at the same point', () => {
 			const a = new Interval(1, 2, { lowQualifier: 'open', highQualifier: 'closed' });
 			const b = new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'open' });

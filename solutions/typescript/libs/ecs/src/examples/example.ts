@@ -12,7 +12,7 @@ const world = new GridWorld({
 	executorHaltCondition: 'none',
 	executorSpeed: 30,
 	rendererOptions: {
-		renderColliders: false,
+		renderColliders: true,
 	},
 });
 
@@ -20,6 +20,8 @@ spawnCompass(world);
 spawnFloor(world, new Vec2(2, 3), { x: 3, y: 3 });
 spawnWall(world, new Vec2(6, 0), new Vec2(5, 0));
 spawnWall(world, new Vec2(7, 0), new Vec2(8, 8));
+
+spawnWall(world, new Vec2(0, 0), new Vec2(0, Infinity));
 
 spawnPlayer(world, new Vec2(3, 3));
 

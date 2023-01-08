@@ -65,6 +65,17 @@ describe('BoundingBox', () => {
 
 			expect(intersection).toEqual(expectedIntersection);
 		});
+
+		it('should work with infinite boxes mixed with normal boxes', () => {
+			const boxA = BoundingBox.fromVectors(new Vec2(4, 4), new Vec2(4, Infinity));
+			const boxB = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(10, 10));
+			const intersection = boxA.intersection(boxB);
+			console.log('asdf', boxA.toString(), boxB.toString(), intersection?.toString());
+
+			const expectedIntersection = BoundingBox.fromVectors(new Vec2(4, 4), new Vec2(4, 10));
+
+			expect(intersection).toEqual(expectedIntersection);
+		});
 	});
 
 	describe('moveTopLeftTo', () => {
