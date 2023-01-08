@@ -13,6 +13,11 @@ const world = new GridWorld({
 	rendererOptions: {
 		renderColliders: false,
 	},
+	cameraOptions: {
+		movable: true,
+		followArea: { kind: 'responsive', marginRatio: 6 },
+		followMode: 'jump',
+	},
 });
 
 spawnCompass(world);
@@ -22,7 +27,9 @@ spawnWall(world, new Vec2(7, 0), new Vec2(8, 8));
 
 spawnWall(world, new Vec2(0, 0), new Vec2(0, Infinity));
 
-spawnPlayer(world, new Vec2(3, 3));
+const playerEntity = spawnPlayer(world, new Vec2(3, 3));
 
 world.centerCameraOnEntities();
+world.followWithCamera(playerEntity);
+
 await world.run();

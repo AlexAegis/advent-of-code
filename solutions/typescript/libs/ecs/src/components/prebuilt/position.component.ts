@@ -1,5 +1,6 @@
 import {
 	arrayContains,
+	BoundingBox,
 	nonNullish,
 	partition,
 	Vec2,
@@ -7,6 +8,7 @@ import {
 } from '@alexaegis/advent-of-code-lib';
 import { Component } from '../component.class.js';
 import { SpatialComponent } from '../spatial-component.class.js';
+import { AsciiDisplayComponent } from './ascii-display.component.js';
 import { ColliderComponent } from './collider.component.js';
 
 export abstract class AnyPositionComponent extends Component {
@@ -94,6 +96,18 @@ export class PositionComponent extends AnyPositionComponent {
 
 	onMove(callback: (position: Readonly<Vec2>) => void) {
 		this.onMoveCallbacks.push(callback);
+	}
+
+	getWorldBox(): BoundingBox {
+		return this.belongsTo.reduce((box, entity) => {
+			const displayComponent = entity.getComponent(AsciiDisplayComponent);
+			if (displayComponent) {
+				for (const area of displayComponent.area(this.position)) {
+					box.extend([area.topLeft, area.bottomRight]);
+				}
+			}
+			return box;
+		}, BoundingBox.fromVectors(this.position));
 	}
 }
 
