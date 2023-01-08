@@ -1,6 +1,6 @@
 import type { BoundingBox, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
-import { Sprite } from '../../renderer/sprite.class.js';
+import { Sprite, SpriteOptions } from '../../renderer/sprite.class.js';
 import { SpatialComponent } from '../spatial-component.class.js';
 
 export class AsciiDisplayComponent extends SpatialComponent {
@@ -20,11 +20,11 @@ export class AsciiDisplayComponent extends SpatialComponent {
 		return new AsciiDisplayComponent(sprite);
 	}
 
-	static fromString(char: string, box?: BoundingBox): AsciiDisplayComponent {
-		return new AsciiDisplayComponent(Sprite.fromMatrix(stringToMatrix(char), box));
+	static fromString(char: string, spriteOptions?: SpriteOptions): AsciiDisplayComponent {
+		return new AsciiDisplayComponent(Sprite.fromMatrix(stringToMatrix(char), spriteOptions));
 	}
 
-	static fromMatrix(matrix: string[][], box?: BoundingBox): AsciiDisplayComponent {
-		return new AsciiDisplayComponent(Sprite.fromMatrix(matrix, box));
+	static fromMatrix(matrix: string[][], spriteOptions?: SpriteOptions): AsciiDisplayComponent {
+		return new AsciiDisplayComponent(Sprite.fromMatrix(matrix, spriteOptions));
 	}
 }

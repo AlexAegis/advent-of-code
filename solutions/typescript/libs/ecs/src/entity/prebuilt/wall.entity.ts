@@ -18,7 +18,11 @@ export const spawnWall = (world: GridWorld, from: Vec2, to: Vec2): Entity => {
 	return world.spawn(
 		new WallMarkerComponent(),
 		new StaticPositionComponent(first, 0),
-		AsciiDisplayComponent.fromString(`#`, box),
+		AsciiDisplayComponent.fromString(`#`, {
+			size: box,
+			defaultBackgroundColor: 'black',
+			defaultForegroundColor: 'gray',
+		}),
 		ColliderComponent.fromBoundingBoxes(box)
 	);
 };

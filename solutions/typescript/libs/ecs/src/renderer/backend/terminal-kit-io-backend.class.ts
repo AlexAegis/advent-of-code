@@ -90,10 +90,17 @@ export class TerminalKitIOBackend implements IOBackend {
 	}
 
 	pushFrame(frame: Sprite): void {
-		frame.forEach(({ x, y }, cell) => {
+		frame.forEach(({ x, y }, tile) => {
 			this.buffer.put(
-				{ x, y, dx: 0, dy: 0, wrap: false, attr: { color: 'white', bgTransparency: true } },
-				cell
+				{
+					x,
+					y,
+					dx: 0,
+					dy: 0,
+					wrap: false,
+					attr: { color: tile.fg ?? 'white', bgTransparency: !tile.bg, bgColor: tile.bg },
+				},
+				tile.char ?? ' '
 			);
 		});
 		this.buffer.draw({ delta: true });

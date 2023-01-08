@@ -1,5 +1,20 @@
-import { BoundingBox, Vec2 } from '@alexaegis/advent-of-code-lib';
+import { BoundingBox, mapMatrix, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
+import type { Tile } from './tile.interface.js';
+
+export interface SpriteOptions {
+	defaultBackgroundColor?: string;
+	defaultForegroundColor?: string;
+	size?: BoundingBox;
+}
+
+export type NormalizedSpriteOptions = SpriteOptions;
+
+export const normalizeSpriteOptions = (options?: SpriteOptions): NormalizedSpriteOptions => {
+	return {
+		...options,
+	};
+};
 
 /**
  * Rendered frames are always locally positioned, the top left is always 0,0
@@ -7,7 +22,8 @@ import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
  * position
  */
 export class Sprite {
-	render: string[][] = [];
+	options: NormalizedSpriteOptions;
+	render: Tile[][];
 	private _renderBox: BoundingBox;
 	private _box: BoundingBox;
 
@@ -19,22 +35,27 @@ export class Sprite {
 	 * the box.
 	 * TODO: repeat anchor
 	 */
-	constructor(render: string[][] = [[]], boundingBox?: BoundingBox) {
+	constructor(render: Tile[][] = [[]], rawOptions?: SpriteOptions) {
+		this.options = normalizeSpriteOptions(rawOptions);
 		this.render = render;
 		this._renderBox = BoundingBox.fromMatrix(render);
-		this._box = boundingBox ?? this._renderBox;
+		this._box = this.options.size ?? this._renderBox;
 	}
 
-	static fromString(render: string): Sprite {
+	static fromString(render: string, rawOptions?: SpriteOptions): Sprite {
 		const matrix = stringToMatrix(render);
-		return new Sprite(matrix);
+		return Sprite.fromMatrix(matrix, rawOptions);
 	}
 
-	static fromMatrix(matrix: string[][], boundingBox?: BoundingBox) {
-		return new Sprite(matrix, boundingBox);
+	static fromMatrix(matrix: string[][], rawOptions?: SpriteOptions) {
+		const options = normalizeSpriteOptions(rawOptions);
+		const tileMatrix: Tile[][] = mapMatrix(matrix, (char) =>
+			Sprite.intoDefaultTile(char, options)
+		);
+		return new Sprite(tileMatrix, rawOptions);
 	}
 
-	getCellAt(x: number, y: number): string | undefined {
+	getTileAt(x: number, y: number): Tile | undefined {
 		if (this._box.contains(x, y)) {
 			return this.render[y % this._renderBox.height]?.[x % this._renderBox.width];
 		} else {
@@ -42,22 +63,33 @@ export class Sprite {
 		}
 	}
 
+	private intoDefaultTile(tile?: string): Tile {
+		return Sprite.intoDefaultTile(tile, this.options);
+	}
+
+	private static intoDefaultTile(
+		char: string | undefined,
+		options: NormalizedSpriteOptions
+	): Tile {
+		return {
+			char: char ?? ' ',
+			bg: options.defaultBackgroundColor,
+			fg: options.defaultForegroundColor,
+		};
+	}
+
 	/**
 	 * Resets the frame to a sized matrix
 	 */
 	blank(size: BoundingBox): void {
-		this.render = size.createBlankMatrix(() => ' ');
+		this.render = size.createBlankMatrix(() => this.intoDefaultTile());
 	}
 
 	get boundingBox(): BoundingBox {
 		return this._box;
 	}
 
-	//get visibleAt(): Vec2[] {
-	//	return this._visibleAt;
-	//}
-
-	forEach(callback: (coordinate: Vec2, cell: string) => void): void {
+	forEach(callback: (coordinate: Vec2, cell: Tile) => void): void {
 		for (let y = 0; y < this.render.length; y++) {
 			const row = this.render[y];
 			for (let x = 0; x < row.length; x++) {
@@ -66,7 +98,37 @@ export class Sprite {
 		}
 	}
 
-	put(x: number, y: number, cell: string): void {
-		this.render[y][x] = cell;
+	put(x: number, y: number, tile: Tile | string): void {
+		if (typeof tile === 'string') {
+			this.render[y][x] = this.intoDefaultTile(tile);
+		} else {
+			this.render[y][x] = tile;
+		}
+	}
+
+	merge(x: number, y: number, tileLike: Tile | string): void {
+		let tile: Tile;
+		if (typeof tileLike === 'string') {
+			tile = this.intoDefaultTile(tileLike);
+		} else {
+			tile = tileLike;
+		}
+
+		const renderRow = this.render[y];
+		if (tile.char) {
+			renderRow[x].char = tile.char;
+		}
+
+		if (tile.fg) {
+			renderRow[x].fg = tile.fg;
+		}
+
+		if (tile.bg) {
+			renderRow[x].bg = tile.bg;
+		}
+	}
+
+	asStringMatrix(): string[][] {
+		return mapMatrix(this.render, (tile) => tile.char ?? ' ');
 	}
 }

@@ -13,7 +13,7 @@ export const spawnPlayer = (
 	const playerEntity = world.spawn(
 		new PlayerMarkerComponent(),
 		new PositionComponent(startingPosition),
-		AsciiDisplayComponent.fromString('ඞ'),
+		AsciiDisplayComponent.fromString('ඞ', { defaultForegroundColor: 'white' }),
 		ColliderComponent.unit
 	);
 
