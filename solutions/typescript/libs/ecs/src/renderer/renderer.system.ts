@@ -66,26 +66,21 @@ export class RendererSystem extends System implements Initializable {
 			const screenPosition = this.camera.getScreenPositionFromWorldPosition(
 				positionComponent.position
 			);
-			const entityRender = displayComponent.sprite;
+			const entityScreenBox = displayComponent.sprite.boundingBox
+				.clone()
+				.moveTopLeftTo(screenPosition);
 
-			const entityScreenBox = entityRender.boundingBox.clone().moveTopLeftTo(screenPosition);
-
-			if (this.camera.screenViewport.intersects(entityScreenBox)) {
-				entityRender.boundingBox.forEach((x, y) => {
-					const screenX = screenPosition.x + x;
-					const screenY = screenPosition.y + y;
-
-					if (
-						this.camera.screenViewport.horizontal.contains(screenX) &&
-						this.camera.screenViewport.vertical.contains(screenY)
-					) {
-						const cell = entityRender.getCellAt(x, y);
-						if (cell) {
-							frame.render[screenY][screenX] = cell;
-						}
-					}
-				});
-			}
+			const screenIntersection = this.camera.screenViewport.intersection(entityScreenBox);
+			screenIntersection?.forEach((screenX, screenY) => {
+				const worldX = this.camera.worldAnchor.x + screenX;
+				const worldY = this.camera.worldAnchor.y + screenY;
+				const localX = worldX - positionComponent.position.x;
+				const localY = worldY - positionComponent.position.y;
+				const cell = displayComponent.sprite.getCellAt(localX, localY);
+				if (cell) {
+					frame.render[screenY][screenX] = cell;
+				}
+			});
 		}
 
 		if (this.options.renderColliders) {

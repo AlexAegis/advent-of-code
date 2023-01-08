@@ -18,11 +18,11 @@ importers:
       husky: ^8.0.3
       lint-staged: ^13.1.0
       markdownlint: ^0.27.0
-      markdownlint-cli: ^0.32.2
+      markdownlint-cli: ^0.33.0
       npm-check-updates: ^16.6.2
       nyc: ^15.1.0
       pinst: ^3.0.0
-      prettier: ^2.8.1
+      prettier: ^2.8.2
       remark: ^14.0.2
       remark-cli: ^11.0.0
       remark-lint-maximum-line-length: ^3.1.2
@@ -47,15 +47,15 @@ importers:
       commitlint: 17.4.0_@types+node@18.11.18
       eslint: 8.31.0
       eslint-config-prettier: 8.6.0_eslint@8.31.0
-      eslint-plugin-prettier: 4.2.1_32m5uc2milwdw3tnkcq5del26y
+      eslint-plugin-prettier: 4.2.1_iu5s7nk6dw7o3tajefwfiqfmge
       husky: 8.0.3
       lint-staged: 13.1.0
       markdownlint: 0.27.0
-      markdownlint-cli: 0.32.2
+      markdownlint-cli: 0.33.0
       npm-check-updates: 16.6.2
       nyc: 15.1.0
       pinst: 3.0.0
-      prettier: 2.8.1
+      prettier: 2.8.2
       remark: 14.0.2
       remark-cli: 11.0.0
       remark-lint-maximum-line-length: 3.1.2
@@ -1147,9 +1147,9 @@ importers:
       eslint-config-prettier: ^8.6.0
       eslint-plugin-prettier: ^4.2.1
       markdownlint: ^0.27.0
-      markdownlint-cli: ^0.32.2
+      markdownlint-cli: ^0.33.0
       nodemon: ^2.0.20
-      prettier: ^2.8.1
+      prettier: ^2.8.2
       remark: ^14.0.2
       remark-cli: ^11.0.0
       remark-lint-maximum-line-length: ^3.1.2
@@ -1176,11 +1176,11 @@ importers:
       benny: 3.7.1
       eslint: 8.31.0
       eslint-config-prettier: 8.6.0_eslint@8.31.0
-      eslint-plugin-prettier: 4.2.1_32m5uc2milwdw3tnkcq5del26y
+      eslint-plugin-prettier: 4.2.1_iu5s7nk6dw7o3tajefwfiqfmge
       markdownlint: 0.27.0
-      markdownlint-cli: 0.32.2
+      markdownlint-cli: 0.33.0
       nodemon: 2.0.20
-      prettier: 2.8.1
+      prettier: 2.8.2
       remark: 14.0.2
       remark-cli: 11.0.0
       remark-lint-maximum-line-length: 3.1.2
@@ -1206,8 +1206,8 @@ importers:
       ix: ^5.0.0
       kolorist: ^1.6.0
       markdownlint: ^0.27.0
-      markdownlint-cli: ^0.32.2
-      prettier: ^2.8.1
+      markdownlint-cli: ^0.33.0
+      prettier: ^2.8.2
       remark: ^14.0.2
       remark-cli: ^11.0.0
       remark-lint-maximum-line-length: ^3.1.2
@@ -1229,11 +1229,11 @@ importers:
       benny: 3.7.1
       eslint: 8.31.0
       eslint-config-prettier: 8.6.0_eslint@8.31.0
-      eslint-plugin-prettier: 4.2.1_32m5uc2milwdw3tnkcq5del26y
+      eslint-plugin-prettier: 4.2.1_iu5s7nk6dw7o3tajefwfiqfmge
       kolorist: 1.6.0
       markdownlint: 0.27.0
-      markdownlint-cli: 0.32.2
-      prettier: 2.8.1
+      markdownlint-cli: 0.33.0
+      prettier: 2.8.2
       remark: 14.0.2
       remark-cli: 11.0.0
       remark-lint-maximum-line-length: 3.1.2
@@ -3525,7 +3525,7 @@ packages:
       eslint: 8.31.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_32m5uc2milwdw3tnkcq5del26y:
+  /eslint-plugin-prettier/4.2.1_iu5s7nk6dw7o3tajefwfiqfmge:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3538,7 +3538,7 @@ packages:
     dependencies:
       eslint: 8.31.0
       eslint-config-prettier: 8.6.0_eslint@8.31.0
-      prettier: 2.8.1
+      prettier: 2.8.2
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -4179,6 +4179,11 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /ignore/5.2.4:
+    resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
+    engines: {node: '>= 4'}
+    dev: true
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -4534,10 +4539,6 @@ packages:
     hasBin: true
     dev: true
 
-  /jsonc-parser/3.1.0:
-    resolution: {integrity: sha512-DRf0QjnNeCUds3xTjKlQQ3DpJD51GvDjJfnxUVWg6PZTo2otSm+slzNAxU/35hF8/oJIKoG9slq30JYOsF2azg==}
-    dev: true
-
   /jsonc-parser/3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
@@ -4858,33 +4859,20 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /markdownlint-cli/0.32.2:
-    resolution: {integrity: sha512-xmJT1rGueUgT4yGNwk6D0oqQr90UJ7nMyakXtqjgswAkEhYYqjHew9RY8wDbOmh2R270IWjuKSeZzHDEGPAUkQ==}
+  /markdownlint-cli/0.33.0:
+    resolution: {integrity: sha512-zMK1oHpjYkhjO+94+ngARiBBrRDEUMzooDHBAHtmEIJ9oYddd9l3chCReY2mPlecwH7gflQp1ApilTo+o0zopQ==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       commander: 9.4.1
       get-stdin: 9.0.0
       glob: 8.0.3
-      ignore: 5.2.0
+      ignore: 5.2.4
       js-yaml: 4.1.0
-      jsonc-parser: 3.1.0
-      markdownlint: 0.26.2
-      markdownlint-rule-helpers: 0.17.2
-      minimatch: 5.1.0
+      jsonc-parser: 3.2.0
+      markdownlint: 0.27.0
+      minimatch: 5.1.2
       run-con: 1.2.11
-    dev: true
-
-  /markdownlint-rule-helpers/0.17.2:
-    resolution: {integrity: sha512-XaeoW2NYSlWxMCZM2B3H7YTG6nlaLfkEZWMBhr4hSPlq9MuY2sy83+Xr89jXOqZMZYjvi5nBCGoFh7hHoPKZmA==}
-    engines: {node: '>=12'}
-    dev: true
-
-  /markdownlint/0.26.2:
-    resolution: {integrity: sha512-2Am42YX2Ex5SQhRq35HxYWDfz1NLEOZWWN25nqd2h3AHRKsGRE+Qg1gt1++exW792eXTrR4jCNHfShfWk9Nz8w==}
-    engines: {node: '>=14'}
-    dependencies:
-      markdown-it: 13.0.1
     dev: true
 
   /markdownlint/0.27.0:
@@ -5198,13 +5186,6 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
-    dev: true
-
-  /minimatch/5.1.0:
-    resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
-    engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: 2.0.1
     dev: true
 
   /minimatch/5.1.2:
@@ -5947,8 +5928,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.8.1:
-    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
+  /prettier/2.8.2:
+    resolution: {integrity: sha512-BtRV9BcncDyI2tsuS19zzhzoxD8Dh8LiCx7j7tHzrkz8GFXAexeWFdi22mjE1d16dftH2qNaytVxqiRTGlMfpw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true

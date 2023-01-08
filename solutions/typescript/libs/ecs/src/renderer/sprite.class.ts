@@ -23,6 +23,7 @@ export class Sprite {
 		this.render = render;
 		this._renderBox = BoundingBox.fromMatrix(render);
 		this._box = boundingBox ?? this._renderBox;
+		// console.log('render', render, this._renderBox.toString(), this._box.toString());
 	}
 
 	static fromString(render: string): Sprite {
@@ -35,6 +36,7 @@ export class Sprite {
 	}
 
 	getCellAt(x: number, y: number): string | undefined {
+		// console.log('x, y', x, y, this._box.contains(x, y));
 		if (this._box.contains(x, y)) {
 			return this.render[y % this._renderBox.height]?.[x % this._renderBox.width];
 		} else {

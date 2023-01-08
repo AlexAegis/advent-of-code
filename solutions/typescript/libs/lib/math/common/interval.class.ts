@@ -293,22 +293,26 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return Interval.contains(this, n);
 	}
 
-	intersection(other: IntervalLike): Interval | undefined {
+	intersection(other: Interval): Interval | undefined {
 		return Interval.intersection(this, other);
 	}
 
-	static intersection(a: IntervalLike, b: IntervalLike): Interval | undefined {
+	static intersection(a: Interval, b: Interval): Interval | undefined {
 		if (!Interval.intersects(a, b)) {
 			return undefined;
+		} else if (Interval.contains(a, b.low) && Interval.contains(a, b.high)) {
+			return b;
+		} else if (Interval.contains(b, a.low) && Interval.contains(b, a.high)) {
+			return a;
+		} else {
+			const [_lowestLow, highestLow] = [a, b].sort(Interval.compareByLow);
+			const [lowestHigh, _highestHigh] = [a, b].sort(Interval.compareByLow);
+
+			return new Interval(highestLow.low, lowestHigh.high, {
+				lowQualifier: highestLow.lowQualifier,
+				highQualifier: lowestHigh.highQualifier,
+			});
 		}
-
-		const [_lowestLow, highestLow] = [a, b].sort(Interval.compareByLow);
-		const [lowestHigh, _highestHigh] = [a, b].sort(Interval.compareByLow);
-
-		return new Interval(highestLow.low, lowestHigh.high, {
-			lowQualifier: highestLow.lowQualifier,
-			highQualifier: lowestHigh.highQualifier,
-		});
 	}
 
 	/**
@@ -349,7 +353,12 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	static intersects(a: IntervalLike, b: IntervalLike): boolean {
-		return Interval.contains(a, b.low) || Interval.contains(a, b.high);
+		return (
+			Interval.contains(a, b.low) ||
+			Interval.contains(a, b.high) ||
+			Interval.contains(b, a.low) ||
+			Interval.contains(b, a.high)
+		);
 	}
 
 	static contains(interval: IntervalLike, n: number): boolean {

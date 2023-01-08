@@ -14,6 +14,8 @@ export const spawnWall = (world: GridWorld, from: Vec2, to: Vec2): Entity => {
 	const [first, second] = Vec2.sort([from, to]);
 	const normalizedTo = second.sub(first);
 	const box = BoundingBox.fromVectors(Vec2.ORIGIN, normalizedTo);
+
+	console.log('box', box.toString());
 	return world.spawn(
 		new WallMarkerComponent(),
 		new StaticPositionComponent(first, 0),
