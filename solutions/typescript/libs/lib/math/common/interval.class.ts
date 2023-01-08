@@ -99,6 +99,27 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return new Interval(asVec.x, asVec.y);
 	}
 
+	/**
+	 * Shrinks or extends the interval on both ends
+	 * @param n
+	 */
+	pad(n: number): void {
+		const newLow = this.low - n;
+		const newHigh = this.high + n;
+		this.low = Math.min(newLow, newHigh);
+		this.high = Math.max(newLow, newHigh);
+	}
+
+	clampInto(n: number): number {
+		if (this.isTooLow(n)) {
+			return this.lowest();
+		} else if (this.isTooHigh(n)) {
+			return this.highest();
+		} else {
+			return n;
+		}
+	}
+
 	isClosedInterval(): boolean {
 		return (
 			this.lowQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER &&
@@ -207,14 +228,14 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	/**
 	 * This takes openness into account
 	 */
-	first(): number {
+	lowest(): number {
 		return this.lowQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER ? this.low : this.low + 1;
 	}
 
 	/**
 	 * This takes openness into account, i
 	 */
-	last(): number {
+	highest(): number {
 		return this.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
 			? this.high
 			: this.high - 1;
@@ -259,7 +280,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	*walk(): Generator<number> {
-		for (let i = this.first(); this.contains(i); i++) {
+		for (let i = this.lowest(); this.contains(i); i++) {
 			yield i;
 		}
 	}

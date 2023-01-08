@@ -1,6 +1,9 @@
 import { BoundingBox, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib';
+import type { Entity } from '../../index.js';
 import type { ScreenPosition, WorldPosition } from '../../renderer/position.type.js';
+import type { CameraFollowSystemOptions } from '../../system/prebuilt/camera-follow.system.options.js';
 import { Component } from '../component.class.js';
+import type { CameraOptions } from './camera.component.options.js';
 import { PositionComponent } from './position.component.js';
 
 export type Axis = 'x' | 'y';
@@ -10,6 +13,13 @@ export class CameraComponent extends Component {
 	worldViewport = BoundingBox.fromSize(new Vec2(10, 10));
 
 	private positionComponent!: PositionComponent;
+
+	options: CameraOptions;
+
+	constructor(rawOptions?: CameraOptions) {
+		super();
+		this.options = { movable: true, ...rawOptions };
+	}
 
 	override onSpawn(): void {
 		const positionComponent = this.belongsTo[0].getComponent(PositionComponent);
@@ -22,6 +32,18 @@ export class CameraComponent extends Component {
 		this.positionComponent.onMove((position) => {
 			this.worldViewport.moveTopLeftTo(position);
 		});
+	}
+
+	setFollowOptions(followOptions: CameraFollowSystemOptions): void {
+		this.options = { movable: this.options?.movable, ...followOptions };
+	}
+
+	updateFollowOptions(followOptions: Partial<CameraFollowSystemOptions>): void {
+		this.options = { ...this.options, ...followOptions };
+	}
+
+	followEntity(entity: Entity): void {
+		this.options.entity = entity;
 	}
 
 	get worldAnchor(): Readonly<Vec2> {
@@ -50,11 +72,11 @@ export class CameraComponent extends Component {
 	}
 
 	screenCenter(): ScreenPosition {
-		return this.size.clone().applyChange((n) => Math.floor(n / 2));
+		return this.screenViewport.center;
 	}
 
 	lookingAt(): WorldPosition {
-		return this.getWorldPositionFromScreenPosition(this.screenCenter());
+		return this.worldViewport.center;
 	}
 
 	getScreenspaceBoundingBox(): Readonly<BoundingBox> {
@@ -67,5 +89,9 @@ export class CameraComponent extends Component {
 
 	centerOn(on: WorldPosition): void {
 		this.positionComponent.moveTo(on.sub(this.screenCenter()));
+	}
+
+	move(offset: Vec2Like): void {
+		this.positionComponent.move(offset);
 	}
 }

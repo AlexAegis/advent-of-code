@@ -1,3 +1,4 @@
+import type { CameraOptions } from '../components/prebuilt/camera.component.options.js';
 import type { ExecutorHaltConditionType, ExecutorType } from '../executor/executor.class.js';
 import type { IOBackendType, RendererSystemOptions } from '../renderer/index.js';
 
@@ -20,9 +21,12 @@ export interface GridWorldOptions {
 	 * Additional renderer options
 	 */
 	rendererOptions?: Omit<RendererSystemOptions, 'cameraEntity' | 'backend'>;
+
+	cameraOptions?: Omit<CameraOptions, 'entity'>;
 }
 
-export type NormalizedGridWorldOptions = Required<Omit<GridWorldOptions, 'io'>> & GridWorldOptions;
+export type NormalizedGridWorldOptions = Required<Omit<GridWorldOptions, 'io' | 'cameraOptions'>> &
+	GridWorldOptions;
 
 export const normalizeGridWorldOptions = (
 	options?: GridWorldOptions
@@ -34,5 +38,6 @@ export const normalizeGridWorldOptions = (
 		rendererOptions: {
 			renderColliders: options?.rendererOptions?.renderColliders ?? false,
 		},
+		cameraOptions: options?.cameraOptions,
 	};
 };

@@ -246,6 +246,10 @@ export class BoundingBox {
 		return [...this.walkCells()];
 	}
 
+	centerOn(on: Vec2): void {
+		this.moveTopLeftTo(on.sub(this.center));
+	}
+
 	get center(): Readonly<Vec2> {
 		return this._center;
 	}
@@ -342,6 +346,16 @@ export class BoundingBox {
 		return new BoundingBox(horizontal, vertical);
 	}
 
+	clampInto(position: Vec2): Vec2 {
+		if (this.contains(position)) {
+			return position;
+		} else {
+			const x = this.horizontal.clampInto(position.x);
+			const y = this.vertical.clampInto(position.y);
+			return new Vec2(x, y);
+		}
+	}
+
 	get top(): number {
 		return this.vertical.low;
 	}
@@ -417,15 +431,10 @@ export class BoundingBox {
 
 	/**
 	 * Extends or shrinks the box on all corners, the center does not change
-	 *
-	 * @param padding
 	 */
-	pad(padding: number): void {
-		this.horizontal.low -= padding;
-		this.horizontal.high += padding;
-		this.vertical.low -= padding;
-		this.vertical.high += padding;
-
+	pad(horizontalPadding: number, verticalPadding = horizontalPadding): void {
+		this.horizontal.pad(horizontalPadding);
+		this.vertical.pad(verticalPadding);
 		this.deriveFromIntervals();
 	}
 

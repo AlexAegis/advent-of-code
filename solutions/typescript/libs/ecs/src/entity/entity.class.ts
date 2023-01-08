@@ -1,5 +1,6 @@
-import type { Constructor } from '@alexaegis/advent-of-code-lib';
+import type { Constructor, Vec2 } from '@alexaegis/advent-of-code-lib';
 import type { Component } from '../components/component.class.js';
+import { AsciiDisplayComponent } from '../components/prebuilt/ascii-display.component.js';
 import {
 	PositionComponent,
 	StaticPositionComponent,
@@ -31,5 +32,25 @@ export class Entity {
 				new StaticPositionComponent(positionComponent.position.clone())
 			);
 		}
+	}
+
+	/**
+	 * Takes the displayComponent into account when available.
+	 */
+	getCenterPosition(): Vec2 | undefined {
+		const positionComponent = this.getComponent(PositionComponent);
+
+		if (!positionComponent) {
+			return undefined;
+		}
+
+		let entityPosition = positionComponent.position;
+
+		const displayComponent = this.getComponent(AsciiDisplayComponent);
+		if (displayComponent?.sprite.boundingBox) {
+			entityPosition = entityPosition.add(displayComponent?.sprite.boundingBox.center);
+		}
+
+		return entityPosition;
 	}
 }

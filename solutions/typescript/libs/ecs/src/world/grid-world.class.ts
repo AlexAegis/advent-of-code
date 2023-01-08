@@ -98,7 +98,7 @@ export class GridWorld {
 		}
 
 		if (this._io) {
-			const cameraEntity = spawnCamera(this);
+			const cameraEntity = spawnCamera(this, this.options.cameraOptions);
 			if (!this.rendererSystem) {
 				this.addSystem(
 					new RendererSystem({
@@ -291,6 +291,11 @@ export class GridWorld {
 
 	getCamera(): CameraComponent {
 		return this.queryOne(CameraComponent)[1];
+	}
+
+	followWithCamera(entity: Entity): void {
+		const camera = this.getCamera();
+		camera.followEntity(entity);
 	}
 
 	/**
