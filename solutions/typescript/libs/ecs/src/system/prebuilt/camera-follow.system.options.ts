@@ -1,6 +1,6 @@
 import type { Entity } from '../../entity/entity.class.js';
 
-export type CameraFollowMode = 'jump' | 'edge' | 'focus';
+export type CameraFollowMode = 'jump' | 'jumpToCenter' | 'edge' | 'focus';
 export type CameraFollowAreaKind = 'responsive' | 'responsiveSquare' | 'fixedSquare';
 
 export interface CameraFollowAreaOptions {

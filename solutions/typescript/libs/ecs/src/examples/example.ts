@@ -16,20 +16,25 @@ const world = new GridWorld({
 	cameraOptions: {
 		movable: true,
 		followArea: { kind: 'responsive', marginRatio: 6 },
-		followMode: 'jump',
+		followMode: 'jumpToCenter',
 	},
 });
 
-spawnCompass(world);
-spawnFloor(world, new Vec2(2, 3), { x: 3, y: 3 });
-spawnWall(world, new Vec2(6, 0), new Vec2(5, 0));
-spawnWall(world, new Vec2(7, 0), new Vec2(8, 8));
+const compassEntity = spawnCompass(world);
+spawnFloor(world, new Vec2(3, 3), { x: 5, y: 5 });
 
-spawnWall(world, new Vec2(0, 0), new Vec2(0, Infinity));
+spawnWall(world, new Vec2(6, 2), new Vec2(7, 2));
+spawnWall(world, new Vec2(8, 2), new Vec2(9, 10));
 
-const playerEntity = spawnPlayer(world, new Vec2(3, 3));
+spawnWall(world, new Vec2(0, 3), new Vec2(0, Infinity));
+spawnWall(world, new Vec2(3, 0), new Vec2(Infinity, 0));
 
-world.centerCameraOnEntities();
+spawnWall(world, new Vec2(-3, 0), new Vec2(-Infinity, 0));
+spawnWall(world, new Vec2(0, -3), new Vec2(0, -Infinity));
+
+const playerEntity = spawnPlayer(world, new Vec2(1, 1));
+
+world.centerCameraOnEntity(compassEntity);
 world.followWithCamera(playerEntity);
 
 await world.run();

@@ -17,12 +17,13 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 
 		const paddedWorldViewport = camera.worldViewport.clone();
 
+		let horizontalMargin = 0;
+		let verticalMargin = 0;
+
 		if (camera.options.followArea?.marginRatio !== undefined) {
 			const marginRatio = camera.options.followArea.marginRatio;
-			const horizontalMargin = Math.floor(
-				paddedWorldViewport.horizontal.length / marginRatio
-			);
-			const verticalMargin = Math.floor(paddedWorldViewport.vertical.length / marginRatio);
+			horizontalMargin = Math.floor(paddedWorldViewport.horizontal.length / marginRatio);
+			verticalMargin = Math.floor(paddedWorldViewport.vertical.length / marginRatio);
 
 			if (camera.options.followArea?.kind === 'responsive') {
 				paddedWorldViewport.pad(-horizontalMargin, -verticalMargin);
@@ -37,13 +38,30 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 		if (camera.options.followMode === 'focus') {
 			camera.centerOn(entityPosition);
 		} else if (!paddedWorldViewport.contains(entityPosition)) {
+			const maxEdge = paddedWorldViewport.clampInto(entityPosition);
+			const offset = entityPosition.sub(maxEdge);
+
 			if (camera.options.followMode === 'edge') {
-				const maxEdge = paddedWorldViewport.clampInto(entityPosition);
-				const offset = entityPosition.sub(maxEdge);
+				camera.move(offset);
+			} else if (camera.options.followMode === 'jumpToCenter') {
+				const horizontalJump = Math.floor(paddedWorldViewport.width / 2);
+				const verticalJump = Math.floor(paddedWorldViewport.height / 2);
+
+				if (entityPosition.x !== maxEdge.x) {
+					offset.x = offset.x < 0 ? -horizontalJump : horizontalJump;
+				}
+				if (entityPosition.y !== maxEdge.y) {
+					offset.y = offset.y < 0 ? -verticalJump : verticalJump;
+				}
 				camera.move(offset);
 			} else if (camera.options.followMode === 'jump') {
-				const maxEdge = paddedWorldViewport.clampInto(entityPosition);
-				camera.centerOn(maxEdge);
+				if (entityPosition.x !== maxEdge.x) {
+					offset.x = offset.x < 0 ? -horizontalMargin : horizontalMargin;
+				}
+				if (entityPosition.y !== maxEdge.y) {
+					offset.y = offset.y < 0 ? -verticalMargin : verticalMargin;
+				}
+				camera.move(offset);
 			}
 		}
 	});

@@ -43,7 +43,7 @@ export class ColliderComponent extends SpatialComponent {
 	}
 
 	area(at: Vec2): BoundingBox[] {
-		return this.colliders.map((collider) => collider.clone().moveTopLeftTo(at));
+		return this.colliders.map((collider) => collider.clone().moveAnchorTo(at));
 	}
 
 	intersectsWithPoint(point: Vec2Like): boolean {

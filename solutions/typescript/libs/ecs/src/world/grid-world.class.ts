@@ -125,6 +125,18 @@ export class GridWorld {
 		).areaOfAllNonInfiniteEntities();
 	}
 
+	centerCameraOnEntity(entity: Entity): void {
+		try {
+			const [, camera] = this.queryOne(CameraComponent);
+			const entityCenter = entity.getCenterPosition();
+			if (entityCenter) {
+				camera.centerOn(entityCenter);
+			}
+		} catch {
+			return;
+		}
+	}
+
 	centerCameraOnEntities(): void {
 		try {
 			const [, camera] = this.queryOne(CameraComponent);

@@ -97,12 +97,20 @@ export class Vec2 implements Vec2Like {
 		return Vec2.isWithin(this, area);
 	}
 
-	public static isFinite(v: Vec2Like): boolean {
-		return isFinite(v.x) && isFinite(v.y);
+	public static isFinite(v: Vec2Like, partial: boolean | 'x' | 'y' = false): boolean {
+		if (typeof partial === 'string') {
+			const x = partial === 'x' ? isFinite(v.x) : true;
+			const y = partial === 'y' ? isFinite(v.y) : true;
+			return x && y;
+		} else if (partial) {
+			return isFinite(v.x) || isFinite(v.y);
+		} else {
+			return isFinite(v.x) && isFinite(v.y);
+		}
 	}
 
-	public isFinite(): boolean {
-		return Vec2.isFinite(this);
+	public isFinite(partial: boolean | 'x' | 'y' = false): boolean {
+		return Vec2.isFinite(this, partial);
 	}
 
 	public clamp(area: BoundingBox): Vec2 {
@@ -192,7 +200,16 @@ export class Vec2 implements Vec2Like {
 	}
 
 	public sub(o: Vec2Like, times = 1): Vec2 {
-		return new Vec2(this.x - o.x * times, this.y - o.y * times);
+		let ox = o.x;
+		if (ox === -Infinity) {
+			ox = 0;
+		}
+
+		let oy = o.y;
+		if (oy === -Infinity) {
+			oy = 0;
+		}
+		return new Vec2(this.x - ox * times, this.y - oy * times);
 	}
 
 	public subMut(o: Vec2Like, times = 1): Vec2 {

@@ -4,11 +4,15 @@ import { StaticPositionComponent } from '../../components/prebuilt/position.comp
 import type { GridWorld } from '../../index.js';
 import type { Entity } from '../entity.class.js';
 
-export const spawnCompass = (world: GridWorld): Entity =>
-	world.spawn(
-		new StaticPositionComponent(new Vec2(-2, -1), -Infinity),
-		AsciiDisplayComponent.fromString(`\
+const compassString = `\
  -Y
 -X╳+X
- +Y`)
+ +Y`;
+
+export const spawnCompass = (world: GridWorld): Entity => {
+	const compassDisplayComponent = AsciiDisplayComponent.fromString(compassString);
+	return world.spawn(
+		new StaticPositionComponent(new Vec2(-2, -1), -Infinity),
+		compassDisplayComponent
 	);
+};
