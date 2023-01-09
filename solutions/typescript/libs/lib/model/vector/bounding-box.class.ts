@@ -2,6 +2,8 @@ import { Direction, Interval, max } from '../../index.js';
 import { Vec2 } from './vec2.class.js';
 import type { Vec2Like } from './vec2.class.types.js';
 
+export type BoundingBoxCorner = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+
 /**
  * TODO: Rename to Area
  *
@@ -28,6 +30,8 @@ export class BoundingBox {
 	private _topRight: Vec2 = Vec2.ORIGIN;
 	private _bottomLeft: Vec2 = Vec2.ORIGIN;
 	private _bottomRight: Vec2 = Vec2.ORIGIN;
+	private _finiteAnchorCorner: Vec2 = Vec2.ORIGIN;
+	private _finiteAnchorCornerName: BoundingBoxCorner | undefined = undefined;
 
 	constructor(horizontal: Interval, vertical: Interval) {
 		this.horizontal = horizontal;
@@ -64,6 +68,48 @@ export class BoundingBox {
 		};
 	}
 
+	/**
+	 * The normal state of a box is when it's anchor is at the origin.
+	 */
+	normalize(): BoundingBox {
+		return this.moveAnchorTo(Vec2.ORIGIN);
+	}
+
+	/**
+	 * The order of anchors from most significant to least significant.
+	 */
+	anchors(): [Vec2, Vec2, Vec2, Vec2] {
+		return [this.topLeft, this.topRight, this.bottomRight, this.bottomLeft];
+	}
+
+	/**
+	 * Returns a finite point that can act as an anchor. It searches for a
+	 * finite corner clockwise starting from topLeft. If neither are fully
+	 * finite it finds the first partially infinite point. If all corners are
+	 * fully infinite then the origin point will be returned instead.
+	 */
+	private findFirstFiniteAnchor(): Vec2 {
+		return (
+			this.anchors().find((anchor) => anchor.isFinite()) ??
+			this.anchors().find((anchor) => anchor.isFinite(true)) ??
+			Vec2.ORIGIN
+		);
+	}
+
+	findCornerName(corner: Vec2): BoundingBoxCorner | undefined {
+		if (this._topLeft.equals(corner)) {
+			return 'topLeft';
+		} else if (this._topRight.equals(corner)) {
+			return 'topRight';
+		} else if (this._bottomLeft.equals(corner)) {
+			return 'bottomLeft';
+		} else if (this._bottomRight.equals(corner)) {
+			return 'bottomRight';
+		} else {
+			return undefined;
+		}
+	}
+
 	private reinitializeFromVectors(vectors: Vec2Like[]): void {
 		const { horizontal, vertical } = BoundingBox.getBoxIntervalsFromVectors(vectors);
 		this.horizontal = horizontal;
@@ -81,6 +127,9 @@ export class BoundingBox {
 		this._bottomLeft = new Vec2(this.left, this.bottom);
 		this._bottomRight = new Vec2(this.right, this.bottom);
 
+		this._finiteAnchorCorner = this.findFirstFiniteAnchor();
+		this._finiteAnchorCornerName = this.findCornerName(this._finiteAnchorCorner);
+
 		if (
 			Math.abs(this.left) === Infinity ||
 			Math.abs(this.right) === Infinity ||
@@ -96,6 +145,14 @@ export class BoundingBox {
 				this.top + Math.floor(this.height / 2)
 			);
 		}
+	}
+
+	get anchor(): Vec2 {
+		return this._finiteAnchorCorner;
+	}
+
+	get anchorName(): BoundingBoxCorner | undefined {
+		return this._finiteAnchorCornerName;
 	}
 
 	resizeFromTopleft(size: Vec2Like): void {
@@ -236,10 +293,6 @@ export class BoundingBox {
 			}
 			return [row];
 		}
-	}
-
-	normalize(): BoundingBox {
-		return this.clone().moveTopLeftTo(Vec2.ORIGIN);
 	}
 
 	renderIntoVectors(): Vec2[] {
@@ -399,6 +452,28 @@ export class BoundingBox {
 		this.vertical.moveBy(offset.y);
 		this.deriveFromIntervals();
 		return this;
+	}
+
+	moveAnchorTo(to: Vec2Like): BoundingBox {
+		if (this._finiteAnchorCornerName) {
+			return this.moveCornerTo(this._finiteAnchorCornerName, to);
+		} else {
+			return this;
+		}
+	}
+
+	moveCornerTo(corner: BoundingBoxCorner, to: Vec2Like): BoundingBox {
+		if (corner === 'topLeft') {
+			return this.moveTopLeftTo(to);
+		} else if (corner === 'topRight') {
+			return this.moveTopRightTo(to);
+		} else if (corner === 'bottomRight') {
+			return this.moveBottomRightTo(to);
+		} else if (corner === 'bottomLeft') {
+			return this.moveBottomLeftTo(to);
+		} else {
+			throw new Error(`Not a valid corner! ${corner}`);
+		}
 	}
 
 	moveTopLeftTo(to: Vec2Like): BoundingBox {

@@ -38,7 +38,8 @@ export class Entity {
 	 * Takes the displayComponent into account when available.
 	 */
 	getCenterPosition(): Vec2 | undefined {
-		const positionComponent = this.getComponent(PositionComponent);
+		const positionComponent =
+			this.getComponent(PositionComponent) ?? this.getComponent(StaticPositionComponent);
 
 		if (!positionComponent) {
 			return undefined;

@@ -156,22 +156,38 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	moveBy(by: number): Interval {
-		this.low += by;
-		this.high += by;
+		if (isFinite(this.low)) {
+			this.low += by;
+		}
+
+		if (isFinite(this.high)) {
+			this.high += by;
+		}
+
 		return this;
 	}
 
 	moveLowTo(low: number): Interval {
-		const diff = this.low - low;
+		if (isFinite(this.low)) {
+			const diff = this.low - low;
+			this.high = this.high - diff;
+		} else if (this.low === -Infinity && low !== -Infinity) {
+			this.high = Infinity;
+		}
 		this.low = low;
-		this.high = this.high - diff;
+
 		return this;
 	}
 
 	moveHighTo(high: number): Interval {
-		const diff = this.high - high;
-		this.low = high - diff;
+		if (isFinite(this.high)) {
+			const diff = this.high - high;
+			this.low = this.low - diff;
+		} else if (this.high === Infinity && high !== Infinity) {
+			this.low = -Infinity;
+		}
 		this.high = high;
+
 		return this;
 	}
 
@@ -314,6 +330,10 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return Interval.contains(this, n);
 	}
 
+	isFinite(): boolean {
+		return isFinite(this.low) && isFinite(this.high);
+	}
+
 	intersection(other: Interval): Interval | undefined {
 		return Interval.intersection(this, other);
 	}
@@ -321,9 +341,9 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	static intersection(a: Interval, b: Interval): Interval | undefined {
 		if (!Interval.intersects(a, b)) {
 			return undefined;
-		} else if (Interval.contains(a, b.low) && Interval.contains(a, b.high)) {
+		} else if (b.isFinite() && Interval.contains(a, b.low) && Interval.contains(a, b.high)) {
 			return b;
-		} else if (Interval.contains(b, a.low) && Interval.contains(b, a.high)) {
+		} else if (a.isFinite() && Interval.contains(b, a.low) && Interval.contains(b, a.high)) {
 			return a;
 		} else {
 			const [_lowestLow, highestLow] = [a, b].sort(Interval.compareByLow);

@@ -13,7 +13,7 @@ export class AsciiDisplayComponent extends SpatialComponent {
 
 	area(at: Vec2): BoundingBox[] {
 		// TODO: This could be more granular by leaving out empty spaces
-		return [this.sprite.boundingBox.clone().moveTopLeftTo(at)];
+		return [this.sprite.boundingBox.clone().moveAnchorTo(at)];
 	}
 
 	static fromSprite(sprite: Sprite): AsciiDisplayComponent {

@@ -68,7 +68,7 @@ export class RendererSystem extends System implements Initializable {
 			);
 			const entityScreenBox = displayComponent.sprite.boundingBox
 				.clone()
-				.moveTopLeftTo(screenPosition);
+				.moveAnchorTo(screenPosition);
 
 			const screenIntersection = this.camera.screenViewport.intersection(entityScreenBox);
 			screenIntersection?.forEach((screenX, screenY) => {
@@ -91,13 +91,12 @@ export class RendererSystem extends System implements Initializable {
 	}
 
 	private renderCollidersOntoSprite(frame: Sprite): void {
-		// TODO: only change colors once colors are supported, so entities stay visible
 		this.camera.screenViewport.forEach((x, y) => {
 			const sp = new Vec2(x, y);
 			const wp = this.camera.getWorldPositionFromScreenPosition(sp);
 			const collidingEntities = this.camera.world.entitiesCollidingAt(wp).length;
 			if (collidingEntities) {
-				frame.put(x, y, collidingEntities.toString());
+				frame.merge(x, y, collidingEntities.toString());
 			}
 		});
 	}
@@ -105,7 +104,7 @@ export class RendererSystem extends System implements Initializable {
 	printCurrentFrame(): void {
 		if (this.currentFrame) {
 			const render = renderMatrix(this.currentFrame.asStringMatrix());
-			console.info(render);
+			console.log(render);
 		}
 	}
 }
