@@ -6,6 +6,8 @@ import { spawnPlayer } from '../entity/prebuilt/player.entity.js';
 import { GridWorld } from '../world/grid-world.class.js';
 
 // TODO: add z level
+// TODO: add TUI, for logging and entity data displayers
+// TODO: move GridECS out from Advent of Code
 const world = new GridWorld({
 	io: 'terminalKit',
 	executorHaltCondition: 'none',

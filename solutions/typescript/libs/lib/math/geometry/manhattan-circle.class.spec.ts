@@ -3,6 +3,40 @@ import { Vec2 } from '../../model/vector/vec2.class.js';
 import { ManhattanCircle } from './manhattan-circle.class.js';
 
 describe('ManhattanCircle', () => {
+	describe('rowAt', () => {
+		it('should return an interval spanning edge to edge, both within range', () => {
+			const c = new ManhattanCircle(new Vec2(0, 0), 3);
+			expect(c.rowAt(-5).length).toBe(0);
+			expect(c.rowAt(-4).length).toBe(0);
+			expect(c.rowAt(-3).length).toBe(1);
+			expect(c.rowAt(-2).length).toBe(3);
+			expect(c.rowAt(-1).length).toBe(5);
+			expect(c.rowAt(0).length).toBe(7);
+			expect(c.rowAt(1).length).toBe(5);
+			expect(c.rowAt(2).length).toBe(3);
+			expect(c.rowAt(3).length).toBe(1);
+			expect(c.rowAt(4).length).toBe(0);
+			expect(c.rowAt(5).length).toBe(0);
+		});
+	});
+
+	describe('heightAt', () => {
+		it('should return an interval spanning edge to edge, both within range', () => {
+			const c = new ManhattanCircle(new Vec2(0, 0), 3);
+			expect(c.heightAt(-5).length).toBe(0);
+			expect(c.heightAt(-4).length).toBe(0);
+			expect(c.heightAt(-3).length).toBe(1);
+			expect(c.heightAt(-2).length).toBe(3);
+			expect(c.heightAt(-1).length).toBe(5);
+			expect(c.heightAt(0).length).toBe(7);
+			expect(c.heightAt(1).length).toBe(5);
+			expect(c.heightAt(2).length).toBe(3);
+			expect(c.heightAt(3).length).toBe(1);
+			expect(c.heightAt(4).length).toBe(0);
+			expect(c.heightAt(5).length).toBe(0);
+		});
+	});
+
 	describe('intersections', () => {
 		const c1 = new ManhattanCircle(new Vec2(0, 0), 4);
 		const c2 = new ManhattanCircle(new Vec2(4, 1), 3);

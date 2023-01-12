@@ -1,10 +1,10 @@
-import { ManhattanCircle, task } from '@alexaegis/advent-of-code-lib';
+import { INTERVAL_CLOSED, ManhattanCircle, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
 export const p2 = (input: string): number => {
 	const sensors = parse(input);
-	const limit = (0).span(4000000);
+	const limit = (0).interval(4000000, INTERVAL_CLOSED);
 	const expandedSensors = sensors.map((c) => c.clone().setRadius(c.radius + 1));
 
 	for (const intersection of ManhattanCircle.walkIntersections(expandedSensors)) {

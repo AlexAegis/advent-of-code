@@ -1,6 +1,6 @@
 import { NEWLINE } from '../../regex/index.js';
 
-export type SmallLetterMatrixAlphabet = typeof UPPERCASE_ALPHABET[number];
+export type SmallLetterMatrixAlphabet = (typeof UPPERCASE_ALPHABET)[number];
 type RowRenderedLetter = string[];
 export type RowRenderedAlphaBet = Record<SmallLetterMatrixAlphabet, RowRenderedLetter>;
 export type LetterMatrixType = 'small' | 'big';

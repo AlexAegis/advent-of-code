@@ -46,7 +46,7 @@
 	"engines": {
 		"node": ">=18.12.1"
 	},
-	"packageManager": "pnpm@7.18.1",
+	"packageManager": "pnpm@7.24.3",
 	"scripts": {
 		"build": "turbo run build --concurrency 6",
 		"start": "turbo run start --concurrency 6",
@@ -68,12 +68,12 @@
 		"nuke": "rimraf ./dist ./coverage ./.codacy-coverage ./cache ./node_modules ./package-lock.json ./yarn.lock ./pnpm-lock.yaml ./solutions/typescript/node_modules ./solutions/typescript/.nyc_output ./solutions/typescript/.benchmark ./solutions/typescript/coverage"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.4.0",
+		"@commitlint/cli": "^17.4.1",
 		"@commitlint/config-conventional": "^17.4.0",
 		"@types/node": "^18.11.18",
-		"@typescript-eslint/eslint-plugin": "^5.48.0",
-		"@typescript-eslint/parser": "^5.48.0",
-		"commitlint": "^17.4.0",
+		"@typescript-eslint/eslint-plugin": "^5.48.1",
+		"@typescript-eslint/parser": "^5.48.1",
+		"commitlint": "^17.4.1",
 		"eslint": "^8.31.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-prettier": "^4.2.1",
@@ -95,10 +95,10 @@
 		"tsconfig-paths": "^4.1.2",
 		"typescript": "4.9.4",
 		"yaml-lint": "^1.7.0",
-		"turbo": "~1.6.3",
-		"vitest": "^0.26.3",
-		"@vitest/coverage-c8": "^0.26.3",
-		"@vitest/ui": "^0.26.3",
+		"turbo": "~1.7.0",
+		"vitest": "^0.27.1",
+		"@vitest/coverage-c8": "^0.27.1",
+		"@vitest/ui": "^0.27.1",
 		"vite": "^4.0.4"
 	}
 }

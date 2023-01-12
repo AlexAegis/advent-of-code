@@ -1,4 +1,4 @@
-import { task } from '@alexaegis/advent-of-code-lib';
+import { INTERVAL_CLOSED, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { isPassport, parsePassports, Passport, RelevantField } from './p1.js';
 
@@ -7,15 +7,21 @@ const IN = 'in';
 
 export const passportEyeColors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'];
 
+const from1920to2002 = (1920).interval(2002, INTERVAL_CLOSED);
+const from2010to2020 = (2010).interval(2020, INTERVAL_CLOSED);
+const from2020to2030 = (2020).interval(2030, INTERVAL_CLOSED);
+const from150to193 = (150).interval(193, INTERVAL_CLOSED);
+const from59to76 = (59).interval(76, INTERVAL_CLOSED);
+
 export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
-	byr: (byr) => byr.toInt()?.isContainedInSpan((1920).span(2002)) ?? false,
-	iyr: (iyr) => iyr.toInt()?.isContainedInSpan((2010).span(2020)) ?? false,
-	eyr: (eyr) => eyr.toInt()?.isContainedInSpan((2020).span(2030)) ?? false,
+	byr: (byr) => byr.toInt()?.isContainedIn(from1920to2002) ?? false,
+	iyr: (iyr) => iyr.toInt()?.isContainedIn(from2010to2020) ?? false,
+	eyr: (eyr) => eyr.toInt()?.isContainedIn(from2020to2030) ?? false,
 	hgt: (hgt) => {
 		if (hgt.endsWith(CM)) {
-			return hgt.split(CM)[0].toInt()?.isContainedInSpan((150).span(193)) ?? false;
+			return hgt.split(CM)[0].toInt()?.isContainedIn(from150to193) ?? false;
 		} else if (hgt.endsWith(IN)) {
-			return hgt.split(IN)[0].toInt()?.isContainedInSpan((59).span(76)) ?? false;
+			return hgt.split(IN)[0].toInt()?.isContainedIn(from59to76) ?? false;
 		} else {
 			return false;
 		}

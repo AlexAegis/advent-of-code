@@ -2,6 +2,7 @@ import {
 	addWithinRange,
 	Interval,
 	IntervalLike,
+	IntervalQualifier,
 	invMod,
 	invModBigInt,
 	lerp1D,
@@ -19,12 +20,12 @@ declare global {
 		 * @param m modulo
 		 */
 		posMod(m: number): number;
-		isContainedInSpan(span: IntervalLike): boolean;
+		isContainedIn(interval: IntervalLike): boolean;
 		invMod(n: number): number;
 		modExp(b: number, n: number): number;
 		lerp(to: number, options?: Lerp1DOptions): number[];
 		iterate(from?: number): number[];
-		span(to: number): Interval;
+		interval(to: number, qualifier?: IntervalQualifier): Interval;
 		isInt(): boolean;
 		addWithinRange(add: number, fromOrTo?: number, to?: number): number;
 	}
@@ -49,8 +50,12 @@ Number.prototype.isInt = function (this: number): boolean {
 	return Math.floor(this) === this;
 };
 
-Number.prototype.span = function (this: number, to: number): Interval {
-	return new Interval(this, to);
+Number.prototype.interval = function (
+	this: number,
+	to: number,
+	options?: IntervalQualifier
+): Interval {
+	return new Interval(this, to, options);
 };
 
 Number.prototype.addWithinRange = function (
@@ -78,7 +83,7 @@ BigInt.prototype.posMod = function (this: bigint, m: bigint): bigint {
 	return posModBigInt(this, m);
 };
 
-Number.prototype.isContainedInSpan = function (this: number, span: IntervalLike): boolean {
+Number.prototype.isContainedIn = function (this: number, span: IntervalLike): boolean {
 	return Interval.contains(span, this);
 };
 

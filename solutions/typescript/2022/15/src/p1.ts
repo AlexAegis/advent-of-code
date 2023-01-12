@@ -11,8 +11,8 @@ export const p1 = (input: string, args?: Args): number => {
 	// The example overrides the y level
 	const y = args?.y ?? 2000000;
 
-	return Interval.merge(sensors.map((sensor) => sensor.spanAtY(y)))
-		.map((span) => span.length)
+	return Interval.merge(sensors.map((sensor) => sensor.rowAt(y)))
+		.map((interval) => interval.length - 1) // - 1 is the beacon itself
 		.sum();
 };
 

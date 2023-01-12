@@ -1,4 +1,4 @@
-import { renderMatrix, task } from '@alexaegis/advent-of-code-lib';
+import { INTERVAL_CLOSED, renderMatrix, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
@@ -18,7 +18,11 @@ export const p2 = (input: string): string => {
 		const currentRow = Math.floor(cycle / CRT_WIDTH);
 		const currentPixelInRow = cycle % CRT_WIDTH;
 
-		if (x.isContainedInSpan((currentPixelInRow - 1).span(currentPixelInRow + 1))) {
+		if (
+			x.isContainedIn(
+				(currentPixelInRow - 1).interval(currentPixelInRow + 1, INTERVAL_CLOSED)
+			)
+		) {
 			display[currentRow][currentPixelInRow] = '#';
 		}
 

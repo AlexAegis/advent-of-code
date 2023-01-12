@@ -53,7 +53,11 @@ export const p1 = async (input: string): Promise<number> => {
 	console.log('lines', inputCommands);
 
 	// 7 wide
-	const world = new GridWorld({ executorHaltCondition: 'none', executorSpeed: 5, io: 'console' });
+	const world = new GridWorld({
+		executorHaltCondition: 'untilSettled',
+		executorSpeed: 5,
+		io: 'console',
+	});
 	// spawnTetronimo(world);
 
 	const baseLine = 0;
