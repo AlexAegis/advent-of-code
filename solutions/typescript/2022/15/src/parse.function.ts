@@ -13,7 +13,7 @@ export const parse = (input: string): ManhattanCircle[] => {
 				const range = sensor.manhattan(closestBeacon);
 				return new ManhattanCircle(sensor, range);
 			} else {
-				throw new Error(`Line is not sensor data ${line}`);
+				throw new Error(`Line is not sensor data: ${line}`);
 			}
 		})
 		.sort((a, b) => a.center.x - b.center.x);

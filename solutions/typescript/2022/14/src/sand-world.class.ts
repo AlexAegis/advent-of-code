@@ -1,7 +1,7 @@
 import { Direction, split, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib';
 import {
 	AsciiDisplayComponent,
-	CellColliderComponent,
+	ColliderComponent,
 	Component,
 	GridWorld,
 	PositionComponent,
@@ -37,7 +37,7 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	);
 
 	const spawnSand = (at: Vec2) =>
-		world.spawn(sandKind, new PositionComponent(at), sandDisplay, CellColliderComponent.unit);
+		world.spawn(sandKind, new PositionComponent(at), sandDisplay, ColliderComponent.unit);
 
 	for (const rockLine of rockLines) {
 		rockLine.pairwise((from, to) => {
@@ -63,7 +63,7 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 		);
 		if (
 			sandSpawnerData.enabled &&
-			world.entitiesAt(position.position).filter((e) => e !== sandSpawner).length === 0
+			world.entitiesVisibleAt(position.position).filter((e) => e !== sandSpawner).length === 0
 		) {
 			const spawnedSand = spawnSand(position.position.clone());
 			const positionComponent = spawnedSand.getComponent(PositionComponent)!;

@@ -210,32 +210,32 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return Interval.merge([this, ...others]);
 	}
 
-	private mergeOne(other: Interval): [Interval] | [Interval, Interval] {
-		const smallerFrom = Math.min(this.low, other.low);
-		const largerTo = Math.max(this.high, other.high);
+	mergeOne(other: Interval): Interval | undefined {
+		const [lowestLow] = [this, other].sort(Interval.compareByLow);
+		const [_lowestHigh, highestHigh] = [this, other].sort(Interval.compareByHigh);
 
-		const result: [Interval] = [this.clone()];
-		if (this.contains(other.low) || this.contains(other.high)) {
-			result[0].low = smallerFrom;
-			result[0].high = largerTo;
-		} else if (other.isAfterOf(this)) {
-			// No intersection, cannot merge, instead push...
-			result.push(other);
+		if (this.intersects(other)) {
+			return new Interval(lowestLow.low, highestHigh.high, {
+				lowQualifier: lowestLow.lowQualifier,
+				highQualifier: highestHigh.highQualifier,
+			});
 		} else {
-			// But keep the order
-			result.unshift(other);
+			return undefined;
 		}
-
-		return result;
 	}
 
-	static merge(spans: Interval[]): Interval[] {
-		const [first, ...remaining] = spans.sort((a, b) => a.low - b.low);
+	static merge(intervals: Interval[]): Interval[] {
+		const [first, ...remaining] = intervals.sort(Interval.compareByLow);
 
 		const result: Interval[] = [first];
 		for (const span of remaining) {
 			const mergeBase = result.pop()!;
-			result.push(...mergeBase.mergeOne(span));
+			const mergeResult = mergeBase.mergeOne(span);
+			if (mergeResult) {
+				result.push(mergeResult);
+			} else {
+				result.push(mergeBase, span);
+			}
 		}
 
 		return result;

@@ -1,4 +1,4 @@
-import { Interval, split } from '@alexaegis/advent-of-code-lib';
+import { Interval, INTERVAL_CLOSED, split } from '@alexaegis/advent-of-code-lib';
 
 export type Ticket = number[];
 
@@ -23,7 +23,7 @@ export const parse = (input: string): TicketObservation => {
 			const [category, value] = line.split(': ');
 			const ranges = value.split(' or ').map((rawRange) => {
 				const [low, high] = rawRange.split('-');
-				return parseInt(low, 10).span(parseInt(high, 10));
+				return parseInt(low, 10).interval(parseInt(high, 10), INTERVAL_CLOSED);
 			});
 			fieldRanges.set(category, ranges);
 		} else if (currentSection === 'your ticket:') {

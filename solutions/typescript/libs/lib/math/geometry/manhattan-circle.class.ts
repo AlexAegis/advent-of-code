@@ -46,15 +46,31 @@ export class ManhattanCircle {
 	 * of S
 	 */
 	getEffectiveRange(pos: Vec2Like): number {
-		return Math.max(this.radius - this.center.manhattan(pos), 0);
+		return Math.max(this.radius - this.center.manhattan(pos), -1);
 	}
 
-	spanAtY(y: number): Interval {
+	rowAt(y: number): Interval {
 		const effectiveRange = this.getEffectiveRange({
 			x: this.center.x,
 			y,
 		});
-		return new Interval(this.center.x - effectiveRange, this.center.x + effectiveRange);
+		if (effectiveRange >= 0) {
+			return Interval.closed(this.center.x - effectiveRange, this.center.x + effectiveRange);
+		} else {
+			return Interval.open(this.center.x, this.center.x);
+		}
+	}
+
+	heightAt(x: number): Interval {
+		const effectiveRange = this.getEffectiveRange({
+			x,
+			y: this.center.y,
+		});
+		if (effectiveRange >= 0) {
+			return Interval.closed(this.center.y - effectiveRange, this.center.y + effectiveRange);
+		} else {
+			return Interval.open(this.center.y, this.center.y);
+		}
 	}
 
 	/**
