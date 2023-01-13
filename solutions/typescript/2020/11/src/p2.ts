@@ -53,7 +53,7 @@ export const tick = (
 
 export const p2 = (input: string): number => {
 	const { seats, height, width } = parse(input);
-	const limit: BoundingBox = BoundingBox.fromVectors(Vec2.ORIGIN, new Vec2(width, height));
+	const limit: BoundingBox = BoundingBox.fromVectors([Vec2.ORIGIN, new Vec2(width, height)]);
 
 	let map = seats;
 

@@ -40,7 +40,7 @@ export const p2 = (input: string): number => {
 		const topLeft = flatCubeCell.clone().applyChange((n) => n * sideLength);
 		if (graph.nodes.has(topLeft.toString())) {
 			const bottomRight = flatCubeCell.clone().applyChange((n) => (n + 1) * sideLength - 1);
-			return BoundingBox.fromVectors(topLeft, bottomRight);
+			return BoundingBox.fromVectors([topLeft, bottomRight]);
 		} else {
 			return undefined;
 		}

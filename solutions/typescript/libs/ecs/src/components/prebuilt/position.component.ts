@@ -30,6 +30,7 @@ export abstract class AnyPositionComponent extends Component {
 				if (SpatialComponent.isSpatialComponent(component)) {
 					const cache = component.getSpatialCache();
 					const lastPositions = from ? component.getLastPositions(from) : [];
+					entity.getWrappingCollisionWorldBox;
 					const toArea = component.area(to);
 					const [finiteArea, infiniteArea] = partition(toArea, (area) => area.isFinite());
 					const nextPositions = finiteArea.flatMap((area) => area.renderIntoVectors());
@@ -107,7 +108,7 @@ export class PositionComponent extends AnyPositionComponent {
 				}
 			}
 			return box;
-		}, BoundingBox.fromVectors(this.position));
+		}, BoundingBox.fromVectors([this.position]));
 	}
 }
 

@@ -10,6 +10,8 @@ export type ExecutorHaltConditionType =
 	| ((world: GridWorld) => boolean);
 
 export abstract class Executor {
+	manualHalt = false;
+
 	constructor(
 		protected readonly world: GridWorld,
 		protected readonly haltCondition: ExecutorHaltConditionType
@@ -17,8 +19,14 @@ export abstract class Executor {
 
 	abstract run(): Awaitable<number>;
 
+	halt(): void {
+		this.manualHalt = true;
+	}
+
 	isHalting(): boolean {
-		if (this.haltCondition === 'none') {
+		if (this.manualHalt) {
+			return true;
+		} else if (this.haltCondition === 'none') {
 			return false;
 		} else if (this.haltCondition === 'untilSettled') {
 			return this.world.systemsSettled;

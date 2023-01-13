@@ -39,6 +39,17 @@ export class BoundingBox {
 		this.deriveFromIntervals();
 	}
 
+	/**
+	 * Combines multiple boundingBoxes together
+	 */
+	static combine(boxes: BoundingBox[]): BoundingBox {
+		return BoundingBox.fromVectors(boxes.flatMap((box) => [box.topLeft, box.bottomRight]));
+	}
+
+	combine(...other: BoundingBox[]): BoundingBox {
+		return BoundingBox.combine([this, ...other]);
+	}
+
 	static getBoxIntervalsFromVectors(vectors: Vec2Like[]): {
 		vertical: Interval;
 		horizontal: Interval;
@@ -265,8 +276,8 @@ export class BoundingBox {
 			return this.clone();
 		} else {
 			return BoundingBox.fromVectors(
-				...[this.topLeft, this.topRight, this.bottomLeft, this.bottomRight].filter(
-					(anchor) => anchor.isFinite()
+				[this.topLeft, this.topRight, this.bottomLeft, this.bottomRight].filter((anchor) =>
+					anchor.isFinite()
 				)
 			);
 		}
@@ -368,7 +379,7 @@ export class BoundingBox {
 		);
 	}
 
-	static fromVectors(...vectors: Vec2Like[]): BoundingBox {
+	static fromVectors(vectors: Vec2Like[]): BoundingBox {
 		const { horizontal, vertical } = BoundingBox.getBoxIntervalsFromVectors(vectors);
 		return new BoundingBox(horizontal, vertical);
 	}
@@ -554,7 +565,7 @@ export class BoundingBox {
 	}
 
 	clone(): BoundingBox {
-		return BoundingBox.fromVectors(this.topLeft, this.bottomRight);
+		return BoundingBox.fromVectors([this.topLeft, this.bottomRight]);
 	}
 
 	toString(): string {

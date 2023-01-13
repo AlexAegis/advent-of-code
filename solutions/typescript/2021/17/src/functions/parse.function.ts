@@ -22,5 +22,5 @@ export const parseBoundary = (input: string): BoundingBox => {
 		x: Math.max(xAxis.first, xAxis.second),
 		y: Math.max(yAxis.first, yAxis.second),
 	});
-	return BoundingBox.fromVectors(topLeft, bottomRight);
+	return BoundingBox.fromVectors([topLeft, bottomRight]);
 };

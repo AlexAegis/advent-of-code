@@ -7,7 +7,7 @@ import type { Entity } from '../entity.class.js';
 export class FloorMarkerComponent extends Component {}
 
 export const spawnFloor = (world: GridWorld, from: Vec2, to: Vec2Like): Entity => {
-	const worldBox = BoundingBox.fromVectors(from, to);
+	const worldBox = BoundingBox.fromVectors([from, to]);
 	const localBox = worldBox.clone().normalize();
 
 	return world.spawn(

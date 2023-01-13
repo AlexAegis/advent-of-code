@@ -11,7 +11,7 @@ import type { Entity } from '../entity.class.js';
 export class WallMarkerComponent extends Component {}
 
 export const spawnWall = (world: GridWorld, from: Vec2, to: Vec2): Entity => {
-	const worldBox = BoundingBox.fromVectors(from, to);
+	const worldBox = BoundingBox.fromVectors([from, to]);
 	const localBox = worldBox.clone().normalize();
 	return world.spawn(
 		new WallMarkerComponent(),
