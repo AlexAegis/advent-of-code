@@ -64,17 +64,17 @@ export class CameraComponent extends Component {
 	}
 
 	getScreenBoxFromWorldBox(worldBox: BoundingBox): BoundingBox {
-		return BoundingBox.fromVectors(
+		return BoundingBox.fromVectors([
 			this.getScreenPositionFromWorldPosition(worldBox.topLeft),
-			this.getScreenPositionFromWorldPosition(worldBox.bottomRight)
-		);
+			this.getScreenPositionFromWorldPosition(worldBox.bottomRight),
+		]);
 	}
 
 	getWorldBoxFromScreenBox(screenBox: BoundingBox): BoundingBox {
-		return BoundingBox.fromVectors(
+		return BoundingBox.fromVectors([
 			this.getWorldPositionFromScreenPosition(screenBox.topLeft),
-			this.getWorldPositionFromScreenPosition(screenBox.bottomRight)
-		);
+			this.getWorldPositionFromScreenPosition(screenBox.bottomRight),
+		]);
 	}
 
 	getScreenPositionFromWorldPosition(gamePosition: WorldPosition): ScreenPosition {

@@ -111,6 +111,10 @@ export class GridWorld {
 		}
 	}
 
+	halt(): void {
+		this.executor?.halt();
+	}
+
 	getVisibleEntityBoundingBox(): BoundingBox {
 		return AsciiDisplayComponent.getSpatialCache(
 			this,

@@ -36,8 +36,8 @@ describe('BoundingBox', () => {
 
 	describe('intersection', () => {
 		it('should return undefined for non-intersecting boxes', () => {
-			const boxA = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(1, 1));
-			const boxB = BoundingBox.fromVectors(new Vec2(4, 4), new Vec2(5, 5));
+			const boxA = BoundingBox.fromVectors([new Vec2(0, 0), new Vec2(1, 1)]);
+			const boxB = BoundingBox.fromVectors([new Vec2(4, 4), new Vec2(5, 5)]);
 
 			const intersection = boxA.intersection(boxB);
 
@@ -45,34 +45,34 @@ describe('BoundingBox', () => {
 		});
 
 		it('should return the common part for intersecting boxes', () => {
-			const boxA = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(3, 3));
-			const boxB = BoundingBox.fromVectors(new Vec2(2, 2), new Vec2(5, 5));
+			const boxA = BoundingBox.fromVectors([new Vec2(0, 0), new Vec2(3, 3)]);
+			const boxB = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(5, 5)]);
 
 			const intersection = boxA.intersection(boxB);
 
-			const expectedIntersection = BoundingBox.fromVectors(new Vec2(2, 2), new Vec2(3, 3));
+			const expectedIntersection = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(3, 3)]);
 
 			expect(intersection).toEqual(expectedIntersection);
 		});
 
 		it('should work with infinite boxes', () => {
-			const boxA = BoundingBox.fromVectors(new Vec2(-Infinity, -Infinity), new Vec2(3, 3));
-			const boxB = BoundingBox.fromVectors(new Vec2(2, 2), new Vec2(Infinity, Infinity));
+			const boxA = BoundingBox.fromVectors([new Vec2(-Infinity, -Infinity), new Vec2(3, 3)]);
+			const boxB = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(Infinity, Infinity)]);
 
 			const intersection = boxA.intersection(boxB);
 
-			const expectedIntersection = BoundingBox.fromVectors(new Vec2(2, 2), new Vec2(3, 3));
+			const expectedIntersection = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(3, 3)]);
 
 			expect(intersection).toEqual(expectedIntersection);
 		});
 
 		it('should work with infinite boxes mixed with normal boxes', () => {
-			const boxA = BoundingBox.fromVectors(new Vec2(4, 4), new Vec2(4, Infinity));
-			const boxB = BoundingBox.fromVectors(new Vec2(0, 0), new Vec2(10, 10));
+			const boxA = BoundingBox.fromVectors([new Vec2(4, 4), new Vec2(4, Infinity)]);
+			const boxB = BoundingBox.fromVectors([new Vec2(0, 0), new Vec2(10, 10)]);
 			const intersection = boxA.intersection(boxB);
 			console.log('asdf', boxA.toString(), boxB.toString(), intersection?.toString());
 
-			const expectedIntersection = BoundingBox.fromVectors(new Vec2(4, 4), new Vec2(4, 10));
+			const expectedIntersection = BoundingBox.fromVectors([new Vec2(4, 4), new Vec2(4, 10)]);
 
 			expect(intersection).toEqual(expectedIntersection);
 		});
@@ -80,7 +80,10 @@ describe('BoundingBox', () => {
 
 	describe('moveTopLeftTo', () => {
 		it('should set the topleft to target and move other anchors by the same offset', () => {
-			const box = BoundingBox.fromVectors({ x: 2, y: 2 }, { x: 4, y: 4 });
+			const box = BoundingBox.fromVectors([
+				{ x: 2, y: 2 },
+				{ x: 4, y: 4 },
+			]);
 
 			box.moveTopLeftTo({ x: 0, y: 0 });
 
@@ -91,7 +94,10 @@ describe('BoundingBox', () => {
 
 	describe('create methods', () => {
 		it('can be created from a set of vectors', () => {
-			const boundingBox = BoundingBox.fromVectors({ x: -1, y: -2 }, { x: 1, y: 2 });
+			const boundingBox = BoundingBox.fromVectors([
+				{ x: -1, y: -2 },
+				{ x: 1, y: 2 },
+			]);
 			expect(boundingBox).toBeDefined();
 			expect(boundingBox.left).toBe(-1);
 			expect(boundingBox.top).toBe(-2); // Top is the smallest Y value
@@ -126,7 +132,7 @@ describe('BoundingBox', () => {
 	});
 
 	describe('edges', () => {
-		const boundingBox = BoundingBox.fromVectors(new Vec2(2, 2), new Vec2(4, 4));
+		const boundingBox = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(4, 4)]);
 		it('should be able to retreive the top edge from left to right', () => {
 			const edge = boundingBox.getTopEdge();
 			expect(edge.length).toBe(3);

@@ -47,7 +47,7 @@ export abstract class SpatialComponent extends Component {
 
 	getBoundingBoxOfAll(): BoundingBox {
 		return BoundingBox.fromVectors(
-			...this.getSpatialCache()
+			this.getSpatialCache()
 				.positionTable.keyArray()
 				.map((v) => new Vec2(v))
 		);

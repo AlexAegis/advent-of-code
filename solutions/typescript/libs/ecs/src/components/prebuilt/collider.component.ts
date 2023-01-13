@@ -11,39 +11,39 @@ export class ColliderComponent extends SpatialComponent {
 
 	static fromRender(
 		sprite: Sprite,
-		_cellCollides: (tile: string) => boolean = (tile) => tile !== ' ' && tile !== '.'
+		tileCollides = (char: string) => char !== ' ' && char !== '.'
 	): ColliderComponent {
-		// const boundingBoxes = [];
-		// if (sprite.boundingBox.every((x, y) => cellCollides(sprite.getCellAt(x, y) ?? ' '))) {
-		// 	boundingBoxes.push(sprite.boundingBox);
-		// } else {
-		// 	// ? Not the best optimization, but fine enough for now, at least it's accurate
-		// 	for (let y = 0; y < sprite.render.length; y++) {
-		// 		const renderRow = sprite.render[y];
-		// 		if (renderRow.every(cellCollides)) {
-		// 			boundingBoxes.push(
-		// 				BoundingBox.fromVectors(new Vec2(0, y), new Vec2(renderRow.length, y))
-		// 			);
-		// 		} else {
-		// 			for (let x = 0; x < renderRow.length; x++) {
-		// 				const cell = renderRow[y];
-		// 				if (cellCollides(cell)) {
-		// 					boundingBoxes.push(BoundingBox.fromVectors(new Vec2(x, y)));
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }
+		const boundingBoxes = [];
+		if (sprite.boundingBox.every((x, y) => tileCollides(sprite.getTileAt(x, y)?.char ?? ' '))) {
+			boundingBoxes.push(sprite.boundingBox);
+		} else {
+			// ? Not the best optimization, but fine enough for now, at least it's accurate
+			for (let y = 0; y < sprite.render.length; y++) {
+				const renderRow = sprite.render[y];
+				if (renderRow.every((tile) => tileCollides(tile.char ?? ' '))) {
+					boundingBoxes.push(
+						BoundingBox.fromVectors([new Vec2(0, y), new Vec2(renderRow.length - 1, y)])
+					);
+				} else {
+					for (let x = 0; x < renderRow.length; x++) {
+						const tile = renderRow[x];
+						if (tileCollides(tile.char ?? ' ')) {
+							boundingBoxes.push(BoundingBox.fromVectors([new Vec2(x, y)]));
+						}
+					}
+				}
+			}
+		}
 
-		return new ColliderComponent([sprite.boundingBox]);
+		return new ColliderComponent(boundingBoxes);
 	}
 
 	static fromBoundingBoxes(...colliders: BoundingBox[]): ColliderComponent {
 		return new ColliderComponent(colliders);
 	}
 
-	area(at: Vec2): BoundingBox[] {
-		return this.colliders.map((collider) => collider.clone().moveAnchorTo(at));
+	area(position: Vec2): BoundingBox[] {
+		return this.colliders.map((collider) => collider.clone().offset(position));
 	}
 
 	intersectsWithPoint(point: Vec2Like): boolean {

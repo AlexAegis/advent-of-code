@@ -48,6 +48,6 @@ export class SpatialCache {
 	}
 
 	areaOfAllNonInfiniteEntities(): BoundingBox {
-		return BoundingBox.fromVectors(...this.positionTable.keyArray().map((v) => new Vec2(v)));
+		return BoundingBox.fromVectors(this.positionTable.keyArray().map((v) => new Vec2(v)));
 	}
 }

@@ -12,7 +12,7 @@ const toKeypadNumber = (vec: Vec2): number => (2 - vec.y) * 3 + vec.x + 1;
 export const p1 = (input: string): number => {
 	const position = new Vec2(1, 1);
 
-	const keypadArea = BoundingBox.fromVectors(Vec2.ORIGIN, new Vec2(2, 2));
+	const keypadArea = BoundingBox.fromVectors([Vec2.ORIGIN, new Vec2(2, 2)]);
 
 	const result = split(input).reduce((acc, line) => {
 		line.split('')
