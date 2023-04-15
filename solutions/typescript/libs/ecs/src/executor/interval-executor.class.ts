@@ -8,7 +8,7 @@ import {
 	tap,
 } from 'rxjs';
 import type { GridWorld } from '../world/grid-world.class.js';
-import { Executor, ExecutorHaltConditionType } from './executor.class.js';
+import { Executor, type ExecutorHaltConditionType } from './executor.class.js';
 
 /**
  * Executes a tick then waits a set time. It's good for inspecting an execution.

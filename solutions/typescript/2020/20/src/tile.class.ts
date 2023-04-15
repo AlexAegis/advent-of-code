@@ -1,5 +1,5 @@
 import { flipMatrix, rotateMatrix } from '@alexaegis/advent-of-code-lib/array';
-import { Direction, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import { Direction, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
 
 export class Tile {
 	tiles: string[][] = [];
@@ -53,13 +53,13 @@ export class Tile {
 	public getBorder(side: number, reversed = false): string[] {
 		let result: string[];
 		if (side === 0) {
-			result = this.tiles.map((t) => t[t.length - 1]);
+			result = this.tiles.map((t) => t[t.length - 1]!);
 		} else if (side === 1) {
-			result = this.tiles[0];
+			result = this.tiles[0]!;
 		} else if (side === 2) {
-			result = this.tiles.map((t) => t[0]);
+			result = this.tiles.map((t) => t[0]!);
 		} else {
-			result = this.tiles[this.tiles.length - 1];
+			result = this.tiles[this.tiles.length - 1]!;
 		}
 		return reversed ? result.reverse() : result;
 	}

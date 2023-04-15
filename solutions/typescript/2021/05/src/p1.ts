@@ -1,9 +1,11 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
 
 export const parseLine = (line: string): { start: Vec2; end: Vec2 } => {
-	const [start, end] = line.split(' -> ').map((coordinate) => new Vec2(coordinate as Vec2String));
+	const [start, end] = line
+		.split(' -> ')
+		.map((coordinate) => new Vec2(coordinate as Vec2String)) as [Vec2, Vec2];
 	return { start, end };
 };
 

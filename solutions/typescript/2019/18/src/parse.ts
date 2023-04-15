@@ -33,9 +33,9 @@ export const parseMatrix = (
 	let y = 0;
 	let x = 0;
 	for (y = 0; y < matrix.length; y++) {
-		const row = matrix[y];
+		const row = matrix[y]!;
 		for (x = 0; x < row.length; x++) {
-			const tile = row[x];
+			const tile = row[x]!;
 			const vec = new Vec2(x, y);
 			if (tile.match(keyMatcher)) {
 				map.set(vec.toString(), Tile.EMPTY);

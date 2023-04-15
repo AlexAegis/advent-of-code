@@ -2,9 +2,9 @@ import {
 	Direction,
 	GridGraph,
 	GridGraphNode,
-	ToString,
 	Vec2,
-	Vec2Like,
+	type ToString,
+	type Vec2Like,
 } from '@alexaegis/advent-of-code-lib';
 
 /**
@@ -24,7 +24,7 @@ export class CubeMap<T extends ToString> {
 	cubeGraph = new GridGraph<T>();
 	constructor(private readonly flatCube: (T | undefined)[][]) {
 		for (let y = 0; y < this.flatCube.length; y++) {
-			const row = this.flatCube[y];
+			const row = this.flatCube[y]!;
 			for (let x = 0; x < row.length; x++) {
 				const cell = row[x];
 				if (cell) {

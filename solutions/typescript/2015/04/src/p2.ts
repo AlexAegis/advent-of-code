@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { hashSearch } from './hash-search.function.js';
 
 export const p2 = hashSearch(6);

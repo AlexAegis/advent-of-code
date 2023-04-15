@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { ExpeditionFileSystem } from './expedition-file-system.class.js';
 
 const TOTAL_DISK_SPACE = 70000000;
@@ -16,7 +16,7 @@ export const p2 = (input: string): number => {
 		.filter((dir) => dir.size >= freeTreshold)
 		.sort((a, b) => a.size - b.size);
 
-	return deleteCandidates[0].size;
+	return deleteCandidates[0]?.size ?? 0;
 };
 
 await task(p2, packageJson.aoc); // 8319096 ~0.65ms

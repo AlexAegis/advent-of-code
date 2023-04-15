@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { CircularLinkedList } from '@alexaegis/advent-of-code-lib/linked-list';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const mix = (ll: CircularLinkedList<number>): void => {
 	const nodes = [...ll.singleIterationNodes()];

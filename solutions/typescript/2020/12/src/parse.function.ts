@@ -17,5 +17,5 @@ const r = /([NSEWLRF]{1})(\d+)/;
 
 export const parse = (line: string): FerryActionValue => {
 	const [, action, value] = r.exec(line) ?? [];
-	return { action: action as FerryAction, value: parseInt(value, 10) };
+	return { action: action as FerryAction, value: value ? parseInt(value, 10) : 0 };
 };

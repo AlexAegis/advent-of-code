@@ -3,7 +3,7 @@ import { drawMapStatic, renderMatrix, sleep } from '@alexaegis/advent-of-code-li
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export enum TileType {

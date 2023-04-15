@@ -1,6 +1,6 @@
 import type { BoundingBox, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { stringToMatrix } from '@alexaegis/advent-of-code-lib/string';
-import { Sprite, SpriteOptions } from '../../renderer/sprite.class.js';
+import { Sprite, type SpriteOptions } from '../../renderer/sprite.class.js';
 import { SpatialComponent } from '../spatial-component.class.js';
 
 export class AsciiDisplayComponent extends SpatialComponent {

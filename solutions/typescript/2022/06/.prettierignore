@@ -18,6 +18,7 @@ coverage
 .vscode/chrome
 .nyc_output
 vite.config.ts.*
+vitest.config.ts.*
 
 # turbo
 .turbo

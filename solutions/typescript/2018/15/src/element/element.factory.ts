@@ -7,4 +7,10 @@ export const elementRepresentations: { [r: string]: () => Element } = Object.ass
 	blockRepresentations,
 	creatureRepresentations
 );
-export const elementFactory = (element: string): Element => elementRepresentations[element]();
+export const elementFactory = (element: string): Element => {
+	const representation = elementRepresentations[element];
+	if (!representation) {
+		throw new Error(`No element representation for ${element}`);
+	}
+	return representation();
+};

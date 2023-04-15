@@ -2,8 +2,8 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import type { GridGraphNode, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import { GridGraph } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
-import { Door, doorMatcher, Key, parseLines, parseMatrix, Tile } from './parse.js';
+import packageJson from '../package.json';
+import { Tile, doorMatcher, parseLines, parseMatrix, type Door, type Key } from './parse.js';
 
 /**
  * Heuristic function for pathfinding

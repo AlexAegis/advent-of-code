@@ -5,11 +5,11 @@ import {
 	mapFirst,
 	task,
 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { getFacingScore, parseMovementInstructions } from './parse.function.js';
 
 export const p1 = (input: string): number => {
-	const [map, rawInstructions] = input.split(DOUBLE_NEWLINE);
+	const [map, rawInstructions] = input.splitIntoStringPair(DOUBLE_NEWLINE);
 	const instructions = parseMovementInstructions(rawInstructions);
 	const graph = map.toGridGraph<string>();
 
@@ -40,7 +40,7 @@ export const p1 = (input: string): number => {
 		}
 	}
 
-	if (process.env.RUN) {
+	if (process.env['RUN']) {
 		graph.printPath(path);
 	}
 

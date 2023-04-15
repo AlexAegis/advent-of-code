@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 interface Graph {
 	nodes: string[];
 	edges: Array<{ from: string; to: string }>;
@@ -11,12 +11,12 @@ const interpret = async (input: string) => {
 	for (const line of split(input)) {
 		const splitLine: string[] = line.split(/ /);
 		if (!graph.nodes.find((node) => node === splitLine[1])) {
-			graph.nodes.push(splitLine[1]);
+			graph.nodes.push(splitLine[1]!);
 		}
 		if (!graph.nodes.find((node) => node === splitLine[7])) {
-			graph.nodes.push(splitLine[7]);
+			graph.nodes.push(splitLine[7]!);
 		}
-		graph.edges.push({ from: splitLine[1], to: splitLine[7] });
+		graph.edges.push({ from: splitLine[1]!, to: splitLine[7]! });
 	}
 	return graph;
 };

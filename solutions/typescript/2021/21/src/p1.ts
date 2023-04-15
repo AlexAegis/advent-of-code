@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export class DeterministicDie {
 	totalRolls = 0;
@@ -37,7 +37,7 @@ export class Player {
 
 export const parse = (line: string): Player => {
 	const [a, b] = line.match(/\d/g)!;
-	return new Player(parseInt(a, 10), parseInt(b, 10));
+	return new Player(parseInt(a, 10), parseInt(b!, 10));
 };
 
 export const p1 = (input: string): number => {

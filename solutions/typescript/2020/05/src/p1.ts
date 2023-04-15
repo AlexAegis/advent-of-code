@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { max } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export enum PlanePartition {
 	front = 'F',

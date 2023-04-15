@@ -1,5 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import { type } from 'arktype';
+import packageJson from '../package.json';
 
 const magicNumber = 20201227;
 /**
@@ -27,7 +28,8 @@ export class Agent {
 }
 
 export const p2 = (input: string): number => {
-	const publicKeys = split(input).map((l) => parseInt(l, 10));
+	const numberPair = type(['number', 'number']);
+	const publicKeys = numberPair.assert(split(input).map((l) => parseInt(l, 10)));
 	const [cardPublicKey, doorPublicKey] = publicKeys;
 	const subjectNumber = 7;
 	// for (const publicKey of publicKeys) {

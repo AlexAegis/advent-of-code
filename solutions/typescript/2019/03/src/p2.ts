@@ -1,12 +1,12 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { flattenVectors } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export const p2 = (input: string): number => {
-	const p = parse(input);
-	const a = flattenVectors(p[0]);
-	const b = flattenVectors(p[1]);
+	const [first, second] = parse(input);
+	const a = flattenVectors(first);
+	const b = flattenVectors(second);
 	const possInts = new Map<string, { a: number; b: number }>();
 	a.forEach((ap) => {
 		possInts.set(ap.c.toString(), { a: ap.steps, b: Infinity });

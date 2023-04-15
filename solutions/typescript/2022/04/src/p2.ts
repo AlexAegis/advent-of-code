@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const closedRangeIntersectLength = (
 	[r1l, r1h]: [number, number],
@@ -11,6 +11,7 @@ export const p2 = (input: string): number =>
 		.map((line) =>
 			line.split(',').map((r) => r.split('-').map((n) => parseInt(n, 10)) as [number, number])
 		)
-		.filter(([r1, r2]) => closedRangeIntersectLength(r1, r2) > 0).length;
+		.filter((pair) => pair[0] && pair[1] && closedRangeIntersectLength(pair[0], pair[1]) > 0)
+		.length;
 
 await task(p2, packageJson.aoc); // 852 ~1.07ms

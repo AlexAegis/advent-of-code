@@ -4,8 +4,8 @@ import {
 	addSnailfishNumbers,
 	getMagnitude,
 	parseSnailfishNumber,
-	SnailfishNumber,
 	triggerExplosion,
+	type SnailfishNumber,
 } from './snailfish-number.js';
 
 describe('snailfish numbers', () => {

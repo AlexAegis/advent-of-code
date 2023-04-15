@@ -1,6 +1,6 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { p2memoized } from './p2.memoized.js';
 
 describe('2020 - Day 10 - Part Two (Memoized)', () => {

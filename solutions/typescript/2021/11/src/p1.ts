@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, GridGraph } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const flash = (graph: GridGraph<number>, flashed = new Set<string>()): Set<string> => {
 	const flashes = [...graph.nodes]

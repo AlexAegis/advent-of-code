@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export enum Tile {
@@ -9,11 +9,11 @@ export enum Tile {
 }
 
 export const bugDie = (adj: Vec2[], map: Tile[][]): boolean => {
-	return adj.map((a) => map[a.y][a.x]).count((t) => t === Tile.BUG) !== 1;
+	return adj.map((a) => map[a.y]?.[a.x]).count((t) => t === Tile.BUG) !== 1;
 };
 
 export const infest = (adj: Vec2[], map: Tile[][]): boolean => {
-	const adjBugs = adj.map((a) => map[a.y][a.x]).count((t) => t === Tile.BUG);
+	const adjBugs = adj.map((a) => map[a.y]?.[a.x]).count((t) => t === Tile.BUG);
 	return adjBugs === 1 || adjBugs === 2;
 };
 
@@ -37,17 +37,21 @@ export const p1 = (input: string): number => {
 		const nextGen: Tile[][] = [];
 		for (let y = 0; y < map.length; y++) {
 			const row = map[y];
-			const nextRow = [];
-			for (let x = 0; x < map.length; x++) {
-				const tile = row[x];
-				const adj = adjacents(x, y);
+			const nextRow: Tile[] = [];
+			if (row) {
+				for (let x = 0; x < map.length; x++) {
+					const tile = row[x];
+					if (tile) {
+						const adj = adjacents(x, y);
 
-				if (tile === Tile.BUG && bugDie(adj, map)) {
-					nextRow[x] = Tile.EMTPY;
-				} else if (tile === Tile.EMTPY && infest(adj, map)) {
-					nextRow[x] = Tile.BUG;
-				} else {
-					nextRow[x] = tile;
+						if (tile === Tile.BUG && bugDie(adj, map)) {
+							nextRow[x] = Tile.EMTPY;
+						} else if (tile === Tile.EMTPY && infest(adj, map)) {
+							nextRow[x] = Tile.BUG;
+						} else {
+							nextRow[x] = tile;
+						}
+					}
 				}
 			}
 			nextGen[y] = nextRow;

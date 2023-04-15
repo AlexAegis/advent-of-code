@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const calcSegment = (input: string[]): string => {
 	let currentOperator = '+';
@@ -11,9 +11,9 @@ export const calcSegment = (input: string[]): string => {
 			currentOperator = '*';
 		}
 		if (
-			/^\d+$/.test(input[i - 2]) &&
+			/^\d+$/.test(input[i - 2]!) &&
 			input[i - 1] === currentOperator &&
-			/^\d+$/.test(input[i])
+			/^\d+$/.test(input[i]!)
 		) {
 			input[i - 2] = eval(`${input[i - 2]}${input[i - 1]}${input[i]}`);
 			input.splice(i - 1, 2);
@@ -31,7 +31,7 @@ export const calcSegment = (input: string[]): string => {
 
 		i++;
 	}
-	return input[0];
+	return input[0]!;
 };
 
 export const p2 = (input: string): number =>

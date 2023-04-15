@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { interpret } from './interpret.function.js';
 import { Coord } from './model/coord.class.js';
 
@@ -37,8 +37,8 @@ export const p1 = (input: string): number | undefined => {
 				const ordered: Coord[] = points.sort(
 					(a, b) => a.manhattan(x, y) - b.manhattan(x, y)
 				);
-				if (ordered[0].manhattan(x, y) !== ordered[1].manhattan(x, y)) {
-					const b = bucket.get(ordered[0].toString());
+				if (ordered[0]!.manhattan(x, y) !== ordered[1]!.manhattan(x, y)) {
+					const b = bucket.get(ordered[0]!.toString());
 					if (b) {
 						b.push(new Coord(x, y));
 					}

@@ -1,5 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import { type } from 'arktype';
+import packageJson from '../package.json';
 
 const magicNumber = 20201227;
 
@@ -18,7 +19,10 @@ export const findLoopsize = (subjectNumber: number, publicKey: number): number =
 };
 
 export const p1 = (input: string): number => {
-	const [cardPublicKey, doorPublicKey] = split(input).map((l) => parseInt(l, 10));
+	const numberPair = type(['number', 'number']);
+	const [cardPublicKey, doorPublicKey] = numberPair.assert(
+		split(input).map((l) => parseInt(l, 10))
+	);
 	const subjectNumber = 7;
 	const cardLoopSize = findLoopsize(subjectNumber, cardPublicKey);
 	const doorLoopSize = findLoopsize(subjectNumber, doorPublicKey);

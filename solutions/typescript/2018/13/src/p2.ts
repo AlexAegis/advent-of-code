@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { interpreter } from './interpreter.function.js';
 import { Cart, Mine } from './model/index.js';
 
@@ -11,7 +11,7 @@ export const p2 = (input: string): string | undefined => {
 			cart.step(mine);
 		}
 	}
-	return mine.carts.length > 0 ? mine.carts[0].position.toString() : undefined;
+	return mine.carts[0]?.position.toString();
 };
 
 await task(p2, packageJson.aoc); // 36,123 ~37.45ms

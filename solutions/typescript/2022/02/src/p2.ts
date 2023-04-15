@@ -1,14 +1,14 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import {
-	losingResponseMap,
 	Outcome,
 	Shape,
+	losingResponseMap,
 	shapeKeyMap,
-	Strategy,
-	StrategyResponse,
 	winningResponseMap,
+	type Strategy,
+	type StrategyResponse,
 } from './rock-paper-scissors.type.js';
 
 const shapeStrategyMap: Record<StrategyResponse, Outcome> = {

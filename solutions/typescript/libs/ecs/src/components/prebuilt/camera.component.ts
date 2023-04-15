@@ -1,4 +1,4 @@
-import { BoundingBox, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib';
+import { BoundingBox, Vec2, type Vec2Like } from '@alexaegis/advent-of-code-lib';
 import type { Entity } from '../../index.js';
 import type { ScreenPosition, WorldPosition } from '../../renderer/position.type.js';
 import type { CameraFollowSystemOptions } from '../../system/prebuilt/camera-follow.system.options.js';
@@ -22,7 +22,7 @@ export class CameraComponent extends Component {
 	}
 
 	override onSpawn(): void {
-		const positionComponent = this.belongsTo[0].getComponent(PositionComponent);
+		const positionComponent = this.belongsTo[0]?.getComponent(PositionComponent);
 		if (positionComponent) {
 			this.positionComponent = positionComponent;
 		} else {

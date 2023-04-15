@@ -1,6 +1,6 @@
-import { loadTaskResources, split, TaskResources } from '@alexaegis/advent-of-code-lib';
+import { loadTaskResources, split, type TaskResources } from '@alexaegis/advent-of-code-lib';
 import { beforeAll, describe, expect, it } from 'vitest';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { ExpeditionFileSystem } from './expedition-file-system.class.js';
 
 describe('ExpeditionFileSystem', () => {

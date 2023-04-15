@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const getMostCommonBit = (lines: string[], bitIndex: number): '1' | '0' => {
 	let c0 = 0;
@@ -18,7 +18,7 @@ const getMostCommonBit = (lines: string[], bitIndex: number): '1' | '0' => {
 
 export const p2 = (input: string): number => {
 	const lines = input.lines();
-	const bitCount = lines[0].length;
+	const bitCount = lines[0]?.length ?? 0;
 
 	let oxygenRatings = [...lines];
 	for (let i = 0; i < bitCount && oxygenRatings.length > 1; i++) {
@@ -32,8 +32,8 @@ export const p2 = (input: string): number => {
 		co2ScrubberRatings = co2ScrubberRatings.filter((line) => [...line][i] !== mostCommonBit);
 	}
 
-	const oxygenRating = parseInt(oxygenRatings[0], 2);
-	const co2ScrubberRating = parseInt(co2ScrubberRatings[0], 2);
+	const oxygenRating = parseInt(oxygenRatings[0]!, 2);
+	const co2ScrubberRating = parseInt(co2ScrubberRatings[0]!, 2);
 	return oxygenRating * co2ScrubberRating;
 };
 

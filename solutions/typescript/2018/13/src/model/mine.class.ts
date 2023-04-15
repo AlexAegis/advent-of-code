@@ -22,7 +22,7 @@ export class Mine implements ToString {
 				if (carts.length > 1 || crashes.length > 1) {
 					line += 'X';
 				} else if (carts.length === 1) {
-					line += carts[0].direction.marker;
+					line += carts[0]!.direction.marker;
 				} else if (rail) {
 					line += rail;
 				} else {

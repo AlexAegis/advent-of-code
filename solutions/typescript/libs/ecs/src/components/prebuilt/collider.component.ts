@@ -1,4 +1,4 @@
-import { BoundingBox, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib';
+import { BoundingBox, Vec2, type Vec2Like } from '@alexaegis/advent-of-code-lib';
 import type { Sprite } from '../../renderer/sprite.class.js';
 import { SpatialComponent } from '../spatial-component.class.js';
 
@@ -20,15 +20,20 @@ export class ColliderComponent extends SpatialComponent {
 			// ? Not the best optimization, but fine enough for now, at least it's accurate
 			for (let y = 0; y < sprite.render.length; y++) {
 				const renderRow = sprite.render[y];
-				if (renderRow.every((tile) => tileCollides(tile.char ?? ' '))) {
-					boundingBoxes.push(
-						BoundingBox.fromVectors([new Vec2(0, y), new Vec2(renderRow.length - 1, y)])
-					);
-				} else {
-					for (let x = 0; x < renderRow.length; x++) {
-						const tile = renderRow[x];
-						if (tileCollides(tile.char ?? ' ')) {
-							boundingBoxes.push(BoundingBox.fromVectors([new Vec2(x, y)]));
+				if (renderRow) {
+					if (renderRow.every((tile) => tileCollides(tile.char ?? ' '))) {
+						boundingBoxes.push(
+							BoundingBox.fromVectors([
+								new Vec2(0, y),
+								new Vec2(renderRow.length - 1, y),
+							])
+						);
+					} else {
+						for (let x = 0; x < renderRow.length; x++) {
+							const tile = renderRow[x];
+							if (tileCollides(tile?.char ?? ' ')) {
+								boundingBoxes.push(BoundingBox.fromVectors([new Vec2(x, y)]));
+							}
 						}
 					}
 				}

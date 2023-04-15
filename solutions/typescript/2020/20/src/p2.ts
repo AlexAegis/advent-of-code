@@ -4,8 +4,8 @@ import {
 	mergeTileMatrix,
 	renderMatrix,
 } from '@alexaegis/advent-of-code-lib/functions';
-import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 import { Tile } from './tile.class.js';
 
@@ -34,7 +34,7 @@ export const p2 = (input: string): number => {
 		// allTiles.clear();
 		monsterTiles.clear();
 		for (let y = 0; y < sea.length; y++) {
-			const row = sea[y];
+			const row = sea[y]!;
 			for (let x = 0; x < row.length; x++) {
 				const pos = new Vec2(x, -y);
 				// if (row[x] === '#') {

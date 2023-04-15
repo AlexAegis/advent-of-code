@@ -1,5 +1,5 @@
 import { presentInAll, split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { splitRucksackIntoCompartments } from './split-rucksack-into-compartments.function.js';
 
 export const p1 = (input: string): number =>

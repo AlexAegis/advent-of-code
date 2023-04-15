@@ -1,11 +1,11 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import { numberPair, split, task } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json';
 import {
-	getOutcome,
 	Shape,
+	getOutcome,
 	shapeKeyMap,
-	Strategy,
-	StrategyResponse,
+	type Strategy,
+	type StrategyResponse,
 } from './rock-paper-scissors.type.js';
 
 const simpleShapeStrategyMap: Record<StrategyResponse, Shape> = {
@@ -16,8 +16,10 @@ const simpleShapeStrategyMap: Record<StrategyResponse, Shape> = {
 
 export const p1 = (input: string): number =>
 	split(input)
-		.map((line) => line.split(' ') as Strategy)
-		.map(([opponent, strategy]) => [shapeKeyMap[opponent], simpleShapeStrategyMap[strategy]])
+		.map((line) => line.splitIntoStringPair() as Strategy)
+		.map(([opponent, strategy]) =>
+			numberPair.assert([shapeKeyMap[opponent], simpleShapeStrategyMap[strategy]])
+		)
 		.map(([opponentShape, myShape]) => myShape + getOutcome(opponentShape, myShape))
 		.sum();
 

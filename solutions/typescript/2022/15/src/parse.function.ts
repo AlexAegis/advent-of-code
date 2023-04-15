@@ -8,8 +8,8 @@ export const parse = (input: string): ManhattanCircle[] => {
 			const groups = match.exec(line);
 			if (groups) {
 				const [, ax, ay, bx, by] = groups;
-				const sensor = new Vec2(parseInt(ax, 10), parseInt(ay, 10));
-				const closestBeacon = new Vec2(parseInt(bx, 10), parseInt(by, 10));
+				const sensor = new Vec2(parseInt(ax!, 10), parseInt(ay!, 10));
+				const closestBeacon = new Vec2(parseInt(bx!, 10), parseInt(by!, 10));
 				const range = sensor.manhattan(closestBeacon);
 				return new ManhattanCircle(sensor, range);
 			} else {

@@ -1,7 +1,7 @@
+import type { Defined } from '@alexaegis/common';
 import type { CameraOptions } from '../components/prebuilt/camera.component.options.js';
 import type { ExecutorHaltConditionType, ExecutorType } from '../executor/executor.class.js';
 import type { IOBackendType, RendererSystemOptions } from '../renderer/index.js';
-
 export interface GridWorldOptions {
 	/**
 	 * @default undefined
@@ -10,22 +10,22 @@ export interface GridWorldOptions {
 	/**
 	 * @default 60
 	 */
-	executorSpeed?: ExecutorType;
+	executorSpeed?: ExecutorType | undefined;
 
 	/**
 	 * @default 'untilSettled'
 	 */
-	executorHaltCondition?: ExecutorHaltConditionType;
+	executorHaltCondition?: ExecutorHaltConditionType | undefined;
 
 	/**
 	 * Additional renderer options
 	 */
-	rendererOptions?: Omit<RendererSystemOptions, 'cameraEntity' | 'backend'>;
+	rendererOptions?: Omit<RendererSystemOptions, 'cameraEntity' | 'backend'> | undefined;
 
-	cameraOptions?: Omit<CameraOptions, 'entity'>;
+	cameraOptions?: Omit<CameraOptions, 'entity'> | undefined;
 }
 
-export type NormalizedGridWorldOptions = Required<Omit<GridWorldOptions, 'io' | 'cameraOptions'>> &
+export type NormalizedGridWorldOptions = Defined<Omit<GridWorldOptions, 'io' | 'cameraOptions'>> &
 	GridWorldOptions;
 
 export const normalizeGridWorldOptions = (

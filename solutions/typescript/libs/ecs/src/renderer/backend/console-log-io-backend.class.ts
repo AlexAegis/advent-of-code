@@ -1,4 +1,4 @@
-import { renderMatrix, Vec2Like } from '@alexaegis/advent-of-code-lib';
+import { renderMatrix, type Vec2Like } from '@alexaegis/advent-of-code-lib';
 import type { Sprite } from '../sprite.class.js';
 import type {
 	IOBackend,

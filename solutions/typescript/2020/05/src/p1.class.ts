@@ -1,7 +1,7 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { max } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
-import { lowerHalf, PlanePartition, upperHalf } from './p1.js';
+import packageJson from '../package.json';
+import { PlanePartition, lowerHalf, upperHalf } from './p1.js';
 
 export class UncertainSeatPosition {
 	public row: [number, number] = [0, 127];

@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const areClosedRangesFullyOverlapping = (
 	[r1l, r1h]: [number, number],
@@ -21,6 +21,7 @@ export const p1 = (input: string): number =>
 		.map((line) =>
 			line.split(',').map((r) => r.split('-').map((n) => parseInt(n, 10)) as [number, number])
 		)
-		.filter(([r1, r2]) => areClosedRangesFullyOverlapping(r1, r2)).length;
+		.filter((pair) => pair[0] && pair[1] && areClosedRangesFullyOverlapping(pair[0], pair[1]))
+		.length;
 
 await task(p1, packageJson.aoc); // 433 ~1.10ms

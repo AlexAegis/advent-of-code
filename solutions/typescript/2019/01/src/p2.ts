@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const fuel = (mass: number): number => {
 	const f = Math.max(Math.floor(mass / 3) - 2, 0);

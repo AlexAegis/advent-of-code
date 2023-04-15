@@ -1,4 +1,4 @@
-import { Direction, split, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib';
+import { Direction, split, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib';
 import {
 	AsciiDisplayComponent,
 	ColliderComponent,
@@ -25,9 +25,9 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	const sandDisplay = AsciiDisplayComponent.fromString('o');
 
 	const world = new GridWorld({
-		executorSpeed: process.env.RUN ? 60 : 'instant',
+		executorSpeed: process.env['RUN'] ? 60 : 'instant',
 		executorHaltCondition: 'untilSettled',
-		io: process.env.RUN ? 'terminalKit' : undefined,
+		io: process.env['RUN'] ? 'terminalKit' : undefined,
 	});
 
 	const sandSpawner = world.spawn(

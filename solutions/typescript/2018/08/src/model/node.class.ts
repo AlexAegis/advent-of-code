@@ -8,7 +8,7 @@ export class MemoryNode {
 
 	read(tape: number[], cursor: number): number {
 		while (this.childrenRead !== this.childrenCount) {
-			const child = new MemoryNode(tape[cursor], tape[cursor + 1]);
+			const child = new MemoryNode(tape[cursor]!, tape[cursor + 1]!);
 			this.children.push(child);
 			cursor += 2;
 			this.childrenRead += 1;
@@ -16,7 +16,7 @@ export class MemoryNode {
 		}
 
 		while (this.metadataRead !== this.metadataCount) {
-			this.metadata.push(tape[cursor]);
+			this.metadata.push(tape[cursor]!);
 			cursor += 1;
 			this.metadataRead += 1;
 		}
@@ -38,7 +38,7 @@ export class MemoryNode {
 		return this.metadata && this.children.length > 0
 			? this.metadata
 					.filter((index) => index > 0 && index < this.children.length + 1)
-					.map((index) => this.children[--index].value())
+					.map((index) => this.children[--index]!.value())
 					.sum()
 			: this.sum();
 	}

@@ -1,5 +1,5 @@
 import { nonNullish } from '@alexaegis/advent-of-code-lib/functions';
-import { NestedPairs, PairSide, PairTree } from '@alexaegis/advent-of-code-lib/model';
+import { PairTree, type NestedPairs, type PairSide } from '@alexaegis/advent-of-code-lib/model';
 
 export type SnailfishNumber = PairTree<number>;
 
@@ -105,9 +105,13 @@ export const parseSnailfishNumber = (line: string): SnailfishNumber => {
 
 export const addSnailfishNumbers = (...numbers: SnailfishNumber[]): SnailfishNumber => {
 	const [first, ...rest] = numbers;
-	let base = first;
-	for (const next of rest) {
-		base = reduceSnailfishNumber(base.join(next));
+	if (first) {
+		let base = first;
+		for (const next of rest) {
+			base = reduceSnailfishNumber(base.join(next));
+		}
+		return base;
+	} else {
+		throw new Error('At least one SnailfishNumber is required!');
 	}
-	return base;
 };

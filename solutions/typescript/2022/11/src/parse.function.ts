@@ -85,39 +85,39 @@ export const parse = (input: string): { monkeyMap: Record<number, Monkey>; monke
 			continue;
 		}
 
-		const monkeyIdMatch = monkeyIdMatcher.exec(line);
+		const monkeyIdMatch = monkeyIdMatcher.exec(line)?.[1];
 		if (monkeyIdMatch) {
-			monkeyBuilder.setId(monkeyIdMatch[1].toInt());
+			monkeyBuilder.setId(monkeyIdMatch.toInt());
 			continue;
 		}
 
-		const monkeyStartingItemMatch = monkeyStartingItemMatcher.exec(line);
+		const monkeyStartingItemMatch = monkeyStartingItemMatcher.exec(line)?.[1];
 		if (monkeyStartingItemMatch) {
-			monkeyBuilder.setItems(monkeyStartingItemMatch[1].split(', ').toInt());
+			monkeyBuilder.setItems(monkeyStartingItemMatch.split(', ').toInt());
 			continue;
 		}
 
-		const monkeyOperationMatch = monkeyOperationMatcher.exec(line);
+		const monkeyOperationMatch = monkeyOperationMatcher.exec(line)?.[1];
 		if (monkeyOperationMatch) {
-			monkeyBuilder.setOperation(eval('old => ' + monkeyOperationMatch[1]));
+			monkeyBuilder.setOperation(eval('old => ' + monkeyOperationMatch));
 			continue;
 		}
 
-		const monkeyTestMatch = monkeyTestMatcher.exec(line);
+		const monkeyTestMatch = monkeyTestMatcher.exec(line)?.[1];
 		if (monkeyTestMatch) {
-			monkeyBuilder.setTest(monkeyTestMatch[1].toInt());
+			monkeyBuilder.setTest(monkeyTestMatch.toInt());
 			continue;
 		}
 
-		const monkeyTrueTargetMatch = monkeyTrueTargetMatcher.exec(line);
+		const monkeyTrueTargetMatch = monkeyTrueTargetMatcher.exec(line)?.[1];
 		if (monkeyTrueTargetMatch) {
-			monkeyBuilder.setTrueTarget(monkeyTrueTargetMatch[1].toInt());
+			monkeyBuilder.setTrueTarget(monkeyTrueTargetMatch.toInt());
 			continue;
 		}
 
-		const monkeyFalseTargetMatch = monkeyFalseTargetMatcher.exec(line);
+		const monkeyFalseTargetMatch = monkeyFalseTargetMatcher.exec(line)?.[1];
 		if (monkeyFalseTargetMatch) {
-			monkeyBuilder.setFalseTarget(monkeyFalseTargetMatch[1].toInt());
+			monkeyBuilder.setFalseTarget(monkeyFalseTargetMatch.toInt());
 			continue;
 		}
 	}

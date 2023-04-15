@@ -15,7 +15,7 @@ export const signalComparator: Comparator<Signal> = (a: Signal, b: Signal): numb
 		let i = 0;
 		let result = 0;
 		while (result === 0 && i < b.length && i < a.length) {
-			result = signalComparator(a[i], b[i]);
+			result = signalComparator(a[i]!, b[i]!);
 			i++;
 		}
 

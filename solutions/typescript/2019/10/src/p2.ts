@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { rotateArray } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { mostLos } from './p1.js';
 import { parseLines } from './parse.js';
 

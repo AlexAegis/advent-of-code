@@ -3,7 +3,7 @@ import type { Vec2String } from '@alexaegis/advent-of-code-lib/model';
 import { interpret } from './interpret.function.js';
 import type { Claim } from './model/claim.interface.js';
 
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const p2 = (input: string): number | undefined => {
 	const fabric: Map<Vec2String, number[]> = new Map<Vec2String, number[]>(); // Contains each claim for each coordinate

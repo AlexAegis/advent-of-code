@@ -1,6 +1,6 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
+import { split, task, type SizedTuple } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const ADDRESS_LENGTH = 36;
 
@@ -10,12 +10,12 @@ export interface Write {
 }
 
 export const parse = (line: string): Write | string => {
-	const [a, , b] = line.split(' ');
+	const [a, , b] = line.split(' ') as SizedTuple<string, 3>;
 	if (line.startsWith('mask')) {
 		return b;
 	} else {
 		const [, m] = a.match(/\w+\[?(\d+)?\]?/) ?? [];
-		return { address: parseInt(m, 10), value: parseInt(b, 10) };
+		return { address: parseInt(m!, 10), value: parseInt(b, 10) };
 	}
 };
 
@@ -23,7 +23,7 @@ export const applyMask = (n: number, mask: string): number => {
 	const binary = [...n.toString(2).padStart(ADDRESS_LENGTH, '0')];
 	for (let i = 0; i < ADDRESS_LENGTH; i++) {
 		const maskVal = mask[mask.length - i - 1];
-		if (maskVal !== 'X') {
+		if (maskVal && maskVal !== 'X') {
 			binary[binary.length - i - 1] = maskVal;
 		}
 	}

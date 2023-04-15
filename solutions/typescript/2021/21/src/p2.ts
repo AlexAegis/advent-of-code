@@ -1,6 +1,6 @@
-import { task } from '@alexaegis/advent-of-code-lib';
+import { numberPair, task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 interface RoundState {
 	p1Position: number;
@@ -59,14 +59,14 @@ const diracRoll = (state: RoundState): RoundResultState => {
 
 export const parse = (line: string): number => {
 	const [, position] = line.match(/\d/g)!;
-	return parseInt(position, 10);
+	return parseInt(position!, 10);
 };
 
 export const p2 = (input: string): number => {
-	const [player0Position, player1Position] = input.lines().map(parse);
+	const [p1Position, p2Position] = numberPair.assert(input.lines().map(parse));
 	const result = diracRoll({
-		p1Position: player0Position,
-		p2Position: player1Position,
+		p1Position,
+		p2Position,
 		p1Score: 0,
 		p2Score: 0,
 		isP1Turn: true,

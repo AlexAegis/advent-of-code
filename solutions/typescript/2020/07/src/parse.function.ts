@@ -6,7 +6,9 @@ export const parseLine = (line: string): [string, [number, string][] | undefined
 
 	const contained = line
 		.match(/(\d+) (\w+ \w+)/g)
-		?.map(([q, ...color]) => [parseInt(q, 10), color.join('').trimStart()] as [number, string]);
+		?.map(
+			([q, ...color]) => [parseInt(q!, 10), color.join('').trimStart()] as [number, string]
+		);
 
 	return [name, contained];
 };

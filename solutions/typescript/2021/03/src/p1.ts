@@ -1,9 +1,9 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
 	const lines = input.lines();
-	const bitCount = lines[0].length;
+	const bitCount = lines[0]?.length ?? 0;
 
 	const gammaResult: string[] = [];
 	const epsilonResult: string[] = [];

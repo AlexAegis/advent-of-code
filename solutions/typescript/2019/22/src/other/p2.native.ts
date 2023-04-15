@@ -2,7 +2,7 @@
 import { bench, read } from '@alexaegis/advent-of-code-lib';
 import { bigInverseMod, modn } from '@alexaegis/advent-of-code-lib/math';
 import { parse } from '../parse.js';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export function expmod(base: bigint, exp: bigint, m: bigint): bigint {
 	if (exp === 0n) return 1n;

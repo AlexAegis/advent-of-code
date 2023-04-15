@@ -5,7 +5,7 @@ export const parse = (input: string): Reaction[] => {
 		.split(/\r?\n/)
 		.filter((line) => !!line)
 		.map((line) => {
-			const [from, to] = line.split(' => ');
+			const [from, to] = line.splitIntoStringPair(' => ');
 			return new Reaction(from, to);
 		});
 };

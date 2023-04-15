@@ -1,6 +1,6 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { calculateSeatId, p1 } from './p1.class.js';
 
 describe('2020 - Day 5 - Part One', () => {

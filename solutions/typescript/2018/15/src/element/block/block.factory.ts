@@ -6,4 +6,11 @@ export const blockRepresentations: { [r: string]: () => Block } = {
 	'#': () => new Wall(),
 	'.': () => new Ground(),
 };
-export const blockFactory = (cave: string): Block => blockRepresentations[cave]();
+export const blockFactory = (cave: string): Block => {
+	const blockRepresentation = blockRepresentations[cave];
+	if (blockRepresentation) {
+		return blockRepresentation();
+	} else {
+		throw new Error(`No block representation for ${cave}`);
+	}
+};
