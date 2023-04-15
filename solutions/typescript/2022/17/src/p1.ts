@@ -9,7 +9,7 @@ import {
 	spawnWall,
 	StaticPositionComponent,
 } from '@alexaegis/ecs';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export class TetrominoComponent extends Component {}
 
@@ -76,7 +76,7 @@ export const spawnTetrisArea = (world: GridWorld): void => {
  * playing around this ECS system I created.
  */
 export const p1 = async (input: string): Promise<number> => {
-	const inputCommands = split(input)[0].split('');
+	const inputCommands = split(input)[0]!.split('');
 
 	let i = 0;
 	let tallestPoint = 0;
@@ -85,12 +85,12 @@ export const p1 = async (input: string): Promise<number> => {
 	const world = new GridWorld({
 		executorHaltCondition: (w) =>
 			w.query(TetrominoComponent, StaticPositionComponent).length === 2022,
-		executorSpeed: process.env.RUN ? 60 : 'instant',
-		io: process.env.RUN ? 'terminalKit' : undefined,
+		executorSpeed: process.env['RUN'] ? 60 : 'instant',
+		io: process.env['RUN'] ? 'terminalKit' : undefined,
 	});
 
 	const spawnNextTetromino = (): Entity => {
-		const entity = spawnTetromino(world, tetrominoOrder[currentShape], tallestPoint);
+		const entity = spawnTetromino(world, tetrominoOrder[currentShape]!, tallestPoint);
 		currentShape = (currentShape + 1) % tetrominoOrder.length;
 		return entity;
 	};

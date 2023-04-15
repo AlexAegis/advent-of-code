@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const isNice = (line: string): boolean => {
 	let prevBef: string | undefined;
@@ -17,13 +17,13 @@ export const isNice = (line: string): boolean => {
 			const pair = prev + n;
 			let pairObj = doubles[pair];
 			if (!pairObj) {
-				doubles[pair] = [];
-				pairObj = doubles[pair];
+				pairObj = [];
+				doubles[pair] = pairObj;
 			}
 			pairObj.push(i);
 			if (!hasNonOverlapping) {
 				hasNonOverlapping = pairObj.some((po) =>
-					pairObj.some((poi) => Math.abs(poi - po) > 1)
+					pairObj!.some((poi) => Math.abs(poi - po) > 1)
 				);
 			}
 		}

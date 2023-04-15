@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { chunksOfArray } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export enum COLOR {
@@ -20,11 +20,11 @@ export const p2 = (input: string): string => {
 	const merged = layers.slice(1).reduce((a, n) => {
 		for (let i = 0; i <= n.length; i++) {
 			if (a[i] === COLOR.TRANSPARENT) {
-				a[i] = n[i];
+				a[i] = n[i]!;
 			}
 		}
 		return a;
-	}, layers[0]);
+	}, layers[0]!);
 
 	return (
 		'\n' +

@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 function shift(window: string, last: number, length: number): string {
 	if (window.length >= length) {
@@ -13,21 +13,21 @@ export const p2 = (input: string): number => {
 	let b = 1;
 	let window = '';
 	for (;;) {
-		const next = recipes[a] + recipes[b];
+		const next = recipes[a]! + recipes[b]!;
 		if (next >= 10) {
 			recipes.push(Math.floor(next / 10));
-			window = shift(window, recipes[recipes.length - 1], input.length);
+			window = shift(window, recipes[recipes.length - 1]!, input.length);
 			if (window === input) break;
 			recipes.push(next % 10);
-			window = shift(window, recipes[recipes.length - 1], input.length);
+			window = shift(window, recipes[recipes.length - 1]!, input.length);
 			if (window === input) break;
 		} else {
 			recipes.push(next);
-			window = shift(window, recipes[recipes.length - 1], input.length);
+			window = shift(window, recipes[recipes.length - 1]!, input.length);
 			if (window === input) break;
 		}
-		a = (a + recipes[a] + 1) % recipes.length;
-		b = (b + recipes[b] + 1) % recipes.length;
+		a = (a + recipes[a]! + 1) % recipes.length;
+		b = (b + recipes[b]! + 1) % recipes.length;
 	}
 	return recipes.length - input.length;
 };

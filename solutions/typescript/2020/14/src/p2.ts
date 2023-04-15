@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { ADDRESS_LENGTH, parse } from './p1.js';
 
 export const applyMask = (n: number, mask: string): number[] => {

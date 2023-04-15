@@ -2,8 +2,8 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import { GridGraph } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
-import { computeMap, Tile, Vacuum } from './parse.js';
+import packageJson from '../package.json';
+import { Tile, computeMap, type Vacuum } from './parse.js';
 
 const W = 50;
 const H = 50;
@@ -27,7 +27,7 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 		false,
 		true
 	);
-	mat[vacuum.pos.y + 1][vacuum.pos.x + 1] = vacuum.dir.reverse('v').marker + '!';
+	mat[vacuum.pos.y + 1]![vacuum.pos.x + 1] = vacuum.dir.reverse('v').marker + '!';
 	console.log(renderMatrix(mat, true, false));
 };
 

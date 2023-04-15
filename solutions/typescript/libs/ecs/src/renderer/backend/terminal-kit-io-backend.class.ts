@@ -1,4 +1,4 @@
-import { Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib';
+import { Vec2, type Vec2Like } from '@alexaegis/advent-of-code-lib';
 import terminalKit, { ScreenBuffer } from 'terminal-kit';
 import type { Sprite } from '../sprite.class.js';
 import type {
@@ -65,7 +65,7 @@ export class TerminalKitIOBackend implements IOBackend {
 			let event = name;
 
 			if (name.includes('_')) {
-				const [mod, key] = name.split('_');
+				const [mod, key] = name.splitIntoStringPair('_');
 				modifier = mod as ModifierKey;
 				event = key;
 			}

@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { identity } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json' assert { type: 'json' };
-import { ClosingTag, closingTagMap, isOpeningTag, OpeningTag } from './model/index.js';
+import packageJson from '../package.json';
+import { closingTagMap, isOpeningTag, type ClosingTag, type OpeningTag } from './model/index.js';
 
 const scoreMap: Record<ClosingTag, number> = {
 	')': 1,

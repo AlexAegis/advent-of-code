@@ -1,5 +1,5 @@
 export interface Tile {
-	bg?: string;
-	fg?: string;
-	char?: string;
+	bg?: string | undefined;
+	fg?: string | undefined;
+	char?: string | undefined;
 }

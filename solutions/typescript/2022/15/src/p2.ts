@@ -1,5 +1,5 @@
 import { INTERVAL_CLOSED, ManhattanCircle, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
 export const p2 = (input: string): number => {

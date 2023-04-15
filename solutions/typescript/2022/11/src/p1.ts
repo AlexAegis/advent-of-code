@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
 export const p1 = (input: string): number => {
@@ -11,10 +11,10 @@ export const p1 = (input: string): number => {
 				const afterBored = Math.floor(monkey.operation(item) / 3);
 				if (afterBored % monkey.test === 0) {
 					const target = monkeyMap[monkey.trueTarget];
-					target.items.push(afterBored);
+					target?.items.push(afterBored);
 				} else {
 					const target = monkeyMap[monkey.falseTarget];
-					target.items.push(afterBored);
+					target?.items.push(afterBored);
 				}
 
 				monkey.inspects++;

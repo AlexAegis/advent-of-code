@@ -1,4 +1,4 @@
-import { split } from '@alexaegis/advent-of-code-lib';
+import { split, type SizedTuple } from '@alexaegis/advent-of-code-lib';
 
 export interface Command {
 	count: number;
@@ -15,7 +15,7 @@ export const parseStacks = (rawStacks: string): StockPile =>
 		for (let i = 0; i < stackLine.length; i += 4) {
 			const crateId = stackLine[i + 1];
 			const stock = stockPile[i / 4] ?? [];
-			if (/[A-Z]/.test(crateId)) {
+			if (crateId && /[A-Z]/.test(crateId)) {
 				stock.push(crateId);
 			}
 			stockPile[i / 4] = stock;
@@ -25,7 +25,7 @@ export const parseStacks = (rawStacks: string): StockPile =>
 
 export const parseCommands = (rawCommands: string): Command[] =>
 	split(rawCommands).map((line) => {
-		const splitLine = line.split(' ');
+		const splitLine = line.split(' ') as SizedTuple<string, 6>;
 		return {
 			count: parseInt(splitLine[1], 10),
 			from: parseInt(splitLine[3], 10) - 1,

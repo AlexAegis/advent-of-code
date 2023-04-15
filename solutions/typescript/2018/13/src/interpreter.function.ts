@@ -1,6 +1,6 @@
 import { split } from '@alexaegis/advent-of-code-lib';
 import { Direction, isDirectionArrowSymbol, Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import { Cart, Mine, Rail } from './model/index.js';
+import { Cart, Mine, type Rail } from './model/index.js';
 
 export const interpreter = (input: string): Mine => {
 	const mine: Mine = new Mine();

@@ -1,9 +1,9 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export const patternGet = (pattern: number[], forNum: number, phase: number): number => {
-	return pattern[Math.floor(forNum / (phase + 1) + 1 / (phase + 1)) % pattern.length];
+	return pattern[Math.floor(forNum / (phase + 1) + 1 / (phase + 1)) % pattern.length] ?? 0;
 };
 
 export const ftt = (a: number[], messageOffset = 0, multiplier = 1): string | undefined => {
@@ -15,7 +15,7 @@ export const ftt = (a: number[], messageOffset = 0, multiplier = 1): string | un
 		for (let r = 0; r < a.length * multiplier; r++) {
 			let s = 0;
 			for (let i = 0; i < a.length * multiplier; i += 1) {
-				s += (a[i % a.length] * patternGet(pattern, i, r)) % 10;
+				s += ((a[i % a.length] ?? 0) * patternGet(pattern, i, r)) % 10;
 			}
 			p[r] = Math.abs(s % 10);
 		}

@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { AllergenicProduct, parse } from './parse.function.js';
+import packageJson from '../package.json';
+import { parse, type AllergenicProduct } from './parse.function.js';
 
 export const findPossibleCombinations = (
 	entries: AllergenicProduct[]

@@ -1,15 +1,15 @@
 import {
-	arrayContains,
 	BoundingBox,
-	Constructor,
+	arrayContains,
 	filterMap,
 	hzToMs,
-	InstanceTypeOfConstructorTuple,
-	Vec2Like,
+	type Constructor,
+	type InstanceTypeOfConstructorTuple,
+	type Vec2Like,
 } from '@alexaegis/advent-of-code-lib';
 import type { ComponentFilterTypeOfTuple } from '../components/component-filter.interface.js';
 import type { Component } from '../components/component.class.js';
-import { Entity, EntityId } from '../entity/index.js';
+import { Entity, type EntityId } from '../entity/index.js';
 import { spawnCamera } from '../entity/prebuilt/camera.entity.js';
 import { IntervalExecutor } from '../executor/interval-executor.class.js';
 import { StepperExecutor } from '../executor/stepper-executor.class.js';
@@ -22,21 +22,21 @@ import {
 } from '../index.js';
 import { BlessedIOBackend } from '../renderer/backend/blessed-io-backend.class.js';
 import { TerminalKitIOBackend } from '../renderer/backend/terminal-kit-io-backend.class.js';
-import { ConsoleLogIOBackend, IOBackend } from '../renderer/index.js';
+import { ConsoleLogIOBackend, type IOBackend } from '../renderer/index.js';
 import { RendererSystem } from '../renderer/renderer.system.js';
-import { System, SystemLike } from '../system/system.type.js';
+import { System, type SystemLike } from '../system/system.type.js';
 import {
-	GridWorldOptions,
-	NormalizedGridWorldOptions,
 	normalizeGridWorldOptions,
+	type GridWorldOptions,
+	type NormalizedGridWorldOptions,
 } from './grid-world.class.options.js';
 import type { SpatialCache } from './spatial-cache.class.js';
 import type { TimeData } from './time-data.interface.js';
 
 export const defaultGridWorldAocOptions: GridWorldOptions = {
-	executorSpeed: process.env.RUN ? 60 : 'instant',
+	executorSpeed: process.env['RUN'] ? 60 : 'instant',
 	executorHaltCondition: 'untilSettled',
-	io: process.env.RUN ? 'terminalKit' : undefined,
+	io: process.env['RUN'] ? 'terminalKit' : undefined,
 };
 
 export class GridWorld {
@@ -289,7 +289,7 @@ export class GridWorld {
 		const component = this.getComponentsByType(componentType);
 
 		if (component.length === 1) {
-			return component[0];
+			return component[0] as C;
 		} else if (component.length === 0) {
 			throw new Error(
 				`[getSingletonComponent] no entity exists with component ${componentType}`
@@ -342,40 +342,54 @@ export class GridWorld {
 	query<C extends Constructor<Component>[]>(
 		...componentTypes: C
 	): [Entity, ...InstanceTypeOfConstructorTuple<C>][] {
-		const entities = this.getComponentsByType(componentTypes[0]).reduce((acc, component) => {
-			for (const belongingEntity of component.belongsTo) {
-				acc.add(belongingEntity);
-			}
-			return acc;
-		}, new Set<Entity>());
-		return filterMap(entities, (entity) => {
-			const matchingComponents = componentTypes.map((componentType) =>
-				entity.components.get(componentType)
-			) as InstanceTypeOfConstructorTuple<C>;
-			if (matchingComponents.every((component) => !!component)) {
-				return [entity, ...matchingComponents];
-			} else {
-				return undefined;
-			}
-		});
+		const firstComponentType = componentTypes[0];
+		if (firstComponentType) {
+			const entities = this.getComponentsByType(firstComponentType).reduce(
+				(acc, component) => {
+					for (const belongingEntity of component.belongsTo) {
+						acc.add(belongingEntity);
+					}
+					return acc;
+				},
+				new Set<Entity>()
+			);
+			return filterMap(entities, (entity) => {
+				const matchingComponents = componentTypes.map((componentType) =>
+					entity.components.get(componentType)
+				) as InstanceTypeOfConstructorTuple<C>;
+				if (matchingComponents.every((component) => !!component)) {
+					return [entity, ...matchingComponents];
+				} else {
+					return undefined;
+				}
+			});
+		} else {
+			return [];
+		}
 	}
 
 	queryOne<C extends Constructor<Component>[]>(
 		...componentTypes: C
 	): [Entity, ...InstanceTypeOfConstructorTuple<C>] {
-		const entities = this.getComponentsByType(componentTypes[0]).reduce((acc, component) => {
-			for (const belongingEntity of component.belongsTo) {
-				acc.add(belongingEntity);
-			}
-			return acc;
-		}, new Set<Entity>());
+		const firstComponentType = componentTypes[0];
+		if (firstComponentType) {
+			const entities = this.getComponentsByType(firstComponentType).reduce(
+				(acc, component) => {
+					for (const belongingEntity of component.belongsTo) {
+						acc.add(belongingEntity);
+					}
+					return acc;
+				},
+				new Set<Entity>()
+			);
 
-		for (const entity of entities) {
-			const matchingComponents = componentTypes.map((componentType) =>
-				entity.components.get(componentType)
-			) as InstanceTypeOfConstructorTuple<C>;
-			if (matchingComponents.every((component) => !!component)) {
-				return [entity, ...matchingComponents];
+			for (const entity of entities) {
+				const matchingComponents = componentTypes.map((componentType) =>
+					entity.components.get(componentType)
+				) as InstanceTypeOfConstructorTuple<C>;
+				if (matchingComponents.every((component) => !!component)) {
+					return [entity, ...matchingComponents];
+				}
 			}
 		}
 

@@ -1,15 +1,15 @@
 import {
 	BoundingBox,
-	Direction,
 	DOUBLE_NEWLINE,
+	Direction,
 	GridGraphNode,
-	mapFirst,
 	NEWLINE,
+	mapFirst,
 	task,
-	Vec2String,
 	zip,
+	type Vec2String,
 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { CubeMap } from './cube-map.class.js';
 import { getFacingScore, parseMovementInstructions } from './parse.function.js';
 
@@ -26,7 +26,7 @@ const getShortestSegment = (input: string): number =>
 		.min();
 
 export const p2 = (input: string): number => {
-	const [map, rawInstructions] = input.split(DOUBLE_NEWLINE);
+	const [map, rawInstructions] = input.splitIntoStringPair(DOUBLE_NEWLINE);
 	const instructions = parseMovementInstructions(rawInstructions);
 	const graph = map.toGridGraph<string>();
 	const sideLength = getShortestSegment(input);
@@ -109,7 +109,7 @@ export const p2 = (input: string): number => {
 		}
 	}
 
-	if (process.env.RUN) {
+	if (process.env['RUN']) {
 		graph.printPath(path);
 	}
 

@@ -6,4 +6,10 @@ export const creatureRepresentations: { [r: string]: () => Creature } = {
 	G: () => new Goblin(),
 	E: () => new Elf(),
 };
-export const creatureFactory = (creature: string): Creature => creatureRepresentations[creature]();
+export const creatureFactory = (creature: string): Creature => {
+	const represantion = creatureRepresentations[creature];
+	if (!represantion) {
+		throw new Error(`No representation for ${creature}`);
+	}
+	return represantion();
+};

@@ -1,6 +1,6 @@
 import { Graph, GraphNode, memoize, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { parse, Valve } from './parse.function.js';
+import packageJson from '../package.json';
+import { parse, type Valve } from './parse.function.js';
 
 const TIME_LIMIT = 26;
 
@@ -89,7 +89,9 @@ const highestScoreValve = (
 				valve,
 				score: scoreValve(
 					currentTime,
-					openableValves.filter((v) => v !== valve && v !== valvesSortedByScore[0].valve),
+					openableValves.filter(
+						(v) => v !== valve && v !== valvesSortedByScore[0]?.valve
+					),
 					[...openValves, valve],
 					fromValve,
 					valve,

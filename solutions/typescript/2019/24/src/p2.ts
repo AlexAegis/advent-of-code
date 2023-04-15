@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
 import { Direction, Vec3 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { Tile } from './p1.js';
 import { parse } from './parse.js';
 
@@ -39,14 +39,14 @@ export const recursiveAdjacents = (x: number, y: number, d: number): Vec3[] => {
 
 export const isDie = (adj: Vec3[], map: Map<number, Tile[][]>): boolean => {
 	return (
-		adj.map((a) => map.get(a.z)?.[a.y][a.x] ?? Tile.EMTPY).filter((t) => t === Tile.BUG)
+		adj.map((a) => map.get(a.z)?.[a.y]?.[a.x] ?? Tile.EMTPY).filter((t) => t === Tile.BUG)
 			.length !== 1
 	);
 };
 
 export const isBirth = (adj: Vec3[], map: Map<number, Tile[][]>): boolean => {
 	const adjBugs = adj
-		.map((a) => map.get(a.z)?.[a.y][a.x] ?? Tile.EMTPY)
+		.map((a) => map.get(a.z)?.[a.y]?.[a.x] ?? Tile.EMTPY)
 		.count((t) => t === Tile.BUG);
 	return adjBugs === 1 || adjBugs === 2;
 };
@@ -82,20 +82,24 @@ export const p2 =
 				const nextGen: Tile[][] = [];
 				for (let y = 0; y < map.length; y++) {
 					const row = map[y];
-					const nextRow = [];
-					for (let x = 0; x < map.length; x++) {
-						if (x === 2 && y === 2) {
-							nextRow[x] = Tile.EMTPY;
-						} else {
-							const tile = row[x];
-							const adj = recursiveAdjacents(x, y, dimension);
-
-							if (tile === Tile.BUG && isDie(adj, levels)) {
+					const nextRow: Tile[] = [];
+					if (row) {
+						for (let x = 0; x < map.length; x++) {
+							if (x === 2 && y === 2) {
 								nextRow[x] = Tile.EMTPY;
-							} else if (tile === Tile.EMTPY && isBirth(adj, levels)) {
-								nextRow[x] = Tile.BUG;
 							} else {
-								nextRow[x] = tile;
+								const tile = row[x];
+								if (tile) {
+									const adj = recursiveAdjacents(x, y, dimension);
+
+									if (tile === Tile.BUG && isDie(adj, levels)) {
+										nextRow[x] = Tile.EMTPY;
+									} else if (tile === Tile.EMTPY && isBirth(adj, levels)) {
+										nextRow[x] = Tile.BUG;
+									} else {
+										nextRow[x] = tile;
+									}
+								}
 							}
 						}
 					}

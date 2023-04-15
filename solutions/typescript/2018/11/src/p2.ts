@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import type { Vec2Like } from '@alexaegis/advent-of-code-lib/model';
 import * as WorkerPool from 'workerpool';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { range } from './functions/range.generator.js';
 
 export interface Result {

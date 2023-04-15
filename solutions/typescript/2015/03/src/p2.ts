@@ -1,10 +1,10 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import {
-	DirectionMarker,
-	directionMarkerAssociationMap,
 	Vec2,
+	directionMarkerAssociationMap,
+	type DirectionMarker,
 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const p2 = (input: string): number =>
 	input.split('').reduce(

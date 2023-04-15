@@ -1,12 +1,12 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Graph, GraphNode, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import { Graph, GraphNode, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
 import {
+	TileColor,
 	hexagonalAxialDirections,
-	HexagonalDirection,
 	invertedHexagonalDirections,
 	parse,
-	TileColor,
+	type HexagonalDirection,
 } from './parse.function.js';
 
 export const p2 = (input: string): number => {

@@ -1,8 +1,8 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { is } from '@alexaegis/advent-of-code-lib/functions';
-import { BoundingBox, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
-import { parse, SeatState } from './parse.function.js';
+import { BoundingBox, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
+import { SeatState, parse } from './parse.function.js';
 
 const dirs = [
 	new Vec2(0, 1),

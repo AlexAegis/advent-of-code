@@ -1,8 +1,8 @@
 import { hexToBits } from './model/hex-to-bits.function.js';
-import { interpretPacket, isLiteralPacket, Packet } from './model/packet.interface.js';
+import { interpretPacket, isLiteralPacket, type Packet } from './model/packet.interface.js';
 
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const calculatePacketValue = (packet: Packet): number => {
 	if (isLiteralPacket(packet)) {
@@ -21,9 +21,9 @@ const calculatePacketValue = (packet: Packet): number => {
 			case 3:
 				return subPacketValues.max();
 			case 5:
-				return subPacketValues[0] > subPacketValues[1] ? 1 : 0;
+				return subPacketValues[0]! > subPacketValues[1]! ? 1 : 0;
 			case 6:
-				return subPacketValues[0] < subPacketValues[1] ? 1 : 0;
+				return subPacketValues[0]! < subPacketValues[1]! ? 1 : 0;
 			case 7:
 				return subPacketValues[0] === subPacketValues[1] ? 1 : 0;
 		}
@@ -31,7 +31,7 @@ const calculatePacketValue = (packet: Packet): number => {
 };
 
 export const p2 = (input: string): number => {
-	const bits = hexToBits(input.lines()[0]);
+	const bits = hexToBits(input.lines()[0]!);
 	const packet = interpretPacket(bits);
 	return calculatePacketValue(packet);
 };

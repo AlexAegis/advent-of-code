@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
 export const matchRule = (

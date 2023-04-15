@@ -1,18 +1,18 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const calculate =
 	(target: number) =>
 	(input: string): number => {
 		const numbers = input.split(',').map((a) => parseInt(a, 10));
 
-		const map = new Map<number, { turn: number; prevTurn?: number }>();
+		const map = new Map<number, { turn: number; prevTurn: number | undefined }>();
 
 		let lastNumber = 0;
 
 		for (let i = 1; i <= target; i++) {
 			if (i <= numbers.length) {
-				lastNumber = numbers[i - 1];
+				lastNumber = numbers[i - 1]!;
 				map.set(lastNumber, { turn: i, prevTurn: undefined });
 				continue;
 			}

@@ -1,8 +1,8 @@
 import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { invalidFields } from './p1.js';
-import { parse, Ticket } from './parse.function.js';
+import { parse, type Ticket } from './parse.function.js';
 
 export interface CertainField {
 	index: number;
@@ -24,7 +24,7 @@ export const clarifyFields = (
 ): ClarifiedTicket => {
 	const categoryRangeEntries = [...fieldRanges.entries()];
 	const myFields = ticket.map((value, index) => {
-		const otherTicketsFields = otherTickets.map((ticket) => ticket[index]);
+		const otherTicketsFields = otherTickets.map((ticket) => ticket[index]!);
 		const possibleFieldNames = categoryRangeEntries
 			.filter(([, ranges]) =>
 				otherTicketsFields.every((ticketField) =>
@@ -41,7 +41,7 @@ export const clarifyFields = (
 	while (myFields.some((field) => field.possibleFieldNames.length)) {
 		// Those that are certain, collect
 		for (const myField of myFields.filter((field) => field.possibleFieldNames.length === 1)) {
-			myField.fieldName = myField.possibleFieldNames[0];
+			myField.fieldName = myField.possibleFieldNames[0]!;
 			certainFields.add(myField.fieldName);
 		}
 

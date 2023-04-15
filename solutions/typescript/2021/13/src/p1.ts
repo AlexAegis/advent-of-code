@@ -1,12 +1,12 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
-	const [points, foldInstructions] = input.split(/\n\n/);
+	const [points, foldInstructions] = input.splitIntoStringPair(/\n\n/);
 	const vectors = points.lines().map((line) => new Vec2(line as Vec2String));
 
-	const [, instruction] = foldInstructions.lines()[0].split(/fold along /);
+	const [, instruction] = foldInstructions.lines()[0]!.splitIntoStringPair(/fold along /);
 	const [axis, value] = instruction.split(/=/) as [axis: 'x' | 'y', value: number];
 
 	const [, toFold] = vectors.partition((vec) => vec[axis] < value);

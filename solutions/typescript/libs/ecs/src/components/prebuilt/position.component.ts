@@ -4,7 +4,7 @@ import {
 	nonNullish,
 	partition,
 	Vec2,
-	Vec2Like,
+	type Vec2Like,
 } from '@alexaegis/advent-of-code-lib';
 import { Component } from '../component.class.js';
 import { SpatialComponent } from '../spatial-component.class.js';

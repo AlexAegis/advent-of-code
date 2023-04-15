@@ -10,10 +10,10 @@ export class Reaction {
 	public constructor(input: string, output: string) {
 		input
 			.split(', ')
-			.map((r) => r.split(' '))
+			.map((r) => r.splitIntoStringPair(' '))
 			.forEach(([q, n]) => this.from.set(n, parseInt(q, 10)));
 
-		const [toq, to] = output.split(' ');
+		const [toq, to] = output.splitIntoStringPair(' ');
 		this.toq = parseInt(toq, 10);
 		this.to = to;
 	}

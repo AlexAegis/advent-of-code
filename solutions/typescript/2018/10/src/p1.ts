@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import type { Boundary } from './boundary.interface.js';
 import { interpreter } from './interpreter.function.js';
 import { Coord } from './model/coord.class.js';

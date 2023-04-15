@@ -1,6 +1,6 @@
 import { INTERVAL_CLOSED, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { isPassport, parsePassports, Passport, RelevantField } from './p1.js';
+import packageJson from '../package.json';
+import { RelevantField, isPassport, parsePassports, type Passport } from './p1.js';
 
 const CM = 'cm';
 const IN = 'in';
@@ -19,9 +19,9 @@ export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
 	eyr: (eyr) => eyr.toInt()?.isContainedIn(from2020to2030) ?? false,
 	hgt: (hgt) => {
 		if (hgt.endsWith(CM)) {
-			return hgt.split(CM)[0].toInt()?.isContainedIn(from150to193) ?? false;
+			return hgt.split(CM)[0]?.toInt()?.isContainedIn(from150to193) ?? false;
 		} else if (hgt.endsWith(IN)) {
-			return hgt.split(IN)[0].toInt()?.isContainedIn(from59to76) ?? false;
+			return hgt.split(IN)[0]?.toInt()?.isContainedIn(from59to76) ?? false;
 		} else {
 			return false;
 		}

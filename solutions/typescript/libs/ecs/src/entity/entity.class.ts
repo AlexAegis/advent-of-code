@@ -1,4 +1,4 @@
-import { BoundingBox, Constructor, Vec2 } from '@alexaegis/advent-of-code-lib';
+import { BoundingBox, Vec2, type Constructor } from '@alexaegis/advent-of-code-lib';
 import type { Component } from '../components/component.class.js';
 import { AsciiDisplayComponent } from '../components/prebuilt/ascii-display.component.js';
 import {

@@ -3,27 +3,53 @@
 	"description": "Advent of Code 2022 19 solutions",
 	"version": "1.0.0",
 	"license": "mit",
-	"type": "module",
 	"private": true,
+	"keywords": [
+		"@alexaegis/setup-depcheck",
+		"@alexaegis/setup-eslint",
+		"@alexaegis/setup-prettier",
+		"@alexaegis/setup-remark",
+		"@alexaegis/setup-ts-node",
+		"@alexaegis/setup-vitest-node",
+		"advent-of-code",
+		"javascript",
+		"js",
+		"ts",
+		"typescript"
+	],
+	"type": "module",
+	"aoc": {
+		"day": 19,
+		"year": 2022
+	},
 	"scripts": {
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-19",
+		"lint:depcheck_": "depcheck",
+		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-19",
+		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
+		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-19",
+		"lint:format_": "prettier --check .",
+		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-19",
+		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-19",
+		"lint:tsc_": "tsc --noEmit",
+		"bench": "ts-node-esm src/bench.ts",
+		"format": "prettier --write .",
 		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
 		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts",
-		"bench": "ts-node-esm src/bench.ts",
-		"test": "vitest --passWithNoTests --coverage --run",
-		"test:watch": "vitest --passWithNoTests --coverage",
-		"format": "prettier --write .",
-		"lint:es": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:tsc": "tsc --noEmit",
-		"lint:format": "prettier --check ."
+		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-19",
+		"test_": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests --coverage"
 	},
 	"dependencies": {
-		"@alexaegis/advent-of-code-lib": "*"
+		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
-		"benny": "^3.7.1"
-	},
-	"aoc": {
-		"year": 2022,
-		"day": 19
+		"@alexaegis/eslint-config-vitest": "^0.1.7",
+		"@alexaegis/ts": "^0.1.7",
+		"@alexaegis/vitest": "^0.1.7",
+		"@types/node": "^18.15.11",
+		"benny": "^3.7.1",
+		"vitest": "^0.30.1"
 	}
 }

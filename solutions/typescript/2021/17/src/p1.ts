@@ -1,11 +1,11 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parseBoundary } from './functions/parse.function.js';
 import { Probe } from './model/probe.class.js';
 
 export const p1 = (input: string): number => {
-	const line = input.lines()[0];
+	const line = input.lines()[0]!;
 	const boundary = parseBoundary(line);
 	let result = 0;
 	for (let x = 0; x < 500; x++) {

@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { isTriangle, Triangle } from './is-triangle.function.js';
+import packageJson from '../package.json';
+import { isTriangle, type Triangle } from './is-triangle.function.js';
 
 export const p1 = (input: string): number =>
 	split(input)

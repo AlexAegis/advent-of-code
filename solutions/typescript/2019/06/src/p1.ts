@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { Planet } from './model/planet.class.js';
 import { parse } from './parse.js';
 

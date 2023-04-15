@@ -4,9 +4,9 @@ import { add } from 'benny';
 import { p1 } from './p1.js';
 import { p2 } from './p2.js';
 
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
-defaultBench(
+await defaultBench(
 	'2018 - Day 13',
 	add('Part One', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc);

@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { parse, Valve } from './parse.function.js';
+import packageJson from '../package.json';
+import { parse, type Valve } from './parse.function.js';
 
 const OPEN = 'open';
 const WAIT = 'wait';
@@ -157,7 +157,7 @@ export const p1 = (input: string): number => {
 
 		if (nextOptions.length) {
 			// If there is somewhere to go, try the first option
-			const nextOption = normalizeOption(nextOptions[0], valveMap);
+			const nextOption = normalizeOption(nextOptions[0]!, valveMap);
 			const nextPath = [...currentPath, nextOption];
 			const nextPathSerialized = serializePath(nextPath);
 
@@ -211,7 +211,7 @@ export const p1 = (input: string): number => {
 		.sort((a, b) => b.pressureReleasedSoFar - a.pressureReleasedSoFar);
 	console.log('finishedSolutions', finishedSolutions.length);
 	const solutionWithMostReleasedPressure = finishedSolutions[0];
-	const serializedSolutionPath = serializePath(solutionWithMostReleasedPressure.path);
+	const serializedSolutionPath = serializePath(solutionWithMostReleasedPressure!.path);
 	console.log(
 		'solutionWithMostReleasedPressure',
 		serializedSolutionPath,
@@ -219,7 +219,7 @@ export const p1 = (input: string): number => {
 		serializedSolutionPath.startsWith(_expectedPathForExample)
 	);
 
-	return finishedSolutions[0].pressureReleasedSoFar;
+	return finishedSolutions[0]!.pressureReleasedSoFar;
 };
 
 await task(p1, packageJson.aoc, 'example.1.txt'); // 0 ~0ms

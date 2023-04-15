@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { scoreDecks, SpaceCardDecks } from './p1.js';
+import packageJson from '../package.json';
+import { scoreDecks, type SpaceCardDecks } from './p1.js';
 import { parse } from './parse.function.js';
 
 const playGame = (decks: SpaceCardDecks, history = new Set<string>()): number => {

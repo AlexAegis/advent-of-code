@@ -1,4 +1,4 @@
-import { Direction, Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import { Direction, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
 
 export class Bingo {
 	numbers = new Map<Vec2String, number>();
@@ -10,9 +10,9 @@ export class Bingo {
 	constructor(board: number[][]) {
 		this.size = board.length;
 		for (let y = 0; y < board.length; y++) {
-			const row = board[y];
+			const row = board[y]!;
 			for (let x = 0; x < row.length; x++) {
-				const number = row[x];
+				const number = row[x]!;
 				const coord = new Vec2(x, y);
 				this.numbers.set(coord.toString(), number);
 				if (this.coords.has(number)) {
@@ -91,7 +91,7 @@ export class Bingo {
 
 	static parse(input: string): { boards: Bingo[]; numbers: number[] } {
 		const [numbersSegment, ...boardSegments] = input.split('\n\n');
-		const numbers = numbersSegment.splitToInt({ delimiter: /,/ });
+		const numbers = numbersSegment!.splitToInt({ delimiter: /,/ });
 		const boards = boardSegments
 			.map((boardSegment) => boardSegment.lines().map((line) => line.splitToInt()))
 			.map((board) => new Bingo(board));

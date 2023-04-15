@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { Direction } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const expand = (input: string, factor = 5): string => {
 	const matrix = input.toMatrix().map((row) => row.map((e) => parseInt(e, 10)));
@@ -22,7 +22,7 @@ const expand = (input: string, factor = 5): string => {
 	}, [] as number[][]);
 
 	for (let r = 0; r < first.length; r++) {
-		const row = first[r];
+		const row = first[r]!;
 		const expandedRow = factor.iterate().reduce((acc, n) => {
 			acc.push(
 				...row.map((t) => {

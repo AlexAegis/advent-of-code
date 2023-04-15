@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { next } from './p1.js';
 
 export const p2 = (input: string): number => {

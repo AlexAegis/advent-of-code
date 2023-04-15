@@ -2,13 +2,13 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { cartesianCombinations } from '@alexaegis/advent-of-code-lib/math';
 import type { ToString } from '@alexaegis/advent-of-code-lib/model';
 import { Vec3 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
 const getNeighbours3 = (v: Vec3): Vec3[] => {
-	const xs = [v.x - 1, v.x, v.x + 1];
-	const ys = [v.y - 1, v.y, v.y + 1];
-	const zs = [v.z - 1, v.z, v.z + 1];
+	const xs: [number, number, number] = [v.x - 1, v.x, v.x + 1];
+	const ys: [number, number, number] = [v.y - 1, v.y, v.y + 1];
+	const zs: [number, number, number] = [v.z - 1, v.z, v.z + 1];
 
 	return cartesianCombinations(xs, ys, zs)
 		.map(([x, y, z]) => new Vec3(x, y, z))

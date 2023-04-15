@@ -1,4 +1,10 @@
-import { arrayDiff, BoundingBox, Vec2, Vec2Like, Vec2String } from '@alexaegis/advent-of-code-lib';
+import {
+	arrayDiff,
+	BoundingBox,
+	Vec2,
+	type Vec2Like,
+	type Vec2String,
+} from '@alexaegis/advent-of-code-lib';
 import type { Entity, EntityId } from '../entity/entity.class.js';
 import type { GridWorld } from './grid-world.class.js';
 

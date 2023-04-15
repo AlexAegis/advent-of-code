@@ -1,8 +1,8 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import { task } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
-	const [n, data] = split(input);
+	const [n, data] = input.splitIntoStringPair();
 	const timestamp = parseInt(n, 10);
 
 	const sort = data
@@ -18,7 +18,7 @@ export const p1 = (input: string): number => {
 		})
 		.sort((a, b) => a.diff - b.diff);
 
-	return sort[0].id * sort[0].diff;
+	return sort[0]!.id * sort[0]!.diff;
 };
 
 await task(p1, packageJson.aoc); // 136 ~0.22ms

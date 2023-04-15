@@ -1,6 +1,6 @@
 import { Graph, GraphNode, memoize, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { parse, Valve } from './parse.function.js';
+import packageJson from '../package.json';
+import { parse, type Valve } from './parse.function.js';
 
 const TIME_LIMIT = 30;
 

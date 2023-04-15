@@ -1,5 +1,5 @@
-import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import { split, task, type SizedTuple } from '@alexaegis/advent-of-code-lib';
+import packageJson from '../package.json';
 import type { Args } from './model/args.interface.js';
 import { Edge } from './model/edge.class.js';
 import type { Graph } from './model/graph.interface.js';
@@ -60,7 +60,7 @@ const interpret = (input: string): Graph => {
 	const graph: Graph = { nodes: [], edges: [] };
 
 	for (const line of split(input)) {
-		const splitLine: string[] = line.split(/ /);
+		const splitLine = line.split(/ /) as SizedTuple<string, 8>;
 		let from: Node | undefined = graph.nodes.find((node) => node.node === splitLine[1]);
 		let to: Node | undefined = graph.nodes.find((node) => node.node === splitLine[7]);
 		if (!from) {

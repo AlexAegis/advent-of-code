@@ -41,7 +41,7 @@ export class Deque<T> extends Array<T | undefined> {
 		}
 	}
 
-	get length(): number {
+	override get length(): number {
 		return this._length;
 	}
 	static MAX_CAPACITY: number = (1 << 30) | 0;
@@ -99,7 +99,7 @@ export class Deque<T> extends Array<T | undefined> {
 		return ret;
 	}
 
-	push(item: T | undefined): number {
+	override push(item: T | undefined): number {
 		const argsLength = arguments.length;
 		let length = this._length;
 		if (argsLength > 1) {
@@ -135,7 +135,7 @@ export class Deque<T> extends Array<T | undefined> {
 		return length + 1;
 	}
 
-	pop(): T | undefined {
+	override pop(): T | undefined {
 		const length = this._length;
 		if (length === 0) {
 			return undefined;
@@ -147,7 +147,7 @@ export class Deque<T> extends Array<T | undefined> {
 		return ret;
 	}
 
-	shift(): T | undefined {
+	override shift(): T | undefined {
 		const length = this._length;
 		if (length === 0) {
 			return undefined;
@@ -160,7 +160,7 @@ export class Deque<T> extends Array<T | undefined> {
 		return ret;
 	}
 
-	unshift(item: T | undefined): number {
+	override unshift(item: T | undefined): number {
 		let length = this._length;
 		const argsLength = arguments.length;
 
@@ -239,7 +239,7 @@ export class Deque<T> extends Array<T | undefined> {
 		return this._length === 0;
 	}
 
-	clear(): void {
+	override clear(): void {
 		const len = this._length;
 		const front = this._front;
 		const capacity = this._capacity;
@@ -250,7 +250,7 @@ export class Deque<T> extends Array<T | undefined> {
 		this._front = 0;
 	}
 
-	toString(): string {
+	override toString(): string {
 		return this.toArray().toString();
 	}
 

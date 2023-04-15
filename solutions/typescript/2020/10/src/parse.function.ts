@@ -5,7 +5,7 @@ export const parse = (input: string): { jolts: number[]; max: number; builtIn: n
 	const jolts = split(input)
 		.map((line) => parseInt(line, 10))
 		.sort(ascending);
-	const max = jolts[jolts.length - 1];
+	const max = jolts[jolts.length - 1]!;
 	const builtIn = max + 3;
 	jolts.push(builtIn);
 	jolts.unshift(0);

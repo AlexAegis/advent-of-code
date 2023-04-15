@@ -1,3 +1,4 @@
+import type { SizedTuple } from '@alexaegis/advent-of-code-lib';
 import { join } from 'path/posix';
 
 export class ExpeditionFileSystem {
@@ -7,7 +8,7 @@ export class ExpeditionFileSystem {
 
 	interpret(commands: string[]): ExpeditionFileSystem {
 		for (const command of commands) {
-			const [c1, c2, c3] = command.split(' ');
+			const [c1, c2, c3] = command.split(' ') as SizedTuple<string, 3>;
 			if (c1 === '$' && c2 === 'cd') {
 				if (c3 === '/') {
 					this.cwd = this.root;

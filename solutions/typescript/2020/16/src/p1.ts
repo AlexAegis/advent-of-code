@@ -1,6 +1,6 @@
 import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
 export const checkField = (ticketField: number, fieldRanges: Interval[][]): boolean =>

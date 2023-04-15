@@ -20,9 +20,9 @@ export const parse = (input: string): TicketObservation => {
 			continue;
 		}
 		if (currentSection === undefined) {
-			const [category, value] = line.split(': ');
-			const ranges = value.split(' or ').map((rawRange) => {
-				const [low, high] = rawRange.split('-');
+			const [category, value] = line.splitIntoStringPair(': ');
+			const ranges = value.splitIntoStringPair(' or ').map((rawRange) => {
+				const [low, high] = rawRange.splitIntoStringPair('-');
 				return parseInt(low, 10).interval(parseInt(high, 10), INTERVAL_CLOSED);
 			});
 			fieldRanges.set(category, ranges);

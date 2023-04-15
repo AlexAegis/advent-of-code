@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { Signal, signalComparator } from './signal-comparator.function.js';
+import packageJson from '../package.json';
+import { signalComparator, type Signal } from './signal-comparator.function.js';
 
 export const p2 = (input: string): number => {
 	const signals = split(input).map((l) => JSON.parse(l) as Signal);

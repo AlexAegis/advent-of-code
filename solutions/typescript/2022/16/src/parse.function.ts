@@ -14,8 +14,8 @@ export const parse = (input: string): Valve[] => {
 			const [, name, rawFlowRate, rawLeadsTo] = groups;
 			return {
 				name,
-				flowRate: parseInt(rawFlowRate, 10),
-				leadsTo: rawLeadsTo.split(', '),
+				flowRate: parseInt(rawFlowRate!, 10),
+				leadsTo: rawLeadsTo!.split(', '),
 			} as Valve;
 		} else {
 			throw new Error(`Line is not valve data ${line}`);

@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { interpreter } from './interpreter.function.js';
 
 export const p2 = (input: string): number | undefined => {
@@ -32,9 +32,7 @@ export const p2 = (input: string): number | undefined => {
 			) {
 				// console.log(`Stabilized, extrapolating to 50000000000`);
 				scores.push(
-					scores[scores.length - 1] +
-						(scores[scores.length - 1] - scores[scores.length - 2]) *
-							(50000000000 - i - 1)
+					scores.last() + (scores.last() - scores.last(1)) * (50000000000 - i - 1)
 				);
 				break;
 			}

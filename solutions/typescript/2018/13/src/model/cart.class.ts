@@ -1,4 +1,4 @@
-import { Direction, DirectionMarker, Vec2 } from '@alexaegis/advent-of-code-lib/model';
+import { Direction, Vec2, type DirectionMarker } from '@alexaegis/advent-of-code-lib/model';
 import type { Mine } from './mine.class.js';
 
 export class Cart {

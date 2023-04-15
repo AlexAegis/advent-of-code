@@ -1,5 +1,5 @@
 import { split } from '@alexaegis/advent-of-code-lib';
-import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
 
 export enum SeatState {
 	FLOOR = '.',
@@ -14,7 +14,7 @@ export const parse = (
 	const seats = new Map<Vec2String, SeatState>();
 	let y = 0;
 	const height = lines.length;
-	const width = lines[0]?.length;
+	const width = lines[0]?.length ?? 0;
 	for (const line of lines) {
 		let x = 0;
 		for (const letter of [...line]) {

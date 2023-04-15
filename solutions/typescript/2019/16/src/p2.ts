@@ -1,12 +1,12 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { lcm } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export const pattern = [0, 1, 0, -1] as const;
 
 export const patternGet = (n: number, p: number): number => {
-	return pattern[Math.floor(n / p + 1 / p) % pattern.length];
+	return pattern[Math.floor(n / p + 1 / p) % pattern.length]!;
 };
 
 export const phaser = (
@@ -35,7 +35,7 @@ export const fft =
 			let s = 0;
 			for (let col = 0; col < prowlen; col += 1) {
 				// In the case of the first number, its just multiplied by the multiplier
-				s += (a[col % a.length] * patternGet(col, row)) % 10;
+				s += (a[col % a.length]! * patternGet(col, row)) % 10;
 				// idea is to SUM until LCM of (alen and plen * row) prowlen
 				// then this can
 			}

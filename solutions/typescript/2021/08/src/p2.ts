@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 /**
  *
@@ -21,7 +21,10 @@ import packageJson from '../package.json' assert { type: 'json' };
  * .    f  e    f  .    f  e    f  .    f
  *  gggg    gggg    ....    gggg    gggg
  */
-const getNumberFromCode = (code: string, segmentMap: Record<string, string>): number => {
+const getNumberFromCode = (
+	code: string,
+	segmentMap: Record<'a' | 'b' | 'c' | 'd' | 'e', string>
+): number => {
 	if (code.includes(segmentMap['a'])) {
 		if (code.includes(segmentMap['b'])) {
 			if (code.includes(segmentMap['c'])) {
@@ -93,28 +96,28 @@ const generateSegmentMap = (codes: string[]): Record<string, string> => {
 	const twoThreeFiveABCDEFG = codes.filter((code) => code.length === 5);
 	const zeroSixNineABCDEFG = codes.filter((code) => code.length === 6);
 
-	const a = getOnlyInFirst(sevenACF, oneCF);
+	const a = getOnlyInFirst(sevenACF!, oneCF!);
 
-	const bd = getOnlyInFirst(fourBCDF, sevenACF);
+	const bd = getOnlyInFirst(fourBCDF!, sevenACF!);
 
 	const [_sixNineABCDEFG, [zeroABCEFG]] = zeroSixNineABCDEFG.partition((code) =>
 		[...bd].every((letter) => code.includes(letter))
 	);
 
-	const d = getOnlyInFirst(fourBCDF, zeroABCEFG);
+	const d = getOnlyInFirst(fourBCDF!, zeroABCEFG!);
 	const b = getOnlyInFirst(bd, d);
 
 	const [[fiveABDFG], twoThreeACDEFG] = twoThreeFiveABCDEFG.partition((code) => code.includes(b));
 
-	const fg = getOnlyInFirst(fiveABDFG, `${a}${b}${d}`);
-	const f = getIntersecion(fg, oneCF);
+	const fg = getOnlyInFirst(fiveABDFG!, `${a}${b}${d}`);
+	const f = getIntersecion(fg, oneCF!);
 
 	const g = getOnlyInFirst(fg, f);
-	const c = getOnlyInFirst(oneCF, f);
+	const c = getOnlyInFirst(oneCF!, f);
 
 	const [[_threeACDFG], [twoACDEG]] = twoThreeACDEFG.partition((code) => code.includes(f));
 
-	const e = getOnlyInFirst(twoACDEG, `${a}${c}${d}${g}`);
+	const e = getOnlyInFirst(twoACDEG!, `${a}${c}${d}${g}`);
 
 	return { a, b, c, d, e, f, g };
 };
@@ -126,8 +129,8 @@ export const p2 = (input: string): number =>
 			const [uniqueSignalPatterns, output] = line
 				.split(/ \| /)
 				.map((codes) => codes.split(/ /g));
-			const segmentMap = generateSegmentMap(uniqueSignalPatterns);
-			return output
+			const segmentMap = generateSegmentMap(uniqueSignalPatterns!);
+			return output!
 				.map((digit) => getNumberFromCode(digit, segmentMap).toString())
 				.join('')
 				.toInt();

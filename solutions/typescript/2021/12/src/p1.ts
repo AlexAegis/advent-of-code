@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Graph, GraphNode } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 const getPaths = (
 	current: GraphNode<string, number>,
@@ -32,7 +32,7 @@ const getPaths = (
  */
 export const p1 = (input: string): number => {
 	const valueEdges = input.lines().map((line) => {
-		const [from, to] = line.split('-');
+		const [from, to] = line.splitIntoStringPair('-');
 		return { from, to };
 	});
 	const graph = Graph.fromUniqueValueEdges<string>(valueEdges, (t) => t, true);

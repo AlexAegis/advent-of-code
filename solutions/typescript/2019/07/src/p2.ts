@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { perm } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export const PHASE = [5, 6, 7, 8, 9];
@@ -12,19 +12,19 @@ export const p2 = (input: string): number => {
 
 	return p.reduce((acc, n) => {
 		const ampA = new IntCodeComputer(a);
-		ampA.pushInput(n[0]);
+		ampA.pushInput(n[0]!);
 		const iterA = ampA.iter();
 		const ampB = new IntCodeComputer(a);
-		ampB.pushInput(n[1]);
+		ampB.pushInput(n[1]!);
 		const iterB = ampB.iter();
 		const ampC = new IntCodeComputer(a);
-		ampC.pushInput(n[2]);
+		ampC.pushInput(n[2]!);
 		const iterC = ampC.iter();
 		const ampD = new IntCodeComputer(a);
-		ampD.pushInput(n[3]);
+		ampD.pushInput(n[3]!);
 		const iterD = ampD.iter();
 		const ampE = new IntCodeComputer(a);
-		ampE.pushInput(n[4]);
+		ampE.pushInput(n[4]!);
 		const iterE = ampE.iter();
 		let someHalt = false;
 		let prev = 0;

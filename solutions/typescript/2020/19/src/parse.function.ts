@@ -13,10 +13,10 @@ export const parse = (
 		}
 
 		if (!parseCases) {
-			const [index, rulesUnsplit] = line.split(': ');
+			const [index, rulesUnsplit] = line.splitIntoStringPair(': ');
 			const rules = rulesUnsplit.split(' | ');
-			if (rules[0].startsWith('"') && rules[0].endsWith('"')) {
-				ruleBook.set(parseInt(index, 10), rules[0][1]);
+			if (rules[0]?.startsWith('"') && rules[0].endsWith('"')) {
+				ruleBook.set(parseInt(index, 10), rules[0][1]!);
 			} else {
 				ruleBook.set(
 					parseInt(index, 10),

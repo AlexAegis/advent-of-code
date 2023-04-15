@@ -1,5 +1,5 @@
 import { INTERVAL_CLOSED, renderMatrix, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
 const CRT_WIDTH = 40;
@@ -17,13 +17,14 @@ export const p2 = (input: string): string => {
 	for (const instruction of instructions) {
 		const currentRow = Math.floor(cycle / CRT_WIDTH);
 		const currentPixelInRow = cycle % CRT_WIDTH;
-
+		const displayRow = display[currentRow];
 		if (
+			displayRow &&
 			x.isContainedIn(
 				(currentPixelInRow - 1).interval(currentPixelInRow + 1, INTERVAL_CLOSED)
 			)
 		) {
-			display[currentRow][currentPixelInRow] = '#';
+			displayRow[currentPixelInRow] = '#';
 		}
 
 		cycle += 1;

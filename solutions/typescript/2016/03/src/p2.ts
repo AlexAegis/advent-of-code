@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
-import { isTriangle, Triangle } from './is-triangle.function.js';
+import packageJson from '../package.json';
+import { isTriangle, type Triangle } from './is-triangle.function.js';
 
 export const p2 = (input: string): number => {
 	const result = split(input).reduce(
@@ -14,7 +14,7 @@ export const p2 = (input: string): number => {
 				acc.side = 2;
 			} else {
 				for (let i = 0; i < 3; i++) {
-					acc.triangles.push([acc.bufferSidesA[i], acc.bufferSidesB[i], sides[i]]);
+					acc.triangles.push([acc.bufferSidesA[i]!, acc.bufferSidesB[i]!, sides[i]!]);
 				}
 				acc.side = 0;
 			}

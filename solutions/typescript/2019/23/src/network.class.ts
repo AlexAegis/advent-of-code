@@ -1,5 +1,5 @@
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
-import { nullPacket, Packet } from './packet.interface.js';
+import { nullPacket, type Packet } from './packet.interface.js';
 export const NETWORK_SIZE = 50;
 export const NAT_ADDRESS = 255;
 

@@ -3,7 +3,7 @@ import { parseSubmarineCommand } from './model/submarine-command.interface.js';
 import { SubmarineInstruction } from './model/submarine-instruction.enum.js';
 
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const p2 = (input: string): number => {
 	const result = input

@@ -92,17 +92,25 @@ export class Sprite {
 	forEach(callback: (coordinate: Vec2, cell: Tile) => void): void {
 		for (let y = 0; y < this.render.length; y++) {
 			const row = this.render[y];
-			for (let x = 0; x < row.length; x++) {
-				callback(new Vec2(x, y), row[x]);
+			if (row) {
+				for (let x = 0; x < row.length; x++) {
+					const tile = row[x];
+					if (tile) {
+						callback(new Vec2(x, y), tile);
+					}
+				}
 			}
 		}
 	}
 
 	put(x: number, y: number, tile: Tile | string): void {
-		if (typeof tile === 'string') {
-			this.render[y][x] = this.intoDefaultTile(tile);
-		} else {
-			this.render[y][x] = tile;
+		const row = this.render[y];
+		if (row) {
+			if (typeof tile === 'string') {
+				row[x] = this.intoDefaultTile(tile);
+			} else {
+				row[x] = tile;
+			}
 		}
 	}
 
@@ -114,17 +122,19 @@ export class Sprite {
 			tile = tileLike;
 		}
 
-		const renderRow = this.render[y];
-		if (tile.char) {
-			renderRow[x].char = tile.char;
-		}
+		const renderTile = this.render[y]?.[x];
+		if (renderTile) {
+			if (tile.char) {
+				renderTile.char = tile.char;
+			}
 
-		if (tile.fg) {
-			renderRow[x].fg = tile.fg;
-		}
+			if (tile.fg) {
+				renderTile.fg = tile.fg;
+			}
 
-		if (tile.bg) {
-			renderRow[x].bg = tile.bg;
+			if (tile.bg) {
+				renderTile.bg = tile.bg;
+			}
 		}
 	}
 

@@ -1,6 +1,11 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import { Direction, isDirectionMarker, Vec2, Vec2Like } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import {
+	Direction,
+	Vec2,
+	isDirectionMarker,
+	type Vec2Like,
+} from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
 
 const keypad = [
 	[undefined, undefined, 1, undefined, undefined],

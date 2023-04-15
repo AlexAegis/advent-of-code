@@ -4,15 +4,15 @@ import {
 	renderMatrix,
 	vectorsToMatrix,
 } from '@alexaegis/advent-of-code-lib/functions';
-import { Vec2, Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json' assert { type: 'json' };
+import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
+import packageJson from '../package.json';
 
 export const p2 = (input: string): string => {
-	const [points, foldInstructions] = input.split(/\n\n/);
+	const [points, foldInstructions] = input.splitIntoStringPair(/\n\n/);
 	const vectors = points.lines().map((line) => new Vec2(line as Vec2String));
 
 	const folds = foldInstructions.lines().map((line) => {
-		const [, instruction] = line.split(/fold along /);
+		const [, instruction] = line.splitIntoStringPair(/fold along /);
 		const [axis, value] = instruction.split(/=/) as [axis: 'x' | 'y', value: number];
 		return { axis, value };
 	});

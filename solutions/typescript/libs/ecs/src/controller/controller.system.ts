@@ -32,7 +32,7 @@ export class BasicController extends System implements Initializable {
 	tick(world: GridWorld, timeData: TimeData): boolean | void {
 		for (const key in this.eventMap) {
 			if (this.buffer.keyBuffer[key]) {
-				this.eventMap[key](this.targetEntity, world, timeData);
+				this.eventMap[key]?.(this.targetEntity, world, timeData);
 				delete this.buffer.keyBuffer[key];
 			}
 		}

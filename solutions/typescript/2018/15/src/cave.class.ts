@@ -21,7 +21,7 @@ export class Cave {
 		for (let y = 0; y < this.height; y++) {
 			let row = '';
 			for (let x = 0; x < this.width; x++) {
-				row += this.grid[y * this.height + x].toString();
+				row += this.grid[y * this.height + x]?.toString() ?? '';
 			}
 			repr += row + '\n';
 		}

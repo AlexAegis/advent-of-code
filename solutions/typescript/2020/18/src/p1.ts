@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const processSegment = (line: string[]): string => {
 	let value: string | undefined = undefined;

@@ -7,11 +7,11 @@ export const parse = (input: string): Tile[] => {
 
 	for (const line of lines) {
 		if (line.endsWith(':')) {
-			const [, nc] = line.split(' ');
-			const [n] = nc.split(':');
+			const [, nc] = line.splitIntoStringPair(' ');
+			const [n] = nc.splitIntoStringPair(':');
 			tiles.push(new Tile(parseInt(n, 10)));
 		} else if (line !== '') {
-			tiles[tiles.length - 1].addLine(line);
+			tiles[tiles.length - 1]?.addLine(line);
 		}
 	}
 	return tiles;

@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json' assert { type: 'json' };
+import packageJson from '../package.json';
 
 export const p2 = (input: string, maxDay = 256): number => {
 	const initial = input.splitToInt({ delimiter: /,/ });
