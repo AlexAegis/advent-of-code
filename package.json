@@ -122,7 +122,7 @@
 		"prettier": "^2.8.7",
 		"remark": "^14.0.2",
 		"remark-cli": "^11.0.0",
-		"stylelint": "15.4.0",
+		"stylelint": "15.10.1",
 		"ts-node": "^10.9.1",
 		"turbo": "^1.9.1",
 		"typescript": "^5.0.4",
