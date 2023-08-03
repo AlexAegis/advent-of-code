@@ -117,7 +117,7 @@ importers:
         version: 15.1.0
       postcss-scss:
         specifier: ^4.0.6
-        version: 4.0.6(postcss@8.4.21)
+        version: 4.0.6
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
@@ -140,8 +140,8 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
-        specifier: ^4.2.1
-        version: 4.2.1(@types/node@18.15.11)
+        specifier: ^4.2.3
+        version: 4.2.3(@types/node@18.15.11)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1(@vitest/ui@0.30.1)
@@ -154,13 +154,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -169,7 +169,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2015/02:
     dependencies:
@@ -179,13 +179,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -194,7 +194,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2015/03:
     dependencies:
@@ -204,13 +204,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -219,7 +219,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2015/04:
     dependencies:
@@ -229,13 +229,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -244,7 +244,7 @@ importers:
         version: 3.0.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2015/05:
     dependencies:
@@ -254,13 +254,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -269,7 +269,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2016/01:
     dependencies:
@@ -279,13 +279,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -294,7 +294,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2016/02:
     dependencies:
@@ -304,13 +304,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -319,7 +319,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2016/03:
     dependencies:
@@ -329,13 +329,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -344,7 +344,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2017/01:
     dependencies:
@@ -354,13 +354,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -369,7 +369,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2017/02:
     dependencies:
@@ -379,13 +379,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -394,7 +394,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/01:
     dependencies:
@@ -404,13 +404,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -419,7 +419,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/02:
     dependencies:
@@ -429,13 +429,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -444,7 +444,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/03:
     dependencies:
@@ -454,13 +454,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -469,7 +469,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/04:
     dependencies:
@@ -479,13 +479,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -494,7 +494,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/05:
     dependencies:
@@ -504,13 +504,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -519,7 +519,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/06:
     dependencies:
@@ -529,13 +529,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -544,7 +544,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/07:
     dependencies:
@@ -554,13 +554,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -569,7 +569,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/08:
     dependencies:
@@ -579,13 +579,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -594,7 +594,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/09:
     dependencies:
@@ -604,13 +604,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -619,7 +619,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/10:
     dependencies:
@@ -632,13 +632,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -647,7 +647,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/11:
     dependencies:
@@ -660,13 +660,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -678,7 +678,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/12:
     dependencies:
@@ -688,13 +688,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -703,7 +703,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/13:
     dependencies:
@@ -713,13 +713,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -728,7 +728,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/14:
     dependencies:
@@ -738,13 +738,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -753,7 +753,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2018/15:
     dependencies:
@@ -763,13 +763,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -778,7 +778,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/01:
     dependencies:
@@ -788,13 +788,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -803,7 +803,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/02:
     dependencies:
@@ -813,13 +813,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -828,7 +828,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/03:
     dependencies:
@@ -838,13 +838,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -853,7 +853,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/04:
     dependencies:
@@ -863,13 +863,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -878,7 +878,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/05:
     dependencies:
@@ -888,13 +888,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -903,7 +903,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/06:
     dependencies:
@@ -913,13 +913,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -928,7 +928,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/07:
     dependencies:
@@ -938,13 +938,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -953,7 +953,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/08:
     dependencies:
@@ -963,13 +963,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -978,7 +978,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/09:
     dependencies:
@@ -988,13 +988,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1003,7 +1003,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/10:
     dependencies:
@@ -1013,13 +1013,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1028,7 +1028,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/11:
     dependencies:
@@ -1038,13 +1038,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1053,7 +1053,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/12:
     dependencies:
@@ -1063,13 +1063,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1078,7 +1078,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/13:
     dependencies:
@@ -1088,13 +1088,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1103,7 +1103,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/14:
     dependencies:
@@ -1113,13 +1113,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1128,7 +1128,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/16:
     dependencies:
@@ -1138,13 +1138,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1153,7 +1153,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/17:
     dependencies:
@@ -1163,13 +1163,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1178,7 +1178,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/18:
     dependencies:
@@ -1188,13 +1188,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1203,7 +1203,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/19:
     dependencies:
@@ -1213,13 +1213,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1228,7 +1228,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/20:
     dependencies:
@@ -1238,13 +1238,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1253,7 +1253,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/21:
     dependencies:
@@ -1263,13 +1263,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1278,7 +1278,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/22:
     dependencies:
@@ -1288,13 +1288,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1303,7 +1303,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/23:
     dependencies:
@@ -1313,13 +1313,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1328,7 +1328,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2019/24:
     dependencies:
@@ -1338,13 +1338,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1353,7 +1353,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/01:
     dependencies:
@@ -1363,13 +1363,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1378,7 +1378,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/02:
     dependencies:
@@ -1388,13 +1388,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1403,7 +1403,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/03:
     dependencies:
@@ -1413,13 +1413,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1428,7 +1428,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/04:
     dependencies:
@@ -1438,13 +1438,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1453,7 +1453,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/05:
     dependencies:
@@ -1463,13 +1463,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1478,7 +1478,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/06:
     dependencies:
@@ -1488,13 +1488,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1503,7 +1503,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/07:
     dependencies:
@@ -1513,13 +1513,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1528,7 +1528,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/08:
     dependencies:
@@ -1538,13 +1538,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1553,7 +1553,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/09:
     dependencies:
@@ -1563,13 +1563,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1578,7 +1578,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/10:
     dependencies:
@@ -1588,13 +1588,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1603,7 +1603,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/11:
     dependencies:
@@ -1613,13 +1613,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1628,7 +1628,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/12:
     dependencies:
@@ -1638,13 +1638,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1653,7 +1653,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/13:
     dependencies:
@@ -1663,13 +1663,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1678,7 +1678,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/14:
     dependencies:
@@ -1688,13 +1688,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1703,7 +1703,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/15:
     dependencies:
@@ -1713,13 +1713,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1728,7 +1728,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/16:
     dependencies:
@@ -1738,13 +1738,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1753,7 +1753,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/17:
     dependencies:
@@ -1763,13 +1763,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1778,7 +1778,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/18:
     dependencies:
@@ -1788,13 +1788,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1803,7 +1803,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/19:
     dependencies:
@@ -1816,13 +1816,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1831,7 +1831,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/20:
     dependencies:
@@ -1841,13 +1841,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1856,7 +1856,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/21:
     dependencies:
@@ -1866,13 +1866,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1881,7 +1881,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/22:
     dependencies:
@@ -1891,13 +1891,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1906,7 +1906,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/23:
     dependencies:
@@ -1916,13 +1916,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1931,7 +1931,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/24:
     dependencies:
@@ -1941,13 +1941,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1956,7 +1956,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2020/25:
     dependencies:
@@ -1969,13 +1969,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1984,7 +1984,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/01:
     dependencies:
@@ -1994,13 +1994,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2009,7 +2009,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/02:
     dependencies:
@@ -2019,13 +2019,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2034,7 +2034,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/03:
     dependencies:
@@ -2044,13 +2044,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2059,7 +2059,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/04:
     dependencies:
@@ -2069,13 +2069,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2084,7 +2084,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/05:
     dependencies:
@@ -2094,13 +2094,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2109,7 +2109,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/06:
     dependencies:
@@ -2119,13 +2119,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2134,7 +2134,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/07:
     dependencies:
@@ -2144,13 +2144,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2159,7 +2159,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/08:
     dependencies:
@@ -2169,13 +2169,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2184,7 +2184,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/09:
     dependencies:
@@ -2194,13 +2194,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2209,7 +2209,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/10:
     dependencies:
@@ -2219,13 +2219,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2234,7 +2234,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/11:
     dependencies:
@@ -2244,13 +2244,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2259,7 +2259,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/12:
     dependencies:
@@ -2269,13 +2269,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2284,7 +2284,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/13:
     dependencies:
@@ -2294,13 +2294,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2309,7 +2309,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/14:
     dependencies:
@@ -2319,13 +2319,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2334,7 +2334,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/15:
     dependencies:
@@ -2344,13 +2344,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2359,7 +2359,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/16:
     dependencies:
@@ -2369,13 +2369,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2384,7 +2384,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/17:
     dependencies:
@@ -2397,13 +2397,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2412,7 +2412,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/18:
     dependencies:
@@ -2422,13 +2422,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2437,7 +2437,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2021/21:
     dependencies:
@@ -2447,13 +2447,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2462,10 +2462,10 @@ importers:
         version: 3.7.1
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@18.15.11)(typescript@5.0.4)
+        version: 10.9.1(@types/node@18.15.11)
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/01:
     dependencies:
@@ -2475,13 +2475,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2490,7 +2490,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/02:
     dependencies:
@@ -2500,13 +2500,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2515,7 +2515,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/03:
     dependencies:
@@ -2525,13 +2525,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2540,7 +2540,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/04:
     dependencies:
@@ -2550,13 +2550,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2565,7 +2565,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/05:
     dependencies:
@@ -2575,13 +2575,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2590,7 +2590,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/06:
     dependencies:
@@ -2600,13 +2600,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2615,7 +2615,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/07:
     dependencies:
@@ -2625,13 +2625,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2640,7 +2640,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/08:
     dependencies:
@@ -2650,13 +2650,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2665,7 +2665,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/09:
     dependencies:
@@ -2678,13 +2678,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2693,7 +2693,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/10:
     dependencies:
@@ -2703,13 +2703,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2718,7 +2718,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/11:
     dependencies:
@@ -2728,13 +2728,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2743,7 +2743,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/12:
     dependencies:
@@ -2753,13 +2753,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2768,7 +2768,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/13:
     dependencies:
@@ -2778,13 +2778,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2793,7 +2793,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/14:
     dependencies:
@@ -2806,13 +2806,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2821,7 +2821,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/15:
     dependencies:
@@ -2831,13 +2831,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2846,7 +2846,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/16:
     dependencies:
@@ -2856,13 +2856,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2871,7 +2871,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/17:
     dependencies:
@@ -2884,13 +2884,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2899,7 +2899,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/18:
     dependencies:
@@ -2909,13 +2909,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2924,7 +2924,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/19:
     dependencies:
@@ -2934,13 +2934,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2949,7 +2949,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/20:
     dependencies:
@@ -2959,13 +2959,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2974,7 +2974,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/21:
     dependencies:
@@ -2984,13 +2984,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -2999,7 +2999,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/22:
     dependencies:
@@ -3009,13 +3009,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -3024,7 +3024,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/23:
     dependencies:
@@ -3034,13 +3034,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -3049,7 +3049,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/24:
     dependencies:
@@ -3059,13 +3059,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -3074,7 +3074,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/2022/25:
     dependencies:
@@ -3084,13 +3084,13 @@ importers:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.1.7
-        version: 0.1.7(typescript@5.0.4)
+        version: 0.1.7
       '@alexaegis/ts':
         specifier: ^0.1.7
         version: 0.1.7
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -3099,7 +3099,7 @@ importers:
         version: 3.7.1
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
   solutions/typescript/libs/ecs:
     dependencies:
@@ -3130,7 +3130,7 @@ importers:
         version: 0.1.7(@types/node@18.15.11)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vite@4.2.3)(vitest@0.30.1)
       '@commitlint/cli':
         specifier: ^17.6.1
         version: 17.6.1
@@ -3198,11 +3198,11 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: ^4.2.1
-        version: 4.2.1(@types/node@18.15.11)
+        specifier: ^4.2.3
+        version: 4.2.3(@types/node@18.15.11)
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
       yaml-lint:
         specifier: ^1.7.0
         version: 1.7.0
@@ -3245,7 +3245,7 @@ importers:
         version: 0.1.7(@types/node@18.15.11)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.1.7
-        version: 0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1)
+        version: 0.1.7(vite@4.2.3)(vitest@0.30.1)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -3298,11 +3298,11 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: ^4.2.1
-        version: 4.2.1(@types/node@18.15.11)
+        specifier: ^4.2.3
+        version: 4.2.3(@types/node@18.15.11)
       vitest:
         specifier: ^0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)
+        version: 0.30.1
 
 packages:
 
@@ -3360,6 +3360,28 @@ packages:
       eslint-plugin-svelte3: 4.0.0(eslint@8.38.0)(svelte@3.58.0)
       eslint-plugin-unicorn: 46.0.0(eslint@8.38.0)
       typescript: 5.0.4
+    optionalDependencies:
+      svelte: 3.58.0
+    transitivePeerDependencies:
+      - eslint-import-resolver-webpack
+      - supports-color
+    dev: true
+
+  /@alexaegis/eslint-config-vitest@0.1.7:
+    resolution: {integrity: sha512-N3cqG+T4avtR2bg4zctylLJC1uRU8VCx0rAvIGsh+W5vMvcKe5N+naSX4yxmw3PxvGnnJkoGNN4CWk63aZ2gmw==}
+    engines: {node: '>=18.13.0'}
+    peerDependencies:
+      typescript: ^5.0.4
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)
+      '@typescript-eslint/parser': 5.58.0(eslint@8.38.0)
+      eslint: 8.38.0
+      eslint-config-next: 13.3.0(eslint@8.38.0)
+      eslint-config-prettier: 8.8.0(eslint@8.38.0)
+      eslint-config-turbo: 1.9.1(eslint@8.38.0)
+      eslint-plugin-react: 7.32.2(eslint@8.38.0)
+      eslint-plugin-svelte3: 4.0.0(eslint@8.38.0)(svelte@3.58.0)
+      eslint-plugin-unicorn: 46.0.0(eslint@8.38.0)
     optionalDependencies:
       svelte: 3.58.0
     transitivePeerDependencies:
@@ -3687,7 +3709,7 @@ packages:
       '@alexaegis/workspace-tools': 0.1.3
       concurrently: 8.0.1
       nodemon: 2.0.22
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3777,7 +3799,7 @@ packages:
       '@types/node': 18.15.11
       ts-node: 10.9.1(@types/node@18.15.11)(typescript@5.0.4)
       typescript: 5.0.4
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3794,13 +3816,13 @@ packages:
     resolution: {integrity: sha512-37mrz23U8xwPw61kRuEKMo3g+XWiApZOHXD3j7BAvNsAUjlFIibM4AS09VffZKaTBVANWCNigq+bWzGiAYxh3w==}
     engines: {node: '>=18.13.0'}
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.0.4(svelte@3.58.0)(vite@4.2.1)
+      '@sveltejs/vite-plugin-svelte': 2.0.4(svelte@3.58.0)(vite@4.2.3)
       concurrently: 8.0.1
       nodemon: 2.0.22
       svelte: 3.58.0
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
       vite-plugin-autolib: 0.1.0(typescript@5.0.4)
-      vite-plugin-dts: 2.2.0(@types/node@18.15.11)(vite@4.2.1)
+      vite-plugin-dts: 2.2.0(@types/node@18.15.11)(vite@4.2.3)
     optionalDependencies:
       prettier: 2.8.7
     transitivePeerDependencies:
@@ -3817,7 +3839,7 @@ packages:
       - typescript
     dev: true
 
-  /@alexaegis/vitest@0.1.7(svelte@3.58.0)(vite@4.2.1)(vitest@0.30.1):
+  /@alexaegis/vitest@0.1.7(vite@4.2.3)(vitest@0.30.1):
     resolution: {integrity: sha512-7iJQctnTQm4OQuk75SEh4PkJPjKgZ3JRs40js+EA+BcM3REPWUCNgcfeAuExxmjKU3OrIG7iKZ9FW68t5MsScg==}
     engines: {node: '>=18.13.0'}
     hasBin: true
@@ -3825,12 +3847,33 @@ packages:
       vite: ^4.2.1
       vitest: ^0.30.1
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.0.4(svelte@3.58.0)(vite@4.2.1)
+      '@sveltejs/vite-plugin-svelte': 2.0.4(vite@4.2.3)
       '@vitest/coverage-c8': 0.30.1(vitest@0.30.1)
       '@vitest/ui': 0.30.1
       jsdom: 21.1.1
-      vite: 4.2.1(@types/node@18.15.11)
-      vitest: 0.30.1(@vitest/ui@0.30.1)
+      vite: 4.2.3(@types/node@18.15.11)
+      vitest: 0.30.1
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - svelte
+      - utf-8-validate
+    dev: true
+
+  /@alexaegis/vitest@0.1.7(vitest@0.30.1):
+    resolution: {integrity: sha512-7iJQctnTQm4OQuk75SEh4PkJPjKgZ3JRs40js+EA+BcM3REPWUCNgcfeAuExxmjKU3OrIG7iKZ9FW68t5MsScg==}
+    engines: {node: '>=18.13.0'}
+    hasBin: true
+    peerDependencies:
+      vite: ^4.2.1
+      vitest: ^0.30.1
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 2.0.4
+      '@vitest/coverage-c8': 0.30.1(vitest@0.30.1)
+      '@vitest/ui': 0.30.1
+      jsdom: 21.1.1
+      vitest: 0.30.1
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -4946,7 +4989,24 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@2.0.4(svelte@3.58.0)(vite@4.2.1):
+  /@sveltejs/vite-plugin-svelte@2.0.4:
+    resolution: {integrity: sha512-pjqhW00KwK2uzDGEr+yJBwut+D+4XfJO/+bHHdHzPRXn9+1Jeq5JcFHyrUiYaXgHtyhX0RsllCTm4ssAx4ZY7Q==}
+    engines: {node: ^14.18.0 || >= 16}
+    peerDependencies:
+      svelte: ^3.54.0
+      vite: ^4.0.0
+    dependencies:
+      debug: 4.3.4
+      deepmerge: 4.3.1
+      kleur: 4.1.5
+      magic-string: 0.30.0
+      svelte-hmr: 0.15.1
+      vitefu: 0.2.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@sveltejs/vite-plugin-svelte@2.0.4(svelte@3.58.0)(vite@4.2.3):
     resolution: {integrity: sha512-pjqhW00KwK2uzDGEr+yJBwut+D+4XfJO/+bHHdHzPRXn9+1Jeq5JcFHyrUiYaXgHtyhX0RsllCTm4ssAx4ZY7Q==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -4959,8 +5019,26 @@ packages:
       magic-string: 0.30.0
       svelte: 3.58.0
       svelte-hmr: 0.15.1(svelte@3.58.0)
-      vite: 4.2.1(@types/node@18.15.11)
-      vitefu: 0.2.4(vite@4.2.1)
+      vite: 4.2.3(@types/node@18.15.11)
+      vitefu: 0.2.4(vite@4.2.3)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@sveltejs/vite-plugin-svelte@2.0.4(vite@4.2.3):
+    resolution: {integrity: sha512-pjqhW00KwK2uzDGEr+yJBwut+D+4XfJO/+bHHdHzPRXn9+1Jeq5JcFHyrUiYaXgHtyhX0RsllCTm4ssAx4ZY7Q==}
+    engines: {node: ^14.18.0 || >= 16}
+    peerDependencies:
+      svelte: ^3.54.0
+      vite: ^4.0.0
+    dependencies:
+      debug: 4.3.4
+      deepmerge: 4.3.1
+      kleur: 4.1.5
+      magic-string: 0.30.0
+      svelte-hmr: 0.15.1
+      vite: 4.2.3(@types/node@18.15.11)
+      vitefu: 0.2.4(vite@4.2.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5284,6 +5362,33 @@ packages:
       '@types/node': 18.15.11
     dev: true
 
+  /@typescript-eslint/eslint-plugin@5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0):
+    resolution: {integrity: sha512-vxHvLhH0qgBd3/tW6/VccptSfc8FxPQIkmNTVLWcCOVqSBvqpnKkBTYrhcGlXfSnd78azwe+PsjYFj0X34/njA==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      '@typescript-eslint/parser': ^5.0.0
+      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@eslint-community/regexpp': 4.5.0
+      '@typescript-eslint/parser': 5.58.0(eslint@8.38.0)
+      '@typescript-eslint/scope-manager': 5.58.0
+      '@typescript-eslint/type-utils': 5.58.0(eslint@8.38.0)
+      '@typescript-eslint/utils': 5.58.0(eslint@8.38.0)
+      debug: 4.3.4
+      eslint: 8.38.0
+      grapheme-splitter: 1.0.4
+      ignore: 5.2.4
+      natural-compare-lite: 1.4.0
+      semver: 7.4.0
+      tsutils: 3.21.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@typescript-eslint/eslint-plugin@5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)(typescript@5.0.4):
     resolution: {integrity: sha512-vxHvLhH0qgBd3/tW6/VccptSfc8FxPQIkmNTVLWcCOVqSBvqpnKkBTYrhcGlXfSnd78azwe+PsjYFj0X34/njA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -5308,6 +5413,25 @@ packages:
       semver: 7.4.0
       tsutils: 3.21.0(typescript@5.0.4)
       typescript: 5.0.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@typescript-eslint/parser@5.58.0(eslint@8.38.0):
+    resolution: {integrity: sha512-ixaM3gRtlfrKzP8N6lRhBbjTow1t6ztfBvQNGuRM8qH1bjFFXIJ35XY+FC0RRBKn3C6cT+7VW1y8tNm7DwPHDQ==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/scope-manager': 5.58.0
+      '@typescript-eslint/types': 5.58.0
+      '@typescript-eslint/typescript-estree': 5.58.0
+      debug: 4.3.4
+      eslint: 8.38.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5340,6 +5464,25 @@ packages:
       '@typescript-eslint/visitor-keys': 5.58.0
     dev: true
 
+  /@typescript-eslint/type-utils@5.58.0(eslint@8.38.0):
+    resolution: {integrity: sha512-FF5vP/SKAFJ+LmR9PENql7fQVVgGDOS+dq3j+cKl9iW/9VuZC/8CFmzIP0DLKXfWKpRHawJiG70rVH+xZZbp8w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/typescript-estree': 5.58.0
+      '@typescript-eslint/utils': 5.58.0(eslint@8.38.0)
+      debug: 4.3.4
+      eslint: 8.38.0
+      tsutils: 3.21.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@typescript-eslint/type-utils@5.58.0(eslint@8.38.0)(typescript@5.0.4):
     resolution: {integrity: sha512-FF5vP/SKAFJ+LmR9PENql7fQVVgGDOS+dq3j+cKl9iW/9VuZC/8CFmzIP0DLKXfWKpRHawJiG70rVH+xZZbp8w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -5365,6 +5508,26 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@typescript-eslint/typescript-estree@5.58.0:
+    resolution: {integrity: sha512-cRACvGTodA+UxnYM2uwA2KCwRL7VAzo45syNysqlMyNyjw0Z35Icc9ihPJZjIYuA5bXJYiJ2YGUB59BqlOZT1Q==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/types': 5.58.0
+      '@typescript-eslint/visitor-keys': 5.58.0
+      debug: 4.3.4
+      globby: 11.1.0
+      is-glob: 4.0.3
+      semver: 7.4.0
+      tsutils: 3.21.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@typescript-eslint/typescript-estree@5.58.0(typescript@5.0.4):
     resolution: {integrity: sha512-cRACvGTodA+UxnYM2uwA2KCwRL7VAzo45syNysqlMyNyjw0Z35Icc9ihPJZjIYuA5bXJYiJ2YGUB59BqlOZT1Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -5384,6 +5547,26 @@ packages:
       typescript: 5.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@typescript-eslint/utils@5.58.0(eslint@8.38.0):
+    resolution: {integrity: sha512-gAmLOTFXMXOC+zP1fsqm3VceKSBQJNzV385Ok3+yzlavNHZoedajjS4UyS21gabJYcobuigQPs/z71A9MdJFqQ==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      '@eslint-community/eslint-utils': 4.4.0(eslint@8.38.0)
+      '@types/json-schema': 7.0.11
+      '@types/semver': 7.3.13
+      '@typescript-eslint/scope-manager': 5.58.0
+      '@typescript-eslint/types': 5.58.0
+      '@typescript-eslint/typescript-estree': 5.58.0
+      eslint: 8.38.0
+      eslint-scope: 5.1.1
+      semver: 7.4.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: true
 
   /@typescript-eslint/utils@5.58.0(eslint@8.38.0)(typescript@5.0.4):
@@ -6737,6 +6920,17 @@ packages:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
     dev: true
 
+  /debug@3.2.7:
+    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.3
+    dev: true
+
   /debug@3.2.7(supports-color@5.5.0):
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
@@ -7191,6 +7385,30 @@ packages:
       source-map: 0.6.1
     dev: true
 
+  /eslint-config-next@13.3.0(eslint@8.38.0):
+    resolution: {integrity: sha512-6YEwmFBX0VjBd3ODGW9df0Is0FLaRFdMN8eAahQG9CN6LjQ28J8AFr19ngxqMSg7Qv6Uca/3VeeBosJh1bzu0w==}
+    peerDependencies:
+      eslint: ^7.23.0 || ^8.0.0
+      typescript: '>=3.3.1'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@next/eslint-plugin-next': 13.3.0
+      '@rushstack/eslint-patch': 1.2.0
+      '@typescript-eslint/parser': 5.58.0(eslint@8.38.0)
+      eslint: 8.38.0
+      eslint-import-resolver-node: 0.3.7
+      eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.58.0)(eslint-import-resolver-node@0.3.7)(eslint-plugin-import@2.27.5)(eslint@8.38.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.58.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.38.0)
+      eslint-plugin-jsx-a11y: 6.7.1(eslint@8.38.0)
+      eslint-plugin-react: 7.32.2(eslint@8.38.0)
+      eslint-plugin-react-hooks: 4.6.0(eslint@8.38.0)
+    transitivePeerDependencies:
+      - eslint-import-resolver-webpack
+      - supports-color
+    dev: true
+
   /eslint-config-next@13.3.0(eslint@8.38.0)(typescript@5.0.4):
     resolution: {integrity: sha512-6YEwmFBX0VjBd3ODGW9df0Is0FLaRFdMN8eAahQG9CN6LjQ28J8AFr19ngxqMSg7Qv6Uca/3VeeBosJh1bzu0w==}
     peerDependencies:
@@ -7237,7 +7455,7 @@ packages:
   /eslint-import-resolver-node@0.3.7:
     resolution: {integrity: sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==}
     dependencies:
-      debug: 3.2.7(supports-color@5.5.0)
+      debug: 3.2.7
       is-core-module: 2.12.0
       resolve: 1.22.3
     transitivePeerDependencies:
@@ -7290,7 +7508,7 @@ packages:
         optional: true
     dependencies:
       '@typescript-eslint/parser': 5.58.0(eslint@8.38.0)(typescript@5.0.4)
-      debug: 3.2.7(supports-color@5.5.0)
+      debug: 3.2.7
       eslint: 8.38.0
       eslint-import-resolver-node: 0.3.7
       eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.58.0)(eslint-import-resolver-node@0.3.7)(eslint-plugin-import@2.27.5)(eslint@8.38.0)
@@ -7312,7 +7530,7 @@ packages:
       array-includes: 3.1.6
       array.prototype.flat: 1.3.1
       array.prototype.flatmap: 1.3.1
-      debug: 3.2.7(supports-color@5.5.0)
+      debug: 3.2.7
       doctrine: 2.1.0
       eslint: 8.38.0
       eslint-import-resolver-node: 0.3.7
@@ -10882,13 +11100,11 @@ packages:
       postcss: 8.4.21
     dev: true
 
-  /postcss-scss@4.0.6(postcss@8.4.21):
+  /postcss-scss@4.0.6:
     resolution: {integrity: sha512-rLDPhJY4z/i4nVFZ27j9GqLxj1pwxE80eAzUNRMXtcpipFYIeowerzBgG3yJhMtObGEXidtIgbUpQ3eLDsf5OQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.4.19
-    dependencies:
-      postcss: 8.4.21
     dev: true
 
   /postcss-selector-parser@6.0.11:
@@ -12746,6 +12962,13 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
+  /svelte-hmr@0.15.1:
+    resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
+    engines: {node: ^12.20 || ^14.13.1 || >= 16}
+    peerDependencies:
+      svelte: '>=3.19.0'
+    dev: true
+
   /svelte-hmr@0.15.1(svelte@3.58.0):
     resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -12952,6 +13175,36 @@ packages:
       code-block-writer: 11.0.3
     dev: true
 
+  /ts-node@10.9.1(@types/node@18.15.11):
+    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.3
+      '@types/node': 18.15.11
+      acorn: 8.8.2
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: true
+
   /ts-node@10.9.1(@types/node@18.15.11)(typescript@5.0.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
@@ -13005,6 +13258,15 @@ packages:
   /tslog@4.8.2:
     resolution: {integrity: sha512-eAKIRjxfSKYLs06r1wT7oou6Uv9VN6NW9g0JPidBlqQwPBBl5+84dm7r8zSOPVq1kyfEw1P6B3/FLSpZCorAgA==}
     engines: {node: '>=16'}
+    dev: true
+
+  /tsutils@3.21.0:
+    resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
+    engines: {node: '>= 6'}
+    peerDependencies:
+      typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
+    dependencies:
+      tslib: 1.14.1
     dev: true
 
   /tsutils@3.21.0(typescript@5.0.4):
@@ -13614,7 +13876,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -13642,7 +13904,7 @@ packages:
       rollup: 3.20.2
       ts-node: 10.9.1(@types/node@18.15.11)(typescript@5.0.4)
       typescript: 5.0.4
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
       yargs: 17.7.1
     transitivePeerDependencies:
       - '@swc/core'
@@ -13654,7 +13916,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@2.2.0(@types/node@18.15.11)(vite@4.2.1):
+  /vite-plugin-dts@2.2.0(@types/node@18.15.11)(vite@4.2.3):
     resolution: {integrity: sha512-XmZtv02I7eGWm3DrZbLo1AdJK5gCisk9GqJBpY4N63pDYR6AVUnlyjFP5FCBvSBUfgE0Ppl90bKgtJU9k3AzFw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -13670,15 +13932,15 @@ packages:
       kolorist: 1.7.0
       magic-string: 0.29.0
       ts-morph: 17.0.1
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.2.1(@types/node@18.15.11):
-    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
+  /vite@4.2.3(@types/node@18.15.11):
+    resolution: {integrity: sha512-kLU+m2q0Y434Y1kCy3TchefAdtFso0ILi0dLyFV8Us3InXTU11H/B5ZTqCKIQHzSKNxVG/yEx813EA9f1imQ9A==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -13711,7 +13973,16 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitefu@0.2.4(vite@4.2.1):
+  /vitefu@0.2.4:
+    resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0
+    peerDependenciesMeta:
+      vite:
+        optional: true
+    dev: true
+
+  /vitefu@0.2.4(vite@4.2.3):
     resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0
@@ -13719,7 +13990,73 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
+    dev: true
+
+  /vitest@0.30.1:
+    resolution: {integrity: sha512-y35WTrSTlTxfMLttgQk4rHcaDkbHQwDP++SNwPb+7H8yb13Q3cu2EixrtHzF27iZ8v0XCciSsLg00RkPAzB/aA==}
+    engines: {node: '>=v14.18.0'}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
+      '@vitest/ui': '*'
+      happy-dom: '*'
+      jsdom: '*'
+      playwright: '*'
+      safaridriver: '*'
+      webdriverio: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+      playwright:
+        optional: true
+      safaridriver:
+        optional: true
+      webdriverio:
+        optional: true
+    dependencies:
+      '@types/chai': 4.3.4
+      '@types/chai-subset': 1.3.3
+      '@types/node': 18.15.11
+      '@vitest/expect': 0.30.1
+      '@vitest/runner': 0.30.1
+      '@vitest/snapshot': 0.30.1
+      '@vitest/spy': 0.30.1
+      '@vitest/utils': 0.30.1
+      acorn: 8.8.2
+      acorn-walk: 8.2.0
+      cac: 6.7.14
+      chai: 4.3.7
+      concordance: 5.0.4
+      debug: 4.3.4
+      local-pkg: 0.4.3
+      magic-string: 0.30.0
+      pathe: 1.1.0
+      picocolors: 1.0.0
+      source-map: 0.6.1
+      std-env: 3.3.2
+      strip-literal: 1.0.1
+      tinybench: 2.4.0
+      tinypool: 0.4.0
+      vite: 4.2.3(@types/node@18.15.11)
+      vite-node: 0.30.1(@types/node@18.15.11)
+      why-is-node-running: 2.2.2
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
     dev: true
 
   /vitest@0.30.1(@vitest/ui@0.30.1):
@@ -13777,7 +14114,7 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.4.0
       tinypool: 0.4.0
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.2.3(@types/node@18.15.11)
       vite-node: 0.30.1(@types/node@18.15.11)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

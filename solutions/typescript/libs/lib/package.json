@@ -153,7 +153,7 @@
 		"remark-preset-lint-consistent": "^5.1.1",
 		"remark-preset-lint-recommended": "^6.1.2",
 		"typescript": "5.0.4",
-		"vite": "^4.2.1",
+		"vite": "^4.2.3",
 		"vitest": "^0.30.1"
 	}
 }
