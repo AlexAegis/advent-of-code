@@ -4,7 +4,7 @@ import packageJson from '../package.json';
 export const calculate =
 	(target: number) =>
 	(input: string): number => {
-		const numbers = input.split(',').map((a) => parseInt(a, 10));
+		const numbers = input.split(',').map((a) => Number.parseInt(a, 10));
 
 		const map = new Map<number, { turn: number; prevTurn: number | undefined }>();
 
@@ -12,19 +12,17 @@ export const calculate =
 
 		for (let i = 1; i <= target; i++) {
 			if (i <= numbers.length) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				lastNumber = numbers[i - 1]!;
 				map.set(lastNumber, { turn: i, prevTurn: undefined });
+
 				continue;
 			}
 			const c = map.get(lastNumber);
 
 			let result: number;
 			if (c) {
-				if (!c.prevTurn) {
-					result = 0;
-				} else {
-					result = c.turn - c.prevTurn;
-				}
+				result = c.prevTurn ? c.turn - c.prevTurn : 0;
 			} else {
 				result = 0;
 				map.set(lastNumber, { turn: i, prevTurn: undefined });

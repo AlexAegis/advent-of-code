@@ -15,7 +15,7 @@ export const p2 = (input: string): number => {
 				const nch = heightMap.get(ncs);
 				return !checked.has(ncs) && nch !== 9 && nch !== undefined;
 			});
-		neighbours.forEach((neighbour) => checked.add(neighbour.toString()));
+		for (const neighbour of neighbours) checked.add(neighbour.toString());
 		return [...neighbours, ...neighbours.flatMap((neighbour) => flow(neighbour, checked))];
 	};
 

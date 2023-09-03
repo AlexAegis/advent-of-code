@@ -20,15 +20,15 @@ export const cutSubSegment = <T>(
 	leaveOneBehind = false
 ): T[] | undefined => {
 	const j = findEndOfPair(t, pair, from);
-	if (j !== undefined) {
+	if (j === undefined) {
+		return undefined;
+	} else {
 		const inner = t.splice(from + 1, j - from - 1); // Strip the inner part
-		if (!leaveOneBehind) {
-			t.splice(from, 2); // Throw the pair out
-		} else {
+		if (leaveOneBehind) {
 			t.splice(from + 1, 1); // throw only the end of the pair out
+		} else {
+			t.splice(from, 2); // Throw the pair out
 		}
 		return inner;
-	} else {
-		return undefined;
 	}
 };

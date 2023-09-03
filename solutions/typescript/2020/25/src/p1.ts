@@ -2,14 +2,14 @@ import { split, task } from '@alexaegis/advent-of-code-lib';
 import { type } from 'arktype';
 import packageJson from '../package.json';
 
-const magicNumber = 20201227;
+const magicNumber = 20_201_227;
 
 export const handshake = (subjectNumber: number, loopSize: number): number => {
 	return subjectNumber.modExp(loopSize, magicNumber);
 };
 
 export const findLoopsize = (subjectNumber: number, publicKey: number): number => {
-	for (let loopsize = 1; loopsize < 20000000; loopsize++) {
+	for (let loopsize = 1; loopsize < 20_000_000; loopsize++) {
 		const handshakeResult = handshake(subjectNumber, loopsize);
 		if (handshakeResult === publicKey) {
 			return loopsize;
@@ -21,7 +21,7 @@ export const findLoopsize = (subjectNumber: number, publicKey: number): number =
 export const p1 = (input: string): number => {
 	const numberPair = type(['number', 'number']);
 	const [cardPublicKey, doorPublicKey] = numberPair.assert(
-		split(input).map((l) => parseInt(l, 10))
+		split(input).map((l) => Number.parseInt(l, 10)),
 	);
 	const subjectNumber = 7;
 	const cardLoopSize = findLoopsize(subjectNumber, cardPublicKey);

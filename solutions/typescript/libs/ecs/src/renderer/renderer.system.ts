@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { renderMatrix, Vec2 } from '@alexaegis/advent-of-code-lib';
 import { AsciiDisplayComponent } from '../components/prebuilt/ascii-display.component.js';
 import { CameraComponent } from '../components/prebuilt/camera.component.js';
@@ -30,8 +31,8 @@ const normalizeRendererSystemOptions = (
 };
 
 export class RendererSystem extends System implements Initializable {
-	order = Infinity;
-	camera: CameraComponent;
+	order = Number.POSITIVE_INFINITY;
+	camera: CameraComponent | undefined;
 	currentFrame?: Sprite;
 
 	options: NormalizedRendererSystemOptions;
@@ -39,11 +40,12 @@ export class RendererSystem extends System implements Initializable {
 	constructor(options: RendererSystemOptions) {
 		super();
 		this.options = normalizeRendererSystemOptions(options);
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		this.camera = this.options.cameraEntity.getComponent(CameraComponent)!;
 	}
 
 	async init(): Promise<void> {
-		await this.options.backend.init((size) => this.camera.resize(size));
+		await this.options.backend.init((size) => { this.camera?.resize(size); });
 	}
 
 	tick(world: GridWorld): boolean {
@@ -59,7 +61,7 @@ export class RendererSystem extends System implements Initializable {
 		}
 		frame.blank(this.camera.screenViewport);
 
-		for (const [_entity, positionComponent, displayComponent] of [
+		for (const [, positionComponent, displayComponent] of [
 			...world.query(StaticPositionComponent, AsciiDisplayComponent),
 			...world.query(PositionComponent, AsciiDisplayComponent),
 		].sort((a, b) => a[1].z - b[1].z)) {
@@ -72,8 +74,8 @@ export class RendererSystem extends System implements Initializable {
 
 			const screenIntersection = this.camera.screenViewport.intersection(entityScreenBox);
 			screenIntersection?.forEach((screenX, screenY) => {
-				const worldX = this.camera.worldAnchor.x + screenX;
-				const worldY = this.camera.worldAnchor.y + screenY;
+				const worldX = this.camera!.worldAnchor.x + screenX;
+				const worldY = this.camera!.worldAnchor.y + screenY;
 				const localX = worldX - positionComponent.position.x;
 				const localY = worldY - positionComponent.position.y;
 				const tile = displayComponent.sprite.getTileAt(localX, localY);
@@ -91,11 +93,11 @@ export class RendererSystem extends System implements Initializable {
 	}
 
 	private renderCollidersOntoSprite(frame: Sprite): void {
-		this.camera.screenViewport.forEach((x, y) => {
+		this.camera?.screenViewport.forEach((x, y) => {
 			const sp = new Vec2(x, y);
-			const wp = this.camera.getWorldPositionFromScreenPosition(sp);
-			const collidingEntities = this.camera.world.entitiesCollidingAt(wp).length;
-			if (collidingEntities) {
+			const wp = this.camera?.getWorldPositionFromScreenPosition(sp) ?? Vec2.ORIGIN;
+			const collidingEntities = this.camera?.world.entitiesCollidingAt(wp).length;
+			if (collidingEntities !== undefined) {
 				frame.merge(x, y, collidingEntities.toString());
 			}
 		});

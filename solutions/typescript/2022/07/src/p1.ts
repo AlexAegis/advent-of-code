@@ -6,7 +6,7 @@ export const p1 = (input: string): number => {
 	const fs = new ExpeditionFileSystem().interpret(split(input));
 	return [...fs.root.walkDirectories()]
 		.map((dir) => dir.size)
-		.filter((size) => size <= 100000)
+		.filter((size) => size <= 100_000)
 		.sum();
 };
 

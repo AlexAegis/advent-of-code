@@ -24,7 +24,7 @@ const mix = (ll: CircularLinkedList<number>, rounds = 10): void => {
 };
 
 export const p2 = (input: string): number => {
-	const decryptionKey = 811589153;
+	const decryptionKey = 811_589_153;
 
 	const lines = input.splitToInt().map((i) => i * decryptionKey);
 

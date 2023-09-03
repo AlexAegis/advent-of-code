@@ -6,7 +6,7 @@ const getPaths = (
 	current: GraphNode<string, number>,
 	until: (node: GraphNode<string, number>) => boolean,
 	allPaths: GraphNode<string, number>[][],
-	path: GraphNode<string, number>[] = []
+	path: GraphNode<string, number>[] = [],
 ): void => {
 	path.push(current);
 	if (until(current)) {
@@ -36,7 +36,12 @@ export const p1 = (input: string): number => {
 		return { from, to };
 	});
 	const graph = Graph.fromUniqueValueEdges<string>(valueEdges, (t) => t, true);
-	const start = graph.getNode('start')!;
+	const start = graph.getNode('start');
+
+	if (!start) {
+		throw new Error('No start node!');
+	}
+
 	const allPaths: GraphNode<string, number>[][] = [];
 	getPaths(start, (node) => node.value === 'end', allPaths);
 	return allPaths.length;

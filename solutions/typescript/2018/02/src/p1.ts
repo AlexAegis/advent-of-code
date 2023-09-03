@@ -5,7 +5,7 @@ import packageJson from '../package.json';
  * Returns how many character repeats exactly 'times' times in the given string
  */
 const charRepeats = (line: string, times = 2): number => {
-	const processed: Map<string, number> = new Map();
+	const processed = new Map<string, number>();
 	for (const letter of line) {
 		if (!processed.has(letter)) {
 			processed.set(letter, line.split(letter).length - 1);

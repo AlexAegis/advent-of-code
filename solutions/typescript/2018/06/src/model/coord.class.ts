@@ -1,7 +1,10 @@
 export class Coord {
-	public constructor(public x: number, public y: number) {}
+	public constructor(
+		public x: number,
+		public y: number,
+	) {}
 
-	public add(coord: Coord): Coord {
+	public add(coord: Coord): this {
 		this.x += coord.x;
 		this.y -= coord.y; // TODO: Psst, you didn't see me.
 		return this;

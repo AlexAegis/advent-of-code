@@ -11,7 +11,7 @@ export const interpreter = (input: string): Mine => {
 		if (!mine.width) {
 			mine.width = line.length;
 		}
-		[...line].forEach((letter, column) => {
+		for (let [column, letter] of [...line].entries()) {
 			if (isDirectionArrowSymbol(letter)) {
 				mine.carts.push(new Cart(new Vec2(column, row), letter));
 				// If it's a minecart, also put a rail under it
@@ -24,7 +24,7 @@ export const interpreter = (input: string): Mine => {
 			if (letter !== ' ') {
 				mine.rail.set(new Vec2(column, row).toString(), letter as Rail);
 			}
-		});
+		}
 		row++;
 	}
 

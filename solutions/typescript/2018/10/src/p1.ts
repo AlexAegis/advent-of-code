@@ -31,15 +31,15 @@ export const print = (input: Vector[]): string => {
 	const { maxX, minX, maxY, minY } = boundary(input);
 	console.log(`maxX: ${maxX}, minX: ${minX}, maxY: ${maxY}, minY: ${minY}`);
 
-	const stars = input.map((vector) => vector.position.toString());
+	const stars = new Set(input.map((vector) => vector.position.toString()));
 
 	let pic = '';
 	for (let y = minY; y <= maxY; y++) {
 		let row = '';
 		for (let x = minX; x <= maxX; x++) {
-			row = row.concat(stars.indexOf(new Coord(x, y).toString()) >= 0 ? `#` : '.');
+			row = row + stars.has(new Coord(x, y).toString()) ? '#' : '.';
 		}
-		pic = pic.concat(row.concat('\n'));
+		pic = pic + row + '\n';
 	}
 	return pic;
 };
@@ -49,18 +49,18 @@ export const p1 = (input: string): number => {
 	let minArea: number = area(boundary(vectors));
 	let i = 0;
 	for (;;) {
-		vectors.forEach((vector) => {
+		for (const vector of vectors) {
 			vector.position.add(vector.velocity);
-		});
+		}
 		const currArea = verticalArea(boundary(vectors));
 		if (minArea > currArea) {
 			minArea = currArea;
 		} else break;
 		i++;
 	}
-	vectors.forEach((vector) => {
+	for (const vector of vectors) {
 		vector.position.sub(vector.velocity);
-	});
+	}
 	console.log(print(vectors)); // result of part one
 	return i; // result of part two
 };

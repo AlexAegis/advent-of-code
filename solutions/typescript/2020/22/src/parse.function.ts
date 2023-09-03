@@ -9,7 +9,7 @@ export const parse = (input: string): Record<1 | 2, number[]> => {
 			nowParsing++;
 			continue;
 		}
-		cards[nowParsing as 1 | 2].push(parseInt(line, 10));
+		cards[nowParsing as 1 | 2].push(Number.parseInt(line, 10));
 	}
 	return cards;
 };

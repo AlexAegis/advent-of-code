@@ -33,7 +33,7 @@ export const p1 = (input: string): number => {
 	const history = new Set<number>();
 	let lastBio = bio(map);
 	history.add(lastBio);
-	g: for (let gen = 0; gen <= 100000; gen++) {
+	g: for (let gen = 0; gen <= 100_000; gen++) {
 		const nextGen: Tile[][] = [];
 		for (let y = 0; y < map.length; y++) {
 			const row = map[y];

@@ -5,7 +5,7 @@ import { parse } from './parse.js';
 
 export const p1 = (input: string): number => {
 	const orbits = parse(input);
-	const planets: Map<string, Planet> = new Map();
+	const planets = new Map<string, Planet>();
 
 	for (const orbit of orbits) {
 		let innerPlanet = planets.get(orbit.i);

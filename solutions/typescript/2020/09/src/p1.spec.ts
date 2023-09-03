@@ -9,12 +9,12 @@ describe('2020 - Day 9 - Part One', () => {
 
 	it('should solve the input', async () => {
 		const { input, args } = await loadTaskResources<Args>(packageJson.aoc);
-		expect(await p1(input, args)).to.equal(217430975);
+		expect(p1(input, args)).to.equal(217_430_975);
 	});
 
 	it('should solve for the first example', async () => {
 		const { input, args } = await loadTaskResources<Args>(packageJson.aoc, 'example.1.txt');
-		expect(await p1(input, args)).to.equal(127);
+		expect(p1(input, args)).to.equal(127);
 	});
 
 	it('should find a pair in the preamble that adds to 26', () =>

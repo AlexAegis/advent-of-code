@@ -25,11 +25,11 @@ Map.prototype.toString = function (): string {
 };
 
 Map.prototype.keyArray = function <K extends string | number>(): K[] {
-	return [...this.keys()];
+	return [...this.keys()] as K[];
 };
 
 Map.prototype.valueArray = function <V>(): V[] {
-	return [...this.values()];
+	return [...this.values()] as V[];
 };
 
 Map.prototype.entryArray = function <K extends string | number, V>(): [K, V][] {
@@ -37,7 +37,7 @@ Map.prototype.entryArray = function <K extends string | number, V>(): [K, V][] {
 };
 
 Map.prototype.intoDictionary = function <K extends string | number, V>(): Record<K, V> {
-	return Object.fromEntries(this.entries());
+	return Object.fromEntries(this.entries()) as Record<K, V>;
 };
 
 Map.prototype.copy = function <K extends string | number, V>(): Map<K, V> {
@@ -48,7 +48,7 @@ Map.prototype.update = function <K extends string | number, V>(
 	key: K,
 	change: (value: V | undefined) => V
 ): Map<K, V> {
-	this.set(key, change(this.get(key)));
+	this.set(key, change(this.get(key) as V));
 	return this;
 };
 
@@ -60,11 +60,11 @@ Map.prototype.getOrAdd = function <K extends string | number, V>(
 	key: K,
 	initialize: (key: K) => V
 ): V {
-	return mapGetOrSet(this, key, initialize);
+	return mapGetOrSet(this as Map<K, V>, key, initialize);
 };
 
 Map.prototype.isTheSameAs = function <K extends string | number, V>(other: Map<K, V>): boolean {
-	return [...this.keys()].every((key) => this.get(key) === other.get(key));
+	return ([...this.keys()] as K[]).every((key) => this.get(key) === other.get(key));
 };
 
 export default {};

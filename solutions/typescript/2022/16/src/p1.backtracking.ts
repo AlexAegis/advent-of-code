@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse, type Valve } from './parse.function.js';
@@ -6,7 +7,7 @@ const OPEN = 'open';
 const WAIT = 'wait';
 type PathSegment = Valve | typeof OPEN | typeof WAIT;
 type Path = PathSegment[];
-type Node = {
+interface Node {
 	path: Path;
 	pressureReleasedSoFar: number;
 	openValves: Valve[];
@@ -17,14 +18,10 @@ type Node = {
 	 */
 	forbiddenEdges: string[];
 	forbiddenValves: string[];
-};
+}
 
 const normalizeOption = (key: string, valveMap: Map<string, Valve>): PathSegment => {
-	if (key === OPEN || key === WAIT) {
-		return key;
-	} else {
-		return valveMap.get(key)!;
-	}
+	return key === OPEN || key === WAIT ? key : valveMap.get(key)!;
 };
 
 const isValveSegment = (segment: PathSegment): segment is Valve => {
@@ -104,7 +101,7 @@ export const p1 = (input: string): number => {
 				'forbiddenEdges',
 				currentSolution.forbiddenEdges.join('; '),
 				'pressure released',
-				currentSolution.pressureReleasedSoFar
+				currentSolution.pressureReleasedSoFar,
 			);
 		}
 
@@ -128,11 +125,9 @@ export const p1 = (input: string): number => {
 				const wouldBeSolution = `${currentPathSerialized},${valveKey}`;
 				const graphAlreadyCoversSolution = solutionGraph.has(wouldBeSolution);
 
-				if (!currentlyForbiddenValves.includes(valveKey) && !graphAlreadyCoversSolution) {
-					return valveKey;
-				} else {
-					return undefined;
-				}
+				return !currentlyForbiddenValves.includes(valveKey) && !graphAlreadyCoversSolution
+					? valveKey
+					: undefined;
 			});
 
 			const strictNotCoveredEdges = notCoveredValves.filter((valveKey) => {
@@ -140,9 +135,9 @@ export const p1 = (input: string): number => {
 				return !currentPathSerialized.includes(wouldBeEdge);
 			});
 
-			if (strictNotCoveredEdges.length) {
+			if (strictNotCoveredEdges.length > 0) {
 				nextOptions.push(...strictNotCoveredEdges);
-			} else if (notCoveredValves.length) {
+			} else if (notCoveredValves.length > 0) {
 				nextOptions.push(...notCoveredValves);
 			} else {
 				nextForbiddenValves.push(currentValve.name);
@@ -155,7 +150,7 @@ export const p1 = (input: string): number => {
 
 		let backtrack = false;
 
-		if (nextOptions.length) {
+		if (nextOptions.length > 0) {
 			// If there is somewhere to go, try the first option
 			const nextOption = normalizeOption(nextOptions[0]!, valveMap);
 			const nextPath = [...currentPath, nextOption];
@@ -176,7 +171,9 @@ export const p1 = (input: string): number => {
 				openValves.push(currentValve);
 			}
 
-			if (!solutionGraph.has(nextPathSerialized)) {
+			if (solutionGraph.has(nextPathSerialized)) {
+				backtrack = true;
+			} else {
 				const nextSolution: Node = {
 					path: nextPath,
 					openValves,
@@ -187,8 +184,6 @@ export const p1 = (input: string): number => {
 				};
 				solutionGraph.set(nextPathSerialized, nextSolution);
 				currentSolution = nextSolution;
-			} else {
-				backtrack = true;
 			}
 		} else {
 			backtrack = true;
@@ -216,7 +211,7 @@ export const p1 = (input: string): number => {
 		'solutionWithMostReleasedPressure',
 		serializedSolutionPath,
 		'is it correct for the exmaple?',
-		serializedSolutionPath.startsWith(_expectedPathForExample)
+		serializedSolutionPath.startsWith(_expectedPathForExample),
 	);
 
 	return finishedSolutions[0]!.pressureReleasedSoFar;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { numberPair, task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json';
@@ -59,7 +60,7 @@ const diracRoll = (state: RoundState): RoundResultState => {
 
 export const parse = (line: string): number => {
 	const [, position] = line.match(/\d/g)!;
-	return parseInt(position!, 10);
+	return Number.parseInt(position!, 10);
 };
 
 export const p2 = (input: string): number => {

@@ -8,12 +8,16 @@ export const p1 = (input: string): number => {
 			// Using forward weights
 			const fromValue = getHeightValue(from.value.toString());
 			const toValue = getHeightValue(to.value.toString());
-			return toValue - fromValue > 1 ? Infinity : 0;
+			return toValue - fromValue > 1 ? Number.POSITIVE_INFINITY : 0;
 		},
 	});
 
-	const start = graph.findNode((n) => n.value === 'S')!;
-	const end = graph.findNode((n) => n.value === 'E')!;
+	const start = graph.findNode((n) => n.value === 'S');
+	const end = graph.findNode((n) => n.value === 'E');
+
+	if (!start || !end) {
+		throw new Error('No path found');
+	}
 
 	return graph.aStar(start, end).length - 1;
 };

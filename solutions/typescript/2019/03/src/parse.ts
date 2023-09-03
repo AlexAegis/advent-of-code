@@ -1,4 +1,4 @@
-import { Vector } from '@alexaegis/advent-of-code-lib/model';
+import { Direction, Vector } from '@alexaegis/advent-of-code-lib/model';
 
 export const parse = (input: string): [Vector[], Vector[]] => {
 	return input.splitIntoStringPair(/\r?\n/).map((line) =>
@@ -6,6 +6,6 @@ export const parse = (input: string): [Vector[], Vector[]] => {
 			.split(',')
 			.filter((c) => !!c)
 			.map((c) => new Vector(c))
-			.filter((v) => v.direction)
+			.filter((v) => v.direction as Direction | undefined),
 	) as [Vector[], Vector[]];
 };

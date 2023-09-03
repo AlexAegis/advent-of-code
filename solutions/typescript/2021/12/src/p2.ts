@@ -5,7 +5,7 @@ import packageJson from '../package.json';
 const pathContains = (
 	path: GraphNode<string, number>[],
 	node: GraphNode<string, number>,
-	atMost = 1
+	atMost = 1,
 ): boolean => {
 	return path.count((pathNode) => pathNode.value === node.value) >= atMost;
 };
@@ -15,7 +15,7 @@ const getPaths = (
 	until: (node: GraphNode<string, number>) => boolean,
 	allPaths: GraphNode<string, number>[][],
 	visitTwice: string | undefined,
-	path: GraphNode<string, number>[] = []
+	path: GraphNode<string, number>[] = [],
 ): void => {
 	path.push(current);
 	if (until(current)) {
@@ -45,7 +45,11 @@ export const p2 = (input: string): number => {
 		return { from, to };
 	});
 	const graph = Graph.fromUniqueValueEdges<string>(valueEdges, (t) => t, true);
-	const start = graph.getNode('start')!;
+	const start = graph.getNode('start');
+
+	if (!start) {
+		throw new Error('No start node!');
+	}
 
 	const smallCaves = [...graph.nodes.values()].filter((node) => node.value.isLowerCase());
 	const allPaths: GraphNode<string, number>[][] = smallCaves.flatMap((smallCave) => {

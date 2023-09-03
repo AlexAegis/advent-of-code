@@ -19,7 +19,7 @@ export const parseLetterMatrix = (
 ): string => {
 	const renderedAlphabet = getRowRenderedAlphabet(letterType);
 	const renderedRows = matrix.map((row) => row.join(''));
-	const width = renderedRows.map((row) => row.length).reduce(max, -Infinity);
+	const width = renderedRows.map((row) => row.length).reduce(max, Number.NEGATIVE_INFINITY);
 	const parsedLetters: string[] = [];
 	let offset = 0;
 	while (offset <= width) {
@@ -31,7 +31,7 @@ export const parseLetterMatrix = (
 			if (renderedLetterFirstRow) {
 				const letterWidth = renderedLetterFirstRow.length;
 				const matches = renderedRows.every((renderedRow, i) => {
-					const letterPortion = renderedRow.substring(offset, offset + letterWidth);
+					const letterPortion = renderedRow.slice(offset, offset + letterWidth);
 					return renderedLetter[i] === letterPortion;
 				});
 

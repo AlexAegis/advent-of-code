@@ -11,7 +11,7 @@ export interface Result {
 }
 
 export const p2 = async (input: string): Promise<string> => {
-	const serialNumber = parseInt(input, 10);
+	const serialNumber = Number.parseInt(input, 10);
 	const _mapSize = 300;
 	const pool = WorkerPool.pool();
 	const promises = [];
@@ -31,11 +31,11 @@ export const p2 = async (input: string): Promise<string> => {
 					const maxSize = Math.min(cx, cy, mapSize - cx, mapSize - cy);
 					const acc = {
 						vec: { x: cx, y: cy },
-						sum: -Infinity,
-						size: -Infinity,
+						sum: Number.NEGATIVE_INFINITY,
+						size: Number.NEGATIVE_INFINITY,
 					};
 					for (let size = 0; size < maxSize; size++) {
-						const lol: Array<{ x: number; y: number }> = [];
+						const lol: { x: number; y: number }[] = [];
 						for (let x = cx; x <= cx + size; x++) {
 							for (let y = cy; y <= cy + size; y++) {
 								lol.push({ x, y });
@@ -49,24 +49,24 @@ export const p2 = async (input: string): Promise<string> => {
 					}
 					return acc;
 				},
-				[vec.x, vec.y, _mapSize, serialNumber]
-			)
+				[vec.x, vec.y, _mapSize, serialNumber],
+			),
 		);
 	}
 
 	const result: Result[] = await Promise.all(promises);
-	const max = result.reduce((acc, next) => {
-		if (!acc) {
-			acc = { vec: undefined, sum: -Infinity, size: -Infinity };
-		}
-		if (next.sum > acc.sum) {
-			acc.vec = next.vec;
-			acc.size = next.size;
-			acc.sum = next.sum;
-		}
-		return acc;
-	});
-	pool.terminate();
+	const max = result.reduce(
+		(acc, next) => {
+			if (next.sum > acc.sum) {
+				acc.vec = next.vec;
+				acc.size = next.size;
+				acc.sum = next.sum;
+			}
+			return acc;
+		},
+		{ vec: undefined, sum: Number.NEGATIVE_INFINITY, size: Number.NEGATIVE_INFINITY },
+	);
+	await pool.terminate(true);
 	return `${max.vec ? max.vec.x + ', ' + max.vec.y : 'undefined'},${max.size} (${max.sum})`;
 };
 

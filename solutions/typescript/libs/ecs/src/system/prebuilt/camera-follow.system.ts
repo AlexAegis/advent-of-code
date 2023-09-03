@@ -25,9 +25,9 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 			horizontalMargin = Math.floor(paddedWorldViewport.horizontal.length / marginRatio);
 			verticalMargin = Math.floor(paddedWorldViewport.vertical.length / marginRatio);
 
-			if (camera.options.followArea?.kind === 'responsive') {
+			if (camera.options.followArea.kind === 'responsive') {
 				paddedWorldViewport.pad(-horizontalMargin, -verticalMargin);
-			} else if (camera.options.followArea?.kind === 'responsiveSquare') {
+			} else if (camera.options.followArea.kind === 'responsiveSquare') {
 				paddedWorldViewport.pad(-Math.min(horizontalMargin, verticalMargin));
 			} else {
 				// Or use it as a flat value and not as a ratio
@@ -41,9 +41,13 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 			const maxEdge = paddedWorldViewport.clampInto(entityPosition);
 			const offset = entityPosition.sub(maxEdge);
 
-			if (camera.options.followMode === 'edge') {
+			switch (camera.options.followMode) {
+			case 'edge': {
 				camera.move(offset);
-			} else if (camera.options.followMode === 'jumpToCenter') {
+			
+			break;
+			}
+			case 'jumpToCenter': {
 				const horizontalJump = Math.floor(paddedWorldViewport.width / 2);
 				const verticalJump = Math.floor(paddedWorldViewport.height / 2);
 
@@ -54,7 +58,10 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 					offset.y = offset.y < 0 ? -verticalJump : verticalJump;
 				}
 				camera.move(offset);
-			} else if (camera.options.followMode === 'jump') {
+			
+			break;
+			}
+			case 'jump': {
 				if (entityPosition.x !== maxEdge.x) {
 					offset.x = offset.x < 0 ? -horizontalMargin : horizontalMargin;
 				}
@@ -62,6 +69,10 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 					offset.y = offset.y < 0 ? -verticalMargin : verticalMargin;
 				}
 				camera.move(offset);
+			
+			break;
+			}
+			// No default
 			}
 		}
 	});

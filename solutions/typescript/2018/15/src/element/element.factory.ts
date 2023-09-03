@@ -2,10 +2,10 @@ import { blockRepresentations } from './block/block.factory.js';
 import { creatureRepresentations } from './creature/creature.factory.js';
 import type { Element } from './element.class.js';
 
-export const elementRepresentations: { [r: string]: () => Element } = Object.assign(
+export const elementRepresentations: Record<string, () => Element> = Object.assign(
 	{},
 	blockRepresentations,
-	creatureRepresentations
+	creatureRepresentations,
 );
 export const elementFactory = (element: string): Element => {
 	const representation = elementRepresentations[element];

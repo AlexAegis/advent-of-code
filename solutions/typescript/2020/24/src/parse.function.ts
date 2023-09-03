@@ -31,7 +31,7 @@ export const parse = (input: string): HexagonalDirection[][] => {
 	for (const line of split(input)) {
 		const neighbours: HexagonalDirection[] = [];
 		let chomp = line;
-		while (chomp.length) {
+		while (chomp.length > 0) {
 			if (chomp.startsWith('se')) {
 				neighbours.push('se');
 				chomp = chomp.slice(2);

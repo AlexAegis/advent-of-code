@@ -18,16 +18,16 @@ export const p2 = (input: string): string => {
 		.sort((a, b) => (a[0] > b[0] ? 1 : -1));
 
 	const allergenicIngredients = new Set(
-		[...possibleCombinations.values()].flatMap((a) => [...a])
+		[...possibleCombinations.values()].flatMap((a) => [...a]),
 	);
 
 	const candidates = function* (
-		existingPath: AllergenicIngredient[] = []
+		existingPath: AllergenicIngredient[] = [],
 	): Generator<AllergenicIngredient> {
 		for (const combo of sorted) {
-			if (!existingPath.find((p) => p.allergen === combo[0])) {
+			if (!existingPath.some((p) => p.allergen === combo[0])) {
 				for (const i of combo[1]) {
-					if (!existingPath.find((p) => p.ingredient === i)) {
+					if (!existingPath.some((p) => p.ingredient === i)) {
 						yield { ingredient: i, allergen: combo[0] };
 					}
 				}
@@ -49,8 +49,8 @@ export const p2 = (input: string): string => {
 		return undefined;
 	};
 
-	return [...(bt() || [])]
-		.sort((a, b) => (a.allergen! > b.allergen! ? 1 : -1))
+	return [...(bt() ?? [])]
+		.sort((a, b) => (a.allergen > b.allergen ? 1 : -1))
 		.map((a) => a.ingredient)
 		.join(',');
 };

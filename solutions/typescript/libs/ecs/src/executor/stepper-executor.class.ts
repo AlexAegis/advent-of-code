@@ -9,7 +9,7 @@ export class StepperExecutor extends Executor {
 		return this.world.timeData.tick;
 	}
 
-	tick(maxTick = Infinity): boolean {
+	tick(maxTick = Number.POSITIVE_INFINITY): boolean {
 		return !this.world.systemsSettled && this.world.timeData.tick < maxTick;
 	}
 }

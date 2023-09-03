@@ -28,13 +28,13 @@ export const loadTaskResources = async <A>(
 
 	const [input, args] = await Promise.all([
 		readFile(join(baseUrl, file), {
-			encoding: 'utf-8',
-		}) as Promise<string>,
+			encoding: 'utf8',
+		}) ,
 		// TODO: redo with @aa/node-common (strip extension and replace)
 		readFile(join(baseUrl, `${file.split(/(.*)\..*/)[1]}.args.json`), {
-			encoding: 'utf-8',
+			encoding: 'utf8',
 		}).catch(() => undefined) as Promise<string>,
 	]);
 
-	return { input, args: args && JSON.parse(args) };
+	return { input, args: args ? JSON.parse(args) as A : undefined };
 };

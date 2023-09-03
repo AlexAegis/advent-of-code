@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { flipMatrix } from './flip-matrix.function.js';
 
+const joinMatrix = (matrix: string[][]) => matrix.map((r) => r.join('')).join('\n');
+
 describe('flipMatrix', () => {
 	const matrix = [
 		['0', '1', '2'],
@@ -18,7 +20,6 @@ describe('flipMatrix', () => {
 		['8', '7', '6'],
 	];
 
-	const joinMatrix = (matrix: string[][]) => matrix.map((r) => r.join('')).join('\n');
 	const joinedMatrix = joinMatrix(matrix);
 	const joinedXFlippedMatrix = joinMatrix(xFlippedMatrix);
 	const joinedYFlippedMatrix = joinMatrix(yFlippedMatrix);

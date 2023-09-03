@@ -29,12 +29,15 @@ export class BasicController extends System implements Initializable {
 		return undefined;
 	}
 
-	tick(world: GridWorld, timeData: TimeData): boolean | void {
+	tick(world: GridWorld, timeData: TimeData): boolean | undefined {
 		for (const key in this.eventMap) {
 			if (this.buffer.keyBuffer[key]) {
 				this.eventMap[key]?.(this.targetEntity, world, timeData);
+				// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 				delete this.buffer.keyBuffer[key];
 			}
 		}
+
+		return undefined;
 	}
 }

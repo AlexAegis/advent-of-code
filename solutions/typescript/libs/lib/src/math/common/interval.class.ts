@@ -74,8 +74,8 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	constructor(low: number, high: number, options: IntervalQualifier = INTERVAL_CLOSED_OPEN) {
 		this.low = Math.min(low, high);
 		this.high = Math.max(low, high);
-		this.lowQualifier = options?.lowQualifier ?? INTERVAL_ENDPOINT_CLOSED_QUALIFIER;
-		this.highQualifier = options?.highQualifier ?? INTERVAL_ENDPOINT_OPEN_QUALIFIER;
+		this.lowQualifier = options.lowQualifier ?? INTERVAL_ENDPOINT_CLOSED_QUALIFIER;
+		this.highQualifier = options.highQualifier ?? INTERVAL_ENDPOINT_OPEN_QUALIFIER;
 	}
 
 	static closed(low: number, high: number): Interval {
@@ -155,36 +155,36 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return Math.max(bothClosedOffset + bothOpenOffset + this.high - this.low, 0);
 	}
 
-	moveBy(by: number): Interval {
-		if (isFinite(this.low)) {
+	moveBy(by: number): this {
+		if (Number.isFinite(this.low)) {
 			this.low += by;
 		}
 
-		if (isFinite(this.high)) {
+		if (Number.isFinite(this.high)) {
 			this.high += by;
 		}
 
 		return this;
 	}
 
-	moveLowTo(low: number): Interval {
-		if (isFinite(this.low)) {
+	moveLowTo(low: number): this {
+		if (Number.isFinite(this.low)) {
 			const diff = this.low - low;
 			this.high = this.high - diff;
-		} else if (this.low === -Infinity && low !== -Infinity) {
-			this.high = Infinity;
+		} else if (this.low === Number.NEGATIVE_INFINITY && low !== Number.NEGATIVE_INFINITY) {
+			this.high = Number.POSITIVE_INFINITY;
 		}
 		this.low = low;
 
 		return this;
 	}
 
-	moveHighTo(high: number): Interval {
-		if (isFinite(this.high)) {
+	moveHighTo(high: number): this {
+		if (Number.isFinite(this.high)) {
 			const diff = this.high - high;
 			this.low = this.low - diff;
-		} else if (this.high === Infinity && high !== Infinity) {
-			this.low = -Infinity;
+		} else if (this.high === Number.POSITIVE_INFINITY && high !== Number.POSITIVE_INFINITY) {
+			this.low = Number.NEGATIVE_INFINITY;
 		}
 		this.high = high;
 
@@ -212,19 +212,15 @@ export class Interval implements IntervalLike, IntervalQualifier {
 
 	mergeOne(other: Interval): Interval | undefined {
 		const [lowestLow] = [this, other].sort(Interval.compareByLow) as [Interval, Interval];
-		const [_lowestHigh, highestHigh] = [this, other].sort(Interval.compareByHigh) as [
+		const [, highestHigh] = [this, other].sort(Interval.compareByHigh) as [
 			Interval,
 			Interval
 		];
 
-		if (this.intersects(other)) {
-			return new Interval(lowestLow.low, highestHigh.high, {
+		return this.intersects(other) ? new Interval(lowestLow.low, highestHigh.high, {
 				lowQualifier: lowestLow.lowQualifier,
 				highQualifier: highestHigh.highQualifier,
-			});
-		} else {
-			return undefined;
-		}
+			}) : undefined;
 	}
 
 	static merge(intervals: Interval[]): Interval[] {
@@ -233,6 +229,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		if (first) {
 			const result: Interval[] = [first];
 			for (const span of remaining) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				const mergeBase = result.pop()!;
 				const mergeResult = mergeBase.mergeOne(span);
 				if (mergeResult) {
@@ -337,14 +334,14 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	isFinite(): boolean {
-		return isFinite(this.low) && isFinite(this.high);
+		return Number.isFinite(this.low) && Number.isFinite(this.high);
 	}
 
 	intersection(other: Interval): Interval | undefined {
 		return Interval.intersection(this, other);
 	}
 
-	static intersection(a: Interval, b: Interval): Interval | undefined {
+	static intersection(this: void, a: Interval, b: Interval): Interval | undefined {
 		if (!Interval.intersects(a, b)) {
 			return undefined;
 		} else if (b.isFinite() && Interval.contains(a, b.low) && Interval.contains(a, b.high)) {
@@ -352,11 +349,11 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		} else if (a.isFinite() && Interval.contains(b, a.low) && Interval.contains(b, a.high)) {
 			return a;
 		} else {
-			const [_lowestLow, highestLow] = [a, b].sort(Interval.compareByLow) as [
+			const [, highestLow] = [a, b].sort(Interval.compareByLow) as [
 				Interval,
 				Interval
 			];
-			const [lowestHigh, _highestHigh] = [a, b].sort(Interval.compareByLow) as [
+			const [lowestHigh,] = [a, b].sort(Interval.compareByLow) as [
 				Interval,
 				Interval
 			];
@@ -374,7 +371,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	 *
 	 * For the low end, closed comes earlier
 	 */
-	static compareByLow(a: IntervalLike, b: IntervalLike): number {
+	static compareByLow(this: void, a: IntervalLike, b: IntervalLike): number {
 		// Check for openness because the default for the highQualifier
 		// when it's not defined is CLOSED
 		return a.low === b.low
@@ -390,7 +387,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	 *
 	 * For the high end, open comes earlier
 	 */
-	static compareByHigh(a: IntervalLike, b: IntervalLike): number {
+	static compareByHigh(this: void, a: IntervalLike, b: IntervalLike): number {
 		//
 		// Check for closedness because the default for the highQualifier
 		// when it's not defined is OPEN
@@ -405,7 +402,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return Interval.intersects(this, other);
 	}
 
-	static intersects(a: IntervalLike, b: IntervalLike): boolean {
+	static intersects(this: void, a: IntervalLike, b: IntervalLike): boolean {
 		return (
 			Interval.contains(a, b.low) ||
 			Interval.contains(a, b.high) ||
@@ -414,7 +411,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		);
 	}
 
-	static contains(interval: IntervalLike, n: number): boolean {
+	static contains(this: void, interval: IntervalLike, n: number): boolean {
 		return Interval.isAboveLow(interval, n) && Interval.isBelowHigh(interval, n);
 	}
 

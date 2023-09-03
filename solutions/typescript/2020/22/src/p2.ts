@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { scoreDecks, type SpaceCardDecks } from './p1.js';
@@ -24,11 +25,9 @@ const playGame = (decks: SpaceCardDecks, history = new Set<string>()): number =>
 		}
 
 		if (winner === 1) {
-			decks[1].push(p1card);
-			decks[1].push(p2card);
+			decks[1].push(p1card, p2card);
 		} else if (winner === 2) {
-			decks[2].push(p2card);
-			decks[2].push(p1card);
+			decks[2].push(p2card, p1card);
 		}
 
 		if (decks[1].length === 0) {

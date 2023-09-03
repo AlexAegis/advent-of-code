@@ -13,11 +13,12 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 		m,
 		(t) => {
 			switch (t) {
-				case Tile.SCAFFOLD:
+				case Tile.SCAFFOLD: {
 					return '##';
-				case Tile.OPEN:
-				default:
+				}
+				default: {
 					return '  ';
+				}
 			}
 		},
 		0,
@@ -25,8 +26,9 @@ export const draw = (m: Map<string, Tile>, vacuum: Vacuum): void => {
 		0,
 		H,
 		false,
-		true
+		true,
 	);
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	mat[vacuum.pos.y + 1]![vacuum.pos.x + 1] = vacuum.dir.reverse('v').marker + '!';
 	console.log(renderMatrix(mat, true, false));
 };

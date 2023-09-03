@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 function shift(window: string, last: number, length: number): string {
-	if (window.length >= length) {
-		return window.slice(window.length - length + 1, window.length) + last;
-	} else return window + last;
+	return window.length >= length
+		? window.slice(window.length - length + 1, window.length) + last
+		: window + last;
 }
 
 export const p2 = (input: string): number => {
@@ -16,14 +17,14 @@ export const p2 = (input: string): number => {
 		const next = recipes[a]! + recipes[b]!;
 		if (next >= 10) {
 			recipes.push(Math.floor(next / 10));
-			window = shift(window, recipes[recipes.length - 1]!, input.length);
+			window = shift(window, recipes.at(-1)!, input.length);
 			if (window === input) break;
 			recipes.push(next % 10);
-			window = shift(window, recipes[recipes.length - 1]!, input.length);
+			window = shift(window, recipes.at(-1)!, input.length);
 			if (window === input) break;
 		} else {
 			recipes.push(next);
-			window = shift(window, recipes[recipes.length - 1]!, input.length);
+			window = shift(window, recipes.at(-1)!, input.length);
 			if (window === input) break;
 		}
 		a = (a + recipes[a]! + 1) % recipes.length;

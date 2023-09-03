@@ -9,6 +9,10 @@ import type { Vec2Like, Vec2String } from './vec2.class.types.js';
 
 export class Vec2 implements Vec2Like {
 	public static ORIGIN = Object.freeze(new Vec2(0, 0));
+	public static INIFINITY_NE = Object.freeze(new Vec2(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY));
+	public static INIFINITY_NW = Object.freeze(new Vec2(Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY));
+	public static INIFINITY_SE = Object.freeze(new Vec2(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY));
+	public static INIFINITY_SW = Object.freeze(new Vec2(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY));
 
 	public x!: number;
 	public y!: number;
@@ -16,8 +20,7 @@ export class Vec2 implements Vec2Like {
 	/**
 	 * ? Duplicated constructor signatures until https://github.com/microsoft/TypeScript/issues/14107
 	 */
-	public constructor(marker: DirectionMarker);
-	public constructor(vec2: Vec2Like | Vec2String);
+	public constructor(marker: DirectionMarker | Vec2Like | Vec2String);
 	public constructor(x: number, y: number);
 	public constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number);
 	public constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number) {
@@ -33,31 +36,35 @@ export class Vec2 implements Vec2Like {
 				switch (x) {
 					case DirectionArrowSymbol.NORTH:
 					case DirectionCardinalLiteralLetter.NORTH:
-					case DirectionCardinalGeographicLetter.NORTH:
+					case DirectionCardinalGeographicLetter.NORTH: {
 						this.x = 0;
 						this.y = 1;
 						break;
+					}
 					case DirectionArrowSymbol.EAST:
 					case DirectionCardinalLiteralLetter.EAST:
-					case DirectionCardinalGeographicLetter.EAST:
+					case DirectionCardinalGeographicLetter.EAST: {
 						this.x = 1;
 						this.y = 0;
 						break;
+					}
 					case DirectionArrowSymbol.SOUTH:
 					case DirectionCardinalLiteralLetter.SOUTH:
-					case DirectionCardinalGeographicLetter.SOUTH:
+					case DirectionCardinalGeographicLetter.SOUTH: {
 						this.x = 0;
 						this.y = -1;
 						break;
+					}
 					case DirectionArrowSymbol.WEST:
 					case DirectionCardinalLiteralLetter.WEST:
-					case DirectionCardinalGeographicLetter.WEST:
+					case DirectionCardinalGeographicLetter.WEST: {
 						this.x = -1;
 						this.y = 0;
 						break;
+					}
 				}
 			} else {
-				[this.x, this.y] = (x.match(NUM) || []).map((s) => parseInt(s, 10)) as [
+				[this.x, this.y] = (x.match(NUM) ?? []).map((s) => Number.parseInt(s, 10)) as [
 					number,
 					number
 				];
@@ -65,7 +72,7 @@ export class Vec2 implements Vec2Like {
 		}
 	}
 
-	public static compareColumnFirst(a: Vec2, b: Vec2): number {
+	public static compareColumnFirst(this: void, a: Vec2, b: Vec2): number {
 		return a.x === b.x ? a.y - b.y : a.x - b.x;
 	}
 
@@ -84,7 +91,7 @@ export class Vec2 implements Vec2Like {
 		return Vec2.compareRowFirst(this, o);
 	}
 
-	public static comparator(a: Vec2Like, b: Vec2Like): number {
+	public static comparator(this: void, a: Vec2Like, b: Vec2Like): number {
 		return a.y === b.y ? a.x - b.x : a.y - b.y;
 	}
 
@@ -102,13 +109,13 @@ export class Vec2 implements Vec2Like {
 
 	public static isFinite(v: Vec2Like, partial: boolean | 'x' | 'y' = false): boolean {
 		if (typeof partial === 'string') {
-			const x = partial === 'x' ? isFinite(v.x) : true;
-			const y = partial === 'y' ? isFinite(v.y) : true;
+			const x = partial === 'x' ? Number.isFinite(v.x) : true;
+			const y = partial === 'y' ? Number.isFinite(v.y) : true;
 			return x && y;
 		} else if (partial) {
-			return isFinite(v.x) || isFinite(v.y);
+			return Number.isFinite(v.x) || Number.isFinite(v.y);
 		} else {
-			return isFinite(v.x) && isFinite(v.y);
+			return Number.isFinite(v.x) && Number.isFinite(v.y);
 		}
 	}
 
@@ -116,7 +123,7 @@ export class Vec2 implements Vec2Like {
 		return Vec2.isFinite(this, partial);
 	}
 
-	public clamp(area: BoundingBox): Vec2 {
+	public clamp(area: BoundingBox): this {
 		// TODO: use intervals, it does not respect openness
 		const xMax = Math.max(area.topLeft.x, area.bottomRight.x);
 		const yMax = Math.max(area.topLeft.y, area.bottomRight.y);
@@ -180,7 +187,7 @@ export class Vec2 implements Vec2Like {
 			flipX?: boolean;
 			flipY?: boolean;
 		}
-	): Vec2 {
+	): this {
 		const originalX = this.x;
 		const originalY = this.y;
 		const diffX = v.x * (options?.times ?? 1);
@@ -204,18 +211,18 @@ export class Vec2 implements Vec2Like {
 
 	public sub(o: Vec2Like, times = 1): Vec2 {
 		let ox = o.x;
-		if (ox === -Infinity) {
+		if (ox === Number.NEGATIVE_INFINITY) {
 			ox = 0;
 		}
 
 		let oy = o.y;
-		if (oy === -Infinity) {
+		if (oy === Number.NEGATIVE_INFINITY) {
 			oy = 0;
 		}
 		return new Vec2(this.x - ox * times, this.y - oy * times);
 	}
 
-	public subMut(o: Vec2Like, times = 1): Vec2 {
+	public subMut(o: Vec2Like, times = 1): this {
 		this.x -= o.x * times;
 		this.y -= o.y * times;
 		return this;
@@ -254,13 +261,13 @@ export class Vec2 implements Vec2Like {
 		return Math.floor(this.x) === this.x && Math.floor(this.y) === this.y;
 	}
 
-	public floor(): Vec2 {
+	public floor(): this {
 		this.x = Math.floor(this.x);
 		this.y = Math.floor(this.y);
 		return this;
 	}
 
-	public ceil(): Vec2 {
+	public ceil(): this {
 		this.x = Math.ceil(this.x);
 		this.y = Math.ceil(this.y);
 		return this;
@@ -277,13 +284,13 @@ export class Vec2 implements Vec2Like {
 		return new Vec2(dx, dy);
 	}
 
-	public subtractMut(o: Vec2Like): Vec2 {
+	public subtractMut(o: Vec2Like): this {
 		this.x = o.x - this.x;
 		this.y = o.y - this.y;
 		return this;
 	}
 
-	public negateMut(): Vec2 {
+	public negateMut(): this {
 		this.x = -this.x;
 		this.y = -this.y;
 		return this;
@@ -316,19 +323,19 @@ export class Vec2 implements Vec2Like {
 					[...this.reach(o, false, true)]
 						.filter((l) => f.find((fi) => fi.equals(l)))
 						.sort((a, b) => this.dist(a) - this.dist(b))
-						.shift() as Vec2
+						.shift()
 			)
-			.filter((a) => !!a)
-			.reduce((acc, n) => {
-				if (!acc.find((a) => a.equals(n))) {
+			.filter((a): a is Vec2 => !!a)
+			.reduce<Vec2[]>((acc, n) => {
+				if (!acc.some((a) => a.equals(n))) {
 					acc.push(n);
 				}
 				return acc;
-			}, [] as Vec2[]);
+			}, []);
 	}
 
 	public equals(o: Vec2Like): boolean {
-		return o && this.x === o.x && this.y === o.y;
+		return this.x === o.x && this.y === o.y;
 	}
 
 	public angle(o: Vec2Like): number {
@@ -347,7 +354,7 @@ export class Vec2 implements Vec2Like {
 		return new Vec2(this);
 	}
 
-	public rotateLeft(times = 1, around: Vec2 = Vec2.ORIGIN): Vec2 {
+	public rotateLeft(times = 1, around: Vec2 = Vec2.ORIGIN): this {
 		this.subMut(around);
 		for (let i = 0; i < times; i++) {
 			const x = this.x;
@@ -358,7 +365,7 @@ export class Vec2 implements Vec2Like {
 		return this;
 	}
 
-	public rotateRight(times = 1, around: Vec2 = Vec2.ORIGIN): Vec2 {
+	public rotateRight(times = 1, around: Vec2 = Vec2.ORIGIN): this {
 		this.subMut(around);
 		for (let i = 0; i < times; i++) {
 			const y = this.y;
@@ -373,19 +380,19 @@ export class Vec2 implements Vec2Like {
 		return Math.abs(this.x - o.x) <= 1 && Math.abs(this.y - o.y) <= 1;
 	}
 
-	public normalizeMut(): Vec2 {
+	public normalizeMut(): this {
 		this.x = Math.max(Math.min(this.x, 1), -1);
 		this.y = Math.max(Math.min(this.y, 1), -1);
 		return this;
 	}
 
-	public set(o: Vec2Like): Vec2 {
+	public set(o: Vec2Like): this {
 		this.x = o.x;
 		this.y = o.y;
 		return this;
 	}
 
-	public applyChange(fn: (n: number) => number): Vec2 {
+	public applyChange(fn: (n: number) => number): this {
 		this.x = fn(this.x);
 		this.y = fn(this.y);
 		return this;

@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { PairTree } from './pair-tree.class.js';
 
 describe('pair tree', () => {
-	let tree!: PairTree<number>;
+	let tree!: PairTree;
 	beforeEach(() => {
 		tree = PairTree.fromNestedPairs([
 			[1, [2, [3, [4, 5]]]],
@@ -20,6 +20,7 @@ describe('pair tree', () => {
 
 		it('should be able to join subtrees and not create a new root [1,2] with [2,3] to create a new root', () => {
 			const leftTree = PairTree.fromNestedPairs([1, [2, 3]]);
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const subTree = leftTree.findNode(2)!;
 			console.log(subTree);
 			const rightTree = PairTree.fromNestedPairs([4, 5]);
@@ -73,7 +74,7 @@ describe('pair tree', () => {
 			while (leftMostTree.leftTree) {
 				leftMostTree = leftMostTree.leftTree;
 			}
-			let next: PairTree<number> | undefined = leftMostTree;
+			let next: PairTree | undefined = leftMostTree;
 			while (next) {
 				if (next.leftValue) {
 					inOrderNumbers.push(next.leftValue);

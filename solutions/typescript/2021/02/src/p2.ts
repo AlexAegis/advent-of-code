@@ -11,19 +11,30 @@ export const p2 = (input: string): number => {
 		.map(parseSubmarineCommand)
 		.reduce(
 			(acc, { amplitude, instruction }) => {
-				if (instruction === SubmarineInstruction.FORWARD) {
-					acc.position.addMut({
-						x: amplitude,
-						y: acc.aim * amplitude,
-					});
-				} else if (instruction === SubmarineInstruction.DOWN) {
-					acc.aim = acc.aim + amplitude;
-				} else if (instruction === SubmarineInstruction.UP) {
-					acc.aim = acc.aim - amplitude;
+				switch (instruction) {
+					case SubmarineInstruction.FORWARD: {
+						acc.position.addMut({
+							x: amplitude,
+							y: acc.aim * amplitude,
+						});
+
+						break;
+					}
+					case SubmarineInstruction.DOWN: {
+						acc.aim = acc.aim + amplitude;
+
+						break;
+					}
+					case SubmarineInstruction.UP: {
+						acc.aim = acc.aim - amplitude;
+
+						break;
+					}
+					// No default
 				}
 				return acc;
 			},
-			{ position: Vec2.ORIGIN.clone(), aim: 0 }
+			{ position: Vec2.ORIGIN.clone(), aim: 0 },
 		);
 	return result.position.x * result.position.y;
 };

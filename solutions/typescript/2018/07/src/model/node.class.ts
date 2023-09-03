@@ -7,7 +7,7 @@ export class Node {
 	 * 60 base cost, -97 unicode offset for lowercase letters, + 1 offset.
 	 */
 	public cost(useLong = false): number {
-		return this.node.toLowerCase().charCodeAt(0) + (useLong ? 60 : 0) - 97 + 1;
+		return (this.node.toLowerCase().codePointAt(0) ?? 0) + (useLong ? 60 : 0) - 97 + 1;
 	}
 
 	public processed(useBaseCost = false): boolean {

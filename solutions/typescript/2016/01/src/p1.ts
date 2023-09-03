@@ -7,14 +7,14 @@ export const p1 = (input: string): number =>
 		.split(', ')
 		.reduce(
 			(acc, next) => {
-				if (next[0] === 'R') acc.direction = acc.direction.right();
-				else if (next[0] === 'L') acc.direction = acc.direction.left();
+				if (next.startsWith('R')) acc.direction = acc.direction.right();
+				else if (next.startsWith('L')) acc.direction = acc.direction.left();
 				acc.position.addMut(acc.direction, {
-					times: Number(next.substring(1)),
+					times: Number(next.slice(1)),
 				});
 				return acc;
 			},
-			{ position: Vec2.ORIGIN.clone(), direction: Direction.NORTH }
+			{ position: Vec2.ORIGIN.clone(), direction: Direction.NORTH },
 		)
 		.position.manhattan(Vec2.ORIGIN);
 

@@ -12,15 +12,15 @@ import { parseLines } from './parse.js';
 export const findCycle = (
 	ms: Moon[],
 	ps: [Moon, Moon][],
-	plane: 'x' | 'y' | 'z'
+	plane: 'x' | 'y' | 'z',
 ): number | undefined => {
 	for (let i = 0; ; i++) {
-		ps.forEach(([a, b]) => {
+		for (const [a, b] of ps) {
 			const d = clamp(b.pos[plane] - a.pos[plane]);
 			a.vel[plane] += d;
 			b.vel[plane] -= d;
-		});
-		ms.forEach((m) => m.step(plane));
+		}
+		for (const m of ms) m.step(plane);
 		if (ms.every((m) => m.vel.equals(Vec3.ORIGIN))) {
 			return 2 + i * 2;
 		}

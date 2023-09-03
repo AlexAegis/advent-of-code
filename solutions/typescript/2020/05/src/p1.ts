@@ -20,18 +20,22 @@ export const calculateSeatId = (line: string): number => {
 
 	for (const letter of line) {
 		switch (letter) {
-			case PlanePartition.front:
+			case PlanePartition.front: {
 				[rowLow, rowHigh] = lowerHalf(rowLow, rowHigh);
 				break;
-			case PlanePartition.back:
+			}
+			case PlanePartition.back: {
 				[rowLow, rowHigh] = upperHalf(rowLow, rowHigh);
 				break;
-			case PlanePartition.left:
+			}
+			case PlanePartition.left: {
 				[columnLow, columnHigh] = lowerHalf(columnLow, columnHigh);
 				break;
-			case PlanePartition.right:
+			}
+			case PlanePartition.right: {
 				[columnLow, columnHigh] = upperHalf(columnLow, columnHigh);
 				break;
+			}
 		}
 	}
 

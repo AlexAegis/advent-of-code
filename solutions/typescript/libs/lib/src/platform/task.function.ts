@@ -9,21 +9,16 @@ export const task = async <Input extends string | number, Result, Args>(
 	taskMetadata: TaskMetadata,
 	resourcesOverride?: TaskResources<Input, Args> | string
 ): Promise<Result | undefined> => {
-	if (process && process.env['RUN']) {
+	if (process.env['RUN']) {
 		const log = createLogger(taskMetadata);
 		log('starting...');
-		let resources: TaskResources<Input, Args>;
-		if (typeof resourcesOverride === 'object') {
-			resources = resourcesOverride;
-		} else {
-			resources = (await loadTaskResources<Args>(
+		const resources = typeof resourcesOverride === 'object' ? resourcesOverride : (await loadTaskResources<Args>(
 				taskMetadata,
 				resourcesOverride
 			)) as TaskResources<Input, Args>;
-		}
 
 		const result = await benchTask(solution, resources, log);
-		log(`result:\n${result}`);
+		log(`result:\n${String(result)}`);
 		return result;
 	} else {
 		return undefined;

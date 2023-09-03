@@ -35,27 +35,27 @@ export const isLiteralPacket = (packet: Packet): packet is LiteralPacket =>
  */
 const interpretLiteralPacketContent = (
 	bits: string,
-	cursor = 0
+	cursor = 0,
 ): { content: number; nextCursor: number } => {
 	let leadingBit = bits[0];
 	const content: string[] = [];
 	do {
-		const prefixedSegment = bits.substring(cursor, (cursor = cursor + 5));
+		const prefixedSegment = bits.slice(cursor, (cursor = cursor + 5));
 		leadingBit = prefixedSegment[0];
-		content.push(prefixedSegment.substring(1));
+		content.push(prefixedSegment.slice(1));
 	} while (leadingBit !== '0');
 	return {
-		content: parseInt(content.join(''), 2),
+		content: Number.parseInt(content.join(''), 2),
 		nextCursor: cursor,
 	};
 };
 
 const interpretPacketHeader = (
 	packet: string,
-	cursor = 0
+	cursor = 0,
 ): [{ version: number; type: AnyType }, number] => {
-	const version = parseInt(packet.substring(cursor, (cursor = cursor + 3)), 2); // Version, bits 0-3
-	const type = parseInt(packet.substring(cursor, (cursor = cursor + 3)), 2) as AnyType; // Type, bits 3-6
+	const version = Number.parseInt(packet.slice(cursor, (cursor = cursor + 3)), 2); // Version, bits 0-3
+	const type = Number.parseInt(packet.slice(cursor, (cursor = cursor + 3)), 2) as AnyType; // Type, bits 3-6
 	return [{ version, type }, cursor];
 };
 
@@ -65,16 +65,14 @@ const interpretPacketHeader = (
  */
 const interpretLengthCondition = (
 	bits: string,
-	cursor = 0
+	cursor = 0,
 ): [(cursor: number, subPackets: Packet[]) => boolean, number] => {
-	const lengthTypeId = bits.substring(cursor, (cursor = cursor + 1));
+	const lengthTypeId = bits.slice(cursor, (cursor = cursor + 1));
 	const lengthBitsOffset = lengthTypeId === '1' ? 11 : 15;
-	const length = parseInt(bits.substring(cursor, (cursor = cursor + lengthBitsOffset)), 2);
-	if (lengthTypeId === '1') {
-		return [(_c: number, subPackets: Packet[]) => subPackets.length < length, cursor];
-	} else {
-		return [(c: number, _subPackets: Packet[]) => c < cursor + length, cursor];
-	}
+	const length = Number.parseInt(bits.slice(cursor, (cursor = cursor + lengthBitsOffset)), 2);
+	return lengthTypeId === '1'
+		? [(_c: number, subPackets: Packet[]) => subPackets.length < length, cursor]
+		: [(c: number, _subPackets: Packet[]) => c < cursor + length, cursor];
 };
 
 const interpretPacketInternal = (bits: string, cursor = 0): [Packet, number] => {

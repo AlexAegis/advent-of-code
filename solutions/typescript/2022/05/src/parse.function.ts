@@ -11,7 +11,7 @@ export type Stack = (Crate | undefined)[];
 export type StockPile = Stack[];
 
 export const parseStacks = (rawStacks: string): StockPile =>
-	split(rawStacks).reduce((stockPile, stackLine) => {
+	split(rawStacks).reduce<StockPile>((stockPile, stackLine) => {
 		for (let i = 0; i < stackLine.length; i += 4) {
 			const crateId = stackLine[i + 1];
 			const stock = stockPile[i / 4] ?? [];
@@ -21,14 +21,14 @@ export const parseStacks = (rawStacks: string): StockPile =>
 			stockPile[i / 4] = stock;
 		}
 		return stockPile;
-	}, [] as StockPile);
+	}, []);
 
 export const parseCommands = (rawCommands: string): Command[] =>
 	split(rawCommands).map((line) => {
 		const splitLine = line.split(' ') as SizedTuple<string, 6>;
 		return {
-			count: parseInt(splitLine[1], 10),
-			from: parseInt(splitLine[3], 10) - 1,
-			to: parseInt(splitLine[5], 10) - 1,
+			count: Number.parseInt(splitLine[1], 10),
+			from: Number.parseInt(splitLine[3], 10) - 1,
+			to: Number.parseInt(splitLine[5], 10) - 1,
 		} as Command;
 	});

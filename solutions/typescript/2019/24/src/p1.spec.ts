@@ -6,11 +6,11 @@ import { p1 } from './p1.js';
 describe('2019 - Day 24 - Part One', () => {
 	it('should solve the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p1(resources.input)).to.equal(13500447);
+		expect(p1(resources.input)).to.equal(13_500_447);
 	});
 
 	it('should solve for the first example', async () => {
 		const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-		expect(p1(resources.input)).to.equal(2129920);
+		expect(p1(resources.input)).to.equal(2_129_920);
 	});
 });

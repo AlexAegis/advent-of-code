@@ -3,14 +3,14 @@ import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export const p2 =
-	(deckSize = 119315717514047n, repeat = 101741582076661n, target = 2020n) =>
+	(deckSize = 119_315_717_514_047n, repeat = 101_741_582_076_661n, target = 2020n) =>
 	(input: string): number => {
 		const lines = parse(input);
 		let increment = 1n;
 		let offset = 0n;
 		for (const line of lines) {
-			const nn = parseInt(line.split(' ').pop() as string, 10);
-			const bn = isNaN(nn) ? 0n : BigInt(nn);
+			const nn = Number.parseInt(line.split(' ').pop() ?? '0', 10);
+			const bn = Number.isNaN(nn) ? 0n : BigInt(nn);
 			if (line.startsWith('deal into new stack')) {
 				increment = increment * -1n;
 				increment = increment.posMod(deckSize);

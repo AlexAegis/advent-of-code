@@ -17,13 +17,13 @@ export class Cave {
 	}
 
 	public count(): number {
-		return (this.row.match(/#/g) || []).length;
+		return (this.row.match(/#/g) ?? []).length;
 	}
 
 	public score(): number {
 		return [...this.row].reduce(
-			(acc, pot, i) => (pot === `#` ? (acc += i + this.offset) : acc),
-			0
+			(acc, pot, i) => (pot === '#' ? (acc += i + this.offset) : acc),
+			0,
 		);
 	}
 

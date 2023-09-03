@@ -39,7 +39,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 			connectionDirections: Direction.cardinalDirections,
 			ignoreNodes: (s) => s === ' ',
 			weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) =>
-				a.value !== b.value ? Infinity : 0,
+				a.value === b.value ? 0 : Number.POSITIVE_INFINITY,
 			...gridGraphOptions,
 		};
 	}
@@ -115,13 +115,8 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		this.getNode(key)?.updateValue(change);
 	}
 
-	public override getNode(key: Vec2Like | Vec2String | string): N | undefined {
-		let keyStr: string;
-		if (typeof key === 'object') {
-			keyStr = Vec2.toString(key);
-		} else {
-			keyStr = key;
-		}
+	public override getNode(key: Vec2Like |  string): N | undefined {
+		const keyStr = typeof key === 'object' ? Vec2.toString(key) : key;
 		return super.getNode(keyStr);
 	}
 
@@ -150,7 +145,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	 */
 	public connectEdgeNodesWrappingAround(
 		weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) => number = (a, b) =>
-			a.value !== b.value ? Infinity : 0
+			a.value === b.value ? 0 : Number.POSITIVE_INFINITY
 	): void {
 		const box = this.boundingBox();
 		const verticalIndices = box.vertical.collectValues();
@@ -231,27 +226,41 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	): void {
 		const pathSymbols = slideWindow(path, 2).reduce((accumulator, [prev, next]) => {
 			let sym = '#';
-			if (prev.north?.to.key === next.key) {
+			switch (next.key) {
+			case prev.north?.to.key: {
 				sym = DirectionArrowUnicodeSymbol.NORTH;
-			} else if (prev.east?.to.key === next.key) {
+
+			break;
+			}
+			case prev.east?.to.key: {
 				sym = DirectionArrowUnicodeSymbol.EAST;
-			} else if (prev.south?.to.key === next.key) {
+
+			break;
+			}
+			case prev.south?.to.key: {
 				sym = DirectionArrowUnicodeSymbol.SOUTH;
-			} else if (prev.west?.to.key === next.key) {
+
+			break;
+			}
+			case prev.west?.to.key: {
 				sym = DirectionArrowUnicodeSymbol.WEST;
+
+			break;
+			}
+			// No default
 			}
 			accumulator.set(prev.key, sym);
 			return accumulator;
 		}, new Map<string, string>());
 
-		const last = path[path.length - 1];
+		const last = path.at(-1);
 		if (isNotNullish(last)) {
 			pathSymbols.set(last.coordinate.toString(), 'X');
 		}
 
 		this.print(
 			(node) =>
-				pathSymbols.get(node.key) ?? nodeToString?.(node) ?? node.value.toString() ?? '░'
+				(pathSymbols.get(node.key) ?? nodeToString?.(node) ?? node.value.toString()) || '░'
 		);
 	}
 
@@ -286,8 +295,8 @@ export class PortalGridGraph<
 	): PortalGridGraph<T, N> {
 		const weigther: Weighter<PortalGridNode<T>> =
 			options.weighter ??
-			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value !== b.value ? Infinity : 0));
-		const connectionDirections = options?.connectionDirections ?? Direction.cardinalDirections;
+			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value === b.value ? 0 : Number.POSITIVE_INFINITY));
+		const connectionDirections = options.connectionDirections ?? Direction.cardinalDirections;
 
 		const graph = new PortalGridGraph<T, N>();
 		for (let y = 0; y < matrix.length; y++) {

@@ -4,10 +4,10 @@ import packageJson from '../package.json';
 import { p2 } from './p2.js';
 
 describe('2021 - Day 12 - Part Two', () => {
-	it.skip(`should resolve when using the input`, async () => {
+	it.skip('should resolve when using the input', async () => {
 		// ? Disabled as it runs for a long time
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p2(resources.input)).to.equal(98441);
+		expect(p2(resources.input)).to.equal(98_441);
 	});
 
 	describe('example 1', () => {

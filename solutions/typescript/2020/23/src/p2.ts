@@ -7,12 +7,12 @@ import { max, min } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json';
 
 export const p2 = (input: string): number => {
-	const circle = input.split('').map((s) => parseInt(s, 10));
+	const circle = [...input].map((s) => Number.parseInt(s, 10));
 	let high = circle.reduce(max);
 	const low = circle.reduce(min);
 
 	let nextLabel = high + 1;
-	while (circle.length !== 1000000) {
+	while (circle.length !== 1_000_000) {
 		circle.push(nextLabel);
 		nextLabel++;
 	}
@@ -22,11 +22,11 @@ export const p2 = (input: string): number => {
 	let cursor = ll.head;
 
 	const m = new Map<number, CircularLinkedListNode<number>>();
-	for (const link of [...cursor.forward()]) {
+	for (const link of cursor.forward()) {
 		m.set(link.value, link);
 	}
 
-	for (let i = 0; i < 10000000; i++) {
+	for (let i = 0; i < 10_000_000; i++) {
 		// pick up three cups
 		const front = cursor.next;
 		cursor.next = front.next.next.next;
@@ -61,6 +61,7 @@ export const p2 = (input: string): number => {
 		cursor = cursor.next;
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const cup = m.get(1)!;
 	return cup.next.value * cup.next.next.value;
 };

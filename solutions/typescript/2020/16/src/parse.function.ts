@@ -19,17 +19,31 @@ export const parse = (input: string): TicketObservation => {
 			currentSection = line;
 			continue;
 		}
-		if (currentSection === undefined) {
-			const [category, value] = line.splitIntoStringPair(': ');
-			const ranges = value.splitIntoStringPair(' or ').map((rawRange) => {
-				const [low, high] = rawRange.splitIntoStringPair('-');
-				return parseInt(low, 10).interval(parseInt(high, 10), INTERVAL_CLOSED);
-			});
-			fieldRanges.set(category, ranges);
-		} else if (currentSection === 'your ticket:') {
-			myTicket = line.split(',').map((v) => parseInt(v, 10));
-		} else if (currentSection === 'nearby tickets:') {
-			nearbyTickets.push(line.split(',').map((v) => parseInt(v, 10)));
+		switch (currentSection) {
+			case undefined: {
+				const [category, value] = line.splitIntoStringPair(': ');
+				const ranges = value.splitIntoStringPair(' or ').map((rawRange) => {
+					const [low, high] = rawRange.splitIntoStringPair('-');
+					return Number.parseInt(low, 10).interval(
+						Number.parseInt(high, 10),
+						INTERVAL_CLOSED,
+					);
+				});
+				fieldRanges.set(category, ranges);
+
+				break;
+			}
+			case 'your ticket:': {
+				myTicket = line.split(',').map((v) => Number.parseInt(v, 10));
+
+				break;
+			}
+			case 'nearby tickets:': {
+				nearbyTickets.push(line.split(',').map((v) => Number.parseInt(v, 10)));
+
+				break;
+			}
+			// No default
 		}
 	}
 	return { fieldRanges, myTicket, nearbyTickets };

@@ -9,9 +9,9 @@ describe('2019 - Day 6 - Part Two', () => {
 		expect(p2(resources.input)).to.equal(430);
 	});
 
-	it('should be that that the first example resolves to 4', async () => {
+	it('should be that that the first example resolves to 4', () => {
 		expect(
-			await p2('COM)B\nB)C\nC)D\nD)E\nE)F\nB)G\nG)H\nD)I\nE)J\nJ)K\nK)L\nK)YOU\nI)SAN')
+			p2('COM)B\nB)C\nC)D\nD)E\nE)F\nB)G\nG)H\nD)I\nE)J\nJ)K\nK)L\nK)YOU\nI)SAN'),
 		).to.equal(4);
 	});
 });

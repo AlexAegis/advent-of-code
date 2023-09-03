@@ -7,12 +7,12 @@ import {
 import packageJson from '../package.json';
 
 export const p2 = (input: string): number =>
-	input.split('').reduce(
+	[...input].reduce(
 		(acc, next) => {
 			const c = acc.isRobot ? acc.roboCurrent : acc.current;
 			c.addMut(directionMarkerAssociationMap[next as DirectionMarker]);
 			const cs = c.toString();
-			acc.locations.set(cs, (acc.locations.get(cs) || 0) + 1);
+			acc.locations.set(cs, (acc.locations.get(cs) ?? 0) + 1);
 			acc.isRobot = !acc.isRobot;
 			return acc;
 		},
@@ -21,7 +21,7 @@ export const p2 = (input: string): number =>
 			current: new Vec2(0, 0),
 			roboCurrent: new Vec2(0, 0),
 			isRobot: false,
-		}
+		},
 	).locations.size;
 
 await task(p2, packageJson.aoc); // 2631 ~2.8ms

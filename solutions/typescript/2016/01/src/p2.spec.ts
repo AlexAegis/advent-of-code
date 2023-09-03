@@ -9,7 +9,7 @@ describe('2016 - Day 1 - Part Two', () => {
 		expect(p2(resources.input)).to.equal(159);
 	});
 
-	it('should be that that the example resolves to 4', async () => {
-		expect(await p2('R8, R4, R4, R8')).to.equal(4);
+	it('should be that that the example resolves to 4', () => {
+		expect(p2('R8, R4, R4, R8')).to.equal(4);
 	});
 });

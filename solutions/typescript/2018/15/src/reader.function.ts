@@ -1,5 +1,5 @@
-import { createReadStream } from 'fs';
-import * as rl from 'readline';
+import { createReadStream } from 'node:fs';
+import * as rl from 'node:readline';
 import { Cave } from './cave.class.js';
 import type { Block } from './element/block/block.class.js';
 import type { Ground } from './element/block/ground.class.js';
@@ -17,7 +17,7 @@ export const reader = (input = 'input'): Promise<Cave> =>
 				if (!cave.width) {
 					cave.width = line.length;
 				}
-				[...line].forEach((letter, _column) => {
+				for (const [, letter] of [...line].entries()) {
 					const element: Element = elementFactory(letter);
 					if (element instanceof Creature) {
 						const ground: Ground = elementFactory('.') as Ground;
@@ -28,7 +28,7 @@ export const reader = (input = 'input'): Promise<Cave> =>
 					}
 
 					// wiring
-				});
+				}
 				cave.height++;
 			})
 			.on('close', () => {

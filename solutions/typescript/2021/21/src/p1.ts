@@ -5,7 +5,7 @@ export class DeterministicDie {
 	totalRolls = 0;
 	current = 1;
 	*roll(): IterableIterator<number> {
-		while (true) {
+		for (;;) {
 			this.totalRolls++;
 			yield this.current;
 			this.current = this.current.addWithinRange(1, 1, 100);
@@ -13,13 +13,20 @@ export class DeterministicDie {
 	}
 
 	static getThree(iterator: IterableIterator<number>): [number, number, number] {
-		return [iterator.next().value, iterator.next().value, iterator.next().value];
+		return [
+			iterator.next().value as number,
+			iterator.next().value as number,
+			iterator.next().value as number,
+		];
 	}
 }
 
 export class Player {
 	score = 0;
-	constructor(public readonly index: number, public position: number) {}
+	constructor(
+		public readonly index: number,
+		public position: number,
+	) {}
 
 	step(roll: number): void {
 		this.position = this.position.addWithinRange(roll, 1, 10);
@@ -36,8 +43,10 @@ export class Player {
 }
 
 export const parse = (line: string): Player => {
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const [a, b] = line.match(/\d/g)!;
-	return new Player(parseInt(a, 10), parseInt(b!, 10));
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	return new Player(Number.parseInt(a, 10), Number.parseInt(b!, 10));
 };
 
 export const p1 = (input: string): number => {

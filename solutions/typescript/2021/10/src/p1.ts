@@ -7,7 +7,7 @@ const scoreMap: Record<ClosingTag, number> = {
 	')': 3,
 	']': 57,
 	'}': 1197,
-	'>': 25137,
+	'>': 25_137,
 };
 
 export const getFirstCorruptTag = (line: string): ClosingTag | undefined => {

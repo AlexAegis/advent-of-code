@@ -1,4 +1,4 @@
-import { createHash } from 'crypto';
+import { createHash } from 'node:crypto';
 
 const HASH = 'md5';
 const DIGEST = 'hex';

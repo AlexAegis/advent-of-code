@@ -8,27 +8,34 @@ export const p2 = (input: string): number => {
 	const waypoint = new Vec2(10, 1);
 	for (const { action, value } of split(input).map(parse)) {
 		switch (action) {
-			case FerryAction.NORTH:
+			case FerryAction.NORTH: {
 				waypoint.addMut({ x: 0, y: 1 }, { times: value });
 				break;
-			case FerryAction.EAST:
+			}
+			case FerryAction.EAST: {
 				waypoint.addMut({ x: 1, y: 0 }, { times: value });
 				break;
-			case FerryAction.SOUTH:
+			}
+			case FerryAction.SOUTH: {
 				waypoint.addMut({ x: 0, y: -1 }, { times: value });
 				break;
-			case FerryAction.WEST:
+			}
+			case FerryAction.WEST: {
 				waypoint.addMut({ x: -1, y: 0 }, { times: value });
 				break;
-			case FerryAction.LEFT:
+			}
+			case FerryAction.LEFT: {
 				waypoint.rotateLeft(value / 90);
 				break;
-			case FerryAction.RIGHT:
+			}
+			case FerryAction.RIGHT: {
 				waypoint.rotateRight(value / 90);
 				break;
-			case FerryAction.FORWARD:
+			}
+			case FerryAction.FORWARD: {
 				position.addMut(waypoint, { times: value });
 				break;
+			}
 		}
 	}
 	return Vec2.ORIGIN.manhattan(position);

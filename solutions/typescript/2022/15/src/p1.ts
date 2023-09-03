@@ -9,7 +9,7 @@ export interface Args {
 export const p1 = (input: string, args?: Args): number => {
 	const sensors = parse(input);
 	// The example overrides the y level
-	const y = args?.y ?? 2000000;
+	const y = args?.y ?? 2_000_000;
 
 	return Interval.merge(sensors.map((sensor) => sensor.rowAt(y)))
 		.map((interval) => interval.length - 1) // - 1 is the beacon itself

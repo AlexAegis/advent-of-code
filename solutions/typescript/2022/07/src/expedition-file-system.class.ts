@@ -1,12 +1,12 @@
 import type { SizedTuple } from '@alexaegis/advent-of-code-lib';
-import { join } from 'path/posix';
+import { join } from 'node:path/posix';
 
 export class ExpeditionFileSystem {
 	static ROOT = '/';
 	root = new ExpeditionFileSystemDirectory(undefined, ExpeditionFileSystem.ROOT);
 	private cwd = this.root;
 
-	interpret(commands: string[]): ExpeditionFileSystem {
+	interpret(commands: string[]): this {
 		for (const command of commands) {
 			const [c1, c2, c3] = command.split(' ') as SizedTuple<string, 3>;
 			if (c1 === '$' && c2 === 'cd') {
@@ -18,17 +18,17 @@ export class ExpeditionFileSystem {
 					const parent = this.cwd;
 					this.cwd = this.cwd.directories.getOrAdd(
 						c3,
-						() => new ExpeditionFileSystemDirectory(parent, c3)
+						() => new ExpeditionFileSystemDirectory(parent, c3),
 					);
 				}
 			} else if (c1 === 'dir') {
 				const parent = this.cwd;
 				this.cwd.directories.getOrAdd(
 					c2,
-					() => new ExpeditionFileSystemDirectory(parent, c2)
+					() => new ExpeditionFileSystemDirectory(parent, c2),
 				);
 			} else if (c2 !== 'ls') {
-				this.cwd.addFile(c2, parseInt(c1, 10));
+				this.cwd.addFile(c2, Number.parseInt(c1, 10));
 			}
 		}
 
@@ -46,7 +46,10 @@ export class ExpeditionFileSystemDirectory {
 
 	size = 0;
 
-	constructor(public parent: ExpeditionFileSystemDirectory | undefined, public name: string) {}
+	constructor(
+		public parent: ExpeditionFileSystemDirectory | undefined,
+		public name: string,
+	) {}
 
 	*walkDirectories(): Generator<ExpeditionFileSystemDirectory> {
 		yield this;
@@ -72,11 +75,7 @@ export class ExpeditionFileSystemDirectory {
 	}
 
 	get absolutePath(): string {
-		if (!this.parent) {
-			return ExpeditionFileSystem.ROOT;
-		} else {
-			return join(this.parent.absolutePath, this.name);
-		}
+		return this.parent ? join(this.parent.absolutePath, this.name) : ExpeditionFileSystem.ROOT;
 	}
 
 	render(indentation = 0): string {
@@ -86,7 +85,7 @@ export class ExpeditionFileSystemDirectory {
 			result += '\n' + directory.render(indentation + 1);
 		}
 
-		for (const [fileName, fileSize] of [...this.files.entries()]) {
+		for (const [fileName, fileSize] of this.files.entries()) {
 			result += `\n${'  '.repeat(indentation + 1)}- ${fileName} (file, size=${fileSize})`;
 		}
 

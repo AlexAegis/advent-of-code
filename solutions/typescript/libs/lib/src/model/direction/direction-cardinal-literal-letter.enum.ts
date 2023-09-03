@@ -10,19 +10,19 @@ export type HorizontalDirectionCardinalLiteralLetter =
 	| DirectionCardinalLiteralLetter.WEST;
 export type VericalDirectionCardinalLiteralLetter =
 	| DirectionCardinalLiteralLetter.NORTH
-	| DirectionCardinalLiteralLetter.NORTH;
+	 ;
 
 export const isHorizontalDirectionCardinalLiteralLetter = (
 	symbol: string
 ): symbol is HorizontalDirectionCardinalLiteralLetter =>
-	symbol === DirectionCardinalLiteralLetter.EAST ||
-	symbol === DirectionCardinalLiteralLetter.WEST;
+	symbol === DirectionCardinalLiteralLetter.EAST as string ||
+	symbol === DirectionCardinalLiteralLetter.WEST as string;
 
 export const isVericalDirectionCardinalLiteralLetter = (
 	symbol: string
 ): symbol is VericalDirectionCardinalLiteralLetter =>
-	symbol === DirectionCardinalLiteralLetter.NORTH ||
-	symbol === DirectionCardinalLiteralLetter.SOUTH;
+	symbol === DirectionCardinalLiteralLetter.NORTH as string ||
+	symbol === DirectionCardinalLiteralLetter.SOUTH as string;
 
 export const isDirectionCardinalLiteralLetter = (
 	marker: string

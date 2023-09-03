@@ -7,14 +7,14 @@ describe('2021 - Day 21 - Part Two', () => {
 	describe('the input', () => {
 		it('should resolve to 309196008717909', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(await p2(input)).to.equal(309196008717909);
+			expect(p2(input)).to.equal(309_196_008_717_909);
 		});
 	});
 
 	describe('example 1', () => {
 		it('should resolve to 444356092776315', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(await p2(input)).to.equal(444356092776315);
+			expect(p2(input)).to.equal(444_356_092_776_315);
 		});
 	});
 });

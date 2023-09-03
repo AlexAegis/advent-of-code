@@ -10,7 +10,7 @@ export const p2 = (input: string): number =>
 			const letterCounts = [...group.join('')]
 				.reduce(
 					(map, letter) => map.set(letter, (map.get(letter) ?? 0) + 1),
-					new Map<string, number>()
+					new Map<string, number>(),
 				)
 				.values();
 			return [...letterCounts].count((v) => v === group.length);

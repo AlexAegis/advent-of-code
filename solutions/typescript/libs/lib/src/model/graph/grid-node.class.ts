@@ -9,14 +9,14 @@ import { GraphNode } from './node.class.js';
 
 Vec2.ORIGIN;
 
-type WalkResult<T extends ToString = string> = {
+interface WalkResult<T extends ToString = string> {
 	nodes: GridGraphNode<T>[];
 	walkedToTheEnd: boolean;
-};
+}
 /**
  *
  */
-export class GridGraphNode<T extends ToString = string> extends GraphNode<T, Direction> {
+export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 	public constructor(public coordinate: Vec2, value: T) {
 		super(coordinate.toString(), value);
 	}

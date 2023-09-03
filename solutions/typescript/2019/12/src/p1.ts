@@ -11,7 +11,7 @@ export const p1 =
 		const ms = parseLines(input).map((m) => new Moon(m));
 		const ps = pairs(ms);
 		for (let i = 0; i < target; i++) {
-			ps.forEach(([a, b]) => {
+			for (const [a, b] of ps) {
 				const x = clamp(b.pos.x - a.pos.x);
 				a.vel.x += x;
 				b.vel.x -= x;
@@ -23,8 +23,8 @@ export const p1 =
 				const z = clamp(b.pos.z - a.pos.z);
 				a.vel.z += z;
 				b.vel.z -= z;
-			});
-			ms.forEach((m) => m.step());
+			}
+			for (const m of ms) m.step();
 		}
 		return ms.reduce((acc, m) => acc + m.totalEnergy(), 0);
 	};

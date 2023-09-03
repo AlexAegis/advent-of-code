@@ -21,14 +21,12 @@ export const p2 = (input: string): string => {
 	const position = new Vec2(0, 2);
 
 	const result = split(input).reduce((acc, line) => {
-		line.split('')
+		for (const direction of [...line]
 			.filter(isDirectionMarker)
-			.map((marker) => Direction.fromMarker(marker).reverse('v'))
-			.forEach((direction) =>
-				position.addMut(direction, {
-					limit: (v) => toKeypadNumber(v) === undefined,
-				})
-			);
+			.map((marker) => Direction.fromMarker(marker).reverse('v')))
+			position.addMut(direction, {
+				limit: (v) => toKeypadNumber(v) === undefined,
+			});
 		return acc + toKeypadNumber(position);
 	}, '');
 

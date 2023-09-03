@@ -20,7 +20,7 @@ export const makeCubeStepper =
 	(cubes: Set<string>): Set<string> => {
 		const nextCubes = new Set<string>();
 		const bubble = new Set(
-			[...cubes.values()].flatMap((v) => getNeighbours(vec(v))).map((v) => v.toString())
+			[...cubes.values()].flatMap((v) => getNeighbours(vec(v))).map((v) => v.toString()),
 		);
 		for (const v of bubble) {
 			const neighbours = getNeighbours(vec(v));

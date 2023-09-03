@@ -32,11 +32,11 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 		weighter?: Weighter<this>
 	): void {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		super.attachNeightbours(graph as any, directions, weighter);
-		if (this.portalLabel && !this.portal) {
+		super.attachNeightbours(graph, directions, weighter);
+		if (this.portalLabel && !this.portal()) {
 			const node = [...graph.nodes.entries()].find(
-				([_, v]) => v.portalLabel === this.portalLabel
-			)?.[1];
+				([_, v]) => (v as this).portalLabel === this.portalLabel
+			)?.[1] as this | undefined;
 			const portal = this.portal();
 			if (node && portal) {
 				const forwardEdge = this.neighbours.getOrAdd(

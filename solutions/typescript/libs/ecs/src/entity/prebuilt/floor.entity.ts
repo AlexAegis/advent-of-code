@@ -14,7 +14,7 @@ export const spawnFloor = (world: GridWorld, from: Vec2, to: Vec2Like): Entity =
 		new FloorMarkerComponent(),
 		new StaticPositionComponent(worldBox.anchor, -1),
 		AsciiDisplayComponent.fromMatrix(
-			localBox.createBlankMatrix(() => `░`),
+			localBox.createBlankMatrix(() => '░'),
 			{
 				defaultBackgroundColor: 'green',
 				defaultForegroundColor: 'brightGreen',

@@ -30,7 +30,6 @@ export abstract class AnyPositionComponent extends Component {
 				if (SpatialComponent.isSpatialComponent(component)) {
 					const cache = component.getSpatialCache();
 					const lastPositions = from ? component.getLastPositions(from) : [];
-					entity.getWrappingCollisionWorldBox;
 					const toArea = component.area(to);
 					const [finiteArea, infiniteArea] = partition(toArea, (area) => area.isFinite());
 					const nextPositions = finiteArea.flatMap((area) => area.renderIntoVectors());
@@ -43,7 +42,7 @@ export abstract class AnyPositionComponent extends Component {
 						nextPositionsString
 					);
 
-					if (infiniteArea.length) {
+					if (infiniteArea.length > 0) {
 						for (const entity of this.belongsTo) {
 							cache.infiniteBoxes.set(entity.entityId, infiniteArea);
 						}
@@ -67,7 +66,7 @@ export class PositionComponent extends AnyPositionComponent {
 			const oldPosition = this.position.clone();
 			this._position.addMut(offset);
 			this.indexEntityMove(oldPosition, this.position);
-			this.onMoveCallbacks.forEach((callback) => callback(this.position));
+			for (const callback of this.onMoveCallbacks) callback(this.position);
 			return true;
 		} else {
 			return false;

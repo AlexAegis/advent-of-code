@@ -12,7 +12,7 @@ const partitionMap: Record<PlanePartition, '0' | '1'> = {
 };
 
 export const calculateSeatId = (line: string): number =>
-	parseInt(([...line] as PlanePartition[]).map(usingMap(partitionMap)).join(''), 2);
+	Number.parseInt(([...line] as PlanePartition[]).map(usingMap(partitionMap)).join(''), 2);
 
 export const p1 = (input: string): number => split(input).map(calculateSeatId).reduce(max);
 

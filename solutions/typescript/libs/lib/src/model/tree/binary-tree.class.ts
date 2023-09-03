@@ -57,7 +57,7 @@ export class BinaryTree<T = number> {
 
 	get root(): BinaryTree<T> {
 		let parent = this.parent ?? this;
-		while (parent?.parent) {
+		while (parent.parent) {
 			parent = parent.parent;
 		}
 		return parent;
@@ -88,7 +88,7 @@ export class BinaryTree<T = number> {
 	}
 
 	toString(): string {
-		return `[${this.left?.toString()},${this.value},${this.right?.toString()}]`;
+		return `[${this.left?.toString()},${String(this.value)},${this.right?.toString()}]`;
 	}
 
 	print(): void {

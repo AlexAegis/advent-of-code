@@ -7,8 +7,8 @@ export const p1 = (input: string): number => {
 		.valueArray()
 		.filter((node) =>
 			Direction.cardinalDirections.some(
-				(d) => node.walkDirection(d, (n) => n.value < node.value).walkedToTheEnd
-			)
+				(d) => node.walkDirection(d, (n) => n.value < node.value).walkedToTheEnd,
+			),
 		).length;
 };
 

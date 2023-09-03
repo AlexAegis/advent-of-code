@@ -70,9 +70,9 @@ export const invModEgdc = (a: number, m: number): number => {
  */
 export const invModEgdcBigInt = (a: bigint, m: bigint): bigint => {
 	const [g, x] = egcdBigInt(a, m);
-	if (g !== 1n) {
-		throw new Error(`Modular inverse of ${a} modulo ${m} does not exist`);
-	} else {
+	if (g === 1n) {
 		return posModBigInt(x, m);
+	} else {
+		throw new Error(`Modular inverse of ${a} modulo ${m} does not exist`);
 	}
 };

@@ -18,7 +18,7 @@ export class SandSpawnerKindComponent extends Component {
 
 export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	const rockLines = split(wallDefinitions).map((line) =>
-		line.split(' -> ').map((vs) => new Vec2(vs as Vec2String))
+		line.split(' -> ').map((vs) => new Vec2(vs as Vec2String)),
 	);
 
 	const sandKind = new SandKindComponent();
@@ -33,7 +33,7 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	const sandSpawner = world.spawn(
 		new SandSpawnerKindComponent(),
 		new StaticPositionComponent(new Vec2(500, 0)),
-		AsciiDisplayComponent.fromString('+')
+		AsciiDisplayComponent.fromString('+'),
 	);
 
 	const spawnSand = (at: Vec2) =>
@@ -57,16 +57,17 @@ export const createSandWorld = (wallDefinitions: string): GridWorld => {
 	world.addSystem((world) => {
 		let didSomething = false;
 
-		const [_e, sandSpawnerData, position] = world.queryOne(
+		const [, sandSpawnerData, position] = world.queryOne(
 			SandSpawnerKindComponent,
-			StaticPositionComponent
+			StaticPositionComponent,
 		);
 		if (
 			sandSpawnerData.enabled &&
 			world.entitiesVisibleAt(position.position).filter((e) => e !== sandSpawner).length === 0
 		) {
 			const spawnedSand = spawnSand(position.position.clone());
-			const positionComponent = spawnedSand.getComponent(PositionComponent)!;
+			const positionComponent = spawnedSand.getComponentOrThrow(PositionComponent);
+
 			let moving = true;
 			while (moving) {
 				moving = tryMoveLikeSand(positionComponent);

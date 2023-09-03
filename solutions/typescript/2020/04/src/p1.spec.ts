@@ -16,6 +16,6 @@ describe('2020 - Day 4 - Part One', () => {
 
 	it('should solve for the second input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc, 'input.2.txt');
-		expect(await p1(resources.input)).to.equal(256);
+		expect(p1(resources.input)).to.equal(256);
 	});
 });

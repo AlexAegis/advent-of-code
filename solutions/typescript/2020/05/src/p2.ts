@@ -10,7 +10,7 @@ export const p2 = (input: string): number => {
 	while (seats[0] === undefined) {
 		seats.shift();
 	}
-	return seats.findIndex((seat) => seat === undefined) + seats[0];
+	return seats.indexOf(undefined) + seats[0];
 };
 
 await task(p2, packageJson.aoc); // 682 ~4ms

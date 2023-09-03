@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { add } from 'benny';
 
 import { defaultBench } from '../../benchmark/index.js';
@@ -31,7 +32,7 @@ const p = graph.aStar(start, goal, {
 });
 console.log(
 	graph.toString((node) =>
-		p.find((pc) => node.coordinate.equals(pc.coordinate)) ? '#' : undefined
+		p.some((pc) => node.coordinate.equals(pc.coordinate)) ? '#' : undefined
 	)
 );
 

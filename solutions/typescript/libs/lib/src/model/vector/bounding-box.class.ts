@@ -54,10 +54,10 @@ export class BoundingBox {
 		vertical: Interval;
 		horizontal: Interval;
 	} {
-		let minX = Infinity;
-		let minY = Infinity;
-		let maxX = -Infinity;
-		let maxY = -Infinity;
+		let minX = Number.POSITIVE_INFINITY;
+		let minY = Number.POSITIVE_INFINITY;
+		let maxX = Number.NEGATIVE_INFINITY;
+		let maxY = Number.NEGATIVE_INFINITY;
 		for (const vec of vectors) {
 			if (vec.x < minX) {
 				minX = vec.x;
@@ -82,7 +82,7 @@ export class BoundingBox {
 	/**
 	 * The normal state of a box is when it's anchor is at the origin.
 	 */
-	normalize(): BoundingBox {
+	normalize(): this {
 		return this.moveAnchorTo(Vec2.ORIGIN);
 	}
 
@@ -142,13 +142,13 @@ export class BoundingBox {
 		this._finiteAnchorCornerName = this.findCornerName(this._finiteAnchorCorner);
 
 		if (
-			Math.abs(this.left) === Infinity ||
-			Math.abs(this.right) === Infinity ||
-			Math.abs(this.bottom) === Infinity ||
-			Math.abs(this.top) === Infinity
+			Math.abs(this.left) === Number.POSITIVE_INFINITY ||
+			Math.abs(this.right) === Number.POSITIVE_INFINITY ||
+			Math.abs(this.bottom) === Number.POSITIVE_INFINITY ||
+			Math.abs(this.top) === Number.POSITIVE_INFINITY
 		) {
-			this._center = new Vec2(Infinity, Infinity);
-			this._size = new Vec2(Infinity, Infinity);
+			this._center = new Vec2(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY);
+			this._size = new Vec2(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY);
 		} else {
 			this._size = new Vec2(this.horizontal.length, this.vertical.length);
 			this._center = new Vec2(
@@ -240,10 +240,10 @@ export class BoundingBox {
 
 	isFinite(): boolean {
 		return (
-			isFinite(this.top) &&
-			isFinite(this.right) &&
-			isFinite(this.bottom) &&
-			isFinite(this.left)
+			Number.isFinite(this.top) &&
+			Number.isFinite(this.right) &&
+			Number.isFinite(this.bottom) &&
+			Number.isFinite(this.left)
 		);
 	}
 
@@ -272,15 +272,11 @@ export class BoundingBox {
 			}
 		}
 
-		if (this.isFinite()) {
-			return this.clone();
-		} else {
-			return BoundingBox.fromVectors(
+		return this.isFinite() ? this.clone() : BoundingBox.fromVectors(
 				[this.topLeft, this.topRight, this.bottomLeft, this.bottomRight].filter((anchor) =>
 					anchor.isFinite()
 				)
 			);
-		}
 	}
 
 	createBlankMatrix(): undefined[][];
@@ -341,11 +337,7 @@ export class BoundingBox {
 	intersection(other: BoundingBox): BoundingBox | undefined {
 		const horizontalIntersection = this.horizontal.intersection(other.horizontal);
 		const verticalIntersection = this.vertical.intersection(other.vertical);
-		if (horizontalIntersection && verticalIntersection) {
-			return new BoundingBox(horizontalIntersection, verticalIntersection);
-		} else {
-			return undefined;
-		}
+		return horizontalIntersection && verticalIntersection ? new BoundingBox(horizontalIntersection, verticalIntersection) : undefined;
 	}
 	/*
 	subtract(other: BoundingBox): BoundingBox[] {
@@ -402,7 +394,7 @@ export class BoundingBox {
 
 	static fromMatrix<M>(matrix: M[][]): BoundingBox {
 		const anchors = [Vec2.ORIGIN, Vec2.ORIGIN];
-		if (matrix.length) {
+		if (matrix.length > 0) {
 			const width = matrix.map((row) => row.length).reduce(max);
 			anchors[1] = new Vec2(width - 1, matrix.length - 1);
 		}
@@ -447,68 +439,66 @@ export class BoundingBox {
 	contains(vec: Vec2Like): boolean;
 	contains(x: number, y: number): boolean;
 	contains(x: Vec2Like | number, y?: number): boolean {
-		if (typeof x === 'object') {
-			return Vec2.isWithin(x, this);
-		} else {
-			return this.horizontal.contains(x) && this.vertical.contains(y!);
-		}
+		return typeof x === 'object' ? Vec2.isWithin(x, this) : this.horizontal.contains(x) && y !== undefined && this.vertical.contains(y);
 	}
 
 	/**
 	 * Applies an offset vector to all points of the boundary
 	 * @param offset
 	 */
-	offset(offset: Vec2Like): BoundingBox {
+	offset(offset: Vec2Like): this {
 		this.horizontal.moveBy(offset.x);
 		this.vertical.moveBy(offset.y);
 		this.deriveFromIntervals();
 		return this;
 	}
 
-	moveAnchorTo(to: Vec2Like): BoundingBox {
-		if (this._finiteAnchorCornerName) {
-			return this.moveCornerTo(this._finiteAnchorCornerName, to);
-		} else {
-			return this;
+	moveAnchorTo(to: Vec2Like): this {
+		return this._finiteAnchorCornerName ? this.moveCornerTo(this._finiteAnchorCornerName, to) : this;
+	}
+
+	moveCornerTo(corner: BoundingBoxCorner, to: Vec2Like): this {
+		switch (corner) {
+			case 'topLeft': {
+				return this.moveTopLeftTo(to);
+			}
+			case 'topRight': {
+				return this.moveTopRightTo(to);
+			}
+			case 'bottomRight': {
+				return this.moveBottomRightTo(to);
+			}
+			case 'bottomLeft': {
+				return this.moveBottomLeftTo(to);
+			}
+			default: {
+				throw new Error(`Not a valid corner! ${String(corner)}`);
+			}
 		}
 	}
 
-	moveCornerTo(corner: BoundingBoxCorner, to: Vec2Like): BoundingBox {
-		if (corner === 'topLeft') {
-			return this.moveTopLeftTo(to);
-		} else if (corner === 'topRight') {
-			return this.moveTopRightTo(to);
-		} else if (corner === 'bottomRight') {
-			return this.moveBottomRightTo(to);
-		} else if (corner === 'bottomLeft') {
-			return this.moveBottomLeftTo(to);
-		} else {
-			throw new Error(`Not a valid corner! ${corner}`);
-		}
-	}
-
-	moveTopLeftTo(to: Vec2Like): BoundingBox {
+	moveTopLeftTo(to: Vec2Like): this {
 		this.horizontal.moveLowTo(to.x);
 		this.vertical.moveLowTo(to.y);
 		this.deriveFromIntervals();
 		return this;
 	}
 
-	moveTopRightTo(to: Vec2Like): BoundingBox {
+	moveTopRightTo(to: Vec2Like): this {
 		this.horizontal.moveHighTo(to.x);
 		this.vertical.moveLowTo(to.y);
 		this.deriveFromIntervals();
 		return this;
 	}
 
-	moveBottomLeftTo(to: Vec2Like): BoundingBox {
+	moveBottomLeftTo(to: Vec2Like): this {
 		this.horizontal.moveLowTo(to.x);
 		this.vertical.moveHighTo(to.y);
 		this.deriveFromIntervals();
 		return this;
 	}
 
-	moveBottomRightTo(to: Vec2Like): BoundingBox {
+	moveBottomRightTo(to: Vec2Like): this {
 		this.horizontal.moveHighTo(to.x);
 		this.vertical.moveHighTo(to.y);
 		this.deriveFromIntervals();
@@ -524,7 +514,7 @@ export class BoundingBox {
 		this.deriveFromIntervals();
 	}
 
-	extend(vectors: Vec2Like[]): BoundingBox {
+	extend(vectors: Vec2Like[]): this {
 		this.reinitializeFromVectors([this.topLeft, this.bottomRight, ...vectors]);
 		return this;
 	}

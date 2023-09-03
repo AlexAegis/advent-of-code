@@ -12,7 +12,7 @@ export const applyMask = (n: number, mask: string): number[] => {
 				binary[binary.length - i - 1] = maskVal;
 			}
 		} else if (maskVal === 'X') {
-			const resc = [...result.map((r) => [...r])];
+			const resc = result.map((r) => [...r]);
 			for (const binary of result) {
 				binary[binary.length - i - 1] = '0';
 			}
@@ -22,7 +22,7 @@ export const applyMask = (n: number, mask: string): number[] => {
 			result.push(...resc);
 		}
 	}
-	return result.map((r) => parseInt(r.join(''), 2));
+	return result.map((r) => Number.parseInt(r.join(''), 2));
 };
 
 export const p2 = (input: string): number => {

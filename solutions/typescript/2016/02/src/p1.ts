@@ -15,10 +15,10 @@ export const p1 = (input: string): number => {
 	const keypadArea = BoundingBox.fromVectors([Vec2.ORIGIN, new Vec2(2, 2)]);
 
 	const result = split(input).reduce((acc, line) => {
-		line.split('')
+		for (const direction of [...line]
 			.filter(isDirectionMarker)
-			.map((marker) => Direction.fromMarker(marker).reverse('v'))
-			.forEach((direction) => position.addMut(direction, { limit: keypadArea }));
+			.map((marker) => Direction.fromMarker(marker).reverse('v')))
+			position.addMut(direction, { limit: keypadArea });
 		return acc * 10 + toKeypadNumber(position);
 	}, 0);
 

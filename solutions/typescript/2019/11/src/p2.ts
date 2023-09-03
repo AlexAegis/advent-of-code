@@ -16,21 +16,26 @@ export enum ColorCode {
 
 export const colorCodeToColor = (cc?: ColorCode): Color => {
 	switch (cc) {
-		case ColorCode.BLACK:
+		case ColorCode.BLACK: {
 			return Color.BLACK;
-		case ColorCode.WHITE:
+		}
+		case ColorCode.WHITE: {
 			return Color.WHITE;
-		default:
+		}
+		default: {
 			return Color.BLACK;
+		}
 	}
 };
 
 export const turnToDir = (cc: Turn): Direction => {
 	switch (cc) {
-		case Turn.LEFT:
+		case Turn.LEFT: {
 			return Direction.WEST;
-		case Turn.RIGHT:
+		}
+		case Turn.RIGHT: {
 			return Direction.EAST;
+		}
 	}
 };
 
@@ -67,7 +72,7 @@ export const drawMap = <T>(
 	startY: number,
 	endY: number,
 	startX: number,
-	endX: number
+	endX: number,
 ): string[][] => {
 	const res: string[][] = [];
 	for (let i = startY; i <= endY; i++) {
@@ -93,7 +98,7 @@ export const outputMap = <T>(
 	startY: number,
 	endY: number,
 	startX: number,
-	endX: number
+	endX: number,
 ): void => {
 	console.log(renderMatrix(drawMap(map, renderTile, startY, endY, startX, endX)));
 };
@@ -119,11 +124,7 @@ export const p2 = (input: string): string => {
 		currentColor = nextColor.value as ColorCode;
 		currentDir = nextDir.value as Turn;
 
-		if (currentDir === Turn.RIGHT) {
-			dir = dir.right();
-		} else if (currentDir === Turn.LEFT) {
-			dir = dir.left();
-		}
+		dir = currentDir === Turn.RIGHT ? dir.right() : dir.left();
 
 		map.set(pos.toString(), currentColor);
 		pos.addMut(dir);

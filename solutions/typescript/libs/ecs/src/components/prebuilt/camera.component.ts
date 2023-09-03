@@ -35,7 +35,7 @@ export class CameraComponent extends Component {
 	}
 
 	setFollowOptions(followOptions: CameraFollowSystemOptions): void {
-		this.options = { movable: this.options?.movable, ...followOptions };
+		this.options = { movable: this.options.movable, ...followOptions };
 	}
 
 	updateFollowOptions(followOptions: Partial<CameraFollowSystemOptions>): void {

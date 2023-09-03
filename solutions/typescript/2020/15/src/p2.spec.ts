@@ -10,7 +10,7 @@ describe('2020 - Day 15 - Part Two', () => {
 			const resources = await loadTaskResources(packageJson.aoc);
 			expect(p2(resources.input)).to.equal(201);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 
 	// ! Disabled example test cases because of long runtime

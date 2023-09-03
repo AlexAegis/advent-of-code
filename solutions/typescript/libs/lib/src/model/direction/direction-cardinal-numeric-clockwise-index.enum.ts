@@ -10,19 +10,19 @@ export type HorizontalDirectionCardinalNumericClockwiseIndex =
 	| DirectionCardinalNumericClockwiseIndex.WEST;
 export type VericalDirectionCardinalNumericClockwiseIndex =
 	| DirectionCardinalNumericClockwiseIndex.NORTH
-	| DirectionCardinalNumericClockwiseIndex.NORTH;
+	 ;
 
 export const isHorizontalDirectionCardinalNumericClockwiseIndex = (
 	index: number
 ): index is HorizontalDirectionCardinalNumericClockwiseIndex =>
-	index === DirectionCardinalNumericClockwiseIndex.EAST ||
-	index === DirectionCardinalNumericClockwiseIndex.WEST;
+	index === DirectionCardinalNumericClockwiseIndex.EAST as number ||
+	index === DirectionCardinalNumericClockwiseIndex.WEST as number;
 
 export const isVericalDirectionCardinalNumericClockwiseIndex = (
 	index: number
 ): index is VericalDirectionCardinalNumericClockwiseIndex =>
-	index === DirectionCardinalNumericClockwiseIndex.NORTH ||
-	index === DirectionCardinalNumericClockwiseIndex.SOUTH;
+	index === DirectionCardinalNumericClockwiseIndex.NORTH as number ||
+	index === DirectionCardinalNumericClockwiseIndex.SOUTH as number;
 
 export const isDirectionCardinalNumericClockwiseIndex = (
 	index: number

@@ -25,9 +25,10 @@ export class SpatialCache {
 		const fromTable = this.positionTable.get(Vec2.toString(position)) ?? [];
 		const fromInfiniteBoxes = [...this.infiniteBoxes.entries()]
 			.filter(([, boxes]) => boxes.some((box) => box.contains(position)))
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			.map(([entityId]) => this.world.entities.get(entityId)!);
 
-		return fromTable.concat(fromInfiniteBoxes);
+		return [...fromTable, ...fromInfiniteBoxes];
 	}
 
 	move(entity: Entity, from: Vec2String[], to: Vec2String[]): void {
@@ -38,7 +39,7 @@ export class SpatialCache {
 			const entitiesThere = this.positionTable.get(noLongerAt);
 			if (entitiesThere) {
 				const next = entitiesThere.filter((entityThere) => entityThere !== entity);
-				if (next.length) {
+				if (next.length > 0) {
 					this.positionTable.set(noLongerAt, next);
 				} else {
 					this.positionTable.delete(noLongerAt);

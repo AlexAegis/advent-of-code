@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 export class MemoryNode {
 	private readonly children: MemoryNode[] = [];
 	private readonly metadata: number[] = [];
 	private childrenRead = 0;
 	private metadataRead = 0;
 
-	constructor(private readonly childrenCount: number, private readonly metadataCount: number) {}
+	constructor(
+		private readonly childrenCount: number,
+		private readonly metadataCount: number,
+	) {}
 
 	read(tape: number[], cursor: number): number {
 		while (this.childrenRead !== this.childrenCount) {
@@ -35,7 +39,7 @@ export class MemoryNode {
 	 * Part Two
 	 */
 	value(): number {
-		return this.metadata && this.children.length > 0
+		return this.children.length > 0
 			? this.metadata
 					.filter((index) => index > 0 && index < this.children.length + 1)
 					.map((index) => this.children[--index]!.value())

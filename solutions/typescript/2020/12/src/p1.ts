@@ -8,27 +8,34 @@ export const p1 = (input: string): number => {
 	const vector = new Vec2(1, 0);
 	for (const { action, value } of split(input).map(parse)) {
 		switch (action) {
-			case FerryAction.NORTH:
+			case FerryAction.NORTH: {
 				position.addMut({ x: 0, y: 1 }, { times: value });
 				break;
-			case FerryAction.EAST:
+			}
+			case FerryAction.EAST: {
 				position.addMut({ x: 1, y: 0 }, { times: value });
 				break;
-			case FerryAction.SOUTH:
+			}
+			case FerryAction.SOUTH: {
 				position.addMut({ x: 0, y: -1 }, { times: value });
 				break;
-			case FerryAction.WEST:
+			}
+			case FerryAction.WEST: {
 				position.addMut({ x: -1, y: 0 }, { times: value });
 				break;
-			case FerryAction.LEFT:
+			}
+			case FerryAction.LEFT: {
 				vector.rotateLeft(value / 90);
 				break;
-			case FerryAction.RIGHT:
+			}
+			case FerryAction.RIGHT: {
 				vector.rotateRight(value / 90);
 				break;
-			case FerryAction.FORWARD:
+			}
+			case FerryAction.FORWARD: {
 				position.addMut(vector, { times: value });
 				break;
+			}
 		}
 	}
 	return Vec2.ORIGIN.manhattan(position);

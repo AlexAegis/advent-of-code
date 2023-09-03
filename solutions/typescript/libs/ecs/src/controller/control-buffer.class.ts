@@ -12,18 +12,36 @@ export class ControllerBuffer implements Initializable {
 		this.backend.onKeyPress((event, _modifier) => {
 			this.keyBuffer[event] = 1;
 
-			if (event === 'UP' || event === 'w') {
+			switch (event) {
+			case 'UP': 
+			case 'w': {
 				this.keyBuffer['DOWN'] = 0;
 				this.keyBuffer['s'] = 0;
-			} else if (event === 'DOWN' || event === 's') {
+			
+			break;
+			}
+			case 'DOWN': 
+			case 's': {
 				this.keyBuffer['UP'] = 0;
 				this.keyBuffer['w'] = 0;
-			} else if (event === 'LEFT' || event === 'a') {
+			
+			break;
+			}
+			case 'LEFT': 
+			case 'a': {
 				this.keyBuffer['RIGHT'] = 0;
 				this.keyBuffer['d'] = 0;
-			} else if (event === 'RIGHT' || event === 'd') {
+			
+			break;
+			}
+			case 'RIGHT': 
+			case 'd': {
 				this.keyBuffer['LEFT'] = 0;
 				this.keyBuffer['a'] = 0;
+			
+			break;
+			}
+			// No default
 			}
 		});
 

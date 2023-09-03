@@ -7,7 +7,7 @@ describe('2022 22 p2', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(p2(input)).to.equal(120175);
+			expect(p2(input)).to.equal(120_175);
 		});
 	});
 

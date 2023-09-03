@@ -19,7 +19,7 @@ export const mergeTileMatrix = <T extends ToString>(
 			result.push(rowsOfTiles.map((rb) => rb[i]).join(separation ? ' ' : ''));
 		}
 		if (separation) {
-			result.push(''.repeat(result[result.length - 1]?.length ?? 0));
+			result.push(''.repeat(result.at(-1)?.length ?? 0));
 		}
 	}
 	return result.join('\n') + '\n';

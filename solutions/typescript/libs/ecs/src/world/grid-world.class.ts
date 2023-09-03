@@ -89,12 +89,23 @@ export class GridWorld {
 			);
 		}
 
-		if (this.options.io === 'terminalKit') {
+		switch (this.options.io) {
+		case 'terminalKit': {
 			this._io = new TerminalKitIOBackend();
-		} else if (this.options.io === 'blessed') {
+
+		break;
+		}
+		case 'blessed': {
 			this._io = new BlessedIOBackend();
-		} else if (this.options.io === 'console') {
+
+		break;
+		}
+		case 'console': {
 			this._io = new ConsoleLogIOBackend();
+
+		break;
+		}
+		// No default
 		}
 
 		if (this._io) {
@@ -164,21 +175,12 @@ export class GridWorld {
 			this.rendererSystem = systemLike;
 		}
 
-		let system: System;
-		if (typeof systemLike === 'function') {
-			system = { init: () => undefined, tick: systemLike };
-		} else {
-			system = systemLike;
-		}
+		const system = typeof systemLike === 'function' ? { init: () => undefined, tick: systemLike } : systemLike;
 		this.systems.push(system);
 	}
 
 	async run(): Promise<number> {
-		if (this._executor) {
-			return await this._executor.run();
-		} else {
-			return this.timeData.tick;
-		}
+		return this._executor ? (await this._executor.run()) : this.timeData.tick;
 	}
 
 	async initializeSystems(): Promise<void> {
@@ -228,9 +230,9 @@ export class GridWorld {
 	}
 
 	get systemsSettled(): boolean {
-		return this._systemsSettledAtTick !== undefined
-			? this._systemsSettledAtTick <= this.timeData.tick
-			: false;
+		return this._systemsSettledAtTick === undefined
+			? false
+			: this._systemsSettledAtTick <= this.timeData.tick;
 	}
 
 	get io(): IOBackend | undefined {
@@ -248,7 +250,9 @@ export class GridWorld {
 			this.attachComponent(entity, component);
 		}
 		this.entities.set(entity.entityId, entity);
-		entity.components.forEach((component) => component.onSpawn());
+		for (const component of entity.components.values()) {
+			component.onSpawn();
+		}
 		entity.spawned = true;
 		this.nextEntityId += 1;
 		return entity;
@@ -289,20 +293,21 @@ export class GridWorld {
 		const component = this.getComponentsByType(componentType);
 
 		if (component.length === 1) {
-			return component[0] as C;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			return component[0]!;
 		} else if (component.length === 0) {
 			throw new Error(
-				`[getSingletonComponent] no entity exists with component ${componentType}`
+				`[getSingletonComponent] no entity exists with component ${String(componentType)}`
 			);
 		} else {
 			throw new Error(
-				`[getSingletonComponent] more than one entity exists with component ${componentType}`
+				`[getSingletonComponent] more than one entity exists with component ${String(componentType)}`
 			);
 		}
 	}
 
 	getComponentsByType<C extends Component>(componentType: Constructor<C>): C[] {
-		return (this.components.get(componentType) as C[]) ?? [];
+		return (this.components.get(componentType) as C[] | undefined) ?? [];
 	}
 
 	getCamera(): CameraComponent {
@@ -325,17 +330,9 @@ export class GridWorld {
 		return filterMap(this.entities.values(), (entity) => {
 			const matchingComponents = filterMap(componentFilters, (componentFilter) => {
 				const component = entity.components.get(componentFilter.componentType);
-				if (component) {
-					return componentFilter.filter(component);
-				} else {
-					return false;
-				}
+				return component ? componentFilter.filter(component) : false;
 			}) as InstanceTypeOfConstructorTuple<C>;
-			if (matchingComponents.length > 0) {
-				return [entity, ...matchingComponents];
-			} else {
-				return undefined;
-			}
+			return matchingComponents.length > 0 ? [entity, ...matchingComponents] : undefined;
 		});
 	}
 
@@ -357,11 +354,7 @@ export class GridWorld {
 				const matchingComponents = componentTypes.map((componentType) =>
 					entity.components.get(componentType)
 				) as InstanceTypeOfConstructorTuple<C>;
-				if (matchingComponents.every((component) => !!component)) {
-					return [entity, ...matchingComponents];
-				} else {
-					return undefined;
-				}
+				return matchingComponents.every((component) => !!component) ? [entity, ...matchingComponents] : undefined;
 			});
 		} else {
 			return [];

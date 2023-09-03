@@ -9,14 +9,9 @@ export const parseLines = (input: string): Map<string, Vec2> => {
 	const matrix = input
 		.split(/\r?\n/)
 		.filter((line) => !!line)
-		.map((line) =>
-			line
-				.split('')
-				.filter((c) => /^(\.|#)$/.test(c))
-				.map((a) => a as FieldType)
-		);
+		.map((line) => [...line].filter((c) => /^(\.|#)$/.test(c)).map((a) => a as FieldType));
 
-	const map = new Map();
+	const map = new Map<string, Vec2>();
 	for (let i = 0; i < matrix.length; i++) {
 		const row = matrix[i];
 		if (row) {

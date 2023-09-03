@@ -1,5 +1,5 @@
 export class Bag {
-	public canContain: Map<Bag, number> = new Map();
+	public canContain = new Map<Bag, number>();
 
 	public static create = (color: string): Bag => new Bag(color);
 
@@ -21,7 +21,7 @@ export class Bag {
 	public howManyBagsCanItContain(): number {
 		return [...this.canContain.entries()].reduce(
 			(a, [b, c]) => a + c + c * b.howManyBagsCanItContain(),
-			0
+			0,
 		);
 	}
 }

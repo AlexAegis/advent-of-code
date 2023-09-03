@@ -6,7 +6,7 @@ import { p1 } from './p1.js';
 describe('2020 - Day 16 - Part One', () => {
 	it('should solve for the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p1(resources.input)).to.equal(27870);
+		expect(p1(resources.input)).to.equal(27_870);
 	});
 
 	it('should solve for the first example', async () => {

@@ -15,7 +15,7 @@ export const p1g = (input: string): number => {
 	const g = new Graph<TileColor, HexagonalDirection>();
 	const center = new GraphNode<TileColor, HexagonalDirection>(
 		Vec2.ORIGIN.toString(),
-		TileColor.WHITE
+		TileColor.WHITE,
 	);
 	g.nodes.set(center.key, center);
 
@@ -32,8 +32,8 @@ export const p1g = (input: string): number => {
 					() =>
 						new GraphNode<TileColor, HexagonalDirection>(
 							cursor.toString(),
-							TileColor.WHITE
-						)
+							TileColor.WHITE,
+						),
 				),
 				weight: 1,
 			}));
@@ -50,7 +50,7 @@ export const p1g = (input: string): number => {
 		}
 		if (currentNode.value === TileColor.BLACK) {
 			currentNode.setValue(TileColor.WHITE);
-		} else if (currentNode.value === TileColor.WHITE) {
+		} else {
 			currentNode.setValue(TileColor.BLACK);
 		}
 	}

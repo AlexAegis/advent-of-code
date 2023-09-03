@@ -8,7 +8,7 @@ export const p2 = (input: string): number => {
 		.map((node) =>
 			Direction.cardinalDirections
 				.map((d) => node.walkDirection(d, (n) => n.value < node.value).nodes.length)
-				.product()
+				.product(),
 		)
 		.sort(descending)
 		.first();

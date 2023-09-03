@@ -27,8 +27,8 @@ export const p1 = (input: string): number => {
 			epsilonResult.push('0');
 		}
 	}
-	const gammaRate = parseInt(gammaResult.join(''), 2);
-	const epsilonRate = parseInt(epsilonResult.join(''), 2);
+	const gammaRate = Number.parseInt(gammaResult.join(''), 2);
+	const epsilonRate = Number.parseInt(epsilonResult.join(''), 2);
 	return gammaRate * epsilonRate;
 };
 

@@ -25,7 +25,7 @@ export class Vec3 implements Vec3Like {
 			this.y = y;
 			this.z = z;
 		} else if (typeof x === 'string') {
-			[this.x, this.y, this.z] = (x.match(NUM) || []).map((s) => parseInt(s, 10)) as [
+			[this.x, this.y, this.z] = (x.match(NUM) ?? []).map((s) => Number.parseInt(s, 10)) as [
 				number,
 				number,
 				number
@@ -41,7 +41,7 @@ export class Vec3 implements Vec3Like {
 		);
 	}
 
-	public addMut(coord: Vec3, times = 1): Vec3 {
+	public addMut(coord: Vec3, times = 1): this {
 		this.x += coord.x * times;
 		this.y += coord.y * times;
 		this.z += coord.z * times;
@@ -52,7 +52,7 @@ export class Vec3 implements Vec3Like {
 		return new Vec3(this.x - o.x * times, this.y - o.y * times, this.z - o.z * times);
 	}
 
-	public subMut(o: Vec3, times = 1): Vec3 {
+	public subMut(o: Vec3, times = 1): this {
 		this.x -= o.x * times;
 		this.y -= o.y * times;
 		this.z -= o.z * times;
@@ -115,19 +115,19 @@ export class Vec3 implements Vec3Like {
 					[...this.reach(o, false, true)]
 						.filter((l) => f.find((fi) => fi.equals(l)))
 						.sort((a, b) => this.dist(a) - this.dist(b))
-						.shift() as Vec3
+						.shift()
 			)
-			.filter((a) => !!a)
-			.reduce((acc, n) => {
-				if (!acc.find((a) => a.equals(n))) {
+			.filter((a): a is Vec3 => !!a)
+			.reduce<Vec3[]>((acc, n) => {
+				if (!acc.some((a) => a.equals(n))) {
 					acc.push(n);
 				}
 				return acc;
-			}, [] as Vec3[]);
+			}, []);
 	}
 
-	public equals(o: Vec3): boolean {
-		return o && this.x === o.x && this.y === o.y && this.z === o.z;
+	public equals(o: Vec3 | undefined): boolean {
+		return o !== undefined && this.x === o.x && this.y === o.y && this.z === o.z;
 	}
 
 	public toString(): string {

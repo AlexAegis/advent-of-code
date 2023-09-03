@@ -1,3 +1,3 @@
-export const NUM = /(\+|-)?[0-9]+/gi;
-export const INUM = /(\+|-)[0-9]+/gi;
-export const UNUM = /[0-9]+/gi;
+export const NUM = /([+-])?\d+/gi;
+export const INUM = /([+-])\d+/gi;
+export const UNUM = /\d+/gi;

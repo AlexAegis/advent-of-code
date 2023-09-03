@@ -1,3 +1,3 @@
 export const roundToDecimal = (n: number, decimal: number): number => {
-	return parseFloat(Math.round(parseFloat(`${n.toString()}e+${decimal}`)) + `e-${decimal}`);
+	return Number.parseFloat(Math.round(Number.parseFloat(`${n.toString()}e+${decimal}`)) + `e-${decimal}`);
 };

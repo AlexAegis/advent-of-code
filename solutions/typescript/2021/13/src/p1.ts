@@ -6,6 +6,7 @@ export const p1 = (input: string): number => {
 	const [points, foldInstructions] = input.splitIntoStringPair(/\n\n/);
 	const vectors = points.lines().map((line) => new Vec2(line as Vec2String));
 
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const [, instruction] = foldInstructions.lines()[0]!.splitIntoStringPair(/fold along /);
 	const [axis, value] = instruction.split(/=/) as [axis: 'x' | 'y', value: number];
 

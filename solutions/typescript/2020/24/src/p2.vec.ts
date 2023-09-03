@@ -15,7 +15,7 @@ export const p2 = (input: string): number => {
 		.map((ttf) =>
 			ttf
 				.reduce((acc, a) => acc.addMut(hexagonalAxialDirections[a]), Vec2.ORIGIN.clone())
-				.toString()
+				.toString(),
 		)
 		.reduce((blacks, toFlip) => {
 			blacks.flip(toFlip.toString());

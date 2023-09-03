@@ -2,7 +2,7 @@ import { split, task } from '@alexaegis/advent-of-code-lib';
 import { type } from 'arktype';
 import packageJson from '../package.json';
 
-const magicNumber = 20201227;
+const magicNumber = 20_201_227;
 /**
  *
  * @param subject starts with 7
@@ -13,7 +13,7 @@ export const handshake = (subjectNumber: number, loopSize: number): number => {
 };
 
 export const findLoopsize = (subjectNumber: number, publicKey: number): number => {
-	for (let loopsize = 1; loopsize < 20000000; loopsize++) {
+	for (let loopsize = 1; loopsize < 20_000_000; loopsize++) {
 		const handshakeResult = handshake(subjectNumber, loopsize);
 		if (handshakeResult === publicKey) {
 			return loopsize;
@@ -29,7 +29,7 @@ export class Agent {
 
 export const p2 = (input: string): number => {
 	const numberPair = type(['number', 'number']);
-	const publicKeys = numberPair.assert(split(input).map((l) => parseInt(l, 10)));
+	const publicKeys = numberPair.assert(split(input).map((l) => Number.parseInt(l, 10)));
 	const [cardPublicKey, doorPublicKey] = publicKeys;
 	const subjectNumber = 7;
 	// for (const publicKey of publicKeys) {

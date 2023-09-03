@@ -14,20 +14,22 @@ export enum RelevantField {
 export type Passport = Record<RelevantField, string>;
 
 export const parsePassport = (passport: string): Partial<Passport> =>
-	passport.split(' ').reduce((acc, e) => {
+	passport.split(' ').reduce<Partial<Passport>>((acc, e) => {
 		const [key, val] = e.split(':');
 		acc[key as RelevantField] = val;
 		return acc;
-	}, {} as Partial<Passport>);
+	}, {});
 
 export const parsePassports = (input: string): Partial<Passport>[] =>
 	input
 		.split(/\r?\n\r?\n/)
-		.map((raw) => raw.replace(/\r?\n/g, ' '))
+		.map((raw) => raw.replaceAll(/\r?\n/g, ' '))
 		.map(parsePassport);
 
 export const isPassport = (passport: Partial<Passport>): passport is Passport =>
-	Object.values(RelevantField).every((pf) => Object.keys(passport).find((k) => k === pf));
+	Object.values(RelevantField).every((pf) =>
+		(Object.keys(passport) as RelevantField[]).find((k) => k === pf),
+	);
 
 export const p1 = (input: string): number => parsePassports(input).count(isPassport);
 

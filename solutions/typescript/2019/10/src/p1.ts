@@ -12,13 +12,13 @@ export const mostLos = (flat: Vec2[]): CoordWithLosCount | undefined => {
 		.map((f) => ({
 			losCount: flat
 				.filter((fo) => !fo.equals(f))
-				.map((o) => [...f.reach(o)].find((l) => !!flat.find((fl) => fl.equals(l))))
+				.map((o) => [...f.reach(o)].find((l) => flat.some((fl) => fl.equals(l))))
 				.count((n) => !n),
 			coord: f,
 		}))
-		.reduce(
+		.reduce<CoordWithLosCount | undefined>(
 			(a, n) => (a === undefined ? n : n.losCount > a.losCount ? n : a),
-			undefined as CoordWithLosCount | undefined
+			undefined,
 		);
 };
 

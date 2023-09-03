@@ -15,17 +15,17 @@ export enum Tile {
 	EMPTY = ' ',
 }
 
-export const weighter: Weighter<PortalGridNode<string>> = (
-	_a: PortalGridNode<string>,
-	b: PortalGridNode<string>
+export const weighter: Weighter<PortalGridNode> = (
+	_a: PortalGridNode,
+	b: PortalGridNode,
 ): number => {
 	switch (b.value) {
-		case Tile.PATH:
+		case Tile.PATH: {
 			return 0;
-		case Tile.WALL:
-		case Tile.EMPTY:
-		default:
-			return Infinity;
+		}
+		default: {
+			return Number.POSITIVE_INFINITY;
+		}
 	}
 };
 

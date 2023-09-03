@@ -56,11 +56,7 @@ export class Sprite {
 	}
 
 	getTileAt(x: number, y: number): Tile | undefined {
-		if (this._box.contains(x, y)) {
-			return this.render[y % this._renderBox.height]?.[x % this._renderBox.width];
-		} else {
-			return undefined;
-		}
+		return this._box.contains(x, y) ? this.render[y % this._renderBox.height]?.[x % this._renderBox.width] : undefined;
 	}
 
 	private intoDefaultTile(tile?: string): Tile {
@@ -106,21 +102,12 @@ export class Sprite {
 	put(x: number, y: number, tile: Tile | string): void {
 		const row = this.render[y];
 		if (row) {
-			if (typeof tile === 'string') {
-				row[x] = this.intoDefaultTile(tile);
-			} else {
-				row[x] = tile;
-			}
+			row[x] = typeof tile === 'string' ? this.intoDefaultTile(tile) : tile;
 		}
 	}
 
 	merge(x: number, y: number, tileLike: Tile | string): void {
-		let tile: Tile;
-		if (typeof tileLike === 'string') {
-			tile = this.intoDefaultTile(tileLike);
-		} else {
-			tile = tileLike;
-		}
+		const tile = typeof tileLike === 'string' ? this.intoDefaultTile(tileLike) : tileLike;
 
 		const renderTile = this.render[y]?.[x];
 		if (renderTile) {

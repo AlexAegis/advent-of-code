@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { nonNullish } from '../../functions/index.js';
 
 export type NestedPairs<T> = [T | NestedPairs<T>, T | NestedPairs<T>];
@@ -131,7 +132,7 @@ export class PairTree<T = number> {
 		const iterator = this.root.leftToRightNodes();
 		for (let i = iterator.next(); !i.done; i = iterator.next()) {
 			if (i.value === this) {
-				return iterator.next().value;
+				return iterator.next().value as PairTree<T>;
 			}
 		}
 		return undefined;
@@ -141,7 +142,7 @@ export class PairTree<T = number> {
 		const iterator = this.root.rightToLeftNodes();
 		for (let i = iterator.next(); !i.done; i = iterator.next()) {
 			if (i.value === this) {
-				return iterator.next().value;
+				return iterator.next().value as PairTree<T>;
 			}
 		}
 		return undefined;
@@ -175,7 +176,7 @@ export class PairTree<T = number> {
 
 	get root(): PairTree<T> {
 		let parent = this.parent ?? this;
-		while (parent?.parent) {
+		while (parent.parent) {
 			parent = parent.parent;
 		}
 		return parent;
@@ -189,17 +190,9 @@ export class PairTree<T = number> {
 		let left: T | PairTree<T>;
 		let right: T | PairTree<T>;
 		if (isNestedPair(nestedPairs)) {
-			if (isNestedPair(nestedPairs[0])) {
-				left = PairTree.fromNestedPairs(nestedPairs[0]);
-			} else {
-				left = nestedPairs[0];
-			}
+			left = isNestedPair(nestedPairs[0]) ? PairTree.fromNestedPairs(nestedPairs[0]) : nestedPairs[0];
 
-			if (isNestedPair(nestedPairs[1])) {
-				right = PairTree.fromNestedPairs(nestedPairs[1]);
-			} else {
-				right = nestedPairs[1];
-			}
+			right = isNestedPair(nestedPairs[1]) ? PairTree.fromNestedPairs(nestedPairs[1]) : nestedPairs[1];
 		} else {
 			throw new Error('not a full binary tree source');
 		}
@@ -259,7 +252,7 @@ export class PairTree<T = number> {
 	toString(): string {
 		const leftString = this.leftTree ? this.leftTree.toString() : this.leftValue;
 		const rightString = this.rightTree ? this.rightTree.toString() : this.rightValue;
-		return `[${leftString},${rightString}]`;
+		return `[${String(leftString)},${String(rightString)}]`;
 	}
 
 	print(): void {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
 	Direction,
 	DOUBLE_NEWLINE,
@@ -32,7 +33,7 @@ export const p1 = (input: string): number => {
 		} else {
 			for (let i = 0; i < instruction; i++) {
 				const edge = position.neighbours.get(direction);
-				if (edge && edge.weight !== Infinity) {
+				if (edge && edge.weight !== Number.POSITIVE_INFINITY) {
 					position = edge.to;
 					path.push(position);
 				}

@@ -2,6 +2,7 @@ export abstract class Element {
 	constructor(public tile?: string) {}
 
 	toString(): string {
-		return this.tile as string;
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		return this.tile!;
 	}
 }

@@ -7,9 +7,14 @@ export const matchRule = (
 	line: string,
 	rules: Map<number, number[][] | string>,
 	ruleIndex: number,
-	wordIndex = 0
+	wordIndex = 0,
 ): number[] => {
-	const rule = rules.get(ruleIndex)!;
+	const rule = rules.get(ruleIndex);
+
+	if (rule === undefined) {
+		return [];
+	}
+
 	if (typeof rule === 'string') {
 		return line[wordIndex] === rule ? [wordIndex + 1] : [];
 	} else {
@@ -18,13 +23,13 @@ export const matchRule = (
 				(acc, n) => {
 					return acc.flatMap((ir) => memoizedMatchRule(line, rules, n, ir));
 				},
-				[wordIndex]
-			)
+				[wordIndex],
+			),
 		);
 	}
 };
 
-const cache = new Map();
+const cache = new Map<string, number[]>();
 const memoizedMatchRule = memoize(matchRule, cache);
 
 export const p2 = (input: string): number => {

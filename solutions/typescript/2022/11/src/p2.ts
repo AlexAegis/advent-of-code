@@ -6,7 +6,7 @@ export const p2 = (input: string): number => {
 	const { monkeyMap, monkeys } = parse(input);
 	const leastCommonTest = lcm(monkeys.map((m) => m.test));
 
-	for (let round = 0; round < 10000; round++) {
+	for (let round = 0; round < 10_000; round++) {
 		for (const monkey of monkeys) {
 			for (const item of monkey.items) {
 				const afterBored = monkey.operation(item);

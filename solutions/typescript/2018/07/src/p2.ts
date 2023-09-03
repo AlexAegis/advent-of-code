@@ -13,7 +13,11 @@ export interface Result {
 export class Worker {
 	public workingOn: Node | undefined;
 
-	constructor(public id: number, private graph: Graph, private withBaseCost: boolean) {}
+	constructor(
+		public id: number,
+		private graph: Graph,
+		private withBaseCost: boolean,
+	) {}
 
 	public logic(tick: number): boolean {
 		let finished = false;
@@ -25,7 +29,7 @@ export class Worker {
 						(edge) =>
 							edge.to === node &&
 							(!edge.fulfilled(this.withBaseCost) ||
-								edge.from.finishedOnTick === tick)
+								edge.from.finishedOnTick === tick),
 					).length === 0
 				) {
 					this.workingOn = node;
@@ -34,9 +38,8 @@ export class Worker {
 			}
 			// This means that this worker couldn't find any jobs. Time to retire.
 			finished =
-				finished ||
 				this.graph.nodes.filter(
-					(node) => node.available() || !node.processed(this.withBaseCost)
+					(node) => node.available() || !node.processed(this.withBaseCost),
 				).length === 0;
 		}
 		// if he's working, then do his work
@@ -97,10 +100,13 @@ const interpret = (input: string): Graph => {
 	return graph;
 };
 
-export const p2 = (input: string, args: Args = { workers: 2 }): number => {
+export const p2 = (input: string, args?: Args): number => {
 	const graph: Graph = interpret(input);
+	const numberOfWorkers = args?.workers ?? 2;
 
-	const workers = [...Array(args.workers)].map((i) => new Worker(i, graph, args.workers === 5));
+	const workers = Array.from({ length: numberOfWorkers }).map(
+		(_, i) => new Worker(i, graph, numberOfWorkers === 5),
+	);
 
 	let done = false;
 	let tick = 0;

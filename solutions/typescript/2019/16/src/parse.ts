@@ -1,6 +1,3 @@
 export const parse = (input: string): number[] => {
-	return input
-		.split('')
-		.filter((c) => /^[0-9]+$/.test(c))
-		.map((a) => parseInt(a, 10));
+	return [...input].filter((c) => /^\d+$/.test(c)).map((a) => Number.parseInt(a, 10));
 };

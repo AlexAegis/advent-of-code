@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { memoize } from './memoize.function.js';
 
 describe('Memoize', () => {
-	it('should call the original function only once', async () => {
+	it('should call the original function only once', () => {
 		let callCount = 0;
 		const add = (a: number, b: number): number => {
 			callCount++;

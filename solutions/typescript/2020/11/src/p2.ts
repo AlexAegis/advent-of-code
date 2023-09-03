@@ -18,7 +18,7 @@ const dirs = [
 export const nextState = (
 	v: Vec2,
 	map: Map<Vec2String, SeatState>,
-	limit: BoundingBox
+	limit: BoundingBox,
 ): SeatState => {
 	const nextVisible = dirs.map((dir) => {
 		for (let next = v.add(dir); next.isWithin(limit); next.addMut(dir)) {
@@ -42,12 +42,12 @@ export const nextState = (
 
 export const tick = (
 	map: Map<Vec2String, SeatState>,
-	limit: BoundingBox
+	limit: BoundingBox,
 ): Map<Vec2String, SeatState> => {
 	const nextMap = new Map<Vec2String, SeatState>();
-	[...map.keys()].forEach((key) => {
+	for (const key of map.keys()) {
 		nextMap.set(key, nextState(new Vec2(key), map, limit));
-	});
+	}
 	return nextMap;
 };
 

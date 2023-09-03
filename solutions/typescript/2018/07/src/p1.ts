@@ -2,27 +2,32 @@ import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 interface Graph {
 	nodes: string[];
-	edges: Array<{ from: string; to: string }>;
+	edges: { from: string; to: string }[];
 }
 
-const interpret = async (input: string) => {
+const interpret = (input: string) => {
 	const graph: Graph = { nodes: [], edges: [] };
 
 	for (const line of split(input)) {
 		const splitLine: string[] = line.split(/ /);
-		if (!graph.nodes.find((node) => node === splitLine[1])) {
-			graph.nodes.push(splitLine[1]!);
+		const from = splitLine[1];
+		const to = splitLine[7];
+
+		if (from !== undefined && to !== undefined) {
+			if (!graph.nodes.includes(from)) {
+				graph.nodes.push(from);
+			}
+			if (!graph.nodes.includes(to)) {
+				graph.nodes.push(to);
+			}
+			graph.edges.push({ from, to });
 		}
-		if (!graph.nodes.find((node) => node === splitLine[7])) {
-			graph.nodes.push(splitLine[7]!);
-		}
-		graph.edges.push({ from: splitLine[1]!, to: splitLine[7]! });
 	}
 	return graph;
 };
 
-export const p1 = async (input: string): Promise<string> => {
-	const graph: Graph = await interpret(input);
+export const p1 = (input: string): string => {
+	const graph: Graph = interpret(input);
 	const unprocessedNodes = graph.nodes.sort((a, b) => {
 		if (a === b) {
 			return 0;
@@ -42,7 +47,7 @@ export const p1 = async (input: string): Promise<string> => {
 		}
 	});
 	const result: string[] = [];
-	while (unprocessedNodes.length !== 0) {
+	while (unprocessedNodes.length > 0) {
 		for (const node of unprocessedNodes) {
 			if (unprocessedEdges.count((edge) => edge.to === node) === 0) {
 				unprocessedNodes.splice(unprocessedNodes.indexOf(node), 1);

@@ -14,9 +14,9 @@ const from150to193 = (150).interval(193, INTERVAL_CLOSED);
 const from59to76 = (59).interval(76, INTERVAL_CLOSED);
 
 export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
-	byr: (byr) => byr.toInt()?.isContainedIn(from1920to2002) ?? false,
-	iyr: (iyr) => iyr.toInt()?.isContainedIn(from2010to2020) ?? false,
-	eyr: (eyr) => eyr.toInt()?.isContainedIn(from2020to2030) ?? false,
+	byr: (byr) => byr.toInt().isContainedIn(from1920to2002),
+	iyr: (iyr) => iyr.toInt().isContainedIn(from2010to2020),
+	eyr: (eyr) => eyr.toInt().isContainedIn(from2020to2030),
 	hgt: (hgt) => {
 		if (hgt.endsWith(CM)) {
 			return hgt.split(CM)[0]?.toInt()?.isContainedIn(from150to193) ?? false;
@@ -26,9 +26,9 @@ export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
 			return false;
 		}
 	},
-	hcl: (hcl) => /^#[0-9a-f]{6}$/.test(hcl),
-	ecl: (ecl) => !!passportEyeColors.find((color) => color === ecl),
-	pid: (pid) => /^[0-9]{9}$/.test(pid),
+	hcl: (hcl) => /^#[\da-f]{6}$/.test(hcl),
+	ecl: (ecl) => passportEyeColors.includes(ecl),
+	pid: (pid) => /^\d{9}$/.test(pid),
 };
 
 export const isValidPassport = (passport: Partial<Passport>): passport is Passport =>

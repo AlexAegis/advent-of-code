@@ -2,7 +2,7 @@ import { Direction, DirectionCardinalLiteralLetter, split } from '@alexaegis/adv
 import { type } from 'arktype';
 
 export const parse = (
-	input: string
+	input: string,
 ): {
 	direction: Direction;
 	count: number;
@@ -12,7 +12,7 @@ export const parse = (
 		const [dir, rawCount] = stringPair.assert(l.split(' '));
 		return {
 			direction: Direction.fromMarker(dir as DirectionCardinalLiteralLetter),
-			count: parseInt(rawCount, 10),
+			count: Number.parseInt(rawCount, 10),
 		};
 	});
 };

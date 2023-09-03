@@ -20,9 +20,7 @@ describe('2018 - Day 12 - Cave', () => {
 		for (const input of inputs) {
 			const cave = new Cave(input);
 			cave.normalize();
-			// tslint:disable-next-line: no-unused-expression
 			expect(cave.row.startsWith('....#')).to.be.true;
-			// tslint:disable-next-line: no-unused-expression
 			expect(cave.row.endsWith('#....')).to.be.true;
 		}
 	});

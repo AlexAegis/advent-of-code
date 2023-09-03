@@ -20,6 +20,14 @@ export class Entity {
 		return this.components.get(componentType) as C | undefined;
 	}
 
+	getComponentOrThrow<C extends Component>(componentType: Constructor<C>): C {
+		const component = this.components.get(componentType) as C | undefined;
+		if(!component) {
+			throw new Error('Component was not found on entity!');
+		}
+		return component;
+	}
+
 	despawn(): void {
 		this.world.despawn(this);
 	}
@@ -50,7 +58,7 @@ export class Entity {
 
 		const displayComponent = this.getComponent(AsciiDisplayComponent);
 		if (displayComponent?.sprite.boundingBox) {
-			entityPosition = entityPosition.add(displayComponent?.sprite.boundingBox.center);
+			entityPosition = entityPosition.add(displayComponent.sprite.boundingBox.center);
 		}
 
 		return entityPosition;
@@ -70,13 +78,9 @@ export class Entity {
 		}
 
 		const displayComponent = this.getComponent(AsciiDisplayComponent);
-		if (displayComponent?.sprite.boundingBox) {
-			return displayComponent.sprite.boundingBox
+		return displayComponent?.sprite.boundingBox ? displayComponent.sprite.boundingBox
 				.clone()
-				.moveAnchorTo(positionComponent.position);
-		} else {
-			return BoundingBox.fromVectors([positionComponent.position]);
-		}
+				.moveAnchorTo(positionComponent.position) : BoundingBox.fromVectors([positionComponent.position]);
 	}
 
 	/**
@@ -93,12 +97,8 @@ export class Entity {
 		}
 
 		const collider = this.getComponent(ColliderComponent);
-		if (collider?.colliders) {
-			return BoundingBox.combine(collider?.colliders).moveAnchorTo(
+		return collider?.colliders ? BoundingBox.combine(collider.colliders).moveAnchorTo(
 				positionComponent.position
-			);
-		} else {
-			return BoundingBox.fromVectors([positionComponent.position]);
-		}
+			) : BoundingBox.fromVectors([positionComponent.position]);
 	}
 }

@@ -37,11 +37,11 @@ describe('2018 - Day 7 - Part Two', () => {
 
 	it('should solve the input', async () => {
 		const { input, args } = await loadTaskResources<Args>(packageJson.aoc);
-		expect(await p2(input, args)).to.equal(1115);
+		expect(p2(input, args)).to.equal(1115);
 	});
 
 	it('should solve the example', async () => {
 		const { input, args } = await loadTaskResources<Args>(packageJson.aoc, 'example.txt');
-		expect(await p2(input, args)).to.equal(15);
+		expect(p2(input, args)).to.equal(15);
 	});
 });

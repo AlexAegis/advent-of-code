@@ -2,7 +2,7 @@ import type { Block } from './block.class.js';
 import { Ground } from './ground.class.js';
 import { Wall } from './wall.class.js';
 
-export const blockRepresentations: { [r: string]: () => Block } = {
+export const blockRepresentations: Record<string, () => Block> = {
 	'#': () => new Wall(),
 	'.': () => new Ground(),
 };

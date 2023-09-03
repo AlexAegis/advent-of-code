@@ -30,15 +30,6 @@ declare global {
 			delimiter?: {
 				[Symbol.split](string: string, limit?: number): string[];
 			};
-			keepEmptyLines: false;
-			trim?: boolean;
-
-			toIntOptions?: { radix?: number; safe?: boolean };
-		}): number[];
-		splitToInt(options?: {
-			delimiter?: {
-				[Symbol.split](string: string, limit?: number): string[];
-			};
 			keepEmptyLines: true;
 			trim?: boolean;
 			toIntOptions?: { radix?: number; safe?: boolean };
@@ -49,6 +40,14 @@ declare global {
 			};
 			keepEmptyLines?: boolean;
 			trim?: boolean;
+			toIntOptions?: { radix?: number; safe?: boolean };
+		} | {
+			delimiter?: {
+				[Symbol.split](string: string, limit?: number): string[];
+			};
+			keepEmptyLines: false;
+			trim?: boolean;
+
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): number[];
 		isLowerCase(): boolean;
@@ -66,7 +65,7 @@ String.prototype.alphabeticalOrder = function (): number {
 };
 
 String.prototype.toInt = function (radix = 10): number {
-	return parseInt(this as string, radix);
+	return Number.parseInt(this as string, radix);
 };
 
 String.prototype.isLowerCase = function (): boolean {
@@ -102,7 +101,7 @@ String.prototype.splitToInt = function (options?: {
 	toIntOptions?: { radix?: number; safe?: boolean };
 	trim?: boolean;
 }): number[] {
-	const trimmed = options?.trim !== false ? this.trim() : this;
+	const trimmed = options?.trim === false ? this : this.trim();
 	let split = trimmed.split(options?.delimiter ?? /\r?\s/g);
 	if (!options?.keepEmptyLines) {
 		split = split.filter((line) => !!line); // Filter out empty lines

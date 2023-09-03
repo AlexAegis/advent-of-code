@@ -2,8 +2,8 @@ import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { ExpeditionFileSystem } from './expedition-file-system.class.js';
 
-const TOTAL_DISK_SPACE = 70000000;
-const REQUIRED_FREE_SPACE = 30000000;
+const TOTAL_DISK_SPACE = 70_000_000;
+const REQUIRED_FREE_SPACE = 30_000_000;
 
 export const p2 = (input: string): number => {
 	const fs = new ExpeditionFileSystem().interpret(split(input));

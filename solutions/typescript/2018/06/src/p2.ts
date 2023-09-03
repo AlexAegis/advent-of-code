@@ -16,7 +16,7 @@ export const p2 = (input: string, args: Args | undefined): number | undefined =>
 	let boundaryBottom: Coord | undefined;
 	let boundaryLeft: Coord | undefined;
 
-	points.forEach((point) => {
+	for (const point of points) {
 		if (boundaryTop === undefined || boundaryTop.y >= point.y) {
 			boundaryTop = point;
 		}
@@ -29,7 +29,7 @@ export const p2 = (input: string, args: Args | undefined): number | undefined =>
 		if (boundaryLeft === undefined || boundaryLeft.x >= point.x) {
 			boundaryLeft = point;
 		}
-	});
+	}
 
 	if (boundaryTop && boundaryRight && boundaryBottom && boundaryLeft) {
 		const boundaryStart: Coord = new Coord(boundaryLeft.x, boundaryTop.y);

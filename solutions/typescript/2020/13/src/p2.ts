@@ -7,8 +7,8 @@ export const p2 = (input: string): number => {
 
 	const mods: CongruentModulo<bigint>[] = data
 		.split(',')
-		.map((id, i) => ({ id: parseInt(id, 10), i }))
-		.filter(({ id }) => !isNaN(id))
+		.map((id, i) => ({ id: Number.parseInt(id, 10), i }))
+		.filter(({ id }) => !Number.isNaN(id))
 		.map(({ id, i }) => ({
 			remainder: BigInt(id - i),
 			modulo: BigInt(id),

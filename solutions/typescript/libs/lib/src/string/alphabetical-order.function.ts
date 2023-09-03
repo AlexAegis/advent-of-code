@@ -4,7 +4,7 @@
 export const alphabeticalOrder = (letter: string): number => {
 	if (letter) {
 		const isLowerCase = letter[0]?.toLowerCase() === letter[0];
-		return letter.charCodeAt(0) - 64 + (isLowerCase ? -32 : 26);
+		return (letter.codePointAt(0) ?? 0) - 64 + (isLowerCase ? -32 : 26);
 	} else {
 		return 0;
 	}

@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 import { interpret } from './interpret.function.js';
 
 export const p2 = (input: string): number => {
-	const guards: Map<number, Map<number, number>> = new Map();
+	const guards = new Map<number, Map<number, number>>();
 	let currentGuard = -1;
 	let asleepAt: number | undefined;
 	const o = interpret(input);
@@ -21,7 +21,7 @@ export const p2 = (input: string): number => {
 			if (sleepMap && asleepAt !== undefined) {
 				for (let i = asleepAt; i < event.minute; i++) {
 					const sm = sleepMap.get(i);
-					sleepMap.set(i, (sm ? sm : 0) + 1);
+					sleepMap.set(i, (sm ?? 0) + 1);
 				}
 			}
 			asleepAt = undefined;
@@ -32,7 +32,7 @@ export const p2 = (input: string): number => {
 	let mostSlept = -1;
 	let mostSleptMinute = -1;
 
-	[...guards].forEach(([guard, sleepMap]) => {
+	for (const [guard, sleepMap] of guards) {
 		if (sleepMap.size > 0) {
 			const mostSleptMinutePair: [number, number] = [...sleepMap].reduce(
 				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
@@ -40,7 +40,7 @@ export const p2 = (input: string): number => {
 						prevSleep < currSleep ? currMin : prevMinute,
 						prevSleep < currSleep ? currSleep : prevSleep,
 					];
-				}
+				},
 			);
 			if (mostSleptMinutePair[1] > mostSlept) {
 				mostSleptMinute = mostSleptMinutePair[0];
@@ -48,7 +48,7 @@ export const p2 = (input: string): number => {
 				mostSleptGuard = guard;
 			}
 		}
-	});
+	}
 	return mostSleptGuard * mostSleptMinute;
 };
 

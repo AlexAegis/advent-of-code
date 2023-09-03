@@ -13,8 +13,7 @@ export type GlobalCoordinateSystem = 'Y-UP' | 'Y-DOWN';
 export class Direction extends Vec2 {
 	static SYSTEM: GlobalCoordinateSystem = 'Y-DOWN';
 
-	private constructor(marker: DirectionMarker);
-	private constructor(vec2: Vec2Like | Vec2String);
+	private constructor(marker: DirectionMarker | Vec2Like | Vec2String);
 	private constructor(x: number, y: number);
 	private constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number);
 	private constructor(x: number | Vec2String | Vec2Like | DirectionMarker, y?: number) {
@@ -133,16 +132,21 @@ export class Direction extends Vec2 {
 		v?: DirectionCardinalNumericClockwiseIndex
 	): DirectionCardinalNumericClockwiseIndex | undefined {
 		switch (v) {
-			case DirectionCardinalNumericClockwiseIndex.NORTH:
+			case DirectionCardinalNumericClockwiseIndex.NORTH: {
 				return DirectionCardinalNumericClockwiseIndex.SOUTH;
-			case DirectionCardinalNumericClockwiseIndex.EAST:
+			}
+			case DirectionCardinalNumericClockwiseIndex.EAST: {
 				return DirectionCardinalNumericClockwiseIndex.WEST;
-			case DirectionCardinalNumericClockwiseIndex.SOUTH:
+			}
+			case DirectionCardinalNumericClockwiseIndex.SOUTH: {
 				return DirectionCardinalNumericClockwiseIndex.NORTH;
-			case DirectionCardinalNumericClockwiseIndex.WEST:
+			}
+			case DirectionCardinalNumericClockwiseIndex.WEST: {
 				return DirectionCardinalNumericClockwiseIndex.EAST;
-			default:
+			}
+			default: {
 				return undefined;
+			}
 		}
 	}
 
@@ -202,11 +206,11 @@ export class Direction extends Vec2 {
 		return this.turn(angle);
 	}
 
-	public reverse(axis?: 'h' | 'v'): Direction {
-		if ((!axis || axis === 'v') && this.equals(Direction.NORTH)) return Direction.SOUTH;
-		else if ((!axis || axis === 'h') && this.equals(Direction.WEST)) return Direction.EAST;
-		else if ((!axis || axis === 'v') && this.equals(Direction.SOUTH)) return Direction.NORTH;
-		else if ((!axis || axis === 'h') && this.equals(Direction.EAST)) return Direction.WEST;
+	public reverse(axis?: 'h' | 'v'): this {
+		if ((!axis || axis === 'v') && this.equals(Direction.NORTH)) return Direction.SOUTH as this;
+		else if ((!axis || axis === 'h') && this.equals(Direction.WEST)) return Direction.EAST as this;
+		else if ((!axis || axis === 'v') && this.equals(Direction.SOUTH)) return Direction.NORTH as this;
+		else if ((!axis || axis === 'h') && this.equals(Direction.EAST)) return Direction.WEST as this;
 		else return this;
 	}
 

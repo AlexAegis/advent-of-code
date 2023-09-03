@@ -1,12 +1,12 @@
 import { nonNullish } from '@alexaegis/advent-of-code-lib/functions';
 import { PairTree, type NestedPairs, type PairSide } from '@alexaegis/advent-of-code-lib/model';
 
-export type SnailfishNumber = PairTree<number>;
+export type SnailfishNumber = PairTree;
 
 const splitSnailfish = (n: SnailfishNumber, side: PairSide): void => {
 	const val = n.getSide(side) as number;
 	if (typeof val !== 'number') {
-		throw new Error(`Cannot split ${val}`);
+		throw new TypeError(`Cannot split ${String(val)}`);
 	}
 	const half = val / 2;
 	n.setSide(side, new PairTree(Math.floor(half), Math.ceil(half)));

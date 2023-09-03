@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { rotateMatrix } from './rotate-matrix.function.js';
 
+const joinMatrix = (matrix: string[][]) => matrix.map((r) => r.join('')).join('\n');
+
 describe('rotateMatrix', () => {
 	const matrix = [
 		['0', '1', '2'],
@@ -18,7 +20,6 @@ describe('rotateMatrix', () => {
 		['0', '3', '6'],
 	];
 
-	const joinMatrix = (matrix: string[][]) => matrix.map((r) => r.join('')).join('\n');
 	const joinedMatrix = joinMatrix(matrix);
 	const joinedRightRotatedMatrix = joinMatrix(rightRotatedMatrix);
 	const joinedLeftRotatedMatrix = joinMatrix(leftRotatedMatrix);

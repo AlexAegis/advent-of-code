@@ -17,7 +17,7 @@ export class UncertainSeatPosition {
 		R: (p) => (p.column = UncertainSeatPosition.upperHalf(p.column)),
 	};
 
-	public locate(on: string): UncertainSeatPosition {
+	public locate(on: string): this {
 		for (const letter of on) {
 			UncertainSeatPosition.partitionerMap[letter as PlanePartition](this);
 		}

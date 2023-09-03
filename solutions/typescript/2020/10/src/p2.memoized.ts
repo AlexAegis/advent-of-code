@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import { memoize } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json';

@@ -6,17 +6,18 @@ import { parse } from './parse.js';
 export const pattern = [0, 1, 0, -1] as const;
 
 export const patternGet = (n: number, p: number): number => {
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	return pattern[Math.floor(n / p + 1 / p) % pattern.length]!;
 };
 
 export const phaser = (
 	a: number[],
 	c = 1,
-	f: (a: number[], phase: number) => number[]
+	f: (a: number[], phase: number) => number[],
 ): number[] => {
-	let p!: number[];
+	let p: number[] = a;
 	for (let phase = 0; phase < c; phase++) {
-		p = f(p || a, phase);
+		p = f(p, phase);
 	}
 	return p;
 };
@@ -35,6 +36,7 @@ export const fft =
 			let s = 0;
 			for (let col = 0; col < prowlen; col += 1) {
 				// In the case of the first number, its just multiplied by the multiplier
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				s += (a[col % a.length]! * patternGet(col, row)) % 10;
 				// idea is to SUM until LCM of (alen and plen * row) prowlen
 				// then this can

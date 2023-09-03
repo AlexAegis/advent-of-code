@@ -15,14 +15,14 @@ export const p2 = (input: string): number => {
 	const g = new Graph<TileColor, HexagonalDirection>();
 	const center = new GraphNode<TileColor, HexagonalDirection>(
 		Vec2.ORIGIN.toString(),
-		TileColor.WHITE
+		TileColor.WHITE,
 	);
 	g.nodes.set(center.key, center);
 
 	const expandNode = (
 		g: Graph<TileColor, HexagonalDirection>,
 		node: GraphNode<TileColor, HexagonalDirection>,
-		key?: Vec2String
+		key?: Vec2String,
 	) => {
 		const vs = key ?? g.nodes.findKey(node);
 		if (vs) {
@@ -41,11 +41,11 @@ export const p2 = (input: string): number => {
 							() =>
 								new GraphNode<TileColor, HexagonalDirection>(
 									cursor.toString(),
-									TileColor.WHITE
-								)
+									TileColor.WHITE,
+								),
 						),
 						weight: 1,
-					})
+					}),
 				);
 
 				const nextNode = nextEdge.to;
@@ -71,11 +71,11 @@ export const p2 = (input: string): number => {
 	const flipTile = (
 		g: Graph<TileColor, HexagonalDirection>,
 		node: GraphNode<TileColor, HexagonalDirection>,
-		key?: Vec2String
+		key?: Vec2String,
 	) => {
 		if (node.value === TileColor.BLACK) {
 			node.setValue(TileColor.WHITE);
-		} else if (node.value === TileColor.WHITE) {
+		} else {
 			node.setValue(TileColor.BLACK);
 			expandNode(g, node, key);
 		}
@@ -94,8 +94,8 @@ export const p2 = (input: string): number => {
 					() =>
 						new GraphNode<TileColor, HexagonalDirection>(
 							cursor.toString(),
-							TileColor.WHITE
-						)
+							TileColor.WHITE,
+						),
 				),
 				weight: 1,
 			}));
@@ -117,13 +117,11 @@ export const p2 = (input: string): number => {
 	for (let i = 0; i < 100; i++) {
 		const toFlip = [...g.nodes.entries()].filter(([, node]) => {
 			const blackNeighbours = [...node.neighbours.values()].filter(
-				(neighbour) => neighbour.to.value === TileColor.BLACK
+				(neighbour) => neighbour.to.value === TileColor.BLACK,
 			).length;
-			if (node.value === TileColor.BLACK) {
-				return blackNeighbours === 0 || blackNeighbours > 2;
-			} else {
-				return blackNeighbours === 2;
-			}
+			return node.value === TileColor.BLACK
+				? blackNeighbours === 0 || blackNeighbours > 2
+				: blackNeighbours === 2;
 		});
 
 		for (const [key, currentNode] of toFlip) {

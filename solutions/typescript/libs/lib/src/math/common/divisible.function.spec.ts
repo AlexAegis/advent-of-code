@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { divisible } from './divisible.function.js';
 
 describe('divisible', () => {
-	it('should return true if divisible', async () => {
+	it('should return true if divisible', () => {
 		expect(divisible(4, 2)).to.be.true;
 	});
 
-	it('should return false if not divisible', async () => {
+	it('should return false if not divisible', () => {
 		expect(divisible(4, 3)).to.be.false;
 	});
 });

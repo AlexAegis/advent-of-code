@@ -12,9 +12,9 @@ export const openingTags = Object.keys(closingTagMap);
 export const closingTags = Object.values(closingTagMap);
 
 export const isOpeningTag = (char: string): char is OpeningTag => {
-	return openingTags.some((closingTag) => closingTag === char);
+	return openingTags.includes(char);
 };
 
 export const isClosingTag = (char: string): char is OpeningTag => {
-	return closingTags.some((closingTag) => closingTag === char);
+	return closingTags.includes(char);
 };

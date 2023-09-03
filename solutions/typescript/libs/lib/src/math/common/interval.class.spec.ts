@@ -68,9 +68,9 @@ describe('Interval', () => {
 
 		it('should work with infinites', () => {
 			const intervals = [
-				new Interval(Infinity, Infinity),
+				new Interval(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY),
 				new Interval(0, 0),
-				new Interval(-Infinity, -Infinity),
+				new Interval(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY),
 			];
 			const sorted = [...intervals].sort(Interval.compareByLow);
 			expect(sorted[0]).toBe(intervals[2]);
@@ -132,14 +132,14 @@ describe('Interval', () => {
 		});
 
 		it('should move an interval with an infinite low end by moving its other end by infinite too', () => {
-			const interval = new Interval(-Infinity, 2);
+			const interval = new Interval(Number.NEGATIVE_INFINITY, 2);
 			const moved = interval.clone().moveLowTo(0);
-			expect(moved).toEqual(new Interval(0, Infinity));
+			expect(moved).toEqual(new Interval(0, Number.POSITIVE_INFINITY));
 		});
 
 		it('should not change an interval with an infinite low end by moving it to the same Infinity', () => {
-			const interval = new Interval(-Infinity, 2);
-			const moved = interval.clone().moveLowTo(-Infinity);
+			const interval = new Interval(Number.NEGATIVE_INFINITY, 2);
+			const moved = interval.clone().moveLowTo(Number.NEGATIVE_INFINITY);
 			expect(moved).toEqual(interval);
 		});
 	});
@@ -153,24 +153,24 @@ describe('Interval', () => {
 
 		it('should move an intervals both to Infinity when moved by Infinity', () => {
 			const interval = new Interval(4, 6);
-			interval.moveBy(Infinity);
-			expect(interval).toEqual(new Interval(Infinity, Infinity));
+			interval.moveBy(Number.POSITIVE_INFINITY);
+			expect(interval).toEqual(new Interval(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY));
 		});
 
 		it('should move an intervals both to -Infinity when moved by -Infinity', () => {
 			const interval = new Interval(4, 6);
-			interval.moveBy(-Infinity);
-			expect(interval).toEqual(new Interval(-Infinity, -Infinity));
+			interval.moveBy(Number.NEGATIVE_INFINITY);
+			expect(interval).toEqual(new Interval(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY));
 		});
 
 		it('should not move the infinite ends when moved by a finite amount', () => {
-			const a = new Interval(-Infinity, 6);
+			const a = new Interval(Number.NEGATIVE_INFINITY, 6);
 			a.moveBy(2);
-			expect(a).toEqual(new Interval(-Infinity, 8));
+			expect(a).toEqual(new Interval(Number.NEGATIVE_INFINITY, 8));
 
-			const b = new Interval(0, Infinity);
+			const b = new Interval(0, Number.POSITIVE_INFINITY);
 			b.moveBy(2);
-			expect(b).toEqual(new Interval(2, Infinity));
+			expect(b).toEqual(new Interval(2, Number.POSITIVE_INFINITY));
 		});
 	});
 
@@ -183,14 +183,14 @@ describe('Interval', () => {
 		});
 
 		it('should move an interval with an infinite low end by moving its other end by infinite too', () => {
-			const interval = new Interval(0, Infinity);
+			const interval = new Interval(0, Number.POSITIVE_INFINITY);
 			const moved = interval.clone().moveHighTo(0);
-			expect(moved).toEqual(new Interval(-Infinity, 0));
+			expect(moved).toEqual(new Interval(Number.NEGATIVE_INFINITY, 0));
 		});
 
 		it('should not change an interval with an infinite high end by moving it to the same Infinity', () => {
-			const interval = new Interval(0, Infinity);
-			const moved = interval.clone().moveHighTo(Infinity);
+			const interval = new Interval(0, Number.POSITIVE_INFINITY);
+			const moved = interval.clone().moveHighTo(Number.POSITIVE_INFINITY);
 			expect(moved).toEqual(interval);
 		});
 	});
@@ -211,9 +211,9 @@ describe('Interval', () => {
 
 		it('should work with infinites', () => {
 			const intervals = [
-				new Interval(Infinity, Infinity),
+				new Interval(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY),
 				new Interval(0, 0),
-				new Interval(-Infinity, -Infinity),
+				new Interval(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY),
 			];
 			const sorted = [...intervals].sort(Interval.compareByHigh);
 			expect(sorted[0]).toBe(intervals[2]);
@@ -256,8 +256,8 @@ describe('Interval', () => {
 		});
 
 		it('should be able to get a finite intersection of infinite intervals', () => {
-			const a = new Interval(-Infinity, 2, { lowQualifier: 'open', highQualifier: 'closed' });
-			const b = new Interval(1, Infinity, { lowQualifier: 'closed', highQualifier: 'open' });
+			const a = new Interval(Number.NEGATIVE_INFINITY, 2, { lowQualifier: 'open', highQualifier: 'closed' });
+			const b = new Interval(1, Number.POSITIVE_INFINITY, { lowQualifier: 'closed', highQualifier: 'open' });
 
 			expect(a.intersection(b)).toEqual(
 				new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'closed' })

@@ -28,25 +28,28 @@ export const p2 = (input: string): number => {
 
 	// const allTiles = new Set<string>();
 	const monsterTiles = new Set<string>();
-	let foundThem = false; // The monsters only appear in one orientation
+	let foundThem = false as boolean; // The monsters only appear in one orientation
 	for (const sea of mergedMap.toMatrix().flipFlop()) {
 		console.log('sea\n', renderMatrix(sea));
 		// allTiles.clear();
 		monsterTiles.clear();
 		for (let y = 0; y < sea.length; y++) {
-			const row = sea[y]!;
-			for (let x = 0; x < row.length; x++) {
-				const pos = new Vec2(x, -y);
-				// if (row[x] === '#') {
-				// 	allTiles.add(new Vec2(x, y).toString());
-				// }
-				const relativeMonsterTiles = monster.map((d) => pos.add(d));
-				if (relativeMonsterTiles.every((d) => sea[d.x]?.[d.y] === '#')) {
-					relativeMonsterTiles.forEach((d) => monsterTiles.add(d.toString()));
-					foundThem = true;
+			const row = sea[y];
+			if (row !== undefined) {
+				for (let x = 0; x < row.length; x++) {
+					const pos = new Vec2(x, -y);
+					// if (row[x] === '#') {
+					// 	allTiles.add(new Vec2(x, y).toString());
+					// }
+					const relativeMonsterTiles = monster.map((d) => pos.add(d));
+					if (relativeMonsterTiles.every((d) => sea[d.x]?.[d.y] === '#')) {
+						for (const d of relativeMonsterTiles) monsterTiles.add(d.toString());
+						foundThem = true;
+					}
 				}
 			}
 		}
+
 		if (foundThem) {
 			break;
 		}

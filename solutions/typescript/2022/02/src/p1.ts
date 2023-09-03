@@ -18,7 +18,7 @@ export const p1 = (input: string): number =>
 	split(input)
 		.map((line) => line.splitIntoStringPair() as Strategy)
 		.map(([opponent, strategy]) =>
-			numberPair.assert([shapeKeyMap[opponent], simpleShapeStrategyMap[strategy]])
+			numberPair.assert([shapeKeyMap[opponent], simpleShapeStrategyMap[strategy]]),
 		)
 		.map(([opponentShape, myShape]) => myShape + getOutcome(opponentShape, myShape))
 		.sum();

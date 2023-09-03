@@ -28,7 +28,7 @@ export class IntervalExecutor extends Executor {
 			takeWhile(() => !this.isHalting()),
 			tap(() => {
 				this.world.tick();
-				this.onTickCallbacks.forEach((callback) => callback(this.world));
+				for (const callback of this.onTickCallbacks) callback(this.world);
 			})
 		);
 	}

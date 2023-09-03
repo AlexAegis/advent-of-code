@@ -10,7 +10,7 @@ describe('2020 - Day 24 - Part Two', () => {
 			const resources = await loadTaskResources(packageJson.aoc);
 			expect(p2(resources.input)).to.equal(4135);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 
 	it('should solve the first example', async () => {

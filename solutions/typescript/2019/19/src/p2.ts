@@ -8,7 +8,7 @@ export const p2 = (input: string): number => {
 	const targetSide = 100 - 1;
 	let prevX = 0;
 	for (let y = targetSide + 1; y < 5000; y++) {
-		let startedTrackingAt!: number;
+		let startedTrackingAt: number | undefined;
 		let x = prevX;
 		while (startedTrackingAt === undefined) {
 			if (hasBeam(tape, x, y)) {
@@ -20,7 +20,7 @@ export const p2 = (input: string): number => {
 		}
 
 		if (hasBeam(tape, x + targetSide, y - targetSide)) {
-			return x * 10000 + y - targetSide;
+			return x * 10_000 + y - targetSide;
 		}
 	}
 

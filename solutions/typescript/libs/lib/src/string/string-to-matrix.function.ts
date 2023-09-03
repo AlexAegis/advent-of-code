@@ -14,7 +14,7 @@ export const stringToMatrix = (
 	itemSeparator: RegExp | string = ''
 ): string[][] => {
 	const lines = s.split(rowSeparator);
-	if (lines[lines.length - 1] === '') {
+	if (lines.at(-1) === '') {
 		lines.pop();
 	}
 	const matrix = lines.map((line) => line.split(itemSeparator));

@@ -5,7 +5,7 @@ import packageJson from '../package.json';
 export const p1 = (input: string): number =>
 	input
 		.split(/\r?\n\r?\n/)
-		.map((group) => new Set(group.replace(/\r?\n/g, '')).size)
+		.map((group) => new Set(group.replaceAll(/\r?\n/g, '')).size)
 		.reduce(sum);
 
 await task(p1, packageJson.aoc); // 6542 ~1ms

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 
 export enum Tile {
@@ -16,17 +17,17 @@ export const parseLines = (input: string): string[][] => {
 	return input
 		.split(/\r?\n/)
 		.filter((line) => !!line)
-		.map((line) => line.split(''));
+		.map((line) => [...line]);
 };
 
-export const parseMatrix = (
-	matrix: string[][]
-): {
-	map: Map<string, Tile | Key | Door>;
+export interface Data {
+	map: Map<string, Tile | Key>;
 	keys: Map<string, Vec2>;
 	doors: Map<string, Vec2>;
 	size: Vec2;
-} => {
+}
+
+export const parseMatrix = (matrix: string[][]): Data => {
 	const map = new Map<string, string>();
 	const keys = new Map<string, Vec2>();
 	const doors = new Map<string, Vec2>();
@@ -37,10 +38,10 @@ export const parseMatrix = (
 		for (x = 0; x < row.length; x++) {
 			const tile = row[x]!;
 			const vec = new Vec2(x, y);
-			if (tile.match(keyMatcher)) {
+			if (keyMatcher.test(tile)) {
 				map.set(vec.toString(), Tile.EMPTY);
 				keys.set(tile, vec);
-			} else if (tile.match(doorMatcher)) {
+			} else if (doorMatcher.test(tile)) {
 				map.set(vec.toString(), Tile.EMPTY);
 				doors.set(tile, vec);
 			} else {
