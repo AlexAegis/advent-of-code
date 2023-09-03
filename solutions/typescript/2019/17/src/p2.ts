@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import packageJson from '../package.json';
@@ -59,7 +60,7 @@ export const getFullPath = (input: string): string[] => {
 export const compress = (
 	fragments: string[],
 	prevRes: string[] = [],
-	maxDepth = 3
+	maxDepth = 3,
 ): string[] | undefined => {
 	const maxLen = 20;
 	if (maxDepth <= 0) {
@@ -72,7 +73,7 @@ export const compress = (
 		return [fragments[0]!];
 	}
 	for (let w = 6; w < maxLen; w++) {
-		const c = fragments[0]!.substring(0, w);
+		const c = fragments[0]!.slice(0, Math.max(0, w));
 		const f = fragments.flatMap((fragment) => fragment.split(c)).filter((fr) => !!fr);
 		const result = compress(f, prevRes, maxDepth - 1);
 		if (result) {
@@ -85,10 +86,10 @@ export const compress = (
 const encode = (s: string): number[] => {
 	let r = s;
 	if (s.endsWith(',')) {
-		r = s.substring(0, s.length - 1);
+		r = s.slice(0, Math.max(0, s.length - 1));
 	}
 	r = r + '\n';
-	return [...r].map((c) => c.charCodeAt(0));
+	return [...r].map((c) => c.codePointAt(0) ?? 0);
 };
 
 export const p2 =
@@ -100,19 +101,17 @@ export const p2 =
 		let main = fullPath.join(',') + ',';
 		const r = compress([main]);
 		if (r) {
-			r.forEach(
-				(fr, i) =>
-					(main = main.replace(new RegExp(fr, 'gi'), String.fromCharCode(65 + i) + ','))
-			);
+			for (const [i, fr] of r.entries())
+				main = main.replaceAll(new RegExp(fr, 'gi'), String.fromCodePoint(65 + i) + ',');
 
 			intCode.pushInput(...encode(main));
-			r.forEach((fn) => intCode.pushInput(...encode(fn)));
-			intCode.pushInput((video ? 'y' : 'n').charCodeAt(0));
-			intCode.pushInput('\n'.charCodeAt(0));
+			for (const fn of r) intCode.pushInput(...encode(fn));
+			intCode.pushInput((video ? 'y' : 'n').codePointAt(0) ?? 0);
+			intCode.pushInput('\n'.codePointAt(0) ?? 9);
 
 			let row = '';
 			for (const o of intCode.iter()) {
-				const s = String.fromCharCode(o);
+				const s = String.fromCodePoint(o);
 				if (s === '\n') {
 					if (video) {
 						console.log(row);

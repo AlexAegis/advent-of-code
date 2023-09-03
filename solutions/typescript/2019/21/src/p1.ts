@@ -9,12 +9,12 @@ export const execute = (i: IntCodeComputer, print = false): number | undefined =
 	for (const o of i) {
 		r = o;
 		if (print && o !== undefined) {
-			const c = String.fromCharCode(o);
+			const c = String.fromCodePoint(o);
 			if (c === '\n') {
 				console.log(line);
 				line = '';
 			} else {
-				line += String.fromCharCode(o);
+				line += String.fromCodePoint(o);
 			}
 		}
 	}
@@ -34,7 +34,7 @@ export const p1 =
 				'NOT J J', // J = !A OR !B OR !C
 				'AND D J', // J = (!A OR !B OR !C) AND D
 				'WALK',
-			].join('\n')
+			].join('\n'),
 		);
 
 		return execute(i, print);

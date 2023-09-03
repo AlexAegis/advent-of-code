@@ -10,6 +10,6 @@ describe('2019 - Day 16 - Part Two', () => {
 			const resources = await loadTaskResources(packageJson.aoc);
 			expect(p2(resources.input)).to.equal('09690613');
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 });

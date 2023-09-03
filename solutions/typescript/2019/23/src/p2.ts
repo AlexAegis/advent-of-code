@@ -17,7 +17,7 @@ export const p2 = (input: string): number => {
 		// TODO: Find a better way to determine idleness
 		for (let r = 0; r < NETWORK_SIZE / 2; r++) {
 			isIdle = ![...network.entries()].some(
-				([, [, stepper]]) => stepper.next().value !== undefined
+				([, [, stepper]]) => stepper.next().value !== undefined,
 			);
 		}
 

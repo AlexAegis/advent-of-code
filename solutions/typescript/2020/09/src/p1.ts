@@ -31,7 +31,7 @@ export const findWithoutComponent = (xmas: number[], preamble = 25): number => {
 };
 
 export const p1 = (input: string, args?: Args): number => {
-	const xmas = split(input).map((line) => parseInt(line, 10));
+	const xmas = split(input).map((line) => Number.parseInt(line, 10));
 	const sequence: number[] = [];
 	const preamble = args?.preamble ?? 25;
 	for (const n of xmas) {

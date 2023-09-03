@@ -12,7 +12,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	public outputCallback?: (output: number) => number;
 
 	public constructor(tape: number[]) {
-		this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map());
+		this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map<number, number>());
 	}
 
 	public *iter(): IterableIterator<number> {
@@ -65,8 +65,10 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	}
 
 	public pushAsciiInput(input: string, nl = true): this {
-		if (nl) input += '\n';
-		return this.pushInput(...[...input].map((s) => s.charCodeAt(0)));
+		if (nl) {
+			input += '\n'
+		};
+		return this.pushInput(...[...input].map((s) => s.codePointAt(0) ?? 0));
 	}
 
 	public pushInputIfEmpty(input: number): boolean {
@@ -79,23 +81,25 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	private getValue(pos: number, mode: Mode = Mode.POS, asIndex = false): number {
 		let v: number;
 		switch (mode) {
-			case Mode.POS:
-				v = this.tape.get(pos) || 0;
+			case Mode.POS: {
+				v = this.tape.get(pos) ?? 0;
 				break;
-			case Mode.REL:
-				v = this.relBase + (this.tape.get(pos) || 0);
+			}
+			case Mode.REL: {
+				v = this.relBase + (this.tape.get(pos) ?? 0);
 				break;
-			case Mode.VAL:
-			default:
+			}
+			default: {
 				v = pos;
 				break;
+			}
 		}
-		return asIndex ? v : this.tape.get(v) || 0;
+		return asIndex ? v : this.tape.get(v) ?? 0;
 	}
 
 	public reset(tape?: number[]): this {
 		if (tape) {
-			this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map());
+			this.tape = tape.reduce((m, n, i) => m.set(i, n), new Map<number, number>());
 		}
 		this.cursor = 0;
 		this.relBase = 0;
@@ -128,7 +132,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	private getArg(v: number, n: number, asIndex = false, mode?: Mode): number {
 		return this.getValue(
 			this.cursor + n + 1,
-			mode === undefined ? this.getMode(v, n) : mode,
+			mode ?? this.getMode(v, n),
 			asIndex
 		);
 	}
@@ -139,41 +143,50 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 
 	public *[Symbol.iterator](): IterableIterator<number | undefined> {
 		do {
-			const v = this.tape.get(this.cursor) || 0;
+			const v = this.tape.get(this.cursor) ?? 0;
 			const i = toInstruction(v);
 			switch (i) {
-				case Instruction.ADD:
+				case Instruction.ADD: {
 					this.addOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, true));
 					break;
-				case Instruction.MUL:
+				}
+				case Instruction.MUL: {
 					this.mulOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, true));
 					break;
-				case Instruction.IN:
+				}
+				case Instruction.IN: {
 					this.inOp(this.getArg(v, 0, true));
 					yield undefined;
 					break;
-				case Instruction.OUT:
+				}
+				case Instruction.OUT: {
 					yield this.outOp(this.getArg(v, 0));
 					break;
-				case Instruction.JIT:
+				}
+				case Instruction.JIT: {
 					this.jitOp(this.getArg(v, 0), this.getArg(v, 1));
 					break;
-				case Instruction.JIF:
+				}
+				case Instruction.JIF: {
 					this.jifOp(this.getArg(v, 0), this.getArg(v, 1));
 					break;
-				case Instruction.LT:
+				}
+				case Instruction.LT: {
 					this.ltOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, true));
 					break;
-				case Instruction.EQ:
+				}
+				case Instruction.EQ: {
 					this.eqOp(this.getArg(v, 0), this.getArg(v, 1), this.getArg(v, 2, true));
 					break;
-				case Instruction.REL:
+				}
+				case Instruction.REL: {
 					this.relOp(this.getArg(v, 0));
 					break;
-				case Instruction.HALT:
-				default:
+				}
+				default: {
 					this.haltOp();
 					break;
+				}
 			}
 		} while (!this.halt);
 	}
@@ -203,7 +216,10 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 
 	private inOp(pos: number): void {
 		if (this.inputQueue && this.inputQueue.length > 0) {
-			this.tape.set(pos, this.inputQueue.shift() as number);
+			const next = this.inputQueue.shift();
+			if(next !== undefined) {
+				this.tape.set(pos, next);
+			}
 		} else if (this.inputCallback) {
 			this.tape.set(pos, this.inputCallback());
 		} else {
@@ -212,7 +228,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 		this.cursor += 2;
 	}
 
-	private outOp(pos: number): number {
+	private outOp(pos: number | undefined): number {
 		if (pos === undefined) {
 			throw new Error('Not valid output' + pos);
 		}
@@ -232,10 +248,10 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	}
 
 	private jifOp(v: number, target: number): void {
-		if (!v) {
-			this.cursor = target;
-		} else {
+		if (v) {
 			this.cursor += 3;
+		} else {
+			this.cursor = target;
 		}
 	}
 

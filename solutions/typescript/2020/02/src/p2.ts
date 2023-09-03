@@ -7,7 +7,7 @@ export const p2 = (input: string): number =>
 		.map(parseLine)
 		.filter(
 			({ low, high, letter, password }) =>
-				(password[low - 1] === letter) !== (password[high - 1] === letter)
+				(password[low - 1] === letter) !== (password[high - 1] === letter),
 		).length;
 
 await task(p2, packageJson.aoc); // 593 ~2ms

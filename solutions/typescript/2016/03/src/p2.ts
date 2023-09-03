@@ -3,7 +3,12 @@ import packageJson from '../package.json';
 import { isTriangle, type Triangle } from './is-triangle.function.js';
 
 export const p2 = (input: string): number => {
-	const result = split(input).reduce(
+	const result = split(input).reduce<{
+		side: number;
+		triangles: Triangle[];
+		bufferSidesA: Triangle;
+		bufferSidesB: Triangle;
+	}>(
 		(acc, line) => {
 			const sides = line.splitToInt() as Triangle;
 			if (acc.side === 0) {
@@ -14,6 +19,7 @@ export const p2 = (input: string): number => {
 				acc.side = 2;
 			} else {
 				for (let i = 0; i < 3; i++) {
+					// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 					acc.triangles.push([acc.bufferSidesA[i]!, acc.bufferSidesB[i]!, sides[i]!]);
 				}
 				acc.side = 0;
@@ -25,12 +31,7 @@ export const p2 = (input: string): number => {
 			triangles: [],
 			bufferSidesA: [0, 0, 0],
 			bufferSidesB: [0, 0, 0],
-		} as {
-			side: number;
-			triangles: Triangle[];
-			bufferSidesA: Triangle;
-			bufferSidesB: Triangle;
-		}
+		},
 	);
 
 	return result.triangles.count(isTriangle);

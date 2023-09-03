@@ -5,16 +5,14 @@ export class Reaction {
 	public to: string;
 	public toq: number;
 
-	public preceeding: Set<[Reaction, number]> = new Set();
+	public preceeding = new Set<[Reaction, number]>();
 
 	public constructor(input: string, output: string) {
-		input
-			.split(', ')
-			.map((r) => r.splitIntoStringPair(' '))
-			.forEach(([q, n]) => this.from.set(n, parseInt(q, 10)));
+		for (const [q, n] of input.split(', ').map((r) => r.splitIntoStringPair(' ')))
+			this.from.set(n, Number.parseInt(q, 10));
 
 		const [toq, to] = output.splitIntoStringPair(' ');
-		this.toq = parseInt(toq, 10);
+		this.toq = Number.parseInt(toq, 10);
 		this.to = to;
 	}
 

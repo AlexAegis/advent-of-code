@@ -23,13 +23,9 @@ export abstract class Component {
 	}
 
 	componentType(): Constructor<this> {
-		return Object.getPrototypeOf(this).constructor as Constructor<this>;
+		return (Object.getPrototypeOf(this) as { constructor: Constructor<unknown>}).constructor as Constructor<this>;
 	}
-	/*
-	static componentType<T extends Component>(t: T): Constructor<T> {
-		return Object.getPrototypeOf(t).constructor as Constructor<T>;
-	}
-*/
+
 	componentName(): string {
 		return this.componentType().name;
 	}

@@ -56,8 +56,8 @@ describe('BoundingBox', () => {
 		});
 
 		it('should work with infinite boxes', () => {
-			const boxA = BoundingBox.fromVectors([new Vec2(-Infinity, -Infinity), new Vec2(3, 3)]);
-			const boxB = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(Infinity, Infinity)]);
+			const boxA = BoundingBox.fromVectors([new Vec2(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY), new Vec2(3, 3)]);
+			const boxB = BoundingBox.fromVectors([new Vec2(2, 2), new Vec2(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY)]);
 
 			const intersection = boxA.intersection(boxB);
 
@@ -67,7 +67,7 @@ describe('BoundingBox', () => {
 		});
 
 		it('should work with infinite boxes mixed with normal boxes', () => {
-			const boxA = BoundingBox.fromVectors([new Vec2(4, 4), new Vec2(4, Infinity)]);
+			const boxA = BoundingBox.fromVectors([new Vec2(4, 4), new Vec2(4, Number.POSITIVE_INFINITY)]);
 			const boxB = BoundingBox.fromVectors([new Vec2(0, 0), new Vec2(10, 10)]);
 			const intersection = boxA.intersection(boxB);
 			console.log('asdf', boxA.toString(), boxB.toString(), intersection?.toString());

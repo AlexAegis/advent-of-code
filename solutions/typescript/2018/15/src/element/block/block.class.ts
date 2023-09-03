@@ -3,7 +3,10 @@ import type { Edge } from './edge.interface.js';
 
 export abstract class Block extends Element {
 	protected _edges: Edge[] = [];
-	constructor(tile: string, protected _weight: number = 0) {
+	constructor(
+		tile: string,
+		protected _weight = 0,
+	) {
 		super(tile);
 	}
 

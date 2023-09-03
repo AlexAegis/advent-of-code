@@ -15,7 +15,7 @@ export const p2 = (input: string): number | undefined => {
 		for (let i = claim.starting.x; i < claim.starting.x + claim.size.x; i++) {
 			for (let j = claim.starting.y; j < claim.starting.y + claim.size.y; j++) {
 				const coordKey: Vec2String = `${i},${j}`;
-				const c: number[] = fabric.get(coordKey) || [];
+				const c: number[] = fabric.get(coordKey) ?? [];
 				c.push(claim.id);
 				fabric.set(coordKey, c);
 			}
@@ -26,7 +26,7 @@ export const p2 = (input: string): number | undefined => {
 		let good = true;
 		for (let i = claim.starting.x; i < claim.starting.x + claim.size.x; i++) {
 			for (let j = claim.starting.y; j < claim.starting.y + claim.size.y; j++) {
-				good = good && (fabric.get(`${i},${j}`) || []).length === 1;
+				good = good && (fabric.get(`${i},${j}`) ?? []).length === 1;
 			}
 		}
 		if (good) {

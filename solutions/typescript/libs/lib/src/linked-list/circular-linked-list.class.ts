@@ -33,12 +33,13 @@ export class CircularLinkedList<T> implements ToString {
 		}
 		return cursor;
 	}
+
 	/**
 	 * Infinite iterator
 	 */
 	*[Symbol.iterator](): IterableIterator<T> {
 		let current = this.head;
-		while (current) {
+		for(;;) {
 			yield current.value;
 			current = current.next;
 		}

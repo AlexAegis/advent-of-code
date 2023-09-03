@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 export const isBinaryTree = <T>(t: T | LeafonlyBinaryTree<T>): t is LeafonlyBinaryTree<T> => {
 	return t instanceof LeafonlyBinaryTree;
 };
@@ -10,10 +11,10 @@ export const isNestedPair = (nestedPair: unknown): nestedPair is NestedPairs<unk
 
 export type BinarySide = 'left' | 'right';
 
-export type BinaryTreeSide<T> = {
+export interface BinaryTreeSide<T> {
 	value?: T;
 	tree?: LeafonlyBinaryTree<T>;
-};
+}
 
 /**
  * Compared to a normal Binary tree where nodes have three values:
@@ -123,7 +124,7 @@ export class LeafonlyBinaryTree<T = number> {
 		if (this.leftTree) {
 			return this.leftTree.rightMostTree();
 		} else {
-			let node = this.parent as LeafonlyBinaryTree<T>;
+			let node = this.parent!;
 			while (node.parent && node.parentSide !== 'right') {
 				node = node.parent;
 				console.log('inOrderPredecessor ascend', node.toString(), node.parent?.toString());
@@ -167,7 +168,7 @@ export class LeafonlyBinaryTree<T = number> {
 		let node = this as LeafonlyBinaryTree<T>;
 
 		let next = node.parent;
-		while (next != null && node === next.leftTree) {
+		while (next != undefined && node === next.leftTree) {
 			node = next;
 			next = next.parent;
 		}
@@ -204,7 +205,7 @@ export class LeafonlyBinaryTree<T = number> {
 
 	get root(): LeafonlyBinaryTree<T> {
 		let parent = this.parent ?? this;
-		while (parent?.parent) {
+		while (parent.parent) {
 			parent = parent.parent;
 		}
 		return parent;
@@ -218,17 +219,9 @@ export class LeafonlyBinaryTree<T = number> {
 		let left: T | LeafonlyBinaryTree<T>;
 		let right: T | LeafonlyBinaryTree<T>;
 		if (isNestedPair(nestedPairs)) {
-			if (isNestedPair(nestedPairs[0])) {
-				left = LeafonlyBinaryTree.fromNestedPairs(nestedPairs[0]);
-			} else {
-				left = nestedPairs[0];
-			}
+			left = isNestedPair(nestedPairs[0]) ? LeafonlyBinaryTree.fromNestedPairs(nestedPairs[0]) : nestedPairs[0];
 
-			if (isNestedPair(nestedPairs[1])) {
-				right = LeafonlyBinaryTree.fromNestedPairs(nestedPairs[1]);
-			} else {
-				right = nestedPairs[1];
-			}
+			right = isNestedPair(nestedPairs[1]) ? LeafonlyBinaryTree.fromNestedPairs(nestedPairs[1]) : nestedPairs[1];
 		} else {
 			throw new Error('not a full binary tree source');
 		}
@@ -264,7 +257,7 @@ export class LeafonlyBinaryTree<T = number> {
 	toString(): string {
 		const leftString = this.leftTree ? this.leftTree.toString() : this.leftValue;
 		const rightString = this.rightTree ? this.rightTree.toString() : this.rightValue;
-		return `[${leftString},${rightString}]`;
+		return `[${String(leftString)},${String(rightString)}]`;
 	}
 
 	print(): void {

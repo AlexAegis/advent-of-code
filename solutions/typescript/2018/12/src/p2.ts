@@ -13,7 +13,7 @@ export const p2 = (input: string): number | undefined => {
 			let nextGen = '..';
 			for (let p = 2; p < cave.row.length - 2; p++) {
 				const char = cave.row.charAt(p);
-				if (cave.rules.indexOf(cave.row.substring(p - 2, p + 3)) >= 0) {
+				if (cave.rules.includes(cave.row.slice(p - 2, p + 3))) {
 					nextGen += char === '.' ? '#' : '.';
 				} else {
 					nextGen += char;
@@ -26,13 +26,11 @@ export const p2 = (input: string): number | undefined => {
 			// console.log(`i: ${i + 1} cave: ${cave.toString()}`);
 			if (
 				counts.length > 4 &&
-				counts
-					.slice(counts.length - 4, counts.length)
-					.every((next, _, arr) => next === arr[0])
+				counts.slice(-4, counts.length).every((next, _, arr) => next === arr[0])
 			) {
 				// console.log(`Stabilized, extrapolating to 50000000000`);
 				scores.push(
-					scores.last() + (scores.last() - scores.last(1)) * (50000000000 - i - 1)
+					scores.last() + (scores.last() - scores.last(1)) * (50_000_000_000 - i - 1),
 				);
 				break;
 			}

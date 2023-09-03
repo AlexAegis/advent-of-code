@@ -2,10 +2,10 @@ import type { ToString } from '@alexaegis/advent-of-code-lib/model';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import type { Cart } from './cart.class.js';
 
-export type Rail = ('/' | '\\' | '-' | '|' | '+') & string;
+export type Rail = '/' | '\\' | '-' | '|' | '+';
 
 export class Mine implements ToString {
-	public rail: Map<string, Rail> = new Map();
+	public rail = new Map<string, Rail>();
 	public carts: Cart[] = [];
 	public crashes: Vec2[] = [];
 	public height = 0;
@@ -22,7 +22,7 @@ export class Mine implements ToString {
 				if (carts.length > 1 || crashes.length > 1) {
 					line += 'X';
 				} else if (carts.length === 1) {
-					line += carts[0]!.direction.marker;
+					line += carts[0]?.direction.marker ?? '';
 				} else if (rail) {
 					line += rail;
 				} else {

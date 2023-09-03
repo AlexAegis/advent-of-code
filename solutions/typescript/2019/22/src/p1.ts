@@ -4,12 +4,12 @@ import packageJson from '../package.json';
 import { parse } from './parse.js';
 
 export const p1 =
-	(deckSize = 10007) =>
+	(deckSize = 10_007) =>
 	(input: string): number => {
 		const lines = parse(input);
-		let deck = [...Array(deckSize).keys()];
+		let deck = [...Array.from({ length: deckSize }).keys()];
 		for (const line of lines) {
-			const n = parseInt(line.split(' ').pop() as string, 10);
+			const n = Number.parseInt(line.split(' ').pop() ?? '0', 10);
 			if (line.startsWith('deal into new stack')) {
 				deck = deck.reverse();
 			} else if (line.startsWith('cut')) {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { describe, expect, it } from 'vitest';
 import { Direction } from '../direction/direction.class.js';
 import { Vec2 } from '../vector/vec2.class.js';
@@ -16,7 +17,7 @@ describe('Grid Graph', () => {
 	const finish = new Vec2(5, 4);
 	it('should be able to generate a graph from a matrix', () => {
 		const g = GridGraph.fromMatrix(matrix);
-		expect([...g.nodes.values()].length).to.equal(matrix.length * matrix[0]!.length);
+		expect([...g.nodes.values()].length).to.equal(matrix.length * (matrix[0]?.length ?? 0));
 	});
 
 	describe('Dijkstra', () => {

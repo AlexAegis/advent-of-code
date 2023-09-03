@@ -6,11 +6,11 @@ import { Deque } from './model/deque.class.js';
 export const p2 = (input: string): number => {
 	const setup = interpreter(input);
 	const ring: Deque<number> = new Deque<number>(undefined, 0);
-	const score: number[] = new Array<number>(setup.players).fill(0);
+	const score: number[] = Array.from<number>({ length: setup.players }).fill(0);
 	for (let marble = 1; marble <= setup.lastMarble * 100; marble++) {
 		if (marble % 23 === 0) {
 			ring.rotate(7);
-			score[marble % setup.players] += marble + (ring.pop() || 0);
+			score[marble % setup.players] += marble + (ring.pop() ?? 0);
 			ring.rotate(-1);
 		} else {
 			ring.rotate(-1);

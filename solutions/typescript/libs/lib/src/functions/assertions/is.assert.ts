@@ -7,4 +7,4 @@
 export const is =
 	<T, A extends T>(...a: A[]) =>
 	(b: T): b is A =>
-		a.some((ai) => ai === b);
+		a.includes(b);

@@ -6,18 +6,18 @@ import { MainResource } from './resource.type.js';
 
 export const p2 = (input: string): number | undefined => {
 	const reactions = parse(input);
-	const fuelReact = reactions.find((r) => r.to === MainResource.FUEL);
+	const fuelReact = reactions.find((r) => r.to === (MainResource.FUEL as string));
 
-	reactions.forEach((r) => {
-		reactions
+	for (const r of reactions) {
+		for (const [pre, q] of reactions
 			.filter((pre) => r.from.has(pre.to))
-			.map((pre) => [pre, r.from.get(pre.to) as number])
-			.forEach(([pre, q]) => {
-				r.preceeding.add([pre as Reaction, q as number]);
-			});
-	});
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			.map((pre) => [pre, r.from.get(pre.to)!])) {
+			r.preceeding.add([pre as Reaction, q as number]);
+		}
+	}
 
-	let cargo = 1000000000000;
+	let cargo = 1_000_000_000_000;
 
 	const surplus = new Map<string, number>();
 	// surplus.set('ORE', cargo);
@@ -32,7 +32,7 @@ export const p2 = (input: string): number | undefined => {
 		let s = 0;
 		let lf = 0;
 
-		while (i === 0 || surplus.size !== 0) {
+		while (i === 0 || surplus.size > 0) {
 			lf = fuelReact.oreCost(surplus);
 			s += lf;
 			i++;

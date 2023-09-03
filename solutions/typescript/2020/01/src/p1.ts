@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 

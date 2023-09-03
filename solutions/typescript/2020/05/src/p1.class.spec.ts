@@ -9,19 +9,19 @@ describe('2020 - Day 5 - Part One', () => {
 		expect(p1(resources.input)).to.equal(848);
 	});
 
-	it('should get the seat id of the first example', async () => {
+	it('should get the seat id of the first example', () => {
 		expect(calculateSeatId('FBFBBFFRLR')).to.equal(357);
 	});
 
-	it('should get the seat id of the second example', async () => {
+	it('should get the seat id of the second example', () => {
 		expect(calculateSeatId('BFFFBBFRRR')).to.equal(567);
 	});
 
-	it('should get the seat id of the third example', async () => {
+	it('should get the seat id of the third example', () => {
 		expect(calculateSeatId('FFFBBBFRRR')).to.equal(119);
 	});
 
-	it('should get the seat id of the fourth example', async () => {
+	it('should get the seat id of the fourth example', () => {
 		expect(calculateSeatId('BBFFBBFRLL')).to.equal(820);
 	});
 });

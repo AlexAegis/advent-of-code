@@ -18,13 +18,12 @@ describe('2020 - Day 24 - Part One', () => {
 	describe('Graph', () => {
 		it('should solve for the input', async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-
-			expect(await p1g(resources.input)).to.equal(479);
+			expect(p1g(resources.input)).to.equal(479);
 		});
 
 		it('should solve for the first example', async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(await p1g(resources.input)).to.equal(10);
+			expect(p1g(resources.input)).to.equal(10);
 		});
 	});
 });

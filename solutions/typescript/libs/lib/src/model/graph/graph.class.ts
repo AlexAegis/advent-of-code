@@ -1,6 +1,5 @@
 import type { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
-import type { Vec2String } from '../vector/vec2.class.types.js';
 
 import type { Edge } from './edge.type.js';
 import type { Heuristic, Weighter } from './heuristic.type.js';
@@ -25,7 +24,7 @@ export class Graph<
 	T extends ToString = string,
 	Dir extends ToString = Direction,
 	N extends GraphNode<T, Dir> = GraphNode<T, Dir>
-> {
+> implements Iterable<N> {
 	public nodes = new Map<string, N>();
 	public edges = new Set<Edge<N>>();
 
@@ -41,7 +40,7 @@ export class Graph<
 			const fromToEdge = { from, to };
 			graph.edges.add(fromToEdge);
 			from.neighbours.set(from.neighbours.size + 1, fromToEdge);
-			if (forcedBidirection || (edge.bidirection && forcedBidirection !== false)) {
+			if (forcedBidirection ?? (edge.bidirection && forcedBidirection)) {
 				const toFromEdge = { from: to, to: from };
 				graph.edges.add(toFromEdge);
 				to.neighbours.set(to.neighbours.size + 1, toFromEdge);
@@ -105,8 +104,7 @@ export class Graph<
 		return s;
 	}
 
-	public getNode(key: string): N | undefined;
-	public getNode(key: string | Vec2String): N | undefined {
+	public getNode(key: string): N | undefined {
 		return this.nodes.get(key);
 	}
 
@@ -115,7 +113,15 @@ export class Graph<
 	}
 
 	public forEach(callbackFn: (node: N) => void): void {
-		this.nodes.forEach(callbackFn);
+		for (const node of this.nodes.values()) {
+			callbackFn(node)
+		}
+	}
+
+	*[Symbol.iterator](): IterableIterator<N> {
+		for (const node of this.nodes.values()) {
+			yield node
+		}
 	}
 
 	public dijkstra(start: N | undefined, target: N | undefined, _doFull = false): N[] {
@@ -128,19 +134,20 @@ export class Graph<
 		const prev = new Map<N, N>();
 		dist.set(start, 0);
 
-		while (q.size) {
+		while (q.size > 0) {
 			// refactor this to a prio queue
 			const umin = [...q.values()].reduce(
 				(acc, b) => {
-					const u = dist.get(b) ?? Infinity;
+					const u = dist.get(b) ?? Number.POSITIVE_INFINITY;
 					if (!acc.node || u < acc.dist) {
 						acc.node = b;
-						acc.dist = dist.get(b) ?? Infinity;
+						acc.dist = dist.get(b) ?? Number.POSITIVE_INFINITY;
 					}
 					return acc;
 				},
-				{ node: undefined as N | undefined, dist: Infinity }
+				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY }
 			);
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const u = umin.node!;
 			if (u === target) {
 				break;
@@ -149,7 +156,7 @@ export class Graph<
 
 			for (const neighbour of u) {
 				const alt = umin.dist + (neighbour.weight ?? 1);
-				if (alt < (dist.get(neighbour.to) ?? Infinity)) {
+				if (alt < (dist.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
 					dist.set(neighbour.to, alt);
 					prev.set(neighbour.to, u);
 				}
@@ -201,19 +208,20 @@ export class Graph<
 
 		let goal: N | undefined;
 
-		while (openSet.size) {
+		while (openSet.size > 0) {
 			const umin = [...openSet.values()].reduce(
 				(acc, b) => {
-					const u = fScore.get(b) ?? Infinity;
+					const u = fScore.get(b) ?? Number.POSITIVE_INFINITY;
 					if (!acc.node || u < acc.dist) {
 						acc.node = b;
-						acc.dist = fScore.get(b) ?? Infinity;
+						acc.dist = fScore.get(b) ?? Number.POSITIVE_INFINITY;
 					}
 					return acc;
 				},
-				{ node: undefined as N | undefined, dist: Infinity }
+				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY }
 			);
-			const current = umin.node as N;
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			const current = umin.node!;
 
 			const currentPath = Graph.generatePath(cameFrom, start, current);
 
@@ -226,9 +234,9 @@ export class Graph<
 			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, currentPath) ??
 				current) {
 				const tentativegScore =
-					(gScore.get(current) ?? Infinity) +
+					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
 					(recalc && neighbour.weighter ? neighbour.weighter() : neighbour.weight ?? 1);
-				if (tentativegScore < (gScore.get(neighbour.to) ?? Infinity)) {
+				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);
 					fScore.set(neighbour.to, tentativegScore + h(neighbour.to, currentPath));

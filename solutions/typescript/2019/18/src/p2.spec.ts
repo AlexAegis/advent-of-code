@@ -9,7 +9,7 @@ describe('2019 - Day 18 - Part Two', () => {
 		expect(p2(resources.input)).to.equal(0);
 	});
 
-	it('should be that that the first example resolves to 0', async () => {
-		expect(await p2('0')).to.equal(0);
+	it('should be that that the first example resolves to 0', () => {
+		expect(p2('0')).to.equal(0);
 	});
 });

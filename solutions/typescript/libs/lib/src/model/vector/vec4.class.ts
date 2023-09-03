@@ -32,7 +32,7 @@ export class Vec4 implements Vec4Like {
 			this.z = z;
 			this.w = q;
 		} else if (typeof x === 'string') {
-			[this.x, this.y, this.z, this.w] = (x.match(NUM) || []).map((s) => parseInt(s, 10)) as [
+			[this.x, this.y, this.z, this.w] = (x.match(NUM) ?? []).map((s) => Number.parseInt(s, 10)) as [
 				number,
 				number,
 				number,
@@ -50,7 +50,7 @@ export class Vec4 implements Vec4Like {
 		);
 	}
 
-	public addMut(coord: Vec4Like, times = 1): Vec4 {
+	public addMut(coord: Vec4Like, times = 1): this {
 		this.x += coord.x * times;
 		this.y += coord.y * times;
 		this.z += coord.z * times;
@@ -136,8 +136,8 @@ export class Vec4 implements Vec4Like {
 			}, [] as Vec3[]);
 	}*/
 
-	public equals(o: this): boolean {
-		return o && this.x === o.x && this.y === o.y && this.z === o.z && this.w === o.w;
+	public equals(o: this | undefined): boolean {
+		return o !== undefined && this.x === o.x && this.y === o.y && this.z === o.z && this.w === o.w;
 	}
 
 	public toString(): string {

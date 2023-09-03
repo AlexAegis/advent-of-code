@@ -9,7 +9,7 @@ import packageJson from '../package.json';
 export const p1 =
 	(iterationCount = 100) =>
 	(input: string): number => {
-		const circle = input.split('').map((s) => parseInt(s, 10));
+		const circle = [...input].map((s) => Number.parseInt(s, 10));
 		const high = circle.reduce(max);
 		const low = circle.reduce(min);
 		const ll = new CircularLinkedList<number>(circle);
@@ -17,7 +17,7 @@ export const p1 =
 		let cursor = ll.head;
 
 		const m = new Map<number, CircularLinkedListNode<number>>();
-		for (const link of [...cursor.forward()]) {
+		for (const link of cursor.forward()) {
 			m.set(link.value, link);
 		}
 
@@ -56,6 +56,7 @@ export const p1 =
 			cursor = cursor.next;
 		}
 
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		let first = m.get(1)!.next;
 
 		let result = '';
@@ -63,7 +64,7 @@ export const p1 =
 			result += first.value;
 			first = first.next;
 		}
-		return parseInt(result, 10);
+		return Number.parseInt(result, 10);
 	};
 
 await task(p1(10), packageJson.aoc); // 783895 ~22ms

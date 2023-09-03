@@ -9,9 +9,9 @@ export const parse = (input: string): Tile[] => {
 		if (line.endsWith(':')) {
 			const [, nc] = line.splitIntoStringPair(' ');
 			const [n] = nc.splitIntoStringPair(':');
-			tiles.push(new Tile(parseInt(n, 10)));
+			tiles.push(new Tile(Number.parseInt(n, 10)));
 		} else if (line !== '') {
-			tiles[tiles.length - 1]?.addLine(line);
+			tiles.at(-1)?.addLine(line);
 		}
 	}
 	return tiles;

@@ -8,7 +8,7 @@ export const hasBeam = (tape: number[], x: number, y: number): boolean => {
 	const it = i.iter();
 	i.pushInput(x);
 	i.pushInput(y);
-	const cam = it.next().value;
+	const cam = it.next().value as number;
 	return cam === 1;
 };
 

@@ -11,6 +11,7 @@ const sumVersions = (packet: Packet): number =>
 		: 0);
 
 export const p1 = (input: string): number => {
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const bits = hexToBits(input.lines()[0]!);
 	const packet = interpretPacket(bits);
 	return sumVersions(packet);

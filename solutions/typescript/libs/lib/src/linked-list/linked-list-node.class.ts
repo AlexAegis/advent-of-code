@@ -6,7 +6,7 @@ export class LinkedListNode<T> implements ToString {
 	public constructor(public value: T) {}
 
 	public toString(): string {
-		return `${this.value}`;
+		return `${String(this.value)}`;
 	}
 
 	public *forward(): IterableIterator<LinkedListNode<T>> {

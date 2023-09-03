@@ -22,17 +22,21 @@ export enum Joy {
 
 export const tileToString = (t: TileType | undefined): string => {
 	switch (t) {
-		case TileType.BALL:
+		case TileType.BALL: {
 			return 'O';
-		case TileType.WALL:
+		}
+		case TileType.WALL: {
 			return '#';
-		case TileType.BLOCK:
+		}
+		case TileType.BLOCK: {
 			return 'X';
-		case TileType.PAD:
+		}
+		case TileType.PAD: {
 			return '_';
-		case TileType.EMPTY:
-		default:
+		}
+		default: {
 			return ' ';
+		}
 	}
 };
 
@@ -55,7 +59,11 @@ export const p2 =
 		let p: Vec2 | undefined;
 		comp.pushInput(Joy.NEUT);
 		while (!comp.isHalt()) {
-			const [x, y, t] = [i.next().value, i.next().value, i.next().value];
+			const [x, y, t] = [
+				i.next().value as number,
+				i.next().value as number,
+				i.next().value as TileType,
+			];
 			const c = new Vec2(x, y);
 			if (c.equals(sd)) {
 				s = t;

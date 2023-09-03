@@ -7,24 +7,31 @@ export const processSegment = (line: string[]): string => {
 	let lastOperator: '+' | '*' | undefined = undefined;
 	for (let i = 0; i < line.length; i++) {
 		const item = line[i];
-		if (item === '+') {
-			lastOperator = item;
-		} else if (item === '*') {
-			lastOperator = item;
-		} else if (item === '(') {
-			const j = line.findEndOfPair(['(', ')'], i);
-			const segmentResult = processSegment(line.slice(i + 1, j));
-			if (value === undefined) {
-				value = segmentResult;
-			} else {
-				value = eval(`${value}${lastOperator}${segmentResult}`);
+		switch (item) {
+			case '+': {
+				lastOperator = item;
+
+				break;
 			}
-			i = j ?? i;
-		} else {
-			if (value === undefined) {
-				value = item;
-			} else {
-				value = eval(`${value}${lastOperator}${item}`);
+			case '*': {
+				lastOperator = item;
+
+				break;
+			}
+			case '(': {
+				const j = line.findEndOfPair(['(', ')'], i);
+				const segmentResult = processSegment(line.slice(i + 1, j));
+				value =
+					value === undefined
+						? segmentResult
+						: (eval(`${value}${lastOperator}${segmentResult}`) as string);
+				i = j ?? i;
+
+				break;
+			}
+			default: {
+				value =
+					value === undefined ? item : (eval(`${value}${lastOperator}${item}`) as string);
 			}
 		}
 	}
@@ -33,7 +40,7 @@ export const processSegment = (line: string[]): string => {
 
 export const p1 = (input: string): number =>
 	split(input)
-		.map((line) => parseInt(processSegment(line.replace(/ /g, '').split('')), 10))
+		.map((line) => Number.parseInt(processSegment([...line.replaceAll(' ', '')]), 10))
 		.reduce(sum, 0);
 
 await task(p1, packageJson.aoc); // 25190263477788 ~256.62ms

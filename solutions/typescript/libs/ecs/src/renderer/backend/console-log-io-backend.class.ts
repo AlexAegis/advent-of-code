@@ -1,4 +1,5 @@
 import { renderMatrix, type Vec2Like } from '@alexaegis/advent-of-code-lib';
+import { noopAsync } from '@alexaegis/common';
 import type { Sprite } from '../sprite.class.js';
 import type {
 	IOBackend,
@@ -15,6 +16,7 @@ export class ConsoleLogIOBackend implements IOBackend {
 	}
 
 	async init(_resize: (size: Vec2Like) => void): Promise<void> {
+		await noopAsync();
 		return;
 	}
 

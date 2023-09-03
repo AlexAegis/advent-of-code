@@ -4,9 +4,9 @@ import { Direction } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json';
 
 const expand = (input: string, factor = 5): string => {
-	const matrix = input.toMatrix().map((row) => row.map((e) => parseInt(e, 10)));
+	const matrix = input.toMatrix().map((row) => row.map((e) => Number.parseInt(e, 10)));
 
-	const first = factor.iterate().reduce((acc, n) => {
+	const first = factor.iterate().reduce<number[][]>((acc, n) => {
 		for (const row of matrix) {
 			acc.push(
 				row.map((t) => {
@@ -15,15 +15,15 @@ const expand = (input: string, factor = 5): string => {
 						next += 1;
 					}
 					return next;
-				})
+				}),
 			);
 		}
 		return acc;
-	}, [] as number[][]);
+	}, []);
 
 	for (let r = 0; r < first.length; r++) {
-		const row = first[r]!;
-		const expandedRow = factor.iterate().reduce((acc, n) => {
+		const row = first[r] ?? [];
+		const expandedRow = factor.iterate().reduce<number[]>((acc, n) => {
 			acc.push(
 				...row.map((t) => {
 					let next = (t + n) % 10;
@@ -31,11 +31,11 @@ const expand = (input: string, factor = 5): string => {
 						next += 1;
 					}
 					return next;
-				})
+				}),
 			);
 
 			return acc;
-		}, [] as number[]);
+		}, []);
 		first[r] = expandedRow;
 	}
 	return renderMatrix(first);
@@ -43,7 +43,7 @@ const expand = (input: string, factor = 5): string => {
 
 export const p2 = (input: string): number => {
 	const graph = expand(input).toGridGraph<number>({
-		valueConverter: (s) => parseInt(s, 10),
+		valueConverter: (s) => Number.parseInt(s, 10),
 		weighter: (a, b) => b.value - a.value,
 		connectionDirections: Direction.cardinalDirections,
 	});

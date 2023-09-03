@@ -19,5 +19,5 @@ await defaultBench(
 	add('Part Two (Memoized)', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc);
 		return () => p2memoized(input);
-	})
+	}),
 );

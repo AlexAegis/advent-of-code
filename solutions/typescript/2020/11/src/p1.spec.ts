@@ -10,7 +10,7 @@ describe('2020 - Day 11 - Part One', () => {
 			const resources = await loadTaskResources(packageJson.aoc);
 			expect(p1(resources.input)).to.equal(2406);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 
 	it(
@@ -19,6 +19,6 @@ describe('2020 - Day 11 - Part One', () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
 			expect(p1(resources.input)).to.equal(37);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 });

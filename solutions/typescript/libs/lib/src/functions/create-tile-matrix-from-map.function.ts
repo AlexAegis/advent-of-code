@@ -13,7 +13,7 @@ import { generateStringTile } from './generate-string-tile.function.js';
  */
 export const createTileMatrixFromMap = <T>(
 	tileMap: Map<Vec2String, T>,
-	tileToString: (t: T) => string = (t) => (t as ToString).toString?.() ?? '_',
+	tileToString: (t: T) => string = (t) => (t as Partial<ToString>).toString?.() ?? '_',
 	emptyTileBase = '_'
 ): string[][] => {
 	const result: string[][] = [];

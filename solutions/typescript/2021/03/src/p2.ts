@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
@@ -32,8 +33,8 @@ export const p2 = (input: string): number => {
 		co2ScrubberRatings = co2ScrubberRatings.filter((line) => [...line][i] !== mostCommonBit);
 	}
 
-	const oxygenRating = parseInt(oxygenRatings[0]!, 2);
-	const co2ScrubberRating = parseInt(co2ScrubberRatings[0]!, 2);
+	const oxygenRating = Number.parseInt(oxygenRatings[0]!, 2);
+	const co2ScrubberRating = Number.parseInt(co2ScrubberRatings[0]!, 2);
 	return oxygenRating * co2ScrubberRating;
 };
 

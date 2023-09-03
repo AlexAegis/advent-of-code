@@ -10,7 +10,7 @@ export const vectorsToMatrix = (
 	for (let y = boundingBox.top; y <= boundingBox.bottom; y++) {
 		const row: string[] = [];
 		for (let x = boundingBox.left; x <= boundingBox.right; x++) {
-			if (vects.find((v) => v.x === x && v.y === y)) {
+			if (vects.some((v) => v.x === x && v.y === y)) {
 				row.push('#');
 			} else {
 				row.push('.');

@@ -106,15 +106,15 @@ const bigIntProtoModExp = function (this: bigint, b: bigint, n: bigint): bigint 
 Object.assign(BigInt.prototype, { modExp: bigIntProtoModExp });
 
 const toInt = function (this: string, radix = 10): number | undefined {
-	const result = parseInt(this, radix);
-	return isNaN(result) ? undefined : result;
+	const result = Number.parseInt(this, radix);
+	return Number.isNaN(result) ? undefined : result;
 };
 Object.assign(String.prototype, { toInt });
 
 String.prototype.tryInt = function (this: string, radix = 10): number {
-	const result = parseInt(this, radix);
-	if (isNaN(result)) {
-		throw new Error(`Number::tryInt Converting '${this}' resulted in NaN!`);
+	const result = Number.parseInt(this, radix);
+	if (Number.isNaN(result)) {
+		throw new TypeError(`Number::tryInt Converting '${this}' resulted in NaN!`);
 	}
 	return result;
 };

@@ -9,7 +9,7 @@ declare global {
 }
 
 Set.prototype.valueArray = function <T>(): T[] {
-	return [...this.values()];
+	return [...this.values()] as T[];
 };
 
 Set.prototype.addAll = function <T>(items: T[]): Set<T> {

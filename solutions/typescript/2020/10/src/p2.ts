@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse } from './parse.function.js';
@@ -6,7 +7,7 @@ const countBranches = (
 	jolts: number[],
 	index: number,
 	builtIn: number,
-	cache: Map<number, number> = new Map<number, number>()
+	cache: Map<number, number> = new Map<number, number>(),
 ): number => {
 	const current = jolts[index]!;
 	if (current === builtIn) {

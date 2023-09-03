@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
@@ -8,8 +9,7 @@ export const p1 = (input: number): string => {
 	for (let i = 0; recipes.length <= input + 10; i++) {
 		const next = recipes[a]! + recipes[b]!;
 		if (next >= 10) {
-			recipes.push(Math.floor(next / 10));
-			recipes.push(next % 10);
+			recipes.push(Math.floor(next / 10), next % 10);
 		} else {
 			recipes.push(next);
 		}
@@ -19,4 +19,4 @@ export const p1 = (input: number): string => {
 	return recipes.splice(input, 10).join('');
 };
 
-await task(p1, packageJson.aoc, { input: 327901 }); // 1115317115 ~9.6ms
+await task(p1, packageJson.aoc, { input: 327_901 }); // 1115317115 ~9.6ms

@@ -16,8 +16,8 @@ export const rackDirections = [
 ];
 
 export const p1 = (input: string): string => {
-	const serialNumber = parseInt(input, 10);
-	const map: Map<string, number> = new Map();
+	const serialNumber = Number.parseInt(input, 10);
+	const map = new Map<string, number>();
 	for (const vec of range({ from: 1, to: 300 }, { from: 1, to: 300 })) {
 		const rackID = vec.x + 10;
 		let powerLevel = rackID * vec.y;
@@ -32,7 +32,7 @@ export const p1 = (input: string): string => {
 		(acc, next) => {
 			const sum = rackDirections
 				.map((rd) => rd.clone().addMut(next))
-				.map((c) => map.get(c.toString()) || 0)
+				.map((c) => map.get(c.toString()) ?? 0)
 				.reduce((a, n) => (a += n), 0);
 			if (sum > acc.sum) {
 				acc.vec = next;
@@ -40,9 +40,9 @@ export const p1 = (input: string): string => {
 			}
 			return acc;
 		},
-		{ vec: undefined as unknown as Vec2, sum: -Infinity }
+		{ vec: undefined as unknown as Vec2, sum: Number.NEGATIVE_INFINITY },
 	);
-	return `${max.vec} (${max.sum})`;
+	return `${max.vec.toString()} (${max.sum})`;
 };
 
 await task(p1, packageJson.aoc); // 21,37 (30) ~165ms

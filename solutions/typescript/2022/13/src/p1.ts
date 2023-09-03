@@ -7,11 +7,7 @@ export const p1 = (input: string): number =>
 		.split(DOUBLE_NEWLINE)
 		.map((g) => split(g).map((l) => JSON.parse(l) as Signal) as [Signal, Signal])
 		.map(([a, b], i) => {
-			if (signalComparator(a, b) < 0) {
-				return i + 1;
-			} else {
-				return 0;
-			}
+			return signalComparator(a, b) < 0 ? i + 1 : 0;
 		})
 		.sum();
 

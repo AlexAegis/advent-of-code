@@ -29,9 +29,9 @@ export const nextState = (v: Vec2, map: Map<string, SeatState>): SeatState => {
 
 export const tick = (map: Map<Vec2String, SeatState>): Map<Vec2String, SeatState> => {
 	const nextMap = new Map<Vec2String, SeatState>();
-	[...map.keys()].forEach((key) => {
+	for (const key of map.keys()) {
 		nextMap.set(key, nextState(new Vec2(key), map));
-	});
+	}
 	return nextMap;
 };
 

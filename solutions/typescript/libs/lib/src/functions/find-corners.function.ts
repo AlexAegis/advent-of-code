@@ -13,10 +13,10 @@ export interface Corners<T extends Vec2Like> {
  * @param vectors to find the corners from
  */
 export const findCorners = <T extends Vec2Like>(vectors: T[]): Corners<Vec2> => {
-	let minX = Infinity;
-	let minY = Infinity;
-	let maxX = -Infinity;
-	let maxY = -Infinity;
+	let minX = Number.POSITIVE_INFINITY;
+	let minY = Number.POSITIVE_INFINITY;
+	let maxX = Number.NEGATIVE_INFINITY;
+	let maxY = Number.NEGATIVE_INFINITY;
 	for (const vector of vectors) {
 		if (vector.x < minX) {
 			minX = vector.x;

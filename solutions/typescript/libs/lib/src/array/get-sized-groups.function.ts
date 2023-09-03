@@ -1,7 +1,7 @@
 export const getSizedGroups = <T>(array: T[], groupSize: number): T[][] =>
-	array.reduce(
+	array.reduce<T[][]>(
 		(groups, next) => {
-			let lastGroup = groups[groups.length - 1];
+			let lastGroup = groups.at(-1);
 			if (lastGroup) {
 				if (lastGroup.length >= groupSize) {
 					lastGroup = [];
@@ -11,5 +11,5 @@ export const getSizedGroups = <T>(array: T[], groupSize: number): T[][] =>
 			}
 			return groups;
 		},
-		[[]] as T[][]
+		[[]]
 	);

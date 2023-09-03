@@ -5,6 +5,7 @@ import { parseBoundary } from './functions/parse.function.js';
 import { Probe } from './model/probe.class.js';
 
 export const p1 = (input: string): number => {
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const line = input.lines()[0]!;
 	const boundary = parseBoundary(line);
 	let result = 0;

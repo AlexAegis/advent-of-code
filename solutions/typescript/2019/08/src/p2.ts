@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import { chunksOfArray } from '@alexaegis/advent-of-code-lib/functions';
 import packageJson from '../package.json';
@@ -34,16 +35,18 @@ export const p2 = (input: string): string => {
 					l
 						.map((n) => {
 							switch (n) {
-								case COLOR.BLACK:
+								case COLOR.BLACK: {
 									return '`';
-								case COLOR.WHITE:
+								}
+								case COLOR.WHITE: {
 									return '#';
-								case COLOR.TRANSPARENT:
-								default:
+								}
+								default: {
 									return ' ';
+								}
 							}
 						})
-						.join('') + '\n'
+						.join('') + '\n',
 			)
 			.join('')
 	);

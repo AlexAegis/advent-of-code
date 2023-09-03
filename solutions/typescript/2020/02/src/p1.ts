@@ -12,8 +12,8 @@ export interface TobogganPasswordPolicy {
 
 export const parseLine = (line: string): TobogganPasswordPolicy => {
 	const [, lows, highs, letter, password] = line.match(lineMatcher) ?? [];
-	const low = parseInt(lows ?? '0', 10);
-	const high = parseInt(highs ?? '0', 10);
+	const low = Number.parseInt(lows ?? '0', 10);
+	const high = Number.parseInt(highs ?? '0', 10);
 	return { low, high, letter: letter ?? '', password: password ?? '' };
 };
 

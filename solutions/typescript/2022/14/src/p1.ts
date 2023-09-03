@@ -18,11 +18,11 @@ export const p1 = async (input: string): Promise<number> => {
 
 		for (const [sandEntity, positionComponent] of world.query(
 			StaticPositionComponent,
-			SandKindComponent
+			SandKindComponent,
 		)) {
 			if (positionComponent.position.y >= treshhold) {
 				sandEntity.despawn();
-				const [_e, sandspawnerData] = world.queryOne(SandSpawnerKindComponent);
+				const [, sandspawnerData] = world.queryOne(SandSpawnerKindComponent);
 				sandspawnerData.enabled = false;
 				didSomething = false;
 			}

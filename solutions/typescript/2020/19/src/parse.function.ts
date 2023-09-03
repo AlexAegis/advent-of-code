@@ -1,5 +1,5 @@
 export const parse = (
-	input: string
+	input: string,
 ): { ruleBook: Map<number, number[][] | string>; words: string[] } => {
 	const lines = input.split(/\r?\n/);
 
@@ -12,19 +12,20 @@ export const parse = (
 			continue;
 		}
 
-		if (!parseCases) {
+		if (parseCases) {
+			words.push(line);
+		} else {
 			const [index, rulesUnsplit] = line.splitIntoStringPair(': ');
 			const rules = rulesUnsplit.split(' | ');
 			if (rules[0]?.startsWith('"') && rules[0].endsWith('"')) {
-				ruleBook.set(parseInt(index, 10), rules[0][1]!);
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				ruleBook.set(Number.parseInt(index, 10), rules[0][1]!);
 			} else {
 				ruleBook.set(
-					parseInt(index, 10),
-					rules.map((c) => c.split(' ').map((n) => parseInt(n, 10)))
+					Number.parseInt(index, 10),
+					rules.map((c) => c.split(' ').map((n) => Number.parseInt(n, 10))),
 				);
 			}
-		} else {
-			words.push(line);
 		}
 	}
 	return { ruleBook, words };

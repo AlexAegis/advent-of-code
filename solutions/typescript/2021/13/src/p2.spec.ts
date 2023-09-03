@@ -6,7 +6,7 @@ import { p2 } from './p2.js';
 describe('2021 - Day 13 - Part Two', () => {
 	it('should resolve when using the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p2(resources.input)).to.equal(`REUPUPKR`);
+		expect(p2(resources.input)).to.equal('REUPUPKR');
 	});
 
 	describe('example 1', () => {

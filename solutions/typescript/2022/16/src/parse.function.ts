@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { split } from '@alexaegis/advent-of-code-lib';
 
 export interface Valve {
@@ -7,14 +8,14 @@ export interface Valve {
 }
 
 export const parse = (input: string): Valve[] => {
-	const match = /^Valve ([A-Z]{2}) has flow rate=(-?[0-9]+); tunnels? leads? to valves? (.*)$/;
+	const match = /^Valve ([A-Z]{2}) has flow rate=(-?\d+); tunnels? leads? to valves? (.*)$/;
 	return split(input).map((line) => {
 		const groups = match.exec(line);
 		if (groups) {
 			const [, name, rawFlowRate, rawLeadsTo] = groups;
 			return {
 				name,
-				flowRate: parseInt(rawFlowRate!, 10),
+				flowRate: Number.parseInt(rawFlowRate!, 10),
 				leadsTo: rawLeadsTo!.split(', '),
 			} as Valve;
 		} else {

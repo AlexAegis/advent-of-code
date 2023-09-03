@@ -10,7 +10,7 @@ export const p2 = (input: string): number => {
 	let verb = 0;
 	o: for (noun = 0; noun <= 100; noun++) {
 		for (verb = 0; verb <= 100; verb++) {
-			if (computer.reset(tape).withNoun(noun).withVerb(verb).run().peek(0) === 19690720) {
+			if (computer.reset(tape).withNoun(noun).withVerb(verb).run().peek(0) === 19_690_720) {
 				break o;
 			}
 		}

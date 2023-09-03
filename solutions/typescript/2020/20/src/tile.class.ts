@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { flipMatrix, rotateMatrix } from '@alexaegis/advent-of-code-lib/array';
 import { Direction, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
 
@@ -7,7 +8,7 @@ export class Tile {
 	constructor(public index: number) {}
 
 	public addLine(line: string): void {
-		this.tiles.push(line.split(''));
+		this.tiles.push([...line]);
 	}
 
 	public flip(axis: 'y' | 'x'): this {
@@ -52,31 +53,36 @@ export class Tile {
 	 */
 	public getBorder(side: number, reversed = false): string[] {
 		let result: string[];
-		if (side === 0) {
-			result = this.tiles.map((t) => t[t.length - 1]!);
-		} else if (side === 1) {
-			result = this.tiles[0]!;
-		} else if (side === 2) {
-			result = this.tiles.map((t) => t[0]!);
-		} else {
-			result = this.tiles[this.tiles.length - 1]!;
+		switch (side) {
+			case 0: {
+				result = this.tiles.map((t) => t.at(-1)!);
+
+				break;
+			}
+			case 1: {
+				result = this.tiles[0]!;
+
+				break;
+			}
+			case 2: {
+				result = this.tiles.map((t) => t[0]!);
+
+				break;
+			}
+			default: {
+				result = this.tiles.at(-1)!;
+			}
 		}
 		return reversed ? result.reverse() : result;
 	}
 
 	public toString(border = true): string {
-		if (border) {
-			return (
-				`${this.index}.`.padEnd(10, ' ') +
-				'\n' +
-				this.tiles.map((r) => r.join('')).join('\n')
-			);
-		} else {
-			return this.tiles
-				.slice(1, this.tiles.length - 1)
-				.map((r) => r.slice(1, r.length - 1).join(''))
-				.join('\n');
-		}
+		return border
+			? `${this.index}.`.padEnd(10, ' ') + '\n' + this.tiles.map((r) => r.join('')).join('\n')
+			: this.tiles
+					.slice(1, -1)
+					.map((r) => r.slice(1, -1).join(''))
+					.join('\n');
 	}
 
 	static alignTiles(
@@ -85,7 +91,7 @@ export class Tile {
 		allTiles: Tile[],
 		tileMap: Map<Vec2String, Tile>,
 		checkedPositions = new Set<string>(),
-		found = new Set<Tile>()
+		found = new Set<Tile>(),
 	): void {
 		// If already visited the tile...
 		if (tile && found.has(tile)) {
@@ -111,7 +117,7 @@ export class Tile {
 		}))) {
 			const result = tile.findForBorder(
 				allTiles.filter((at) => !found.has(at) && at !== tile),
-				directions.directionIndex
+				directions.directionIndex,
 			);
 
 			Tile.alignTiles(
@@ -120,7 +126,7 @@ export class Tile {
 				allTiles /*.filter((at) => at !== result)*/,
 				tileMap,
 				checkedPositions,
-				found
+				found,
 			);
 		}
 	}

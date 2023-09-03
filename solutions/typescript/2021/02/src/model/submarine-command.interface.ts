@@ -8,7 +8,7 @@ export interface SubmarineCommand {
 export const parseSubmarineCommand = (line: string): SubmarineCommand => {
 	const [a, b] = line.splitIntoStringPair(' ');
 	if (isSubmarineInstruction(a)) {
-		const amplitude = parseInt(b, 10);
+		const amplitude = Number.parseInt(b, 10);
 		return { instruction: a, amplitude };
 	} else {
 		throw new Error(`Not a valid submarine command: ${line}`);

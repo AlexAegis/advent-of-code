@@ -15,6 +15,7 @@ export class BlessedIOBackend implements IOBackend {
 		this.program.setTitle(title);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/require-await
 	async init(_resizeNotifier: (size: Vec2Like) => void): Promise<void> {
 		this.program = blessed.program({
 			smartCSR: true,
@@ -31,9 +32,10 @@ export class BlessedIOBackend implements IOBackend {
 			});
 		});
 
-		this.program.key('q', () => {
-			this.close();
+		this.program.key('q', async () => {
+			await this.close();
 			console.log('PANIC');
+			// eslint-disable-next-line unicorn/no-process-exit
 			process.exit(0);
 		});
 	}
@@ -60,11 +62,13 @@ export class BlessedIOBackend implements IOBackend {
 		return;
 	}
 
+	// eslint-disable-next-line @typescript-eslint/require-await
 	async close(): Promise<void> {
 		this.program.clear();
 		this.program.disableMouse();
 		this.program.showCursor();
 		this.program.normalBuffer();
+		// eslint-disable-next-line unicorn/no-process-exit
 		process.exit(0);
 	}
 }

@@ -19,7 +19,7 @@ export const p2 = (input: string): number | undefined => {
 					los
 						.map((c) => ({ c, angle: start.angle(c) }))
 						.sort((a, b) => a.angle - b.angle),
-					(_, c) => (c?.angle ?? 0) < -90
+					(_, c) => (c?.angle ?? 0) < -90,
 				).map((a) => a.c);
 
 				for (const s of sorted) {
@@ -33,7 +33,7 @@ export const p2 = (input: string): number | undefined => {
 				d += los.length;
 			}
 
-			flat = flat.filter((fl) => !los.find((l) => l.equals(fl)));
+			flat = flat.filter((fl) => !los.some((l) => l.equals(fl)));
 		}
 	}
 	return undefined;

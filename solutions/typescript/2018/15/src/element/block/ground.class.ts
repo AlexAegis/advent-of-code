@@ -20,7 +20,7 @@ export class Ground extends Block {
 	}
 
 	get weight(): number {
-		return this.occupant ? Infinity : 0;
+		return this.occupant ? Number.POSITIVE_INFINITY : 0;
 	}
 
 	override toString(): string {

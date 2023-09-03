@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Graph, GraphNode, memoize, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse, type Valve } from './parse.function.js';
@@ -8,12 +9,12 @@ const pathBetweenValves = memoize(
 	(
 		fromValve: string,
 		toValve: string,
-		graph: Graph<Valve, string>
+		graph: Graph<Valve, string>,
 	): GraphNode<Valve, string>[] => {
 		const from = graph.getNode(fromValve);
 		const to = graph.getNode(toValve);
 		return graph.aStar(from, to);
-	}
+	},
 );
 
 /**
@@ -30,7 +31,7 @@ const scoreValve = (
 	toValve: Valve,
 	graph: Graph<Valve, string>,
 	depth = 0,
-	elephant: boolean
+	elephant: boolean,
 ): number => {
 	if (depth === 0) {
 		return 0;
@@ -47,7 +48,7 @@ const scoreValve = (
 				openableValvesAfterThis,
 				graph,
 				depth - 1,
-				elephant
+				elephant,
 			)?.score ?? 0;
 		// for each unopened worthvile - the fromtarget
 
@@ -62,10 +63,10 @@ const highestScoreValve = (
 	valves: Valve[],
 	graph: Graph<Valve, string>,
 	depth: number,
-	elephant: boolean
+	elephant: boolean,
 ): { valve: Valve; score: number } | undefined => {
 	const openableValves = valves.filter(
-		(valve) => valve.flowRate > 0 && !openValves.includes(valve)
+		(valve) => valve.flowRate > 0 && !openValves.includes(valve),
 	);
 	let valvesSortedByScore = openableValves
 		.map((valve) => ({
@@ -78,7 +79,7 @@ const highestScoreValve = (
 				valve,
 				graph,
 				depth,
-				elephant
+				elephant,
 			),
 		}))
 		.sort((a, b) => b.score - a.score);
@@ -90,14 +91,14 @@ const highestScoreValve = (
 				score: scoreValve(
 					currentTime,
 					openableValves.filter(
-						(v) => v !== valve && v !== valvesSortedByScore[0]?.valve
+						(v) => v !== valve && v !== valvesSortedByScore[0]?.valve,
 					),
 					[...openValves, valve],
 					fromValve,
 					valve,
 					graph,
 					depth,
-					elephant
+					elephant,
 				),
 			}))
 			.sort((a, b) => b.score - a.score);
@@ -110,11 +111,7 @@ const highestScoreValve = (
 	// 	fromValve.name,
 	// 	valvesSortedByScore.map((v) => v.valve.name + ': ' + v.score).join('; ')
 	// );
-	if (valvesSortedByScore.length) {
-		return valvesSortedByScore[0];
-	} else {
-		return undefined;
-	}
+	return valvesSortedByScore.length > 0 ? valvesSortedByScore[0] : undefined;
 };
 
 /***
@@ -151,11 +148,11 @@ export const p2 = (input: string): number => {
 		const pressureThisRound = openedValves.map((valve) => valve.flowRate).sum();
 		pressureReleasedSoFar += pressureThisRound;
 		console.log(`\n== Minute ${i + 1} ==`);
-		if (openedValves.length) {
+		if (openedValves.length > 0) {
 			console.log(
 				`Valves ${openedValves
 					.map((v) => v.name)
-					.join(', ')} are open, releasing ${pressureThisRound} pressure.`
+					.join(', ')} are open, releasing ${pressureThisRound} pressure.`,
 			);
 		} else {
 			console.log('No valves are open.');
@@ -169,15 +166,15 @@ export const p2 = (input: string): number => {
 				valves.filter((v) => v !== elephantTargetValve),
 				graph,
 				4,
-				false
+				false,
 			)?.valve;
 
 			if (targetValve) {
-				console.log('TARGET', targetValve?.name);
+				console.log('TARGET', targetValve.name);
 				movingAlongPath = pathBetweenValves(
 					currentlyAtValve.name,
 					targetValve.name,
-					graph
+					graph,
 				).map((node) => node.value);
 				movingAlongPath.shift()!; // get rid of starting value
 			} else {
@@ -203,15 +200,15 @@ export const p2 = (input: string): number => {
 				valves.filter((v) => v !== targetValve),
 				graph,
 				4,
-				true
+				true,
 			)?.valve;
 
 			if (elephantTargetValve) {
-				console.log('TARGET', elephantTargetValve?.name);
+				console.log('TARGET', elephantTargetValve.name);
 				elephantMovingAlongPath = pathBetweenValves(
 					elephantCurrentlyAtValve.name,
 					elephantTargetValve.name,
-					graph
+					graph,
 				).map((node) => node.value);
 				elephantMovingAlongPath.shift()!; // get rid of starting value
 			} else {

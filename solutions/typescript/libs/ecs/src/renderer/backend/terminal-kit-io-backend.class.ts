@@ -12,14 +12,14 @@ type TerminalKitEventData =
 	| { isCharacter: true; codepoint: number; code: number }
 	| { isCharacter: false; code: Buffer };
 
-type TerminalKitMouseEventData = {
+interface TerminalKitMouseEventData {
 	shift: boolean;
 	alt: boolean;
 	ctrl: boolean;
 	x: number;
 	y: number;
 	code: number;
-};
+}
 
 const detectTerminal = (): Promise<terminalKit.Terminal> =>
 	new Promise((resolve, reject) => {
@@ -50,7 +50,7 @@ export class TerminalKitIOBackend implements IOBackend {
 		this.terminal.fullscreen(true);
 		this.terminal.hideCursor();
 
-		await this.terminal.grabInput({ mouse: 'motion' }, false);
+		this.terminal.grabInput({ mouse: 'motion' }, false);
 
 		this.buffer = new terminalKit.ScreenBuffer({ dst: this.terminal });
 		resizeNotifier({ x: this.terminal.width, y: this.terminal.height });
@@ -60,7 +60,7 @@ export class TerminalKitIOBackend implements IOBackend {
 			resizeNotifier({ x: width, y: height });
 		});
 
-		this.terminal.on('key', (name: string, _matches: string[], _data: TerminalKitEventData) => {
+		this.terminal.on('key', async (name: string, _matches: string[], _data: TerminalKitEventData) => {
 			let modifier: ModifierKey | undefined;
 			let event = name;
 
@@ -75,17 +75,20 @@ export class TerminalKitIOBackend implements IOBackend {
 				modifier = 'SHIFT';
 			}
 
-			this.keyEmitters.forEach((callback) => callback(event, modifier));
+			for (const callback of this.keyEmitters) callback(event, modifier);
 
 			if (name === 'CTRL_C' || name === 'ESCAPE') {
-				this.terminateRequests.forEach((callback) => callback());
-				this.close();
+				for (const callback of this.terminateRequests) callback();
+				await this.close();
+				// eslint-disable-next-line unicorn/no-process-exit
 				process.exit(0);
 			}
 		});
 
 		this.terminal.on('mouse', (_eventName: string, data: TerminalKitMouseEventData) => {
-			this.mouseEmitters.forEach((callback) => callback(new Vec2(data.x, data.y)));
+			for(const callback of this.mouseEmitters) {
+				callback(new Vec2(data.x, data.y));
+			}
 		});
 	}
 

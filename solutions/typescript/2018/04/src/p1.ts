@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 import { interpret } from './interpret.function.js';
 
 export const p1 = (input: string): number | undefined => {
-	const guards: Map<number, Map<number, number>> = new Map();
+	const guards = new Map<number, Map<number, number>>();
 	let currentGuard = -1;
 	let asleepAt: number | undefined;
 	const events = interpret(input);
@@ -21,7 +21,7 @@ export const p1 = (input: string): number | undefined => {
 			if (sleepMap !== undefined && asleepAt !== undefined) {
 				for (let i = asleepAt; i < event.minute; i++) {
 					const si = sleepMap.get(i);
-					sleepMap.set(i, (si !== undefined ? si : 0) + 1);
+					sleepMap.set(i, (si ?? 0) + 1);
 				}
 			}
 			asleepAt = undefined;
@@ -30,19 +30,19 @@ export const p1 = (input: string): number | undefined => {
 
 	let mostSlept = -1;
 	let mostSleptGuard = -1;
-	[...guards].forEach(([guard, sleepMap]) => {
+	for (const [guard, sleepMap] of guards) {
 		if (sleepMap.size > 0) {
 			const totalSleep: [number, number] = [...sleepMap].reduce(
 				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
 					return [prevMinute < currMin ? currMin : prevMinute, prevSleep + currSleep];
-				}
+				},
 			);
 			if (totalSleep[1] > mostSlept) {
 				mostSlept = totalSleep[1];
 				mostSleptGuard = guard;
 			}
 		}
-	});
+	}
 	console.log(`Guard who slept the most: ${mostSleptGuard} with a total of: ${mostSlept}`);
 
 	const mostSleptSleepMap = guards.get(mostSleptGuard);
@@ -51,11 +51,11 @@ export const p1 = (input: string): number | undefined => {
 		const mostSleptMinute: [number, number] = [...mostSleptSleepMap].reduce(
 			([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
 				return [prevSleep < currSleep ? currMin : prevMinute, currSleep];
-			}
+			},
 		);
 
 		console.log(
-			`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`
+			`He slept the most at the ${mostSleptMinute[0]} minute mark, for ${mostSleptMinute[1]} times.`,
 		);
 		return mostSleptGuard * mostSleptMinute[0];
 	} else {

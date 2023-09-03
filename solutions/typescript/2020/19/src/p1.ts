@@ -6,9 +6,14 @@ export const matchRule = (
 	line: string,
 	ruleBook: Map<number, number[][] | string>,
 	ruleIndex: number,
-	wordIndex = 0
+	wordIndex = 0,
 ): number | undefined => {
-	const currentRule = ruleBook.get(ruleIndex)!;
+	const currentRule = ruleBook.get(ruleIndex);
+
+	if (currentRule === undefined) {
+		return undefined;
+	}
+
 	if (typeof currentRule === 'string') {
 		return line[wordIndex] === currentRule ? wordIndex + 1 : undefined;
 	} else {
@@ -29,6 +34,7 @@ export const matchRule = (
 			}
 		}
 	}
+
 	return undefined;
 };
 

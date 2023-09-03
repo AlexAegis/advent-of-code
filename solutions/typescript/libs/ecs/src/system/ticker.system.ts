@@ -1,8 +1,8 @@
 import type { GridWorld } from '../world/grid-world.class.js';
 
 export const addTickerSystem = (world: GridWorld) =>
-	world.addSystem((world) =>
-		console.log(
+	{ world.addSystem((world) =>
+		{ console.log(
 			'tick:',
 			world.timeData.tick,
 			'dt:',
@@ -11,5 +11,5 @@ export const addTickerSystem = (world: GridWorld) =>
 			world.timeData.time.toFixed(2),
 			'frametime:',
 			world.lastFrameTime.toFixed(2)
-		)
-	);
+		); }
+	); };

@@ -1,4 +1,4 @@
-import { performance, PerformanceObserver } from 'perf_hooks';
+import { performance, PerformanceObserver } from 'node:perf_hooks';
 import { roundToDecimal } from '../math/index.js';
 import type { Logger } from './logger.function.js';
 import type { Solution } from './solution.type.js';

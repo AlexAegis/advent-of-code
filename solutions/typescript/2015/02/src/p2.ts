@@ -4,7 +4,7 @@ import packageJson from '../package.json';
 
 export const p2 = (input: string): number =>
 	split(input)
-		.map((line) => line.split('x').map((c) => parseInt(c, 10)))
+		.map((line) => line.split('x').map((c) => Number.parseInt(c, 10)))
 		.map((s) => s.reduce(mult, 1) + s.sort(ascending).slice(0, 2).map(dup).reduce(sum, 0))
 		.reduce(sum, 0);
 

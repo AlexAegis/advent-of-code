@@ -14,8 +14,8 @@ export const parse = (line: string): Write | string => {
 	if (line.startsWith('mask')) {
 		return b;
 	} else {
-		const [, m] = a.match(/\w+\[?(\d+)?\]?/) ?? [];
-		return { address: parseInt(m!, 10), value: parseInt(b, 10) };
+		const [, m] = a.match(/\w+\[?(\d+)?]?/) ?? [undefined, '0'];
+		return { address: Number.parseInt(m, 10), value: Number.parseInt(b, 10) };
 	}
 };
 
@@ -27,7 +27,7 @@ export const applyMask = (n: number, mask: string): number => {
 			binary[binary.length - i - 1] = maskVal;
 		}
 	}
-	return parseInt(binary.join(''), 2);
+	return Number.parseInt(binary.join(''), 2);
 };
 
 export const p1 = (input: string): number => {

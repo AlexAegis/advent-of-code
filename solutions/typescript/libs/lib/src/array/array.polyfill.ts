@@ -38,13 +38,12 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		tap(callbackFn: (item: T) => void): T[];
-		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers: false }): number[];
+		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers: false } |  { radix?: number; safe?: boolean; keepNonNumbers?: boolean }): number[];
 		toInt(options?: {
 			radix?: number;
 			safe?: boolean;
 			keepNonNumbers: true;
 		}): (number | undefined)[];
-		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers?: boolean }): number[];
 		intoIter(): IterableIterator<T>;
 		repeat(until?: (element: T, iteration: number) => boolean): IterableIterator<T>;
 		sum(): number;
@@ -103,11 +102,11 @@ Array.prototype.zip = function <T, U>(other: U[]): [T, U][] {
 	return zip(this, other);
 };
 
-Array.prototype.mapFirst = function <T, V>(mapFn: (t: T) => V): V | undefined {
+Array.prototype.mapFirst = function <T, V>(this: T[], mapFn: (t: T) => V): V | undefined {
 	return mapFirst(this, mapFn);
 };
 
-Array.prototype.mapLast = function <T, V>(mapFn: (t: T) => V): V | undefined {
+Array.prototype.mapLast = function <T, V>(this: T[], mapFn: (t: T) => V): V | undefined {
 	return mapLast(this, mapFn);
 };
 
@@ -115,7 +114,7 @@ Array.prototype.clear = function (): void {
 	this.splice(0);
 };
 
-Array.prototype.findLast = function <T, V extends T>(predicate: (t: T) => t is V): T | undefined {
+Array.prototype.findLast = function <T, V extends T>(this: T[], predicate: (t: T) => t is V): T | undefined {
 	return findLast(this, predicate);
 };
 
@@ -131,7 +130,7 @@ Array.prototype.walkPairs = function* <T>(): Generator<[T, T]> {
 	}
 };
 
-Array.prototype.groupByDelimiter = function <T>(isDelimiter?: (t: T) => boolean): T[][] {
+Array.prototype.groupByDelimiter = function <T>(this: T[], isDelimiter?: (t: T) => boolean): T[][] {
 	return groupByDelimiter(this, isDelimiter);
 };
 
@@ -146,12 +145,13 @@ Array.prototype.intoIter = function* <T>(): IterableIterator<T> {
 };
 
 Array.prototype.repeat = function* <T>(
+	this: T[],
 	until: (element: T, iteration: number) => boolean
 ): IterableIterator<T> {
 	for (let i = 0; ; i++) {
 		for (const element of this) {
 			yield element;
-			if (until?.(element, i)) {
+			if (until(element, i)) {
 				return;
 			}
 		}
@@ -170,7 +170,7 @@ Array.prototype.last = function <T>(offset = 0): T {
 	return this[this.length - (offset + 1)];
 };
 
-Array.prototype.unique = function <T>(comparator?: (a: T, b: T) => boolean): T[] {
+Array.prototype.unique = function <T>(this: T[], comparator?: (a: T, b: T) => boolean): T[] {
 	const result: T[] = [];
 	for (const item of this) {
 		if (!result.some((r) => (comparator ? comparator(r, item) : r === item))) {
@@ -184,7 +184,7 @@ Array.prototype.filterMap = function <T, V>(mapFn: (t: T) => V | undefined): V[]
 	return filterMap(this, mapFn);
 };
 
-Array.prototype.tap = function <T>(callbackFn: (item: T) => void): T[] {
+Array.prototype.tap = function <T>(this: T[], callbackFn: (item: T) => void): T[] {
 	for (const item of this) {
 		callbackFn(item);
 	}
@@ -209,7 +209,7 @@ Array.prototype.peek = function <T>(): T {
 	return peek(this);
 };
 
-Array.prototype.count = function <T>(predicate: (t: T) => boolean): number {
+Array.prototype.count = function <T>(this: T[], predicate: (t: T) => boolean): number {
 	let count = 0;
 	for (const element of this) {
 		if (predicate(element)) {
@@ -225,22 +225,23 @@ Array.prototype.slideWindow = function <T, N extends number>(
 	return slideWindow(this, windowSize);
 };
 
-Array.prototype.pairwise = function <T>(callback: (a: T, b: T) => void): void {
-	return pairwise(this, callback);
+Array.prototype.pairwise = function <T>(this: T[], callback: (a: T, b: T) => void): void {
+	pairwise(this, callback);
 };
 
-Array.prototype.partition = function <T>(partitioner: (a: T) => boolean): [T[], T[]] {
+Array.prototype.partition = function <T>(this: T[], partitioner: (a: T) => boolean): [T[], T[]] {
 	return partition(this, partitioner);
 };
 
 Array.prototype.bubbleFindPair = function <T>(
+	this: T[],
 	comparator: (a: T, b: T) => boolean
 ): [T | undefined, T | undefined] {
 	for (let i = 0; i < this.length - 1; i++) {
 		const ei = this[i];
 		for (let j = i + 1; j < this.length; j++) {
 			const ej = this[j];
-			if (comparator(ei, ej)) {
+			if (ei !== undefined && ej !== undefined && comparator(ei, ej)) {
 				return [ei, ej];
 			}
 		}
@@ -252,22 +253,22 @@ Array.prototype.contains = function <T>(item: T): boolean {
 	return arrayContains(this, item);
 };
 
-Array.prototype.toInt = function (options?: {
+Array.prototype.toInt = function (this: string[], options?: {
 	radix?: number;
 	safe?: boolean;
 	keepNonNumbers?: boolean;
 }): number[] {
-	let result: (number | undefined)[] = this.map((i) => parseInt(i, options?.radix ?? 10));
+	let result: (number | undefined)[] = this.map((i) => Number.parseInt(i, options?.radix ?? 10));
 	if (options?.safe !== false && !options?.keepNonNumbers) {
-		result = result.filter((i) => i !== undefined && !isNaN(i));
-	} else if (options?.keepNonNumbers) {
-		result = result.map((i) => (i !== undefined && isNaN(i) ? undefined : i));
+		result = result.filter((i) => i !== undefined && !Number.isNaN(i));
+	} else if (options.keepNonNumbers) {
+		result = result.map((i) => (i !== undefined && Number.isNaN(i) ? undefined : i));
 	}
 	return result as number[];
 };
 
-Array.prototype.clone = function <T>(): T[] {
-	return Array.from(this);
+Array.prototype.clone = function <T>(this: T[]): T[] {
+	return [...this];
 };
 
 Array.prototype.desc = function <T>(): T[] {
@@ -290,11 +291,11 @@ const max = function (this: number[], count?: number): number | number[] {
 
 Object.assign(Array.prototype, { max });
 
-Array.prototype.sum = function (): number {
+Array.prototype.sum = function (this: number[]): number {
 	return this.reduce(sum, 0);
 };
 
-Array.prototype.product = function (): number {
+Array.prototype.product = function (this: number[]): number {
 	return this.reduce(mult, 1);
 };
 
@@ -302,15 +303,15 @@ Array.prototype.intoSet = function <T>(set?: Set<T>): Set<T> {
 	return addAllToSet(this, set);
 };
 
-Array.prototype.flipFlop = function* <T>(): Generator<T[][]> {
+Array.prototype.flipFlop = function* <T>(this: T[][]): Generator<T[][]> {
 	yield* matrixFlipFlop(this);
 };
 
-Array.prototype.flipMatrix = function <T>(axis: 'y' | 'x' = 'x'): T[][] {
+Array.prototype.flipMatrix = function <T>(this: T[][], axis: 'y' | 'x' = 'x'): T[][] {
 	return flipMatrix(this, axis);
 };
 
-Array.prototype.rotateMatrix = function <T>(direction: 'r' | 'l' = 'r'): T[][] {
+Array.prototype.rotateMatrix = function <T>(this: T[][], direction: 'r' | 'l' = 'r'): T[][] {
 	return rotateMatrix(this, direction);
 };
 
@@ -323,7 +324,7 @@ Array.prototype.cutSubSegment = function <T>(pairs: [T, T], from = 0): T[] | und
 };
 
 Array.prototype.removeItem = function <T>(item: T): boolean {
-	const index = this.findIndex((e) => e === item);
+	const index = this.indexOf(item);
 	if (index >= 0) {
 		this.splice(index, 1);
 	}

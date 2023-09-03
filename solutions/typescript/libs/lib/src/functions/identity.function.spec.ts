@@ -15,6 +15,7 @@ describe('identity', () => {
 	});
 
 	it('should be false for null', () => {
+		// eslint-disable-next-line unicorn/no-null
 		expect(identity(null)).to.be.false;
 	});
 });

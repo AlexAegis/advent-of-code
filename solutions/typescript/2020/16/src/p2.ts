@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
 import packageJson from '../package.json';
@@ -20,7 +21,7 @@ export type ClarifiedTicket = CertainField[];
 export const clarifyFields = (
 	ticket: Ticket,
 	otherTickets: Ticket[],
-	fieldRanges: Map<string, Interval[]>
+	fieldRanges: Map<string, Interval[]>,
 ): ClarifiedTicket => {
 	const categoryRangeEntries = [...fieldRanges.entries()];
 	const myFields = ticket.map((value, index) => {
@@ -28,8 +29,8 @@ export const clarifyFields = (
 		const possibleFieldNames = categoryRangeEntries
 			.filter(([, ranges]) =>
 				otherTicketsFields.every((ticketField) =>
-					ranges.some((range) => range.contains(ticketField))
-				)
+					ranges.some((range) => range.contains(ticketField)),
+				),
 			)
 			.map((p) => p[0]);
 		return { index, value, possibleFieldNames } as UncertainField;
@@ -48,7 +49,7 @@ export const clarifyFields = (
 		// And take out from other field name considerations
 		for (const field of myFields) {
 			field.possibleFieldNames = field.possibleFieldNames.filter(
-				(possibleFieldName) => !certainFields.has(possibleFieldName)
+				(possibleFieldName) => !certainFields.has(possibleFieldName),
 			);
 		}
 	}
@@ -59,14 +60,14 @@ export const clarifyFields = (
 export const getMyClarifiedTicket = (input: string): ClarifiedTicket => {
 	const { myTicket, fieldRanges, nearbyTickets } = parse(input);
 	const validTickets = nearbyTickets.filter(
-		(ticket) => invalidFields(ticket, fieldRanges).length === 0
+		(ticket) => invalidFields(ticket, fieldRanges).length === 0,
 	);
 	return clarifyFields(myTicket, validTickets, fieldRanges);
 };
 
 export const p2 = (input: string): number =>
 	getMyClarifiedTicket(input)
-		.filter((p) => p.fieldName?.startsWith('departure'))
+		.filter((p) => p.fieldName.startsWith('departure'))
 		.map((p) => p.value)
 		.reduce(mult, 1);
 

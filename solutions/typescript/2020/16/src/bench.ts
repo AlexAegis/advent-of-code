@@ -15,5 +15,5 @@ await defaultBench(
 	add('Part Two', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc);
 		return () => p2(input);
-	})
+	}),
 );

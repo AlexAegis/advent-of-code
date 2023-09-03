@@ -8,8 +8,9 @@ export const cartesianCombinations = <T extends unknown[]>(...arrays: [...T][]):
 		const row = arrays[i] as T[];
 		if (isNotNullish(row)) {
 			for (let j = 0, l = row.length; j < l; j++) {
-				const a = arr.slice(0);
-				a.push(row[j] as T);
+				const a = [...arr];
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				a.push(row[j]!);
 				if (i === max) r.push(a as [...T]);
 				else cartesianHelper(a, i + 1);
 			}

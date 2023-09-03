@@ -8,26 +8,26 @@ describe('2015 - Day 4 - Part Two', () => {
 		'should solve the input',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p2(resources.input)).to.equal(9958218);
+			expect(p2(resources.input)).to.equal(9_958_218);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 
 	it(
 		'should resolve to 6742839 when using the example',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.txt');
-			expect(p2(resources.input)).to.equal(6742839);
+			expect(p2(resources.input)).to.equal(6_742_839);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 
 	it(
 		'should resolve to 5714438 when using the example',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.2.txt');
-			expect(p2(resources.input)).to.equal(5714438);
+			expect(p2(resources.input)).to.equal(5_714_438);
 		},
-		{ timeout: 20000 }
+		{ timeout: 20_000 },
 	);
 });

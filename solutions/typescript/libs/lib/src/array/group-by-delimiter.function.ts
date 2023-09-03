@@ -10,7 +10,7 @@ export const groupByDelimiter = <T>(
 		if (isDelimiter(value)) {
 			result.push([]);
 		} else {
-			result[result.length - 1]?.push(value);
+			result.at(-1)?.push(value);
 		}
 	}
 	return result;

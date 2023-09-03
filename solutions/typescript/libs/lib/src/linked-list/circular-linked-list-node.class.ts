@@ -17,7 +17,7 @@ export class CircularLinkedListNode<T> extends LinkedListNode<T> {
 	}
 
 	*round(): Generator<T> {
-		// eslint-disable-next-line @typescript-eslint/no-this-alias
+		// eslint-disable-next-line @typescript-eslint/no-this-alias, unicorn/no-this-assignment
 		let current: CircularLinkedListNode<T> = this;
 		do {
 			yield current.value;
@@ -56,7 +56,7 @@ export class CircularLinkedListNode<T> extends LinkedListNode<T> {
 		return distance;
 	}
 
-	eject(): CircularLinkedListNode<T> {
+	eject(): this {
 		this.prev.next = this.next;
 		this.next.prev = this.prev;
 		this.prev = undefined as unknown as CircularLinkedListNode<T>;

@@ -20,7 +20,7 @@ export const p2 =
 				'AND T J', // J = (!A OR !B OR !C) AND (E OR H)
 				'AND D J', // J = (!A OR !B OR !C) AND (E OR H) AND D
 				'RUN',
-			].join('\n')
+			].join('\n'),
 		);
 
 		return execute(i, print);

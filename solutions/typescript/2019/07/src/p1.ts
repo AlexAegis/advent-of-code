@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import { perm } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
@@ -12,19 +13,19 @@ export const p1 = (input: string): number => {
 
 	return p.reduce((acc, n) => {
 		const ampA = new IntCodeComputer(a).withInput([n[0]!, 0]);
-		const resA = ampA.execute().pop() as number;
+		const resA = ampA.execute().pop()!;
 
 		const ampB = new IntCodeComputer(a).withInput([n[1]!, resA]);
-		const resB = ampB.execute().pop() as number;
+		const resB = ampB.execute().pop()!;
 
 		const ampC = new IntCodeComputer(a).withInput([n[2]!, resB]);
-		const resC = ampC.execute().pop() as number;
+		const resC = ampC.execute().pop()!;
 
 		const ampD = new IntCodeComputer(a).withInput([n[3]!, resC]);
-		const resD = ampD.execute().pop() as number;
+		const resD = ampD.execute().pop()!;
 
 		const ampE = new IntCodeComputer(a).withInput([n[4]!, resD]);
-		const resE = ampE.execute().pop() as number;
+		const resE = ampE.execute().pop()!;
 		return resE > acc ? resE : acc;
 	}, 0);
 };

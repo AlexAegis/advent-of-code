@@ -7,9 +7,9 @@ export const isNice = (line: string): boolean => {
 	let hasWrapping = false;
 	let hasNonOverlapping = false;
 	// holds the positions of the pairs
-	const doubles: { [key: string]: number[] } = {};
+	const doubles: Record<string, number[]> = {};
 	let i = 0;
-	for (const n of [...line]) {
+	for (const n of line) {
 		if (!hasWrapping && prevBef && prev && prevBef === n) {
 			hasWrapping = true;
 		}
@@ -22,8 +22,8 @@ export const isNice = (line: string): boolean => {
 			}
 			pairObj.push(i);
 			if (!hasNonOverlapping) {
-				hasNonOverlapping = pairObj.some((po) =>
-					pairObj!.some((poi) => Math.abs(poi - po) > 1)
+				hasNonOverlapping = pairObj.some(
+					(po) => pairObj?.some((poi) => Math.abs(poi - po) > 1),
 				);
 			}
 		}

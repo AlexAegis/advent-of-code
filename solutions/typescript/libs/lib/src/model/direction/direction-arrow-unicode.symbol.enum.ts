@@ -11,17 +11,17 @@ export type HorizontalDirectionArrowUnicodeSymbol =
 
 export type VericalDirectionArrowUnicodeSymbol =
 	| DirectionArrowUnicodeSymbol.NORTH
-	| DirectionArrowUnicodeSymbol.NORTH;
+	 ;
 
 export const isHorizontalDirectionArrowUnicodeSymbol = (
 	symbol: string
 ): symbol is HorizontalDirectionArrowUnicodeSymbol =>
-	symbol === DirectionArrowUnicodeSymbol.EAST || symbol === DirectionArrowUnicodeSymbol.WEST;
+	symbol === DirectionArrowUnicodeSymbol.EAST as string || symbol === DirectionArrowUnicodeSymbol.WEST as string;
 
 export const isVericalDirectionArrowUnicodeSymbol = (
 	symbol: string
 ): symbol is VericalDirectionArrowUnicodeSymbol =>
-	symbol === DirectionArrowUnicodeSymbol.NORTH || symbol === DirectionArrowUnicodeSymbol.SOUTH;
+	symbol === DirectionArrowUnicodeSymbol.NORTH as string || symbol === DirectionArrowUnicodeSymbol.SOUTH as string;
 
 export const isDirectionArrowUnicodeSymbol = (
 	symbol: string

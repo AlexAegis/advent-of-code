@@ -1,9 +1,5 @@
 export const arrayContains = <T>(array: T[], item: T): boolean => {
-	if (hasEquals(item)) {
-		return array.find((i) => item.equals(i)) !== undefined;
-	} else {
-		return array.find((i) => item === i) !== undefined;
-	}
+	return hasEquals(item) ? array.some((i) => item.equals(i)) : array.includes(item);
 };
 
 export interface Equals {

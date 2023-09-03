@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Graph, GraphNode, memoize, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse, type Valve } from './parse.function.js';
@@ -8,12 +9,12 @@ const pathBetweenValves = memoize(
 	(
 		fromValve: string,
 		toValve: string,
-		graph: Graph<Valve, string>
+		graph: Graph<Valve, string>,
 	): GraphNode<Valve, string>[] => {
 		const from = graph.getNode(fromValve);
 		const to = graph.getNode(toValve);
 		return graph.aStar(from, to);
-	}
+	},
 );
 
 /**
@@ -29,7 +30,7 @@ const scoreValve = (
 	fromValve: Valve,
 	toValve: Valve,
 	graph: Graph<Valve, string>,
-	depth = 0
+	depth = 0,
 ): number => {
 	if (depth === 0) {
 		return 0;
@@ -45,7 +46,7 @@ const scoreValve = (
 				openValves,
 				openableValvesAfterThis,
 				graph,
-				depth - 1
+				depth - 1,
 			)?.score ?? 0;
 		// for each unopened worthvile - the fromtarget
 
@@ -59,10 +60,10 @@ const highestScoreValve = (
 	openValves: Valve[],
 	valves: Valve[],
 	graph: Graph<Valve, string>,
-	depth: number
+	depth: number,
 ): { valve: Valve; score: number } | undefined => {
 	const openableValves = valves.filter(
-		(valve) => valve.flowRate > 0 && !openValves.includes(valve)
+		(valve) => valve.flowRate > 0 && !openValves.includes(valve),
 	);
 	const valvesSortedByScore = openableValves
 		.map((valve) => ({
@@ -74,7 +75,7 @@ const highestScoreValve = (
 				fromValve,
 				valve,
 				graph,
-				depth
+				depth,
 			),
 		}))
 		.sort((a, b) => b.score - a.score);
@@ -86,11 +87,7 @@ const highestScoreValve = (
 	// 	fromValve.name,
 	// 	valvesSortedByScore.map((v) => v.valve.name + ': ' + v.score).join('; ')
 	// );
-	if (valvesSortedByScore.length) {
-		return valvesSortedByScore[0];
-	} else {
-		return undefined;
-	}
+	return valvesSortedByScore.length > 0 ? valvesSortedByScore[0] : undefined;
 };
 
 /***
@@ -123,32 +120,26 @@ export const p1 = (input: string): number => {
 		const pressureThisRound = openedValves.map((valve) => valve.flowRate).sum();
 		pressureReleasedSoFar += pressureThisRound;
 		console.log(`\n== Minute ${i + 1} ==`);
-		if (openedValves.length) {
+		if (openedValves.length > 0) {
 			console.log(
 				`Valves ${openedValves
 					.map((v) => v.name)
-					.join(', ')} are open, releasing ${pressureThisRound} pressure.`
+					.join(', ')} are open, releasing ${pressureThisRound} pressure.`,
 			);
 		} else {
 			console.log('No valves are open.');
 		}
 
 		if (!targetValve && openedValves.length < valvesWorthOpening.length) {
-			targetValve = highestScoreValve(
-				i,
-				currentlyAtValve,
-				openedValves,
-				valves,
-				graph,
-				4
-			)?.valve;
+			targetValve = highestScoreValve(i, currentlyAtValve, openedValves, valves, graph, 4)
+				?.valve;
 
 			if (targetValve) {
-				console.log('TARGET', targetValve?.name);
+				console.log('TARGET', targetValve.name);
 				movingAlongPath = pathBetweenValves(
 					currentlyAtValve.name,
 					targetValve.name,
-					graph
+					graph,
 				).map((node) => node.value);
 				movingAlongPath.shift()!; // get rid of starting value
 			} else {

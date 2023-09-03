@@ -4,16 +4,16 @@
 	"version": "1.0.0",
 	"license": "mit",
 	"private": true,
+	"archetype": {
+		"platform": "node",
+		"framework": "adventofcode",
+		"language": "ts"
+	},
 	"keywords": [
-		"@alexaegis/setup-depcheck",
-		"@alexaegis/setup-eslint",
-		"@alexaegis/setup-prettier",
-		"@alexaegis/setup-remark",
-		"@alexaegis/setup-ts-node",
-		"@alexaegis/setup-vitest-node",
 		"advent-of-code",
 		"javascript",
 		"js",
+		"managed-by-autotool",
 		"ts",
 		"typescript"
 	],
@@ -23,32 +23,56 @@
 		"year": 2020
 	},
 	"scripts": {
-		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"build-lib_": "vite build",
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
 		"lint:depcheck_": "depcheck",
-		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
-		"lint:format_": "prettier --check .",
-		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
-		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
-		"lint:tsc": "turbo run lint:tsc_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"lint:format": "turbo run lint:format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"lint:format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --check .",
+		"lint:md": "turbo run lint:md_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"lint:md_": "remark --frail --no-stdout --silently-ignore .",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
 		"lint:tsc_": "tsc --noEmit",
-		"format": "prettier --write .",
+		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"format": "turbo run format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
 		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
 		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts",
-		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
+		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2020-14",
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage"
+	},
+	"exports": {
+		"./bench": {
+			"types": "./src/bench.ts",
+			"import": "./dist/bench.js",
+			"default": "./dist/bench.js"
+		},
+		"./p1": {
+			"types": "./src/p1.ts",
+			"import": "./dist/p1.js",
+			"default": "./dist/p1.js"
+		},
+		"./p2": {
+			"types": "./src/p2.ts",
+			"import": "./dist/p2.js",
+			"default": "./dist/p2.js"
+		},
+		"./readme": "./readme.md"
 	},
 	"dependencies": {
 		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.1.7",
-		"@alexaegis/ts": "^0.1.7",
-		"@alexaegis/vitest": "^0.1.7",
-		"@types/node": "^18.15.11",
+		"@alexaegis/eslint-config-vitest": "^0.8.2",
+		"@alexaegis/ts": "^0.8.2",
+		"@alexaegis/vite": "^0.8.2",
+		"@alexaegis/vitest": "^0.8.2",
+		"@types/node": "^20.5.8",
 		"benny": "^3.7.1",
-		"vitest": "^0.30.1"
+		"vite": "^4.4.9",
+		"vitest": "^0.34.3"
 	}
 }

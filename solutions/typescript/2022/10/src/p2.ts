@@ -11,7 +11,7 @@ export const p2 = (input: string): string => {
 	let cycle = 0;
 
 	const display: string[][] = Array.from({ length: CRT_HEIGHT }, () =>
-		Array.from({ length: CRT_WIDTH }, () => '.')
+		Array.from({ length: CRT_WIDTH }, () => '.'),
 	);
 
 	for (const instruction of instructions) {
@@ -21,7 +21,7 @@ export const p2 = (input: string): string => {
 		if (
 			displayRow &&
 			x.isContainedIn(
-				(currentPixelInRow - 1).interval(currentPixelInRow + 1, INTERVAL_CLOSED)
+				(currentPixelInRow - 1).interval(currentPixelInRow + 1, INTERVAL_CLOSED),
 			)
 		) {
 			displayRow[currentPixelInRow] = '#';

@@ -24,13 +24,16 @@ export class CubeMap<T extends ToString> {
 	cubeGraph = new GridGraph<T>();
 	constructor(private readonly flatCube: (T | undefined)[][]) {
 		for (let y = 0; y < this.flatCube.length; y++) {
-			const row = this.flatCube[y]!;
-			for (let x = 0; x < row.length; x++) {
-				const cell = row[x];
-				if (cell) {
-					const position = new Vec2(x, y);
-					const node = new GridGraphNode(position, cell);
-					this.cubeGraph.nodes.set(node.coordinate.toString(), node);
+			const row = this.flatCube[y];
+
+			if (row !== undefined) {
+				for (let x = 0; x < row.length; x++) {
+					const cell = row[x];
+					if (cell) {
+						const position = new Vec2(x, y);
+						const node = new GridGraphNode(position, cell);
+						this.cubeGraph.nodes.set(node.coordinate.toString(), node);
+					}
 				}
 			}
 		}
@@ -43,7 +46,7 @@ export class CubeMap<T extends ToString> {
 					if (facePath.every((vertex) => this.cubeGraph.nodes.has(vertex.toString()))) {
 						const neighbouringFacePosition = facePath.last();
 						const neighbouringNode = this.cubeGraph.nodes.get(
-							neighbouringFacePosition.toString()
+							neighbouringFacePosition.toString(),
 						);
 						if (neighbouringNode) {
 							const alreadyFoundNeighbour = node.neighbours.get(direction);
@@ -53,11 +56,7 @@ export class CubeMap<T extends ToString> {
 									to: neighbouringNode,
 									weight: 0,
 								});
-							} else if (
-								neighbouringNode &&
-								alreadyFoundNeighbour &&
-								neighbouringNode !== alreadyFoundNeighbour.to
-							) {
+							} else if (neighbouringNode !== alreadyFoundNeighbour.to) {
 								throw new Error('Found a different face for an existing neighbour');
 							}
 						}
@@ -463,7 +462,7 @@ export const everyCubeFacePath = (initialDirection: Direction, shiftBy: Vec2Like
 
 export function* walkCubeFacePaths(
 	initialDirection: Direction,
-	shiftBy: Vec2Like
+	shiftBy: Vec2Like,
 ): Generator<Vec2[]> {
 	yield get1Path(initialDirection).map((position) => position.add(shiftBy));
 	yield get2PathLeftUp(initialDirection).map((position) => position.add(shiftBy));
@@ -494,6 +493,6 @@ export function* walkCubeFacePaths(
 	yield get5PathRightDownRightDown(initialDirection).map((position) => position.add(shiftBy));
 	yield get5PathLeftDownLeftDownLeft(initialDirection).map((position) => position.add(shiftBy));
 	yield get5PathRightDownRightDownRight(initialDirection).map((position) =>
-		position.add(shiftBy)
+		position.add(shiftBy),
 	);
 }

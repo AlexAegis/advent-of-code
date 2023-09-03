@@ -5,7 +5,7 @@ import { splitRucksackIntoCompartments } from './split-rucksack-into-compartment
 export const p1 = (input: string): number =>
 	split(input)
 		.map(splitRucksackIntoCompartments)
-		.map((compartments) => compartments.map((comp) => [...new Set<string>(comp.split(''))]))
+		.map((compartments) => compartments.map((comp) => [...new Set<string>(...comp)]))
 		.map((compartments) => compartments.map((comp) => comp.map((i) => i.alphabeticalOrder())))
 		.map((compartments) => presentInAll(compartments)[0])
 		.sum();

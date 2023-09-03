@@ -29,25 +29,25 @@ describe('2020 - Day 4 - Part Two', () => {
 		expect(p2(resources.input)).to.equal(198);
 	});
 
-	it('should have a working byr check', async () => {
+	it('should have a working byr check', () => {
 		expect(passportChecks.byr('2002')).to.be.true;
 		expect(passportChecks.byr('2003')).to.be.false;
 	});
 
-	it('should have a working hgt check', async () => {
+	it('should have a working hgt check', () => {
 		expect(passportChecks.hgt('60in')).to.be.true;
 		expect(passportChecks.hgt('190cm')).to.be.true;
 		expect(passportChecks.hgt('190in')).to.be.false;
 		expect(passportChecks.hgt('190')).to.be.false;
 	});
 
-	it('should have a working hcl check', async () => {
+	it('should have a working hcl check', () => {
 		expect(passportChecks.hcl('#123abc')).to.be.true;
 		expect(passportChecks.hcl('#123abz')).to.be.false;
 		expect(passportChecks.hcl('123abc')).to.be.false;
 	});
 
-	it('should have a working pid check', async () => {
+	it('should have a working pid check', () => {
 		expect(passportChecks.pid('000000001')).to.be.true;
 		expect(passportChecks.pid('0123456789')).to.be.false;
 	});

@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 
 export const p2 = (input: string): number => {
 	const frequencyHistory = new Set();
-	const cache: number[] = input.split(/\r?\n/).map((s) => parseInt(s, 10));
+	const cache: number[] = input.split(/\r?\n/).map((s) => Number.parseInt(s, 10));
 	let sumTotal = 0;
 	let firstToBeTwice: number | undefined;
 
@@ -19,7 +19,9 @@ export const p2 = (input: string): number => {
 	};
 
 	while (firstToBeTwice === undefined) {
-		cache.forEach(calculate);
+		for (const line of cache) {
+			calculate(line);
+		}
 	}
 
 	return firstToBeTwice;

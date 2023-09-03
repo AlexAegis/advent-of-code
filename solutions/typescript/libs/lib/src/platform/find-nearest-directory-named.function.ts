@@ -12,9 +12,5 @@ export const findNearestDirectoryNamed = (
 	}
 
 	const parentPath = join(path, '..');
-	if (parentPath !== path) {
-		return findNearestDirectoryNamed(directoryName, parentPath, collection);
-	} else {
-		return undefined;
-	}
+	return parentPath === path ? undefined : findNearestDirectoryNamed(directoryName, parentPath, collection);
 };

@@ -10,10 +10,10 @@ export const p1 = (input: string): string | undefined => {
 	while (crash === undefined) {
 		mine.carts = mine.carts.sort(Cart.compare);
 		for (const cart of mine.carts) {
-			crash = crash || cart.step(mine);
+			crash = crash ?? cart.step(mine);
 		}
 	}
-	return crash ? crash.toString() : undefined;
+	return crash.toString();
 };
 
 await task(p1, packageJson.aoc); // 28,107 ~8.52ms

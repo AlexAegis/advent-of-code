@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import { perm } from '@alexaegis/advent-of-code-lib/functions';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
@@ -38,7 +39,7 @@ export const p2 = (input: string): number => {
 			ampD.pushInput(resC);
 			const resD = iterD.next().value as number;
 			ampE.pushInput(resD);
-			const resE = iterE.next().value as number;
+			const resE = iterE.next().value as number | undefined;
 			someHalt =
 				ampA.isHalt() || ampB.isHalt() || ampC.isHalt() || ampD.isHalt() || ampE.isHalt();
 			if (resE !== undefined) {

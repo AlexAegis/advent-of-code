@@ -4,7 +4,7 @@ import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
 	const graph = input.toGridGraph<number>({
-		valueConverter: (s) => parseInt(s, 10),
+		valueConverter: (s) => Number.parseInt(s, 10),
 		weighter: (a, b) => b.value - a.value,
 		connectionDirections: Direction.cardinalDirections,
 	});

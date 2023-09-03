@@ -13,16 +13,16 @@ export class ManhattanCircle {
 	}
 
 	vertices(): Vec2[] {
-		if (this.radius === 0) {
-			return [this.center];
-		} else {
-			return [
+		return this.radius === 0 ?
+			[this.center]
+
+			: [
 				new Vec2(this.center.x - this.radius, this.center.y), // left
 				new Vec2(this.center.x + this.radius, this.center.y), // right
 				new Vec2(this.center.x, this.center.y + this.radius), // top
 				new Vec2(this.center.x, this.center.y - this.radius), // bottom
 			];
-		}
+
 	}
 
 	intersect(other: ManhattanCircle): [Vec2, Vec2] | undefined {
@@ -54,11 +54,7 @@ export class ManhattanCircle {
 			x: this.center.x,
 			y,
 		});
-		if (effectiveRange >= 0) {
-			return Interval.closed(this.center.x - effectiveRange, this.center.x + effectiveRange);
-		} else {
-			return Interval.open(this.center.x, this.center.x);
-		}
+		return effectiveRange >= 0 ? Interval.closed(this.center.x - effectiveRange, this.center.x + effectiveRange) : Interval.open(this.center.x, this.center.x);
 	}
 
 	heightAt(x: number): Interval {
@@ -66,11 +62,7 @@ export class ManhattanCircle {
 			x,
 			y: this.center.y,
 		});
-		if (effectiveRange >= 0) {
-			return Interval.closed(this.center.y - effectiveRange, this.center.y + effectiveRange);
-		} else {
-			return Interval.open(this.center.y, this.center.y);
-		}
+		return effectiveRange >= 0 ? Interval.closed(this.center.y - effectiveRange, this.center.y + effectiveRange) : Interval.open(this.center.y, this.center.y);
 	}
 
 	/**
@@ -88,10 +80,7 @@ export class ManhattanCircle {
 		const verticesOfBInsideA = bc.vertices().filter((vertex) => ac.contains(vertex));
 		const verticesInsideEachother = [...verticesOfAInsideB, ...verticesOfBInsideA];
 
-		if (verticesInsideEachother.length !== 2) {
-			// Either there are "infinite" or 0 intersecting points
-			return undefined;
-		} else {
+		if (verticesInsideEachother.length === 2) {
 			const [av, bv] = verticesInsideEachother as [Vec2, Vec2];
 
 			// This distance is the same as between the intersecting points!
@@ -132,12 +121,15 @@ export class ManhattanCircle {
 				new Vec2(x4, y4),
 			]
 				.filter((v) => ac.isOnEdge(v) && bc.isOnEdge(v))
-				.reduce((a, n) => {
-					if (!a.find((v) => v.equals(n))) {
+				.reduce<Vec2[]>((a, n) => {
+					if (!a.some((v) => v.equals(n))) {
 						a.push(n);
 					}
 					return a;
-				}, [] as Vec2[]) as [Vec2, Vec2];
+				}, []) as [Vec2, Vec2];
+		} else {
+			// Either there are "infinite" or 0 intersecting points
+			return undefined;
 		}
 	}
 
@@ -168,7 +160,7 @@ export class ManhattanCircle {
 		return new ManhattanCircle(this.center.clone(), this.radius);
 	}
 
-	setRadius(radius: number): ManhattanCircle {
+	setRadius(radius: number): this {
 		this.radius = radius;
 		return this;
 	}

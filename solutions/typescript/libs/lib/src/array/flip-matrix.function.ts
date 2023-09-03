@@ -10,10 +10,6 @@ export const flipMatrix = <T>(matrix: T[][], axis: 'y' | 'x' = 'x'): T[][] => {
 	} else if (!Array.isArray(matrix[0]) && axis !== 'y') {
 		throw new Error('Input is not a matrix, cannot be flipped');
 	}
-	if (axis === 'x') {
-		matrix = [...matrix].reverse();
-	} else {
-		matrix = matrix.map((row) => [...row].reverse());
-	}
+	matrix = axis === 'x' ? [...matrix].reverse() : matrix.map((row) => [...row].reverse());
 	return matrix;
 };

@@ -2,14 +2,14 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 const vowels = 'aeiou';
-const forbidden = ['ab', 'cd', 'pq', 'xy'];
+const forbidden = new Set(['ab', 'cd', 'pq', 'xy']);
 
 export const isNice = (line: string): boolean => {
 	let prev: string | undefined;
 	let vowelsCount = 0;
 	let hasForbidden = false;
 	let hasDouble = false;
-	for (const n of [...line]) {
+	for (const n of line) {
 		if (vowelsCount <= 3 && vowels.search(n) >= 0) {
 			vowelsCount++;
 		}
@@ -17,7 +17,7 @@ export const isNice = (line: string): boolean => {
 			if (!hasDouble && prev === n) {
 				hasDouble = true;
 			}
-			if (forbidden.find((f) => f === `${prev}${n}`)) {
+			if (forbidden.has(`${prev}${n}`)) {
 				hasForbidden = true;
 				break;
 			}

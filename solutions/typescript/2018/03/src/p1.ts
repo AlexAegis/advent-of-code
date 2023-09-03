@@ -10,7 +10,7 @@ export const p1 = (input: string): number => {
 		for (let i = claim.starting.x; i < claim.starting.x + claim.size.x; i++) {
 			for (let j = claim.starting.y; j < claim.starting.y + claim.size.y; j++) {
 				const coordKey: Vec2String = `${i},${j}`;
-				const claims: number[] = fabric.get(coordKey) || [];
+				const claims: number[] = fabric.get(coordKey) ?? [];
 				claims.push(claim.id);
 				fabric.set(coordKey, claims);
 			}

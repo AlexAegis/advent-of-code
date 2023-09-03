@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Direction, split, task, Vec2 } from '@alexaegis/advent-of-code-lib';
 import {
 	AsciiDisplayComponent,
@@ -46,20 +47,20 @@ export const tetrominoOrder = [
 export const spawnTetromino = (
 	world: GridWorld,
 	display: string,
-	tallestPointSoFar: number
+	tallestPointSoFar: number,
 ): Entity => {
 	const asciiDisplayComponent = AsciiDisplayComponent.fromString(display);
 	// Left edge should be two units away from the left wall
 	// Bottom edge is three units above the tallest point
 	const spawnPosition = new Vec2(
 		-1,
-		tallestPointSoFar - 3 - asciiDisplayComponent.sprite.boundingBox.height
+		tallestPointSoFar - 3 - asciiDisplayComponent.sprite.boundingBox.height,
 	);
 	return world.spawn(
 		new TetrominoComponent(),
 		new PositionComponent(spawnPosition),
 		asciiDisplayComponent,
-		ColliderComponent.fromRender(asciiDisplayComponent.sprite)
+		ColliderComponent.fromRender(asciiDisplayComponent.sprite),
 	);
 };
 
@@ -67,8 +68,12 @@ export const spawnTetrisArea = (world: GridWorld): void => {
 	const baseLine = 0;
 	const width = 3;
 	spawnWall(world, new Vec2(-width, baseLine), new Vec2(width, baseLine)); // Bottom
-	spawnWall(world, new Vec2(-width - 1, baseLine), new Vec2(-width - 1, -Infinity)); // Left
-	spawnWall(world, new Vec2(width + 1, baseLine), new Vec2(width + 1, -Infinity)); // Right
+	spawnWall(
+		world,
+		new Vec2(-width - 1, baseLine),
+		new Vec2(-width - 1, Number.NEGATIVE_INFINITY),
+	); // Left
+	spawnWall(world, new Vec2(width + 1, baseLine), new Vec2(width + 1, Number.NEGATIVE_INFINITY)); // Right
 };
 
 /**
@@ -76,7 +81,8 @@ export const spawnTetrisArea = (world: GridWorld): void => {
  * playing around this ECS system I created.
  */
 export const p1 = async (input: string): Promise<number> => {
-	const inputCommands = split(input)[0]!.split('');
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	const inputCommands = [...split(input)[0]!];
 
 	let i = 0;
 	let tallestPoint = 0;
@@ -112,7 +118,7 @@ export const p1 = async (input: string): Promise<number> => {
 		if (t.tick % 2 === 0) {
 			const [fallingTetrominoEntity, positionComponent] = w.queryOne(
 				PositionComponent,
-				TetrominoComponent
+				TetrominoComponent,
 			);
 
 			if (!positionComponent.move(Direction.SOUTH)) {
@@ -133,11 +139,11 @@ export const p1 = async (input: string): Promise<number> => {
 			i++;
 
 			if (currentInputCommand === '>') {
-				for (const [_e, fallingTetrominoPosition] of fallingTetrominoes) {
+				for (const [, fallingTetrominoPosition] of fallingTetrominoes) {
 					fallingTetrominoPosition.move(Direction.EAST);
 				}
 			} else if (currentInputCommand === '<') {
-				for (const [_e, fallingTetrominoPosition] of fallingTetrominoes) {
+				for (const [, fallingTetrominoPosition] of fallingTetrominoes) {
 					fallingTetrominoPosition.move(Direction.WEST);
 				}
 			}

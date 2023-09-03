@@ -7,8 +7,8 @@ export const parseMovementInstructions = (instructions: string): MovementInstruc
 	let numberStack: string[] = [];
 	for (const char of instructions) {
 		if (char === 'L' || char === 'R') {
-			if (numberStack.length) {
-				result.push(parseInt(numberStack.join(''), 10));
+			if (numberStack.length > 0) {
+				result.push(Number.parseInt(numberStack.join(''), 10));
 				numberStack = [];
 			}
 			result.push(char);
@@ -17,23 +17,29 @@ export const parseMovementInstructions = (instructions: string): MovementInstruc
 		}
 	}
 
-	if (numberStack.length) {
-		result.push(parseInt(numberStack.join(''), 10));
+	if (numberStack.length > 0) {
+		result.push(Number.parseInt(numberStack.join(''), 10));
 	}
 
 	return result;
 };
 
 export const getFacingScore = (direction: Direction): number => {
-	if (direction === Direction.EAST) {
-		return 0;
-	} else if (direction === Direction.SOUTH) {
-		return 1;
-	} else if (direction === Direction.WEST) {
-		return 2;
-	} else if (direction === Direction.NORTH) {
-		return 3;
-	} else {
-		return 0;
+	switch (direction) {
+		case Direction.EAST: {
+			return 0;
+		}
+		case Direction.SOUTH: {
+			return 1;
+		}
+		case Direction.WEST: {
+			return 2;
+		}
+		case Direction.NORTH: {
+			return 3;
+		}
+		default: {
+			return 0;
+		}
 	}
 };

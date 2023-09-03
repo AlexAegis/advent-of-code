@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
 	BoundingBox,
 	DOUBLE_NEWLINE,
@@ -19,9 +20,9 @@ const getShortestSegment = (input: string): number =>
 	input
 		.split(NEWLINE)
 		.map((line) =>
-			[...line.matchAll(/ +/g), ...line.matchAll(/[.#]+/g)]
+			[...line.matchAll(/ +/g), ...line.matchAll(/[#.]+/g)]
 				.map((matches) => matches[0].length)
-				.min()
+				.min(),
 		)
 		.min();
 
@@ -62,7 +63,7 @@ export const p2 = (input: string): number => {
 			// Find the matching edge on the target cubeface
 			const targetCubeface = cubeFace.neighbours.get(direction)!.to;
 			const [reverseDirection] = [...targetCubeface.neighbours.entries()].find(
-				([, edge]) => edge.to === cubeFace
+				([, edge]) => edge.to === cubeFace,
 			)!;
 			// And collect the edge of the target face
 
@@ -76,7 +77,7 @@ export const p2 = (input: string): number => {
 					from,
 					to,
 					data: reverseDirection.turn(180),
-					weight: from.value === to.value ? 0 : Infinity,
+					weight: from.value === to.value ? 0 : Number.POSITIVE_INFINITY,
 				});
 			}
 		}
@@ -98,7 +99,7 @@ export const p2 = (input: string): number => {
 		} else {
 			for (let i = 0; i < instruction; i++) {
 				const edge = position.neighbours.get(direction);
-				if (edge && edge.weight !== Infinity) {
+				if (edge && edge.weight !== Number.POSITIVE_INFINITY) {
 					position = edge.to;
 					path.push(position);
 					if (edge.data) {

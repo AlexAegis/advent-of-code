@@ -2,7 +2,7 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 export const p2 = (input: string): number => {
-	const nums = [...input].filter((c) => /^(\+|-)?[0-9]+/.test(c)).map((c) => parseInt(c, 10));
+	const nums = [...input].filter((c) => /^([+-])?\d+/.test(c)).map((c) => Number.parseInt(c, 10));
 	let sum = 0;
 	for (let i = 0; i < nums.length; i++) {
 		const n = nums[i];

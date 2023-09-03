@@ -6,7 +6,7 @@ import { getMyClarifiedTicket, p2 } from './p2.js';
 describe('2020 - Day 16 - Part Two', () => {
 	it('should solve the input', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc);
-		expect(p2(input)).to.equal(3173135507987);
+		expect(p2(input)).to.equal(3_173_135_507_987);
 	});
 
 	it('should solve the first example', async () => {
@@ -16,8 +16,8 @@ describe('2020 - Day 16 - Part Two', () => {
 				(field) =>
 					(field.fieldName === 'class' && field.value === 12) ||
 					(field.fieldName === 'row' && field.value === 11) ||
-					(field.fieldName === 'seat' && field.value === 13)
-			)
+					(field.fieldName === 'seat' && field.value === 13),
+			),
 		).to.be.true;
 	});
 });

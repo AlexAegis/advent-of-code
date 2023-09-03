@@ -12,7 +12,7 @@ export const p1 = (input: string): number =>
 						value.length === 2 ||
 						value.length === 3 ||
 						value.length === 4 ||
-						value.length === 7
+						value.length === 7,
 				) ?? 0
 			);
 		})

@@ -1,9 +1,11 @@
 import { split } from '@alexaegis/advent-of-code-lib';
 
+export type MonkeyOperation = (wl: number) => number;
+
 export interface Monkey {
 	id: number;
 	items: number[];
-	operation: (wl: number) => number;
+	operation: MonkeyOperation;
 	test: number;
 	trueTarget: number;
 	falseTarget: number;
@@ -13,7 +15,7 @@ export interface Monkey {
 export class MonkeyBuilder {
 	id?: number;
 	items: number[] = [];
-	operation?: (wl: number) => number;
+	operation?: MonkeyOperation;
 	test?: number;
 	trueTarget?: number;
 	falseTarget?: number;
@@ -30,7 +32,7 @@ export class MonkeyBuilder {
 		this.test = test;
 	}
 
-	setOperation(operation: (wl: number) => number): void {
+	setOperation(operation: MonkeyOperation): void {
 		this.operation = operation;
 	}
 
@@ -99,7 +101,7 @@ export const parse = (input: string): { monkeyMap: Record<number, Monkey>; monke
 
 		const monkeyOperationMatch = monkeyOperationMatcher.exec(line)?.[1];
 		if (monkeyOperationMatch) {
-			monkeyBuilder.setOperation(eval('old => ' + monkeyOperationMatch));
+			monkeyBuilder.setOperation(eval('old => ' + monkeyOperationMatch) as MonkeyOperation);
 			continue;
 		}
 

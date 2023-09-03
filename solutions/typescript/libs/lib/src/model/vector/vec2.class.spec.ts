@@ -8,24 +8,24 @@ describe('Vec2', () => {
 		});
 
 		it('should not be finite when either x and y is not finite', () => {
-			expect(new Vec2(1, Infinity).isFinite()).toBeFalsy();
+			expect(new Vec2(1, Number.POSITIVE_INFINITY).isFinite()).toBeFalsy();
 		});
 
 		describe('partial isFinite', () => {
 			it('should be finite if y is not finite but the check is partial', () => {
-				expect(new Vec2(1, Infinity).isFinite(true)).toBeTruthy();
+				expect(new Vec2(1, Number.POSITIVE_INFINITY).isFinite(true)).toBeTruthy();
 			});
 
 			it('should not be finite if both neither is finite even if the check is partial', () => {
-				expect(new Vec2(-Infinity, Infinity).isFinite(true)).toBeFalsy();
+				expect(new Vec2(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY).isFinite(true)).toBeFalsy();
 			});
 
 			it('should be finite if y is not finite but only x is checked', () => {
-				expect(new Vec2(1, Infinity).isFinite('x')).toBeTruthy();
+				expect(new Vec2(1, Number.POSITIVE_INFINITY).isFinite('x')).toBeTruthy();
 			});
 
 			it('should not be finite if y is not finite when only y is checked', () => {
-				expect(new Vec2(1, Infinity).isFinite('y')).toBeFalsy();
+				expect(new Vec2(1, Number.POSITIVE_INFINITY).isFinite('y')).toBeFalsy();
 			});
 		});
 	});

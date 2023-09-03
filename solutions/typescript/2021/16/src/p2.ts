@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { hexToBits } from './model/hex-to-bits.function.js';
 import { interpretPacket, isLiteralPacket, type Packet } from './model/packet.interface.js';
 
@@ -9,23 +10,30 @@ const calculatePacketValue = (packet: Packet): number => {
 		return packet.content;
 	} else {
 		const subPacketValues = packet.subPackets.map((subPacket) =>
-			calculatePacketValue(subPacket)
+			calculatePacketValue(subPacket),
 		);
 		switch (packet.type) {
-			case 0:
+			case 0: {
 				return subPacketValues.sum();
-			case 1:
+			}
+			case 1: {
 				return subPacketValues.product();
-			case 2:
+			}
+			case 2: {
 				return subPacketValues.min();
-			case 3:
+			}
+			case 3: {
 				return subPacketValues.max();
-			case 5:
+			}
+			case 5: {
 				return subPacketValues[0]! > subPacketValues[1]! ? 1 : 0;
-			case 6:
+			}
+			case 6: {
 				return subPacketValues[0]! < subPacketValues[1]! ? 1 : 0;
-			case 7:
+			}
+			case 7: {
 				return subPacketValues[0] === subPacketValues[1] ? 1 : 0;
+			}
 		}
 	}
 };

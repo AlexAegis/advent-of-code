@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /**
  * LZ78 compression
  */
@@ -31,19 +32,18 @@ export class LZW {
 		return result.map((re) => [...this.dictionary.keys()][re]!);
 	}
 
-	public compress(rounds = 1, maxDistinctKeys = Infinity): number[] {
+	public compress(rounds = 1, maxDistinctKeys = Number.POSITIVE_INFINITY): number[] {
 		let p: string | undefined = this.tape[0];
-		let result!: number[];
+		let result: number[] = [];
 		let i = 0;
-		let r = rounds ?? 1;
+		let r = rounds;
 		let prevDictLength = this.dictionary.size;
 		while (
 			i < r &&
-			(maxDistinctKeys === Infinity ||
-				!result ||
-				(result &&
+			(maxDistinctKeys === Number.POSITIVE_INFINITY ||
+
 					result.reduce((a, n) => a.add(n), new Set<number>()).size > maxDistinctKeys))
-		) {
+		 {
 			const localTape = [...this.tape];
 			p = localTape.shift();
 			result = [];
@@ -52,17 +52,17 @@ export class LZW {
 				if (this.dictionary.has(pc)) {
 					p = pc;
 				} else if (p !== undefined) {
-					result.push(this.dictionary.get(p) as number);
+					result.push(this.dictionary.get(p)!);
 					this.dictionary.set(pc, this.symbolSize++);
 					p = c;
 				}
 			}
-			if (maxDistinctKeys !== Infinity && this.dictionary.size > prevDictLength) {
+			if (maxDistinctKeys !== Number.POSITIVE_INFINITY && this.dictionary.size > prevDictLength) {
 				prevDictLength = this.dictionary.size;
 				r++;
 			}
 			if (p) {
-				result.push(this.dictionary.get(p) as number);
+				result.push(this.dictionary.get(p)!);
 			}
 			i++;
 		}

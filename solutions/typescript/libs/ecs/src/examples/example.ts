@@ -28,11 +28,11 @@ spawnFloor(world, new Vec2(3, 3), { x: 5, y: 5 });
 spawnWall(world, new Vec2(6, 2), new Vec2(7, 2));
 spawnWall(world, new Vec2(8, 2), new Vec2(9, 10));
 
-spawnWall(world, new Vec2(0, 3), new Vec2(0, Infinity));
-spawnWall(world, new Vec2(3, 0), new Vec2(Infinity, 0));
+spawnWall(world, new Vec2(0, 3), new Vec2(0, Number.POSITIVE_INFINITY));
+spawnWall(world, new Vec2(3, 0), new Vec2(Number.POSITIVE_INFINITY, 0));
 
-spawnWall(world, new Vec2(-3, 0), new Vec2(-Infinity, 0));
-spawnWall(world, new Vec2(0, -3), new Vec2(0, -Infinity));
+spawnWall(world, new Vec2(-3, 0), new Vec2(Number.NEGATIVE_INFINITY, 0));
+spawnWall(world, new Vec2(0, -3), new Vec2(0, Number.NEGATIVE_INFINITY));
 
 const playerEntity = spawnPlayer(world, new Vec2(1, 1));
 

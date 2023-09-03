@@ -9,8 +9,8 @@ import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 export const parse = (input: string): number[] => {
 	return input
 		.split(',')
-		.filter((c) => /^(\+|-)?[0-9]+/.test(c))
-		.map((c) => parseInt(c, 10));
+		.filter((c) => /^([+-])?\d+/.test(c))
+		.map((c) => Number.parseInt(c, 10));
 };
 
 export enum Tile {
@@ -30,33 +30,37 @@ export const computeMap = (input: string): [Map<Vec2String, Tile>, Vacuum] => {
 	const cursor = new Vec2(0, 0);
 	let vacuum!: Vacuum;
 	while (!i.isHalt()) {
-		const res = it.next().value;
-		const resc: DirectionArrowSymbol | Tile | '\n' = String.fromCharCode(res) as
+		const res = it.next().value as number;
+		const resc: DirectionArrowSymbol | Tile | '\n' = String.fromCodePoint(res) as
 			| DirectionArrowSymbol
 			| Tile
 			| '\n';
 
 		switch (resc) {
-			case Tile.OPEN:
+			case Tile.OPEN: {
 				map.set(cursor.toString(), Tile.OPEN);
 				break;
-			case Tile.SCAFFOLD:
+			}
+			case Tile.SCAFFOLD: {
 				map.set(cursor.toString(), Tile.SCAFFOLD);
 				break;
+			}
 			case DirectionArrowSymbol.NORTH:
 			case DirectionArrowSymbol.EAST:
 			case DirectionArrowSymbol.SOUTH:
-			case DirectionArrowSymbol.WEST:
+			case DirectionArrowSymbol.WEST: {
 				map.set(cursor.toString(), Tile.SCAFFOLD);
 				vacuum = {
 					pos: cursor.clone(),
 					dir: Direction.fromMarker(resc as DirectionArrowSymbol).reverse(),
 				};
 				break;
-			case '\n':
+			}
+			case '\n': {
 				cursor.x = -1;
 				cursor.y--;
 				break;
+			}
 		}
 		cursor.x++;
 	}

@@ -8,17 +8,17 @@ export const p2 = (input: string): number => {
 	const a = flattenVectors(first);
 	const b = flattenVectors(second);
 	const possInts = new Map<string, { a: number; b: number }>();
-	a.forEach((ap) => {
-		possInts.set(ap.c.toString(), { a: ap.steps, b: Infinity });
-	});
+	for (const ap of a) {
+		possInts.set(ap.c.toString(), { a: ap.steps, b: Number.POSITIVE_INFINITY });
+	}
 
-	b.forEach((bp) => {
+	for (const bp of b) {
 		const ae = possInts.get(bp.c.toString());
 		if (ae) {
 			ae.b = bp.steps;
 		}
-	});
-	let min = Infinity;
+	}
+	let min = Number.POSITIVE_INFINITY;
 	for (const val of possInts.values()) {
 		if (val.b) {
 			min = val.a + val.b < min ? val.a + val.b : min;

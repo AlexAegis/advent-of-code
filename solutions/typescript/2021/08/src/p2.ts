@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
@@ -23,44 +24,28 @@ import packageJson from '../package.json';
  */
 const getNumberFromCode = (
 	code: string,
-	segmentMap: Record<'a' | 'b' | 'c' | 'd' | 'e', string>
+	segmentMap: Record<'a' | 'b' | 'c' | 'd' | 'e', string>,
 ): number => {
-	if (code.includes(segmentMap['a'])) {
-		if (code.includes(segmentMap['b'])) {
-			if (code.includes(segmentMap['c'])) {
-				if (code.includes(segmentMap['d'])) {
-					if (code.includes(segmentMap['e'])) {
-						return 8;
-					} else {
-						return 9;
-					}
+	if (code.includes(segmentMap.a)) {
+		if (code.includes(segmentMap.b)) {
+			if (code.includes(segmentMap.c)) {
+				if (code.includes(segmentMap.d)) {
+					return code.includes(segmentMap.e) ? 8 : 9;
 				} else {
 					return 0;
 				}
 			} else {
-				if (code.includes(segmentMap['e'])) {
-					return 6;
-				} else {
-					return 5;
-				}
+				return code.includes(segmentMap.e) ? 6 : 5;
 			}
 		} else {
-			if (code.includes(segmentMap['d'])) {
-				if (code.includes(segmentMap['e'])) {
-					return 2;
-				} else {
-					return 3;
-				}
+			if (code.includes(segmentMap.d)) {
+				return code.includes(segmentMap.e) ? 2 : 3;
 			} else {
 				return 7;
 			}
 		}
 	} else {
-		if (code.includes(segmentMap['b'])) {
-			return 4;
-		} else {
-			return 1;
-		}
+		return code.includes(segmentMap.b) ? 4 : 1;
 	}
 };
 
@@ -69,8 +54,8 @@ const getNumberFromCode = (
  */
 const getOnlyInFirst = (a: string, b: string): string => {
 	const aLetters = [...a];
-	const bLetters = [...b];
-	const result = aLetters.filter((aLetter) => !bLetters.find((bLetter) => aLetter === bLetter));
+	const bLetters = new Set(b);
+	const result = aLetters.filter((aLetter) => !bLetters.has(aLetter));
 	return result.join('');
 };
 
@@ -90,9 +75,9 @@ const getIntersecion = (a: string, b: string): string => {
  * @returns mapping to the default segment locations
  */
 const generateSegmentMap = (codes: string[]): Record<string, string> => {
-	const [oneCF] = codes.filter((code) => code.length === 2);
-	const [sevenACF] = codes.filter((code) => code.length === 3);
-	const [fourBCDF] = codes.filter((code) => code.length === 4);
+	const oneCF = codes.find((code) => code.length === 2);
+	const sevenACF = codes.find((code) => code.length === 3);
+	const fourBCDF = codes.find((code) => code.length === 4);
 	const twoThreeFiveABCDEFG = codes.filter((code) => code.length === 5);
 	const zeroSixNineABCDEFG = codes.filter((code) => code.length === 6);
 
@@ -100,8 +85,8 @@ const generateSegmentMap = (codes: string[]): Record<string, string> => {
 
 	const bd = getOnlyInFirst(fourBCDF!, sevenACF!);
 
-	const [_sixNineABCDEFG, [zeroABCEFG]] = zeroSixNineABCDEFG.partition((code) =>
-		[...bd].every((letter) => code.includes(letter))
+	const [, /*_sixNineABCDEFG*/ [zeroABCEFG]] = zeroSixNineABCDEFG.partition((code) =>
+		[...bd].every((letter) => code.includes(letter)),
 	);
 
 	const d = getOnlyInFirst(fourBCDF!, zeroABCEFG!);
@@ -115,7 +100,7 @@ const generateSegmentMap = (codes: string[]): Record<string, string> => {
 	const g = getOnlyInFirst(fg, f);
 	const c = getOnlyInFirst(oneCF!, f);
 
-	const [[_threeACDFG], [twoACDEG]] = twoThreeACDEFG.partition((code) => code.includes(f));
+	const [, /*[_threeACDFG]*/ [twoACDEG]] = twoThreeACDEFG.partition((code) => code.includes(f));
 
 	const e = getOnlyInFirst(twoACDEG!, `${a}${c}${d}${g}`);
 

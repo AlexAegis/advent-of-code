@@ -29,11 +29,11 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction> imp
 		return [...this.neighbours.values()];
 	}
 
-	public *walk(visited: Set<this> = new Set()): IterableIterator<this> {
+	public *walk(visited = new Set<this>()): IterableIterator<this> {
 		yield this;
 		visited.add(this);
 		for (const neighbour of this.neighbours.values()) {
-			if (neighbour.to && !visited.has(neighbour.to)) {
+			if (!visited.has(neighbour.to)) {
 				yield* neighbour.to.walk(visited);
 			}
 		}
@@ -42,10 +42,10 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction> imp
 	public toString(): string {
 		if (typeof this.value === 'string') {
 			return this.value;
-		} else if ((this.value as ToString).toString !== undefined) {
-			return (this.value as ToString).toString();
-		} else {
+		} else if ((this.value as Partial<ToString>).toString === undefined) {
 			return ' ';
+		} else {
+			return (this.value as ToString).toString();
 		}
 	}
 }

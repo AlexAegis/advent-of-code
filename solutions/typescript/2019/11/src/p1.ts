@@ -16,19 +16,23 @@ export enum ColorCode {
 
 export const colorCodeToColor = (cc: ColorCode): Color => {
 	switch (cc) {
-		case ColorCode.BLACK:
+		case ColorCode.BLACK: {
 			return Color.BLACK;
-		case ColorCode.WHITE:
+		}
+		case ColorCode.WHITE: {
 			return Color.WHITE;
+		}
 	}
 };
 
 export const turnToDir = (cc: Turn): Direction => {
 	switch (cc) {
-		case Turn.LEFT:
+		case Turn.LEFT: {
 			return Direction.WEST;
-		case Turn.RIGHT:
+		}
+		case Turn.RIGHT: {
 			return Direction.EAST;
+		}
 	}
 };
 
@@ -58,11 +62,7 @@ export const p1 = (input: string): number => {
 		currentColor = nextColor.value as ColorCode;
 		currentDir = nextDir.value as Turn;
 
-		if (currentDir === Turn.RIGHT) {
-			dir = dir.right();
-		} else if (currentDir === Turn.LEFT) {
-			dir = dir.left();
-		}
+		dir = currentDir === Turn.RIGHT ? dir.right() : dir.left();
 
 		map.set(pos.toString(), currentColor);
 		pos.addMut(dir);

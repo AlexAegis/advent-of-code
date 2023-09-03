@@ -3,13 +3,13 @@ import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
 	const [n, data] = input.splitIntoStringPair();
-	const timestamp = parseInt(n, 10);
+	const timestamp = Number.parseInt(n, 10);
 
 	const sort = data
 		.split(',')
 		.filter((id) => id !== 'x')
 		.map((sid) => {
-			const id = parseInt(sid, 10);
+			const id = Number.parseInt(sid, 10);
 			const turns = Math.floor(timestamp / id);
 			const last = turns * id;
 			const next = last + id;
@@ -18,6 +18,7 @@ export const p1 = (input: string): number => {
 		})
 		.sort((a, b) => a.diff - b.diff);
 
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	return sort[0]!.id * sort[0]!.diff;
 };
 

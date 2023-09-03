@@ -5,8 +5,10 @@ import packageJson from '../package.json';
 import { Tile } from './p1.js';
 import { parse } from './parse.js';
 
-const ZT5 = [...Array(5).keys()];
-const EMTPY_GEN = [...Array(5)].map(() => [...Array(5)].map(() => Tile.EMTPY));
+const ZT5 = [...Array.from({ length: 5 }).keys()];
+const EMTPY_GEN = Array.from({ length: 5 }).map(() =>
+	Array.from({ length: 5 }).map(() => Tile.EMTPY),
+);
 
 export const recursiveAdjacents = (x: number, y: number, d: number): Vec3[] => {
 	const v = new Vec3(x, y, d);

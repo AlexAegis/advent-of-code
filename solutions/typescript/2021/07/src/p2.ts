@@ -18,7 +18,7 @@ export const p2 = (input: string): number => {
 		i,
 	}));
 	const minCostIndex = costs.reduce((acc, next) => (next.cost > acc.cost ? acc : next), {
-		cost: Infinity,
+		cost: Number.POSITIVE_INFINITY,
 		i: 0,
 	});
 	return positions.map((position) => getCost(position - minCostIndex.i)).sum();

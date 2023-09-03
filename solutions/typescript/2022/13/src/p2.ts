@@ -8,8 +8,7 @@ export const p2 = (input: string): number => {
 	const divider2 = [[6]];
 	const divider1Key = JSON.stringify(divider1);
 	const divider2Key = JSON.stringify(divider2);
-	signals.push(divider1);
-	signals.push(divider2);
+	signals.push(divider1, divider2);
 	signals.sort((a, b) => signalComparator(a, b));
 	const divider1Index = signals.findIndex((i) => JSON.stringify(i) === divider1Key) + 1;
 	const divider2Index = signals.findIndex((i) => JSON.stringify(i) === divider2Key) + 1;

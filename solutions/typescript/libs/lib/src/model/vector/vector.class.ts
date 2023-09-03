@@ -11,20 +11,24 @@ export class Vector {
 
 	public constructor(s: string) {
 		switch (s[0]) {
-			case 'R':
+			case 'R': {
 				this.direction = Direction.EAST;
 				break;
-			case 'L':
+			}
+			case 'L': {
 				this.direction = Direction.WEST;
 				break;
-			case 'U':
+			}
+			case 'U': {
 				this.direction = Direction.NORTH;
 				break;
-			case 'D':
+			}
+			case 'D': {
 				this.direction = Direction.SOUTH;
 				break;
+			}
 		}
-		this.amount = Number(s.substring(1));
+		this.amount = Number(s.slice(1));
 	}
 }
 

@@ -5,7 +5,7 @@ import packageJson from '../package.json';
 
 export const p2 = (input: string): number => {
 	const uniqueUnits = [...input].reduce((acc, curr) =>
-		acc.includes(curr.toLowerCase()) ? acc.toLowerCase() : acc + curr.toLowerCase()
+		acc.includes(curr.toLowerCase()) ? acc.toLowerCase() : acc + curr.toLowerCase(),
 	);
 
 	let shortestSequence: string | undefined;
@@ -13,7 +13,7 @@ export const p2 = (input: string): number => {
 
 	for (const unit of uniqueUnits) {
 		const modifiedSequence = [...input].reduce((acc, curr) =>
-			curr.toLowerCase() === unit ? acc : acc + curr
+			curr.toLowerCase() === unit ? acc : acc + curr,
 		);
 		const collapsedSequence = collapse(modifiedSequence);
 		if (shortestSequence === undefined || collapsedSequence.length < shortestSequence.length) {
