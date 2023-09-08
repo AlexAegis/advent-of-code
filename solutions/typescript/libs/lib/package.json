@@ -145,16 +145,16 @@
 	},
 	"dependencies": {
 		"@alexaegis/common": "^0.7.0",
-		"arktype": "^1.0.20-alpha"
+		"arktype": "^1.0.21-alpha"
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.8.2",
 		"@alexaegis/ts": "^0.8.2",
 		"@alexaegis/vite": "^0.8.2",
 		"@alexaegis/vitest": "^0.8.2",
-		"@types/node": "^20.5.8",
-		"@typescript-eslint/eslint-plugin": "^6.5.0",
-		"@typescript-eslint/parser": "^6.5.0",
+		"@types/node": "^20.5.9",
+		"@typescript-eslint/eslint-plugin": "^6.6.0",
+		"@typescript-eslint/parser": "^6.6.0",
 		"benny": "^3.7.1",
 		"eslint": "^8.48.0",
 		"eslint-config-prettier": "^9.0.0",
@@ -165,6 +165,6 @@
 		"remark-cli": "^11.0.0",
 		"typescript": "5.2.2",
 		"vite": "^4.4.9",
-		"vitest": "^0.34.3"
+		"vitest": "^0.34.4"
 	}
 }

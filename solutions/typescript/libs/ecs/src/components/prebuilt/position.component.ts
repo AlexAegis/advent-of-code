@@ -12,7 +12,10 @@ import { AsciiDisplayComponent } from './ascii-display.component.js';
 import { ColliderComponent } from './collider.component.js';
 
 export abstract class AnyPositionComponent extends Component {
-	constructor(protected _position: Vec2, public readonly z = 0) {
+	constructor(
+		protected _position: Vec2,
+		public readonly z = 0,
+	) {
 		super();
 	}
 
@@ -39,7 +42,7 @@ export abstract class AnyPositionComponent extends Component {
 					cache.move(
 						entity,
 						lastPositions.map((p) => p.toString()),
-						nextPositionsString
+						nextPositionsString,
 					);
 
 					if (infiniteArea.length > 0) {
@@ -82,15 +85,15 @@ export class PositionComponent extends AnyPositionComponent {
 			.map((entity) => entity.getComponent(ColliderComponent))
 			.filter(nonNullish)
 			.flatMap((collider) =>
-				collider.getLastPositions(this.position).map((p) => p.add(offset))
+				collider.getLastPositions(this.position).map((p) => p.add(offset)),
 			)
 			.every(
 				(p) =>
 					this.world
 						.entitiesCollidingAt(p)
 						.filter(
-							(collidingEntity) => !arrayContains(this.belongsTo, collidingEntity)
-						).length === 0
+							(collidingEntity) => !arrayContains(this.belongsTo, collidingEntity),
+						).length === 0,
 			);
 	}
 
@@ -99,15 +102,18 @@ export class PositionComponent extends AnyPositionComponent {
 	}
 
 	getWorldBox(): BoundingBox {
-		return this.belongsTo.reduce((box, entity) => {
-			const displayComponent = entity.getComponent(AsciiDisplayComponent);
-			if (displayComponent) {
-				for (const area of displayComponent.area(this.position)) {
-					box.extend([area.topLeft, area.bottomRight]);
+		return this.belongsTo.reduce(
+			(box, entity) => {
+				const displayComponent = entity.getComponent(AsciiDisplayComponent);
+				if (displayComponent) {
+					for (const area of displayComponent.area(this.position)) {
+						box.extend([area.topLeft, area.bottomRight]);
+					}
 				}
-			}
-			return box;
-		}, BoundingBox.fromVectors([this.position]));
+				return box;
+			},
+			BoundingBox.fromVectors([this.position]),
+		);
 	}
 }
 

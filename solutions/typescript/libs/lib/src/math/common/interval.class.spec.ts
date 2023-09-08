@@ -154,13 +154,17 @@ describe('Interval', () => {
 		it('should move an intervals both to Infinity when moved by Infinity', () => {
 			const interval = new Interval(4, 6);
 			interval.moveBy(Number.POSITIVE_INFINITY);
-			expect(interval).toEqual(new Interval(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY));
+			expect(interval).toEqual(
+				new Interval(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY),
+			);
 		});
 
 		it('should move an intervals both to -Infinity when moved by -Infinity', () => {
 			const interval = new Interval(4, 6);
 			interval.moveBy(Number.NEGATIVE_INFINITY);
-			expect(interval).toEqual(new Interval(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY));
+			expect(interval).toEqual(
+				new Interval(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY),
+			);
 		});
 
 		it('should not move the infinite ends when moved by a finite amount', () => {
@@ -235,7 +239,7 @@ describe('Interval', () => {
 			const b = new Interval(4, 16, { lowQualifier: 'closed', highQualifier: 'open' });
 
 			expect(a.intersection(b)).toEqual(
-				new Interval(4, 8, { lowQualifier: 'closed', highQualifier: 'closed' })
+				new Interval(4, 8, { lowQualifier: 'closed', highQualifier: 'closed' }),
 			);
 		});
 
@@ -251,16 +255,22 @@ describe('Interval', () => {
 			const b = new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'open' });
 
 			expect(a.intersection(b)).toEqual(
-				new Interval(1, 2, { lowQualifier: 'open', highQualifier: 'open' })
+				new Interval(1, 2, { lowQualifier: 'open', highQualifier: 'open' }),
 			);
 		});
 
 		it('should be able to get a finite intersection of infinite intervals', () => {
-			const a = new Interval(Number.NEGATIVE_INFINITY, 2, { lowQualifier: 'open', highQualifier: 'closed' });
-			const b = new Interval(1, Number.POSITIVE_INFINITY, { lowQualifier: 'closed', highQualifier: 'open' });
+			const a = new Interval(Number.NEGATIVE_INFINITY, 2, {
+				lowQualifier: 'open',
+				highQualifier: 'closed',
+			});
+			const b = new Interval(1, Number.POSITIVE_INFINITY, {
+				lowQualifier: 'closed',
+				highQualifier: 'open',
+			});
 
 			expect(a.intersection(b)).toEqual(
-				new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'closed' })
+				new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'closed' }),
 			);
 		});
 	});

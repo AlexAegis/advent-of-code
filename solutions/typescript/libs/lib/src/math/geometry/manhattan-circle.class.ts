@@ -2,7 +2,10 @@ import { Interval, type Vec2Like } from '../../index.js';
 import { Vec2 } from '../../model/vector/vec2.class.js';
 
 export class ManhattanCircle {
-	constructor(public center: Vec2, public radius: number) {}
+	constructor(
+		public center: Vec2,
+		public radius: number,
+	) {}
 
 	contains(point: Vec2Like): boolean {
 		return this.center.manhattan(point) <= this.radius;
@@ -13,16 +16,14 @@ export class ManhattanCircle {
 	}
 
 	vertices(): Vec2[] {
-		return this.radius === 0 ?
-			[this.center]
-
+		return this.radius === 0
+			? [this.center]
 			: [
-				new Vec2(this.center.x - this.radius, this.center.y), // left
-				new Vec2(this.center.x + this.radius, this.center.y), // right
-				new Vec2(this.center.x, this.center.y + this.radius), // top
-				new Vec2(this.center.x, this.center.y - this.radius), // bottom
-			];
-
+					new Vec2(this.center.x - this.radius, this.center.y), // left
+					new Vec2(this.center.x + this.radius, this.center.y), // right
+					new Vec2(this.center.x, this.center.y + this.radius), // top
+					new Vec2(this.center.x, this.center.y - this.radius), // bottom
+			  ];
 	}
 
 	intersect(other: ManhattanCircle): [Vec2, Vec2] | undefined {
@@ -54,7 +55,9 @@ export class ManhattanCircle {
 			x: this.center.x,
 			y,
 		});
-		return effectiveRange >= 0 ? Interval.closed(this.center.x - effectiveRange, this.center.x + effectiveRange) : Interval.open(this.center.x, this.center.x);
+		return effectiveRange >= 0
+			? Interval.closed(this.center.x - effectiveRange, this.center.x + effectiveRange)
+			: Interval.open(this.center.x, this.center.x);
 	}
 
 	heightAt(x: number): Interval {
@@ -62,7 +65,9 @@ export class ManhattanCircle {
 			x,
 			y: this.center.y,
 		});
-		return effectiveRange >= 0 ? Interval.closed(this.center.y - effectiveRange, this.center.y + effectiveRange) : Interval.open(this.center.y, this.center.y);
+		return effectiveRange >= 0
+			? Interval.closed(this.center.y - effectiveRange, this.center.y + effectiveRange)
+			: Interval.open(this.center.y, this.center.y);
 	}
 
 	/**
@@ -135,7 +140,7 @@ export class ManhattanCircle {
 
 	static *walkIntersections(
 		circles: ManhattanCircle[],
-		onlyIntegerIntersections = true
+		onlyIntegerIntersections = true,
 	): Generator<Vec2> {
 		for (const [a, b] of circles.walkPairs()) {
 			const intersecion = a.intersect(b);

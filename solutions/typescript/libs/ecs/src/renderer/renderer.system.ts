@@ -22,7 +22,7 @@ export interface RendererSystemOptions {
 export type NormalizedRendererSystemOptions = Required<RendererSystemOptions>;
 
 const normalizeRendererSystemOptions = (
-	options: RendererSystemOptions
+	options: RendererSystemOptions,
 ): NormalizedRendererSystemOptions => {
 	return {
 		renderColliders: false,
@@ -45,7 +45,9 @@ export class RendererSystem extends System implements Initializable {
 	}
 
 	async init(): Promise<void> {
-		await this.options.backend.init((size) => { this.camera?.resize(size); });
+		await this.options.backend.init((size) => {
+			this.camera?.resize(size);
+		});
 	}
 
 	tick(world: GridWorld): boolean {
@@ -66,7 +68,7 @@ export class RendererSystem extends System implements Initializable {
 			...world.query(PositionComponent, AsciiDisplayComponent),
 		].sort((a, b) => a[1].z - b[1].z)) {
 			const screenPosition = this.camera.getScreenPositionFromWorldPosition(
-				positionComponent.position
+				positionComponent.position,
 			);
 			const entityScreenBox = displayComponent.sprite.boundingBox
 				.clone()

@@ -11,7 +11,7 @@ import { NEWLINE } from '../regex/index.js';
 export const stringToMatrix = (
 	s: string,
 	rowSeparator: RegExp | string = NEWLINE,
-	itemSeparator: RegExp | string = ''
+	itemSeparator: RegExp | string = '',
 ): string[][] => {
 	const lines = s.split(rowSeparator);
 	if (lines.at(-1) === '') {

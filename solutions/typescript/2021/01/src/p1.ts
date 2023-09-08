@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 
 export const p1 = (input: string): number =>
 	input
-		.splitToInt()
+		.splitToInt({ keepEmptyLines: false })
 		.slideWindow()
 		.count(([a, b]) => a < b);
 

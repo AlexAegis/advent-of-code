@@ -9,10 +9,18 @@ import type { Vec2Like, Vec2String } from './vec2.class.types.js';
 
 export class Vec2 implements Vec2Like {
 	public static ORIGIN = Object.freeze(new Vec2(0, 0));
-	public static INIFINITY_NE = Object.freeze(new Vec2(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY));
-	public static INIFINITY_NW = Object.freeze(new Vec2(Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY));
-	public static INIFINITY_SE = Object.freeze(new Vec2(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY));
-	public static INIFINITY_SW = Object.freeze(new Vec2(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY));
+	public static INIFINITY_NE = Object.freeze(
+		new Vec2(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY),
+	);
+	public static INIFINITY_NW = Object.freeze(
+		new Vec2(Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY),
+	);
+	public static INIFINITY_SE = Object.freeze(
+		new Vec2(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY),
+	);
+	public static INIFINITY_SW = Object.freeze(
+		new Vec2(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY),
+	);
 
 	public x!: number;
 	public y!: number;
@@ -66,7 +74,7 @@ export class Vec2 implements Vec2Like {
 			} else {
 				[this.x, this.y] = (x.match(NUM) ?? []).map((s) => Number.parseInt(s, 10)) as [
 					number,
-					number
+					number,
 				];
 			}
 		}
@@ -150,7 +158,7 @@ export class Vec2 implements Vec2Like {
 		options?: {
 			times?: number;
 			limit?: BoundingBox | ((v: Vec2Like) => boolean);
-		}
+		},
 	): Vec2 {
 		return this.clone().addMut(coord, options);
 	}
@@ -186,7 +194,7 @@ export class Vec2 implements Vec2Like {
 			limit?: BoundingBox | ((v: Vec2Like) => boolean);
 			flipX?: boolean;
 			flipY?: boolean;
-		}
+		},
 	): this {
 		const originalX = this.x;
 		const originalY = this.y;
@@ -318,12 +326,11 @@ export class Vec2 implements Vec2Like {
 	public los(f: Vec2[]): Vec2[] {
 		return f
 			.filter((fo) => !fo.equals(this))
-			.map(
-				(o) =>
-					[...this.reach(o, false, true)]
-						.filter((l) => f.find((fi) => fi.equals(l)))
-						.sort((a, b) => this.dist(a) - this.dist(b))
-						.shift()
+			.map((o) =>
+				[...this.reach(o, false, true)]
+					.filter((l) => f.find((fi) => fi.equals(l)))
+					.sort((a, b) => this.dist(a) - this.dist(b))
+					.shift(),
 			)
 			.filter((a): a is Vec2 => !!a)
 			.reduce<Vec2[]>((acc, n) => {

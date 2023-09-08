@@ -29,7 +29,7 @@ export class IntervalExecutor extends Executor {
 			tap(() => {
 				this.world.tick();
 				for (const callback of this.onTickCallbacks) callback(this.world);
-			})
+			}),
 		);
 	}
 

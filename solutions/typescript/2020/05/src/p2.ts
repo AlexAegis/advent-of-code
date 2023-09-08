@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 import { calculateSeatId } from './p1.js';
 
 export const p2 = (input: string): number => {
-	const seats = [];
+	const seats: (number | undefined)[] = [];
 	for (const seatId of split(input).map(calculateSeatId)) {
 		seats[seatId] = seatId;
 	}

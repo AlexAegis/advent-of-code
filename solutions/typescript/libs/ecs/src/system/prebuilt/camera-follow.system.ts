@@ -42,38 +42,40 @@ export const addCameraFollowSystem = (gridWorld: GridWorld): void => {
 			const offset = entityPosition.sub(maxEdge);
 
 			switch (camera.options.followMode) {
-			case 'edge': {
-				camera.move(offset);
-			
-			break;
-			}
-			case 'jumpToCenter': {
-				const horizontalJump = Math.floor(paddedWorldViewport.width / 2);
-				const verticalJump = Math.floor(paddedWorldViewport.height / 2);
+				case 'edge': {
+					camera.move(offset);
 
-				if (entityPosition.x !== maxEdge.x) {
-					offset.x = offset.x < 0 ? -horizontalJump : horizontalJump;
+					break;
 				}
-				if (entityPosition.y !== maxEdge.y) {
-					offset.y = offset.y < 0 ? -verticalJump : verticalJump;
+				case 'jumpToCenter': {
+					const horizontalJump = Math.floor(paddedWorldViewport.width / 2);
+					const verticalJump = Math.floor(paddedWorldViewport.height / 2);
+
+					if (entityPosition.x !== maxEdge.x) {
+						offset.x = offset.x < 0 ? -horizontalJump : horizontalJump;
+					}
+					if (entityPosition.y !== maxEdge.y) {
+						offset.y = offset.y < 0 ? -verticalJump : verticalJump;
+					}
+					camera.move(offset);
+
+					break;
 				}
-				camera.move(offset);
-			
-			break;
-			}
-			case 'jump': {
-				if (entityPosition.x !== maxEdge.x) {
-					offset.x = offset.x < 0 ? -horizontalMargin : horizontalMargin;
+				case 'jump': {
+					if (entityPosition.x !== maxEdge.x) {
+						offset.x = offset.x < 0 ? -horizontalMargin : horizontalMargin;
+					}
+					if (entityPosition.y !== maxEdge.y) {
+						offset.y = offset.y < 0 ? -verticalMargin : verticalMargin;
+					}
+					camera.move(offset);
+
+					break;
 				}
-				if (entityPosition.y !== maxEdge.y) {
-					offset.y = offset.y < 0 ? -verticalMargin : verticalMargin;
-				}
-				camera.move(offset);
-			
-			break;
-			}
-			// No default
+				// No default
 			}
 		}
+
+		return undefined;
 	});
 };

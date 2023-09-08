@@ -6,7 +6,7 @@ export type RowRenderedAlphaBet = Record<SmallLetterMatrixAlphabet, RowRenderedL
 export type LetterMatrixType = 'small' | 'big';
 
 export const getMatrixAlphabet = (
-	letterMatrixType: LetterMatrixType
+	letterMatrixType: LetterMatrixType,
 ): Readonly<Record<SmallLetterMatrixAlphabet, string>> => {
 	return letterMatrixType === 'small' ? MATRIX_ALPHABET_SMALL : MATRIX_ALPHABET_BIG;
 };
@@ -16,7 +16,7 @@ export const getRowRenderedAlphabet = (letterMatrixType: LetterMatrixType): RowR
 		Object.entries(getMatrixAlphabet(letterMatrixType)).map(([key, value]) => [
 			key,
 			value.split(NEWLINE),
-		])
+		]),
 	) as RowRenderedAlphaBet;
 };
 

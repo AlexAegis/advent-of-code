@@ -60,33 +60,36 @@ export class TerminalKitIOBackend implements IOBackend {
 			resizeNotifier({ x: width, y: height });
 		});
 
-		this.terminal.on('key', async (name: string, _matches: string[], _data: TerminalKitEventData) => {
-			let modifier: ModifierKey | undefined;
-			let event = name;
+		this.terminal.on(
+			'key',
+			async (name: string, _matches: string[], _data: TerminalKitEventData) => {
+				let modifier: ModifierKey | undefined;
+				let event = name;
 
-			if (name.includes('_')) {
-				const [mod, key] = name.splitIntoStringPair('_');
-				modifier = mod as ModifierKey;
-				event = key;
-			}
+				if (name.includes('_')) {
+					const [mod, key] = name.splitIntoStringPair('_');
+					modifier = mod as ModifierKey;
+					event = key;
+				}
 
-			if (/^[A-Z]$/.test(name)) {
-				event = name.toLowerCase();
-				modifier = 'SHIFT';
-			}
+				if (/^[A-Z]$/.test(name)) {
+					event = name.toLowerCase();
+					modifier = 'SHIFT';
+				}
 
-			for (const callback of this.keyEmitters) callback(event, modifier);
+				for (const callback of this.keyEmitters) callback(event, modifier);
 
-			if (name === 'CTRL_C' || name === 'ESCAPE') {
-				for (const callback of this.terminateRequests) callback();
-				await this.close();
-				// eslint-disable-next-line unicorn/no-process-exit
-				process.exit(0);
-			}
-		});
+				if (name === 'CTRL_C' || name === 'ESCAPE') {
+					for (const callback of this.terminateRequests) callback();
+					await this.close();
+					// eslint-disable-next-line unicorn/no-process-exit
+					process.exit(0);
+				}
+			},
+		);
 
 		this.terminal.on('mouse', (_eventName: string, data: TerminalKitMouseEventData) => {
-			for(const callback of this.mouseEmitters) {
+			for (const callback of this.mouseEmitters) {
 				callback(new Vec2(data.x, data.y));
 			}
 		});
@@ -103,7 +106,7 @@ export class TerminalKitIOBackend implements IOBackend {
 					wrap: false,
 					attr: { color: tile.fg ?? 'white', bgTransparency: !tile.bg, bgColor: tile.bg },
 				},
-				tile.char ?? ' '
+				tile.char ?? ' ',
 			);
 		});
 		this.buffer.draw({ delta: true });

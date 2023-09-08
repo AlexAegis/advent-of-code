@@ -22,7 +22,7 @@ describe('groupByDelimiter', () => {
 		const result = groupByDelimiter(input, (t) => t === customDelimiter);
 		expect(result.length).toBe(2);
 		expect(result.flat().length).toBe(
-			input.filter((value) => value !== customDelimiter).length
+			input.filter((value) => value !== customDelimiter).length,
 		);
 	});
 });

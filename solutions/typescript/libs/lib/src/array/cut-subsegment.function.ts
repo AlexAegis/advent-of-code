@@ -17,7 +17,7 @@ export const cutSubSegment = <T>(
 	t: T[],
 	pair: [T, T],
 	from = 0,
-	leaveOneBehind = false
+	leaveOneBehind = false,
 ): T[] | undefined => {
 	const j = findEndOfPair(t, pair, from);
 	if (j === undefined) {

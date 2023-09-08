@@ -14,7 +14,7 @@ import { generateStringTile } from './generate-string-tile.function.js';
 export const createTileMatrixFromMap = <T>(
 	tileMap: Map<Vec2String, T>,
 	tileToString: (t: T) => string = (t) => (t as Partial<ToString>).toString?.() ?? '_',
-	emptyTileBase = '_'
+	emptyTileBase = '_',
 ): string[][] => {
 	const result: string[][] = [];
 	const corners = findCorners([...tileMap.keys()].map((c) => new Vec2(c)));

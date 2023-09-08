@@ -190,9 +190,13 @@ export class PairTree<T = number> {
 		let left: T | PairTree<T>;
 		let right: T | PairTree<T>;
 		if (isNestedPair(nestedPairs)) {
-			left = isNestedPair(nestedPairs[0]) ? PairTree.fromNestedPairs(nestedPairs[0]) : nestedPairs[0];
+			left = isNestedPair(nestedPairs[0])
+				? PairTree.fromNestedPairs(nestedPairs[0])
+				: nestedPairs[0];
 
-			right = isNestedPair(nestedPairs[1]) ? PairTree.fromNestedPairs(nestedPairs[1]) : nestedPairs[1];
+			right = isNestedPair(nestedPairs[1])
+				? PairTree.fromNestedPairs(nestedPairs[1])
+				: nestedPairs[1];
 		} else {
 			throw new Error('not a full binary tree source');
 		}

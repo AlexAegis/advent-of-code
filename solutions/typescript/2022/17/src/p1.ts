@@ -111,6 +111,7 @@ export const p1 = async (input: string): Promise<number> => {
 			const entity = spawnNextTetromino();
 			w.centerCameraOnEntity(entity);
 		}
+		return undefined;
 	});
 
 	// Fall system
@@ -129,6 +130,7 @@ export const p1 = async (input: string): Promise<number> => {
 						: tallestPoint;
 			}
 		}
+		return undefined;
 	});
 
 	// input handling/lateral move system
@@ -148,6 +150,8 @@ export const p1 = async (input: string): Promise<number> => {
 				}
 			}
 		}
+
+		return undefined;
 	});
 
 	await world.run();

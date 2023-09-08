@@ -17,7 +17,9 @@ describe('Vec2', () => {
 			});
 
 			it('should not be finite if both neither is finite even if the check is partial', () => {
-				expect(new Vec2(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY).isFinite(true)).toBeFalsy();
+				expect(
+					new Vec2(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY).isFinite(true),
+				).toBeFalsy();
 			});
 
 			it('should be finite if y is not finite but only x is checked', () => {

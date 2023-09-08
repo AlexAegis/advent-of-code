@@ -5,7 +5,10 @@ import packageJson from '../package.json';
 export const p2 = (input: string): number =>
 	split(input)
 		.map((line) => {
-			const [big, small] = line.splitToInt().desc().bubbleFindPair(divisible);
+			const [big, small] = line
+				.splitToInt({ keepEmptyLines: false })
+				.desc()
+				.bubbleFindPair(divisible);
 			return big / small;
 		})
 		.sum();

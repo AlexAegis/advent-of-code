@@ -9,7 +9,7 @@ import { NEWLINE } from '../regex/index.js';
  */
 export const mergeTileMatrix = <T extends ToString>(
 	tileMatrix: T[][],
-	separation = false
+	separation = false,
 ): string => {
 	const result: string[] = [];
 	for (const tileRow of tileMatrix) {

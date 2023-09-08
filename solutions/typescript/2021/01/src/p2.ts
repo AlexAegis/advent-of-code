@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 
 export const p2 = (input: string): number =>
 	input
-		.splitToInt()
+		.splitToInt({ keepEmptyLines: false })
 		.slideWindow(3)
 		.map((window) => window.sum())
 		.slideWindow()

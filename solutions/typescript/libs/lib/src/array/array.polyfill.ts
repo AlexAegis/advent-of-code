@@ -38,7 +38,11 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		tap(callbackFn: (item: T) => void): T[];
-		toInt(options?: { radix?: number; safe?: boolean; keepNonNumbers: false } |  { radix?: number; safe?: boolean; keepNonNumbers?: boolean }): number[];
+		toInt(
+			options?:
+				| { radix?: number; safe?: boolean; keepNonNumbers: false }
+				| { radix?: number; safe?: boolean; keepNonNumbers?: boolean },
+		): number[];
 		toInt(options?: {
 			radix?: number;
 			safe?: boolean;
@@ -114,7 +118,10 @@ Array.prototype.clear = function (): void {
 	this.splice(0);
 };
 
-Array.prototype.findLast = function <T, V extends T>(this: T[], predicate: (t: T) => t is V): T | undefined {
+Array.prototype.findLast = function <T, V extends T>(
+	this: T[],
+	predicate: (t: T) => t is V,
+): T | undefined {
 	return findLast(this, predicate);
 };
 
@@ -146,7 +153,7 @@ Array.prototype.intoIter = function* <T>(): IterableIterator<T> {
 
 Array.prototype.repeat = function* <T>(
 	this: T[],
-	until: (element: T, iteration: number) => boolean
+	until: (element: T, iteration: number) => boolean,
 ): IterableIterator<T> {
 	for (let i = 0; ; i++) {
 		for (const element of this) {
@@ -220,7 +227,7 @@ Array.prototype.count = function <T>(this: T[], predicate: (t: T) => boolean): n
 };
 
 Array.prototype.slideWindow = function <T, N extends number>(
-	windowSize: N = 2 as N
+	windowSize: N = 2 as N,
 ): SizedTuple<T, N>[] {
 	return slideWindow(this, windowSize);
 };
@@ -235,7 +242,7 @@ Array.prototype.partition = function <T>(this: T[], partitioner: (a: T) => boole
 
 Array.prototype.bubbleFindPair = function <T>(
 	this: T[],
-	comparator: (a: T, b: T) => boolean
+	comparator: (a: T, b: T) => boolean,
 ): [T | undefined, T | undefined] {
 	for (let i = 0; i < this.length - 1; i++) {
 		const ei = this[i];
@@ -253,11 +260,14 @@ Array.prototype.contains = function <T>(item: T): boolean {
 	return arrayContains(this, item);
 };
 
-Array.prototype.toInt = function (this: string[], options?: {
-	radix?: number;
-	safe?: boolean;
-	keepNonNumbers?: boolean;
-}): number[] {
+Array.prototype.toInt = function (
+	this: string[],
+	options?: {
+		radix?: number;
+		safe?: boolean;
+		keepNonNumbers?: boolean;
+	},
+): number[] {
 	let result: (number | undefined)[] = this.map((i) => Number.parseInt(i, options?.radix ?? 10));
 	if (options?.safe !== false && !options?.keepNonNumbers) {
 		result = result.filter((i) => i !== undefined && !Number.isNaN(i));

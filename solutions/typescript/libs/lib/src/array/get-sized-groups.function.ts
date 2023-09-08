@@ -11,5 +11,5 @@ export const getSizedGroups = <T>(array: T[], groupSize: number): T[][] =>
 			}
 			return groups;
 		},
-		[[]]
+		[[]],
 	);

@@ -53,7 +53,7 @@ Number.prototype.isInt = function (this: number): boolean {
 Number.prototype.interval = function (
 	this: number,
 	to: number,
-	options?: IntervalQualifier
+	options?: IntervalQualifier,
 ): Interval {
 	return new Interval(this, to, options);
 };
@@ -62,7 +62,7 @@ Number.prototype.addWithinRange = function (
 	this: number,
 	add: number,
 	fromOrTo?: number,
-	optionalTo?: number
+	optionalTo?: number,
 ): number {
 	return addWithinRange(this, add, fromOrTo, optionalTo);
 };

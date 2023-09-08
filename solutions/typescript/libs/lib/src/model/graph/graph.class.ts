@@ -23,15 +23,16 @@ export interface GraphTraversalOptions<N> {
 export class Graph<
 	T extends ToString = string,
 	Dir extends ToString = Direction,
-	N extends GraphNode<T, Dir> = GraphNode<T, Dir>
-> implements Iterable<N> {
+	N extends GraphNode<T, Dir> = GraphNode<T, Dir>,
+> implements Iterable<N>
+{
 	public nodes = new Map<string, N>();
 	public edges = new Set<Edge<N>>();
 
 	public static fromUniqueValueEdges<T extends ToString>(
 		edges: { from: T; to: T; bidirection?: boolean }[],
 		keyer?: (t: T) => string,
-		forcedBidirection?: boolean
+		forcedBidirection?: boolean,
 	): Graph<T, number> {
 		const graph = new Graph<T, number>();
 		for (const edge of edges) {
@@ -61,7 +62,7 @@ export class Graph<
 	 */
 	public getIntersections(matcher: (node?: N) => boolean): N[] {
 		return this.nodeValues.filter(
-			(node) => matcher(node) && node.neighbourNodes.every((node) => matcher(node))
+			(node) => matcher(node) && node.neighbourNodes.every((node) => matcher(node)),
 		);
 	}
 
@@ -89,7 +90,7 @@ export class Graph<
 	private static generatePath<
 		T extends ToString,
 		Dir extends ToString,
-		N extends GraphNode<T, Dir>
+		N extends GraphNode<T, Dir>,
 	>(cameFrom: Map<N, N>, start: N, goal?: N): N[] {
 		const s: N[] = [];
 		if (goal) {
@@ -114,13 +115,13 @@ export class Graph<
 
 	public forEach(callbackFn: (node: N) => void): void {
 		for (const node of this.nodes.values()) {
-			callbackFn(node)
+			callbackFn(node);
 		}
 	}
 
 	*[Symbol.iterator](): IterableIterator<N> {
 		for (const node of this.nodes.values()) {
-			yield node
+			yield node;
 		}
 	}
 
@@ -145,7 +146,7 @@ export class Graph<
 					}
 					return acc;
 				},
-				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY }
+				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY },
 			);
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const u = umin.node!;
@@ -185,7 +186,7 @@ export class Graph<
 	public aStar(
 		start: N | undefined,
 		end: N | ((n: N, path: N[]) => boolean) | undefined,
-		options?: GraphTraversalOptions<N>
+		options?: GraphTraversalOptions<N>,
 	): N[] {
 		if (!start || !end) {
 			return [];
@@ -218,7 +219,7 @@ export class Graph<
 					}
 					return acc;
 				},
-				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY }
+				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY },
 			);
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const current = umin.node!;

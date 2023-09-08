@@ -5,7 +5,10 @@ import type { Edge } from './edge.type.js';
 export class GraphNode<T extends ToString, Dir extends ToString = Direction> implements ToString {
 	public neighbours = new Map<Dir, Edge<this>>();
 
-	public constructor(public key: string, public value: T) {}
+	public constructor(
+		public key: string,
+		public value: T,
+	) {}
 
 	public updateValue(change: (t: T) => T): this {
 		this.value = change(this.value);

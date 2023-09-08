@@ -153,7 +153,7 @@ export class BoundingBox {
 			this._size = new Vec2(this.horizontal.length, this.vertical.length);
 			this._center = new Vec2(
 				this.left + Math.floor(this.width / 2),
-				this.top + Math.floor(this.height / 2)
+				this.top + Math.floor(this.height / 2),
 			);
 		}
 	}
@@ -272,11 +272,13 @@ export class BoundingBox {
 			}
 		}
 
-		return this.isFinite() ? this.clone() : BoundingBox.fromVectors(
-				[this.topLeft, this.topRight, this.bottomLeft, this.bottomRight].filter((anchor) =>
-					anchor.isFinite()
-				)
-			);
+		return this.isFinite()
+			? this.clone()
+			: BoundingBox.fromVectors(
+					[this.topLeft, this.topRight, this.bottomLeft, this.bottomRight].filter(
+						(anchor) => anchor.isFinite(),
+					),
+			  );
 	}
 
 	createBlankMatrix(): undefined[][];
@@ -284,7 +286,7 @@ export class BoundingBox {
 	createBlankMatrix<T>(map?: (position: Vec2) => T): (T | undefined)[][] {
 		if (this.isFinite()) {
 			return Array.from({ length: this.height }, (_e, y) =>
-				Array.from({ length: this.width }, (_e, x) => map?.(new Vec2(x, y)) ?? undefined)
+				Array.from({ length: this.width }, (_e, x) => map?.(new Vec2(x, y)) ?? undefined),
 			);
 		} else {
 			// Else only compile the first row
@@ -337,7 +339,9 @@ export class BoundingBox {
 	intersection(other: BoundingBox): BoundingBox | undefined {
 		const horizontalIntersection = this.horizontal.intersection(other.horizontal);
 		const verticalIntersection = this.vertical.intersection(other.vertical);
-		return horizontalIntersection && verticalIntersection ? new BoundingBox(horizontalIntersection, verticalIntersection) : undefined;
+		return horizontalIntersection && verticalIntersection
+			? new BoundingBox(horizontalIntersection, verticalIntersection)
+			: undefined;
 	}
 	/*
 	subtract(other: BoundingBox): BoundingBox[] {
@@ -439,7 +443,9 @@ export class BoundingBox {
 	contains(vec: Vec2Like): boolean;
 	contains(x: number, y: number): boolean;
 	contains(x: Vec2Like | number, y?: number): boolean {
-		return typeof x === 'object' ? Vec2.isWithin(x, this) : this.horizontal.contains(x) && y !== undefined && this.vertical.contains(y);
+		return typeof x === 'object'
+			? Vec2.isWithin(x, this)
+			: this.horizontal.contains(x) && y !== undefined && this.vertical.contains(y);
 	}
 
 	/**
@@ -454,7 +460,9 @@ export class BoundingBox {
 	}
 
 	moveAnchorTo(to: Vec2Like): this {
-		return this._finiteAnchorCornerName ? this.moveCornerTo(this._finiteAnchorCornerName, to) : this;
+		return this._finiteAnchorCornerName
+			? this.moveCornerTo(this._finiteAnchorCornerName, to)
+			: this;
 	}
 
 	moveCornerTo(corner: BoundingBoxCorner, to: Vec2Like): this {

@@ -50,13 +50,15 @@ export class Sprite {
 	static fromMatrix(matrix: string[][], rawOptions?: SpriteOptions) {
 		const options = normalizeSpriteOptions(rawOptions);
 		const tileMatrix: Tile[][] = mapMatrix(matrix, (char) =>
-			Sprite.intoDefaultTile(char, options)
+			Sprite.intoDefaultTile(char, options),
 		);
 		return new Sprite(tileMatrix, rawOptions);
 	}
 
 	getTileAt(x: number, y: number): Tile | undefined {
-		return this._box.contains(x, y) ? this.render[y % this._renderBox.height]?.[x % this._renderBox.width] : undefined;
+		return this._box.contains(x, y)
+			? this.render[y % this._renderBox.height]?.[x % this._renderBox.width]
+			: undefined;
 	}
 
 	private intoDefaultTile(tile?: string): Tile {
@@ -65,7 +67,7 @@ export class Sprite {
 
 	private static intoDefaultTile(
 		char: string | undefined,
-		options: NormalizedSpriteOptions
+		options: NormalizedSpriteOptions,
 	): Tile {
 		return {
 			char: char ?? ' ',

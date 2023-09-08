@@ -69,15 +69,15 @@
 	},
 	"dependencies": {
 		"@alexaegis/advent-of-code-lib": "workspace:^",
-		"arktype": "^1.0.20-alpha"
+		"arktype": "^1.0.21-alpha"
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.8.2",
 		"@alexaegis/ts": "^0.8.2",
 		"@alexaegis/vite": "^0.8.2",
 		"@alexaegis/vitest": "^0.8.2",
-		"@types/node": "^20.5.8",
+		"@types/node": "^20.5.9",
 		"vite": "^4.4.9",
-		"vitest": "^0.34.3"
+		"vitest": "^0.34.4"
 	}
 }

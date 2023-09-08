@@ -85,27 +85,27 @@ export class GridWorld {
 			this._executor = new IntervalExecutor(
 				this,
 				this.options.executorHaltCondition,
-				hzToMs(this.options.executorSpeed)
+				hzToMs(this.options.executorSpeed),
 			);
 		}
 
 		switch (this.options.io) {
-		case 'terminalKit': {
-			this._io = new TerminalKitIOBackend();
+			case 'terminalKit': {
+				this._io = new TerminalKitIOBackend();
 
-		break;
-		}
-		case 'blessed': {
-			this._io = new BlessedIOBackend();
+				break;
+			}
+			case 'blessed': {
+				this._io = new BlessedIOBackend();
 
-		break;
-		}
-		case 'console': {
-			this._io = new ConsoleLogIOBackend();
+				break;
+			}
+			case 'console': {
+				this._io = new ConsoleLogIOBackend();
 
-		break;
-		}
-		// No default
+				break;
+			}
+			// No default
 		}
 
 		if (this._io) {
@@ -116,7 +116,7 @@ export class GridWorld {
 						...this.options.rendererOptions,
 						cameraEntity,
 						backend: this._io,
-					})
+					}),
 				);
 			}
 		}
@@ -129,14 +129,14 @@ export class GridWorld {
 	getVisibleEntityBoundingBox(): BoundingBox {
 		return AsciiDisplayComponent.getSpatialCache(
 			this,
-			AsciiDisplayComponent
+			AsciiDisplayComponent,
 		).areaOfAllNonInfiniteEntities();
 	}
 
 	getCollidingEntityBoundingBox(): BoundingBox {
 		return ColliderComponent.getSpatialCache(
 			this,
-			AsciiDisplayComponent
+			AsciiDisplayComponent,
 		).areaOfAllNonInfiniteEntities();
 	}
 
@@ -175,12 +175,15 @@ export class GridWorld {
 			this.rendererSystem = systemLike;
 		}
 
-		const system = typeof systemLike === 'function' ? { init: () => undefined, tick: systemLike } : systemLike;
+		const system =
+			typeof systemLike === 'function'
+				? { init: () => undefined, tick: systemLike }
+				: systemLike;
 		this.systems.push(system);
 	}
 
 	async run(): Promise<number> {
-		return this._executor ? (await this._executor.run()) : this.timeData.tick;
+		return this._executor ? await this._executor.run() : this.timeData.tick;
 	}
 
 	async initializeSystems(): Promise<void> {
@@ -188,7 +191,7 @@ export class GridWorld {
 			await Promise.all(
 				this.systems
 					.filter((system): system is System => system instanceof System)
-					.map((system) => system.init(this))
+					.map((system) => system.init(this)),
 			);
 			this._systemsInitialized = true;
 			this._timeData.time = performance.now();
@@ -297,11 +300,13 @@ export class GridWorld {
 			return component[0]!;
 		} else if (component.length === 0) {
 			throw new Error(
-				`[getSingletonComponent] no entity exists with component ${String(componentType)}`
+				`[getSingletonComponent] no entity exists with component ${String(componentType)}`,
 			);
 		} else {
 			throw new Error(
-				`[getSingletonComponent] more than one entity exists with component ${String(componentType)}`
+				`[getSingletonComponent] more than one entity exists with component ${String(
+					componentType,
+				)}`,
 			);
 		}
 	}
@@ -348,13 +353,15 @@ export class GridWorld {
 					}
 					return acc;
 				},
-				new Set<Entity>()
+				new Set<Entity>(),
 			);
 			return filterMap(entities, (entity) => {
 				const matchingComponents = componentTypes.map((componentType) =>
-					entity.components.get(componentType)
+					entity.components.get(componentType),
 				) as InstanceTypeOfConstructorTuple<C>;
-				return matchingComponents.every((component) => !!component) ? [entity, ...matchingComponents] : undefined;
+				return matchingComponents.every((component) => !!component)
+					? [entity, ...matchingComponents]
+					: undefined;
 			});
 		} else {
 			return [];
@@ -373,12 +380,12 @@ export class GridWorld {
 					}
 					return acc;
 				},
-				new Set<Entity>()
+				new Set<Entity>(),
 			);
 
 			for (const entity of entities) {
 				const matchingComponents = componentTypes.map((componentType) =>
-					entity.components.get(componentType)
+					entity.components.get(componentType),
 				) as InstanceTypeOfConstructorTuple<C>;
 				if (matchingComponents.every((component) => !!component)) {
 					return [entity, ...matchingComponents];
@@ -387,7 +394,9 @@ export class GridWorld {
 		}
 
 		throw new Error(
-			`Cannot find an entity with components: ${componentTypes.map((t) => t.name).join(', ')}`
+			`Cannot find an entity with components: ${componentTypes
+				.map((t) => t.name)
+				.join(', ')}`,
 		);
 	}
 

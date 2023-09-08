@@ -17,7 +17,7 @@ declare global {
 		toGridGraph<T extends ToString>(
 			gridOptions?: GridGraphOptions<T> & {
 				valueConverter?: (value: string) => T;
-			}
+			},
 		): GridGraph<T>;
 		toVectorMap<V = string>(valueConverter?: (value: string) => V): Map<Vec2String, V>;
 		/**
@@ -26,7 +26,7 @@ declare global {
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
 		lines(keepEmpty?: boolean): string[];
-		splitToInt(options?: {
+		splitToInt(options: {
 			delimiter?: {
 				[Symbol.split](string: string, limit?: number): string[];
 			};
@@ -34,22 +34,26 @@ declare global {
 			trim?: boolean;
 			toIntOptions?: { radix?: number; safe?: boolean };
 		}): (number | undefined)[];
-		splitToInt(options?: {
-			delimiter?: {
-				[Symbol.split](string: string, limit?: number): string[];
-			};
-			keepEmptyLines?: boolean;
-			trim?: boolean;
-			toIntOptions?: { radix?: number; safe?: boolean };
-		} | {
-			delimiter?: {
-				[Symbol.split](string: string, limit?: number): string[];
-			};
-			keepEmptyLines: false;
-			trim?: boolean;
+		splitToInt(
+			options?:
+				| {
+						delimiter?: {
+							[Symbol.split](string: string, limit?: number): string[];
+						};
+						keepEmptyLines?: boolean;
+						trim?: boolean;
+						toIntOptions?: { radix?: number; safe?: boolean };
+				  }
+				| {
+						delimiter?: {
+							[Symbol.split](string: string, limit?: number): string[];
+						};
+						keepEmptyLines: false;
+						trim?: boolean;
 
-			toIntOptions?: { radix?: number; safe?: boolean };
-		}): number[];
+						toIntOptions?: { radix?: number; safe?: boolean };
+				  },
+		): number[];
 		isLowerCase(): boolean;
 		isUpperCase(): boolean;
 		splitIntoStringPair(delimiter?: string | RegExp): [string, string];
@@ -79,13 +83,13 @@ String.prototype.isUpperCase = function (): boolean {
 String.prototype.toGridGraph = function <T extends ToString>(
 	gridOptions?: GridGraphOptions<T> & {
 		valueConverter?: (value: string) => T;
-	}
+	},
 ): GridGraph<T> {
 	return GridGraph.fromString(this as string, gridOptions);
 };
 
 String.prototype.toVectorMap = function <V = string>(
-	valueConverter?: (value: string) => V
+	valueConverter?: (value: string) => V,
 ): Map<Vec2String, V> {
 	return stringToVectorMap(this as string, { valueConverter });
 };
@@ -101,20 +105,21 @@ String.prototype.splitToInt = function (options?: {
 	toIntOptions?: { radix?: number; safe?: boolean };
 	trim?: boolean;
 }): number[] {
+	const keepEmptyLines = options?.keepEmptyLines ?? false;
 	const trimmed = options?.trim === false ? this : this.trim();
 	let split = trimmed.split(options?.delimiter ?? /\r?\s/g);
-	if (!options?.keepEmptyLines) {
+	if (!keepEmptyLines) {
 		split = split.filter((line) => !!line); // Filter out empty lines
 	}
 	return split.toInt({
 		...options?.toIntOptions,
-		keepNonNumbers: options?.keepEmptyLines ?? false,
+		keepNonNumbers: keepEmptyLines,
 	});
 };
 
 String.prototype.toMatrix = function (
 	rowSeparator: RegExp | string = NEWLINE,
-	itemSeparator: RegExp | string = ''
+	itemSeparator: RegExp | string = '',
 ): string[][] {
 	return stringToMatrix(this as string, rowSeparator, itemSeparator);
 };

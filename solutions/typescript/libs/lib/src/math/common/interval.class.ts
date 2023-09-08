@@ -212,15 +212,14 @@ export class Interval implements IntervalLike, IntervalQualifier {
 
 	mergeOne(other: Interval): Interval | undefined {
 		const [lowestLow] = [this, other].sort(Interval.compareByLow) as [Interval, Interval];
-		const [, highestHigh] = [this, other].sort(Interval.compareByHigh) as [
-			Interval,
-			Interval
-		];
+		const [, highestHigh] = [this, other].sort(Interval.compareByHigh) as [Interval, Interval];
 
-		return this.intersects(other) ? new Interval(lowestLow.low, highestHigh.high, {
-				lowQualifier: lowestLow.lowQualifier,
-				highQualifier: highestHigh.highQualifier,
-			}) : undefined;
+		return this.intersects(other)
+			? new Interval(lowestLow.low, highestHigh.high, {
+					lowQualifier: lowestLow.lowQualifier,
+					highQualifier: highestHigh.highQualifier,
+			  })
+			: undefined;
 	}
 
 	static merge(intervals: Interval[]): Interval[] {
@@ -349,14 +348,8 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		} else if (a.isFinite() && Interval.contains(b, a.low) && Interval.contains(b, a.high)) {
 			return a;
 		} else {
-			const [, highestLow] = [a, b].sort(Interval.compareByLow) as [
-				Interval,
-				Interval
-			];
-			const [lowestHigh,] = [a, b].sort(Interval.compareByLow) as [
-				Interval,
-				Interval
-			];
+			const [, highestLow] = [a, b].sort(Interval.compareByLow) as [Interval, Interval];
+			const [lowestHigh] = [a, b].sort(Interval.compareByLow) as [Interval, Interval];
 
 			return new Interval(highestLow.low, lowestHigh.high, {
 				lowQualifier: highestLow.lowQualifier,

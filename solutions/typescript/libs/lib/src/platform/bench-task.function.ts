@@ -13,7 +13,7 @@ import type { TaskResources } from './task-resources.type.js';
 export const benchTask = async <Input, Result = string, Args = undefined>(
 	runner: Solution<Input, Result, Args>,
 	resources: TaskResources<Input, Args>,
-	logger?: Logger
+	logger?: Logger,
 ): Promise<Result> => {
 	const obs = new PerformanceObserver((list) => {
 		list.getEntries().forEach((entry) => {

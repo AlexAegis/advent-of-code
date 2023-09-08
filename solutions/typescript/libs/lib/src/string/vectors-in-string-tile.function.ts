@@ -15,7 +15,7 @@ import { NEWLINE } from '../regex/index.js';
 export const vectorsInStringTile = (
 	tile: string,
 	character: string,
-	fromBottom = false
+	fromBottom = false,
 ): Vec2[] => {
 	const result: Vec2[] = [];
 	const lines = tile.split(NEWLINE);

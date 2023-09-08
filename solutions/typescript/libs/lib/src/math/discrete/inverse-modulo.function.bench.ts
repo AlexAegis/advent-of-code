@@ -16,5 +16,5 @@ await defaultBench(
 	}),
 	add('invModBigInt', () => {
 		invModBigInt(123n, 4567n);
-	})
+	}),
 );

@@ -15,7 +15,7 @@ const LETTER_SPACING = 1;
  */
 export const parseLetterMatrix = (
 	matrix: string[][],
-	letterType: LetterMatrixType = 'small'
+	letterType: LetterMatrixType = 'small',
 ): string => {
 	const renderedAlphabet = getRowRenderedAlphabet(letterType);
 	const renderedRows = matrix.map((row) => row.join(''));
@@ -49,7 +49,7 @@ export const parseLetterMatrix = (
 			throw new Error(
 				`No letter matched at offset ${
 					offset - (matchedWidth + LETTER_SPACING)
-				} during letter matrix parsing!`
+				} during letter matrix parsing!`,
 			);
 		}
 	}

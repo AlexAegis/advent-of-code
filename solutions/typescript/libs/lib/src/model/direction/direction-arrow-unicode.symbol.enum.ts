@@ -9,21 +9,21 @@ export type HorizontalDirectionArrowUnicodeSymbol =
 	| DirectionArrowUnicodeSymbol.EAST
 	| DirectionArrowUnicodeSymbol.WEST;
 
-export type VericalDirectionArrowUnicodeSymbol =
-	| DirectionArrowUnicodeSymbol.NORTH
-	 ;
+export type VericalDirectionArrowUnicodeSymbol = DirectionArrowUnicodeSymbol.NORTH;
 
 export const isHorizontalDirectionArrowUnicodeSymbol = (
-	symbol: string
+	symbol: string,
 ): symbol is HorizontalDirectionArrowUnicodeSymbol =>
-	symbol === DirectionArrowUnicodeSymbol.EAST as string || symbol === DirectionArrowUnicodeSymbol.WEST as string;
+	symbol === (DirectionArrowUnicodeSymbol.EAST as string) ||
+	symbol === (DirectionArrowUnicodeSymbol.WEST as string);
 
 export const isVericalDirectionArrowUnicodeSymbol = (
-	symbol: string
+	symbol: string,
 ): symbol is VericalDirectionArrowUnicodeSymbol =>
-	symbol === DirectionArrowUnicodeSymbol.NORTH as string || symbol === DirectionArrowUnicodeSymbol.SOUTH as string;
+	symbol === (DirectionArrowUnicodeSymbol.NORTH as string) ||
+	symbol === (DirectionArrowUnicodeSymbol.SOUTH as string);
 
 export const isDirectionArrowUnicodeSymbol = (
-	symbol: string
+	symbol: string,
 ): symbol is DirectionArrowUnicodeSymbol =>
 	isHorizontalDirectionArrowUnicodeSymbol(symbol) || isVericalDirectionArrowUnicodeSymbol(symbol);

@@ -1,3 +1,6 @@
 export class LZPointer {
-	public constructor(public jump: number, public length: number) {}
+	public constructor(
+		public jump: number,
+		public length: number,
+	) {}
 }
