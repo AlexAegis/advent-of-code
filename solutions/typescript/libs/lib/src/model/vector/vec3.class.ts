@@ -28,7 +28,7 @@ export class Vec3 implements Vec3Like {
 			[this.x, this.y, this.z] = (x.match(NUM) ?? []).map((s) => Number.parseInt(s, 10)) as [
 				number,
 				number,
-				number
+				number,
 			];
 		}
 	}
@@ -37,7 +37,7 @@ export class Vec3 implements Vec3Like {
 		return new Vec3(
 			this.x + coord.x * times,
 			this.y + coord.y * times,
-			this.z + coord.z * times
+			this.z + coord.z * times,
 		);
 	}
 
@@ -73,7 +73,7 @@ export class Vec3 implements Vec3Like {
 
 	public dist(o: Vec3): number {
 		return Math.sqrt(
-			Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2) + Math.pow(o.z - this.z, 2)
+			Math.pow(o.x - this.x, 2) + Math.pow(o.y - this.y, 2) + Math.pow(o.z - this.z, 2),
 		);
 	}
 
@@ -110,12 +110,11 @@ export class Vec3 implements Vec3Like {
 	public los(f: Vec3[]): Vec3[] {
 		return f
 			.filter((fo) => !fo.equals(this))
-			.map(
-				(o) =>
-					[...this.reach(o, false, true)]
-						.filter((l) => f.find((fi) => fi.equals(l)))
-						.sort((a, b) => this.dist(a) - this.dist(b))
-						.shift()
+			.map((o) =>
+				[...this.reach(o, false, true)]
+					.filter((l) => f.find((fi) => fi.equals(l)))
+					.sort((a, b) => this.dist(a) - this.dist(b))
+					.shift(),
 			)
 			.filter((a): a is Vec3 => !!a)
 			.reduce<Vec3[]>((acc, n) => {

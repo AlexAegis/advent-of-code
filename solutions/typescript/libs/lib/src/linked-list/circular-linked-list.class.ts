@@ -39,7 +39,7 @@ export class CircularLinkedList<T> implements ToString {
 	 */
 	*[Symbol.iterator](): IterableIterator<T> {
 		let current = this.head;
-		for(;;) {
+		for (;;) {
 			yield current.value;
 			current = current.next;
 		}

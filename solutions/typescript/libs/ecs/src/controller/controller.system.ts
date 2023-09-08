@@ -18,7 +18,7 @@ export class BasicController extends System implements Initializable {
 		private readonly eventMap: Record<
 			string,
 			(entity: Entity, world: GridWorld, timeData: TimeData) => void
-		>
+		>,
 	) {
 		super();
 		this.buffer = new ControllerBuffer(this.backend);

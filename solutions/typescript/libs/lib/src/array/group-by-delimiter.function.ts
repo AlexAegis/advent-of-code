@@ -3,7 +3,7 @@
  */
 export const groupByDelimiter = <T>(
 	values: T[],
-	isDelimiter: (t: T) => boolean = (t) => !t
+	isDelimiter: (t: T) => boolean = (t) => !t,
 ): T[][] => {
 	const result: T[][] = [[]];
 	for (const value of values) {

@@ -129,7 +129,7 @@ export class Direction extends Vec2 {
 	}
 
 	public static reverseValue(
-		v?: DirectionCardinalNumericClockwiseIndex
+		v?: DirectionCardinalNumericClockwiseIndex,
 	): DirectionCardinalNumericClockwiseIndex | undefined {
 		switch (v) {
 			case DirectionCardinalNumericClockwiseIndex.NORTH: {
@@ -208,9 +208,12 @@ export class Direction extends Vec2 {
 
 	public reverse(axis?: 'h' | 'v'): this {
 		if ((!axis || axis === 'v') && this.equals(Direction.NORTH)) return Direction.SOUTH as this;
-		else if ((!axis || axis === 'h') && this.equals(Direction.WEST)) return Direction.EAST as this;
-		else if ((!axis || axis === 'v') && this.equals(Direction.SOUTH)) return Direction.NORTH as this;
-		else if ((!axis || axis === 'h') && this.equals(Direction.EAST)) return Direction.WEST as this;
+		else if ((!axis || axis === 'h') && this.equals(Direction.WEST))
+			return Direction.EAST as this;
+		else if ((!axis || axis === 'v') && this.equals(Direction.SOUTH))
+			return Direction.NORTH as this;
+		else if ((!axis || axis === 'h') && this.equals(Direction.EAST))
+			return Direction.WEST as this;
 		else return this;
 	}
 

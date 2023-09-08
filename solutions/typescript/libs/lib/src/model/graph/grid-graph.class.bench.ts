@@ -32,8 +32,8 @@ const p = graph.aStar(start, goal, {
 });
 console.log(
 	graph.toString((node) =>
-		p.some((pc) => node.coordinate.equals(pc.coordinate)) ? '#' : undefined
-	)
+		p.some((pc) => node.coordinate.equals(pc.coordinate)) ? '#' : undefined,
+	),
 );
 
 await defaultBench(
@@ -42,11 +42,11 @@ await defaultBench(
 	add('Astar', () =>
 		graph.aStar(start, goal, {
 			weighter: (a, g) => a.coordinate.dist(g.coordinate),
-		})
+		}),
 	),
 	add('Astar h2', () =>
 		graph.aStar(start, goal, {
 			weighter: (a, g) => 140 - a.coordinate.dist(g.coordinate),
-		})
-	)
+		}),
+	),
 );

@@ -66,8 +66,8 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 
 	public pushAsciiInput(input: string, nl = true): this {
 		if (nl) {
-			input += '\n'
-		};
+			input += '\n';
+		}
 		return this.pushInput(...[...input].map((s) => s.codePointAt(0) ?? 0));
 	}
 
@@ -130,11 +130,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	}
 
 	private getArg(v: number, n: number, asIndex = false, mode?: Mode): number {
-		return this.getValue(
-			this.cursor + n + 1,
-			mode ?? this.getMode(v, n),
-			asIndex
-		);
+		return this.getValue(this.cursor + n + 1, mode ?? this.getMode(v, n), asIndex);
 	}
 
 	private getMode(v: number, n: number): Mode | undefined {
@@ -217,7 +213,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 	private inOp(pos: number): void {
 		if (this.inputQueue && this.inputQueue.length > 0) {
 			const next = this.inputQueue.shift();
-			if(next !== undefined) {
+			if (next !== undefined) {
 				this.tape.set(pos, next);
 			}
 		} else if (this.inputCallback) {

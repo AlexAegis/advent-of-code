@@ -5,6 +5,6 @@
  * @example [1, 2, 3].some(is(2)) // true
  */
 export const is =
-	<T, A extends T>(...a: A[]) =>
-	(b: T): b is A =>
-		a.includes(b);
+	<T, R extends T>(...a: R[]) =>
+	(b: T): b is R =>
+		a.includes(b as R);

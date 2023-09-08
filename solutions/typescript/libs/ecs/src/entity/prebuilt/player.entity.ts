@@ -9,13 +9,13 @@ export class PlayerMarkerComponent extends Component {}
 
 export const spawnPlayer = (
 	world: GridWorld,
-	startingPosition: Vec2 = Vec2.ORIGIN.clone()
+	startingPosition: Vec2 = Vec2.ORIGIN.clone(),
 ): Entity => {
 	const playerEntity = world.spawn(
 		new PlayerMarkerComponent(),
 		new PositionComponent(startingPosition),
 		AsciiDisplayComponent.fromString('ඞ', { defaultForegroundColor: 'white' }),
-		ColliderComponent.unit
+		ColliderComponent.unit,
 	);
 
 	addWasdMoveSystem(world, playerEntity);

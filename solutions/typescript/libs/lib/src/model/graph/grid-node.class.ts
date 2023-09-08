@@ -17,7 +17,10 @@ interface WalkResult<T extends ToString = string> {
  *
  */
 export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
-	public constructor(public coordinate: Vec2, value: T) {
+	public constructor(
+		public coordinate: Vec2,
+		value: T,
+	) {
 		super(coordinate.toString(), value);
 	}
 
@@ -113,7 +116,7 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 	public attachNeightbours(
 		graph: Graph<T, Direction, this>,
 		directions = Direction.cardinalDirections,
-		weighter?: Weighter<this>
+		weighter?: Weighter<this>,
 	): void {
 		for (const dir of directions) {
 			const node = graph.nodes.get(this.coordinate.clone().add(dir).toString());

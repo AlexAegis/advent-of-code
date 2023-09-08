@@ -219,9 +219,13 @@ export class LeafonlyBinaryTree<T = number> {
 		let left: T | LeafonlyBinaryTree<T>;
 		let right: T | LeafonlyBinaryTree<T>;
 		if (isNestedPair(nestedPairs)) {
-			left = isNestedPair(nestedPairs[0]) ? LeafonlyBinaryTree.fromNestedPairs(nestedPairs[0]) : nestedPairs[0];
+			left = isNestedPair(nestedPairs[0])
+				? LeafonlyBinaryTree.fromNestedPairs(nestedPairs[0])
+				: nestedPairs[0];
 
-			right = isNestedPair(nestedPairs[1]) ? LeafonlyBinaryTree.fromNestedPairs(nestedPairs[1]) : nestedPairs[1];
+			right = isNestedPair(nestedPairs[1])
+				? LeafonlyBinaryTree.fromNestedPairs(nestedPairs[1])
+				: nestedPairs[1];
 		} else {
 			throw new Error('not a full binary tree source');
 		}

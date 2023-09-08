@@ -5,7 +5,7 @@ export class HuffmannNode {
 	public constructor(
 		public frequency: number,
 
-		public code?: string
+		public code?: string,
 	) {}
 
 	public toString(prefix = ''): string {

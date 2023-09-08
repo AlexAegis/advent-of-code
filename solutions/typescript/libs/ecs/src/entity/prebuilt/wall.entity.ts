@@ -21,6 +21,6 @@ export const spawnWall = (world: GridWorld, from: Vec2, to: Vec2): Entity => {
 			defaultBackgroundColor: 'black',
 			defaultForegroundColor: 'gray',
 		}),
-		ColliderComponent.fromBoundingBoxes(localBox)
+		ColliderComponent.fromBoundingBoxes(localBox),
 	);
 };

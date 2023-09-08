@@ -12,7 +12,10 @@ export type EntityId = number;
 
 export class Entity {
 	spawned = false;
-	constructor(private readonly world: GridWorld, public entityId: EntityId) {}
+	constructor(
+		private readonly world: GridWorld,
+		public entityId: EntityId,
+	) {}
 
 	components = new Map<Constructor<Component>, Component>();
 
@@ -22,7 +25,7 @@ export class Entity {
 
 	getComponentOrThrow<C extends Component>(componentType: Constructor<C>): C {
 		const component = this.components.get(componentType) as C | undefined;
-		if(!component) {
+		if (!component) {
 			throw new Error('Component was not found on entity!');
 		}
 		return component;
@@ -38,7 +41,7 @@ export class Entity {
 			this.world.deattachComponent(this, positionComponent);
 			this.world.attachComponent(
 				this,
-				new StaticPositionComponent(positionComponent.position.clone())
+				new StaticPositionComponent(positionComponent.position.clone()),
 			);
 		}
 	}
@@ -78,9 +81,9 @@ export class Entity {
 		}
 
 		const displayComponent = this.getComponent(AsciiDisplayComponent);
-		return displayComponent?.sprite.boundingBox ? displayComponent.sprite.boundingBox
-				.clone()
-				.moveAnchorTo(positionComponent.position) : BoundingBox.fromVectors([positionComponent.position]);
+		return displayComponent?.sprite.boundingBox
+			? displayComponent.sprite.boundingBox.clone().moveAnchorTo(positionComponent.position)
+			: BoundingBox.fromVectors([positionComponent.position]);
 	}
 
 	/**
@@ -97,8 +100,8 @@ export class Entity {
 		}
 
 		const collider = this.getComponent(ColliderComponent);
-		return collider?.colliders ? BoundingBox.combine(collider.colliders).moveAnchorTo(
-				positionComponent.position
-			) : BoundingBox.fromVectors([positionComponent.position]);
+		return collider?.colliders
+			? BoundingBox.combine(collider.colliders).moveAnchorTo(positionComponent.position)
+			: BoundingBox.fromVectors([positionComponent.position]);
 	}
 }

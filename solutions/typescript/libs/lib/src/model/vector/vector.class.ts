@@ -48,6 +48,6 @@ export const flattenVectors = (v: Vector[]): { c: Vec2; steps: number }[] => {
 		{
 			res: [] as { c: Vec2; steps: number }[],
 			curs: { pos: new Vec2(0, 0), step: 0 },
-		}
+		},
 	).res;
 };

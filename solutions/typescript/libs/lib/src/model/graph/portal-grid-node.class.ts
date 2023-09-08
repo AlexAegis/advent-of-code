@@ -11,7 +11,7 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 	public constructor(
 		public override coordinate: Vec2,
 		public portalLabel: string | undefined,
-		value: T
+		value: T,
 	) {
 		super(coordinate, value);
 		if (portalLabel) {
@@ -29,13 +29,13 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		graph: PortalGridGraph<T, any>,
 		directions = Direction.cardinalDirections,
-		weighter?: Weighter<this>
+		weighter?: Weighter<this>,
 	): void {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		super.attachNeightbours(graph, directions, weighter);
 		if (this.portalLabel && !this.portal()) {
 			const node = [...graph.nodes.entries()].find(
-				([_, v]) => (v as this).portalLabel === this.portalLabel
+				([_, v]) => (v as this).portalLabel === this.portalLabel,
 			)?.[1] as this | undefined;
 			const portal = this.portal();
 			if (node && portal) {
@@ -44,14 +44,14 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 					() => ({
 						from: this,
 						to: node,
-					})
+					}),
 				);
 				const backEdge = node.neighbours.getOrAdd(
 					this.portalLabel as unknown as Direction,
 					() => ({
 						from: node,
 						to: this,
-					})
+					}),
 				);
 
 				forwardEdge.to = node;

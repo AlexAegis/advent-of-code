@@ -7,7 +7,7 @@ export const addWithinRange = (
 	base: number,
 	add: number,
 	fromOrTo?: number,
-	optionalTo?: number
+	optionalTo?: number,
 ): number => {
 	if (nonNullish(fromOrTo)) {
 		const [from, to] = nonNullish(optionalTo) ? [fromOrTo, optionalTo] : [0, fromOrTo];

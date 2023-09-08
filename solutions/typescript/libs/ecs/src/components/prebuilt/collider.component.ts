@@ -11,7 +11,7 @@ export class ColliderComponent extends SpatialComponent {
 
 	static fromRender(
 		sprite: Sprite,
-		tileCollides = (char: string) => char !== ' ' && char !== '.'
+		tileCollides = (char: string) => char !== ' ' && char !== '.',
 	): ColliderComponent {
 		const boundingBoxes = [];
 		if (sprite.boundingBox.every((x, y) => tileCollides(sprite.getTileAt(x, y)?.char ?? ' '))) {
@@ -26,7 +26,7 @@ export class ColliderComponent extends SpatialComponent {
 							BoundingBox.fromVectors([
 								new Vec2(0, y),
 								new Vec2(renderRow.length - 1, y),
-							])
+							]),
 						);
 					} else {
 						for (let x = 0; x < renderRow.length; x++) {

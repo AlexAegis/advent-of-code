@@ -37,6 +37,6 @@ export const defaultBench = (
 		complete(),
 		save({ format: 'table.html' }),
 		save({ format: 'chart.html' }),
-		save({ format: 'json' })
+		save({ format: 'json' }),
 	);
 };

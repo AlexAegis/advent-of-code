@@ -1,4 +1,4 @@
-import { stringPair, task } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { findPossibleCombinations } from './p1.js';
 import { parse } from './parse.function.js';
@@ -14,7 +14,7 @@ export const p2 = (input: string): string => {
 	const possibleCombinations = findPossibleCombinations(entries);
 
 	const sorted = [...possibleCombinations.entries()]
-		.map(([a, b]) => stringPair.assert([a, [...b]]))
+		.map<[string, string[]]>(([a, b]) => [a, [...b]])
 		.sort((a, b) => (a[0] > b[0] ? 1 : -1));
 
 	const allergenicIngredients = new Set(

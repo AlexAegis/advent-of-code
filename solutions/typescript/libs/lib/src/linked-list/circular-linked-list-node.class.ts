@@ -7,7 +7,7 @@ export class CircularLinkedListNode<T> extends LinkedListNode<T> {
 	public constructor(
 		public override value: T,
 		prev?: CircularLinkedListNode<T>,
-		next?: CircularLinkedListNode<T>
+		next?: CircularLinkedListNode<T>,
 	) {
 		super(value);
 		this.prev = prev ?? this;

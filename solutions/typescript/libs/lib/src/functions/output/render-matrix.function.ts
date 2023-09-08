@@ -1,7 +1,7 @@
 export const renderMatrix = (
 	matrix: (string | number)[][],
 	flipVertical = false,
-	flipHorizontal = false
+	flipHorizontal = false,
 ): string => {
 	let rows = matrix.map((row) => {
 		if (flipHorizontal) {

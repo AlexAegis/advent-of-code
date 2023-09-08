@@ -19,8 +19,8 @@ export const crt = (mods: CongruentModulo<number>[]): number => {
 			mods.map(({ remainder, modulo }) => ({
 				remainder: BigInt(remainder),
 				modulo: BigInt(modulo),
-			}))
-		)
+			})),
+		),
 	);
 };
 

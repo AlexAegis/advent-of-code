@@ -2,7 +2,7 @@ import type { SizedTuple } from '../../model/index.js';
 
 export const slideWindow = <T, N extends number>(
 	array: T[],
-	windowSize: N = 2 as N
+	windowSize: N = 2 as N,
 ): SizedTuple<T, N>[] => {
 	const result: SizedTuple<T, N>[] = [];
 	const window = [];

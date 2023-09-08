@@ -21,7 +21,7 @@ export interface StringToVectorMapOptions<V> {
  */
 export const stringToVectorMap = <V = string>(
 	s: string,
-	rawOptions?: StringToVectorMapOptions<V>
+	rawOptions?: StringToVectorMapOptions<V>,
 ): Map<Vec2String, V> => {
 	const options = normalizeStringToVectorMapOptions(rawOptions);
 	const matrix = stringToMatrix(s, options.rowSeparator, options.itemSeparator);
@@ -46,7 +46,7 @@ export const stringToVectorMap = <V = string>(
 };
 
 export const normalizeStringToVectorMapOptions = <V>(
-	options?: StringToVectorMapOptions<V>
+	options?: StringToVectorMapOptions<V>,
 ): Required<StringToVectorMapOptions<V>> => {
 	return {
 		valueConverter: options?.valueConverter ?? ((a) => a as V),

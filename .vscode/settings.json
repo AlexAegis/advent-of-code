@@ -1,10 +1,48 @@
 {
-	"editor.formatOnSave": true,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "unifiedjs.vscode-remark"
+	},
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.python"
+	},
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"editor.autoIndent": "full",
-	"editor.tabCompletion": "off",
-	"editor.tabSize": 4,
-	"editor.stickyTabStops": true,
-	"editor.useTabStops": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true,
+		"source.organizeImports": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.fontLigatures": true,
+	"editor.formatOnSave": true,
+	"editor.mouseWheelZoom": true,
+	"editor.quickSuggestions": {
+		"comments": false,
+		"other": true,
+		"strings": false
+	},
+	"editor.quickSuggestionsDelay": 0,
 	"editor.rulers": [
 		{
 			"color": "#bdbdbd11",
@@ -15,65 +53,76 @@
 			"column": 100
 		}
 	],
-	"editor.quickSuggestionsDelay": 0,
-	"editor.quickSuggestions": {
-		"other": true,
-		"comments": false,
-		"strings": false
-	},
+	"editor.snippetSuggestions": "bottom",
+	"editor.suggest.localityBonus": true,
+	"editor.tabSize": 4,
+	"editor.useTabStops": true,
 	"editor.wordBasedSuggestions": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll": true,
-		"source.organizeImports": true,
-		// For ESLint
-		"source.fixAll.eslint": true,
-		// For Stylelint
-		"source.fixAll.stylelint": true
-	},
-	"editor.fontLigatures": true,
-	"editor.mouseWheelZoom": true,
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "svelte"],
+	"editor.linkedEditing": true,
 	"explorer.fileNesting.enabled": true,
-	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"explorer.fileNesting.patterns": {
-		"*.ts": "${capture}*",
 		"*.js": "${capture}*",
-		"*.jsx": "${capture}*",
-		"*.tsx": "${capture}*",
 		"*.json": "${capture}*",
+		"*.jsx": "${capture}*",
+		"*.ts": "${capture}*",
+		"*.tsx": "${capture}*",
 		".eslintrc.*": ".eslintignore",
+		".gitignore": ".gitattributes",
 		".prettierrc.*": ".prettierignore",
-		".gitignore": ".gitattributes"
-	},
-	"files.exclude": {
-		"**/.git": true,
-		"**/.DS_Store": true
+		".stylelintrc.*": ".stylelintignore"
 	},
 	"files.associations": {
+		".stylelintrc": "jsonc",
+		"*.prettierignore": "ignore", // Used for custom prettierignore files that are only used through --ignore-path
 		"*.json": "jsonc"
 	},
-	"typescript.tsdk": "node_modules/typescript/lib",
+	"files.exclude": {
+		"**/.DS_Store": true,
+		"**/.git": true
+	},
+	"files.readonlyInclude": {
+		// Everything third party should be read-only. build/dist folders are not here to enable tinkering when needed
+		"**/node_modules/**": true,
+		"**/coverage/**": true,
+		"**/.cache/**": true,
+		"**/.turbo/**": true,
+		"**/.svelte-kit/**": true
+	},
+	"files.readonlyExclude": {
+		// I should still be able to delete the folders themselves
+		"**/node_modules": true,
+		"**/coverage": true,
+		"**/.cache": true,
+		"**/.turbo": true,
+		"**/.svelte-kit": true
+	},
+	"json.schemas": [
+		{
+			"fileMatch": ["typedoc.json"],
+			"url": "https://json.schemastore.org/typedoc"
+		}
+	],
+	"todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+	"stylelint.enable": true,
+	"stylelint.packageManager": "pnpm",
+	"stylelint.validate": [
+		"css",
+		"scss",
+		"postcss",
+		"sass",
+		"html",
+		"svelte",
+		"vue",
+		"astro",
+		"xml",
+		"php"
+	],
+	"svelte.enable-ts-plugin": true,
 	"terminal.integrated.windowsEnableConpty": true,
-	"[rust]": {
-		"editor.defaultFormatter": "rust-lang.rust-analyzer"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[markdown]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
+	"prettier.documentSelectors": ["**/*.svelte"],
+	"vitest.commandLine": "npx vitest --coverage",
+	"vitest.enable": true,
 	"[python]": {
 		"editor.defaultFormatter": "ms-python.python",
 		"editor.tabSize": 4,
@@ -87,13 +136,7 @@
 	"python.linting.enabled": true,
 	"python.terminal.activateEnvironment": false,
 	"python.defaultInterpreterPath": ".venv3/bin/python",
-	"typescript.preferences.importModuleSpecifier": "relative",
+	"python.analysis.typeCheckingMode": "basic",
 	"rust-analyzer.checkOnSave.enable": true,
-	"rust-analyzer.checkOnSave.allTargets": true,
-	"prettier.prettierPath": "./node_modules/prettier",
-	"stylelint.enable": true,
-	"stylelint.validate": ["css", "scss", "postcss"],
-	"vitest.enable": true,
-	"vitest.commandLine": "npx vitest --coverage",
-	"python.analysis.typeCheckingMode": "basic"
+	"rust-analyzer.checkOnSave.allTargets": true
 }

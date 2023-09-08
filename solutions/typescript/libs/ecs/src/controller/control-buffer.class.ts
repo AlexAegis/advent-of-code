@@ -13,35 +13,35 @@ export class ControllerBuffer implements Initializable {
 			this.keyBuffer[event] = 1;
 
 			switch (event) {
-			case 'UP': 
-			case 'w': {
-				this.keyBuffer['DOWN'] = 0;
-				this.keyBuffer['s'] = 0;
-			
-			break;
-			}
-			case 'DOWN': 
-			case 's': {
-				this.keyBuffer['UP'] = 0;
-				this.keyBuffer['w'] = 0;
-			
-			break;
-			}
-			case 'LEFT': 
-			case 'a': {
-				this.keyBuffer['RIGHT'] = 0;
-				this.keyBuffer['d'] = 0;
-			
-			break;
-			}
-			case 'RIGHT': 
-			case 'd': {
-				this.keyBuffer['LEFT'] = 0;
-				this.keyBuffer['a'] = 0;
-			
-			break;
-			}
-			// No default
+				case 'UP':
+				case 'w': {
+					this.keyBuffer['DOWN'] = 0;
+					this.keyBuffer['s'] = 0;
+
+					break;
+				}
+				case 'DOWN':
+				case 's': {
+					this.keyBuffer['UP'] = 0;
+					this.keyBuffer['w'] = 0;
+
+					break;
+				}
+				case 'LEFT':
+				case 'a': {
+					this.keyBuffer['RIGHT'] = 0;
+					this.keyBuffer['d'] = 0;
+
+					break;
+				}
+				case 'RIGHT':
+				case 'd': {
+					this.keyBuffer['LEFT'] = 0;
+					this.keyBuffer['a'] = 0;
+
+					break;
+				}
+				// No default
 			}
 		});
 

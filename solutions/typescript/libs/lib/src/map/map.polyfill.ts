@@ -46,7 +46,7 @@ Map.prototype.copy = function <K extends string | number, V>(): Map<K, V> {
 
 Map.prototype.update = function <K extends string | number, V>(
 	key: K,
-	change: (value: V | undefined) => V
+	change: (value: V | undefined) => V,
 ): Map<K, V> {
 	this.set(key, change(this.get(key) as V));
 	return this;
@@ -58,7 +58,7 @@ Map.prototype.findKey = function <K extends string | number, V>(value: V): K | u
 
 Map.prototype.getOrAdd = function <K extends string | number, V>(
 	key: K,
-	initialize: (key: K) => V
+	initialize: (key: K) => V,
 ): V {
 	return mapGetOrSet(this as Map<K, V>, key, initialize);
 };

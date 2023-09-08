@@ -21,10 +21,10 @@
 | [Day 11](/solutions/typescript/2022/11/) | [0.08ms](/solutions/typescript/2022/11/src/p1.ts)  | [29.12ms](/solutions/typescript/2022/11/src/p2.ts)   |
 | [Day 12](/solutions/typescript/2022/12/) | [83.84ms](/solutions/typescript/2022/12/src/p1.ts) | [140.04ms](/solutions/typescript/2022/12/src/p2.ts)  |
 | [Day 13](/solutions/typescript/2022/13/) | [0.54ms](/solutions/typescript/2022/13/src/p1.ts)  | [1.08ms](/solutions/typescript/2022/13/src/p2.ts)    |
-| [Day 14](/solutions/typescript/2022/14/) | [109.3ms](/solutions/typescript/2022/14/src/p1.ts) | [~6s](/solutions/typescript/2022/14/src/p2.ts)       |
+| [Day 14](/solutions/typescript/2022/14/) | [109.3ms](/solutions/typescript/2022/14/src/p1.ts) | [6s](/solutions/typescript/2022/14/src/p2.ts)        |
 | [Day 15](/solutions/typescript/2022/15/) | [0.02ms](/solutions/typescript/2022/15/src/p1.ts)  | [0.27ms](/solutions/typescript/2022/15/src/p2.ts)    |
 | [Day 16](/solutions/typescript/2022/16/) | [?](/solutions/typescript/2022/16/src/p1.ts)       | -                                                    |
-| [Day 17](/solutions/typescript/2022/17/) | [~4.4s](/solutions/typescript/2022/17/src/p1.ts)   | -                                                    |
+| [Day 17](/solutions/typescript/2022/17/) | [4.4s](/solutions/typescript/2022/17/src/p1.ts)    | -                                                    |
 | [Day 18](/solutions/typescript/2022/18/) | [4.85ms](/solutions/typescript/2022/18/src/p1.ts)  | [8302.90ms](/solutions/typescript/2022/18/src/p2.ts) |
 | Day 19                                   | -                                                  | -                                                    |
 | [Day 20](/solutions/typescript/2022/20/) | [75.38ms](/solutions/typescript/2022/20/src/p1.ts) | [930.06ms](/solutions/typescript/2022/20/src/p2.ts)  |
@@ -55,10 +55,10 @@
 | [Day 9](/solutions/typescript/2021/09/)  | [9.63ms](/solutions/typescript/2021/09/src/p1.ts)   | [26.36ms](/solutions/typescript/2021/09/src/p2.ts)   |
 | [Day 10](/solutions/typescript/2021/10/) | [0.27ms](/solutions/typescript/2021/10/src/p1.ts)   | [0.30ms](/solutions/typescript/2021/10/src/p2.ts)    |
 | [Day 11](/solutions/typescript/2021/11/) | [4.74ms](/solutions/typescript/2021/11/src/p1.ts)   | [14.20ms](/solutions/typescript/2021/11/src/p2.ts)   |
-| [Day 12](/solutions/typescript/2021/12/) | [5.83ms](/solutions/typescript/2021/12/src/p1.ts)   | [~42s](/solutions/typescript/2021/12/src/p2.ts)      |
+| [Day 12](/solutions/typescript/2021/12/) | [5.83ms](/solutions/typescript/2021/12/src/p1.ts)   | [42s](/solutions/typescript/2021/12/src/p2.ts)       |
 | [Day 13](/solutions/typescript/2021/13/) | [1.88ms](/solutions/typescript/2021/13/src/p1.ts)   | [1.21ms](/solutions/typescript/2021/13/src/p2.ts)    |
 | [Day 14](/solutions/typescript/2021/14/) | [1.82ms](/solutions/typescript/2021/14/src/p1.ts)   | [1.13ms](/solutions/typescript/2021/14/src/p2.ts)    |
-| [Day 15](/solutions/typescript/2021/15/) | [153.42ms](/solutions/typescript/2021/15/src/p1.ts) | [~30s](/solutions/typescript/2021/15/src/p2.ts)      |
+| [Day 15](/solutions/typescript/2021/15/) | [153.42ms](/solutions/typescript/2021/15/src/p1.ts) | [30s](/solutions/typescript/2021/15/src/p2.ts)       |
 | [Day 16](/solutions/typescript/2021/16/) | [0.26ms](/solutions/typescript/2021/16/src/p1.ts)   | [0.26ms](/solutions/typescript/2021/16/src/p2.ts)    |
 | [Day 17](/solutions/typescript/2021/17/) | [73.71ms](/solutions/typescript/2021/17/src/p1.ts)  | [75.94ms](/solutions/typescript/2021/17/src/p2.ts)   |
 | [Day 18](/solutions/typescript/2021/18/) | [70.82ms](/solutions/typescript/2021/18/src/p1.ts)  | [1053.30ms](/solutions/typescript/2021/18/src/p2.ts) |

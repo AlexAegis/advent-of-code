@@ -18,7 +18,7 @@ export const spawnFloor = (world: GridWorld, from: Vec2, to: Vec2Like): Entity =
 			{
 				defaultBackgroundColor: 'green',
 				defaultForegroundColor: 'brightGreen',
-			}
-		)
+			},
+		),
 	);
 };

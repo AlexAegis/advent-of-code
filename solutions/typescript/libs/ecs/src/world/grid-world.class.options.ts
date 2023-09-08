@@ -29,7 +29,7 @@ export type NormalizedGridWorldOptions = Defined<Omit<GridWorldOptions, 'io' | '
 	GridWorldOptions;
 
 export const normalizeGridWorldOptions = (
-	options?: GridWorldOptions
+	options?: GridWorldOptions,
 ): NormalizedGridWorldOptions => {
 	return {
 		io: options?.io,

@@ -8,6 +8,6 @@ export const createLogger =
 	(message: string) => {
 		console.log(
 			white(bgGreen(`[aoc:${metadata.year}-${metadata.day.toString().padStart(2, '0')}]`)),
-			message
+			message,
 		);
 	};

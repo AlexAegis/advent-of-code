@@ -5,7 +5,7 @@
  */
 export const memoize = <F extends (...args: never[]) => ReturnType<F>>(
 	f: F,
-	cache = new Map<string, ReturnType<F>>()
+	cache = new Map<string, ReturnType<F>>(),
 ): F =>
 	((...args: never[]) => {
 		const hash = JSON.stringify(args);

@@ -12,7 +12,7 @@ import type { TaskMetadata, TaskResources } from './task-resources.type.js';
  */
 export const loadTaskResources = async <A>(
 	taskMetadata: Pick<TaskMetadata, 'year' | 'day'>,
-	file = 'input.txt'
+	file = 'input.txt',
 ): Promise<TaskResources<string, A>> => {
 	const resourcesRoot = findNearestDirectoryNamed('resources');
 	if (!resourcesRoot) {
@@ -23,18 +23,18 @@ export const loadTaskResources = async <A>(
 		resourcesRoot,
 		'resources',
 		taskMetadata.year.toString(),
-		taskMetadata.day.toString().padStart(2, '0')
+		taskMetadata.day.toString().padStart(2, '0'),
 	);
 
 	const [input, args] = await Promise.all([
 		readFile(join(baseUrl, file), {
 			encoding: 'utf8',
-		}) ,
+		}),
 		// TODO: redo with @aa/node-common (strip extension and replace)
 		readFile(join(baseUrl, `${file.split(/(.*)\..*/)[1]}.args.json`), {
 			encoding: 'utf8',
 		}).catch(() => undefined) as Promise<string>,
 	]);
 
-	return { input, args: args ? JSON.parse(args) as A : undefined };
+	return { input, args: args ? (JSON.parse(args) as A) : undefined };
 };

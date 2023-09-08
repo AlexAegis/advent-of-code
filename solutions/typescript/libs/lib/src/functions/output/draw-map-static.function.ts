@@ -8,7 +8,7 @@ export const drawMapStatic = <T>(
 	startX: number,
 	endX: number,
 	flip = false,
-	numbered = false
+	numbered = false,
 ): string[][] => {
 	const res: string[][] = [];
 
@@ -16,7 +16,7 @@ export const drawMapStatic = <T>(
 		res.push(
 			[...Array.from({ length: endX - startX + 1 }).keys()]
 				.map((i) => i + startX)
-				.map((i) => (i >= 10 ? i.toString() : '0' + i.toString()))
+				.map((i) => (i >= 10 ? i.toString() : '0' + i.toString())),
 		);
 	}
 

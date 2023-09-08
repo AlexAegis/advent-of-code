@@ -95,9 +95,11 @@ export class Bingo {
 
 	static parse(input: string): { boards: Bingo[]; numbers: number[] } {
 		const [numbersSegment, ...boardSegments] = input.split('\n\n');
-		const numbers = numbersSegment?.splitToInt({ delimiter: /,/ }) ?? [];
+		const numbers = numbersSegment?.splitToInt({ delimiter: /,/, keepEmptyLines: false }) ?? [];
 		const boards = boardSegments
-			.map((boardSegment) => boardSegment.lines().map((line) => line.splitToInt()))
+			.map((boardSegment) =>
+				boardSegment.lines().map((line) => line.splitToInt({ keepEmptyLines: false })),
+			)
 			.map((board) => new Bingo(board));
 		return { numbers, boards };
 	}

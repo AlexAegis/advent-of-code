@@ -33,7 +33,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	}
 
 	private static fillDefaultGridGraphOptions<T extends ToString>(
-		gridGraphOptions?: GridGraphOptions<T>
+		gridGraphOptions?: GridGraphOptions<T>,
 	): Required<GridGraphOptions<T>> {
 		return {
 			connectionDirections: Direction.cardinalDirections,
@@ -51,7 +51,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		str: string,
 		gridOptions?: GridGraphOptions<T> & {
 			valueConverter?: (value: string) => T;
-		}
+		},
 	): GridGraph<T> {
 		const normalizedGridOptions = GridGraph.fillDefaultGridGraphOptions(gridOptions);
 		const map = stringToVectorMap(str, { valueConverter: gridOptions?.valueConverter });
@@ -64,7 +64,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	 */
 	public static fromMatrix<T extends ToString = string>(
 		matrix: T[][],
-		options?: GridGraphOptions<T>
+		options?: GridGraphOptions<T>,
 	): GridGraph<T> {
 		const { connectionDirections, weighter } = GridGraph.fillDefaultGridGraphOptions(options);
 
@@ -89,7 +89,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	 */
 	public static fromMap<T extends ToString = string>(
 		map: Map<Vec2String, T>,
-		options?: GridGraphOptions<T>
+		options?: GridGraphOptions<T>,
 	): GridGraph<T> {
 		const graph = new GridGraph<T>();
 		for (const [k, v] of map.entries()) {
@@ -115,7 +115,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		this.getNode(key)?.updateValue(change);
 	}
 
-	public override getNode(key: Vec2Like |  string): N | undefined {
+	public override getNode(key: Vec2Like | string): N | undefined {
 		const keyStr = typeof key === 'object' ? Vec2.toString(key) : key;
 		return super.getNode(keyStr);
 	}
@@ -132,7 +132,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	public addNode(
 		node: N,
 		weighter?: Weighter<N>,
-		connectionDirections: readonly Readonly<Direction>[] = Direction.cardinalDirections
+		connectionDirections: readonly Readonly<Direction>[] = Direction.cardinalDirections,
 	): N {
 		this.nodes.set(node.coordinate.toString(), node);
 		node.attachNeightbours(this, connectionDirections, weighter);
@@ -145,7 +145,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	 */
 	public connectEdgeNodesWrappingAround(
 		weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) => number = (a, b) =>
-			a.value === b.value ? 0 : Number.POSITIVE_INFINITY
+			a.value === b.value ? 0 : Number.POSITIVE_INFINITY,
 	): void {
 		const box = this.boundingBox();
 		const verticalIndices = box.vertical.collectValues();
@@ -193,7 +193,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	 * @param nodeToString: if returns a string that will be used as a symbol for printing
 	 */
 	public override toString(
-		nodeToString?: (node: GridGraphNode<T>) => string | undefined
+		nodeToString?: (node: GridGraphNode<T>) => string | undefined,
 	): string {
 		const box = this.boundingBox();
 		const result = box.createBlankMatrix(() => ' ');
@@ -222,32 +222,32 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 
 	public printPath(
 		path: GridGraphNode<T>[],
-		nodeToString?: (node: GridGraphNode<T>) => string
+		nodeToString?: (node: GridGraphNode<T>) => string,
 	): void {
 		const pathSymbols = slideWindow(path, 2).reduce((accumulator, [prev, next]) => {
 			let sym = '#';
 			switch (next.key) {
-			case prev.north?.to.key: {
-				sym = DirectionArrowUnicodeSymbol.NORTH;
+				case prev.north?.to.key: {
+					sym = DirectionArrowUnicodeSymbol.NORTH;
 
-			break;
-			}
-			case prev.east?.to.key: {
-				sym = DirectionArrowUnicodeSymbol.EAST;
+					break;
+				}
+				case prev.east?.to.key: {
+					sym = DirectionArrowUnicodeSymbol.EAST;
 
-			break;
-			}
-			case prev.south?.to.key: {
-				sym = DirectionArrowUnicodeSymbol.SOUTH;
+					break;
+				}
+				case prev.south?.to.key: {
+					sym = DirectionArrowUnicodeSymbol.SOUTH;
 
-			break;
-			}
-			case prev.west?.to.key: {
-				sym = DirectionArrowUnicodeSymbol.WEST;
+					break;
+				}
+				case prev.west?.to.key: {
+					sym = DirectionArrowUnicodeSymbol.WEST;
 
-			break;
-			}
-			// No default
+					break;
+				}
+				// No default
 			}
 			accumulator.set(prev.key, sym);
 			return accumulator;
@@ -260,7 +260,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 
 		this.print(
 			(node) =>
-				(pathSymbols.get(node.key) ?? nodeToString?.(node) ?? node.value.toString()) || '░'
+				(pathSymbols.get(node.key) ?? nodeToString?.(node) ?? node.value.toString()) || '░',
 		);
 	}
 
@@ -275,7 +275,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
  */
 export class PortalGridGraph<
 	T extends ToString,
-	N extends GridGraphNode<T> = PortalGridNode<T>
+	N extends GridGraphNode<T> = PortalGridNode<T>,
 > extends GridGraph<T, N> {
 	public constructor() {
 		super();
@@ -283,7 +283,7 @@ export class PortalGridGraph<
 
 	public static fromTorus<
 		T extends ToString = string,
-		N extends GridGraphNode<T> = PortalGridNode<T>
+		N extends GridGraphNode<T> = PortalGridNode<T>,
 	>(
 		matrix: T[][],
 		options: {
@@ -291,11 +291,12 @@ export class PortalGridGraph<
 			filter?: (n: Vec2) => boolean;
 			portalOf: (n: Vec2) => string | undefined;
 			connectionDirections?: Direction[];
-		}
+		},
 	): PortalGridGraph<T, N> {
 		const weigther: Weighter<PortalGridNode<T>> =
 			options.weighter ??
-			((a: PortalGridNode<T>, b: PortalGridNode<T>) => (a.value === b.value ? 0 : Number.POSITIVE_INFINITY));
+			((a: PortalGridNode<T>, b: PortalGridNode<T>) =>
+				a.value === b.value ? 0 : Number.POSITIVE_INFINITY);
 		const connectionDirections = options.connectionDirections ?? Direction.cardinalDirections;
 
 		const graph = new PortalGridGraph<T, N>();

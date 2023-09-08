@@ -23,7 +23,8 @@ export abstract class Component {
 	}
 
 	componentType(): Constructor<this> {
-		return (Object.getPrototypeOf(this) as { constructor: Constructor<unknown>}).constructor as Constructor<this>;
+		return (Object.getPrototypeOf(this) as { constructor: Constructor<unknown> })
+			.constructor as Constructor<this>;
 	}
 
 	componentName(): string {

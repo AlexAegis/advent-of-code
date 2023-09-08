@@ -41,9 +41,8 @@ export class LZW {
 		while (
 			i < r &&
 			(maxDistinctKeys === Number.POSITIVE_INFINITY ||
-
-					result.reduce((a, n) => a.add(n), new Set<number>()).size > maxDistinctKeys))
-		 {
+				result.reduce((a, n) => a.add(n), new Set<number>()).size > maxDistinctKeys)
+		) {
 			const localTape = [...this.tape];
 			p = localTape.shift();
 			result = [];
@@ -57,7 +56,10 @@ export class LZW {
 					p = c;
 				}
 			}
-			if (maxDistinctKeys !== Number.POSITIVE_INFINITY && this.dictionary.size > prevDictLength) {
+			if (
+				maxDistinctKeys !== Number.POSITIVE_INFINITY &&
+				this.dictionary.size > prevDictLength
+			) {
 				prevDictLength = this.dictionary.size;
 				r++;
 			}

@@ -2,7 +2,7 @@ import { BoundingBox } from '../model/vector/bounding-box.class.js';
 import type { Vec2 } from '../model/vector/vec2.class.js';
 
 export const vectorsToMatrix = (
-	vects: Vec2[]
+	vects: Vec2[],
 ): { matrix: string[][]; boundingBox: BoundingBox } => {
 	const boundingBox = BoundingBox.fromVectors(vects);
 	const matrix: string[][] = [];

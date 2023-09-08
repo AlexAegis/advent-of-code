@@ -13,6 +13,6 @@ export const spawnCompass = (world: GridWorld): Entity => {
 	const compassDisplayComponent = AsciiDisplayComponent.fromString(compassString);
 	return world.spawn(
 		new StaticPositionComponent(new Vec2(-2, -1), Number.NEGATIVE_INFINITY),
-		compassDisplayComponent
+		compassDisplayComponent,
 	);
 };

@@ -14,7 +14,7 @@ export abstract class Executor {
 
 	constructor(
 		protected readonly world: GridWorld,
-		protected readonly haltCondition: ExecutorHaltConditionType
+		protected readonly haltCondition: ExecutorHaltConditionType,
 	) {}
 
 	abstract run(): Awaitable<number>;
