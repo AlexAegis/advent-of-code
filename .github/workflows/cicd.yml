@@ -279,7 +279,11 @@ jobs:
     if: |
       github.ref_name == github.event.repository.default_branch && 
       github.event_name != 'pull_request' &&
-      vars.PAGES_DEPLOY_ARTIFACT_DIR
+      vars.PAGES_DEPLOY_ARTIFACT_DIR && (
+        vars.PAGES_DEPLOY_ARTIFACT_BUILDING_JOB == 'build' ||
+        vars.PAGES_DEPLOY_ARTIFACT_BUILDING_JOB == 'test' ||
+        vars.PAGES_DEPLOY_ARTIFACT_BUILDING_JOB == 'typedoc'
+      )
     runs-on: ubuntu-latest
     needs: [build, test, lint, typedoc]
     environment:
