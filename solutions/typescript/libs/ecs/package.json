@@ -57,7 +57,7 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/advent-of-code-lib": "workspace:^",
+		"@alexaegis/advent-of-code-lib": "^1.0.0",
 		"@alexaegis/common": "^0.7.0",
 		"blessed": "^0.1.81",
 		"rxjs": "^7.8.1",
