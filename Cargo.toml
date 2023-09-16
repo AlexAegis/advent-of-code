@@ -1,8 +1,6 @@
 [workspace]
 members = [
 	"solutions/rust/lib",
-	"solutions/rust/aoc-scaffold",
-	"solutions/rust/aoc-scaffold/aoc-query",
 	"solutions/rust/2015/*",
 	"solutions/rust/2016/*",
 	"solutions/rust/2017/*",
