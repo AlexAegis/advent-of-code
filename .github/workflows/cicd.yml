@@ -1,12 +1,18 @@
-# managed-by-autotool
-
-name: cicd
+name: typescript
 
 on:
   push:
     branches: '**'
+    paths-ignore:
+      - '.github/!(workflows)/**'
+      - 'solutions/rust/**'
+      - 'solutions/python/**'
   pull_request:
     branches: '**'
+    paths-ignore:
+      - '.github/!(workflows)/**'
+      - 'solutions/rust/**'
+      - 'solutions/python/**'
 
 env:
   TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
