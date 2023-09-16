@@ -1,4 +1,5 @@
 [workspace]
+resolver = "2"
 members = [
 	"solutions/rust/lib",
 	"solutions/rust/2015/*",
