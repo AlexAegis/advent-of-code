@@ -2,7 +2,7 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
-	const [n, data] = input.splitIntoStringPair();
+	const [n, data] = input.splitIntoStringPair('\n');
 	const timestamp = Number.parseInt(n, 10);
 
 	const sort = data

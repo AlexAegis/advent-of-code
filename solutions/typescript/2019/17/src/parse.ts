@@ -30,8 +30,8 @@ export const computeMap = (input: string): [Map<Vec2String, Tile>, Vacuum] => {
 	const cursor = new Vec2(0, 0);
 	let vacuum!: Vacuum;
 	while (!i.isHalt()) {
-		const res = it.next().value as number;
-		const resc: DirectionArrowSymbol | Tile | '\n' = String.fromCodePoint(res) as
+		const res = it.next().value as number | undefined;
+		const resc: DirectionArrowSymbol | Tile | '\n' = String.fromCodePoint(res ?? 0) as
 			| DirectionArrowSymbol
 			| Tile
 			| '\n';

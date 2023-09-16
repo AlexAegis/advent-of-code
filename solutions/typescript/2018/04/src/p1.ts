@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { interpret } from './interpret.function.js';
 
 export const p1 = (input: string): number | undefined => {
@@ -30,7 +30,7 @@ export const p1 = (input: string): number | undefined => {
 
 	let mostSlept = -1;
 	let mostSleptGuard = -1;
-	for (const [guard, sleepMap] of guards) {
+	[...guards].forEach(([guard, sleepMap]) => {
 		if (sleepMap.size > 0) {
 			const totalSleep: [number, number] = [...sleepMap].reduce(
 				([prevMinute, prevSleep], [currMin, currSleep]): [number, number] => {
@@ -42,7 +42,8 @@ export const p1 = (input: string): number | undefined => {
 				mostSleptGuard = guard;
 			}
 		}
-	}
+	});
+
 	console.log(`Guard who slept the most: ${mostSleptGuard} with a total of: ${mostSlept}`);
 
 	const mostSleptSleepMap = guards.get(mostSleptGuard);

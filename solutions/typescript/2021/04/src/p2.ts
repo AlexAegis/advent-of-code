@@ -8,4 +8,4 @@ export const p2 = (input: string): number => {
 	return lastWinner?.score() ?? 0;
 };
 
-await task(p2, packageJson.aoc); // 1882980 ~53.56ms
+await task(p2, packageJson.aoc); // 31892 ~53.56ms

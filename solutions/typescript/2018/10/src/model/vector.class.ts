@@ -1,7 +1,7 @@
 import { type } from 'arktype';
 import { Coord } from './coord.class.js';
 export class Vector {
-	static inputType = type(['string', 'string', 'string', 'string']);
+	static inputType = type(['string', 'string', 'string', 'string', 'string']);
 	public constructor(
 		public position: Coord,
 		public velocity: Coord,

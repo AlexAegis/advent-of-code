@@ -1,6 +1,9 @@
 import { isNotNullish } from '@alexaegis/common';
+import type { SizedTuple } from '../../model/sized-tuple.type.js';
 
-export const cartesianCombinations = <T extends unknown[]>(...arrays: [...T][]): [...T][] => {
+export const cartesianCombinations = <T extends unknown[], I extends [...T][]>(
+	...arrays: I
+): SizedTuple<I[number][number], I['length']>[] => {
 	const r: [...T][] = [];
 	const max = arrays.length - 1;
 
@@ -18,5 +21,5 @@ export const cartesianCombinations = <T extends unknown[]>(...arrays: [...T][]):
 	};
 
 	cartesianHelper([], 0);
-	return r;
+	return r as SizedTuple<I[number][number], I['length']>[];
 };
