@@ -17,7 +17,7 @@ fn ftt(inp: &mut Vec<isize>, offset: usize) -> String {
 		for (r, _g) in a.iter().enumerate() {
 			let mut s: isize = 0;
 			for i in 0..a.len() {
-				s += (*a.get(i).unwrap() as isize * pattern_get(i, r)) % 10;
+				s += (*a.get(i).unwrap() * pattern_get(i, r)) % 10;
 			}
 			p[r] = (s % 10).abs();
 		}
