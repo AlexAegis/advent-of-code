@@ -2,7 +2,7 @@ import { split } from '@alexaegis/advent-of-code-lib';
 import type { Event } from './model/event.interface.js';
 
 const interpretLine = (line: string): Event => {
-	const parts = line.split(/[#:[]-]/).map((e) => e.trim()) as [
+	const parts = line.split(/[#:[\]-]/).map((e) => e.trim()) as [
 		string,
 		string,
 		string,
@@ -11,6 +11,7 @@ const interpretLine = (line: string): Event => {
 		string,
 		string,
 	];
+
 	return {
 		year: Number(parts[1]),
 		month: Number(parts[2]),
