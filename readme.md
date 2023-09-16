@@ -1,6 +1,6 @@
 # [Advent of Code](https://adventofcode.com/)
 
-[![typescript ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/typescript.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/typescript.yml)
+[![typescript ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/cicd.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/cicd.yml)
 [![rust ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/rust.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/rust.yml)
 [![python ci](https://github.com/AlexAegis/advent-of-code/actions/workflows/python.yml/badge.svg)](https://github.com/AlexAegis/advent-of-code/actions/workflows/python.yml)
 
