@@ -8,13 +8,13 @@ describe('2019 - Day 24 - Part Two', () => {
 		'should solve the input',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p2()(resources.input)).to.equal(2120);
+			expect(p2()(resources.input)).toEqual(2120);
 		},
 		{ timeout: 20_000 },
 	);
 
 	it('should resolve to 99 when using the first example', async () => {
 		const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-		expect(p2(10)(resources.input)).to.equal(99);
+		expect(p2(10)(resources.input)).toEqual(99);
 	});
 });

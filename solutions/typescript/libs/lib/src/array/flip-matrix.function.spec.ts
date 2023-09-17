@@ -25,13 +25,13 @@ describe('flipMatrix', () => {
 	const joinedYFlippedMatrix = joinMatrix(yFlippedMatrix);
 
 	it('should be able to flip along the x axis and not mutate the original', () => {
-		expect(joinMatrix(flipMatrix(matrix, 'x'))).to.equal(joinedXFlippedMatrix);
-		expect(joinMatrix(matrix)).to.equal(joinedMatrix);
+		expect(joinMatrix(flipMatrix(matrix, 'x'))).toEqual(joinedXFlippedMatrix);
+		expect(joinMatrix(matrix)).toEqual(joinedMatrix);
 	});
 
 	it('should be able to flip along the y axis and not mutate the original', () => {
-		expect(joinMatrix(flipMatrix(matrix, 'y'))).to.equal(joinedYFlippedMatrix);
-		expect(joinMatrix(matrix)).to.equal(joinedMatrix);
+		expect(joinMatrix(flipMatrix(matrix, 'y'))).toEqual(joinedYFlippedMatrix);
+		expect(joinMatrix(matrix)).toEqual(joinedMatrix);
 	});
 
 	it('should throw an error for one dimensional arrays', () => {
@@ -39,6 +39,6 @@ describe('flipMatrix', () => {
 	});
 
 	it('should return an empty array for an empty array', () => {
-		expect(flipMatrix([]).length).to.equal(0);
+		expect(flipMatrix([]).length).toEqual(0);
 	});
 });

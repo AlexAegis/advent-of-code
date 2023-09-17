@@ -25,17 +25,17 @@ describe('rotateMatrix', () => {
 	const joinedLeftRotatedMatrix = joinMatrix(leftRotatedMatrix);
 
 	it('should be able to rotate to the right and not mutate the original', () => {
-		expect(joinMatrix(rotateMatrix(matrix, 'r'))).to.equal(joinedRightRotatedMatrix);
-		expect(joinMatrix(matrix)).to.equal(joinedMatrix);
+		expect(joinMatrix(rotateMatrix(matrix, 'r'))).toEqual(joinedRightRotatedMatrix);
+		expect(joinMatrix(matrix)).toEqual(joinedMatrix);
 	});
 
 	it('should be able to rotate to the left and not mutate the original', () => {
-		expect(joinMatrix(rotateMatrix(matrix, 'l'))).to.equal(joinedLeftRotatedMatrix);
-		expect(joinMatrix(matrix)).to.equal(joinedMatrix);
+		expect(joinMatrix(rotateMatrix(matrix, 'l'))).toEqual(joinedLeftRotatedMatrix);
+		expect(joinMatrix(matrix)).toEqual(joinedMatrix);
 	});
 
 	it('should be able to rotate one dimensional arrays', () => {
-		expect(joinMatrix(rotateMatrix(['1', '2', '3'] as unknown as string[][], 'l'))).to.equal(
+		expect(joinMatrix(rotateMatrix(['1', '2', '3'] as unknown as string[][], 'l'))).toEqual(
 			'123',
 		);
 	});
@@ -43,10 +43,10 @@ describe('rotateMatrix', () => {
 	it('should be able to rotate rectangles', () => {
 		expect(
 			joinMatrix(rotateMatrix([['1'], ['2'], ['3']] as unknown as string[][], 'r')),
-		).to.equal('321');
+		).toEqual('321');
 	});
 
 	it('should return an empty array for an empty array', () => {
-		expect(rotateMatrix([]).length).to.equal(0);
+		expect(rotateMatrix([]).length).toEqual(0);
 	});
 });

@@ -8,7 +8,7 @@ describe('2019 - Day 19 - Part Two', () => {
 		'should solve the input',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p2(resources.input)).to.equal(17_302_065);
+			expect(p2(resources.input)).toEqual(17_302_065);
 		},
 		{ timeout: 20_000 },
 	);

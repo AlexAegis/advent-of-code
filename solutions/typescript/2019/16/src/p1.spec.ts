@@ -8,7 +8,7 @@ describe('2019 - Day 16 - Part One', () => {
 		'should resolve to 30369587 when using the input',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p1(resources.input)).to.equal('30369587');
+			expect(p1(resources.input)).toEqual('30369587');
 		},
 		{ timeout: 20_000 },
 	);

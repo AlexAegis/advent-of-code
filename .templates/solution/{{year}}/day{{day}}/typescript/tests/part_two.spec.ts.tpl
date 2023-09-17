@@ -9,10 +9,10 @@ import { runner } from '../part_two';
 describe('${year} - Day ${day} - Part Two', () => {
 	it('should solve for the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(runner(input.input)).to.equal(Infinity);
+		expect(runner(input.input)).toEqual(Infinity);
 	});
 
 	it('should be that that the first example resolves to 0', async () => {
-		expect(await runner('0')).to.equal(0);
+		expect(await runner('0')).toEqual(0);
 	});
 });

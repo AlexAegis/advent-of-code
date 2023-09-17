@@ -7,33 +7,33 @@ import { p1 } from './p1.js';
 describe('2020 - Day 23 - Part One', () => {
 	it('should solve for the input', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc);
-		expect(p1()(input)).to.equal(74_698_532);
+		expect(p1()(input)).toEqual(74_698_532);
 	});
 
 	it('should solve example 1 using 10 iterations', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-		expect(p1(10)(input)).to.equal(92_658_374);
+		expect(p1(10)(input)).toEqual(92_658_374);
 	});
 
 	it('should solve example 1 using the default iteration count', async () => {
 		const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-		expect(p1()(input)).to.equal(67_384_529);
+		expect(p1()(input)).toEqual(67_384_529);
 	});
 
 	describe('Array', () => {
 		it('should solve for the input', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(p1array()(input)).to.equal(74_698_532);
+			expect(p1array()(input)).toEqual(74_698_532);
 		});
 
 		it('should solve example 1 using 10 iterations', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p1array(10)(input)).to.equal(92_658_374);
+			expect(p1array(10)(input)).toEqual(92_658_374);
 		});
 
 		it('should solve example 1 using the default iteration count', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p1array()(input)).to.equal(67_384_529);
+			expect(p1array()(input)).toEqual(67_384_529);
 		});
 	});
 });

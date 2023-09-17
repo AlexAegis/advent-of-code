@@ -9,6 +9,6 @@ describe('createTileMatrixFromMap', () => {
 	tileMap.set(new Vec2(0, 0).toString(), '##\n##\n');
 	it('should be able to generate a tilematrix', () => {
 		const tileMatrix = createTileMatrixFromMap(tileMap);
-		expect(mergeTileMatrix(tileMatrix)).to.equal('__##\n__##\n##__\n##__\n');
+		expect(mergeTileMatrix(tileMatrix)).toEqual('__##\n__##\n##__\n##__\n');
 	});
 });

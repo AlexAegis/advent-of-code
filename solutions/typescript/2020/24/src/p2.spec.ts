@@ -8,13 +8,13 @@ describe('2020 - Day 24 - Part Two', () => {
 		'should solve the input',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p2(resources.input)).to.equal(4135);
+			expect(p2(resources.input)).toEqual(4135);
 		},
 		{ timeout: 20_000 },
 	);
 
 	it('should solve the first example', async () => {
 		const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-		expect(p2(resources.input)).to.equal(2208);
+		expect(p2(resources.input)).toEqual(2208);
 	});
 });
