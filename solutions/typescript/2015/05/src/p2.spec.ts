@@ -6,22 +6,22 @@ import { isNice, p2 } from './p2.js';
 describe('2015 - Day 5 - Part Two', () => {
 	it('should solve the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p2(resources.input)).to.equal(51);
+		expect(p2(resources.input)).toEqual(51);
 	});
 
 	it('should true that example 1 is nice', () => {
-		expect(isNice('qjhvhtzxzqqjkmpb')).to.equal(true);
+		expect(isNice('qjhvhtzxzqqjkmpb')).toEqual(true);
 	});
 
 	it('should true that example 2 is nice', () => {
-		expect(isNice('xxyxx')).to.equal(true);
+		expect(isNice('xxyxx')).toEqual(true);
 	});
 
 	it('should true that example 3 is naughty', () => {
-		expect(isNice('uurcxstgmygtbstg')).to.equal(false);
+		expect(isNice('uurcxstgmygtbstg')).toEqual(false);
 	});
 
 	it('should true that example 4 is naughty', () => {
-		expect(isNice('ieodomkazucvgmuy')).to.equal(false);
+		expect(isNice('ieodomkazucvgmuy')).toEqual(false);
 	});
 });

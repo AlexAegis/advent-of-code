@@ -7,6 +7,6 @@ describe('stringToVectormap', () => {
 		const vectorMap = stringToVectorMap('123\n542\n', {
 			valueConverter: (s) => Number.parseInt(s, 10),
 		});
-		expect(vectorMap.get(new Vec2(1, 1).toString())).to.equal(4);
+		expect(vectorMap.get(new Vec2(1, 1).toString())).toEqual(4);
 	});
 });

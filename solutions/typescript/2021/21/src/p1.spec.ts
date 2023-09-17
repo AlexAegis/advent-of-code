@@ -7,14 +7,14 @@ describe('2021 - Day 18 - Part One', () => {
 	describe('the input', () => {
 		it('should resolve to 752745', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(p1(input)).to.equal(752_745);
+			expect(p1(input)).toEqual(752_745);
 		});
 	});
 
 	describe('example 1', () => {
 		it('should resolve to 739785', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p1(input)).to.equal(739_785);
+			expect(p1(input)).toEqual(739_785);
 		});
 	});
 });

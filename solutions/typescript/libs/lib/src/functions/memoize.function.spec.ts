@@ -9,8 +9,8 @@ describe('Memoize', () => {
 			return a + b;
 		};
 		const memoizedAdd = memoize(add);
-		expect(memoizedAdd(1, 2)).to.equal(3);
-		expect(memoizedAdd(1, 2)).to.equal(3);
-		expect(callCount).to.equal(1);
+		expect(memoizedAdd(1, 2)).toEqual(3);
+		expect(memoizedAdd(1, 2)).toEqual(3);
+		expect(callCount).toEqual(1);
 	});
 });

@@ -7,14 +7,14 @@ describe('2022 07 p1', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p1(resources.input)).to.equal(1_743_217);
+			expect(p1(resources.input)).toEqual(1_743_217);
 		});
 	});
 
 	describe('example 1', () => {
 		it('should be solved', async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p1(resources.input)).to.equal(95_437);
+			expect(p1(resources.input)).toEqual(95_437);
 		});
 	});
 });

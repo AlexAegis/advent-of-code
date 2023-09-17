@@ -7,7 +7,7 @@ describe('2019 - Day 8 - Part Two', () => {
 	it('should solve the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
 		// 'LGYHB'
-		expect(p2(resources.input)).to.equal(
+		expect(p2(resources.input)).toEqual(
 			'\n#`````##``#```##``#`###``\n#````#``#`#```##``#`#``#`\n#````#`````#`#`####`###``\n#````#`##```#``#``#`#``#`\n#````#``#```#``#``#`#``#`\n####``###```#``#``#`###``\n',
 		);
 	});

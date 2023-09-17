@@ -52,8 +52,8 @@ describe('ManhattanCircle', () => {
 			const c1c2i = c1.intersect(c2);
 			expect(c1c2i?.length).toBe(2);
 
-			expect(c1c2i?.[0].equals(c1c2ia)).to.be.true;
-			expect(c1c2i?.[1].equals(c1c2ib)).to.be.true;
+			expect(c1c2i?.[0].equals(c1c2ia)).toEqual(true);
+			expect(c1c2i?.[1].equals(c1c2ib)).toEqual(true);
 		});
 
 		it('should be able to retrieve the intersections in a horizontal arrangement', () => {

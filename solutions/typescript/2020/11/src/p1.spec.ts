@@ -8,7 +8,7 @@ describe('2020 - Day 11 - Part One', () => {
 		'should solve the input',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc);
-			expect(p1(resources.input)).to.equal(2406);
+			expect(p1(resources.input)).toEqual(2406);
 		},
 		{ timeout: 20_000 },
 	);
@@ -17,7 +17,7 @@ describe('2020 - Day 11 - Part One', () => {
 		'should solve for the first example',
 		async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p1(resources.input)).to.equal(37);
+			expect(p1(resources.input)).toEqual(37);
 		},
 		{ timeout: 20_000 },
 	);

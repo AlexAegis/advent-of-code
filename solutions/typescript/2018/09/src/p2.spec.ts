@@ -6,6 +6,6 @@ import { p2 } from './p2.js';
 describe('2018 - Day 9 - Part Two', () => {
 	it('should solve the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p2(resources.input)).to.equal(2_945_918_550);
+		expect(p2(resources.input)).toEqual(2_945_918_550);
 	});
 });

@@ -6,13 +6,13 @@ import { p1 } from './p1.js';
 describe('2021 - Day 10 - Part One', () => {
 	it('should resolve when using the input', async () => {
 		const resources = await loadTaskResources(packageJson.aoc);
-		expect(p1(resources.input)).to.equal(193_275);
+		expect(p1(resources.input)).toEqual(193_275);
 	});
 
 	describe('example 1', () => {
 		it('should resolve to 26397', async () => {
 			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p1(resources.input)).to.equal(26_397);
+			expect(p1(resources.input)).toEqual(26_397);
 		});
 	});
 });

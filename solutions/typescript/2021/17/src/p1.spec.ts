@@ -7,7 +7,7 @@ describe('2021 - Day 17 - Part One', () => {
 	describe('the input', () => {
 		it('should resolve to 3202 ', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(p1(input)).to.equal(5995);
+			expect(p1(input)).toEqual(5995);
 		});
 	});
 
@@ -15,7 +15,7 @@ describe('2021 - Day 17 - Part One', () => {
 		const input = 'target area: x=20..30, y=-10..-5';
 
 		it('should resolve to 45', () => {
-			expect(p1(input)).to.equal(45);
+			expect(p1(input)).toEqual(45);
 		});
 	});
 });
