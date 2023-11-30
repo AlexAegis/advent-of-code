@@ -23,8 +23,6 @@
 		"year": 2021
 	},
 	"scripts": {
-		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
-		"build-lib_": "vite build",
 		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
 		"lint:depcheck_": "depcheck",
 		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
@@ -35,14 +33,16 @@
 		"lint:md_": "remark --frail --no-stdout --silently-ignore .",
 		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
 		"lint:tsc_": "tsc --noEmit",
+		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
+		"test_": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests --coverage",
 		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
+		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
+		"build-lib_": "vite build",
 		"format": "turbo run format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
 		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
 		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
-		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts",
-		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2021-03",
-		"test_": "vitest --passWithNoTests --coverage --run",
-		"test:watch": "vitest --passWithNoTests --coverage"
+		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts"
 	},
 	"exports": {
 		"./bench": {
@@ -66,13 +66,13 @@
 		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.8.2",
-		"@alexaegis/ts": "^0.8.2",
-		"@alexaegis/vite": "^0.8.2",
-		"@alexaegis/vitest": "^0.8.2",
-		"@types/node": "^20.6.2",
+		"@alexaegis/eslint-config-vitest": "^0.9.0",
+		"@alexaegis/ts": "^0.9.0",
+		"@alexaegis/vite": "^0.9.0",
+		"@alexaegis/vitest": "^0.9.0",
+		"@types/node": "^20.10.1",
 		"benny": "^3.7.1",
-		"vite": "^4.4.9",
-		"vitest": "^0.34.4"
+		"vite": "^5.0.4",
+		"vitest": "^0.34.6"
 	}
 }

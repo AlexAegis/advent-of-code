@@ -107,12 +107,12 @@ String.prototype.splitToInt = function (options?: {
 }): number[] {
 	const keepEmptyLines = options?.keepEmptyLines ?? false;
 	const trimmed = options?.trim === false ? this : this.trim();
-	let split = trimmed.split(options?.delimiter ?? /\r?\s/g);
+	let split = trimmed.split(options.delimiter ?? /\r?\s/g);
 	if (!keepEmptyLines) {
 		split = split.filter((line) => !!line); // Filter out empty lines
 	}
 	return split.toInt({
-		...options?.toIntOptions,
+		...options.toIntOptions,
 		keepNonNumbers: keepEmptyLines,
 	});
 };
