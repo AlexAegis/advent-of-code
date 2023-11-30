@@ -269,9 +269,9 @@ Array.prototype.toInt = function (
 	},
 ): number[] {
 	let result: (number | undefined)[] = this.map((i) => Number.parseInt(i, options?.radix ?? 10));
-	if (options?.safe !== false && !options.keepNonNumbers) {
+	if (options?.safe !== false && !options?.keepNonNumbers) {
 		result = result.filter((i) => i !== undefined && !Number.isNaN(i));
-	} else if (options.keepNonNumbers) {
+	} else if (options?.keepNonNumbers) {
 		result = result.map((i) => (i !== undefined && Number.isNaN(i) ? undefined : i));
 	}
 	return result as number[];

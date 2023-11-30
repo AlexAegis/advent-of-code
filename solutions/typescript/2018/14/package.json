@@ -61,10 +61,10 @@
 		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.9.0",
-		"@alexaegis/ts": "^0.9.0",
-		"@alexaegis/vite": "^0.9.0",
-		"@alexaegis/vitest": "^0.9.0",
+		"@alexaegis/eslint-config-vitest": "^0.9.1",
+		"@alexaegis/ts": "^0.9.1",
+		"@alexaegis/vite": "^0.9.1",
+		"@alexaegis/vitest": "^0.9.1",
 		"@types/node": "^20.10.1",
 		"vite": "^5.0.4",
 		"vitest": "^0.34.6"
