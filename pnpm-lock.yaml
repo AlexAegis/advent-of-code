@@ -9,83 +9,83 @@ importers:
   .:
     devDependencies:
       '@alexaegis/autotool-plugin-commitlint':
-        specifier: ^0.9.0
-        version: 0.9.0(typescript@5.3.2)
+        specifier: ^0.9.1
+        version: 0.9.1(typescript@5.3.2)
       '@alexaegis/autotool-plugin-depcheck':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-editorconfig':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-eslint':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-git':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-github':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-husky':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-ncu':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-prettier':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)
       '@alexaegis/autotool-plugin-publint':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-remark':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-standard-version':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-stylelint':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-svelte':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-turbo':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-typedoc':
-        specifier: ^0.9.0
-        version: 0.9.0(typescript@5.3.2)
+        specifier: ^0.9.1
+        version: 0.9.1(typescript@5.3.2)
       '@alexaegis/autotool-plugin-vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/autotool-plugin-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-vscode':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/autotool-plugin-workspace':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/coverage-tools':
-        specifier: ^0.7.3
-        version: 0.7.3
+        specifier: ^0.8.0
+        version: 0.8.0
       '@alexaegis/eslint-config-core':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/nuke':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/stylelint-config':
-        specifier: ^0.9.0
-        version: 0.9.0(postcss-html@1.5.0)(postcss@8.4.31)(stylelint@15.11.0)
+        specifier: ^0.9.1
+        version: 0.9.1(postcss-html@1.5.0)(postcss@8.4.31)(stylelint@15.11.0)
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@lcov-viewer/cli':
         specifier: ^1.3.0
         version: 1.3.0
@@ -133,7 +133,7 @@ importers:
         version: 3.1.0
       prettier-plugin-svelte:
         specifier: ^3.1.2
-        version: 3.1.2(prettier@3.1.0)(svelte@4.2.7)
+        version: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
       prettier-plugin-tailwindcss:
         specifier: ^0.5.7
         version: 0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
@@ -148,7 +148,7 @@ importers:
         version: 15.11.0(typescript@5.3.2)
       svelte-check:
         specifier: ^3.6.2
-        version: 3.6.2(postcss@8.4.31)(svelte@4.2.7)
+        version: 3.6.2(postcss@8.4.31)(svelte@4.2.8)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.1(@types/node@20.10.1)(typescript@5.3.2)
@@ -166,7 +166,7 @@ importers:
         version: 5.3.2
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2015/01:
     dependencies:
@@ -175,17 +175,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -194,7 +194,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2015/02:
     dependencies:
@@ -203,17 +203,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -222,7 +222,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2015/03:
     dependencies:
@@ -231,17 +231,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -250,7 +250,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2015/04:
     dependencies:
@@ -259,17 +259,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -278,7 +278,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2015/05:
     dependencies:
@@ -287,17 +287,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -306,7 +306,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2016/01:
     dependencies:
@@ -315,17 +315,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -334,7 +334,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2016/02:
     dependencies:
@@ -343,17 +343,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -362,7 +362,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2016/03:
     dependencies:
@@ -371,17 +371,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -393,7 +393,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2017/01:
     dependencies:
@@ -402,17 +402,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -424,7 +424,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2017/02:
     dependencies:
@@ -433,17 +433,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -455,7 +455,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/01:
     dependencies:
@@ -464,17 +464,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -483,7 +483,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/02:
     dependencies:
@@ -492,17 +492,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -511,7 +511,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/03:
     dependencies:
@@ -520,17 +520,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -539,7 +539,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/04:
     dependencies:
@@ -548,17 +548,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -567,7 +567,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/05:
     dependencies:
@@ -576,17 +576,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -595,7 +595,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/06:
     dependencies:
@@ -604,17 +604,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -623,7 +623,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/07:
     dependencies:
@@ -632,17 +632,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -651,7 +651,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/08:
     dependencies:
@@ -660,17 +660,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -682,7 +682,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/09:
     dependencies:
@@ -691,17 +691,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -710,7 +710,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/10:
     dependencies:
@@ -722,17 +722,17 @@ importers:
         version: 1.0.28-alpha
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -741,7 +741,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/11:
     dependencies:
@@ -753,17 +753,17 @@ importers:
         version: 8.0.0
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -778,7 +778,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/12:
     dependencies:
@@ -787,17 +787,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -806,7 +806,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/13:
     dependencies:
@@ -815,17 +815,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -837,7 +837,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/14:
     dependencies:
@@ -846,17 +846,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -865,22 +865,22 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2018/15:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -889,7 +889,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/01:
     dependencies:
@@ -898,17 +898,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -917,7 +917,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/02:
     dependencies:
@@ -926,17 +926,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -945,7 +945,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/03:
     dependencies:
@@ -954,17 +954,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -973,7 +973,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/04:
     dependencies:
@@ -982,17 +982,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1001,7 +1001,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/05:
     dependencies:
@@ -1010,17 +1010,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1029,7 +1029,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/06:
     dependencies:
@@ -1038,17 +1038,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1057,7 +1057,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/07:
     dependencies:
@@ -1066,17 +1066,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1085,7 +1085,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/08:
     dependencies:
@@ -1094,17 +1094,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1113,7 +1113,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/09:
     dependencies:
@@ -1122,17 +1122,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1141,7 +1141,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/10:
     dependencies:
@@ -1150,17 +1150,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1169,7 +1169,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/11:
     dependencies:
@@ -1178,17 +1178,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1197,7 +1197,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/12:
     dependencies:
@@ -1206,17 +1206,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1225,7 +1225,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/13:
     dependencies:
@@ -1234,17 +1234,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1253,7 +1253,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/14:
     dependencies:
@@ -1262,17 +1262,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1281,7 +1281,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/16:
     dependencies:
@@ -1290,17 +1290,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1309,7 +1309,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/17:
     dependencies:
@@ -1318,17 +1318,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1337,7 +1337,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/18:
     dependencies:
@@ -1346,17 +1346,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1365,7 +1365,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/19:
     dependencies:
@@ -1374,17 +1374,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1393,7 +1393,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/20:
     dependencies:
@@ -1402,17 +1402,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1421,7 +1421,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/21:
     dependencies:
@@ -1430,17 +1430,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1449,7 +1449,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/22:
     dependencies:
@@ -1458,17 +1458,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1477,7 +1477,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/23:
     dependencies:
@@ -1486,17 +1486,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1505,7 +1505,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2019/24:
     dependencies:
@@ -1514,17 +1514,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1533,7 +1533,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/01:
     dependencies:
@@ -1542,17 +1542,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1561,7 +1561,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/02:
     dependencies:
@@ -1570,17 +1570,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1589,7 +1589,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/03:
     dependencies:
@@ -1598,17 +1598,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1617,7 +1617,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/04:
     dependencies:
@@ -1626,17 +1626,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1645,7 +1645,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/05:
     dependencies:
@@ -1653,21 +1653,21 @@ importers:
         specifier: workspace:^
         version: link:../../libs/lib
       '@alexaegis/common':
-        specifier: ^0.7.3
-        version: 0.7.3
+        specifier: ^0.8.0
+        version: 0.8.0
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1676,7 +1676,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/06:
     dependencies:
@@ -1685,17 +1685,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1704,7 +1704,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/07:
     dependencies:
@@ -1713,17 +1713,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1732,22 +1732,22 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/08:
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1756,7 +1756,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/09:
     dependencies:
@@ -1765,17 +1765,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1784,7 +1784,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/10:
     dependencies:
@@ -1793,17 +1793,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1815,7 +1815,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/11:
     dependencies:
@@ -1824,17 +1824,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1843,7 +1843,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/12:
     dependencies:
@@ -1852,17 +1852,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1871,7 +1871,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/13:
     dependencies:
@@ -1880,17 +1880,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1899,7 +1899,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/14:
     dependencies:
@@ -1908,17 +1908,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1930,7 +1930,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/15:
     dependencies:
@@ -1939,17 +1939,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1961,7 +1961,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/16:
     dependencies:
@@ -1970,17 +1970,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -1992,7 +1992,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/17:
     dependencies:
@@ -2001,17 +2001,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2023,7 +2023,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/18:
     dependencies:
@@ -2032,17 +2032,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2054,7 +2054,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/19:
     dependencies:
@@ -2063,17 +2063,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2085,7 +2085,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/20:
     dependencies:
@@ -2094,17 +2094,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2116,7 +2116,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/21:
     dependencies:
@@ -2125,17 +2125,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2147,7 +2147,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/22:
     dependencies:
@@ -2156,17 +2156,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2178,7 +2178,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/23:
     dependencies:
@@ -2187,17 +2187,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2209,7 +2209,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/24:
     dependencies:
@@ -2218,17 +2218,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2240,7 +2240,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2020/25:
     dependencies:
@@ -2252,17 +2252,17 @@ importers:
         version: 1.0.28-alpha
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2274,7 +2274,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/01:
     dependencies:
@@ -2283,17 +2283,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2305,7 +2305,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/02:
     dependencies:
@@ -2314,17 +2314,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2336,7 +2336,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/03:
     dependencies:
@@ -2345,17 +2345,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2367,7 +2367,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/04:
     dependencies:
@@ -2376,17 +2376,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2398,7 +2398,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/05:
     dependencies:
@@ -2407,17 +2407,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2429,7 +2429,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/06:
     dependencies:
@@ -2438,17 +2438,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2460,7 +2460,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/07:
     dependencies:
@@ -2469,17 +2469,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2491,7 +2491,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/08:
     dependencies:
@@ -2500,17 +2500,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2522,7 +2522,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/09:
     dependencies:
@@ -2531,17 +2531,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2553,7 +2553,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/10:
     dependencies:
@@ -2562,17 +2562,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2584,7 +2584,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/11:
     dependencies:
@@ -2593,17 +2593,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2615,7 +2615,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/12:
     dependencies:
@@ -2624,17 +2624,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2646,7 +2646,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/13:
     dependencies:
@@ -2655,17 +2655,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2677,7 +2677,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/14:
     dependencies:
@@ -2686,17 +2686,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2708,7 +2708,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/15:
     dependencies:
@@ -2717,17 +2717,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2739,7 +2739,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/16:
     dependencies:
@@ -2748,17 +2748,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2770,7 +2770,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/17:
     dependencies:
@@ -2782,17 +2782,17 @@ importers:
         version: 1.0.28-alpha
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2804,7 +2804,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/18:
     dependencies:
@@ -2813,17 +2813,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2835,7 +2835,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2021/21:
     dependencies:
@@ -2844,17 +2844,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2869,7 +2869,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/01:
     dependencies:
@@ -2878,17 +2878,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2900,7 +2900,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/02:
     dependencies:
@@ -2909,17 +2909,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2931,7 +2931,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/03:
     dependencies:
@@ -2940,17 +2940,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2962,7 +2962,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/04:
     dependencies:
@@ -2971,17 +2971,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -2993,7 +2993,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/05:
     dependencies:
@@ -3002,17 +3002,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3024,7 +3024,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/06:
     dependencies:
@@ -3033,17 +3033,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3055,7 +3055,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/07:
     dependencies:
@@ -3064,17 +3064,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3086,7 +3086,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/08:
     dependencies:
@@ -3095,17 +3095,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3117,7 +3117,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/09:
     dependencies:
@@ -3129,17 +3129,17 @@ importers:
         version: 1.0.28-alpha
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3151,7 +3151,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/10:
     dependencies:
@@ -3160,17 +3160,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3182,7 +3182,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/11:
     dependencies:
@@ -3191,17 +3191,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3213,7 +3213,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/12:
     dependencies:
@@ -3222,17 +3222,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3244,7 +3244,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/13:
     dependencies:
@@ -3253,17 +3253,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3275,7 +3275,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/14:
     dependencies:
@@ -3287,17 +3287,17 @@ importers:
         version: link:../../libs/ecs
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3309,7 +3309,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/15:
     dependencies:
@@ -3318,17 +3318,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3340,7 +3340,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/16:
     dependencies:
@@ -3349,17 +3349,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3371,7 +3371,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/17:
     dependencies:
@@ -3383,17 +3383,17 @@ importers:
         version: link:../../libs/ecs
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3405,7 +3405,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/18:
     dependencies:
@@ -3414,17 +3414,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3436,7 +3436,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/19:
     dependencies:
@@ -3445,17 +3445,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3467,7 +3467,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/20:
     dependencies:
@@ -3476,17 +3476,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3498,7 +3498,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/21:
     dependencies:
@@ -3507,17 +3507,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3529,7 +3529,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/22:
     dependencies:
@@ -3538,17 +3538,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3560,7 +3560,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/23:
     dependencies:
@@ -3569,17 +3569,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3591,7 +3591,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/24:
     dependencies:
@@ -3600,17 +3600,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3622,7 +3622,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/2022/25:
     dependencies:
@@ -3631,17 +3631,17 @@ importers:
         version: link:../../libs/lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3653,7 +3653,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/libs/ecs:
     dependencies:
@@ -3674,17 +3674,17 @@ importers:
         version: 3.0.1
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/blessed':
         specifier: ^0.1.25
         version: 0.1.25
@@ -3726,7 +3726,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
   solutions/typescript/libs/lib:
     dependencies:
@@ -3738,17 +3738,17 @@ importers:
         version: 1.0.28-alpha
     devDependencies:
       '@alexaegis/eslint-config-vitest':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/ts':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@alexaegis/vite':
-        specifier: ^0.9.0
-        version: 0.9.0(@types/node@20.10.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.1)
       '@alexaegis/vitest':
-        specifier: ^0.9.0
-        version: 0.9.0(svelte@4.2.7)(vite@5.0.4)
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
@@ -3790,7 +3790,7 @@ importers:
         version: 5.0.4(@types/node@20.10.1)
       vitest:
         specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
 
 packages:
 
@@ -3799,66 +3799,66 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@alexaegis/autotool-plugin-commitlint@0.9.0(typescript@5.3.2):
-    resolution: {integrity: sha512-OaJEkgPuhwRrhkTgSFJ3e0T2mrYIpIxJZcW0JrB4Vh/K4Ozx1WAc+8aXdHMlyeNx8Ki6Gad2pKPrDUDL09MaCA==}
+  /@alexaegis/autotool-plugin-commitlint@0.9.1(typescript@5.3.2):
+    resolution: {integrity: sha512-kCOmKznBlOokxJMnAfChvSgwr3AY7d1NLMB+bTM5ddqwBtQ1SuEfknOj+RKRYLR2T+FicAdtwwz2P6PapcfEqg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/commitlint-config': 0.9.0
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/commitlint-config': 0.9.1
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
       commitlint: 18.4.3(typescript@5.3.2)
     transitivePeerDependencies:
       - typescript
     dev: true
 
-  /@alexaegis/autotool-plugin-depcheck@0.9.0:
-    resolution: {integrity: sha512-iMhvZ0BhaW4GVcb9/0qvYIqI8y+MS3D1xaFzxJ44QCaawo8f8Ncb3I/KR7zjwYB7rHb4tPDNZh9PKZThM95xaQ==}
+  /@alexaegis/autotool-plugin-depcheck@0.9.1:
+    resolution: {integrity: sha512-/SvnORUfUNgnbNKfLjmXxtS01MFJJm/uqK8fwbjBG3l5bOAjXWCk+YuJRQ8PIrBzQ2RFxL0Gnn2iYWOFKpxCmQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/predicate': 0.7.3
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-editorconfig@0.9.0:
-    resolution: {integrity: sha512-RsgOBDuWnwuPHPWuU6xefn96xN6f7JLZKRMhtjBazgyJ4ZLuB1wvhoNh+83stNHUfXCBfh+dTzOrRrAXl1TWQQ==}
+  /@alexaegis/autotool-plugin-editorconfig@0.9.1:
+    resolution: {integrity: sha512-G+IFWpmyBya8ANY8a3mAK2hysdxz3UyG/oJ3Y35ziaInE0WZHwuYMVsjUaJnAv77aIsva8nbOeL4wpdEYpsoPQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-eslint@0.9.0:
-    resolution: {integrity: sha512-ciGrtNdk3yo12uh7e6ndDoWQZjuivXA01iYbFFYdt8vxZN/y8HBQ1XODjSjZGkvxDVpeRx4W7br0LrT7cEznqQ==}
+  /@alexaegis/autotool-plugin-eslint@0.9.1:
+    resolution: {integrity: sha512-N3wVP8b8lM7dW0KR8mqvlnLquoIqGrzeVM3Y1+F4mqCug8GJ3I81Arbautvr4RHNeR7i7Tuk4adzMEBjpjJvAg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/predicate': 0.7.3
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-git@0.9.0:
-    resolution: {integrity: sha512-sTU0hZXrDcyJGZW0AxKINn9RKjcH2fziJ2qi+7QsdRzjFOz8BvoUobB8iNKD41C3b7QxBtDYRNhxg8ulYnCAJw==}
+  /@alexaegis/autotool-plugin-git@0.9.1:
+    resolution: {integrity: sha512-EoUGP62AeWbo2wZCXv2ppV7++OHx1CcBxdkvBJsbgDf0GvwWbMLtzdHq7LOs1QuGuEJrctqvFXdq4UlLcKEZew==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-github@0.9.0:
-    resolution: {integrity: sha512-Xch+HnJG0YHA+XA96s2r3Po2leAcJw1oVMKMfwUOOsFdi7+lL9zWDWwCGXX1ySHxdZXYn6vzlFDlgE1cBPPo/A==}
+  /@alexaegis/autotool-plugin-github@0.9.1:
+    resolution: {integrity: sha512-dwkb7AWBMmqMVVGUEgAbCJiu8idnKQ/4To0VLJ5Y2XwMryr5OniNIDjAR+w2Fmb1E7hnFW77YXTVsz+eoASKlQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-husky@0.9.0:
-    resolution: {integrity: sha512-HHteCAbYEpsb/inaYcHeacTrlYVdt72CSQ4Dp7LcCopFIi2ve8jMf1lDfMywYHkGd3/sD80WyMtIkUWnUfxc9g==}
+  /@alexaegis/autotool-plugin-husky@0.9.1:
+    resolution: {integrity: sha512-Ku8B4u7dsHcnZNEt0YX9XfTphncl3X/kTHBdLHyQNpTGetByNeHz3Wb28wTTJHVzGsSczHg2yHXUhhf0Pmj1CA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/lint-staged-config': 0.9.0
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/lint-staged-config': 0.9.1
+      '@alexaegis/logging': 0.8.0
       '@commitlint/config-conventional': 18.4.3
       autotool-plugin: 0.3.0
       husky: 8.0.3
@@ -3867,11 +3867,11 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/autotool-plugin-ncu@0.9.0:
-    resolution: {integrity: sha512-AHDKC8pzMTdPULePxrnG9AFfB9nwSUdGvYv8OioHshXuPijPD8QK+RoZWFRv0dn77xp+1M/hBdvKNNakEbRf/A==}
+  /@alexaegis/autotool-plugin-ncu@0.9.1:
+    resolution: {integrity: sha512-VOOxE91C0zRgPB2uE3PiRR6e58U73R628v/GeibOjDho9UGnB1VTkBiCFEXPOPxRULG0LwSsZNdkSvi2qQ7Npg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
       npm-check-updates: 16.14.11
     transitivePeerDependencies:
@@ -3879,15 +3879,15 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/autotool-plugin-prettier@0.9.0(svelte@4.2.7):
-    resolution: {integrity: sha512-iVmAM3jXVqJkMOPJX4bPfzvVF0F7lUFXCF0WDnNaMaq1ggrftE0ZP59WPEe7s1xVL3LlxDFi9K03ZlKL1ucfrQ==}
+  /@alexaegis/autotool-plugin-prettier@0.9.1(svelte@4.2.8):
+    resolution: {integrity: sha512-ECODmDvIAUA6z5AI6wsoYIqqk7o1jPeY6FdXb1HbMT9roQ7mxW9EDqBQKJYggNSzBMMnDKyByNDexYS5Zem53g==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/prettier-config': 0.9.0(prettier@3.1.0)(svelte@4.2.7)
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/prettier-config': 0.9.1(prettier@3.1.0)(svelte@4.2.8)
       autotool-plugin: 0.3.0
       prettier: 3.1.0
-      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.7)
+      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
       prettier-plugin-tailwindcss: 0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
@@ -3907,90 +3907,90 @@ packages:
       - svelte
     dev: true
 
-  /@alexaegis/autotool-plugin-publint@0.9.0:
-    resolution: {integrity: sha512-ksjAXmGw18ZfCK+QVy4s5pHqoZ2bZhZByODyvXFTvV/HPyF5DMLH+Irx6jm9yx02/hXAaN2r8S17GfMEB5mbhg==}
+  /@alexaegis/autotool-plugin-publint@0.9.1:
+    resolution: {integrity: sha512-kp0WUyuBtRfAw8kERz1sVHWi7pD3cAF5ZycZCedKuhJlufDIsj64L44aoCAHArUugapu00QI+MfR+bZZYragPQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-remark@0.9.0:
-    resolution: {integrity: sha512-fmt735hMWQWeZlKjxWtlqDdg1H2iF/0o55yobtKfUslN7ke/rFxGzRTmUTrcqrWO4BJVvC9UWiiRN2HCXpQrUA==}
+  /@alexaegis/autotool-plugin-remark@0.9.1:
+    resolution: {integrity: sha512-dSlZdrPU/3Yd408lkOzn4eaMVvX8gMkj/mkzOmxupo69amjAfxF/NWjhPKe59+0mm3rLmzlkJkIdY+GssFxPRA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/remark-preset': 0.9.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/remark-preset': 0.9.1
       autotool-plugin: 0.3.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@alexaegis/autotool-plugin-standard-version@0.9.0:
-    resolution: {integrity: sha512-YLUl1mzDyIbXQg6pbpmrCwxJ/BkIUkf9ZV6dXUpaeI29zN1WrUx6kLe9pvatN9w7WnRU/0JBU7OSECaIH1+w3w==}
+  /@alexaegis/autotool-plugin-standard-version@0.9.1:
+    resolution: {integrity: sha512-arv17yROz0EiT2vhxD8Zjqn9jZ4I/jUySoMm3y0bmVrqWwtdb4RspZm2fuwBFdb28+x578p0pzCpkcPQb6rFXA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/standard-version': 0.9.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/standard-version': 0.9.1
       autotool-plugin: 0.3.0
       commit-and-tag-version: 12.0.0
     dev: true
 
-  /@alexaegis/autotool-plugin-stylelint@0.9.0:
-    resolution: {integrity: sha512-6nU7dYNC4zyaQoNajy6Iq7DzFRa3MGrNpv+ZcUBy2q3ZwtZeBrmQhE9dKmP5IGbEzDSOSpgI+SUXU4WIzN5CyQ==}
+  /@alexaegis/autotool-plugin-stylelint@0.9.1:
+    resolution: {integrity: sha512-K4zuqFIH3ao8Qy5uCxJENtXCtD72RHRhQS5MF5/liIXPbxtWzSNqjnPHcSKbCk/CM0716fOxo+6CKz1WGgeg+A==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-svelte@0.9.0:
-    resolution: {integrity: sha512-/wpMjyFr97LWkZXEsdySAcPfNLhLUT0e1uqdsf2HJNCL057MwBbSbvZtmcDa50wM7+gM8CEPywPLrgO79JI4CQ==}
+  /@alexaegis/autotool-plugin-svelte@0.9.1:
+    resolution: {integrity: sha512-K1E3BcOLfK+tNOLNs2AeAC7U3nWNdQK5Jv2k3+uaWKX6JDm617V6+NvTQ+bdGz72HY9qzq6wwX3FhqA71SF4jg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/coverage-tools': 0.7.3
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/predicate': 0.7.3
+      '@alexaegis/coverage-tools': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-ts@0.9.0:
-    resolution: {integrity: sha512-3CSsyxtCSUGJDRkoJt9jyVDHO6qQrWhAtPm+EM3wFvYhAwaMn4lYYBh6z06O86Nz+OdY7xjOIYuP09aNYpCVRg==}
+  /@alexaegis/autotool-plugin-ts@0.9.1:
+    resolution: {integrity: sha512-eUf+K3jp+QxnIS1w7D9nFHgK0peyNhM3Kf/ypmCSqdvKRdfDh6zPyrfWfZiZAy9O2jdUEIi9UFfvmPkXZd2z3g==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/match': 0.7.3
-      '@alexaegis/predicate': 0.7.3
-      '@alexaegis/workspace-tools': 0.7.3
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/match': 0.8.0
+      '@alexaegis/predicate': 0.8.0
+      '@alexaegis/workspace-tools': 0.8.0
       autotool-plugin: 0.3.0
       typescript: 5.3.2
     dev: true
 
-  /@alexaegis/autotool-plugin-turbo@0.9.0:
-    resolution: {integrity: sha512-Bp5z8WAdc9TPmcuabGD5GnZ6d/kaQuFeYpL8M7LSYAArVyZj0a3CvKQGtT2XAwCtOFxXAuQzbaB2WzRY6+0FtA==}
+  /@alexaegis/autotool-plugin-turbo@0.9.1:
+    resolution: {integrity: sha512-wg4wA6QjdlQesVRIDGaIxpn/EjJfbgeZVf6e0RowiPGJufIVqnw3xisUGUQ9fMr5Sahd5TNAGjvqzJ9EciPRdQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-typedoc@0.9.0(typescript@5.3.2):
-    resolution: {integrity: sha512-ooELf8CPg01h4D/Y4Aj+Jdd2LMkYWVTJ4l5sF0g0kl5gvnUUF+PYT/t3Ou9zsOnk92jvD291Kukt1/Ax9UJEvg==}
+  /@alexaegis/autotool-plugin-typedoc@0.9.1(typescript@5.3.2):
+    resolution: {integrity: sha512-ZmItul22sI7hj6/546/xHbXBEhjcxZ5pj/0QXXhAPiCRaZNiENHN9lUKPm15/9gIHNwtXNAgFauv8X/2CPaTnA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
       typedoc: 0.25.4(typescript@5.3.2)
     transitivePeerDependencies:
       - typescript
     dev: true
 
-  /@alexaegis/autotool-plugin-vite@0.9.0(@types/node@20.10.1):
-    resolution: {integrity: sha512-Z1EPfrWEbA0XzhhlS31/ivPMhQPpRJEbrl8pf58xyJUd3XYrfypWbyvU9dqPwoOWALj+lpj3gZcsKKuhnoaAIw==}
+  /@alexaegis/autotool-plugin-vite@0.9.1(@types/node@20.10.1):
+    resolution: {integrity: sha512-6rK2XFKeoP3q2UM9CrKJyYdoO24S1pZbPC4Xv0OD/qGaPjSaJ15a2AXVeY2QmrQNT4OfA/S4TA3brqKOp0zU/w==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/predicate': 0.7.3
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
       vite: 5.0.4(@types/node@20.10.1)
     transitivePeerDependencies:
@@ -4003,29 +4003,29 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/autotool-plugin-vitest@0.9.0:
-    resolution: {integrity: sha512-ix+G/61i8WZrSeJxAHgSRg0PkdYmO/T3xtWF9qmE9aGpSAeVERepUzBVqM6XJ73EH0p2cn8dOfCfb6NZVpU9YQ==}
+  /@alexaegis/autotool-plugin-vitest@0.9.1:
+    resolution: {integrity: sha512-1+Xyn1WlPbZwhHgl3QANsKjvIWoP50CS4kmOuyTlwDIi9/AQP6eUqVgVzBnsFBRBStoPYH3qT4fLpBE5teXp7w==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/coverage-tools': 0.7.3
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/predicate': 0.7.3
+      '@alexaegis/coverage-tools': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-vscode@0.9.0:
-    resolution: {integrity: sha512-2Wp4aUBIfKzMp3ASTni6ExFStnY7Ly/bYHBJUVXq6ROqwN+LvWlQscowdEm5q7ta75kLO/159z2DDWlc/rrycA==}
+  /@alexaegis/autotool-plugin-vscode@0.9.1:
+    resolution: {integrity: sha512-NHowxlOd/Gx502ZdbiegP5mg1HYDenvKFpYfP9xEgHOiD6yGBN4um3T1Y916fC7hFp7j0FM02Jl7G3HRYyybcA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-workspace@0.9.0:
-    resolution: {integrity: sha512-msSv5ar1effxjrjH3r43GV2qQSEIpM7pwxEHlReca7BCqxT96AQGaoQveaWMDDFQpnpPKgxzfyvGxfIQWNaMdA==}
+  /@alexaegis/autotool-plugin-workspace@0.9.1:
+    resolution: {integrity: sha512-HoVX7KIz4ovaQFj43igknZwGXornQpfdHH9tjSDJjO3H//eB3oI6ag5ctgMX1QMyk7a+wpwtu95utIMARJ/nbw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
     dev: true
 
@@ -4041,35 +4041,47 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /@alexaegis/commitlint-config@0.9.0:
-    resolution: {integrity: sha512-UMAJCUGto4DUBh2EcNMsYrc9CWKbc/Mq8ER9jT/02HJxrFal1jWUznZuvzOyi0rqRSBTviBae/h516FitDFicA==}
+  /@alexaegis/cli-tools@0.8.0:
+    resolution: {integrity: sha512-WnW3DN+qRyGC1FPLR4hx6sWng9uVh83gj0WwOsfD62Ty8mCHjOBopiYgZxRbonPv1BqOt0yiu32KaaZACjNquQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/standard-version': 0.9.0
+      '@alexaegis/common': 0.8.0
+      '@alexaegis/fs': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/workspace-tools': 0.8.0
+      '@types/yargs': 17.0.32
+      yargs: 17.7.2
+    dev: true
+
+  /@alexaegis/commitlint-config@0.9.1:
+    resolution: {integrity: sha512-4zsEsOzt2eBGA1qWNi0hlj6rwERsl4BmAakgq3A6oMejd3vejLTFhbpvEAZlxLYPvZgxGCcBKFdCrMkWGhFBRQ==}
+    engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
+    dependencies:
+      '@alexaegis/standard-version': 0.9.1
     dev: true
 
   /@alexaegis/common@0.7.3:
     resolution: {integrity: sha512-vxFSI0Grac+1Cv5OakjXogXUuwi01D/xiJW8Lwi4OIKrAg0UuZa33cI3s1B5vQDrEbu2wmOnHlnvCNLHUo1XJg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
+    dev: true
 
   /@alexaegis/common@0.8.0:
     resolution: {integrity: sha512-nFo3FnE14FDu1yUDe01UImOiF41s5ekaGVHOCPAhCfZGn8By0arxdLxXOUe3+69HJb6zRm55TSFXvG1F1vUTsg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
-    dev: false
 
-  /@alexaegis/coverage-tools@0.7.3:
-    resolution: {integrity: sha512-lZlLKWbyusM0XMCBz4HNtn9R0jpO8Uhq0jNHsTs8Q3DRqkMLMJmt8Yb7vmrCjoo7VoOqPQEopRVVJjZNwj0PWg==}
+  /@alexaegis/coverage-tools@0.8.0:
+    resolution: {integrity: sha512-DvrD7f3zGYfJgg4/xqqILzSpXblX5NXmsynRaZ6rMOvHvseCqi1DJxs57NosqZzVUoV3XD8SwKTqozArI+uswQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     hasBin: true
     dependencies:
-      '@alexaegis/common': 0.7.3
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/workspace-tools': 0.7.3
+      '@alexaegis/common': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/workspace-tools': 0.8.0
       globby: 14.0.0
     dev: true
 
-  /@alexaegis/eslint-config-core@0.9.0:
-    resolution: {integrity: sha512-kCKOfL1QwaYeVGCmJDwmSnSUf24P2Whh5qHZ2/eDszEgO5Z8Q5jnYNVyuNA/wxZikWCtriWigowNpn2S3AQw4Q==}
+  /@alexaegis/eslint-config-core@0.9.1:
+    resolution: {integrity: sha512-gMG4oRnB3Jvtx/B2U+1/i5ImWEnRVbH2lu1B7TPk8C/NvhCWKa1myEEUopLXZH0CGsSJhnbv155mgr4hLVv7TA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2)
@@ -4086,8 +4098,8 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/eslint-config-vitest@0.9.0:
-    resolution: {integrity: sha512-5HDwTbJW+3CjBEDxx5aHZRuMGDnQU8+IT5biwc+r1ZN8a/X/VLXXz4PfmeymzyOMvze3WdN42knGfvCDfVnxGQ==}
+  /@alexaegis/eslint-config-vitest@0.9.1:
+    resolution: {integrity: sha512-a/SugVQ7gd9Tmm80dWrd4dEtNOzpktCVMxkflw+h9PNNrmx0l/BZcRU9NN0MSrtb1ypo0ADwd0yQMPpa+VkwVQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2)
@@ -4115,11 +4127,22 @@ packages:
       prettier: 3.1.0
     dev: true
 
-  /@alexaegis/lint-staged-config@0.9.0:
-    resolution: {integrity: sha512-sqWCbG0Jx7ZKOjC8xhMUjlT931pkzhoj6Rb7QFEjTaL4y5UhxRCIpCstGCKlSTICQGCHgbtNVWggqfBztb76mw==}
+  /@alexaegis/fs@0.8.0:
+    resolution: {integrity: sha512-D5ANk4jJ06lkmXQsNJcUfCs50WczhlyQrKMfz0OUV2gvYAspWfSpGuyk6QMD4rYH9BKrHUnllCRlUaxHnhm5Hg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/fs': 0.7.3
+      '@alexaegis/common': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      js-yaml: 4.1.0
+    optionalDependencies:
+      prettier: 3.1.0
+    dev: true
+
+  /@alexaegis/lint-staged-config@0.9.1:
+    resolution: {integrity: sha512-2BgdyPNjnATHhOiukOokmqGm5MnSvdDGbkUCP7t/1I7k8spdAipHWAtPfb/fJhGHLABwN6skCppNrYkBBDY0Bg==}
+    engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
+    dependencies:
+      '@alexaegis/fs': 0.8.0
       lint-staged: 15.1.0
       typescript: 5.3.2
     transitivePeerDependencies:
@@ -4134,33 +4157,46 @@ packages:
       tslog: 4.9.2
     dev: true
 
+  /@alexaegis/logging@0.8.0:
+    resolution: {integrity: sha512-uyJnVic3RJ35ODCMymnD7IuG1ROUokUXAAQqR0VtPVdz+ZUC5noJm4m/8PttGYobrvcfr61Oy90WKs3fluRFSQ==}
+    engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
+    dependencies:
+      '@alexaegis/common': 0.8.0
+      tslog: 4.9.2
+    dev: true
+
   /@alexaegis/match@0.7.3:
     resolution: {integrity: sha512-JZttuwmxe1XpwUmoOJ5xwDbLp0Mm5prsNhvtIHL8/G5434Z2SIUy2aoI+cIuMU0wLF8rNgjXXeiZBY4ksUcz8Q==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dev: true
 
-  /@alexaegis/nuke@0.9.0:
-    resolution: {integrity: sha512-qjrJSN3nU9B67mLbU1bcMd5Rk0tmj7CB6ov8FkZhTG5M/iUSeSqsqzyk0J9gUFEDmG2GzyJDk3OoUJmNJof1tQ==}
+  /@alexaegis/match@0.8.0:
+    resolution: {integrity: sha512-lauXC2nFZrQvfCkH2x0t9w9cb4nQFRoLtY4f5lIsZmVB2RoGeQbecfGz9z6AprGDkVCZblu1Ka1vAXYXmISMqg==}
+    engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
+    dev: true
+
+  /@alexaegis/nuke@0.9.1:
+    resolution: {integrity: sha512-pD5+ks316kIaDpN29OCvMBBZMX5/wm71KhWVlPJjQ16mxR5VwtFEeyncLHKh/ZChW3RcvDLR6UW/Mt2IEpzpfQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     hasBin: true
     dependencies:
-      '@alexaegis/cli-tools': 0.7.3
-      '@alexaegis/common': 0.7.3
-      '@alexaegis/logging': 0.7.3
-      '@alexaegis/workspace-tools': 0.7.3
+      '@alexaegis/cli-tools': 0.8.0
+      '@alexaegis/common': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/workspace-tools': 0.8.0
       globby: 14.0.0
     dev: true
 
-  /@alexaegis/predicate@0.7.3:
-    resolution: {integrity: sha512-tyR870kM5J1po+Aqtx3HbRIsRrGLPwvjP5gQ5uu6nhyj0/ire4MgZSMddubkTStgp2HiWaKITMOaZZ9YQ3eDXA==}
+  /@alexaegis/predicate@0.8.0:
+    resolution: {integrity: sha512-WRoqafPmGgQrPoe3wXZOjCVy/xhvSYGZrhBuOSbI8sH5miuqnFwce+6xgVWRZXIiZvWAZseR2qBm1TtO91ofOQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dev: true
 
-  /@alexaegis/prettier-config@0.9.0(prettier@3.1.0)(svelte@4.2.7):
-    resolution: {integrity: sha512-8Bx8e6ISrv7mKv6eWihJrdYAi+CzlTwuCbJYi7Gwy7sTwnKACr49OjcBzdyVqVREKTc8k6i79uAucCGGAcmIjw==}
+  /@alexaegis/prettier-config@0.9.1(prettier@3.1.0)(svelte@4.2.8):
+    resolution: {integrity: sha512-XCA9pY9FH3eaVgyXFmvjZMbTOXSlZ6q4qI24OKfkqHx4H8dp4CwOQrOnKFFi3N54UXuLCniHoQnhyR+z11Q1OA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.7)
+      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
       prettier-plugin-tailwindcss: 0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
@@ -4181,8 +4217,8 @@ packages:
       - svelte
     dev: true
 
-  /@alexaegis/remark-preset@0.9.0:
-    resolution: {integrity: sha512-trtbdPE/jytA2VddE9ZfvY62auJtD+WnrRS86ElQnJH95U6dSf0sa7D6/lI3IQHsFjd7Hip+S83wJcpP8+tJ1Q==}
+  /@alexaegis/remark-preset@0.9.1:
+    resolution: {integrity: sha512-wse+PsGFJziKBluR0eLiw2jTCaD9ijyHelsk7aTipGCNiEpetWdGoAcWsFZNm7P4PQDZuroUhKbrTBALtyUblw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       remark-gfm: 4.0.0
@@ -4205,18 +4241,18 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/standard-version@0.9.0:
-    resolution: {integrity: sha512-o9AsXqtO9w+Iv1cuGNN6wpa8jNiIY4GHQFvSawIUYJTOEB9OPrFVT3vaIjDFEtA1LM6p1ATtgAKUNMiB9QWQLA==}
+  /@alexaegis/standard-version@0.9.1:
+    resolution: {integrity: sha512-pSFq7IdWfu3/9DBPiFLDIfOO3hyJTVy93gRvYvj0UsoaJuDNFkcq/0Zigl/1E/A3kwKqHxSgozZRSRZGuSvHUw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/coverage-tools': 0.7.3
-      '@alexaegis/workspace-tools': 0.7.3
+      '@alexaegis/coverage-tools': 0.8.0
+      '@alexaegis/workspace-tools': 0.8.0
       glob: 10.3.10
       js-yaml: 4.1.0
     dev: true
 
-  /@alexaegis/stylelint-config@0.9.0(postcss-html@1.5.0)(postcss@8.4.31)(stylelint@15.11.0):
-    resolution: {integrity: sha512-XPtI62ETsGSa0OExpwmXinpw0TdISe1gT6VtfwNSXNvizxmzPev/Gqypjhp05+Ns3krhwmHcjYCC8xDXmnIDsw==}
+  /@alexaegis/stylelint-config@0.9.1(postcss-html@1.5.0)(postcss@8.4.31)(stylelint@15.11.0):
+    resolution: {integrity: sha512-2viuhXlYOc2mWilrCfAjnvR7TONA6NcG+ppEiYUH8iPm9J+5jmapx3xkzf2fjoLT+qN7xzdVjjq71YZcwuMccQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       stylelint-config-html: 1.1.0(postcss-html@1.5.0)(stylelint@15.11.0)
@@ -4228,11 +4264,11 @@ packages:
       - stylelint
     dev: true
 
-  /@alexaegis/ts@0.9.0:
-    resolution: {integrity: sha512-JsrN3oHPZj5jnv2Po2EcQxYmtKg581UBn1MMf7cDVKyYMckM31CvXrNUeO53r7c9RasNjyKMm/6h2kIonle/TA==}
+  /@alexaegis/ts@0.9.1:
+    resolution: {integrity: sha512-dW8Uaf8sbRfUG0xzIxz1gbF3iiIrRHDC+BAEHRG15FExrDflypJx22xT3I/zbrkpI0jIgUL9dtDkHc2cjI65hg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/vite': 0.9.0(@types/node@20.10.1)
+      '@alexaegis/vite': 0.9.1(@types/node@20.10.1)
       '@types/node': 20.10.1
       ts-node: 10.9.1(@types/node@20.10.1)(typescript@5.3.2)
       typescript: 5.3.2
@@ -4250,11 +4286,11 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/vite@0.9.0(@types/node@20.10.1):
-    resolution: {integrity: sha512-Nftvv/b10yVjJ77FSZloIURaXnOmIQkIC78wnpFIguNI5i3/sx5SRlKiviLMf0BLYt5VHXgV72dRgOl4MNbk3g==}
+  /@alexaegis/vite@0.9.1(@types/node@20.10.1):
+    resolution: {integrity: sha512-DLT9mEyXNy6mrwSvh/LGDM4MryF7aF3PAowHOmqUfWLgV8RsNKTwvUsNMbubgBYZNGEbUCwzs7sqd7BMy0dTRw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.7.3
+      '@alexaegis/logging': 0.8.0
       vite: 5.0.4(@types/node@20.10.1)
       vite-plugin-pakk: 0.8.0
     transitivePeerDependencies:
@@ -4271,15 +4307,15 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/vitest@0.9.0(svelte@4.2.7)(vite@5.0.4):
-    resolution: {integrity: sha512-PjVXZIL8xpIZWvBSgYlKYzcO2FtkmpbDJOHO9JRd0PXmmo/xwOjSB1vMlxO0cIkLFnjPsq6dZWBaJmh/VcFhtg==}
+  /@alexaegis/vitest@0.9.1(svelte@4.2.8)(vite@5.0.4):
+    resolution: {integrity: sha512-YL5haHdRJFMEqE0LQko02dochzCMEK3NFBVXzaFtBFYiCJa4DdcrE+bId1kzAd7NpAnSgcfreXC1/91i99LuiQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.7)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.4)
       '@vitest/coverage-v8': 0.34.6(vitest@0.34.6)
       '@vitest/ui': 0.34.6(vitest@0.34.6)
-      jsdom: 23.0.0
-      vitest: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+      jsdom: 23.0.1
+      vitest: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -4309,6 +4345,18 @@ packages:
       '@alexaegis/fs': 0.7.3
       '@alexaegis/logging': 0.7.3
       '@alexaegis/match': 0.7.3
+      '@schemastore/package': 0.0.10
+      globby: 14.0.0
+    dev: true
+
+  /@alexaegis/workspace-tools@0.8.0:
+    resolution: {integrity: sha512-cbiEP3GNqwIE7RsVseaInk5foebVlx3OqYYIgU7Wi30PtZ3X+SLWENageT40qvUK8uYwYTTKsTmVIF88XwQfkg==}
+    engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
+    dependencies:
+      '@alexaegis/common': 0.8.0
+      '@alexaegis/fs': 0.8.0
+      '@alexaegis/logging': 0.8.0
+      '@alexaegis/match': 0.8.0
       '@schemastore/package': 0.0.10
       globby: 14.0.0
     dev: true
@@ -5467,7 +5515,7 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.7)(vite@5.0.4):
+  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.4):
     resolution: {integrity: sha512-gjr9ZFg1BSlIpfZ4PRewigrvYmHWbDrq2uvvPB1AmTWKuM+dI1JXQSUu2pIrYLb/QncyiIGkFDFKTwJ0XqQZZg==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
@@ -5475,28 +5523,28 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.7)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.4)
       debug: 4.3.4
-      svelte: 4.2.7
+      svelte: 4.2.8
       vite: 5.0.4(@types/node@20.10.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@4.2.7)(vite@5.0.4):
+  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@4.2.8)(vite@5.0.4):
     resolution: {integrity: sha512-CGURX6Ps+TkOovK6xV+Y2rn8JKa8ZPUHPZ/NKgCxAmgBrXReavzFl8aOSCj3kQ1xqT7yGJj53hjcV/gqwDAaWA==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.7)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.4)
       debug: 4.3.4
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.5
-      svelte: 4.2.7
-      svelte-hmr: 0.15.3(svelte@4.2.7)
+      svelte: 4.2.8
+      svelte-hmr: 0.15.3(svelte@4.2.8)
       vite: 5.0.4(@types/node@20.10.1)
       vitefu: 0.2.5(vite@5.0.4)
     transitivePeerDependencies:
@@ -5739,6 +5787,12 @@ packages:
       '@types/yargs-parser': 21.0.3
     dev: true
 
+  /@types/yargs@17.0.32:
+    resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
+    dependencies:
+      '@types/yargs-parser': 21.0.3
+    dev: true
+
   /@typescript-eslint/eslint-plugin@6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2):
     resolution: {integrity: sha512-5bQDGkXaxD46bPvQt08BUz9YSaO4S0fB1LB5JHQuXTfkGPI3+UUeS387C/e9jRie5GqT8u5kFTrMvAjtX4O5kA==}
     engines: {node: ^16.0.0 || >=18.0.0}
@@ -5890,7 +5944,7 @@ packages:
       std-env: 3.5.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
-      vitest: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+      vitest: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5937,7 +5991,7 @@ packages:
       pathe: 1.1.1
       picocolors: 1.0.0
       sirv: 2.0.3
-      vitest: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0)
+      vitest: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
     dev: true
 
   /@vitest/utils@0.34.6:
@@ -9521,11 +9575,11 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom@23.0.0:
-    resolution: {integrity: sha512-cbL/UCtohJguhFC7c2/hgW6BeZCNvP7URQGnx9tSJRYKCdnfbfWOrtuLTMfiB2VxKsx5wPHVsh/J0aBy9lIIhQ==}
+  /jsdom@23.0.1:
+    resolution: {integrity: sha512-2i27vgvlUsGEBO9+/kJQRbtqtm+191b5zAZrU/UezVmnC2dlDAFLgDYJvAEi94T4kjsRKkezEtLQTgsNEsW2lQ==}
     engines: {node: '>=18'}
     peerDependencies:
-      canvas: ^3.0.0
+      canvas: ^2.11.2
     peerDependenciesMeta:
       canvas:
         optional: true
@@ -11727,14 +11781,14 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier-plugin-svelte@3.1.2(prettier@3.1.0)(svelte@4.2.7):
+  /prettier-plugin-svelte@3.1.2(prettier@3.1.0)(svelte@4.2.8):
     resolution: {integrity: sha512-7xfMZtwgAWHMT0iZc8jN4o65zgbAQ3+O32V6W7pXrqNvKnHnkoyQCGCbKeUyXKZLbYE0YhFRnamfxfkEGxm8qA==}
     peerDependencies:
       prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
     dependencies:
       prettier: 3.1.0
-      svelte: 4.2.7
+      svelte: 4.2.8
     dev: true
 
   /prettier-plugin-tailwindcss@0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0):
@@ -11790,7 +11844,7 @@ packages:
         optional: true
     dependencies:
       prettier: 3.1.0
-      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.7)
+      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
     dev: true
 
   /prettier@3.1.0:
@@ -13693,7 +13747,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check@3.6.2(postcss@8.4.31)(svelte@4.2.7):
+  /svelte-check@3.6.2(postcss@8.4.31)(svelte@4.2.8):
     resolution: {integrity: sha512-E6iFh4aUCGJLRz6QZXH3gcN/VFfkzwtruWSRmlKrLWQTiO6VzLsivR6q02WYLGNAGecV3EocqZuCDrC2uttZ0g==}
     hasBin: true
     peerDependencies:
@@ -13705,8 +13759,8 @@ packages:
       import-fresh: 3.3.0
       picocolors: 1.0.0
       sade: 1.8.1
-      svelte: 4.2.7
-      svelte-preprocess: 5.1.1(postcss@8.4.31)(svelte@4.2.7)(typescript@5.3.2)
+      svelte: 4.2.8
+      svelte-preprocess: 5.1.1(postcss@8.4.31)(svelte@4.2.8)(typescript@5.3.2)
       typescript: 5.3.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -13720,16 +13774,16 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-hmr@0.15.3(svelte@4.2.7):
+  /svelte-hmr@0.15.3(svelte@4.2.8):
     resolution: {integrity: sha512-41snaPswvSf8TJUhlkoJBekRrABDXDMdpNpT2tfHIv4JuhgvHqLMhEPGtaQn0BmbNSTkuz2Ed20DF2eHw0SmBQ==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
     dependencies:
-      svelte: 4.2.7
+      svelte: 4.2.8
     dev: true
 
-  /svelte-preprocess@5.1.1(postcss@8.4.31)(svelte@4.2.7)(typescript@5.3.2):
+  /svelte-preprocess@5.1.1(postcss@8.4.31)(svelte@4.2.8)(typescript@5.3.2):
     resolution: {integrity: sha512-p/Dp4hmrBW5mrCCq29lEMFpIJT2FZsRlouxEc5qpbOmXRbaFs7clLs8oKPwD3xCFyZfv1bIhvOzpQkhMEVQdMw==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -13773,12 +13827,12 @@ packages:
       postcss: 8.4.31
       sorcery: 0.11.0
       strip-indent: 3.0.0
-      svelte: 4.2.7
+      svelte: 4.2.8
       typescript: 5.3.2
     dev: true
 
-  /svelte@4.2.7:
-    resolution: {integrity: sha512-UExR1KS7raTdycsUrKLtStayu4hpdV3VZQgM0akX8XbXgLBlosdE/Sf3crOgyh9xIjqSYB3UEBuUlIQKRQX2hg==}
+  /svelte@4.2.8:
+    resolution: {integrity: sha512-hU6dh1MPl8gh6klQZwK/n73GiAHiR95IkFsesLPbMeEZi36ydaXL/ZAb4g9sayT0MXzpxyZjR28yderJHxcmYA==}
     engines: {node: '>=16'}
     dependencies:
       '@ampproject/remapping': 2.2.1
@@ -14819,7 +14873,7 @@ packages:
       vite: 5.0.4(@types/node@20.10.1)
     dev: true
 
-  /vitest@0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.0):
+  /vitest@0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1):
     resolution: {integrity: sha512-+5CALsOvbNKnS+ZHMXtuUC7nL8/7F1F2DnHGjSsszX8zCjWSSviphCb/NuS9Nzf4Q03KyyDRBAXhF/8lffME4Q==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -14864,7 +14918,7 @@ packages:
       cac: 6.7.14
       chai: 4.3.10
       debug: 4.3.4
-      jsdom: 23.0.0
+      jsdom: 23.0.1
       local-pkg: 0.4.3
       magic-string: 0.30.5
       pathe: 1.1.1

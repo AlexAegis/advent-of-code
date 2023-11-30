@@ -7,5 +7,6 @@ module.exports = {
 	rules: {
 		'prefer-const': ['error', { destructuring: 'all' }],
 		'unicorn/no-array-for-each': 'off', // Gives false errors for any functions called forEach
+		'@typescript-eslint/no-unnecessary-condition': 'off',
 	},
 };

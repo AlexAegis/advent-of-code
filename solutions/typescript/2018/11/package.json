@@ -60,11 +60,6 @@
 			"import": "./dist/p2.js",
 			"default": "./dist/p2.js"
 		},
-		"./p2.rework": {
-			"types": "./src/p2.rework.ts",
-			"import": "./dist/p2.rework.js",
-			"default": "./dist/p2.rework.js"
-		},
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
@@ -72,10 +67,10 @@
 		"workerpool": "^8.0.0"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.9.0",
-		"@alexaegis/ts": "^0.9.0",
-		"@alexaegis/vite": "^0.9.0",
-		"@alexaegis/vitest": "^0.9.0",
+		"@alexaegis/eslint-config-vitest": "^0.9.1",
+		"@alexaegis/ts": "^0.9.1",
+		"@alexaegis/vite": "^0.9.1",
+		"@alexaegis/vitest": "^0.9.1",
 		"@types/node": "^20.10.1",
 		"@types/workerpool": "^6.4.7",
 		"benny": "^3.7.1",
