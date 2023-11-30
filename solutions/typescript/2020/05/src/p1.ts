@@ -19,7 +19,7 @@ export const calculateSeatId = (line: string): number => {
 	let columnHigh = 7;
 
 	for (const letter of line) {
-		switch (letter) {
+		switch (letter as PlanePartition) {
 			case PlanePartition.front: {
 				[rowLow, rowHigh] = lowerHalf(rowLow, rowHigh);
 				break;

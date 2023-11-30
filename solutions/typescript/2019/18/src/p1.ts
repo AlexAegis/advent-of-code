@@ -13,7 +13,7 @@ import { Tile, doorMatcher, parseLines, parseMatrix, type Key } from './parse.js
 export const weighter =
 	(inventory: Set<string>) =>
 	(n: GridGraphNode, _a: GridGraphNode): number => {
-		const v = n.value;
+		const v = n.value as Tile;
 		switch (v) {
 			case Tile.WALL: {
 				return Number.POSITIVE_INFINITY;

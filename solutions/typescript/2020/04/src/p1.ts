@@ -16,6 +16,9 @@ export type Passport = Record<RelevantField, string>;
 export const parsePassport = (passport: string): Partial<Passport> =>
 	passport.split(' ').reduce<Partial<Passport>>((acc, e) => {
 		const [key, val] = e.split(':');
+		if (!val) {
+			throw new Error('bad passport');
+		}
 		acc[key as RelevantField] = val;
 		return acc;
 	}, {});

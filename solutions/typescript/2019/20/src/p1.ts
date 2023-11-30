@@ -19,7 +19,7 @@ export const weighter: Weighter<PortalGridNode> = (
 	_a: PortalGridNode,
 	b: PortalGridNode,
 ): number => {
-	switch (b.value) {
+	switch (b.value as Tile) {
 		case Tile.PATH: {
 			return 0;
 		}

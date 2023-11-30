@@ -252,24 +252,24 @@
 
 ## Setup
 
-1.  Install [Rust](https://www.rust-lang.org/tools/install)
+1. Install [Rust](https://www.rust-lang.org/tools/install)
 
-2.  Open with [VS Code](https://code.visualstudio.com/)
+2. Open with [VS Code](https://code.visualstudio.com/)
 
-3.  Install the suggested extensions when prompted (Recommended)
+3. Install the suggested extensions when prompted (Recommended)
 
-4.  Install the required crates
+4. Install the required crates
 
-    ```sh
-    cargo build
-    ```
+   ```sh
+   cargo build
+   ```
 
-    > Select `Current Rust Cargo` launch option. **F5** runs the cargo you're
-    > focusing in debug mode. Set Rust to default to `nightly`
+   > Select `Current Rust Cargo` launch option. **F5** runs the cargo you're
+   > focusing in debug mode. Set Rust to default to `nightly`
 
-    ```sh
-    rustup default nightly
-    ```
+   ```sh
+   rustup default nightly
+   ```
 
 ### Debug
 

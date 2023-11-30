@@ -33,7 +33,7 @@ export const p2 = (input: string): string => {
 			.map(
 				(l) =>
 					l
-						.map((n) => {
+						.map((n: COLOR) => {
 							switch (n) {
 								case COLOR.BLACK: {
 									return '`';
