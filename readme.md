@@ -19,6 +19,7 @@
 
 ## [TypeScript](./solutions/typescript)
 
+[![2023 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2023.json)](/solutions/typescript/2023/)
 [![2022 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2022.json)](/solutions/typescript/2022/)
 [![2021 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2021.json)](/solutions/typescript/2021/)
 [![2020 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2020.json)](/solutions/typescript/2020/)
@@ -40,7 +41,7 @@ pnpm install
 
 ```sh
 # Navigate to the solution
-cd solutions/typescript/2022/01
+cd solutions/typescript/2023/01
 pnpm p1
 pnpm p2
 ```
@@ -59,7 +60,7 @@ pnpm test
 
 ```sh
 # Navigate to the solution
-cd solutions/typescript/2022/01
+cd solutions/typescript/2023/01
 pnpm test
 ```
 
@@ -67,7 +68,7 @@ pnpm test
 
 ```sh
 # Navigate to the solution
-cd solutions/typescript/2022/01
+cd solutions/typescript/2023/01
 pnpm bench
 ```
 
@@ -81,7 +82,7 @@ pnpm lint
 
 ```sh
 # Navigate to the solution
-cd solutions/typescript/2022/01
+cd solutions/typescript/2023/01
 pnpm lint:tsc
 pnpm lint:es
 pnpm lint:format
@@ -89,6 +90,7 @@ pnpm lint:format
 
 ## [Rust](./solutions/rust)
 
+[![2023 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2023.json)](/solutions/rust/2023/)
 [![2022 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2022.json)](/solutions/rust/2022/)
 [![2021 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2021.json)](/solutions/rust/2021/)
 [![2020 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2020.json)](/solutions/rust/2020/)
@@ -100,6 +102,7 @@ pnpm lint:format
 
 ## [Python](./solutions/python)
 
+[![2023 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2023.json)](/solutions/python/year2023/)
 [![2022 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2022.json)](/solutions/python/year2022/)
 [![2021 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2021.json)](/solutions/python/year2021/)
 [![2020 Python Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/python/2020.json)](/solutions/python/year2020/)

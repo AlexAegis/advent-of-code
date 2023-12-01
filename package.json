@@ -46,7 +46,8 @@
 		"solutions/typescript/2019/*",
 		"solutions/typescript/2020/*",
 		"solutions/typescript/2021/*",
-		"solutions/typescript/2022/*"
+		"solutions/typescript/2022/*",
+		"solutions/typescript/2023/*"
 	],
 	"scripts": {
 		"build": "turbo run build-lib_ build-app_ --concurrency 16 --cache-dir .cache/turbo",
