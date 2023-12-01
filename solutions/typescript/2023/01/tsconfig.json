@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig?mark=managed-by-autotool",
-	"extends": "./node_modules/@alexaegis/ts/node.json",
+	"extends": "@alexaegis/ts/node",
 	"compilerOptions": {
 		"rootDir": "../../../../",
 		"outDir": ".cache/tsc"

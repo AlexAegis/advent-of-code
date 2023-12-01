@@ -15,12 +15,16 @@ export const benchTask = async <Input, Result = string, Args = undefined>(
 	resources: TaskResources<Input, Args>,
 	logger?: Logger,
 ): Promise<Result> => {
-	const obs = new PerformanceObserver((list) => {
-		list.getEntries().forEach((entry) => {
-			logger?.(`${entry.name}: ${roundToDecimal(entry.duration, 2)} ms`);
+	// TODO: Remove the if once PerformanceObserver is implemented in bun
+	if (process.versions['bun'] === undefined) {
+		const obs = new PerformanceObserver((list) => {
+			list.getEntries().forEach((entry) => {
+				logger?.(`${entry.name}: ${roundToDecimal(entry.duration, 2)} ms`);
+			});
 		});
-	});
-	obs.observe({ entryTypes: ['measure'], buffered: true });
+		obs.observe({ entryTypes: ['measure'], buffered: true });
+	}
+
 	performance.mark('runstart');
 	const result = await runner(resources.input, resources.args);
 	performance.mark('runend');
