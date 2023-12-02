@@ -25,6 +25,10 @@ declare global {
 		 */
 		vectorsOf(character: string, fromBottom?: boolean): Vec2[];
 		rightSplit(delimiter?: string): [string, string] | [string];
+		/**
+		 * Equivalent to s.split('') or [...s]
+		 */
+		chars(): string[];
 		lines(keepEmpty?: boolean): string[];
 		splitToInt(options: {
 			delimiter?: {
@@ -92,6 +96,10 @@ String.prototype.toVectorMap = function <V = string>(
 	valueConverter?: (value: string) => V,
 ): Map<Vec2String, V> {
 	return stringToVectorMap(this as string, { valueConverter });
+};
+
+String.prototype.chars = function (): string[] {
+	return [...this];
 };
 
 String.prototype.lines = function (keepEmpty = false): string[] {
