@@ -1,11 +1,11 @@
 import { PairTree } from '@alexaegis/advent-of-code-lib/model';
 import { beforeEach, describe, expect, it } from 'vitest';
 import {
-    addSnailfishNumbers,
-    getMagnitude,
-    parseSnailfishNumber,
-    triggerExplosion,
-    type SnailfishNumber,
+	addSnailfishNumbers,
+	getMagnitude,
+	parseSnailfishNumber,
+	triggerExplosion,
+	type SnailfishNumber,
 } from './snailfish-number.js';
 
 describe('snailfish numbers', () => {
