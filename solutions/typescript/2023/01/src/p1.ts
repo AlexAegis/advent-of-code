@@ -1,23 +1,33 @@
-import { NEWLINE, task } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
 	return input
-		.split(NEWLINE)
-		.map((group) => {
-			const f = group
-				.chars()
-				.find((l) => /\d/.test(l))
-				?.toInt()
-				.toString();
-			const l = group
-				.chars()
-				.reverse()
-				.find((l) => /\d/.test(l))
-				?.toInt()
-				.toString();
-			return f && l ? (f + l).toInt() : 0;
+		.lines(false)
+		.map((line) => {
+			let firstDigit: string | undefined;
+			let lastDigit: string | undefined;
+			for (let i = 0; i < line.length; i++) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				const maybeFirstDigit = line[i]!;
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				const maybeLastDigit = line[line.length - i - 1]!;
+
+				if (firstDigit === undefined && /\d/.test(maybeFirstDigit)) {
+					firstDigit = maybeFirstDigit;
+				}
+
+				if (lastDigit === undefined && /\d/.test(maybeLastDigit)) {
+					lastDigit = maybeLastDigit;
+				}
+
+				if (firstDigit !== undefined && lastDigit !== undefined) {
+					break;
+				}
+			}
+
+			return ((firstDigit ?? '') + (lastDigit ?? '')).toInt();
 		})
 		.sum();
 };
-await task(p1, packageJson.aoc); // 54644 ~?ms
+await task(p1, packageJson.aoc); // 54644 ~0.19ms
