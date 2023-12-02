@@ -3694,9 +3694,6 @@ importers:
       '@alexaegis/advent-of-code-lib':
         specifier: workspace:^
         version: link:../../libs/lib
-      arktype:
-        specifier: ^1.0.28-alpha
-        version: 1.0.28-alpha
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.9.1
