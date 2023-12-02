@@ -64,8 +64,7 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/advent-of-code-lib": "workspace:^",
-		"arktype": "^1.0.28-alpha"
+		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.9.1",
