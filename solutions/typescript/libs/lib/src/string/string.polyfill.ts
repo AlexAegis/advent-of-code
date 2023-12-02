@@ -30,7 +30,7 @@ declare global {
 		 */
 		chars(): string[];
 		/**
-		 * Equivalent to `s.split(/(\r?\n)+/g).filter(line => !!line)`
+		 * Equivalent to `s.split(/\r?\n/g).filter(line => !!line)`
 		 * The filter part can be turned off using the first, keepEmpty argument
 		 */
 		lines(keepEmpty?: boolean): string[];
@@ -107,7 +107,7 @@ String.prototype.chars = function (): string[] {
 };
 
 String.prototype.lines = function (keepEmpty = false): string[] {
-	const lines = this.split(/(\r?\n)+/g);
+	const lines = this.split(/\r?\n/g);
 	return keepEmpty ? lines : lines.filter((line) => !!line);
 };
 
