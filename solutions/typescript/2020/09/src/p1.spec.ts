@@ -17,15 +17,19 @@ describe('2020 - Day 9 - Part One', () => {
 		expect(p1(input, args)).toEqual(127);
 	});
 
-	it('should find a pair in the preamble that adds to 26', () =>
-		expect(hasComponents(26, preamble)).toEqual(true));
+	it('should find a pair in the preamble that adds to 26', () => {
+		expect(hasComponents(26, preamble)).toEqual(true);
+	});
 
-	it('should find a pair in the preamble that adds to 49', () =>
-		expect(hasComponents(49, preamble)).toEqual(true));
+	it('should find a pair in the preamble that adds to 49', () => {
+		expect(hasComponents(49, preamble)).toEqual(true);
+	});
 
-	it('should not find a pair in the preamble that adds to 100', () =>
-		expect(hasComponents(100, preamble)).toEqual(false));
+	it('should not find a pair in the preamble that adds to 100', () => {
+		expect(hasComponents(100, preamble)).toEqual(false);
+	});
 
-	it('should not find a pair in the preamble that adds to 50', () =>
-		expect(hasComponents(50, preamble)).toEqual(false));
+	it('should not find a pair in the preamble that adds to 50', () => {
+		expect(hasComponents(50, preamble)).toEqual(false);
+	});
 });

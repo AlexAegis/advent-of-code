@@ -4,7 +4,7 @@ import { parse } from './parse.js';
 
 export const p1 = (input: string): number =>
 	input
-		.lines(false)
+		.lines()
 		.map(parse)
 		.filter(
 			(game) =>
