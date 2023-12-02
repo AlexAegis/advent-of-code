@@ -29,6 +29,10 @@ declare global {
 		 * Equivalent to s.split('') or [...s]
 		 */
 		chars(): string[];
+		/**
+		 * Equivalent to `s.split(/(\r?\n)+/g).filter(line => !!line)`
+		 * The filter part can be turned off using the first, keepEmpty argument
+		 */
 		lines(keepEmpty?: boolean): string[];
 		splitToInt(options: {
 			delimiter?: {
@@ -103,7 +107,7 @@ String.prototype.chars = function (): string[] {
 };
 
 String.prototype.lines = function (keepEmpty = false): string[] {
-	const lines = this.split(/\n+/g);
+	const lines = this.split(/(\r?\n)+/g);
 	return keepEmpty ? lines : lines.filter((line) => !!line);
 };
 

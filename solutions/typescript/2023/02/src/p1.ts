@@ -1,23 +1,19 @@
-import { NEWLINE, task } from '@alexaegis/advent-of-code-lib';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
+import { parse } from './parse.js';
 
-export const p1 = (input: string): number => {
-	return input
-		.split(NEWLINE)
-		.map((group) => {
-			const f = group
-				.chars()
-				.find((l) => /\d/.test(l))
-				?.toInt()
-				.toString();
-			const l = group
-				.chars()
-				.reverse()
-				.find((l) => /\d/.test(l))
-				?.toInt()
-				.toString();
-			return f && l ? (f + l).toInt() : 0;
-		})
+export const p1 = (input: string): number =>
+	input
+		.lines(false)
+		.map(parse)
+		.filter(
+			(game) =>
+				game.bags.every((bag) => bag.red <= 12) &&
+				game.bags.every((bag) => bag.green <= 13) &&
+				game.bags.every((bag) => bag.blue <= 14),
+		)
+		.map((game) => game.id)
 		.sum();
-};
-await task(p1, packageJson.aoc); // 54644 ~?ms
+
+await task(p1, packageJson.aoc); // 2149 ~0.22ms
