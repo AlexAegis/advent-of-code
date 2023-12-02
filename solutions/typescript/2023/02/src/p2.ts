@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse, type Bag } from './parse.js';
