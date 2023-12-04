@@ -65,7 +65,7 @@
 		"@alexaegis/ts": "^0.9.1",
 		"@alexaegis/vite": "^0.9.1",
 		"@alexaegis/vitest": "^0.9.1",
-		"@types/node": "^20.10.1",
+		"@types/node": "^20.10.3",
 		"ts-node": "^10.9.1",
 		"vite": "^5.0.4",
 		"vitest": "^0.34.6"
