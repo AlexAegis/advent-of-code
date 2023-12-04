@@ -1,10 +1,28 @@
-export interface Game {
+export interface Card {
 	id: number;
+	winningNumbers: number[];
+	pulledNumbers: number[];
+	rewardCards: Card[];
+	count: number;
 }
 
-export const parse = (line: string): Game => {
-	console.log(line);
+export const parse = (line: string): Card => {
+	const [rawCardId, numbers] = line.splitIntoStringPair(': ');
+	const [, idString] = rawCardId.splitIntoStringPair(/ +/);
+	const [rawWinningNumbers, rawPulledNumbers] = numbers.splitIntoStringPair(' | ');
+	const winningNumbers = rawWinningNumbers
+		.split(/ +/g)
+		.filter((l) => !!l)
+		.map((n) => Number.parseInt(n, 10));
+	const pulledNumbers = rawPulledNumbers
+		.split(/ +/g)
+		.filter((l) => !!l)
+		.map((n) => Number.parseInt(n, 10));
 	return {
-		id: 1,
+		winningNumbers,
+		id: Number.parseInt(idString, 10),
+		pulledNumbers,
+		rewardCards: [],
+		count: 1,
 	};
 };
