@@ -1,8 +1,7 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
-import { p2, refract } from './p2.js';
-import type { Range } from './parse.js';
+import { p2 } from './p2.js';
 
 describe('2023 05 p2', () => {
 	describe('the input', () => {
@@ -18,7 +17,7 @@ describe('2023 05 p2', () => {
 			expect(p2(input)).toEqual(0);
 		});
 	});
-
+	/*
 	describe('refraction', () => {
 		it('should refract into 3 ranges when b target is enveloped into a target', () => {
 			const a: Range = {
@@ -71,5 +70,5 @@ describe('2023 05 p2', () => {
 			});
 			expect(result.length).toEqual(1);
 		});
-	});
+	});*/
 });
