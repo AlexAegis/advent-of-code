@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { Interval } from './interval.class.js';
+import {
+	INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+	INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+	Interval,
+	type QualifiedNumber,
+} from './interval.class.js';
 
 describe('Interval', () => {
 	describe('length', () => {
@@ -271,6 +276,135 @@ describe('Interval', () => {
 
 			expect(a.intersection(b)).toEqual(
 				new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'closed' }),
+			);
+		});
+	});
+
+	describe('collectAllPoints', () => {
+		it('should destructure a list of intervals into thier individual points, sorted', () => {
+			const points = Interval.collectAllPoints([
+				Interval.closed(1, 4),
+				Interval.closed(2, 5),
+			]);
+			expect(points[0]).toEqual<QualifiedNumber>({
+				value: 1,
+				lowQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+				highQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+				originalDesignation: 'low',
+			});
+			expect(points[1]).toEqual<QualifiedNumber>({
+				value: 2,
+				lowQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+				highQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+				originalDesignation: 'low',
+			});
+			expect(points[2]).toEqual<QualifiedNumber>({
+				value: 4,
+				lowQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+				highQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+				originalDesignation: 'high',
+			});
+			expect(points[3]).toEqual<QualifiedNumber>({
+				value: 5,
+				lowQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+				highQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+				originalDesignation: 'high',
+			});
+
+			expect(points.length).toEqual(4);
+		});
+	});
+
+	describe('mergeQualifiedNumbers', () => {
+		it('should be able to create an interval out of two numbers', () => {
+			const interval = Interval.mergeQualifiedNumbers([
+				{
+					value: 1,
+					originalDesignation: 'low',
+					lowQualifier: 'closed',
+					highQualifier: 'open',
+				},
+				{
+					value: 2,
+					originalDesignation: 'high',
+					lowQualifier: 'open',
+					highQualifier: 'closed',
+				},
+			]);
+			expect(interval).toEqual([
+				new Interval(1, 2, { lowQualifier: 'closed', highQualifier: 'closed' }),
+			]);
+		});
+
+		it('should extend open ends into infinity', () => {
+			const interval = Interval.mergeQualifiedNumbers([
+				{
+					value: 1,
+					originalDesignation: 'low',
+					lowQualifier: 'closed',
+					highQualifier: 'open',
+				},
+			]);
+
+			expect(interval).toEqual([
+				new Interval(1, Number.POSITIVE_INFINITY, {
+					lowQualifier: 'closed',
+					highQualifier: 'open',
+				}),
+			]);
+		});
+
+		it('should extend open starts from infinity', () => {
+			const interval = Interval.mergeQualifiedNumbers([
+				{
+					value: 1,
+					originalDesignation: 'high',
+					lowQualifier: 'open',
+					highQualifier: 'closed',
+				},
+			]);
+
+			expect(interval).toEqual([
+				new Interval(1, Number.NEGATIVE_INFINITY, {
+					lowQualifier: 'open',
+					highQualifier: 'closed',
+				}),
+			]);
+		});
+	});
+
+	describe('complement', () => {
+		it('should return two intervals when taking the complement of one', () => {
+			const complement = Interval.complement([Interval.closed(0, 4)]);
+			expect(complement.length).toEqual(2);
+			expect(complement[0]).toEqual(
+				new Interval(Number.NEGATIVE_INFINITY, 0, {
+					lowQualifier: 'open',
+					highQualifier: 'closed',
+				}),
+			);
+			expect(complement[1]).toEqual(
+				new Interval(4, Number.POSITIVE_INFINITY, {
+					lowQualifier: 'closed',
+					highQualifier: 'open',
+				}),
+			);
+		});
+
+		it('should return the same two intervals when taking the complement of two that are embedded together', () => {
+			const complement = Interval.complement([Interval.closed(0, 4), Interval.closed(1, 3)]);
+			expect(complement.length).toEqual(2);
+			expect(complement[0]).toEqual(
+				new Interval(Number.NEGATIVE_INFINITY, 0, {
+					lowQualifier: 'open',
+					highQualifier: 'closed',
+				}),
+			);
+			expect(complement[1]).toEqual(
+				new Interval(4, Number.POSITIVE_INFINITY, {
+					lowQualifier: 'closed',
+					highQualifier: 'open',
+				}),
 			);
 		});
 	});

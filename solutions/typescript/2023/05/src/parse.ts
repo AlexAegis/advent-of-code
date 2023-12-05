@@ -1,3 +1,5 @@
+import { Interval } from '@alexaegis/advent-of-code-lib';
+
 export interface Card {
 	seeds: number[];
 	seedToSoilMap: Range[];
@@ -13,6 +15,9 @@ export interface Range {
 	destinationRange: number;
 	sourceRangeStart: number;
 	rangeLength: number;
+	from: Interval;
+	to: Interval;
+	slope: number;
 }
 
 enum ParseableData {
@@ -41,6 +46,9 @@ const toRange = (line: string): Range => {
 		destinationRange,
 		sourceRangeStart,
 		rangeLength,
+		from: Interval.closed(sourceRangeStart, sourceRangeStart + rangeLength),
+		to: Interval.closed(destinationRange, destinationRange + rangeLength),
+		slope: destinationRange - sourceRangeStart,
 	};
 };
 

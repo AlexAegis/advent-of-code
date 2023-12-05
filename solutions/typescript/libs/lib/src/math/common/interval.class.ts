@@ -5,6 +5,19 @@ export interface IntervalLike extends Partial<IntervalQualifier> {
 	high: number;
 }
 
+export type IntervalEndpointDesignation = 'high' | 'low';
+
+/**
+ * The high and low will always complement eachother, if one is open the other
+ * is closed and vice versa
+ */
+export interface QualifiedNumber {
+	value: number;
+	originalDesignation: IntervalEndpointDesignation;
+	lowQualifier: IntervalEndpointQualifier;
+	highQualifier: IntervalEndpointQualifier;
+}
+
 export const INTERVAL_ENDPOINT_OPEN_QUALIFIER = 'open';
 export const INTERVAL_ENDPOINT_CLOSED_QUALIFIER = 'closed';
 
@@ -70,12 +83,31 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	 * Contains no elements
 	 */
 	static readonly EMPTY = new Interval(0, 0, INTERVAL_OPEN);
+	static readonly INFINITE = new Interval(
+		Number.NEGATIVE_INFINITY,
+		Number.POSITIVE_INFINITY,
+		INTERVAL_OPEN,
+	);
 
 	constructor(low: number, high: number, options: IntervalQualifier = INTERVAL_CLOSED_OPEN) {
 		this.low = Math.min(low, high);
 		this.high = Math.max(low, high);
 		this.lowQualifier = options.lowQualifier ?? INTERVAL_ENDPOINT_CLOSED_QUALIFIER;
 		this.highQualifier = options.highQualifier ?? INTERVAL_ENDPOINT_OPEN_QUALIFIER;
+	}
+
+	// static invertQualifier(qualifier: 'closed'): 'open';
+	// static invertQualifier(qualifier: 'open'): 'closed';
+	static invertQualifier(qualifier: IntervalEndpointQualifier): IntervalEndpointQualifier {
+		return qualifier === 'open' ? 'closed' : 'open';
+	}
+
+	// static invertDesignation(designation: 'high'): 'low';
+	// static invertDesignation(designation: 'low'): 'high';
+	static invertDesignation(
+		designation: IntervalEndpointDesignation,
+	): IntervalEndpointDesignation {
+		return designation === 'low' ? 'high' : 'low';
 	}
 
 	static closed(low: number, high: number): Interval {
@@ -222,6 +254,102 @@ export class Interval implements IntervalLike, IntervalQualifier {
 			: undefined;
 	}
 
+	static complement(
+		this: void,
+		intervals: Interval[],
+		within?: Interval[] | undefined,
+	): Interval[] {
+		let complement = Interval.mergeQualifiedNumbers(
+			Interval.collectAllPoints(intervals).map(Interval.invertQualifiedNumber),
+		);
+
+		if (within) {
+			complement.push(...within);
+			complement = Interval.merge(complement);
+		}
+
+		return complement;
+	}
+
+	static invertQualifiedNumber(this: void, qualifiedNumber: QualifiedNumber): QualifiedNumber {
+		return {
+			value: qualifiedNumber.value,
+			originalDesignation: Interval.invertDesignation(qualifiedNumber.originalDesignation),
+			highQualifier: Interval.invertQualifier(qualifiedNumber.highQualifier),
+			lowQualifier: Interval.invertQualifier(qualifiedNumber.lowQualifier),
+		};
+	}
+
+	static collectAllPoints(this: void, intervals: Interval[]): QualifiedNumber[] {
+		const result: QualifiedNumber[] = [];
+		for (const interval of intervals) {
+			result.push(
+				{
+					originalDesignation: 'low',
+					value: interval.low,
+					lowQualifier: interval.lowQualifier,
+					highQualifier: Interval.invertQualifier(interval.lowQualifier),
+				},
+				{
+					originalDesignation: 'high',
+					value: interval.high,
+					lowQualifier: Interval.invertQualifier(interval.highQualifier),
+					highQualifier: interval.highQualifier,
+				},
+			);
+		}
+		return result.sort(Interval.compareQualifiedNumber);
+	}
+
+	static mergeQualifiedNumbers(
+		this: void,
+		qualifiedNumbers: QualifiedNumber[],
+		useSort = true,
+	): Interval[] {
+		const result: Interval[] = [];
+		if (useSort) {
+			qualifiedNumbers.sort(Interval.compareQualifiedNumber);
+		}
+
+		const intervalStartStack: QualifiedNumber[] = [];
+		if (qualifiedNumbers[0]?.originalDesignation === 'high') {
+			intervalStartStack.push({
+				value: Number.NEGATIVE_INFINITY,
+				lowQualifier: 'open',
+				highQualifier: 'closed',
+				originalDesignation: 'low',
+			});
+		}
+		for (const qualifiedNumber of qualifiedNumbers) {
+			if (qualifiedNumber.originalDesignation === 'low') {
+				intervalStartStack.push(qualifiedNumber);
+			} else if (
+				qualifiedNumber.originalDesignation === 'high' &&
+				intervalStartStack.length > 0
+			) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				const matchingNumber = intervalStartStack.shift()!;
+				result.push(
+					new Interval(matchingNumber.value, qualifiedNumber.value, {
+						lowQualifier: matchingNumber.lowQualifier,
+						highQualifier: qualifiedNumber.highQualifier,
+					}),
+				);
+			}
+		}
+		const last = qualifiedNumbers.at(-1);
+		if (last?.originalDesignation === 'low') {
+			result.push(
+				new Interval(last.value, Number.POSITIVE_INFINITY, {
+					lowQualifier: last.lowQualifier,
+					highQualifier: 'open',
+				}),
+			);
+		}
+
+		return Interval.merge(result);
+	}
+
 	static merge(intervals: Interval[]): Interval[] {
 		const [first, ...remaining] = intervals.sort(Interval.compareByLow);
 
@@ -358,6 +486,19 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		}
 	}
 
+	static intersect(this: void, intersections: Interval[]): Interval | undefined {
+		let result = intersections[0];
+		if (result === undefined) {
+			return undefined;
+		}
+		for (let i = 1; i <= intersections.length; i++) {
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			result = result?.intersection(intersections[i]!);
+		}
+
+		return result;
+	}
+
 	/**
 	 * Comparator, comparing only the low end of an interval. When they are
 	 * equal, use the qualifier.
@@ -372,6 +513,21 @@ export class Interval implements IntervalLike, IntervalQualifier {
 				? 1
 				: -1
 			: a.low - b.low;
+	}
+
+	/**
+	 * Comparator, comparing qualified numbers
+	 *
+	 * For the low end, closed comes earlier
+	 */
+	static compareQualifiedNumber(this: void, a: QualifiedNumber, b: QualifiedNumber): number {
+		// Check for openness because the default for the highQualifier
+		// when it's not defined is CLOSED
+		return a.value === b.value
+			? a.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
+				? 1
+				: -1
+			: a.value - b.value;
 	}
 
 	/**

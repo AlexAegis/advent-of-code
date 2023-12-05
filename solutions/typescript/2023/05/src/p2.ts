@@ -6,85 +6,99 @@ export const getRangeEnd = (range: Range): number => {
 	return range.destinationRange + range.rangeLength;
 };
 
-export const refract = (a: Range, b: Range): Range[] => {
-	const aTarget = Interval.closed(a.destinationRange, a.destinationRange + a.rangeLength);
-	const bSource = Interval.closed(b.sourceRangeStart, b.sourceRangeStart + b.rangeLength);
-	const bTarget = Interval.closed(b.destinationRange, b.destinationRange + b.rangeLength);
+/**
+ * Takes a set of mappings, and reduces the right side to only the effective ones
+ *
+ *
+ */
+export const refract = (left: Range[], right: Range[]): Range[] => {
+	const middle = Interval.merge(left.map((l) => l.to));
+	// first, this is the set of sections that are mapping to another region
+	const results = right.filterMap<Range>((r) => {
+		const intersection = Interval.intersect([r.from, ...middle]);
+		return intersection
+			? {
+					from: intersection,
+					slope: r.slope,
+					sourceRangeStart: intersection.low,
+					destinationRange: intersection.low + r.slope,
+					rangeLength: r.rangeLength,
+					to: new Interval(intersection.low, intersection.high, {
+						highQualifier: intersection.highQualifier,
+						lowQualifier: intersection.lowQualifier,
+					}),
+			  }
+			: undefined;
+	});
 
-	const result: Range[] = [];
+	const nonMapping = Interval.complement(
+		results.map((r) => r.from),
+		middle,
+	);
 
-	if (aTarget.high > bSource.high) {
-		const topRefraction: Range = {
-			sourceRangeStart: bSource.high,
-			destinationRange: bSource.high,
-			rangeLength: Math.min(aTarget.high - bSource.high, a.rangeLength),
-		};
-		result.push(topRefraction);
-	}
-
-	if (aTarget.low < bSource.low) {
-		const bottomRefraction: Range = {
-			sourceRangeStart: aTarget.low,
-			destinationRange: aTarget.low,
-			rangeLength: Math.min(bSource.low - aTarget.low, a.rangeLength),
-		};
-		result.push(bottomRefraction);
-	}
-
-	aTarget.intersects(bSource);
-	// Only if there's an itersection
-	if (aTarget.intersects(bSource)) {
-		const middleRefractionStartLow = Math.max(aTarget.low, bSource.low);
-		const middleRefractionStartHigh = Math.min(aTarget.high, bSource.high);
-		const mappingDelta = bTarget.low - bSource.low;
-		// Only this one is mapping
-		const middleRefraction: Range = {
-			sourceRangeStart: middleRefractionStartLow,
-			rangeLength: middleRefractionStartHigh - middleRefractionStartLow,
-			destinationRange: middleRefractionStartLow + mappingDelta,
-		};
-		result.push(middleRefraction);
-	}
-
-	return result;
+	results.push(
+		...nonMapping.map<Range>((interval) => ({
+			from: interval,
+			to: interval,
+			destinationRange: interval.low,
+			rangeLength: interval.length,
+			slope: 0,
+			sourceRangeStart: interval.low,
+		})),
+	);
+	return results;
 };
 
 export const p2 = (input: string): number => {
 	const data = parse(input);
-	return data.seeds
-		.slideWindow(2, 2)
-		.flatMap(([seedStart, seedCount]) => {
-			const firstRange: Range = {
-				sourceRangeStart: seedStart,
-				destinationRange: seedStart,
-				rangeLength: seedCount,
-			};
+	const seedRanges = data.seeds.slideWindow(2, 2).map(([seedStart, seedCount]) => ({
+		sourceRangeStart: seedStart,
+		destinationRange: seedStart,
+		rangeLength: seedCount,
+		from: Interval.closed(seedStart, seedStart + seedCount - 1),
+		to: Interval.closed(seedStart, seedStart + seedCount - 1),
+		slope: 0,
+	}));
 
-			const seedToSoilRefraction = data.seedToSoilMap.flatMap((range) =>
-				refract(firstRange, range),
-			);
-			const soilToFertilizerRefraction = seedToSoilRefraction.flatMap((a) =>
-				data.soilToFertilizerMap.flatMap((range) => refract(a, range)),
-			);
-			const fertilizerToWaterRefraction = soilToFertilizerRefraction.flatMap((a) =>
-				data.fertilizerToWaterMap.flatMap((range) => refract(a, range)),
-			);
-			const waterToLightRefraction = fertilizerToWaterRefraction.flatMap((a) =>
-				data.waterToLightMap.flatMap((range) => refract(a, range)),
-			);
-			const lightToTemperatureRefraction = waterToLightRefraction.flatMap((a) =>
-				data.lightToTemperatureMap.flatMap((range) => refract(a, range)),
-			);
-			const temperatureToHumidityRefraction = lightToTemperatureRefraction.flatMap((a) =>
-				data.temperatureToHumidityMap.flatMap((range) => refract(a, range)),
-			);
-			const humidityToLocationRefraction = temperatureToHumidityRefraction.flatMap((a) =>
-				data.humidityToLocationMap.flatMap((range) => refract(a, range)),
-			);
+	console.log(
+		'seedRanges',
+		seedRanges.map((r) => `from: ${r.from.toString()} to: ${r.to.toString()}`).join('\n'),
+	);
 
-			return humidityToLocationRefraction.map((range) => range.sourceRangeStart).min();
-		})
-		.min();
+	const seedToSoilRefraction = refract(seedRanges, data.seedToSoilMap);
+
+	console.log(
+		'seedToSoilRefraction',
+		seedToSoilRefraction
+			.map((r) => `from: ${r.from.toString()} to: ${r.to.toString()}`)
+			.join('\n'),
+	);
+
+	const soilToFertilizerRefraction = refract(seedToSoilRefraction, data.soilToFertilizerMap);
+
+	const fertilizerToWaterRefraction = refract(
+		soilToFertilizerRefraction,
+		data.fertilizerToWaterMap,
+	);
+
+	const waterToLightRefraction = refract(fertilizerToWaterRefraction, data.waterToLightMap);
+
+	const lightToTemperatureRefraction = refract(
+		waterToLightRefraction,
+		data.lightToTemperatureMap,
+	);
+
+	const temperatureToHumidityRefraction = refract(
+		lightToTemperatureRefraction,
+		data.temperatureToHumidityMap,
+	);
+
+	const humidityToLocationRefraction = refract(
+		temperatureToHumidityRefraction,
+		data.humidityToLocationMap,
+	);
+
+	return humidityToLocationRefraction.map((range) => range.sourceRangeStart).min();
 };
 
 await task(p2, packageJson.aoc, 'example.1.txt'); // 84470622 ~4.36ms
