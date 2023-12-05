@@ -77,7 +77,7 @@ declare global {
 		filterMap<V>(mapFn: (t: T) => V | undefined): V[];
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		pairwise(callback: (a: T, b: T) => void): void;
-		slideWindow<N extends number = 2>(windowSize?: N): SizedTuple<T, N>[];
+		slideWindow<N extends number = 2>(windowSize?: N, stepSize?: number): SizedTuple<T, N>[];
 		bubbleFindPair(comparator: (a: T, b: T) => boolean): [T, T];
 		walkPairs(): Generator<[T, T]>;
 		pairs(): [T, T][];
@@ -228,8 +228,9 @@ Array.prototype.count = function <T>(this: T[], predicate: (t: T) => boolean): n
 
 Array.prototype.slideWindow = function <T, N extends number>(
 	windowSize: N = 2 as N,
+	stepSize = 1,
 ): SizedTuple<T, N>[] {
-	return slideWindow(this, windowSize);
+	return slideWindow(this, windowSize, stepSize);
 };
 
 Array.prototype.pairwise = function <T>(this: T[], callback: (a: T, b: T) => void): void {
