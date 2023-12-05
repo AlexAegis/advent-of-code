@@ -43,6 +43,16 @@ const toRange = (line: string): Range => {
 		rangeLength,
 	};
 };
+
+export const findRange = (seed: number, rangeMap: Range[]): number => {
+	const range = rangeMap.find(
+		(range) =>
+			range.sourceRangeStart <= seed && seed < range.sourceRangeStart + range.rangeLength,
+	);
+	const delta = range ? range.destinationRange - range.sourceRangeStart : 0;
+	return seed + delta;
+};
+
 export const parse = (input: string): Card => {
 	let parsing: ParseableData = ParseableData.SEEDS;
 	let seeds: number[] = [];
