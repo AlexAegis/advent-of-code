@@ -61,11 +61,6 @@
 			"import": "./dist/p2.js",
 			"default": "./dist/p2.js"
 		},
-		"./p2.naive": {
-			"types": "./src/p2.naive.ts",
-			"import": "./dist/p2.naive.js",
-			"default": "./dist/p2.naive.js"
-		},
 		"./parse": {
 			"types": "./src/parse.ts",
 			"import": "./dist/parse.js",
