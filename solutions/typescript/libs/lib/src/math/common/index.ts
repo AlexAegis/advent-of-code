@@ -8,4 +8,5 @@ export * from './hz-to-ms.function.js';
 export * from './interval.class.js';
 export * from './lcm.function.js';
 export * from './lerp1d.function.js';
+export * from './quadartic-formula.function.js';
 export * from './round-to-decimal.function.js';
