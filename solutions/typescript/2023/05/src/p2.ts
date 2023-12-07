@@ -98,7 +98,9 @@ export const p2 = (input: string): number => {
 		data.humidityToLocationMap,
 	);
 
-	return humidityToLocationRefraction.map((range) => range.sourceRangeStart).min();
+	const result = humidityToLocationRefraction.map((range) => range.sourceRangeStart).min();
+	console.log(result);
+	return 0;
 };
 
 await task(p2, packageJson.aoc, 'example.1.txt'); // 84470622 ~4.36ms

@@ -85,9 +85,9 @@
 		"@alexaegis/ts": "^0.9.1",
 		"@alexaegis/vite": "^0.9.1",
 		"@alexaegis/vitest": "^0.9.1",
-		"@types/node": "^20.10.3",
+		"@types/node": "^20.10.4",
 		"benny": "^3.7.1",
-		"vite": "^5.0.4",
-		"vitest": "^0.34.6"
+		"vite": "^5.0.6",
+		"vitest": "^1.0.1"
 	}
 }
