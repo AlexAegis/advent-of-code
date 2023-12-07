@@ -185,7 +185,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -193,8 +193,8 @@ importers:
         specifier: ^10.9.1
         version: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -216,13 +216,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -244,13 +244,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -272,13 +272,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -300,13 +300,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -328,13 +328,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -356,13 +356,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -384,7 +384,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -392,8 +392,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -415,7 +415,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -423,8 +423,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -446,7 +446,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -454,8 +454,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -477,13 +477,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -505,13 +505,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -533,13 +533,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -561,13 +561,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -589,13 +589,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -617,13 +617,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -645,13 +645,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -673,7 +673,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -681,8 +681,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -704,13 +704,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -735,13 +735,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -766,7 +766,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -777,8 +777,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -800,13 +800,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -828,7 +828,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -836,8 +836,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -859,13 +859,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -883,13 +883,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -911,13 +911,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -939,13 +939,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -967,13 +967,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -995,13 +995,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1023,13 +1023,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1051,13 +1051,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1079,13 +1079,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1107,13 +1107,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1135,13 +1135,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1163,13 +1163,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1191,13 +1191,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1219,13 +1219,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1247,13 +1247,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1275,13 +1275,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1303,13 +1303,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1331,13 +1331,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1359,13 +1359,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1387,13 +1387,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1415,13 +1415,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1443,13 +1443,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1471,13 +1471,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1499,13 +1499,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1527,13 +1527,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1555,13 +1555,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1583,13 +1583,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1611,13 +1611,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1639,13 +1639,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1670,13 +1670,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1698,13 +1698,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1726,13 +1726,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1750,13 +1750,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1778,13 +1778,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1806,7 +1806,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -1814,8 +1814,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1837,13 +1837,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1865,13 +1865,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1893,13 +1893,13 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1921,7 +1921,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -1929,8 +1929,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1952,7 +1952,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -1960,8 +1960,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -1983,7 +1983,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -1991,8 +1991,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2014,7 +2014,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2022,8 +2022,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2045,7 +2045,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2053,8 +2053,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2076,7 +2076,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2084,8 +2084,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2107,7 +2107,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2115,8 +2115,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2138,7 +2138,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2146,8 +2146,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2169,7 +2169,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2177,8 +2177,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2200,7 +2200,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2208,8 +2208,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2231,7 +2231,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2239,8 +2239,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2265,7 +2265,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2273,8 +2273,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2296,7 +2296,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2304,8 +2304,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2327,7 +2327,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2335,8 +2335,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2358,7 +2358,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2366,8 +2366,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2389,7 +2389,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2397,8 +2397,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2420,7 +2420,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2428,8 +2428,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2451,7 +2451,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2459,8 +2459,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2482,7 +2482,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2490,8 +2490,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2513,7 +2513,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2521,8 +2521,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2544,7 +2544,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2552,8 +2552,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2575,7 +2575,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2583,8 +2583,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2606,7 +2606,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2614,8 +2614,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2637,7 +2637,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2645,8 +2645,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2668,7 +2668,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2676,8 +2676,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2699,7 +2699,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2707,8 +2707,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2730,7 +2730,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2738,8 +2738,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2761,7 +2761,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2769,8 +2769,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2795,7 +2795,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2803,8 +2803,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2826,7 +2826,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2834,8 +2834,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2857,7 +2857,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2868,8 +2868,8 @@ importers:
         specifier: ^10.9.1
         version: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2891,7 +2891,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2899,8 +2899,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2922,7 +2922,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2930,8 +2930,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2953,7 +2953,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2961,8 +2961,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -2984,7 +2984,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -2992,8 +2992,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3015,7 +3015,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3023,8 +3023,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3046,7 +3046,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3054,8 +3054,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3077,7 +3077,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3085,8 +3085,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3108,7 +3108,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3116,8 +3116,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3142,7 +3142,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3150,8 +3150,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3173,7 +3173,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3181,8 +3181,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3204,7 +3204,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3212,8 +3212,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3235,7 +3235,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3243,8 +3243,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3266,7 +3266,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3274,8 +3274,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3300,7 +3300,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3308,8 +3308,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3331,7 +3331,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3339,8 +3339,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3362,7 +3362,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3370,8 +3370,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3396,7 +3396,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3404,8 +3404,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3427,7 +3427,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3435,8 +3435,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3458,7 +3458,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3466,8 +3466,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3489,7 +3489,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3497,8 +3497,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3520,7 +3520,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3528,8 +3528,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3551,7 +3551,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3559,8 +3559,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3582,7 +3582,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3590,8 +3590,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3613,7 +3613,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3621,8 +3621,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3644,7 +3644,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3652,8 +3652,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3675,7 +3675,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3683,8 +3683,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3706,7 +3706,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3714,8 +3714,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3737,7 +3737,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3745,8 +3745,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3768,7 +3768,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3776,8 +3776,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3799,7 +3799,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3807,8 +3807,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3830,7 +3830,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3838,8 +3838,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3861,7 +3861,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3869,8 +3869,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3892,7 +3892,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -3900,8 +3900,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3935,7 +3935,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/blessed':
         specifier: ^0.1.25
         version: 0.1.25
@@ -3973,8 +3973,8 @@ importers:
         specifier: 5.3.2
         version: 5.3.2
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -3999,7 +3999,7 @@ importers:
         version: 0.9.1(@types/node@20.10.3)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.5)
       '@types/node':
         specifier: ^20.10.3
         version: 20.10.3
@@ -4037,8 +4037,8 @@ importers:
         specifier: 5.3.2
         version: 5.3.2
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.10.3)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
@@ -4243,7 +4243,7 @@ packages:
       '@alexaegis/logging': 0.8.0
       '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4511,7 +4511,7 @@ packages:
       '@types/node': 20.10.3
       ts-node: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
       typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -4530,7 +4530,7 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/logging': 0.8.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
       vite-plugin-pakk: 0.8.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -4546,11 +4546,11 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/vitest@0.9.1(svelte@4.2.8)(vite@5.0.4):
+  /@alexaegis/vitest@0.9.1(svelte@4.2.8)(vite@5.0.5):
     resolution: {integrity: sha512-YL5haHdRJFMEqE0LQko02dochzCMEK3NFBVXzaFtBFYiCJa4DdcrE+bId1kzAd7NpAnSgcfreXC1/91i99LuiQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.5)
       '@vitest/coverage-v8': 0.34.6(vitest@0.34.6)
       '@vitest/ui': 0.34.6(vitest@0.34.6)
       jsdom: 23.0.1
@@ -5499,7 +5499,7 @@ packages:
       rollup: 4.6.1
       ts-node: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
       typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -5754,7 +5754,7 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.4):
+  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.5):
     resolution: {integrity: sha512-gjr9ZFg1BSlIpfZ4PRewigrvYmHWbDrq2uvvPB1AmTWKuM+dI1JXQSUu2pIrYLb/QncyiIGkFDFKTwJ0XqQZZg==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
@@ -5762,30 +5762,30 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.5)
       debug: 4.3.4(supports-color@5.5.0)
       svelte: 4.2.8
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@4.2.8)(vite@5.0.4):
+  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@4.2.8)(vite@5.0.5):
     resolution: {integrity: sha512-CGURX6Ps+TkOovK6xV+Y2rn8JKa8ZPUHPZ/NKgCxAmgBrXReavzFl8aOSCj3kQ1xqT7yGJj53hjcV/gqwDAaWA==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.5)
       debug: 4.3.4(supports-color@5.5.0)
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.5
       svelte: 4.2.8
       svelte-hmr: 0.15.3(svelte@4.2.8)
-      vite: 5.0.4(@types/node@20.10.3)
-      vitefu: 0.2.5(vite@5.0.4)
+      vite: 5.0.5(@types/node@20.10.3)
+      vitefu: 0.2.5(vite@5.0.5)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -15101,7 +15101,7 @@ packages:
       mlly: 1.4.2
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -15113,7 +15113,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.4):
+  /vite-plugin-dts@3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.5):
     resolution: {integrity: sha512-yOVhUI/kQhtS6lCXRYYLv2UUf9bftcwQK9ROxCX2ul17poLQs02ctWX7+vXB8GPRzH8VCK3jebEFtPqqijXx6w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -15129,7 +15129,7 @@ packages:
       debug: 4.3.4(supports-color@5.5.0)
       kolorist: 1.8.0
       typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
       vue-tsc: 1.8.24(typescript@5.3.2)
     transitivePeerDependencies:
       - '@types/node'
@@ -15149,8 +15149,8 @@ packages:
       prettier: 3.1.0
       ts-node: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
       typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
-      vite-plugin-dts: 3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.4)
+      vite: 5.0.5(@types/node@20.10.3)
+      vite-plugin-dts: 3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.5)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -15164,8 +15164,8 @@ packages:
       - terser
     dev: true
 
-  /vite@5.0.4(@types/node@20.10.3):
-    resolution: {integrity: sha512-RzAr8LSvM8lmhB4tQ5OPcBhpjOZRZjuxv9zO5UcxeoY2bd3kP3Ticd40Qma9/BqZ8JS96Ll/jeBX9u+LJZrhVg==}
+  /vite@5.0.5(@types/node@20.10.3):
+    resolution: {integrity: sha512-OekeWqR9Ls56f3zd4CaxzbbS11gqYkEiBtnWFFgYR2WV8oPJRRKq0mpskYy/XaoCL3L7VINDhqqOMNDiYdGvGg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -15200,7 +15200,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitefu@0.2.5(vite@5.0.4):
+  /vitefu@0.2.5(vite@5.0.5):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -15208,7 +15208,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
     dev: true
 
   /vitest@0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1):
@@ -15265,7 +15265,7 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.7.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.5(@types/node@20.10.3)
       vite-node: 0.34.6(@types/node@20.10.3)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
