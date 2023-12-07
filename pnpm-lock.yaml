@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@alexaegis/autotool-plugin-commitlint':
         specifier: ^0.9.1
-        version: 0.9.1(typescript@5.3.2)
+        version: 0.9.1(typescript@5.3.3)
       '@alexaegis/autotool-plugin-depcheck':
         specifier: ^0.9.1
         version: 0.9.1
@@ -58,10 +58,10 @@ importers:
         version: 0.9.1
       '@alexaegis/autotool-plugin-typedoc':
         specifier: ^0.9.1
-        version: 0.9.1(typescript@5.3.2)
+        version: 0.9.1(typescript@5.3.3)
       '@alexaegis/autotool-plugin-vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/autotool-plugin-vitest':
         specifier: ^0.9.1
         version: 0.9.1
@@ -93,17 +93,17 @@ importers:
         specifier: ^8.44.8
         version: 8.44.8
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.13.1
-        version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2)
+        specifier: ^6.13.2
+        version: 6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3)
       '@typescript-eslint/parser':
-        specifier: ^6.13.1
-        version: 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+        specifier: ^6.13.2
+        version: 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       '@vitest/coverage-v8':
-        specifier: ^0.34.6
-        version: 0.34.6(vitest@0.34.6)
+        specifier: ^1.0.1
+        version: 1.0.1(vitest@1.0.1)
       autotool:
         specifier: ^0.4.0
         version: 0.4.0
@@ -112,7 +112,7 @@ importers:
         version: 12.0.0
       commitlint:
         specifier: ^18.4.3
-        version: 18.4.3(typescript@5.3.2)
+        version: 18.4.3(typescript@5.3.3)
       depcheck:
         specifier: ^1.4.7
         version: 1.4.7
@@ -135,8 +135,8 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
       prettier-plugin-tailwindcss:
-        specifier: ^0.5.7
-        version: 0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
+        specifier: ^0.5.9
+        version: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
       remark:
         specifier: ^15.0.1
         version: 15.0.1
@@ -145,28 +145,28 @@ importers:
         version: 12.0.0
       stylelint:
         specifier: ^15.11.0
-        version: 15.11.0(typescript@5.3.2)
+        version: 15.11.0(typescript@5.3.3)
       svelte-check:
         specifier: ^3.6.2
         version: 3.6.2(postcss@8.4.32)(svelte@4.2.8)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
+        version: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
       turbo:
-        specifier: ^1.10.16
-        version: 1.10.16
+        specifier: ^1.11.0
+        version: 1.11.0
       turbo-ignore:
-        specifier: ^1.10.16
-        version: 1.10.16
+        specifier: ^1.11.0
+        version: 1.11.0
       typedoc:
         specifier: ^0.25.4
-        version: 0.25.4(typescript@5.3.2)
+        version: 0.25.4(typescript@5.3.3)
       typescript:
-        specifier: ^5.3.2
-        version: 5.3.2
+        specifier: ^5.3.3
+        version: 5.3.3
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2015/01:
     dependencies:
@@ -182,22 +182,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
+        version: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2015/02:
     dependencies:
@@ -213,19 +213,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2015/03:
     dependencies:
@@ -241,19 +241,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2015/04:
     dependencies:
@@ -269,19 +269,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2015/05:
     dependencies:
@@ -297,19 +297,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2016/01:
     dependencies:
@@ -325,19 +325,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2016/02:
     dependencies:
@@ -353,19 +353,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2016/03:
     dependencies:
@@ -381,22 +381,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2017/01:
     dependencies:
@@ -412,22 +412,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2017/02:
     dependencies:
@@ -443,22 +443,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/01:
     dependencies:
@@ -474,19 +474,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/02:
     dependencies:
@@ -502,19 +502,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/03:
     dependencies:
@@ -530,19 +530,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/04:
     dependencies:
@@ -558,19 +558,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/05:
     dependencies:
@@ -586,19 +586,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/06:
     dependencies:
@@ -614,19 +614,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/07:
     dependencies:
@@ -642,19 +642,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/08:
     dependencies:
@@ -670,22 +670,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/09:
     dependencies:
@@ -701,19 +701,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/10:
     dependencies:
@@ -732,19 +732,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/11:
     dependencies:
@@ -763,13 +763,13 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       '@types/workerpool':
         specifier: ^6.4.7
         version: 6.4.7
@@ -777,11 +777,11 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/12:
     dependencies:
@@ -797,19 +797,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/13:
     dependencies:
@@ -825,22 +825,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/14:
     dependencies:
@@ -856,19 +856,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2018/15:
     devDependencies:
@@ -880,19 +880,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/01:
     dependencies:
@@ -908,19 +908,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/02:
     dependencies:
@@ -936,19 +936,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/03:
     dependencies:
@@ -964,19 +964,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/04:
     dependencies:
@@ -992,19 +992,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/05:
     dependencies:
@@ -1020,19 +1020,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/06:
     dependencies:
@@ -1048,19 +1048,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/07:
     dependencies:
@@ -1076,19 +1076,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/08:
     dependencies:
@@ -1104,19 +1104,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/09:
     dependencies:
@@ -1132,19 +1132,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/10:
     dependencies:
@@ -1160,19 +1160,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/11:
     dependencies:
@@ -1188,19 +1188,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/12:
     dependencies:
@@ -1216,19 +1216,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/13:
     dependencies:
@@ -1244,19 +1244,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/14:
     dependencies:
@@ -1272,19 +1272,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/16:
     dependencies:
@@ -1300,19 +1300,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/17:
     dependencies:
@@ -1328,19 +1328,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/18:
     dependencies:
@@ -1356,19 +1356,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/19:
     dependencies:
@@ -1384,19 +1384,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/20:
     dependencies:
@@ -1412,19 +1412,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/21:
     dependencies:
@@ -1440,19 +1440,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/22:
     dependencies:
@@ -1468,19 +1468,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/23:
     dependencies:
@@ -1496,19 +1496,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2019/24:
     dependencies:
@@ -1524,19 +1524,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/01:
     dependencies:
@@ -1552,19 +1552,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/02:
     dependencies:
@@ -1580,19 +1580,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/03:
     dependencies:
@@ -1608,19 +1608,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/04:
     dependencies:
@@ -1636,19 +1636,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/05:
     dependencies:
@@ -1667,19 +1667,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/06:
     dependencies:
@@ -1695,19 +1695,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/07:
     dependencies:
@@ -1723,19 +1723,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/08:
     devDependencies:
@@ -1747,19 +1747,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/09:
     dependencies:
@@ -1775,19 +1775,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/10:
     dependencies:
@@ -1803,22 +1803,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/11:
     dependencies:
@@ -1834,19 +1834,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/12:
     dependencies:
@@ -1862,19 +1862,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/13:
     dependencies:
@@ -1890,19 +1890,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/14:
     dependencies:
@@ -1918,22 +1918,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/15:
     dependencies:
@@ -1949,22 +1949,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/16:
     dependencies:
@@ -1980,22 +1980,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/17:
     dependencies:
@@ -2011,22 +2011,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/18:
     dependencies:
@@ -2042,22 +2042,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/19:
     dependencies:
@@ -2073,22 +2073,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/20:
     dependencies:
@@ -2104,22 +2104,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/21:
     dependencies:
@@ -2135,22 +2135,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/22:
     dependencies:
@@ -2166,22 +2166,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/23:
     dependencies:
@@ -2197,22 +2197,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/24:
     dependencies:
@@ -2228,22 +2228,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2020/25:
     dependencies:
@@ -2262,22 +2262,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/01:
     dependencies:
@@ -2293,22 +2293,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/02:
     dependencies:
@@ -2324,22 +2324,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/03:
     dependencies:
@@ -2355,22 +2355,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/04:
     dependencies:
@@ -2386,22 +2386,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/05:
     dependencies:
@@ -2417,22 +2417,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/06:
     dependencies:
@@ -2448,22 +2448,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/07:
     dependencies:
@@ -2479,22 +2479,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/08:
     dependencies:
@@ -2510,22 +2510,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/09:
     dependencies:
@@ -2541,22 +2541,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/10:
     dependencies:
@@ -2572,22 +2572,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/11:
     dependencies:
@@ -2603,22 +2603,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/12:
     dependencies:
@@ -2634,22 +2634,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/13:
     dependencies:
@@ -2665,22 +2665,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/14:
     dependencies:
@@ -2696,22 +2696,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/15:
     dependencies:
@@ -2727,22 +2727,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/16:
     dependencies:
@@ -2758,22 +2758,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/17:
     dependencies:
@@ -2792,22 +2792,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/18:
     dependencies:
@@ -2823,22 +2823,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2021/21:
     dependencies:
@@ -2854,25 +2854,25 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
+        version: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/01:
     dependencies:
@@ -2888,22 +2888,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/02:
     dependencies:
@@ -2919,22 +2919,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/03:
     dependencies:
@@ -2950,22 +2950,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/04:
     dependencies:
@@ -2981,22 +2981,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/05:
     dependencies:
@@ -3012,22 +3012,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/06:
     dependencies:
@@ -3043,22 +3043,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/07:
     dependencies:
@@ -3074,22 +3074,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/08:
     dependencies:
@@ -3105,22 +3105,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/09:
     dependencies:
@@ -3139,22 +3139,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/10:
     dependencies:
@@ -3170,22 +3170,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/11:
     dependencies:
@@ -3201,22 +3201,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/12:
     dependencies:
@@ -3232,22 +3232,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/13:
     dependencies:
@@ -3263,22 +3263,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/14:
     dependencies:
@@ -3297,22 +3297,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/15:
     dependencies:
@@ -3328,22 +3328,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/16:
     dependencies:
@@ -3359,22 +3359,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/17:
     dependencies:
@@ -3393,22 +3393,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/18:
     dependencies:
@@ -3424,22 +3424,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/19:
     dependencies:
@@ -3455,22 +3455,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/20:
     dependencies:
@@ -3486,22 +3486,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/21:
     dependencies:
@@ -3517,22 +3517,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/22:
     dependencies:
@@ -3548,22 +3548,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/23:
     dependencies:
@@ -3579,22 +3579,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/24:
     dependencies:
@@ -3610,22 +3610,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2022/25:
     dependencies:
@@ -3641,22 +3641,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/01:
     dependencies:
@@ -3672,22 +3672,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/02:
     dependencies:
@@ -3703,22 +3703,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/03:
     dependencies:
@@ -3734,22 +3734,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/04:
     dependencies:
@@ -3765,22 +3765,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/05:
     dependencies:
@@ -3796,22 +3796,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/06:
     dependencies:
@@ -3827,22 +3827,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/07:
     dependencies:
@@ -3858,22 +3858,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/2023/08:
     dependencies:
@@ -3889,22 +3889,22 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       benny:
         specifier: ^3.7.1
         version: 3.7.1
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/libs/ecs:
     dependencies:
@@ -3932,25 +3932,25 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/blessed':
         specifier: ^0.1.25
         version: 0.1.25
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       '@types/terminal-kit':
         specifier: ^2.5.6
         version: 2.5.6
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.13.1
-        version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2)
+        specifier: ^6.13.2
+        version: 6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3)
       '@typescript-eslint/parser':
-        specifier: ^6.13.1
-        version: 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+        specifier: ^6.13.2
+        version: 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       eslint:
         specifier: ^8.55.0
         version: 8.55.0
@@ -3968,16 +3968,16 @@ importers:
         version: 3.1.0
       ts-node:
         specifier: 10.9.1
-        version: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
+        version: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
       typescript:
-        specifier: 5.3.2
-        version: 5.3.2
+        specifier: 5.3.3
+        version: 5.3.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
   solutions/typescript/libs/lib:
     dependencies:
@@ -3996,19 +3996,19 @@ importers:
         version: 0.9.1
       '@alexaegis/vite':
         specifier: ^0.9.1
-        version: 0.9.1(@types/node@20.10.3)
+        version: 0.9.1(@types/node@20.10.4)
       '@alexaegis/vitest':
         specifier: ^0.9.1
-        version: 0.9.1(svelte@4.2.8)(vite@5.0.4)
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.6)
       '@types/node':
-        specifier: ^20.10.3
-        version: 20.10.3
+        specifier: ^20.10.4
+        version: 20.10.4
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.13.1
-        version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2)
+        specifier: ^6.13.2
+        version: 6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3)
       '@typescript-eslint/parser':
-        specifier: ^6.13.1
-        version: 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+        specifier: ^6.13.2
+        version: 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       benny:
         specifier: ^3.7.1
         version: 3.7.1
@@ -4034,14 +4034,14 @@ importers:
         specifier: ^12.0.0
         version: 12.0.0
       typescript:
-        specifier: 5.3.2
-        version: 5.3.2
+        specifier: 5.3.3
+        version: 5.3.3
       vite:
-        specifier: ^5.0.4
-        version: 5.0.4(@types/node@20.10.3)
+        specifier: ^5.0.6
+        version: 5.0.6(@types/node@20.10.4)
       vitest:
-        specifier: ^0.34.6
-        version: 0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(@types/node@20.10.4)
 
 packages:
 
@@ -4050,14 +4050,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@alexaegis/autotool-plugin-commitlint@0.9.1(typescript@5.3.2):
+  /@alexaegis/autotool-plugin-commitlint@0.9.1(typescript@5.3.3):
     resolution: {integrity: sha512-kCOmKznBlOokxJMnAfChvSgwr3AY7d1NLMB+bTM5ddqwBtQ1SuEfknOj+RKRYLR2T+FicAdtwwz2P6PapcfEqg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/commitlint-config': 0.9.1
       '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
-      commitlint: 18.4.3(typescript@5.3.2)
+      commitlint: 18.4.3(typescript@5.3.3)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -4139,12 +4139,11 @@ packages:
       autotool-plugin: 0.3.0
       prettier: 3.1.0
       prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
-      prettier-plugin-tailwindcss: 0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
+      prettier-plugin-tailwindcss: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
       - '@prettier/plugin-pug'
       - '@shopify/prettier-plugin-liquid'
-      - '@shufo/prettier-plugin-blade'
       - '@trivago/prettier-plugin-sort-imports'
       - prettier-plugin-astro
       - prettier-plugin-css-order
@@ -4214,7 +4213,7 @@ packages:
       '@alexaegis/predicate': 0.8.0
       '@alexaegis/workspace-tools': 0.8.0
       autotool-plugin: 0.3.0
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
   /@alexaegis/autotool-plugin-turbo@0.9.1:
@@ -4225,25 +4224,25 @@ packages:
       autotool-plugin: 0.3.0
     dev: true
 
-  /@alexaegis/autotool-plugin-typedoc@0.9.1(typescript@5.3.2):
+  /@alexaegis/autotool-plugin-typedoc@0.9.1(typescript@5.3.3):
     resolution: {integrity: sha512-ZmItul22sI7hj6/546/xHbXBEhjcxZ5pj/0QXXhAPiCRaZNiENHN9lUKPm15/9gIHNwtXNAgFauv8X/2CPaTnA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/logging': 0.8.0
       autotool-plugin: 0.3.0
-      typedoc: 0.25.4(typescript@5.3.2)
+      typedoc: 0.25.4(typescript@5.3.3)
     transitivePeerDependencies:
       - typescript
     dev: true
 
-  /@alexaegis/autotool-plugin-vite@0.9.1(@types/node@20.10.3):
+  /@alexaegis/autotool-plugin-vite@0.9.1(@types/node@20.10.4):
     resolution: {integrity: sha512-6rK2XFKeoP3q2UM9CrKJyYdoO24S1pZbPC4Xv0OD/qGaPjSaJ15a2AXVeY2QmrQNT4OfA/S4TA3brqKOp0zU/w==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/logging': 0.8.0
       '@alexaegis/predicate': 0.8.0
       autotool-plugin: 0.3.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.6(@types/node@20.10.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4323,15 +4322,15 @@ packages:
     resolution: {integrity: sha512-gMG4oRnB3Jvtx/B2U+1/i5ImWEnRVbH2lu1B7TPk8C/NvhCWKa1myEEUopLXZH0CGsSJhnbv155mgr4hLVv7TA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@typescript-eslint/eslint-plugin': 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2)
-      '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+      '@typescript-eslint/eslint-plugin': 6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       eslint: 8.55.0
-      eslint-config-next: 14.0.3(eslint@8.55.0)(typescript@5.3.2)
+      eslint-config-next: 14.0.3(eslint@8.55.0)(typescript@5.3.3)
       eslint-config-prettier: 9.1.0(eslint@8.55.0)
-      eslint-config-turbo: 1.10.16(eslint@8.55.0)
+      eslint-config-turbo: 1.11.0(eslint@8.55.0)
       eslint-plugin-react: 7.33.2(eslint@8.55.0)
       eslint-plugin-unicorn: 49.0.0(eslint@8.55.0)
-      typescript: 5.3.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -4341,15 +4340,15 @@ packages:
     resolution: {integrity: sha512-a/SugVQ7gd9Tmm80dWrd4dEtNOzpktCVMxkflw+h9PNNrmx0l/BZcRU9NN0MSrtb1ypo0ADwd0yQMPpa+VkwVQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@typescript-eslint/eslint-plugin': 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2)
-      '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+      '@typescript-eslint/eslint-plugin': 6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       eslint: 8.55.0
-      eslint-config-next: 14.0.3(eslint@8.55.0)(typescript@5.3.2)
+      eslint-config-next: 14.0.3(eslint@8.55.0)(typescript@5.3.3)
       eslint-config-prettier: 9.0.0(eslint@8.55.0)
       eslint-config-turbo: 1.10.16(eslint@8.55.0)
       eslint-plugin-react: 7.33.2(eslint@8.55.0)
       eslint-plugin-unicorn: 49.0.0(eslint@8.55.0)
-      typescript: 5.3.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -4383,7 +4382,7 @@ packages:
     dependencies:
       '@alexaegis/fs': 0.8.0
       lint-staged: 15.1.0
-      typescript: 5.3.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4436,12 +4435,11 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
-      prettier-plugin-tailwindcss: 0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
+      prettier-plugin-tailwindcss: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
       - '@prettier/plugin-pug'
       - '@shopify/prettier-plugin-liquid'
-      - '@shufo/prettier-plugin-blade'
       - '@trivago/prettier-plugin-sort-imports'
       - prettier
       - prettier-plugin-astro
@@ -4507,11 +4505,11 @@ packages:
     resolution: {integrity: sha512-dW8Uaf8sbRfUG0xzIxz1gbF3iiIrRHDC+BAEHRG15FExrDflypJx22xT3I/zbrkpI0jIgUL9dtDkHc2cjI65hg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/vite': 0.9.1(@types/node@20.10.3)
-      '@types/node': 20.10.3
-      ts-node: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
-      typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
+      '@alexaegis/vite': 0.9.1(@types/node@20.10.4)
+      '@types/node': 20.10.4
+      ts-node: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
+      typescript: 5.3.3
+      vite: 5.0.6(@types/node@20.10.4)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -4525,12 +4523,12 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/vite@0.9.1(@types/node@20.10.3):
+  /@alexaegis/vite@0.9.1(@types/node@20.10.4):
     resolution: {integrity: sha512-DLT9mEyXNy6mrwSvh/LGDM4MryF7aF3PAowHOmqUfWLgV8RsNKTwvUsNMbubgBYZNGEbUCwzs7sqd7BMy0dTRw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/logging': 0.8.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.6(@types/node@20.10.4)
       vite-plugin-pakk: 0.8.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -4546,11 +4544,11 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/vitest@0.9.1(svelte@4.2.8)(vite@5.0.4):
+  /@alexaegis/vitest@0.9.1(svelte@4.2.8)(vite@5.0.6):
     resolution: {integrity: sha512-YL5haHdRJFMEqE0LQko02dochzCMEK3NFBVXzaFtBFYiCJa4DdcrE+bId1kzAd7NpAnSgcfreXC1/91i99LuiQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.6)
       '@vitest/coverage-v8': 0.34.6(vitest@0.34.6)
       '@vitest/ui': 0.34.6(vitest@0.34.6)
       jsdom: 23.0.1
@@ -4763,14 +4761,14 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/cli@18.4.3(typescript@5.3.2):
+  /@commitlint/cli@18.4.3(typescript@5.3.3):
     resolution: {integrity: sha512-zop98yfB3A6NveYAZ3P1Mb6bIXuCeWgnUfVNkH4yhIMQpQfzFwseadazOuSn0OOfTt0lWuFauehpm9GcqM5lww==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
       '@commitlint/format': 18.4.3
       '@commitlint/lint': 18.4.3
-      '@commitlint/load': 18.4.3(typescript@5.3.2)
+      '@commitlint/load': 18.4.3(typescript@5.3.3)
       '@commitlint/read': 18.4.3
       '@commitlint/types': 18.4.3
       execa: 5.1.1
@@ -4840,7 +4838,7 @@ packages:
       '@commitlint/types': 18.4.3
     dev: true
 
-  /@commitlint/load@18.4.3(typescript@5.3.2):
+  /@commitlint/load@18.4.3(typescript@5.3.3):
     resolution: {integrity: sha512-v6j2WhvRQJrcJaj5D+EyES2WKTxPpxENmNpNG3Ww8MZGik3jWRXtph0QTzia5ZJyPh2ib5aC/6BIDymkUUM58Q==}
     engines: {node: '>=v18'}
     dependencies:
@@ -4848,10 +4846,10 @@ packages:
       '@commitlint/execute-rule': 18.4.3
       '@commitlint/resolve-extends': 18.4.3
       '@commitlint/types': 18.4.3
-      '@types/node': 18.19.2
+      '@types/node': 18.19.3
       chalk: 4.1.2
-      cosmiconfig: 8.3.6(typescript@5.3.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.19.2)(cosmiconfig@8.3.6)(typescript@5.3.2)
+      cosmiconfig: 8.3.6(typescript@5.3.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.19.3)(cosmiconfig@8.3.6)(typescript@5.3.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -5311,24 +5309,24 @@ packages:
       commander: 9.5.0
     dev: true
 
-  /@microsoft/api-extractor-model@7.28.2(@types/node@20.10.3):
-    resolution: {integrity: sha512-vkojrM2fo3q4n4oPh4uUZdjJ2DxQ2+RnDQL/xhTWSRUNPF6P4QyrvY357HBxbnltKcYu+nNNolVqc6TIGQ73Ig==}
+  /@microsoft/api-extractor-model@7.28.3(@types/node@20.10.4):
+    resolution: {integrity: sha512-wT/kB2oDbdZXITyDh2SQLzaWwTOFbV326fP0pUwNW00WeliARs0qjmXBWmGWardEzp2U3/axkO3Lboqun6vrig==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.61.0(@types/node@20.10.3)
+      '@rushstack/node-core-library': 3.62.0(@types/node@20.10.4)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor@7.38.3(@types/node@20.10.3):
-    resolution: {integrity: sha512-xt9iYyC5f39281j77JTA9C3ISJpW1XWkCcnw+2vM78CPnro6KhPfwQdPDfwS5JCPNuq0grm8cMdPUOPvrchDWw==}
+  /@microsoft/api-extractor@7.38.5(@types/node@20.10.4):
+    resolution: {integrity: sha512-c/w2zfqBcBJxaCzpJNvFoouWewcYrUOfeu5ZkWCCIXTF9a/gXM85RGevEzlMAIEGM/kssAAZSXRJIZ3Q5vLFow==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.28.2(@types/node@20.10.3)
+      '@microsoft/api-extractor-model': 7.28.3(@types/node@20.10.4)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.61.0(@types/node@20.10.3)
+      '@rushstack/node-core-library': 3.62.0(@types/node@20.10.4)
       '@rushstack/rig-package': 0.5.1
       '@rushstack/ts-command-line': 4.17.1
       colors: 1.2.5
@@ -5493,13 +5491,13 @@ packages:
       '@alexaegis/fs': 0.7.3
       '@alexaegis/logging': 0.7.3
       '@alexaegis/workspace-tools': 0.7.3
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       globby: 14.0.0
       prettier: 3.1.0
       rollup: 4.6.1
-      ts-node: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
-      typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
+      ts-node: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
+      typescript: 5.3.3
+      vite: 5.0.6(@types/node@20.10.4)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -5669,15 +5667,15 @@ packages:
     resolution: {integrity: sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==}
     dev: true
 
-  /@rushstack/node-core-library@3.61.0(@types/node@20.10.3):
-    resolution: {integrity: sha512-tdOjdErme+/YOu4gPed3sFS72GhtWCgNV9oDsHDnoLY5oDfwjKUc9Z+JOZZ37uAxcm/OCahDHfuu2ugqrfWAVQ==}
+  /@rushstack/node-core-library@3.62.0(@types/node@20.10.4):
+    resolution: {integrity: sha512-88aJn2h8UpSvdwuDXBv1/v1heM6GnBf3RjEy6ZPP7UnzHNCqOHA2Ut+ScYUbXcqIdfew9JlTAe3g+cnX9xQ/Aw==}
     peerDependencies:
       '@types/node': '*'
     peerDependenciesMeta:
       '@types/node':
         optional: true
     dependencies:
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       colors: 1.2.5
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -5754,7 +5752,7 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.4):
+  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.6):
     resolution: {integrity: sha512-gjr9ZFg1BSlIpfZ4PRewigrvYmHWbDrq2uvvPB1AmTWKuM+dI1JXQSUu2pIrYLb/QncyiIGkFDFKTwJ0XqQZZg==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
@@ -5762,30 +5760,30 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@4.2.8)(vite@5.0.6)
       debug: 4.3.4(supports-color@5.5.0)
       svelte: 4.2.8
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.6(@types/node@20.10.4)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@4.2.8)(vite@5.0.4):
+  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@4.2.8)(vite@5.0.6):
     resolution: {integrity: sha512-CGURX6Ps+TkOovK6xV+Y2rn8JKa8ZPUHPZ/NKgCxAmgBrXReavzFl8aOSCj3kQ1xqT7yGJj53hjcV/gqwDAaWA==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.4)
+      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@4.2.8)(vite@5.0.6)
       debug: 4.3.4(supports-color@5.5.0)
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.5
       svelte: 4.2.8
       svelte-hmr: 0.15.3(svelte@4.2.8)
-      vite: 5.0.4(@types/node@20.10.3)
-      vitefu: 0.2.5(vite@5.0.4)
+      vite: 5.0.6(@types/node@20.10.4)
+      vitefu: 0.2.5(vite@5.0.6)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5838,7 +5836,7 @@ packages:
   /@types/blessed@0.1.25:
     resolution: {integrity: sha512-kQsjBgtsbJLmG6CJA+Z6Nujj+tq1fcSE3UIowbDvzQI4wWmoTV7djUDhSo5lDjgwpIN0oRvks0SA5mMdKE5eFg==}
     dependencies:
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
     dev: true
 
   /@types/chai-subset@1.3.5:
@@ -5854,7 +5852,7 @@ packages:
   /@types/concat-stream@2.0.3:
     resolution: {integrity: sha512-3qe4oQAPNwVNwK4C9c8u+VJqv9kez+2MR4qJpoPFfXtgxxif1QbFusvXzK0/Wra2VX07smostI2VMmJNSpZjuQ==}
     dependencies:
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
     dev: true
 
   /@types/debug@4.1.12:
@@ -5956,14 +5954,14 @@ packages:
     resolution: {integrity: sha512-YczHp+887i3MpHUOCOztk7y10SklNZ3aQlToKnu0LON0ZdFpgwq8POtnATAoFz8V1IxyR6d8pp8ZyYkUIy26Cw==}
     dev: true
 
-  /@types/node@18.19.2:
-    resolution: {integrity: sha512-6wzfBdbWpe8QykUkXBjtmO3zITA0A3FIjoy+in0Y2K4KrCiRhNYJIdwAPDffZ3G6GnaKaSLSEa9ZuORLfEoiwg==}
+  /@types/node@18.19.3:
+    resolution: {integrity: sha512-k5fggr14DwAytoA/t8rPrIz++lXK7/DqckthCmoZOKNsEbJkId4Z//BqgApXBUGrGddrigYa1oqheo/7YmW4rg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
 
-  /@types/node@20.10.3:
-    resolution: {integrity: sha512-XJavIpZqiXID5Yxnxv3RUDKTN5b81ddNC3ecsA0SoFXz/QU8OGBwZGMomiq0zw+uuqbL/krztv/DINAQ/EV4gg==}
+  /@types/node@20.10.4:
+    resolution: {integrity: sha512-D08YG6rr8X90YB56tSIuBaddy/UXAA9RKJoFvrsnogAum/0pmjkgi4+2nx96A330FmioegBWmEYQ+syqCFaveg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -6013,7 +6011,7 @@ packages:
   /@types/workerpool@6.4.7:
     resolution: {integrity: sha512-DI2U4obcMzFViyNjLw0xXspim++qkAJ4BWRdYPVMMFtOpTvMr6PAk3UTZEoSqnZnvgUkJ3ck97Ybk+iIfuJHMg==}
     dependencies:
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
     dev: true
 
   /@types/yargs-parser@21.0.3:
@@ -6026,8 +6024,8 @@ packages:
       '@types/yargs-parser': 21.0.3
     dev: true
 
-  /@typescript-eslint/eslint-plugin@6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-5bQDGkXaxD46bPvQt08BUz9YSaO4S0fB1LB5JHQuXTfkGPI3+UUeS387C/e9jRie5GqT8u5kFTrMvAjtX4O5kA==}
+  /@typescript-eslint/eslint-plugin@6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-3+9OGAWHhk4O1LlcwLBONbdXsAhLjyCFogJY/cWy2lxdVJ2JrcTF2pTGMaLl2AE7U1l31n8Py4a8bx5DLf/0dQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       '@typescript-eslint/parser': ^6.0.0 || ^6.0.0-alpha
@@ -6038,25 +6036,25 @@ packages:
         optional: true
     dependencies:
       '@eslint-community/regexpp': 4.10.0
-      '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
-      '@typescript-eslint/scope-manager': 6.13.1
-      '@typescript-eslint/type-utils': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
-      '@typescript-eslint/utils': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
-      '@typescript-eslint/visitor-keys': 6.13.1
+      '@typescript-eslint/parser': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
+      '@typescript-eslint/scope-manager': 6.13.2
+      '@typescript-eslint/type-utils': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
+      '@typescript-eslint/utils': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
+      '@typescript-eslint/visitor-keys': 6.13.2
       debug: 4.3.4(supports-color@5.5.0)
       eslint: 8.55.0
       graphemer: 1.4.0
       ignore: 5.3.0
       natural-compare: 1.4.0
       semver: 7.5.4
-      ts-api-utils: 1.0.3(typescript@5.3.2)
-      typescript: 5.3.2
+      ts-api-utils: 1.0.3(typescript@5.3.3)
+      typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser@6.13.1(eslint@8.55.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-fs2XOhWCzRhqMmQf0eicLa/CWSaYss2feXsy7xBD/pLyWke/jCIVc2s1ikEAtSW7ina1HNhv7kONoEfVNEcdDQ==}
+  /@typescript-eslint/parser@6.13.2(eslint@8.55.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-MUkcC+7Wt/QOGeVlM8aGGJZy1XV5YKjTpq9jK6r6/iLsGXhBVaGP5N0UYvFsu9BFlSpwY9kMretzdBH01rkRXg==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -6065,27 +6063,27 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/scope-manager': 6.13.1
-      '@typescript-eslint/types': 6.13.1
-      '@typescript-eslint/typescript-estree': 6.13.1(typescript@5.3.2)
-      '@typescript-eslint/visitor-keys': 6.13.1
+      '@typescript-eslint/scope-manager': 6.13.2
+      '@typescript-eslint/types': 6.13.2
+      '@typescript-eslint/typescript-estree': 6.13.2(typescript@5.3.3)
+      '@typescript-eslint/visitor-keys': 6.13.2
       debug: 4.3.4(supports-color@5.5.0)
       eslint: 8.55.0
-      typescript: 5.3.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/scope-manager@6.13.1:
-    resolution: {integrity: sha512-BW0kJ7ceiKi56GbT2KKzZzN+nDxzQK2DS6x0PiSMPjciPgd/JRQGMibyaN2cPt2cAvuoH0oNvn2fwonHI+4QUQ==}
+  /@typescript-eslint/scope-manager@6.13.2:
+    resolution: {integrity: sha512-CXQA0xo7z6x13FeDYCgBkjWzNqzBn8RXaE3QVQVIUm74fWJLkJkaHmHdKStrxQllGh6Q4eUGyNpMe0b1hMkXFA==}
     engines: {node: ^16.0.0 || >=18.0.0}
     dependencies:
-      '@typescript-eslint/types': 6.13.1
-      '@typescript-eslint/visitor-keys': 6.13.1
+      '@typescript-eslint/types': 6.13.2
+      '@typescript-eslint/visitor-keys': 6.13.2
     dev: true
 
-  /@typescript-eslint/type-utils@6.13.1(eslint@8.55.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-A2qPlgpxx2v//3meMqQyB1qqTg1h1dJvzca7TugM3Yc2USDY+fsRBiojAEo92HO7f5hW5mjAUF6qobOPzlBCBQ==}
+  /@typescript-eslint/type-utils@6.13.2(eslint@8.55.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-Qr6ssS1GFongzH2qfnWKkAQmMUyZSyOr0W54nZNU1MDfo+U4Mv3XveeLZzadc/yq8iYhQZHYT+eoXJqnACM1tw==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -6094,23 +6092,23 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/typescript-estree': 6.13.1(typescript@5.3.2)
-      '@typescript-eslint/utils': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+      '@typescript-eslint/typescript-estree': 6.13.2(typescript@5.3.3)
+      '@typescript-eslint/utils': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       debug: 4.3.4(supports-color@5.5.0)
       eslint: 8.55.0
-      ts-api-utils: 1.0.3(typescript@5.3.2)
-      typescript: 5.3.2
+      ts-api-utils: 1.0.3(typescript@5.3.3)
+      typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/types@6.13.1:
-    resolution: {integrity: sha512-gjeEskSmiEKKFIbnhDXUyiqVma1gRCQNbVZ1C8q7Zjcxh3WZMbzWVfGE9rHfWd1msQtPS0BVD9Jz9jded44eKg==}
+  /@typescript-eslint/types@6.13.2:
+    resolution: {integrity: sha512-7sxbQ+EMRubQc3wTfTsycgYpSujyVbI1xw+3UMRUcrhSy+pN09y/lWzeKDbvhoqcRbHdc+APLs/PWYi/cisLPg==}
     engines: {node: ^16.0.0 || >=18.0.0}
     dev: true
 
-  /@typescript-eslint/typescript-estree@6.13.1(typescript@5.3.2):
-    resolution: {integrity: sha512-sBLQsvOC0Q7LGcUHO5qpG1HxRgePbT6wwqOiGLpR8uOJvPJbfs0mW3jPA3ujsDvfiVwVlWUDESNXv44KtINkUQ==}
+  /@typescript-eslint/typescript-estree@6.13.2(typescript@5.3.3):
+    resolution: {integrity: sha512-SuD8YLQv6WHnOEtKv8D6HZUzOub855cfPnPMKvdM/Bh1plv1f7Q/0iFUDLKKlxHcEstQnaUU4QZskgQq74t+3w==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       typescript: '*'
@@ -6118,20 +6116,20 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/types': 6.13.1
-      '@typescript-eslint/visitor-keys': 6.13.1
+      '@typescript-eslint/types': 6.13.2
+      '@typescript-eslint/visitor-keys': 6.13.2
       debug: 4.3.4(supports-color@5.5.0)
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.5.4
-      ts-api-utils: 1.0.3(typescript@5.3.2)
-      typescript: 5.3.2
+      ts-api-utils: 1.0.3(typescript@5.3.3)
+      typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/utils@6.13.1(eslint@8.55.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-ouPn/zVoan92JgAegesTXDB/oUp6BP1v8WpfYcqh649ejNc9Qv+B4FF2Ff626kO1xg0wWwwG48lAJ4JuesgdOw==}
+  /@typescript-eslint/utils@6.13.2(eslint@8.55.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-b9Ptq4eAZUym4idijCRzl61oPCwwREcfDI8xGk751Vhzig5fFZR9CyzDz4Sp/nxSLBYxUPyh4QdIDqWykFhNmQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -6139,9 +6137,9 @@ packages:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.55.0)
       '@types/json-schema': 7.0.15
       '@types/semver': 7.5.6
-      '@typescript-eslint/scope-manager': 6.13.1
-      '@typescript-eslint/types': 6.13.1
-      '@typescript-eslint/typescript-estree': 6.13.1(typescript@5.3.2)
+      '@typescript-eslint/scope-manager': 6.13.2
+      '@typescript-eslint/types': 6.13.2
+      '@typescript-eslint/typescript-estree': 6.13.2(typescript@5.3.3)
       eslint: 8.55.0
       semver: 7.5.4
     transitivePeerDependencies:
@@ -6149,11 +6147,11 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/visitor-keys@6.13.1:
-    resolution: {integrity: sha512-NDhQUy2tg6XGNBGDRm1XybOHSia8mcXmlbKWoQP+nm1BIIMxa55shyJfZkHpEBN62KNPLrocSM2PdPcaLgDKMQ==}
+  /@typescript-eslint/visitor-keys@6.13.2:
+    resolution: {integrity: sha512-OGznFs0eAQXJsp+xSd6k/O1UbFi/K/L7WjqeRoFE7vadjAF9y0uppXhYNQNEqygjou782maGClOoZwPqF0Drlw==}
     engines: {node: ^16.0.0 || >=18.0.0}
     dependencies:
-      '@typescript-eslint/types': 6.13.1
+      '@typescript-eslint/types': 6.13.2
       eslint-visitor-keys: 3.4.3
     dev: true
 
@@ -6182,11 +6180,42 @@ packages:
       - supports-color
     dev: true
 
+  /@vitest/coverage-v8@1.0.1(vitest@1.0.1):
+    resolution: {integrity: sha512-Z4a7ig4VjUCT/P+LRB3IZrBRXb9xWRUM8rSBH9cKgfrU1Oe01/K2WJKtGshOnQwXZoSfQtwCGpbnHmB/qJwjcw==}
+    peerDependencies:
+      vitest: ^1.0.0
+    dependencies:
+      '@ampproject/remapping': 2.2.1
+      '@bcoe/v8-coverage': 0.2.3
+      debug: 4.3.4(supports-color@5.5.0)
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-lib-source-maps: 4.0.1
+      istanbul-reports: 3.1.6
+      magic-string: 0.30.5
+      magicast: 0.3.2
+      picocolors: 1.0.0
+      std-env: 3.6.0
+      test-exclude: 6.0.0
+      v8-to-istanbul: 9.2.0
+      vitest: 1.0.1(@types/node@20.10.4)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@vitest/expect@0.34.6:
     resolution: {integrity: sha512-QUzKpUQRc1qC7qdGo7rMK3AkETI7w18gTCUrsNnyjjJKYiuUB9+TQK3QnR1unhCnWRC0AbKv2omLGQDF/mIjOw==}
     dependencies:
       '@vitest/spy': 0.34.6
       '@vitest/utils': 0.34.6
+      chai: 4.3.10
+    dev: true
+
+  /@vitest/expect@1.0.1:
+    resolution: {integrity: sha512-3cdrb/eKD/0tygDX75YscuHEHMUJ70u3UoLSq2eqhWks57AyzvsDQbyn53IhZ0tBN7gA8Jj2VhXiOV2lef7thw==}
+    dependencies:
+      '@vitest/spy': 1.0.1
+      '@vitest/utils': 1.0.1
       chai: 4.3.10
     dev: true
 
@@ -6198,6 +6227,14 @@ packages:
       pathe: 1.1.1
     dev: true
 
+  /@vitest/runner@1.0.1:
+    resolution: {integrity: sha512-/+z0vhJ0MfRPT3AyTvAK6m57rzlew/ct8B2a4LMv7NhpPaiI2QLGyOBMB3lcioWdJHjRuLi9aYppfOv0B5aRQA==}
+    dependencies:
+      '@vitest/utils': 1.0.1
+      p-limit: 5.0.0
+      pathe: 1.1.1
+    dev: true
+
   /@vitest/snapshot@0.34.6:
     resolution: {integrity: sha512-B3OZqYn6k4VaN011D+ve+AA4whM4QkcwcrwaKwAbyyvS/NB1hCWjFIBQxAQQSQir9/RtyAAGuq+4RJmbn2dH4w==}
     dependencies:
@@ -6206,8 +6243,22 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
+  /@vitest/snapshot@1.0.1:
+    resolution: {integrity: sha512-wIPtPDGSxEZ+DpNMc94AsybX6LV6uN6sosf5TojyP1m2QbKwiRuLV/5RSsjt1oWViHsTj8mlcwrQQ1zHGO0fMw==}
+    dependencies:
+      magic-string: 0.30.5
+      pathe: 1.1.1
+      pretty-format: 29.7.0
+    dev: true
+
   /@vitest/spy@0.34.6:
     resolution: {integrity: sha512-xaCvneSaeBw/cz8ySmF7ZwGvL0lBjfvqc1LpQ/vcdHEvpLn3Ff1vAvjw+CoGn0802l++5L/pxb7whwcWAw+DUQ==}
+    dependencies:
+      tinyspy: 2.2.0
+    dev: true
+
+  /@vitest/spy@1.0.1:
+    resolution: {integrity: sha512-yXwm1uKhBVr/5MhVeSmtNqK+0q2RXIchJt8kokEKdrWLtkPeDgdbZ6SjR1VQGZuNdWL6sSBnLayIyVvcS0qLfA==}
     dependencies:
       tinyspy: 2.2.0
     dev: true
@@ -6235,6 +6286,14 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
+  /@vitest/utils@1.0.1:
+    resolution: {integrity: sha512-MGPCHkzXbbAyscrhwGzh8uP1HPrTYLWaj1WTDtWSGrpe2yJWLRN9mF9ooKawr6NMOg9vTBtg2JqWLfuLC7Dknw==}
+    dependencies:
+      diff-sequences: 29.6.3
+      loupe: 2.3.7
+      pretty-format: 29.7.0
+    dev: true
+
   /@volar/language-core@1.11.1:
     resolution: {integrity: sha512-dOcNn3i9GgZAcJt43wuaEykSluAuOkQgzni1cuxLxTV0nJKanQztp7FxyswdRILaKH+P2XZMPRp2S4MV/pElCw==}
     dependencies:
@@ -6254,46 +6313,46 @@ packages:
       path-browserify: 1.0.1
     dev: true
 
-  /@vue/compiler-core@3.3.9:
-    resolution: {integrity: sha512-+/Lf68Vr/nFBA6ol4xOtJrW+BQWv3QWKfRwGSm70jtXwfhZNF4R/eRgyVJYoxFRhdCTk/F6g99BP0ffPgZihfQ==}
+  /@vue/compiler-core@3.3.10:
+    resolution: {integrity: sha512-doe0hODR1+i1menPkRzJ5MNR6G+9uiZHIknK3Zn5OcIztu6GGw7u0XUzf3AgB8h/dfsZC9eouzoLo3c3+N/cVA==}
     dependencies:
       '@babel/parser': 7.23.5
-      '@vue/shared': 3.3.9
+      '@vue/shared': 3.3.10
       estree-walker: 2.0.2
       source-map-js: 1.0.2
     dev: true
 
-  /@vue/compiler-dom@3.3.9:
-    resolution: {integrity: sha512-nfWubTtLXuT4iBeDSZ5J3m218MjOy42Vp2pmKVuBKo2/BLcrFUX8nCSr/bKRFiJ32R8qbdnnnBgRn9AdU5v0Sg==}
+  /@vue/compiler-dom@3.3.10:
+    resolution: {integrity: sha512-NCrqF5fm10GXZIK0GrEAauBqdy+F2LZRt3yNHzrYjpYBuRssQbuPLtSnSNjyR9luHKkWSH8we5LMB3g+4z2HvA==}
     dependencies:
-      '@vue/compiler-core': 3.3.9
-      '@vue/shared': 3.3.9
+      '@vue/compiler-core': 3.3.10
+      '@vue/shared': 3.3.10
     dev: true
 
-  /@vue/compiler-sfc@3.3.9:
-    resolution: {integrity: sha512-wy0CNc8z4ihoDzjASCOCsQuzW0A/HP27+0MDSSICMjVIFzk/rFViezkR3dzH+miS2NDEz8ywMdbjO5ylhOLI2A==}
+  /@vue/compiler-sfc@3.3.10:
+    resolution: {integrity: sha512-xpcTe7Rw7QefOTRFFTlcfzozccvjM40dT45JtrE3onGm/jBLZ0JhpKu3jkV7rbDFLeeagR/5RlJ2Y9SvyS0lAg==}
     dependencies:
       '@babel/parser': 7.23.5
-      '@vue/compiler-core': 3.3.9
-      '@vue/compiler-dom': 3.3.9
-      '@vue/compiler-ssr': 3.3.9
-      '@vue/reactivity-transform': 3.3.9
-      '@vue/shared': 3.3.9
+      '@vue/compiler-core': 3.3.10
+      '@vue/compiler-dom': 3.3.10
+      '@vue/compiler-ssr': 3.3.10
+      '@vue/reactivity-transform': 3.3.10
+      '@vue/shared': 3.3.10
       estree-walker: 2.0.2
       magic-string: 0.30.5
       postcss: 8.4.32
       source-map-js: 1.0.2
     dev: true
 
-  /@vue/compiler-ssr@3.3.9:
-    resolution: {integrity: sha512-NO5oobAw78R0G4SODY5A502MGnDNiDjf6qvhn7zD7TJGc8XDeIEw4fg6JU705jZ/YhuokBKz0A5a/FL/XZU73g==}
+  /@vue/compiler-ssr@3.3.10:
+    resolution: {integrity: sha512-12iM4jA4GEbskwXMmPcskK5wImc2ohKm408+o9iox3tfN9qua8xL0THIZtoe9OJHnXP4eOWZpgCAAThEveNlqQ==}
     dependencies:
-      '@vue/compiler-dom': 3.3.9
-      '@vue/shared': 3.3.9
+      '@vue/compiler-dom': 3.3.10
+      '@vue/shared': 3.3.10
     dev: true
 
-  /@vue/language-core@1.8.24(typescript@5.3.2):
-    resolution: {integrity: sha512-2ClHvij0WlsDWryPzXJCSpPc6rusZFNoVtRZGgGGkKCmKuIREDDKmH8j+1tYyxPYyH0qL6pZ6+IHD8KIm5nWAw==}
+  /@vue/language-core@1.8.25(typescript@5.3.3):
+    resolution: {integrity: sha512-NJk/5DnAZlpvXX8BdWmHI45bWGLViUaS3R/RMrmFSvFMSbJKuEODpM4kR0F0Ofv5SFzCWuNiMhxameWpVdQsnA==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -6302,28 +6361,28 @@ packages:
     dependencies:
       '@volar/language-core': 1.11.1
       '@volar/source-map': 1.11.1
-      '@vue/compiler-dom': 3.3.9
-      '@vue/shared': 3.3.9
+      '@vue/compiler-dom': 3.3.10
+      '@vue/shared': 3.3.10
       computeds: 0.0.1
       minimatch: 9.0.3
       muggle-string: 0.3.1
       path-browserify: 1.0.1
-      typescript: 5.3.2
+      typescript: 5.3.3
       vue-template-compiler: 2.7.15
     dev: true
 
-  /@vue/reactivity-transform@3.3.9:
-    resolution: {integrity: sha512-HnUFm7Ry6dFa4Lp63DAxTixUp8opMtQr6RxQCpDI1vlh12rkGIeYqMvJtK+IKyEfEOa2I9oCkD1mmsPdaGpdVg==}
+  /@vue/reactivity-transform@3.3.10:
+    resolution: {integrity: sha512-0xBdk+CKHWT+Gev8oZ63Tc0qFfj935YZx+UAynlutnrDZ4diFCVFMWixn65HzjE3S1iJppWOo6Tt1OzASH7VEg==}
     dependencies:
       '@babel/parser': 7.23.5
-      '@vue/compiler-core': 3.3.9
-      '@vue/shared': 3.3.9
+      '@vue/compiler-core': 3.3.10
+      '@vue/shared': 3.3.10
       estree-walker: 2.0.2
       magic-string: 0.30.5
     dev: true
 
-  /@vue/shared@3.3.9:
-    resolution: {integrity: sha512-ZE0VTIR0LmYgeyhurPTpy4KzKsuDyQbMSdM49eKkMnT5X4VfFBLysMzjIZhLEFQYjjOVVfbvUDHckwjDFiO2eA==}
+  /@vue/shared@3.3.10:
+    resolution: {integrity: sha512-2y3Y2J1a3RhFa0WisHvACJR2ncvWiVHcP8t0Inxo+NKz+8RKO4ZV8eZgCxRgQoA6ITfV12L4E6POOL9HOU5nqw==}
     dev: true
 
   /JSONStream@1.3.5:
@@ -6351,15 +6410,9 @@ packages:
       acorn: 8.11.2
     dev: true
 
-  /acorn-walk@8.3.0:
-    resolution: {integrity: sha512-FS7hV565M5l1R08MXqo8odwMTB02C2UqzB17RVgu9EyuYFBqJZ3/ZY97sQD5FewVu1UyDFc1yztUDrAwT0EypA==}
+  /acorn-walk@8.3.1:
+    resolution: {integrity: sha512-TgUZgYvqZprrl7YldZNoa9OciCAyZR+Ejm9eXzKCmjsF5IKp/wgQ7Z/ZpjpGTIUPwrHQIcYeI8qDh4PsEwxMbw==}
     engines: {node: '>=0.4.0'}
-    dev: true
-
-  /acorn@8.10.0:
-    resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
     dev: true
 
   /acorn@8.11.2:
@@ -7210,12 +7263,12 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /commitlint@18.4.3(typescript@5.3.2):
+  /commitlint@18.4.3(typescript@5.3.3):
     resolution: {integrity: sha512-xNAq3MpW4xZ3VyFH+WU0ykU8LmYcCT+0K4e1IOG5346XSGCb1xJyhFu0JFpq4LfJ7E0/bVxzPY98IsjUH2SQbQ==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
-      '@commitlint/cli': 18.4.3(typescript@5.3.2)
+      '@commitlint/cli': 18.4.3(typescript@5.3.3)
       '@commitlint/types': 18.4.3
     transitivePeerDependencies:
       - typescript
@@ -7501,7 +7554,7 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
 
-  /cosmiconfig-typescript-loader@5.0.0(@types/node@18.19.2)(cosmiconfig@8.3.6)(typescript@5.3.2):
+  /cosmiconfig-typescript-loader@5.0.0(@types/node@18.19.3)(cosmiconfig@8.3.6)(typescript@5.3.3):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
     peerDependencies:
@@ -7509,10 +7562,10 @@ packages:
       cosmiconfig: '>=8.2'
       typescript: '>=4'
     dependencies:
-      '@types/node': 18.19.2
-      cosmiconfig: 8.3.6(typescript@5.3.2)
+      '@types/node': 18.19.3
+      cosmiconfig: 8.3.6(typescript@5.3.3)
       jiti: 1.21.0
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
   /cosmiconfig@7.1.0:
@@ -7526,7 +7579,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /cosmiconfig@8.3.6(typescript@5.3.2):
+  /cosmiconfig@8.3.6(typescript@5.3.3):
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7539,7 +7592,7 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
   /create-require@1.1.1:
@@ -7761,7 +7814,7 @@ packages:
     dependencies:
       '@babel/parser': 7.23.5
       '@babel/traverse': 7.23.5
-      '@vue/compiler-sfc': 3.3.9
+      '@vue/compiler-sfc': 3.3.10
       callsite: 1.0.0
       camelcase: 6.3.0
       cosmiconfig: 7.1.0
@@ -8105,7 +8158,7 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /eslint-config-next@14.0.3(eslint@8.55.0)(typescript@5.3.2):
+  /eslint-config-next@14.0.3(eslint@8.55.0)(typescript@5.3.3):
     resolution: {integrity: sha512-IKPhpLdpSUyKofmsXUfrvBC49JMUTdeaD8ZIH4v9Vk0sC1X6URTuTJCLtA0Vwuj7V/CQh0oISuSTvNn5//Buew==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
@@ -8116,15 +8169,15 @@ packages:
     dependencies:
       '@next/eslint-plugin-next': 14.0.3
       '@rushstack/eslint-patch': 1.6.0
-      '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+      '@typescript-eslint/parser': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.55.0)
-      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
+      eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.55.0)
+      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.55.0)
       eslint-plugin-react: 7.33.2(eslint@8.55.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.55.0)
-      typescript: 5.3.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -8157,6 +8210,15 @@ packages:
       eslint-plugin-turbo: 1.10.16(eslint@8.55.0)
     dev: true
 
+  /eslint-config-turbo@1.11.0(eslint@8.55.0):
+    resolution: {integrity: sha512-PBiDoO1ZRHBXoydfn/qYazJTwmoRNXdsf3CBg6j7BMVvuAPa39e7ao6KccsDplyLgV2jIjeRtra/q1CUaWs2kg==}
+    peerDependencies:
+      eslint: '>6.6.0'
+    dependencies:
+      eslint: 8.55.0
+      eslint-plugin-turbo: 1.11.0(eslint@8.55.0)
+    dev: true
+
   /eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
     dependencies:
@@ -8167,7 +8229,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.55.0):
+  /eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.55.0):
     resolution: {integrity: sha512-xgdptdoi5W3niYeuQxKmzVDTATvLYqhpwmykwsh7f6HIOStGWEIL9iqZgQDF9u9OEzrRwR8no5q2VT+bjAujTg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -8177,8 +8239,8 @@ packages:
       debug: 4.3.4(supports-color@5.5.0)
       enhanced-resolve: 5.15.0
       eslint: 8.55.0
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
-      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
+      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.2
       is-core-module: 2.13.1
@@ -8190,7 +8252,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0):
+  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0):
     resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -8211,16 +8273,16 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+      '@typescript-eslint/parser': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       debug: 3.2.7
       eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.55.0)
+      eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.55.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /eslint-plugin-import@2.29.0(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0):
+  /eslint-plugin-import@2.29.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0):
     resolution: {integrity: sha512-QPOO5NO6Odv5lpoTkddtutccQjysJuFxoPS7fAHO+9m9udNHvTCPSAMW9zGAYj8lAIdr40I8yPCdUYrncXtrwg==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -8230,7 +8292,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
+      '@typescript-eslint/parser': 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       array-includes: 3.1.7
       array.prototype.findlastindex: 1.2.3
       array.prototype.flat: 1.3.2
@@ -8239,7 +8301,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.13.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
       hasown: 2.0.0
       is-core-module: 2.13.1
       is-glob: 4.0.3
@@ -8338,6 +8400,15 @@ packages:
 
   /eslint-plugin-turbo@1.10.16(eslint@8.55.0):
     resolution: {integrity: sha512-ZjrR88MTN64PNGufSEcM0tf+V1xFYVbeiMeuIqr0aiABGomxFLo4DBkQ7WI4WzkZtWQSIA2sP+yxqSboEfL9MQ==}
+    peerDependencies:
+      eslint: '>6.6.0'
+    dependencies:
+      dotenv: 16.0.3
+      eslint: 8.55.0
+    dev: true
+
+  /eslint-plugin-turbo@1.11.0(eslint@8.55.0):
+    resolution: {integrity: sha512-u3GeDFuKUMcQOPi5euJIAivTvJBPMZL62LVrNc4uGksGMYekl7Dl3yGcevcUpebm7XDValyWcw1iHZjUm3DfCg==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
@@ -10160,6 +10231,14 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
+  /local-pkg@0.5.0:
+    resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
+    engines: {node: '>=14'}
+    dependencies:
+      mlly: 1.4.2
+      pkg-types: 1.0.3
+    dev: true
+
   /locate-character@3.0.0:
     resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
     dev: true
@@ -10341,6 +10420,14 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
+
+  /magicast@0.3.2:
+    resolution: {integrity: sha512-Fjwkl6a0syt9TFN0JSYpOybxiMCkYNEeOTnOTNRbjphirLakznZXAqrXgj/7GG3D1dvETONNwrBfinvAbpunDg==}
+    dependencies:
+      '@babel/parser': 7.23.5
+      '@babel/types': 7.23.5
+      source-map-js: 1.0.2
     dev: true
 
   /make-dir@4.0.0:
@@ -11775,6 +11862,13 @@ packages:
       yocto-queue: 1.0.0
     dev: true
 
+  /p-limit@5.0.0:
+    resolution: {integrity: sha512-/Eaoq+QyLSiXQ4lyYV23f14mZRQcXnxfHrN0vCai+ak9G0pp9iEQukIIZq5NccEvwRB8PUnZT0KsOoDCINS1qQ==}
+    engines: {node: '>=18'}
+    dependencies:
+      yocto-queue: 1.0.0
+    dev: true
+
   /p-locate@2.0.0:
     resolution: {integrity: sha512-nQja7m7gSKuewoVRen45CtVfODR3crN3goVQ0DDZ9N3yHxgpkuBhZqsaiotSQRrADUrne346peY7kT3TSACykg==}
     engines: {node: '>=4'}
@@ -12117,14 +12211,13 @@ packages:
       svelte: 4.2.8
     dev: true
 
-  /prettier-plugin-tailwindcss@0.5.7(prettier-plugin-svelte@3.1.2)(prettier@3.1.0):
-    resolution: {integrity: sha512-4v6uESAgwCni6YF6DwJlRaDjg9Z+al5zM4JfngcazMy4WEf/XkPS5TEQjbD+DZ5iNuG6RrKQLa/HuX2SYzC3kQ==}
+  /prettier-plugin-tailwindcss@0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0):
+    resolution: {integrity: sha512-9x3t1s2Cjbut2QiP+O0mDqV3gLXTe2CgRlQDgucopVkUdw26sQi53p/q4qvGxMLBDfk/dcTV57Aa/zYwz9l8Ew==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
       '@prettier/plugin-pug': '*'
       '@shopify/prettier-plugin-liquid': '*'
-      '@shufo/prettier-plugin-blade': '*'
       '@trivago/prettier-plugin-sort-imports': '*'
       prettier: ^3.0
       prettier-plugin-astro: '*'
@@ -12143,8 +12236,6 @@ packages:
       '@prettier/plugin-pug':
         optional: true
       '@shopify/prettier-plugin-liquid':
-        optional: true
-      '@shufo/prettier-plugin-blade':
         optional: true
       '@trivago/prettier-plugin-sort-imports':
         optional: true
@@ -13209,7 +13300,7 @@ packages:
       mdast-util-to-string: 4.0.0
       propose: 0.0.5
       trough: 2.1.0
-      unified-engine: 11.1.1
+      unified-engine: 11.2.0
       unist-util-visit: 5.0.0
       vfile: 6.0.1
     transitivePeerDependencies:
@@ -13922,7 +14013,7 @@ packages:
   /strip-literal@1.3.0:
     resolution: {integrity: sha512-PugKzOsyXpArk0yWmUwqOZecSO0GH0bPoctLcqNDH9J04pVW3lflYE0ujElBGTloevcxF5MofAOZ7C5l2b+wLg==}
     dependencies:
-      acorn: 8.10.0
+      acorn: 8.11.2
     dev: true
 
   /style-search@0.1.0:
@@ -13937,7 +14028,7 @@ packages:
       stylelint: '>=14.0.0'
     dependencies:
       postcss-html: 1.5.0
-      stylelint: 15.11.0(typescript@5.3.2)
+      stylelint: 15.11.0(typescript@5.3.3)
     dev: true
 
   /stylelint-config-recommended-scss@13.1.0(postcss@8.4.32)(stylelint@15.11.0):
@@ -13951,7 +14042,7 @@ packages:
     dependencies:
       postcss: 8.4.32
       postcss-scss: 4.0.9(postcss@8.4.32)
-      stylelint: 15.11.0(typescript@5.3.2)
+      stylelint: 15.11.0(typescript@5.3.3)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
       stylelint-scss: 5.3.1(stylelint@15.11.0)
     dev: true
@@ -13962,7 +14053,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.11.0(typescript@5.3.2)
+      stylelint: 15.11.0(typescript@5.3.3)
     dev: true
 
   /stylelint-config-standard-scss@11.1.0(postcss@8.4.32)(stylelint@15.11.0):
@@ -13975,7 +14066,7 @@ packages:
         optional: true
     dependencies:
       postcss: 8.4.32
-      stylelint: 15.11.0(typescript@5.3.2)
+      stylelint: 15.11.0(typescript@5.3.3)
       stylelint-config-recommended-scss: 13.1.0(postcss@8.4.32)(stylelint@15.11.0)
       stylelint-config-standard: 34.0.0(stylelint@15.11.0)
     dev: true
@@ -13986,7 +14077,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.11.0(typescript@5.3.2)
+      stylelint: 15.11.0(typescript@5.3.3)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
     dev: true
 
@@ -14000,10 +14091,10 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      stylelint: 15.11.0(typescript@5.3.2)
+      stylelint: 15.11.0(typescript@5.3.3)
     dev: true
 
-  /stylelint@15.11.0(typescript@5.3.2):
+  /stylelint@15.11.0(typescript@5.3.3):
     resolution: {integrity: sha512-78O4c6IswZ9TzpcIiQJIN49K3qNoXTM8zEJzhaTE/xRTCZswaovSEVIa/uwbOltZrk16X4jAxjaOhzz/hTm1Kw==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
@@ -14014,7 +14105,7 @@ packages:
       '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
       balanced-match: 2.0.0
       colord: 2.9.3
-      cosmiconfig: 8.3.6(typescript@5.3.2)
+      cosmiconfig: 8.3.6(typescript@5.3.3)
       css-functions-list: 3.2.1
       css-tree: 2.3.1
       debug: 4.3.4(supports-color@5.5.0)
@@ -14098,8 +14189,8 @@ packages:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 4.2.8
-      svelte-preprocess: 5.1.1(postcss@8.4.32)(svelte@4.2.8)(typescript@5.3.2)
-      typescript: 5.3.2
+      svelte-preprocess: 5.1.1(postcss@8.4.32)(svelte@4.2.8)(typescript@5.3.3)
+      typescript: 5.3.3
     transitivePeerDependencies:
       - '@babel/core'
       - coffeescript
@@ -14121,7 +14212,7 @@ packages:
       svelte: 4.2.8
     dev: true
 
-  /svelte-preprocess@5.1.1(postcss@8.4.32)(svelte@4.2.8)(typescript@5.3.2):
+  /svelte-preprocess@5.1.1(postcss@8.4.32)(svelte@4.2.8)(typescript@5.3.3):
     resolution: {integrity: sha512-p/Dp4hmrBW5mrCCq29lEMFpIJT2FZsRlouxEc5qpbOmXRbaFs7clLs8oKPwD3xCFyZfv1bIhvOzpQkhMEVQdMw==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -14166,7 +14257,7 @@ packages:
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.8
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
   /svelte@4.2.8:
@@ -14295,6 +14386,11 @@ packages:
     engines: {node: '>=14.0.0'}
     dev: true
 
+  /tinypool@0.8.1:
+    resolution: {integrity: sha512-zBTCK0cCgRROxvs9c0CGK838sPkeokNGdQVUUwHAbynHFlmyJYj825f/oRs528HaIJ97lo0pLIlDUzwN+IorWg==}
+    engines: {node: '>=14.0.0'}
+    dev: true
+
   /tinyspy@2.2.0:
     resolution: {integrity: sha512-d2eda04AN/cPOR89F7Xv5bK/jrQEhmcLFe6HFldoeO9AJtps+fqEnh486vnT/8y4bw38pSyxDcTCAq+Ks2aJTg==}
     engines: {node: '>=14.0.0'}
@@ -14369,16 +14465,16 @@ packages:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
     dev: true
 
-  /ts-api-utils@1.0.3(typescript@5.3.2):
+  /ts-api-utils@1.0.3(typescript@5.3.3):
     resolution: {integrity: sha512-wNMeqtMz5NtwpT/UZGY5alT+VoKdSsOOP/kqHFcUW1P/VRhH2wJ48+DN2WwUliNbQ976ETwDL0Ifd2VVvgonvg==}
     engines: {node: '>=16.13.0'}
     peerDependencies:
       typescript: '>=4.2.0'
     dependencies:
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
-  /ts-node@10.9.1(@types/node@20.10.3)(typescript@5.3.2):
+  /ts-node@10.9.1(@types/node@20.10.4)(typescript@5.3.3):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -14397,14 +14493,14 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       acorn: 8.11.2
-      acorn-walk: 8.3.0
+      acorn-walk: 8.3.1
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.3.2
+      typescript: 5.3.3
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -14442,69 +14538,69 @@ packages:
       - supports-color
     dev: true
 
-  /turbo-darwin-64@1.10.16:
-    resolution: {integrity: sha512-+Jk91FNcp9e9NCLYlvDDlp2HwEDp14F9N42IoW3dmHI5ZkGSXzalbhVcrx3DOox3QfiNUHxzWg4d7CnVNCuuMg==}
+  /turbo-darwin-64@1.11.0:
+    resolution: {integrity: sha512-yLDeJ7QgpI1Niw87ydRNvygX67Dra+6MnxR88vwXnQJKsmHTKycBhY9w3Bhe5xvnIg4JoEWoEF5EJtw6ShrlEw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.10.16:
-    resolution: {integrity: sha512-jqGpFZipIivkRp/i+jnL8npX0VssE6IAVNKtu573LXtssZdV/S+fRGYA16tI46xJGxSAivrZ/IcgZrV6Jk80bw==}
+  /turbo-darwin-arm64@1.11.0:
+    resolution: {integrity: sha512-lZGlfTG6+u3R7+6eVY9j/07WpVF/tx8UNkmRWfMNt4ZGSEBMg6A+Vimvp+rni92WdPhD/rhxv+qYI/kco9hNXg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-ignore@1.10.16:
-    resolution: {integrity: sha512-Xm2/pnXsunH2UQ3S92hQwRKiANNgXUhv2owqCFOmqwl3G2E+0yM2lSk+QLNYUu4XUqXkJrDv32GtZTDaPJ47vA==}
+  /turbo-ignore@1.11.0:
+    resolution: {integrity: sha512-tFT9lVVuLjieimUci6VNOmtk7hPwTC4CEIoT0FrQao+sWG08Idwb/oJMdQsc4/fr8hKFpab7wVlm1415qRuIpg==}
     hasBin: true
     dev: true
 
-  /turbo-linux-64@1.10.16:
-    resolution: {integrity: sha512-PpqEZHwLoizQ6sTUvmImcRmACyRk9EWLXGlqceogPZsJ1jTRK3sfcF9fC2W56zkSIzuLEP07k5kl+ZxJd8JMcg==}
+  /turbo-linux-64@1.11.0:
+    resolution: {integrity: sha512-I88/WieHzTZ8V2y0j79RSjVERPp0IJTynTwLi7ddYX0PahkuyaHs1p8ktFMcs6awnJMeT6spaXlyzv5ZxnAdkg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.10.16:
-    resolution: {integrity: sha512-TMjFYz8to1QE0fKVXCIvG/4giyfnmqcQIwjdNfJvKjBxn22PpbjeuFuQ5kNXshUTRaTJihFbuuCcb5OYFNx4uw==}
+  /turbo-linux-arm64@1.11.0:
+    resolution: {integrity: sha512-jHsKuTFa7KwrA/FIxOnyXnfSEgDEUv0UVcseqQhP0VbdL+En93ZdBZ9S9/lI6VWooXrCqPooBmC+M/6jmwY/Ig==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.10.16:
-    resolution: {integrity: sha512-+jsf68krs0N66FfC4/zZvioUap/Tq3sPFumnMV+EBo8jFdqs4yehd6+MxIwYTjSQLIcpH8KoNMB0gQYhJRLZzw==}
+  /turbo-windows-64@1.11.0:
+    resolution: {integrity: sha512-7u/1GoMallGDOTg4fnKoJmvBkf2pUCOcA0Z7NbwFB6GOa7q1Su4AaPs6Iy6Tyqrmj3vDHKSXByHwfz+o0cng/g==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.10.16:
-    resolution: {integrity: sha512-sKm3hcMM1bl0B3PLG4ifidicOGfoJmOEacM5JtgBkYM48ncMHjkHfFY7HrJHZHUnXM4l05RQTpLFoOl/uIo2HQ==}
+  /turbo-windows-arm64@1.11.0:
+    resolution: {integrity: sha512-39MNaZ7RnbINEnpeAfB++fmH6p99RhbeeC8n2IXqG61Zrck5AA59Jm8DXpfOGR6Im93iHXSDox8qF3bb8V4amQ==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.10.16:
-    resolution: {integrity: sha512-2CEaK4FIuSZiP83iFa9GqMTQhroW2QryckVqUydmg4tx78baftTOS0O+oDAhvo9r9Nit4xUEtC1RAHoqs6ZEtg==}
+  /turbo@1.11.0:
+    resolution: {integrity: sha512-zIqJs/x1zzIIdwufhk80o7cQc9fIdHdweWRNXbK+Vjf9IaM2eSslcYyo40s+Kg/oiIOpdLM8hV7IUQst8KIyDA==}
     hasBin: true
     optionalDependencies:
-      turbo-darwin-64: 1.10.16
-      turbo-darwin-arm64: 1.10.16
-      turbo-linux-64: 1.10.16
-      turbo-linux-arm64: 1.10.16
-      turbo-windows-64: 1.10.16
-      turbo-windows-arm64: 1.10.16
+      turbo-darwin-64: 1.11.0
+      turbo-darwin-arm64: 1.11.0
+      turbo-linux-64: 1.11.0
+      turbo-linux-arm64: 1.11.0
+      turbo-windows-64: 1.11.0
+      turbo-windows-arm64: 1.11.0
     dev: true
 
   /type-check@0.4.0:
@@ -14607,7 +14703,7 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
-  /typedoc@0.25.4(typescript@5.3.2):
+  /typedoc@0.25.4(typescript@5.3.3):
     resolution: {integrity: sha512-Du9ImmpBCw54bX275yJrxPVnjdIyJO/84co0/L9mwe0R3G4FSR6rQ09AlXVRvZEGMUg09+z/usc8mgygQ1aidA==}
     engines: {node: '>= 16'}
     hasBin: true
@@ -14618,7 +14714,7 @@ packages:
       marked: 4.3.0
       minimatch: 9.0.3
       shiki: 0.14.5
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
   /typescript@5.0.4:
@@ -14627,8 +14723,8 @@ packages:
     hasBin: true
     dev: true
 
-  /typescript@5.3.2:
-    resolution: {integrity: sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==}
+  /typescript@5.3.3:
+    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
@@ -14678,7 +14774,7 @@ packages:
       minimist: 1.2.8
       strip-ansi: 7.1.0
       text-table: 0.2.0
-      unified-engine: 11.1.1
+      unified-engine: 11.2.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -14691,13 +14787,13 @@ packages:
       vfile-location: 5.0.2
     dev: true
 
-  /unified-engine@11.1.1:
-    resolution: {integrity: sha512-uVx/R+Q8V5wv5EPdPzBPPscSKpbqWeqqIc0lMfDcn3aS+QDENTpDY+wdPQ5oswuQSpPn/miuP0FspIwo19++IA==}
+  /unified-engine@11.2.0:
+    resolution: {integrity: sha512-H9wEDpBSM0cpEUuuYAOIiPzLCVN0pjASZZ6FFNzgzYS/HHzl9tArk/ereOMGtcF8m8vgjzw+HrU3YN7oenT7Ww==}
     dependencies:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.12
       '@types/is-empty': 1.2.3
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       '@types/unist': 3.0.2
       '@ungap/structured-clone': 1.2.0
       concat-stream: 2.0.0
@@ -15091,7 +15187,7 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite-node@0.34.6(@types/node@20.10.3):
+  /vite-node@0.34.6(@types/node@20.10.4):
     resolution: {integrity: sha512-nlBMJ9x6n7/Amaz6F3zJ97EBwR2FkzhBRxF5e+jE6LA3yi6Wtc2lyTij1OnDMIr34v5g/tVQtsVAzhT0jc5ygA==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -15101,7 +15197,7 @@ packages:
       mlly: 1.4.2
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.6(@types/node@20.10.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -15113,7 +15209,28 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.4):
+  /vite-node@1.0.1(@types/node@20.10.4):
+    resolution: {integrity: sha512-Y2Jnz4cr2azsOMMYuVPrQkp3KMnS/0WV8ezZjCy4hU7O5mUHCAVOnFmoEvs1nvix/4mYm74Len8bYRWZJMNP6g==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.4(supports-color@5.5.0)
+      pathe: 1.1.1
+      picocolors: 1.0.0
+      vite: 5.0.6(@types/node@20.10.4)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vite-plugin-dts@3.6.4(@types/node@20.10.4)(typescript@5.3.3)(vite@5.0.6):
     resolution: {integrity: sha512-yOVhUI/kQhtS6lCXRYYLv2UUf9bftcwQK9ROxCX2ul17poLQs02ctWX7+vXB8GPRzH8VCK3jebEFtPqqijXx6w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -15123,14 +15240,14 @@ packages:
       vite:
         optional: true
     dependencies:
-      '@microsoft/api-extractor': 7.38.3(@types/node@20.10.3)
+      '@microsoft/api-extractor': 7.38.5(@types/node@20.10.4)
       '@rollup/pluginutils': 5.1.0
-      '@vue/language-core': 1.8.24(typescript@5.3.2)
+      '@vue/language-core': 1.8.25(typescript@5.3.3)
       debug: 4.3.4(supports-color@5.5.0)
       kolorist: 1.8.0
-      typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
-      vue-tsc: 1.8.24(typescript@5.3.2)
+      typescript: 5.3.3
+      vite: 5.0.6(@types/node@20.10.4)
+      vue-tsc: 1.8.25(typescript@5.3.3)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -15145,12 +15262,12 @@ packages:
       '@alexaegis/fs': 0.7.3
       '@alexaegis/workspace-tools': 0.7.3
       '@pakk/core': 0.8.0
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       prettier: 3.1.0
-      ts-node: 10.9.1(@types/node@20.10.3)(typescript@5.3.2)
-      typescript: 5.3.2
-      vite: 5.0.4(@types/node@20.10.3)
-      vite-plugin-dts: 3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.4)
+      ts-node: 10.9.1(@types/node@20.10.4)(typescript@5.3.3)
+      typescript: 5.3.3
+      vite: 5.0.6(@types/node@20.10.4)
+      vite-plugin-dts: 3.6.4(@types/node@20.10.4)(typescript@5.3.3)(vite@5.0.6)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -15164,8 +15281,8 @@ packages:
       - terser
     dev: true
 
-  /vite@5.0.4(@types/node@20.10.3):
-    resolution: {integrity: sha512-RzAr8LSvM8lmhB4tQ5OPcBhpjOZRZjuxv9zO5UcxeoY2bd3kP3Ticd40Qma9/BqZ8JS96Ll/jeBX9u+LJZrhVg==}
+  /vite@5.0.6(@types/node@20.10.4):
+    resolution: {integrity: sha512-MD3joyAEBtV7QZPl2JVVUai6zHms3YOmLR+BpMzLlX2Yzjfcc4gTgNi09d/Rua3F4EtC8zdwPU8eQYyib4vVMQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -15192,7 +15309,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       esbuild: 0.19.8
       postcss: 8.4.32
       rollup: 4.6.1
@@ -15200,7 +15317,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitefu@0.2.5(vite@5.0.4):
+  /vitefu@0.2.5(vite@5.0.6):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -15208,7 +15325,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.0.4(@types/node@20.10.3)
+      vite: 5.0.6(@types/node@20.10.4)
     dev: true
 
   /vitest@0.34.6(@vitest/ui@0.34.6)(jsdom@23.0.1):
@@ -15244,7 +15361,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.11
       '@types/chai-subset': 1.3.5
-      '@types/node': 20.10.3
+      '@types/node': 20.10.4
       '@vitest/expect': 0.34.6
       '@vitest/runner': 0.34.6
       '@vitest/snapshot': 0.34.6
@@ -15252,7 +15369,7 @@ packages:
       '@vitest/ui': 0.34.6(vitest@0.34.6)
       '@vitest/utils': 0.34.6
       acorn: 8.11.2
-      acorn-walk: 8.3.0
+      acorn-walk: 8.3.1
       cac: 6.7.14
       chai: 4.3.10
       debug: 4.3.4(supports-color@5.5.0)
@@ -15265,8 +15382,65 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.7.0
-      vite: 5.0.4(@types/node@20.10.3)
-      vite-node: 0.34.6(@types/node@20.10.3)
+      vite: 5.0.6(@types/node@20.10.4)
+      vite-node: 0.34.6(@types/node@20.10.4)
+      why-is-node-running: 2.2.2
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest@1.0.1(@types/node@20.10.4):
+    resolution: {integrity: sha512-MHsOj079S28hDsvdDvyD1pRj4dcS51EC5Vbe0xvOYX+WryP8soiK2dm8oULi+oA/8Xa/h6GoJEMTmcmBy5YM+Q==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@types/node': ^18.0.0 || >=20.0.0
+      '@vitest/browser': ^1.0.0
+      '@vitest/ui': ^1.0.0
+      happy-dom: '*'
+      jsdom: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@types/node':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+    dependencies:
+      '@types/node': 20.10.4
+      '@vitest/expect': 1.0.1
+      '@vitest/runner': 1.0.1
+      '@vitest/snapshot': 1.0.1
+      '@vitest/spy': 1.0.1
+      '@vitest/utils': 1.0.1
+      acorn-walk: 8.3.1
+      cac: 6.7.14
+      chai: 4.3.10
+      debug: 4.3.4(supports-color@5.5.0)
+      execa: 8.0.1
+      local-pkg: 0.5.0
+      magic-string: 0.30.5
+      pathe: 1.1.1
+      picocolors: 1.0.0
+      std-env: 3.6.0
+      strip-literal: 1.3.0
+      tinybench: 2.5.1
+      tinypool: 0.8.1
+      vite: 5.0.6(@types/node@20.10.4)
+      vite-node: 1.0.1(@types/node@20.10.4)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -15293,16 +15467,16 @@ packages:
       he: 1.2.0
     dev: true
 
-  /vue-tsc@1.8.24(typescript@5.3.2):
-    resolution: {integrity: sha512-eH1CSj231OzVEY5Hi7wS6ubzyOEwgr5jCptR0Ddf2SitGcaXIsPVDvrprm3eolCdyhDt3WS1Eb2F4fGX9BsUUw==}
+  /vue-tsc@1.8.25(typescript@5.3.3):
+    resolution: {integrity: sha512-lHsRhDc/Y7LINvYhZ3pv4elflFADoEOo67vfClAfF2heVHpHmVquLSjojgCSIwzA4F0Pc4vowT/psXCYcfk+iQ==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/typescript': 1.11.1
-      '@vue/language-core': 1.8.24(typescript@5.3.2)
+      '@vue/language-core': 1.8.25(typescript@5.3.3)
       semver: 7.5.4
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: true
 
   /w3c-xmlserializer@5.0.0:
