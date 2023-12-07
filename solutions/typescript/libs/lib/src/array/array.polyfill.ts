@@ -37,7 +37,7 @@ declare global {
 		flipFlop(): Generator<T[]>;
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
-		tap(callbackFn: (item: T) => void): T[];
+		tap(callbackFn: (item: T, index: number) => void): T[];
 		toInt(
 			options?:
 				| { radix?: number; safe?: boolean; keepNonNumbers: false }
@@ -191,9 +191,10 @@ Array.prototype.filterMap = function <T, V>(mapFn: (t: T) => V | undefined): V[]
 	return filterMap(this, mapFn);
 };
 
-Array.prototype.tap = function <T>(this: T[], callbackFn: (item: T) => void): T[] {
-	for (const item of this) {
-		callbackFn(item);
+Array.prototype.tap = function <T>(this: T[], callbackFn: (item: T, index: number) => void): T[] {
+	for (let i = 0; i < this.length; i++) {
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		callbackFn(this[i]!, i);
 	}
 	return this;
 };

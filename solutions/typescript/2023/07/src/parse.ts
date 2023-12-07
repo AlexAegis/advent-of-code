@@ -1,39 +1,31 @@
-export interface Race {
-	time: number;
-	distance: number;
+export type Card = 'A' | 'K' | 'Q' | 'J' | 'T' | '9' | '8' | '7' | '6' | '5' | '4' | '3' | '2';
+export type Hand = [Card, Card, Card, Card, Card];
+
+export enum HandType {
+	FIVE_OF_A_KIND = 'five-of-a-kind',
+	FOUR_OF_A_KIND = 'four-of-a-kind',
+	FULL_HOUSE = 'full-house',
+	THREE_OF_A_KIND = 'three-of-a-kind',
+	TWO_PAIRS = 'two-pairs',
+	ONE_PAIR = 'one-pair',
+	HIGH_CARD = 'high-card',
 }
 
-export const parseAsSeparateRaces = (input: string): Race[] => {
-	const races: Race[] = [];
-	for (const line of input.lines(false)) {
-		const [, ...n] = line.split(/ +/g);
-		const values = n.map((n) => Number.parseInt(n, 10));
-		if (line.startsWith('Time')) {
-			for (const value of values) {
-				races.push({ time: value, distance: -1 });
-			}
-		} else {
-			for (let i = 0; i < values.length; i++) {
-				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				races[i]!.distance = values[i]!;
-			}
-		}
-	}
-	return races;
-};
-
-export const parseAsOneRace = (input: string): Race => {
-	const race: Race = {
-		distance: -1,
-		time: -1,
-	};
-	for (const line of input.lines(false)) {
-		const [, ...n] = line.split(/ +/g);
-		if (line.startsWith('Time')) {
-			race.time = Number.parseInt(n.join(''), 10);
-		} else {
-			race.distance = Number.parseInt(n.join(''), 10);
-		}
-	}
-	return race;
+export const isCard = (card: string | undefined): card is Card => {
+	return (
+		card !== undefined &&
+		(card === 'A' ||
+			card === 'K' ||
+			card === 'Q' ||
+			card === 'J' ||
+			card === 'T' ||
+			card === '9' ||
+			card === '8' ||
+			card === '7' ||
+			card === '6' ||
+			card === '5' ||
+			card === '4' ||
+			card === '3' ||
+			card === '2')
+	);
 };
