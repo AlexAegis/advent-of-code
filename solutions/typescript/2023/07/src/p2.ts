@@ -89,4 +89,4 @@ export const p2 = (input: string): number =>
 		.map((hand, index) => hand.bid * (index + 1))
 		.sum();
 
-await task(p2, packageJson.aoc); // 254837398 ~40μs
+await task(p2, packageJson.aoc); // 254837398 ~20.46ms
