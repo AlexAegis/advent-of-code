@@ -14,9 +14,6 @@
 	"[markdown]": {
 		"editor.defaultFormatter": "unifiedjs.vscode-remark"
 	},
-	"[python]": {
-		"editor.defaultFormatter": "ms-python.python"
-	},
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer"
 	},
@@ -28,10 +25,10 @@
 	},
 	"editor.autoIndent": "full",
 	"editor.codeActionsOnSave": {
-		"source.fixAll": true,
-		"source.fixAll.eslint": true,
-		"source.fixAll.stylelint": true,
-		"source.organizeImports": true
+		"source.fixAll": "explicit",
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit",
+		"source.organizeImports": "explicit"
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.fontLigatures": true,
@@ -57,7 +54,7 @@
 	"editor.suggest.localityBonus": true,
 	"editor.tabSize": 4,
 	"editor.useTabStops": true,
-	"editor.wordBasedSuggestions": true,
+	"editor.wordBasedSuggestions": "matchingDocuments",
 	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "svelte"],
 	"editor.linkedEditing": true,
 	"explorer.fileNesting.enabled": true,
