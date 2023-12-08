@@ -1,7 +1,7 @@
 import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { mapSeed } from './p1.js';
-import { parse, type Range } from './parse.js';
+import { findRange, parse, type Range } from './parse.js';
 
 export const getRangeEnd = (range: Range): number => {
 	return range.destinationRange + range.rangeLength;
@@ -123,9 +123,54 @@ export const p2 = (input: string): number => {
 
 	const result = humidityToLocationRefraction.map((range) => range.sourceRangeStart).min();
 
-	const mapped = mapSeed(data)(result);
+	const seedMapper = mapSeed(data);
+	const mapped = seedMapper(result);
 	console.log('result', result, 'mapped', mapped);
-	return mapped;
+
+	const msoil = findRange(mapped, seedToSoilRefraction);
+	const mfertilizer = findRange(msoil, soilToFertilizerRefraction);
+	const mwater = findRange(mfertilizer, fertilizerToWaterRefraction);
+	const mlight = findRange(mwater, waterToLightRefraction);
+	const mtemperature = findRange(mlight, lightToTemperatureRefraction);
+	const mhumidity = findRange(mtemperature, temperatureToHumidityRefraction);
+	const mlocation = findRange(mhumidity, humidityToLocationRefraction);
+
+	const mrsoil = findRange(mapped, humidityToLocationRefraction);
+	const mrfertilizer = findRange(mrsoil, temperatureToHumidityRefraction);
+	const mrwater = findRange(mrfertilizer, lightToTemperatureRefraction);
+	const mrlight = findRange(mrwater, waterToLightRefraction);
+	const mrtemperature = findRange(mrlight, fertilizerToWaterRefraction);
+	const mrhumidity = findRange(mrtemperature, soilToFertilizerRefraction);
+	const mrlocation = findRange(mrhumidity, seedToSoilRefraction);
+
+	const soil = findRange(result, seedToSoilRefraction);
+	const fertilizer = findRange(soil, soilToFertilizerRefraction);
+	const water = findRange(fertilizer, fertilizerToWaterRefraction);
+	const light = findRange(water, waterToLightRefraction);
+	const temperature = findRange(light, lightToTemperatureRefraction);
+	const humidity = findRange(temperature, temperatureToHumidityRefraction);
+	const location = findRange(humidity, humidityToLocationRefraction);
+
+	const rsoil = findRange(result, humidityToLocationRefraction);
+	const rfertilizer = findRange(rsoil, temperatureToHumidityRefraction);
+	const rwater = findRange(rfertilizer, lightToTemperatureRefraction);
+	const rlight = findRange(rwater, waterToLightRefraction);
+	const rtemperature = findRange(rlight, fertilizerToWaterRefraction);
+	const rhumidity = findRange(rtemperature, soilToFertilizerRefraction);
+	const rlocation = findRange(rhumidity, seedToSoilRefraction);
+
+	console.log(
+		'location',
+		location,
+		rlocation,
+		mlocation,
+		mrlocation,
+		seedMapper(location),
+		seedMapper(rlocation),
+		seedMapper(mlocation),
+		seedMapper(mrlocation),
+	);
+	return 0;
 };
 
 await task(p2, packageJson.aoc, 'example.1.txt'); // 84470622 ~4.36ms
