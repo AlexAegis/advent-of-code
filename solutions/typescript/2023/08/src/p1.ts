@@ -35,12 +35,7 @@ export const p1 = (input: string): number => {
 
 	while (currentNode.key !== 'ZZZ') {
 		const instruction = instructions[steps % instructions.length];
-		// console.log(
-		// 	'ins',
-		// 	instruction,
-		// 	steps,
-		// 	currentNode.neighbours.valueArray().map((a) => a.to.key),
-		// );
+
 		currentNode = currentNode.neighbours.get(
 			instruction === 'L' ? Direction.WEST : Direction.EAST,
 		)!.to;
@@ -50,4 +45,4 @@ export const p1 = (input: string): number => {
 	return steps;
 };
 
-await task(p1, packageJson.aoc); // 22199 ~0ms
+await task(p1, packageJson.aoc, 'example.1.txt'); // 22199 ~0ms
