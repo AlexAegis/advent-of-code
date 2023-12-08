@@ -33,7 +33,7 @@ enum ParseableData {
 
 const allParseableData = Object.values(ParseableData);
 
-const toRange = (line: string): Range => {
+export const toRange = (line: string): Range => {
 	const [destinationRange, sourceRangeStart, rangeLength] = line.splitToInt();
 	if (
 		destinationRange === undefined ||

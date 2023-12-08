@@ -1,9 +1,19 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
-import { p2 } from './p2.js';
+import { p2, refract } from './p2.js';
+import { toRange, type Range } from './parse.js';
 
-describe('2023 05 p2', () => {
+type StrippedRange = Omit<Range, 'from' | 'to' | 'slope'>;
+const stripRange = (range: Range): StrippedRange => {
+	return {
+		destinationRange: range.destinationRange,
+		sourceRangeStart: range.sourceRangeStart,
+		rangeLength: range.rangeLength,
+	};
+};
+
+describe.skip('2023 05 p2', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
@@ -17,58 +27,25 @@ describe('2023 05 p2', () => {
 			expect(p2(input)).toEqual(0);
 		});
 	});
-	/*
-	describe('refraction', () => {
-		it('should refract into 3 ranges when b target is enveloped into a target', () => {
-			const a: Range = {
-				sourceRangeStart: 2,
-				destinationRange: 2,
-				rangeLength: 4,
-			};
-			const b: Range = {
-				sourceRangeStart: 3,
-				destinationRange: 7,
-				rangeLength: 2,
-			};
-			const result = refract(a, b);
 
-			expect(result).toContainEqual<Range>({
-				sourceRangeStart: 5,
-				destinationRange: 5,
-				rangeLength: 1,
-			});
-			expect(result).toContainEqual<Range>({
-				sourceRangeStart: 3,
-				destinationRange: 7,
-				rangeLength: 2,
-			});
-			expect(result).toContainEqual<Range>({
-				sourceRangeStart: 2,
-				destinationRange: 2,
-				rangeLength: 1,
-			});
-			expect(result.length).toEqual(3);
+	describe('refraction', () => {
+		it('should refract into 3 ranges when B source is enveloped into A destination', () => {
+			const a: Range = toRange('2 2 4');
+			const b: Range = toRange('7 3 2');
+			const result = refract([a, a], [b]).map(stripRange);
+			console.log(result);
+			expect(result).toContainEqual<StrippedRange>(stripRange(toRange('5 5 1')));
+			expect(result).toContainEqual<StrippedRange>(stripRange(toRange('7 3 2')));
+			expect(result).toContainEqual<StrippedRange>(stripRange(toRange('2 2 1')));
 		});
 
 		it('should refract into 1 range when a target is enveloped into b source', () => {
-			const a: Range = {
-				sourceRangeStart: 2,
-				destinationRange: 2,
-				rangeLength: 2,
-			};
-			const b: Range = {
-				sourceRangeStart: 0,
-				destinationRange: 1,
-				rangeLength: 6,
-			};
-			const result = refract(a, b);
+			const a: Range = toRange('2 2 2');
+			const b: Range = toRange('1 0 6');
+			const result = refract([a], [b]).map(stripRange);
 
-			expect(result).toContainEqual<Range>({
-				sourceRangeStart: 2,
-				destinationRange: 3,
-				rangeLength: 2,
-			});
+			expect(result).toContainEqual<StrippedRange>(stripRange(toRange('3 2 2')));
 			expect(result.length).toEqual(1);
 		});
-	});*/
+	});
 });

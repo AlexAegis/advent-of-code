@@ -259,16 +259,13 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		intervals: Interval[],
 		within?: Interval[] | undefined,
 	): Interval[] {
-		let complement = Interval.mergeQualifiedNumbers(
-			Interval.collectAllPoints(intervals).map(Interval.invertQualifiedNumber),
-		);
-
+		let points: QualifiedNumber[] = [];
 		if (within) {
-			complement.push(...within);
-			complement = Interval.merge(complement);
+			points = Interval.collectAllPoints(within);
 		}
+		points.push(...Interval.collectAllPoints(intervals).map(Interval.invertQualifiedNumber));
 
-		return complement;
+		return Interval.mergeQualifiedNumbers(points);
 	}
 
 	static invertQualifiedNumber(this: void, qualifiedNumber: QualifiedNumber): QualifiedNumber {
@@ -562,6 +559,22 @@ export class Interval implements IntervalLike, IntervalQualifier {
 
 	static contains(this: void, interval: IntervalLike, n: number): boolean {
 		return Interval.isAboveLow(interval, n) && Interval.isBelowHigh(interval, n);
+	}
+
+	static equals(this: void, a: IntervalLike | undefined, b: IntervalLike | undefined): boolean {
+		return (
+			(a &&
+				b &&
+				a.low === b.low &&
+				a.high === b.high &&
+				(a.lowQualifier ?? 'open') === (b.lowQualifier ?? 'open') &&
+				(a.highQualifier ?? 'closed') === (b.highQualifier ?? 'closed')) ??
+			false
+		);
+	}
+
+	equals(other: IntervalLike | undefined): boolean {
+		return Interval.equals(this, other);
 	}
 
 	toString(): string {
