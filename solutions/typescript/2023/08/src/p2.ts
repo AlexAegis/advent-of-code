@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Direction, Graph, GraphNode, task } from '@alexaegis/advent-of-code-lib';
+import { Direction, Graph, GraphNode, lcm, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 export const p2 = (input: string): number => {
@@ -28,22 +28,21 @@ export const p2 = (input: string): number => {
 		);
 	});
 
-	const currentNodes = graph.nodeValues.filter((node) => node.key.endsWith('A'));
-	let steps = 0;
+	const startingNodes = graph.nodeValues.filter((node) => node.key.endsWith('A'));
+	const currentNodes = [...startingNodes];
+	const steps = startingNodes.map(() => 0);
 
-	while (!currentNodes.every((currentNode) => currentNode.key.endsWith('Z'))) {
-		const instruction = instructions[steps % instructions.length];
-
-		for (let c = 0; c < currentNodes.length; c++) {
+	for (let c = 0; c < currentNodes.length; c++) {
+		while (!currentNodes[c]!.key.endsWith('Z')) {
+			const instruction = instructions[steps[c]! % instructions.length];
 			currentNodes[c] = currentNodes[c]!.neighbours.get(
 				instruction === 'L' ? Direction.WEST : Direction.EAST,
 			)!.to;
+			steps[c] = steps[c]! + 1;
 		}
-
-		steps++;
 	}
 
-	return steps;
+	return lcm(steps);
 };
 
-await task(p2, packageJson.aoc, 'example.3.txt'); // 0 ~0ms
+await task(p2, packageJson.aoc); // 13334102464297 ~0ms

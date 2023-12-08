@@ -12,13 +12,20 @@ export const task = async <Input extends string | number, Result, Args>(
 	if (process.env['RUN']) {
 		const log = createLogger(taskMetadata);
 		log('starting...');
-		const resources =
+		let resources =
 			typeof resourcesOverride === 'object'
 				? resourcesOverride
 				: ((await loadTaskResources<Args>(
 						taskMetadata,
 						resourcesOverride,
 				  )) as TaskResources<Input, Args>);
+
+		if (process.env['RESOURCE']) {
+			resources = (await loadTaskResources<Args>(
+				taskMetadata,
+				process.env['RESOURCE'],
+			)) as TaskResources<Input, Args>;
+		}
 
 		const result = await benchTask(solution, resources, log);
 		log(`result:\n${String(result)}`);
