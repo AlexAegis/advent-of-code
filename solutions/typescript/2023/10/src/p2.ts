@@ -186,4 +186,4 @@ export const p2 = (input: string): number => {
 	return inside.valueArray().filter((node) => !liminalNodes.has(node)).length ?? -1;
 };
 
-await task(p2, packageJson.aoc); // 435 ~0ms
+await task(p2, packageJson.aoc); // 435 ~1.4s

@@ -19,4 +19,4 @@ export const p1 = (input: string): number => {
 		.first();
 };
 
-await task(p1, packageJson.aoc); // 6733 ~0ms
+await task(p1, packageJson.aoc); // 6733 ~68.44ms
