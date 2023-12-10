@@ -61,6 +61,11 @@
 			"import": "./dist/p2.js",
 			"default": "./dist/p2.js"
 		},
+		"./parse": {
+			"types": "./src/parse.ts",
+			"import": "./dist/parse.js",
+			"default": "./dist/parse.js"
+		},
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
@@ -73,7 +78,7 @@
 		"@alexaegis/vitest": "^0.9.1",
 		"@types/node": "^20.10.4",
 		"benny": "^3.7.1",
-		"vite": "^5.0.6",
-		"vitest": "^1.0.1"
+		"vite": "^5.0.7",
+		"vitest": "^1.0.2"
 	}
 }
