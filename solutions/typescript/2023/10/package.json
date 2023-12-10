@@ -61,11 +61,6 @@
 			"import": "./dist/p2.js",
 			"default": "./dist/p2.js"
 		},
-		"./parse": {
-			"types": "./src/parse.ts",
-			"import": "./dist/parse.js",
-			"default": "./dist/parse.js"
-		},
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
