@@ -2,28 +2,16 @@ import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse, type Range } from './parse.js';
 
-export const getRangeEnd = (range: Range): number => {
-	return range.destinationRange + range.rangeLength;
-};
-
 /**
  * Takes a set of mappings, and reduces the right side to only the effective ones
- *
- *
  */
 export const refract = (left: Range[], right: Range[]): Range[] => {
 	const middleColumn = Interval.merge(left.map((l) => l.to));
-	console.log('middle\t\t', middleColumn.toString());
-	console.log('rightFrom\t', right.map((r) => r.from).toString());
-	console.log('rightTo\t\t', right.map((r) => r.to).toString());
-
-	// first, this is the set of sections that are mapping to another region
-	const reachableRightMappers = right.flatMap<Range>((rightMapper) => {
-		const reachableRightMappers = middleColumn.filterMap((middleSection) =>
-			Interval.intersection(middleSection, rightMapper.from),
-		);
-		return reachableRightMappers.map((reachableRightMapper) => {
-			const res = {
+	// this is the set of sections that are mapping to another region
+	const reachableRightMappers = right.flatMap<Range>((rightMapper) =>
+		middleColumn
+			.filterMap((middleSection) => Interval.intersection(middleSection, rightMapper.from))
+			.map((reachableRightMapper) => ({
 				from: reachableRightMapper,
 				slope: rightMapper.slope,
 				sourceRangeStart: reachableRightMapper.low,
@@ -39,52 +27,22 @@ export const refract = (left: Range[], right: Range[]): Range[] => {
 						lowQualifier: reachableRightMapper.lowQualifier,
 					},
 				),
-			};
-
-			//console.log(
-			//	'INTERSEC',
-			//	rightMapper.from.toString(),
-			//	'->',
-			//	rightMapper.to.toString(),
-			//	'intersection:',
-			//	reachableRightMapper?.toString() ?? 'NONE',
-			//	'=>',
-			//	res?.to.toString(),
-			//);
-			return res;
-		});
-	});
+			})),
+	);
 
 	const nonMapping = Interval.complement(
 		reachableRightMappers.map((r) => r.from),
-		middleColumn.map(
-			(m) =>
-				new Interval(m.low, m.high, {
-					lowQualifier: 'open',
-					highQualifier: 'open',
-				}),
-		),
-	).filter((i) => i.isFinite() && i.length > 0); //.map(i => i.as);
+		middleColumn,
+	).map<Range>((interval) => ({
+		from: interval,
+		to: interval,
+		destinationRange: interval.low,
+		rangeLength: interval.length,
+		slope: 0,
+		sourceRangeStart: interval.low,
+	}));
 
-	// const nonMapping = Interval.complement(reachableRightMappers.map((r) => r.from)).flatMap((i) =>
-	// 	middleColumn.filterMap((m) => i.trim(m)),
-	// );
-	console.log(
-		'nonMapping',
-		nonMapping.map((nm) => nm.toString()),
-	);
-
-	reachableRightMappers.push(
-		...nonMapping.map<Range>((interval) => ({
-			from: interval,
-			to: interval,
-			destinationRange: interval.low,
-			rangeLength: interval.length,
-			slope: 0,
-			sourceRangeStart: interval.low,
-		})),
-	);
-	return reachableRightMappers;
+	return [...reachableRightMappers, ...nonMapping];
 };
 
 export const p2 = (input: string): number => {
@@ -98,20 +56,10 @@ export const p2 = (input: string): number => {
 		slope: 0,
 	}));
 
-	const maps = [
-		data.seedToSoilMap,
-		data.soilToFertilizerMap,
-		data.fertilizerToWaterMap,
-		data.waterToLightMap,
-		data.lightToTemperatureMap,
-		data.temperatureToHumidityMap,
-		data.humidityToLocationMap,
-	];
-
-	return maps
+	return data.maps
 		.reduce((acc, next) => refract(acc, next), seedRanges)
 		.map((range) => range.to.low)
 		.min();
 };
 
-await task(p2, packageJson.aoc); // 26714516 ~4.36ms
+await task(p2, packageJson.aoc); // 26714516 ~0.39ms

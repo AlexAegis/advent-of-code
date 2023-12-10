@@ -96,14 +96,10 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		this.highQualifier = options.highQualifier ?? INTERVAL_ENDPOINT_OPEN_QUALIFIER;
 	}
 
-	// static invertQualifier(qualifier: 'closed'): 'open';
-	// static invertQualifier(qualifier: 'open'): 'closed';
 	static invertQualifier(qualifier: IntervalEndpointQualifier): IntervalEndpointQualifier {
 		return qualifier === 'open' ? 'closed' : 'open';
 	}
 
-	// static invertDesignation(designation: 'high'): 'low';
-	// static invertDesignation(designation: 'low'): 'high';
 	static invertDesignation(
 		designation: IntervalEndpointDesignation,
 	): IntervalEndpointDesignation {
@@ -259,22 +255,15 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		intervals: Interval[],
 		within?: Interval[] | undefined,
 	): Interval[] {
-		let points: QualifiedNumber[] = [];
-		points;
-		if (within) {
-			points = Interval.collectAllSignificantPoints(within);
-		}
-		points.push(
-			...Interval.collectAllSignificantPoints(intervals).map(Interval.invertQualifiedNumber),
+		const points: QualifiedNumber[] = Interval.collectAllSignificantPoints(intervals).map(
+			Interval.invertQualifiedNumber,
 		);
-		points.sort(Interval.compareQualifiedNumber);
 
-		console.log('all points to be merged', points);
+		if (within) {
+			points.push(...Interval.collectAllSignificantPoints(within));
+		}
 
-		const me = Interval.mergeQualifiedNumbers(points);
-		console.log('meee', me);
-		return me.filter((m) => !m.isEmpty());
-		// return within ? within.flatMap((w) => me.filterMap((m) => m.trim(w))) : me;
+		return Interval.mergeQualifiedNumbers(points, true).filter((m) => !m.isEmpty());
 	}
 
 	/**
@@ -379,7 +368,6 @@ export class Interval implements IntervalLike, IntervalQualifier {
 			qualifiedNumbers.sort(Interval.compareQualifiedNumber);
 		}
 
-		console.log('qualifiedNumbers', qualifiedNumbers);
 		const intervalStartStack: QualifiedNumber[] = [];
 		if (qualifiedNumbers[0]?.originalDesignation === 'high') {
 			intervalStartStack.push({
@@ -391,22 +379,17 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		}
 		for (const qualifiedNumber of qualifiedNumbers) {
 			if (qualifiedNumber.originalDesignation === 'low') {
-				console.log('000ASHGS222AFA');
-
 				intervalStartStack.push(qualifiedNumber);
 			} else if (
 				qualifiedNumber.originalDesignation === 'high' &&
 				intervalStartStack.length > 0
 			) {
-				console.log('1111ASHGS222AFA');
-
 				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				const matchingLow = intervalStartStack.shift()!;
 				const next = new Interval(matchingLow.value, qualifiedNumber.value, {
 					lowQualifier: matchingLow.lowQualifier,
 					highQualifier: qualifiedNumber.highQualifier,
 				});
-				console.log('ASDASDW@222', next);
 				if (!next.isEmpty()) {
 					result.push(next);
 				}
@@ -414,7 +397,6 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		}
 		const last = qualifiedNumbers.at(-1);
 		if (last?.originalDesignation === 'low') {
-			console.log('LASTINIFIFNIFNIF', last);
 			result.push(
 				new Interval(last.value, Number.POSITIVE_INFINITY, {
 					lowQualifier: last.lowQualifier,

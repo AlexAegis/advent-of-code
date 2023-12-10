@@ -444,8 +444,6 @@ describe('Interval', () => {
 				},
 			]);
 
-			console.log(interval);
-
 			expect(interval.length).toEqual(0);
 		});
 	});
@@ -487,7 +485,6 @@ describe('Interval', () => {
 
 		it('should return the two edges when trying to completement an open interval within its closed counterpart ', () => {
 			const complement = Interval.complement([Interval.open(0, 4)], [Interval.closed(0, 4)]);
-			console.log(complement);
 			expect(complement.length).toEqual(2);
 			expect(complement[0]).toEqual<Interval>(Interval.closed(0, 0));
 			expect(complement[1]).toEqual<Interval>(Interval.closed(4, 4));
@@ -498,7 +495,7 @@ describe('Interval', () => {
 				[Interval.closed(0, 4)],
 				[Interval.closed(0, 4)],
 			);
-			console.log(complement);
+
 			expect(complement.length).toEqual(0);
 		});
 

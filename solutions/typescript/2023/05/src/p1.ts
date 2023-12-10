@@ -20,4 +20,4 @@ export const p1 = (input: string): number => {
 	return data.seeds.map(mapSeed(data)).min();
 };
 
-await task(p1, packageJson.aoc); // 84470622 ~4.36ms
+await task(p1, packageJson.aoc); // 84470622 ~0.11ms
