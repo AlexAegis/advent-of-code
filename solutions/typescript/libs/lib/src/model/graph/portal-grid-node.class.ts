@@ -39,11 +39,13 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 			)?.[1] as this | undefined;
 			const portal = this.portal();
 			if (node && portal) {
+				const direction = this.portalLabel as unknown as Direction;
 				const forwardEdge = this.neighbours.getOrAdd(
 					this.portalLabel as unknown as Direction,
 					() => ({
 						from: this,
 						to: node,
+						direction,
 					}),
 				);
 				const backEdge = node.neighbours.getOrAdd(
@@ -51,6 +53,7 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 					() => ({
 						from: node,
 						to: this,
+						direction,
 					}),
 				);
 
@@ -59,10 +62,10 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 				graph.edges.add(forwardEdge);
 				//graph.edges.add(backEdge);
 				if (weighter) {
-					forwardEdge.weight = weighter(this, node);
-					backEdge.weight = weighter(node, this);
-					forwardEdge.weighter = () => weighter(this, node);
-					backEdge.weighter = () => weighter(node, this);
+					forwardEdge.weight = weighter(this, node, direction);
+					backEdge.weight = weighter(node, this, direction);
+					forwardEdge.weighter = () => weighter(this, node, direction);
+					backEdge.weighter = () => weighter(node, this, direction);
 				}
 			}
 		}

@@ -404,4 +404,11 @@ export class Vec2 implements Vec2Like {
 		this.y = fn(this.y);
 		return this;
 	}
+
+	public middle(o: Vec2Like): Vec2 {
+		const result = this.add(o);
+		result.x = result.x / 2;
+		result.y = result.y / 2;
+		return result;
+	}
 }

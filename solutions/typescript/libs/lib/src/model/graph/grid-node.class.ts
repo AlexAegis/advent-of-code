@@ -4,7 +4,7 @@ import type { ToString } from '../to-string.interface.js';
 import { Vec2 } from '../vector/vec2.class.js';
 import type { Edge } from './edge.type.js';
 import type { Graph } from './graph.class.js';
-import type { Weighter } from './heuristic.type.js';
+import type { ConnectionFilter, Weighter } from './heuristic.type.js';
 import { GraphNode } from './node.class.js';
 
 Vec2.ORIGIN;
@@ -107,9 +107,9 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 	}
 
 	public calculateWeights(weighter: Weighter<this>) {
-		this.neighbours.forEach((edge) => {
-			edge.weight = weighter(this, edge.to);
-			edge.weighter = () => weighter(this, edge.to);
+		this.neighbours.forEach((edge, direction) => {
+			edge.weight = weighter(this, edge.to, direction);
+			edge.weighter = () => weighter(this, edge.to, direction);
 		});
 	}
 
@@ -117,18 +117,23 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 		graph: Graph<T, Direction, this>,
 		directions = Direction.cardinalDirections,
 		weighter?: Weighter<this>,
+		connectionFilter?: ConnectionFilter<this>,
 	): void {
 		for (const dir of directions) {
 			const node = graph.nodes.get(this.coordinate.clone().add(dir).toString());
 			const reverse = dir.turn(180);
-			if (node) {
+			const connectionEnabled =
+				connectionFilter && node ? connectionFilter?.(this, node, dir) : true;
+			if (node && connectionEnabled) {
 				const forwardEdge = this.neighbours.getOrAdd(dir, () => ({
 					from: this,
 					to: node,
+					direction: dir,
 				}));
 				const backEdge = node.neighbours.getOrAdd(reverse, () => ({
 					from: node,
 					to: this,
+					direction: reverse,
 				}));
 				forwardEdge.to = node;
 				backEdge.to = this;
@@ -136,10 +141,10 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 				graph.edges.add(backEdge);
 				if (weighter) {
 					this.calculateWeights(weighter);
-					forwardEdge.weight = weighter(this, node);
-					backEdge.weight = weighter(node, this);
-					forwardEdge.weighter = () => weighter(this, node);
-					backEdge.weighter = () => weighter(node, this);
+					forwardEdge.weight = weighter(this, node, dir);
+					backEdge.weight = weighter(node, this, reverse);
+					forwardEdge.weighter = () => weighter(this, node, dir);
+					backEdge.weighter = () => weighter(node, this, reverse);
 				}
 			}
 		}

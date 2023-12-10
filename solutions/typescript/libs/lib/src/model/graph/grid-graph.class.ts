@@ -13,12 +13,13 @@ import { Vec2 } from '../vector/vec2.class.js';
 import type { Vec2Like, Vec2String } from '../vector/vec2.class.types.js';
 import { Graph } from './graph.class.js';
 import { GridGraphNode } from './grid-node.class.js';
-import type { Weighter } from './heuristic.type.js';
+import type { ConnectionFilter, Weighter } from './heuristic.type.js';
 import { PortalGridNode } from './portal-grid-node.class.js';
 
 export interface GridGraphOptions<T extends ToString> {
 	weighter?: Weighter<GridGraphNode<T>>;
 	connectionDirections?: readonly Readonly<Direction>[];
+	connectionFilter?: ConnectionFilter<GridGraphNode<T>>;
 	ignoreNodes?: (s: string) => boolean;
 }
 
@@ -38,6 +39,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		return {
 			connectionDirections: Direction.cardinalDirections,
 			ignoreNodes: (s) => s === ' ',
+			connectionFilter: (_a: GridGraphNode<T>, _b: GridGraphNode<T>) => true,
 			weighter: (a: GridGraphNode<T>, b: GridGraphNode<T>) =>
 				a.value === b.value ? 0 : Number.POSITIVE_INFINITY,
 			...gridGraphOptions,
@@ -66,7 +68,8 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		matrix: T[][],
 		options?: GridGraphOptions<T>,
 	): GridGraph<T> {
-		const { connectionDirections, weighter } = GridGraph.fillDefaultGridGraphOptions(options);
+		const { connectionDirections, weighter, connectionFilter } =
+			GridGraph.fillDefaultGridGraphOptions(options);
 
 		const graph = new GridGraph<T>();
 		for (let y = 0; y < matrix.length; y++) {
@@ -76,7 +79,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 					const value = row[x];
 					if (isNotNullish(value)) {
 						const node = new GridGraphNode<T>(new Vec2(x, y), value);
-						graph.addNode(node, weighter, connectionDirections);
+						graph.addNode(node, weighter, connectionFilter, connectionDirections);
 					}
 				}
 			}
@@ -94,7 +97,12 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		const graph = new GridGraph<T>();
 		for (const [k, v] of map.entries()) {
 			const node = new GridGraphNode<T>(new Vec2(k), v);
-			graph.addNode(node, options?.weighter, options?.connectionDirections);
+			graph.addNode(
+				node,
+				options?.weighter,
+				options?.connectionFilter,
+				options?.connectionDirections,
+			);
 		}
 		return graph;
 	}
@@ -132,10 +140,11 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	public addNode(
 		node: N,
 		weighter?: Weighter<N>,
+		connectionFilter?: ConnectionFilter<N>,
 		connectionDirections: readonly Readonly<Direction>[] = Direction.cardinalDirections,
 	): N {
 		this.nodes.set(node.coordinate.toString(), node);
-		node.attachNeightbours(this, connectionDirections, weighter);
+		node.attachNeightbours(this, connectionDirections, weighter, connectionFilter);
 		return node;
 	}
 
@@ -160,11 +169,13 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 					from: first,
 					to: last,
 					weight: weighter(first, last),
+					direction: Direction.NORTH,
 				});
 				last.neighbours.set(Direction.SOUTH, {
 					from: last,
 					to: first,
 					weight: weighter(last, first),
+					direction: Direction.SOUTH,
 				});
 			}
 		}
@@ -178,11 +189,13 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 					from: first,
 					to: last,
 					weight: weighter(first, last),
+					direction: Direction.WEST,
 				});
 				last.neighbours.set(Direction.EAST, {
 					from: last,
 					to: first,
 					weight: weighter(last, first),
+					direction: Direction.EAST,
 				});
 			}
 		}
