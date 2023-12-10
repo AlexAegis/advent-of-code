@@ -1,7 +1,6 @@
 import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
-import { mapSeed } from './p1.js';
-import { findRange, parse, type Range } from './parse.js';
+import { parse, type Range } from './parse.js';
 
 export const getRangeEnd = (range: Range): number => {
 	return range.destinationRange + range.rangeLength;
@@ -13,53 +12,69 @@ export const getRangeEnd = (range: Range): number => {
  *
  */
 export const refract = (left: Range[], right: Range[]): Range[] => {
-	const middle = Interval.merge(left.map((l) => l.to));
-	console.log('middle', middle.toString());
+	const middleColumn = Interval.merge(left.map((l) => l.to));
+	console.log('middle\t\t', middleColumn.toString());
+	console.log('rightFrom\t', right.map((r) => r.from).toString());
+	console.log('rightTo\t\t', right.map((r) => r.to).toString());
+
 	// first, this is the set of sections that are mapping to another region
-	const results = right.flatMap<Range>((r) => {
-		const intersecitons = middle.filterMap((m) => Interval.intersection(m, r.from));
+	const reachableRightMappers = right.flatMap<Range>((rightMapper) => {
+		const reachableRightMappers = middleColumn.filterMap((middleSection) =>
+			Interval.intersection(middleSection, rightMapper.from),
+		);
+		return reachableRightMappers.map((reachableRightMapper) => {
+			const res = {
+				from: reachableRightMapper,
+				slope: rightMapper.slope,
+				sourceRangeStart: reachableRightMapper.low,
+				destinationRange: reachableRightMapper.low + rightMapper.slope,
+				rangeLength:
+					reachableRightMapper.length -
+					(reachableRightMapper.highQualifier === 'closed' ? 1 : 0),
+				to: new Interval(
+					reachableRightMapper.low + rightMapper.slope,
+					reachableRightMapper.high + rightMapper.slope,
+					{
+						highQualifier: reachableRightMapper.highQualifier,
+						lowQualifier: reachableRightMapper.lowQualifier,
+					},
+				),
+			};
 
-		return intersecitons.filterMap((intersection) => {
-			const res = intersection
-				? {
-						from: intersection,
-						slope: r.slope,
-						sourceRangeStart: intersection.low,
-						destinationRange: intersection.low + r.slope,
-						rangeLength:
-							intersection.length - (intersection.highQualifier === 'closed' ? 1 : 0),
-						to: new Interval(intersection.low + r.slope, intersection.high + r.slope, {
-							highQualifier: intersection.highQualifier,
-							lowQualifier: intersection.lowQualifier,
-						}),
-				  }
-				: undefined;
-
-			console.log(
-				'INTERSEC',
-				r.from.toString(),
-				'->',
-				r.to.toString(),
-				'intersection:',
-				intersection?.toString() ?? 'NONE',
-				'=>',
-				res?.to.toString(),
-			);
+			//console.log(
+			//	'INTERSEC',
+			//	rightMapper.from.toString(),
+			//	'->',
+			//	rightMapper.to.toString(),
+			//	'intersection:',
+			//	reachableRightMapper?.toString() ?? 'NONE',
+			//	'=>',
+			//	res?.to.toString(),
+			//);
 			return res;
 		});
 	});
 
 	const nonMapping = Interval.complement(
-		results.map((r) => r.from),
-		middle.map((m) => Interval.open(m.low, m.high)),
-	).filter((i) => i.isFinite() && i.length > 0);
+		reachableRightMappers.map((r) => r.from),
+		middleColumn.map(
+			(m) =>
+				new Interval(m.low, m.high, {
+					lowQualifier: 'open',
+					highQualifier: 'open',
+				}),
+		),
+	).filter((i) => i.isFinite() && i.length > 0); //.map(i => i.as);
 
+	// const nonMapping = Interval.complement(reachableRightMappers.map((r) => r.from)).flatMap((i) =>
+	// 	middleColumn.filterMap((m) => i.trim(m)),
+	// );
 	console.log(
 		'nonMapping',
 		nonMapping.map((nm) => nm.toString()),
 	);
 
-	results.push(
+	reachableRightMappers.push(
 		...nonMapping.map<Range>((interval) => ({
 			from: interval,
 			to: interval,
@@ -69,7 +84,7 @@ export const refract = (left: Range[], right: Range[]): Range[] => {
 			sourceRangeStart: interval.low,
 		})),
 	);
-	return results;
+	return reachableRightMappers;
 };
 
 export const p2 = (input: string): number => {
@@ -83,97 +98,20 @@ export const p2 = (input: string): number => {
 		slope: 0,
 	}));
 
-	console.log(
-		'seedRanges\n',
-		seedRanges.map((r) => `\t\tfrom: ${r.from.toString()} to: ${r.to.toString()}`).join('\n'),
-	);
-
-	const seedToSoilRefraction = refract(seedRanges, data.seedToSoilMap);
-
-	console.log(
-		'seedToSoilRefraction\n',
-		seedToSoilRefraction
-			.map((r) => `\t\tfrom: ${r.from.toString()} to: ${r.to.toString()}`)
-			.join('\n'),
-	);
-
-	const soilToFertilizerRefraction = refract(seedToSoilRefraction, data.soilToFertilizerMap);
-
-	const fertilizerToWaterRefraction = refract(
-		soilToFertilizerRefraction,
+	const maps = [
+		data.seedToSoilMap,
+		data.soilToFertilizerMap,
 		data.fertilizerToWaterMap,
-	);
-
-	const waterToLightRefraction = refract(fertilizerToWaterRefraction, data.waterToLightMap);
-
-	const lightToTemperatureRefraction = refract(
-		waterToLightRefraction,
+		data.waterToLightMap,
 		data.lightToTemperatureMap,
-	);
-
-	const temperatureToHumidityRefraction = refract(
-		lightToTemperatureRefraction,
 		data.temperatureToHumidityMap,
-	);
-
-	const humidityToLocationRefraction = refract(
-		temperatureToHumidityRefraction,
 		data.humidityToLocationMap,
-	);
+	];
 
-	const result = humidityToLocationRefraction.map((range) => range.sourceRangeStart).min();
-
-	const seedMapper = mapSeed(data);
-	const mapped = seedMapper(result);
-	console.log('result', result, 'mapped', mapped);
-
-	const msoil = findRange(mapped, seedToSoilRefraction);
-	const mfertilizer = findRange(msoil, soilToFertilizerRefraction);
-	const mwater = findRange(mfertilizer, fertilizerToWaterRefraction);
-	const mlight = findRange(mwater, waterToLightRefraction);
-	const mtemperature = findRange(mlight, lightToTemperatureRefraction);
-	const mhumidity = findRange(mtemperature, temperatureToHumidityRefraction);
-	const mlocation = findRange(mhumidity, humidityToLocationRefraction);
-
-	const mrsoil = findRange(mapped, humidityToLocationRefraction);
-	const mrfertilizer = findRange(mrsoil, temperatureToHumidityRefraction);
-	const mrwater = findRange(mrfertilizer, lightToTemperatureRefraction);
-	const mrlight = findRange(mrwater, waterToLightRefraction);
-	const mrtemperature = findRange(mrlight, fertilizerToWaterRefraction);
-	const mrhumidity = findRange(mrtemperature, soilToFertilizerRefraction);
-	const mrlocation = findRange(mrhumidity, seedToSoilRefraction);
-
-	const soil = findRange(result, seedToSoilRefraction);
-	const fertilizer = findRange(soil, soilToFertilizerRefraction);
-	const water = findRange(fertilizer, fertilizerToWaterRefraction);
-	const light = findRange(water, waterToLightRefraction);
-	const temperature = findRange(light, lightToTemperatureRefraction);
-	const humidity = findRange(temperature, temperatureToHumidityRefraction);
-	const location = findRange(humidity, humidityToLocationRefraction);
-
-	const rsoil = findRange(result, humidityToLocationRefraction);
-	const rfertilizer = findRange(rsoil, temperatureToHumidityRefraction);
-	const rwater = findRange(rfertilizer, lightToTemperatureRefraction);
-	const rlight = findRange(rwater, waterToLightRefraction);
-	const rtemperature = findRange(rlight, fertilizerToWaterRefraction);
-	const rhumidity = findRange(rtemperature, soilToFertilizerRefraction);
-	const rlocation = findRange(rhumidity, seedToSoilRefraction);
-
-	console.log(
-		'location',
-		location,
-		rlocation,
-		mlocation,
-		mrlocation,
-		seedMapper(location),
-		seedMapper(rlocation),
-		seedMapper(mlocation),
-		seedMapper(mrlocation),
-	);
-	return 0;
+	return maps
+		.reduce((acc, next) => refract(acc, next), seedRanges)
+		.map((range) => range.to.low)
+		.min();
 };
 
-await task(p2, packageJson.aoc, 'example.1.txt'); // 84470622 ~4.36ms
-
-// await task(p2, packageJson.aoc); // 84470622 ~4.36ms
-// is too high 4194961753
+await task(p2, packageJson.aoc); // 26714516 ~4.36ms

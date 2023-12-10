@@ -14,8 +14,16 @@ export const parse = (input: string): [Graph<number>, string[]] => {
 		const graphNode = graph.nodes.getOrAdd(key, (key) => new GraphNode(key, 0));
 		const leftNode = graph.nodes.getOrAdd(leftGate, (key) => new GraphNode(key, 0));
 		const rightNode = graph.nodes.getOrAdd(rightGate, (key) => new GraphNode(key, 0));
-		graphNode.neighbours.set(Direction.WEST, { from: graphNode, to: leftNode });
-		graphNode.neighbours.set(Direction.EAST, { from: graphNode, to: rightNode });
+		graphNode.neighbours.set(Direction.WEST, {
+			from: graphNode,
+			to: leftNode,
+			direction: Direction.WEST,
+		});
+		graphNode.neighbours.set(Direction.EAST, {
+			from: graphNode,
+			to: rightNode,
+			direction: Direction.EAST,
+		});
 		graph.nodes.set(key, graphNode);
 	}
 

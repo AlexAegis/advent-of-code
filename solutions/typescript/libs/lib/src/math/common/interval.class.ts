@@ -260,40 +260,111 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		within?: Interval[] | undefined,
 	): Interval[] {
 		let points: QualifiedNumber[] = [];
+		points;
 		if (within) {
-			points = Interval.collectAllPoints(within);
+			points = Interval.collectAllSignificantPoints(within);
 		}
-		points.push(...Interval.collectAllPoints(intervals).map(Interval.invertQualifiedNumber));
+		points.push(
+			...Interval.collectAllSignificantPoints(intervals).map(Interval.invertQualifiedNumber),
+		);
+		points.sort(Interval.compareQualifiedNumber);
 
-		return Interval.mergeQualifiedNumbers(points);
+		console.log('all points to be merged', points);
+
+		const me = Interval.mergeQualifiedNumbers(points);
+		console.log('meee', me);
+		return me.filter((m) => !m.isEmpty());
+		// return within ? within.flatMap((w) => me.filterMap((m) => m.trim(w))) : me;
+	}
+
+	/**
+	 * An interval is empty if both its high and low values are the same, and
+	 * it's not a closed interval
+	 */
+	static isEmpty(this: void, interval: IntervalLike): boolean {
+		return (
+			interval.low === interval.high &&
+			(interval.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER ||
+				interval.highQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER)
+		);
+	}
+
+	isEmpty(): boolean {
+		return Interval.isEmpty(this);
+	}
+
+	/**
+	 * Returns this interval trimmed into another, using the lowest high value
+	 * and the highest low value.
+	 *
+	 * If the interval is completely enveloped, it is simply returned.
+	 *
+	 * If there is no intersection, undefined is returned.
+	 */
+	static trim(this: void, interval: Interval, within: Interval): Interval | undefined {
+		if (interval.isAfterOf(within) || interval.isBeforeOf(within)) {
+			return undefined;
+		} else if (within.envelops(interval)) {
+			return interval;
+		} else {
+			let low = interval.low;
+			let lowQualifier = interval.lowQualifier;
+			if (interval.low < within.low) {
+				low = within.low;
+				lowQualifier = within.lowQualifier;
+			}
+
+			let high = interval.high;
+			let highQualifier = interval.highQualifier;
+			if (interval.high > within.high) {
+				high = within.high;
+				highQualifier = within.highQualifier;
+			}
+
+			return new Interval(low, high, { lowQualifier, highQualifier });
+		}
+	}
+
+	/**
+	 * Returns this interval trimmed into another, using the lowest high value
+	 * and the highest low value.
+	 *
+	 * If the interval is completely enveloped, it is simply returned.
+	 *
+	 * If there is no intersection, undefined is returned.
+	 */
+	trim(within: Interval): Interval | undefined {
+		return Interval.trim(this, within);
 	}
 
 	static invertQualifiedNumber(this: void, qualifiedNumber: QualifiedNumber): QualifiedNumber {
 		return {
 			value: qualifiedNumber.value,
 			originalDesignation: Interval.invertDesignation(qualifiedNumber.originalDesignation),
-			highQualifier: Interval.invertQualifier(qualifiedNumber.highQualifier),
-			lowQualifier: Interval.invertQualifier(qualifiedNumber.lowQualifier),
+			highQualifier: qualifiedNumber.highQualifier,
+			lowQualifier: qualifiedNumber.lowQualifier,
 		};
 	}
 
-	static collectAllPoints(this: void, intervals: Interval[]): QualifiedNumber[] {
+	static collectAllSignificantPoints(this: void, intervals: Interval[]): QualifiedNumber[] {
 		const result: QualifiedNumber[] = [];
 		for (const interval of intervals) {
-			result.push(
-				{
-					originalDesignation: 'low',
-					value: interval.low,
-					lowQualifier: interval.lowQualifier,
-					highQualifier: Interval.invertQualifier(interval.lowQualifier),
-				},
-				{
-					originalDesignation: 'high',
-					value: interval.high,
-					lowQualifier: Interval.invertQualifier(interval.highQualifier),
-					highQualifier: interval.highQualifier,
-				},
-			);
+			if (!interval.isEmpty()) {
+				result.push(
+					{
+						originalDesignation: 'low',
+						value: interval.low,
+						lowQualifier: interval.lowQualifier,
+						highQualifier: Interval.invertQualifier(interval.lowQualifier),
+					},
+					{
+						originalDesignation: 'high',
+						value: interval.high,
+						lowQualifier: Interval.invertQualifier(interval.highQualifier),
+						highQualifier: interval.highQualifier,
+					},
+				);
+			}
 		}
 		return result.sort(Interval.compareQualifiedNumber);
 	}
@@ -308,6 +379,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 			qualifiedNumbers.sort(Interval.compareQualifiedNumber);
 		}
 
+		console.log('qualifiedNumbers', qualifiedNumbers);
 		const intervalStartStack: QualifiedNumber[] = [];
 		if (qualifiedNumbers[0]?.originalDesignation === 'high') {
 			intervalStartStack.push({
@@ -319,23 +391,30 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		}
 		for (const qualifiedNumber of qualifiedNumbers) {
 			if (qualifiedNumber.originalDesignation === 'low') {
+				console.log('000ASHGS222AFA');
+
 				intervalStartStack.push(qualifiedNumber);
 			} else if (
 				qualifiedNumber.originalDesignation === 'high' &&
 				intervalStartStack.length > 0
 			) {
+				console.log('1111ASHGS222AFA');
+
 				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				const matchingNumber = intervalStartStack.shift()!;
-				result.push(
-					new Interval(matchingNumber.value, qualifiedNumber.value, {
-						lowQualifier: matchingNumber.lowQualifier,
-						highQualifier: qualifiedNumber.highQualifier,
-					}),
-				);
+				const matchingLow = intervalStartStack.shift()!;
+				const next = new Interval(matchingLow.value, qualifiedNumber.value, {
+					lowQualifier: matchingLow.lowQualifier,
+					highQualifier: qualifiedNumber.highQualifier,
+				});
+				console.log('ASDASDW@222', next);
+				if (!next.isEmpty()) {
+					result.push(next);
+				}
 			}
 		}
 		const last = qualifiedNumbers.at(-1);
 		if (last?.originalDesignation === 'low') {
+			console.log('LASTINIFIFNIFNIF', last);
 			result.push(
 				new Interval(last.value, Number.POSITIVE_INFINITY, {
 					lowQualifier: last.lowQualifier,
@@ -369,14 +448,14 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	/**
-	 * This takes openness into account
+	 * Lowest possible integer number. This takes openness into account. low or low + 1 when open
 	 */
 	lowest(): number {
 		return this.lowQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER ? this.low : this.low + 1;
 	}
 
 	/**
-	 * This takes openness into account, i
+	 * Highest possible integer number, this takes openness into account, high, or high - 1 when open
 	 */
 	highest(): number {
 		return this.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
@@ -384,40 +463,62 @@ export class Interval implements IntervalLike, IntervalQualifier {
 			: this.high - 1;
 	}
 
+	/**
+	 * Checks if a single value is above the high value
+	 */
 	static isTooHigh(interval: IntervalLike, n: number): boolean {
-		// ? Check for closedness as the high qualifier is open by default
 		return interval.highQualifier === INTERVAL_ENDPOINT_CLOSED_QUALIFIER
 			? interval.high < n
 			: interval.high <= n;
 	}
 
+	/**
+	 * Checks if a single value is not above the high value
+	 */
 	static isBelowHigh(interval: IntervalLike, n: number): boolean {
 		return !Interval.isTooHigh(interval, n);
 	}
 
+	/**
+	 * Checks if a single value is below the low value of the interval
+	 */
 	static isTooLow(interval: IntervalLike, n: number): boolean {
-		// ? Check for openness as the low qualifier is closed by default
 		return interval.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
 			? n <= interval.low
 			: n < interval.low;
 	}
 
+	/**
+	 * Checks if a single value is not below the low value of the interval
+	 */
 	static isAboveLow(interval: IntervalLike, n: number): boolean {
 		return !Interval.isTooLow(interval, n);
 	}
 
+	/**
+	 * Checks if a single value is above the high value
+	 */
 	isTooHigh(n: number): boolean {
 		return Interval.isTooHigh(this, n);
 	}
 
+	/**
+	 * Checks if a single value is not above the high value
+	 */
 	isBelowHigh(n: number): boolean {
 		return Interval.isBelowHigh(this, n);
 	}
 
+	/**
+	 * Checks if a single value is below the low value of the interval
+	 */
 	isTooLow(n: number): boolean {
 		return Interval.isTooLow(this, n);
 	}
 
+	/**
+	 * Checks if a single value is not below the low value of the interval
+	 */
 	isAboveLow(n: number): boolean {
 		return Interval.isAboveLow(this, n);
 	}
@@ -433,17 +534,50 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	/**
-	 * TODO: Openness
+	 * Checks if the first parameter is completely enveloped by the second
 	 */
-	isBeforeOf(other: Interval): boolean {
-		return this.low <= other.low && this.high <= other.low;
+	static envelops(this: void, a: IntervalLike, b: IntervalLike): boolean {
+		return (
+			Interval.isAboveLow(b, a.low) &&
+			Interval.isAboveLow(b, a.high) &&
+			Interval.isBelowHigh(b, a.low) &&
+			Interval.isBelowHigh(b, a.high)
+		);
 	}
 
 	/**
-	 * TODO: Openness
+	 * Checks if this interal is completely enveloped by the one passed in
+	 */
+	envelops(other: IntervalLike): boolean {
+		return Interval.envelops(this, other);
+	}
+
+	/**
+	 * Returns if the first parameter is completely above of the second parameter
+	 */
+	static isAfterOf(this: void, a: IntervalLike, b: IntervalLike): boolean {
+		return Interval.isTooHigh(b, a.low) && Interval.isTooHigh(b, a.high);
+	}
+
+	/**
+	 * Returns if the first parameter is completely above of the second parameter
+	 */
+	static isBeforeOf(this: void, a: IntervalLike, b: IntervalLike): boolean {
+		return Interval.isTooLow(b, a.low) && Interval.isTooLow(b, a.high);
+	}
+
+	/**
+	 * Checks if an interval is completely below another
+	 */
+	isBeforeOf(other: Interval): boolean {
+		return Interval.isBeforeOf(this, other);
+	}
+
+	/**
+	 * Checks if an interval is completely above another
 	 */
 	isAfterOf(other: Interval): boolean {
-		return other.high <= this.low && other.high <= this.high;
+		return Interval.isAfterOf(this, other);
 	}
 
 	clone(): Interval {
@@ -513,17 +647,24 @@ export class Interval implements IntervalLike, IntervalQualifier {
 	}
 
 	/**
+	 * a low designation comes before the high designation
+	 */
+	static compareEndpointDesignation(
+		this: void,
+		a: IntervalEndpointDesignation,
+		b: IntervalEndpointDesignation,
+	): number {
+		return a === b ? 0 : a === 'low' ? -1 : 1;
+	}
+
+	/**
 	 * Comparator, comparing qualified numbers
 	 *
 	 * For the low end, closed comes earlier
 	 */
 	static compareQualifiedNumber(this: void, a: QualifiedNumber, b: QualifiedNumber): number {
-		// Check for openness because the default for the highQualifier
-		// when it's not defined is CLOSED
 		return a.value === b.value
-			? a.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER
-				? 1
-				: -1
+			? Interval.compareEndpointDesignation(a.originalDesignation, b.originalDesignation)
 			: a.value - b.value;
 	}
 
@@ -575,6 +716,50 @@ export class Interval implements IntervalLike, IntervalQualifier {
 
 	equals(other: IntervalLike | undefined): boolean {
 		return Interval.equals(this, other);
+	}
+
+	/**
+	 *
+	 * @returns a copy of this interval with both endpoint qualifiers being closed
+	 */
+	asClosed(): Interval {
+		return new Interval(this.low, this.high, {
+			lowQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+			highQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+		});
+	}
+
+	/**
+	 *
+	 * @returns a copy of this interval with the low endpoint qualifier being closed and the high open
+	 */
+	asClosedOpen(): Interval {
+		return new Interval(this.low, this.high, {
+			lowQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+			highQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+		});
+	}
+
+	/**
+	 *
+	 * @returns a copy of this interval with both endpoint qualifiers being open
+	 */
+	asOpen(): Interval {
+		return new Interval(this.low, this.high, {
+			lowQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+			highQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+		});
+	}
+
+	/**
+	 *
+	 * @returns a copy of this interval with the low endpoint qualifier being open and the high closed
+	 */
+	asOpenClosed(): Interval {
+		return new Interval(this.low, this.high, {
+			lowQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+			highQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+		});
 	}
 
 	toString(): string {
