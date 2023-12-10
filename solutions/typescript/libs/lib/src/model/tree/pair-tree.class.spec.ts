@@ -22,11 +22,9 @@ describe('pair tree', () => {
 			const leftTree = PairTree.fromNestedPairs([1, [2, 3]]);
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const subTree = leftTree.findNode(2)!;
-			console.log(subTree);
 			const rightTree = PairTree.fromNestedPairs([4, 5]);
 			const newNode = subTree.join(rightTree);
 			expect(newNode.parent).to.not.be.undefined;
-			console.log(leftTree.toString());
 			expect(leftTree.toString()).toEqual('[1,[[2,3],[4,5]]]');
 		});
 	});

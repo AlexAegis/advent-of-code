@@ -282,7 +282,7 @@ describe('Interval', () => {
 
 	describe('collectAllPoints', () => {
 		it('should destructure a list of intervals into thier individual points, sorted', () => {
-			const points = Interval.collectAllPoints([
+			const points = Interval.collectAllSignificantPoints([
 				Interval.closed(1, 4),
 				Interval.closed(2, 5),
 			]);
@@ -312,6 +312,62 @@ describe('Interval', () => {
 			});
 
 			expect(points.length).toEqual(4);
+		});
+
+		it('should destructure an empty interval into no points', () => {
+			const points = Interval.collectAllSignificantPoints([Interval.openClosed(1, 1)]);
+			expect(points.length).toEqual(0);
+		});
+
+		it('should destructure a single interval into two points', () => {
+			const points = Interval.collectAllSignificantPoints([Interval.closed(1, 2)]);
+			expect(points.length).toEqual(2);
+
+			expect(points[0]).toEqual<QualifiedNumber>({
+				value: 1,
+				lowQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+				highQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+				originalDesignation: 'low',
+			});
+			expect(points[1]).toEqual<QualifiedNumber>({
+				value: 2,
+				lowQualifier: INTERVAL_ENDPOINT_OPEN_QUALIFIER,
+				highQualifier: INTERVAL_ENDPOINT_CLOSED_QUALIFIER,
+				originalDesignation: 'high',
+			});
+		});
+	});
+
+	describe('sorting qualified numbers', () => {
+		it('should, sort numbers first, then original destinations, then qualifiers', () => {
+			const first: QualifiedNumber = {
+				originalDesignation: 'low',
+				value: 0,
+				lowQualifier: 'closed',
+				highQualifier: 'open',
+			};
+			const second: QualifiedNumber = {
+				value: 0,
+				originalDesignation: 'high',
+				highQualifier: 'open',
+				lowQualifier: 'closed',
+			};
+			const third: QualifiedNumber = {
+				value: 4,
+				originalDesignation: 'low',
+				highQualifier: 'closed',
+				lowQualifier: 'open',
+			};
+			const fourth: QualifiedNumber = {
+				originalDesignation: 'high',
+				value: 4,
+				lowQualifier: 'open',
+				highQualifier: 'closed',
+			};
+
+			const points: QualifiedNumber[] = [first, third, second, fourth];
+			points.sort(Interval.compareQualifiedNumber);
+			expect(points).toEqual([first, second, third, fourth]);
 		});
 	});
 
@@ -371,6 +427,27 @@ describe('Interval', () => {
 				}),
 			]);
 		});
+
+		it('should not merge qualifiers that would become empty', () => {
+			const interval = Interval.mergeQualifiedNumbers([
+				{
+					value: 1,
+					originalDesignation: 'low',
+					lowQualifier: 'open',
+					highQualifier: 'closed',
+				},
+				{
+					value: 1,
+					originalDesignation: 'high',
+					lowQualifier: 'closed',
+					highQualifier: 'open',
+				},
+			]);
+
+			console.log(interval);
+
+			expect(interval.length).toEqual(0);
+		});
 	});
 
 	describe('complement', () => {
@@ -380,12 +457,12 @@ describe('Interval', () => {
 			expect(complement[0]).toEqual(
 				new Interval(Number.NEGATIVE_INFINITY, 0, {
 					lowQualifier: 'open',
-					highQualifier: 'closed',
+					highQualifier: 'open',
 				}),
 			);
 			expect(complement[1]).toEqual(
 				new Interval(4, Number.POSITIVE_INFINITY, {
-					lowQualifier: 'closed',
+					lowQualifier: 'open',
 					highQualifier: 'open',
 				}),
 			);
@@ -397,15 +474,61 @@ describe('Interval', () => {
 			expect(complement[0]).toEqual(
 				new Interval(Number.NEGATIVE_INFINITY, 0, {
 					lowQualifier: 'open',
-					highQualifier: 'closed',
+					highQualifier: 'open',
 				}),
 			);
 			expect(complement[1]).toEqual(
 				new Interval(4, Number.POSITIVE_INFINITY, {
-					lowQualifier: 'closed',
+					lowQualifier: 'open',
 					highQualifier: 'open',
 				}),
 			);
+		});
+
+		it('should return the two edges when trying to completement an open interval within its closed counterpart ', () => {
+			const complement = Interval.complement([Interval.open(0, 4)], [Interval.closed(0, 4)]);
+			console.log(complement);
+			expect(complement.length).toEqual(2);
+			expect(complement[0]).toEqual<Interval>(Interval.closed(0, 0));
+			expect(complement[1]).toEqual<Interval>(Interval.closed(4, 4));
+		});
+
+		it('should return nothing when trying to completement an interval within itself', () => {
+			const complement = Interval.complement(
+				[Interval.closed(0, 4)],
+				[Interval.closed(0, 4)],
+			);
+			console.log(complement);
+			expect(complement.length).toEqual(0);
+		});
+
+		it('should return nothing when trying to completement intervals, completely filling the within interval', () => {
+			const complement = Interval.complement(
+				[Interval.closed(0, 2), Interval.openClosed(2, 4)],
+				[Interval.closed(0, 4)],
+			);
+			expect(complement.length).toEqual(0);
+		});
+
+		it('should return two intervals for a completely enclosed interval', () => {
+			const complement = Interval.complement(
+				[Interval.closed(79, 92)],
+				[Interval.closed(50, 98)],
+			);
+			expect(complement.length).toEqual(2);
+			expect(complement[0]).toEqual(Interval.closedOpen(50, 79));
+			expect(complement[1]).toEqual(Interval.openClosed(92, 98));
+		});
+
+		it('should return three intervals for two completely enclosed intervals', () => {
+			const complement = Interval.complement(
+				[Interval.closed(55, 67), Interval.closed(79, 92)],
+				[Interval.closed(50, 98)],
+			);
+			expect(complement.length).toEqual(3);
+			expect(complement[0]).toEqual(Interval.closedOpen(50, 55));
+			expect(complement[1]).toEqual(Interval.open(67, 79));
+			expect(complement[2]).toEqual(Interval.openClosed(92, 98));
 		});
 	});
 });
