@@ -5,6 +5,7 @@ import { p2, refract } from './p2.js';
 import { toRange, type Range } from './parse.js';
 
 type StrippedRange = Omit<Range, 'from' | 'to' | 'slope'>;
+
 const stripRange = (range: Range): StrippedRange => {
 	return {
 		destinationRange: range.destinationRange,
@@ -13,18 +14,18 @@ const stripRange = (range: Range): StrippedRange => {
 	};
 };
 
-describe.skip('2023 05 p2', () => {
+describe('2023 05 p2', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(p2(input)).toEqual(0);
+			expect(p2(input)).toEqual(26_714_516);
 		});
 	});
 
 	describe('example 1', () => {
 		it('should be solved', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p2(input)).toEqual(0);
+			expect(p2(input)).toEqual(46);
 		});
 	});
 

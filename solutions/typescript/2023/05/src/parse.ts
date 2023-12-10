@@ -9,6 +9,7 @@ export interface Card {
 	lightToTemperatureMap: Range[];
 	temperatureToHumidityMap: Range[];
 	humidityToLocationMap: Range[];
+	maps: Range[][];
 }
 
 export interface Range {
@@ -129,5 +130,14 @@ export const parse = (input: string): Card => {
 		lightToTemperatureMap,
 		temperatureToHumidityMap,
 		humidityToLocationMap,
+		maps: [
+			seedToSoilMap,
+			soilToFertilizerMap,
+			fertilizerToWaterMap,
+			waterToLightMap,
+			lightToTemperatureMap,
+			temperatureToHumidityMap,
+			humidityToLocationMap,
+		],
 	};
 };
