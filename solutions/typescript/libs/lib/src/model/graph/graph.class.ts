@@ -220,7 +220,8 @@ export class Graph<
 	}
 
 	/**
-	 *
+	 * A gutted out aStar, not trying to find a path, but calculating a distanceMap
+	 * to all reachable node.
 	 */
 	public flood(start: N | undefined, options?: GraphTraversalOptions<N, Dir>): Map<N, number> {
 		if (!start) {
@@ -228,11 +229,13 @@ export class Graph<
 		}
 		const openSet = new Set<N>([start]); // q?
 		const cameFrom = new Map<N, N>(); // prev!
-		const gScore = new Map<N, number>(); // dist! Infinity
+		const gScore = new Map<N, number>(); // weightMap! Infinity
+		const dMap = new Map<N, number>(); // distanceMap Infinity
 
 		const h = options?.heuristic ?? (() => 1);
 
 		gScore.set(start, 0);
+		dMap.set(start, 0);
 
 		const fScore = new Map<N, number>(); // Infinity
 		fScore.set(start, h(start, []));
@@ -252,21 +255,20 @@ export class Graph<
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const current = umin.node!;
 
-			const currentPath = Graph.generatePath(cameFrom, start, current);
-
 			openSet.delete(current);
 
-			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, currentPath) ??
-				current) {
+			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, []) ?? current) {
 				const tentativegScore =
 					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
 					(options?.weighter
 						? options.weighter(neighbour.from, neighbour.to, neighbour.direction)
 						: neighbour.weight ?? 1);
+				const tentativeDistance = (dMap.get(current) ?? 0) + 1;
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);
-					fScore.set(neighbour.to, tentativegScore + h(neighbour.to, currentPath));
+					fScore.set(neighbour.to, tentativegScore);
+					dMap.set(neighbour.to, tentativeDistance);
 					if (!openSet.has(neighbour.to)) {
 						openSet.add(neighbour.to);
 					}
@@ -274,7 +276,7 @@ export class Graph<
 			}
 		}
 
-		return gScore;
+		return dMap;
 	}
 
 	/**
