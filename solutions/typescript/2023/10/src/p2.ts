@@ -4,20 +4,9 @@ import {
 	GridGraphNode,
 	task,
 	type ToString,
-	type Weighter,
 } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
-
-const pipeConnectorMap: Record<string, Direction[]> = {
-	'|': [Direction.NORTH, Direction.SOUTH],
-	'-': [Direction.WEST, Direction.EAST],
-	L: [Direction.NORTH, Direction.EAST],
-	J: [Direction.NORTH, Direction.WEST],
-	'7': [Direction.SOUTH, Direction.WEST],
-	F: [Direction.SOUTH, Direction.EAST],
-	'.': [],
-	S: [Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST],
-};
+import { parse, weighter } from './parse.js';
 
 export const findPartition = <
 	T extends ToString = string,
@@ -132,31 +121,16 @@ export const partitionIntoTwoFromLoop = <
 	};
 };
 
-const weighter: Weighter<GridGraphNode> = (a, b, dir) => {
-	if (a.value === '.' && b.value === '.') {
-		return 1;
-	}
-
-	const aConnectors = pipeConnectorMap[a.value.toString()];
-	const bConnectors = pipeConnectorMap[b.value.toString()];
-
-	const connection =
-		(aConnectors?.includes(dir) && bConnectors?.includes(dir.reverse())) ?? false;
-	return connection ? 1 : Number.POSITIVE_INFINITY;
-};
-
 export const p2 = (input: string): number => {
-	const og = input.toGridGraph<string>({
-		weighter,
-	});
-
+	const originalGraph = parse(input);
 	const liminalNodes = new Set<GridGraphNode>();
-	const gg = new GridGraph<string>();
-	for (const ogNode of og.nodeValues) {
+	// Expanding graph to address liminal space
+	const graph = new GridGraph<string>();
+	for (const ogNode of originalGraph.nodeValues) {
 		for (const { from, to, weight, direction } of Direction.allDirections.map((direction) => ({
 			...ogNode.neighbours.get(direction),
 			from: ogNode,
-			to: og.getNode(ogNode.coordinate.add(direction)),
+			to: originalGraph.getNode(ogNode.coordinate.add(direction)),
 			direction,
 		}))) {
 			if (to === undefined) {
@@ -175,37 +149,39 @@ export const p2 = (input: string): number => {
 
 			const middle = fromDoubled.middle(toDoubled);
 
-			const newFrom = gg.nodes.getOrAdd(
+			const newFrom = graph.nodes.getOrAdd(
 				fromDoubled.toString(),
 				(_n) => new GridGraphNode(fromDoubled, from.value),
 			);
-			const newMiddle = gg.nodes.getOrAdd(
+			const newMiddle = graph.nodes.getOrAdd(
 				middle.toString(),
 				(_n) => new GridGraphNode(middle, newNodeSymbol),
 			);
 			liminalNodes.add(newMiddle);
-			const newTo = gg.nodes.getOrAdd(
+			const newTo = graph.nodes.getOrAdd(
 				toDoubled.toString(),
 				(_n) => new GridGraphNode(toDoubled, to.value),
 			);
 
-			newFrom.attachNeightbours(gg, Direction.cardinalDirections, weighter);
-			newMiddle.attachNeightbours(gg, Direction.cardinalDirections, weighter);
-			newTo.attachNeightbours(gg, Direction.cardinalDirections, weighter);
+			newFrom.attachNeightbours(graph, Direction.cardinalDirections, weighter);
+			newMiddle.attachNeightbours(graph, Direction.cardinalDirections, weighter);
+			newTo.attachNeightbours(graph, Direction.cardinalDirections, weighter);
 		}
 	}
 
-	const animalStart = gg.findNode((node) => node.value === 'S');
+	const animalStart = graph.findNode((node) => node.value === 'S');
 
 	if (!animalStart) {
 		throw new Error('no starting position for the animal!');
 	}
 
-	const pathLoop = gg.flood(animalStart);
+	const pathLoop = graph.flood(animalStart);
 
-	const { inside, outside } = partitionIntoTwoFromLoop(gg, pathLoop);
+	const { inside, outside } = partitionIntoTwoFromLoop(graph, pathLoop);
 
-	gg.print((n) => (inside.has(n) ? 'I' : outside.has(n) ? 'O' : n.toString()));
+	if (process.env['RUN']) {
+		graph.print((n) => (inside.has(n) ? 'I' : outside.has(n) ? 'O' : n.toString()));
+	}
 
 	return inside.valueArray().filter((node) => !liminalNodes.has(node)).length ?? -1;
 };
