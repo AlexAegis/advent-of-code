@@ -36,6 +36,7 @@ export const p1g = (input: string): number => {
 						),
 				),
 				weight: 1,
+				direction: instruction,
 			}));
 			const nextNode = nextEdge.to;
 
@@ -44,6 +45,7 @@ export const p1g = (input: string): number => {
 				from: nextNode,
 				to: currentNode,
 				weight: 1,
+				direction: inv,
 			}));
 
 			currentNode = nextNode;

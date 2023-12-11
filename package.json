@@ -118,7 +118,7 @@
 		"@types/node": "^20.10.4",
 		"@typescript-eslint/eslint-plugin": "^6.13.2",
 		"@typescript-eslint/parser": "^6.13.2",
-		"@vitest/coverage-v8": "^1.0.2",
+		"@vitest/coverage-v8": "^1.0.4",
 		"autotool": "^0.4.0",
 		"commit-and-tag-version": "^12.0.0",
 		"commitlint": "^18.4.3",
@@ -127,7 +127,7 @@
 		"husky": "^8.0.3",
 		"lint-staged": "^15.2.0",
 		"npm-check-updates": "^16.14.11",
-		"prettier": "^3.1.0",
+		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
 		"prettier-plugin-tailwindcss": "^0.5.9",
 		"remark": "^15.0.1",
@@ -139,6 +139,6 @@
 		"turbo-ignore": "^1.11.1",
 		"typedoc": "^0.25.4",
 		"typescript": "^5.3.3",
-		"vitest": "^1.0.2"
+		"vitest": "^1.0.4"
 	}
 }

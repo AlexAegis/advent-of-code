@@ -18,7 +18,7 @@ export const task = async <Input extends string | number, Result, Args>(
 				: ((await loadTaskResources<Args>(
 						taskMetadata,
 						resourcesOverride,
-				  )) as TaskResources<Input, Args>);
+					)) as TaskResources<Input, Args>);
 
 		if (process.env['RESOURCE']) {
 			resources = (await loadTaskResources<Args>(

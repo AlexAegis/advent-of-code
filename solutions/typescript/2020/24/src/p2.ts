@@ -45,6 +45,7 @@ export const p2 = (input: string): number => {
 								),
 						),
 						weight: 1,
+						direction: instruction as HexagonalDirection,
 					}),
 				);
 
@@ -55,6 +56,7 @@ export const p2 = (input: string): number => {
 					from: nextNode,
 					to: node,
 					weight: 1,
+					direction: inv,
 				}));
 			}
 		}
@@ -98,6 +100,7 @@ export const p2 = (input: string): number => {
 						),
 				),
 				weight: 1,
+				direction: instruction,
 			}));
 			const nextNode = nextEdge.to;
 
@@ -106,6 +109,7 @@ export const p2 = (input: string): number => {
 				from: nextNode,
 				to: currentNode,
 				weight: 1,
+				direction: inv,
 			}));
 
 			currentNode = nextNode;

@@ -102,8 +102,8 @@ importers:
         specifier: ^6.13.2
         version: 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       '@vitest/coverage-v8':
-        specifier: ^1.0.2
-        version: 1.0.2(vitest@1.0.2)
+        specifier: ^1.0.4
+        version: 1.0.4(vitest@1.0.4)
       autotool:
         specifier: ^0.4.0
         version: 0.4.0
@@ -129,14 +129,14 @@ importers:
         specifier: ^16.14.11
         version: 16.14.11
       prettier:
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^3.1.1
+        version: 3.1.1
       prettier-plugin-svelte:
         specifier: ^3.1.2
-        version: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
+        version: 3.1.2(prettier@3.1.1)(svelte@4.2.8)
       prettier-plugin-tailwindcss:
         specifier: ^0.5.9
-        version: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
+        version: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.1)
       remark:
         specifier: ^15.0.1
         version: 15.0.1
@@ -165,8 +165,8 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2015/01:
     dependencies:
@@ -196,8 +196,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2015/02:
     dependencies:
@@ -224,8 +224,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2015/03:
     dependencies:
@@ -252,8 +252,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2015/04:
     dependencies:
@@ -280,8 +280,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2015/05:
     dependencies:
@@ -308,8 +308,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2016/01:
     dependencies:
@@ -336,8 +336,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2016/02:
     dependencies:
@@ -364,8 +364,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2016/03:
     dependencies:
@@ -395,8 +395,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2017/01:
     dependencies:
@@ -426,8 +426,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2017/02:
     dependencies:
@@ -457,8 +457,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/01:
     dependencies:
@@ -485,8 +485,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/02:
     dependencies:
@@ -513,8 +513,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/03:
     dependencies:
@@ -541,8 +541,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/04:
     dependencies:
@@ -569,8 +569,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/05:
     dependencies:
@@ -597,8 +597,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/06:
     dependencies:
@@ -625,8 +625,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/07:
     dependencies:
@@ -653,8 +653,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/08:
     dependencies:
@@ -684,8 +684,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/09:
     dependencies:
@@ -712,8 +712,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/10:
     dependencies:
@@ -743,8 +743,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/11:
     dependencies:
@@ -780,8 +780,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/12:
     dependencies:
@@ -808,8 +808,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/13:
     dependencies:
@@ -839,8 +839,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/14:
     dependencies:
@@ -867,8 +867,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2018/15:
     devDependencies:
@@ -891,8 +891,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/01:
     dependencies:
@@ -919,8 +919,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/02:
     dependencies:
@@ -947,8 +947,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/03:
     dependencies:
@@ -975,8 +975,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/04:
     dependencies:
@@ -1003,8 +1003,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/05:
     dependencies:
@@ -1031,8 +1031,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/06:
     dependencies:
@@ -1059,8 +1059,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/07:
     dependencies:
@@ -1087,8 +1087,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/08:
     dependencies:
@@ -1115,8 +1115,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/09:
     dependencies:
@@ -1143,8 +1143,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/10:
     dependencies:
@@ -1171,8 +1171,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/11:
     dependencies:
@@ -1199,8 +1199,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/12:
     dependencies:
@@ -1227,8 +1227,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/13:
     dependencies:
@@ -1255,8 +1255,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/14:
     dependencies:
@@ -1283,8 +1283,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/16:
     dependencies:
@@ -1311,8 +1311,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/17:
     dependencies:
@@ -1339,8 +1339,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/18:
     dependencies:
@@ -1367,8 +1367,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/19:
     dependencies:
@@ -1395,8 +1395,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/20:
     dependencies:
@@ -1423,8 +1423,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/21:
     dependencies:
@@ -1451,8 +1451,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/22:
     dependencies:
@@ -1479,8 +1479,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/23:
     dependencies:
@@ -1507,8 +1507,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2019/24:
     dependencies:
@@ -1535,8 +1535,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/01:
     dependencies:
@@ -1563,8 +1563,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/02:
     dependencies:
@@ -1591,8 +1591,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/03:
     dependencies:
@@ -1619,8 +1619,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/04:
     dependencies:
@@ -1647,8 +1647,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/05:
     dependencies:
@@ -1678,8 +1678,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/06:
     dependencies:
@@ -1706,8 +1706,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/07:
     dependencies:
@@ -1734,8 +1734,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/08:
     devDependencies:
@@ -1758,8 +1758,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/09:
     dependencies:
@@ -1786,8 +1786,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/10:
     dependencies:
@@ -1817,8 +1817,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/11:
     dependencies:
@@ -1845,8 +1845,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/12:
     dependencies:
@@ -1873,8 +1873,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/13:
     dependencies:
@@ -1901,8 +1901,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/14:
     dependencies:
@@ -1932,8 +1932,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/15:
     dependencies:
@@ -1963,8 +1963,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/16:
     dependencies:
@@ -1994,8 +1994,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/17:
     dependencies:
@@ -2025,8 +2025,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/18:
     dependencies:
@@ -2056,8 +2056,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/19:
     dependencies:
@@ -2087,8 +2087,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/20:
     dependencies:
@@ -2118,8 +2118,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/21:
     dependencies:
@@ -2149,8 +2149,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/22:
     dependencies:
@@ -2180,8 +2180,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/23:
     dependencies:
@@ -2211,8 +2211,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/24:
     dependencies:
@@ -2242,8 +2242,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2020/25:
     dependencies:
@@ -2276,8 +2276,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/01:
     dependencies:
@@ -2307,8 +2307,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/02:
     dependencies:
@@ -2338,8 +2338,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/03:
     dependencies:
@@ -2369,8 +2369,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/04:
     dependencies:
@@ -2400,8 +2400,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/05:
     dependencies:
@@ -2431,8 +2431,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/06:
     dependencies:
@@ -2462,8 +2462,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/07:
     dependencies:
@@ -2493,8 +2493,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/08:
     dependencies:
@@ -2524,8 +2524,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/09:
     dependencies:
@@ -2555,8 +2555,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/10:
     dependencies:
@@ -2586,8 +2586,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/11:
     dependencies:
@@ -2617,8 +2617,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/12:
     dependencies:
@@ -2648,8 +2648,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/13:
     dependencies:
@@ -2679,8 +2679,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/14:
     dependencies:
@@ -2710,8 +2710,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/15:
     dependencies:
@@ -2741,8 +2741,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/16:
     dependencies:
@@ -2772,8 +2772,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/17:
     dependencies:
@@ -2806,8 +2806,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/18:
     dependencies:
@@ -2837,8 +2837,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2021/21:
     dependencies:
@@ -2871,8 +2871,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/01:
     dependencies:
@@ -2902,8 +2902,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/02:
     dependencies:
@@ -2933,8 +2933,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/03:
     dependencies:
@@ -2964,8 +2964,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/04:
     dependencies:
@@ -2995,8 +2995,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/05:
     dependencies:
@@ -3026,8 +3026,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/06:
     dependencies:
@@ -3057,8 +3057,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/07:
     dependencies:
@@ -3088,8 +3088,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/08:
     dependencies:
@@ -3119,8 +3119,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/09:
     dependencies:
@@ -3153,8 +3153,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/10:
     dependencies:
@@ -3184,8 +3184,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/11:
     dependencies:
@@ -3215,8 +3215,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/12:
     dependencies:
@@ -3246,8 +3246,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/13:
     dependencies:
@@ -3277,8 +3277,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/14:
     dependencies:
@@ -3311,8 +3311,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/15:
     dependencies:
@@ -3342,8 +3342,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/16:
     dependencies:
@@ -3373,8 +3373,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/17:
     dependencies:
@@ -3407,8 +3407,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/18:
     dependencies:
@@ -3438,8 +3438,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/19:
     dependencies:
@@ -3469,8 +3469,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/20:
     dependencies:
@@ -3500,8 +3500,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/21:
     dependencies:
@@ -3531,8 +3531,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/22:
     dependencies:
@@ -3562,8 +3562,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/23:
     dependencies:
@@ -3593,8 +3593,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/24:
     dependencies:
@@ -3624,8 +3624,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2022/25:
     dependencies:
@@ -3655,8 +3655,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/01:
     dependencies:
@@ -3686,8 +3686,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/02:
     dependencies:
@@ -3717,8 +3717,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/03:
     dependencies:
@@ -3748,8 +3748,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/04:
     dependencies:
@@ -3779,8 +3779,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/05:
     dependencies:
@@ -3810,8 +3810,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/06:
     dependencies:
@@ -3841,8 +3841,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/07:
     dependencies:
@@ -3872,8 +3872,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/08:
     dependencies:
@@ -3903,8 +3903,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/09:
     dependencies:
@@ -3934,8 +3934,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/2023/10:
     dependencies:
@@ -3965,8 +3965,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/libs/ecs:
     dependencies:
@@ -4021,13 +4021,13 @@ importers:
         version: 9.1.0(eslint@8.55.0)
       eslint-plugin-prettier:
         specifier: ^5.0.1
-        version: 5.0.1(@types/eslint@8.44.8)(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0)
+        version: 5.0.1(@types/eslint@8.44.8)(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.1)
       nodemon:
         specifier: ^3.0.2
         version: 3.0.2
       prettier:
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^3.1.1
+        version: 3.1.1
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.10.4)(typescript@5.3.3)
@@ -4038,8 +4038,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
   solutions/typescript/libs/lib:
     dependencies:
@@ -4082,13 +4082,13 @@ importers:
         version: 9.1.0(eslint@8.55.0)
       eslint-plugin-prettier:
         specifier: ^5.0.1
-        version: 5.0.1(@types/eslint@8.44.8)(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0)
+        version: 5.0.1(@types/eslint@8.44.8)(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.1)
       kolorist:
         specifier: ^1.8.0
         version: 1.8.0
       prettier:
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^3.1.1
+        version: 3.1.1
       remark:
         specifier: ^15.0.1
         version: 15.0.1
@@ -4102,8 +4102,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7(@types/node@20.10.4)
       vitest:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/node@20.10.4)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
 
 packages:
 
@@ -4197,11 +4197,11 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/logging': 0.8.0
-      '@alexaegis/prettier-config': 0.9.1(prettier@3.1.0)(svelte@4.2.8)
+      '@alexaegis/prettier-config': 0.9.1(prettier@3.1.1)(svelte@4.2.8)
       autotool-plugin: 0.3.0
-      prettier: 3.1.0
-      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
-      prettier-plugin-tailwindcss: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
+      prettier: 3.1.1
+      prettier-plugin-svelte: 3.1.2(prettier@3.1.1)(svelte@4.2.8)
+      prettier-plugin-tailwindcss: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.1)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
       - '@prettier/plugin-pug'
@@ -4424,7 +4424,7 @@ packages:
       '@alexaegis/logging': 0.7.3
       js-yaml: 4.1.0
     optionalDependencies:
-      prettier: 3.1.0
+      prettier: 3.1.1
     dev: true
 
   /@alexaegis/fs@0.8.0:
@@ -4435,7 +4435,7 @@ packages:
       '@alexaegis/logging': 0.8.0
       js-yaml: 4.1.0
     optionalDependencies:
-      prettier: 3.1.0
+      prettier: 3.1.1
     dev: true
 
   /@alexaegis/lint-staged-config@0.9.1:
@@ -4492,12 +4492,12 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dev: true
 
-  /@alexaegis/prettier-config@0.9.1(prettier@3.1.0)(svelte@4.2.8):
+  /@alexaegis/prettier-config@0.9.1(prettier@3.1.1)(svelte@4.2.8):
     resolution: {integrity: sha512-XCA9pY9FH3eaVgyXFmvjZMbTOXSlZ6q4qI24OKfkqHx4H8dp4CwOQrOnKFFi3N54UXuLCniHoQnhyR+z11Q1OA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
-      prettier-plugin-tailwindcss: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0)
+      prettier-plugin-svelte: 3.1.2(prettier@3.1.1)(svelte@4.2.8)
+      prettier-plugin-tailwindcss: 0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.1)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
       - '@prettier/plugin-pug'
@@ -4530,12 +4530,12 @@ packages:
       remark-preset-lint-consistent: 5.1.2
       remark-preset-lint-markdown-style-guide: 5.1.3
       remark-preset-lint-recommended: 6.1.3
-      remark-preset-prettier: 2.0.1(prettier@3.1.0)
+      remark-preset-prettier: 2.0.1(prettier@3.1.1)
       remark-validate-links: 13.0.0
       unified-consistency: 2.0.0
-      unified-prettier: 2.0.0(prettier@3.1.0)
+      unified-prettier: 2.0.0(prettier@3.1.1)
     optionalDependencies:
-      prettier: 3.1.0
+      prettier: 3.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5039,8 +5039,8 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@esbuild/android-arm64@0.19.8:
-    resolution: {integrity: sha512-B8JbS61bEunhfx8kasogFENgQfr/dIp+ggYXwTqdbMAgGDhRa3AaPpQMuQU0rNxDLECj6FhDzk1cF9WHMVwrtA==}
+  /@esbuild/android-arm64@0.19.9:
+    resolution: {integrity: sha512-q4cR+6ZD0938R19MyEW3jEsMzbb/1rulLXiNAJQADD/XYp7pT+rOS5JGxvpRW8dFDEfjW4wLgC/3FXIw4zYglQ==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
@@ -5048,8 +5048,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/android-arm@0.19.8:
-    resolution: {integrity: sha512-31E2lxlGM1KEfivQl8Yf5aYU/mflz9g06H6S15ITUFQueMFtFjESRMoDSkvMo8thYvLBax+VKTPlpnx+sPicOA==}
+  /@esbuild/android-arm@0.19.9:
+    resolution: {integrity: sha512-jkYjjq7SdsWuNI6b5quymW0oC83NN5FdRPuCbs9HZ02mfVdAP8B8eeqLSYU3gb6OJEaY5CQabtTFbqBf26H3GA==}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [android]
@@ -5057,8 +5057,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/android-x64@0.19.8:
-    resolution: {integrity: sha512-rdqqYfRIn4jWOp+lzQttYMa2Xar3OK9Yt2fhOhzFXqg0rVWEfSclJvZq5fZslnz6ypHvVf3CT7qyf0A5pM682A==}
+  /@esbuild/android-x64@0.19.9:
+    resolution: {integrity: sha512-KOqoPntWAH6ZxDwx1D6mRntIgZh9KodzgNOy5Ebt9ghzffOk9X2c1sPwtM9P+0eXbefnDhqYfkh5PLP5ULtWFA==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
@@ -5066,8 +5066,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/darwin-arm64@0.19.8:
-    resolution: {integrity: sha512-RQw9DemMbIq35Bprbboyf8SmOr4UXsRVxJ97LgB55VKKeJOOdvsIPy0nFyF2l8U+h4PtBx/1kRf0BelOYCiQcw==}
+  /@esbuild/darwin-arm64@0.19.9:
+    resolution: {integrity: sha512-KBJ9S0AFyLVx2E5D8W0vExqRW01WqRtczUZ8NRu+Pi+87opZn5tL4Y0xT0mA4FtHctd0ZgwNoN639fUUGlNIWw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
@@ -5075,8 +5075,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/darwin-x64@0.19.8:
-    resolution: {integrity: sha512-3sur80OT9YdeZwIVgERAysAbwncom7b4bCI2XKLjMfPymTud7e/oY4y+ci1XVp5TfQp/bppn7xLw1n/oSQY3/Q==}
+  /@esbuild/darwin-x64@0.19.9:
+    resolution: {integrity: sha512-vE0VotmNTQaTdX0Q9dOHmMTao6ObjyPm58CHZr1UK7qpNleQyxlFlNCaHsHx6Uqv86VgPmR4o2wdNq3dP1qyDQ==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
@@ -5084,8 +5084,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/freebsd-arm64@0.19.8:
-    resolution: {integrity: sha512-WAnPJSDattvS/XtPCTj1tPoTxERjcTpH6HsMr6ujTT+X6rylVe8ggxk8pVxzf5U1wh5sPODpawNicF5ta/9Tmw==}
+  /@esbuild/freebsd-arm64@0.19.9:
+    resolution: {integrity: sha512-uFQyd/o1IjiEk3rUHSwUKkqZwqdvuD8GevWF065eqgYfexcVkxh+IJgwTaGZVu59XczZGcN/YMh9uF1fWD8j1g==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
@@ -5093,8 +5093,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/freebsd-x64@0.19.8:
-    resolution: {integrity: sha512-ICvZyOplIjmmhjd6mxi+zxSdpPTKFfyPPQMQTK/w+8eNK6WV01AjIztJALDtwNNfFhfZLux0tZLC+U9nSyA5Zg==}
+  /@esbuild/freebsd-x64@0.19.9:
+    resolution: {integrity: sha512-WMLgWAtkdTbTu1AWacY7uoj/YtHthgqrqhf1OaEWnZb7PQgpt8eaA/F3LkV0E6K/Lc0cUr/uaVP/49iE4M4asA==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
@@ -5102,8 +5102,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-arm64@0.19.8:
-    resolution: {integrity: sha512-z1zMZivxDLHWnyGOctT9JP70h0beY54xDDDJt4VpTX+iwA77IFsE1vCXWmprajJGa+ZYSqkSbRQ4eyLCpCmiCQ==}
+  /@esbuild/linux-arm64@0.19.9:
+    resolution: {integrity: sha512-PiPblfe1BjK7WDAKR1Cr9O7VVPqVNpwFcPWgfn4xu0eMemzRp442hXyzF/fSwgrufI66FpHOEJk0yYdPInsmyQ==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
@@ -5111,8 +5111,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-arm@0.19.8:
-    resolution: {integrity: sha512-H4vmI5PYqSvosPaTJuEppU9oz1dq2A7Mr2vyg5TF9Ga+3+MGgBdGzcyBP7qK9MrwFQZlvNyJrvz6GuCaj3OukQ==}
+  /@esbuild/linux-arm@0.19.9:
+    resolution: {integrity: sha512-C/ChPohUYoyUaqn1h17m/6yt6OB14hbXvT8EgM1ZWaiiTYz7nWZR0SYmMnB5BzQA4GXl3BgBO1l8MYqL/He3qw==}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
@@ -5120,8 +5120,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-ia32@0.19.8:
-    resolution: {integrity: sha512-1a8suQiFJmZz1khm/rDglOc8lavtzEMRo0v6WhPgxkrjcU0LkHj+TwBrALwoz/OtMExvsqbbMI0ChyelKabSvQ==}
+  /@esbuild/linux-ia32@0.19.9:
+    resolution: {integrity: sha512-f37i/0zE0MjDxijkPSQw1CO/7C27Eojqb+r3BbHVxMLkj8GCa78TrBZzvPyA/FNLUMzP3eyHCVkAopkKVja+6Q==}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
@@ -5129,8 +5129,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-loong64@0.19.8:
-    resolution: {integrity: sha512-fHZWS2JJxnXt1uYJsDv9+b60WCc2RlvVAy1F76qOLtXRO+H4mjt3Tr6MJ5l7Q78X8KgCFudnTuiQRBhULUyBKQ==}
+  /@esbuild/linux-loong64@0.19.9:
+    resolution: {integrity: sha512-t6mN147pUIf3t6wUt3FeumoOTPfmv9Cc6DQlsVBpB7eCpLOqQDyWBP1ymXn1lDw4fNUSb/gBcKAmvTP49oIkaA==}
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
@@ -5138,8 +5138,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-mips64el@0.19.8:
-    resolution: {integrity: sha512-Wy/z0EL5qZYLX66dVnEg9riiwls5IYnziwuju2oUiuxVc+/edvqXa04qNtbrs0Ukatg5HEzqT94Zs7J207dN5Q==}
+  /@esbuild/linux-mips64el@0.19.9:
+    resolution: {integrity: sha512-jg9fujJTNTQBuDXdmAg1eeJUL4Jds7BklOTkkH80ZgQIoCTdQrDaHYgbFZyeTq8zbY+axgptncko3v9p5hLZtw==}
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
@@ -5147,8 +5147,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-ppc64@0.19.8:
-    resolution: {integrity: sha512-ETaW6245wK23YIEufhMQ3HSeHO7NgsLx8gygBVldRHKhOlD1oNeNy/P67mIh1zPn2Hr2HLieQrt6tWrVwuqrxg==}
+  /@esbuild/linux-ppc64@0.19.9:
+    resolution: {integrity: sha512-tkV0xUX0pUUgY4ha7z5BbDS85uI7ABw3V1d0RNTii7E9lbmV8Z37Pup2tsLV46SQWzjOeyDi1Q7Wx2+QM8WaCQ==}
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
@@ -5156,8 +5156,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-riscv64@0.19.8:
-    resolution: {integrity: sha512-T2DRQk55SgoleTP+DtPlMrxi/5r9AeFgkhkZ/B0ap99zmxtxdOixOMI570VjdRCs9pE4Wdkz7JYrsPvsl7eESg==}
+  /@esbuild/linux-riscv64@0.19.9:
+    resolution: {integrity: sha512-DfLp8dj91cufgPZDXr9p3FoR++m3ZJ6uIXsXrIvJdOjXVREtXuQCjfMfvmc3LScAVmLjcfloyVtpn43D56JFHg==}
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
@@ -5165,8 +5165,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-s390x@0.19.8:
-    resolution: {integrity: sha512-NPxbdmmo3Bk7mbNeHmcCd7R7fptJaczPYBaELk6NcXxy7HLNyWwCyDJ/Xx+/YcNH7Im5dHdx9gZ5xIwyliQCbg==}
+  /@esbuild/linux-s390x@0.19.9:
+    resolution: {integrity: sha512-zHbglfEdC88KMgCWpOl/zc6dDYJvWGLiUtmPRsr1OgCViu3z5GncvNVdf+6/56O2Ca8jUU+t1BW261V6kp8qdw==}
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
@@ -5174,8 +5174,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/linux-x64@0.19.8:
-    resolution: {integrity: sha512-lytMAVOM3b1gPypL2TRmZ5rnXl7+6IIk8uB3eLsV1JwcizuolblXRrc5ShPrO9ls/b+RTp+E6gbsuLWHWi2zGg==}
+  /@esbuild/linux-x64@0.19.9:
+    resolution: {integrity: sha512-JUjpystGFFmNrEHQnIVG8hKwvA2DN5o7RqiO1CVX8EN/F/gkCjkUMgVn6hzScpwnJtl2mPR6I9XV1oW8k9O+0A==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
@@ -5183,8 +5183,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/netbsd-x64@0.19.8:
-    resolution: {integrity: sha512-hvWVo2VsXz/8NVt1UhLzxwAfo5sioj92uo0bCfLibB0xlOmimU/DeAEsQILlBQvkhrGjamP0/el5HU76HAitGw==}
+  /@esbuild/netbsd-x64@0.19.9:
+    resolution: {integrity: sha512-GThgZPAwOBOsheA2RUlW5UeroRfESwMq/guy8uEe3wJlAOjpOXuSevLRd70NZ37ZrpO6RHGHgEHvPg1h3S1Jug==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
@@ -5192,8 +5192,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/openbsd-x64@0.19.8:
-    resolution: {integrity: sha512-/7Y7u77rdvmGTxR83PgaSvSBJCC2L3Kb1M/+dmSIvRvQPXXCuC97QAwMugBNG0yGcbEGfFBH7ojPzAOxfGNkwQ==}
+  /@esbuild/openbsd-x64@0.19.9:
+    resolution: {integrity: sha512-Ki6PlzppaFVbLnD8PtlVQfsYw4S9n3eQl87cqgeIw+O3sRr9IghpfSKY62mggdt1yCSZ8QWvTZ9jo9fjDSg9uw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
@@ -5201,8 +5201,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/sunos-x64@0.19.8:
-    resolution: {integrity: sha512-9Lc4s7Oi98GqFA4HzA/W2JHIYfnXbUYgekUP/Sm4BG9sfLjyv6GKKHKKVs83SMicBF2JwAX6A1PuOLMqpD001w==}
+  /@esbuild/sunos-x64@0.19.9:
+    resolution: {integrity: sha512-MLHj7k9hWh4y1ddkBpvRj2b9NCBhfgBt3VpWbHQnXRedVun/hC7sIyTGDGTfsGuXo4ebik2+3ShjcPbhtFwWDw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
@@ -5210,8 +5210,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/win32-arm64@0.19.8:
-    resolution: {integrity: sha512-rq6WzBGjSzihI9deW3fC2Gqiak68+b7qo5/3kmB6Gvbh/NYPA0sJhrnp7wgV4bNwjqM+R2AApXGxMO7ZoGhIJg==}
+  /@esbuild/win32-arm64@0.19.9:
+    resolution: {integrity: sha512-GQoa6OrQ8G08guMFgeXPH7yE/8Dt0IfOGWJSfSH4uafwdC7rWwrfE6P9N8AtPGIjUzdo2+7bN8Xo3qC578olhg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
@@ -5219,8 +5219,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/win32-ia32@0.19.8:
-    resolution: {integrity: sha512-AIAbverbg5jMvJznYiGhrd3sumfwWs8572mIJL5NQjJa06P8KfCPWZQ0NwZbPQnbQi9OWSZhFVSUWjjIrn4hSw==}
+  /@esbuild/win32-ia32@0.19.9:
+    resolution: {integrity: sha512-UOozV7Ntykvr5tSOlGCrqU3NBr3d8JqPes0QWN2WOXfvkWVGRajC+Ym0/Wj88fUgecUCLDdJPDF0Nna2UK3Qtg==}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
@@ -5228,8 +5228,8 @@ packages:
     dev: true
     optional: true
 
-  /@esbuild/win32-x64@0.19.8:
-    resolution: {integrity: sha512-bfZ0cQ1uZs2PqpulNL5j/3w+GDhP36k1K5c38QdQg+Swy51jFZWWeIkteNsufkQxp986wnqRRsb/bHbY1WQ7TA==}
+  /@esbuild/win32-x64@0.19.9:
+    resolution: {integrity: sha512-oxoQgglOP7RH6iasDrhY+R/3cHrfwIDvRlT4CGChflq6twk8iENeVvMJjmvBb94Ik1Z+93iGO27err7w6l54GQ==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
@@ -5561,7 +5561,7 @@ packages:
       '@alexaegis/workspace-tools': 0.7.3
       '@types/node': 20.10.4
       globby: 14.0.0
-      prettier: 3.1.0
+      prettier: 3.1.1
       rollup: 4.7.0
       ts-node: 10.9.2(@types/node@20.10.4)(typescript@5.3.3)
       typescript: 5.3.3
@@ -6256,8 +6256,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/coverage-v8@1.0.2(vitest@1.0.2):
-    resolution: {integrity: sha512-WCTbfnvFPqH8TGVPNnPXcLBK/tbMX5GGZ/Lc9EuYvVX4xbO0ULKLzWDbVU37C2Y2YIlNu/VP1kp7QKUZolUDgA==}
+  /@vitest/coverage-v8@1.0.4(vitest@1.0.4):
+    resolution: {integrity: sha512-xD6Yuql6RW0Ir/JJIs6rVrmnG2/KOWJF+IRX1oJQk5wGKGxbtdrYPbl+WTUn/4ICCQ2G20zbE1e8/nPNyAG5Vg==}
     peerDependencies:
       vitest: ^1.0.0
     dependencies:
@@ -6274,7 +6274,7 @@ packages:
       std-env: 3.6.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
-      vitest: 1.0.2(@types/node@20.10.4)
+      vitest: 1.0.4(@types/node@20.10.4)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6287,11 +6287,11 @@ packages:
       chai: 4.3.10
     dev: true
 
-  /@vitest/expect@1.0.2:
-    resolution: {integrity: sha512-mAIo/8uddSWkjQMLFcjqZP3WmkwvvN0OtlyZIu33jFnwme3vZds8m8EDMxtj+Uzni2DwtPfHNjJcTM8zTV1f4A==}
+  /@vitest/expect@1.0.4:
+    resolution: {integrity: sha512-/NRN9N88qjg3dkhmFcCBwhn/Ie4h064pY3iv7WLRsDJW7dXnEgeoa8W9zy7gIPluhz6CkgqiB3HmpIXgmEY5dQ==}
     dependencies:
-      '@vitest/spy': 1.0.2
-      '@vitest/utils': 1.0.2
+      '@vitest/spy': 1.0.4
+      '@vitest/utils': 1.0.4
       chai: 4.3.10
     dev: true
 
@@ -6303,10 +6303,10 @@ packages:
       pathe: 1.1.1
     dev: true
 
-  /@vitest/runner@1.0.2:
-    resolution: {integrity: sha512-ZcHJXPT2kg/9Hc4fNkCbItlsgZSs3m4vQbxB8LCSdzpbG85bExCmSvu6K9lWpMNdoKfAr1Jn0BwS9SWUcGnbTQ==}
+  /@vitest/runner@1.0.4:
+    resolution: {integrity: sha512-rhOQ9FZTEkV41JWXozFM8YgOqaG9zA7QXbhg5gy6mFOVqh4PcupirIJ+wN7QjeJt8S8nJRYuZH1OjJjsbxAXTQ==}
     dependencies:
-      '@vitest/utils': 1.0.2
+      '@vitest/utils': 1.0.4
       p-limit: 5.0.0
       pathe: 1.1.1
     dev: true
@@ -6319,8 +6319,8 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@vitest/snapshot@1.0.2:
-    resolution: {integrity: sha512-9ClDz2/aV5TfWA4reV7XR9p+hE0e7bifhwxlURugj3Fw0YXeTFzHmKCNEHd6wOIFMfthbGGwhlq7TOJ2jDO4/g==}
+  /@vitest/snapshot@1.0.4:
+    resolution: {integrity: sha512-vkfXUrNyNRA/Gzsp2lpyJxh94vU2OHT1amoD6WuvUAA12n32xeVZQ0KjjQIf8F6u7bcq2A2k969fMVxEsxeKYA==}
     dependencies:
       magic-string: 0.30.5
       pathe: 1.1.1
@@ -6333,8 +6333,8 @@ packages:
       tinyspy: 2.2.0
     dev: true
 
-  /@vitest/spy@1.0.2:
-    resolution: {integrity: sha512-YlnHmDntp+zNV3QoTVFI5EVHV0AXpiThd7+xnDEbWnD6fw0TH/J4/+3GFPClLimR39h6nA5m0W4Bjm5Edg4A/A==}
+  /@vitest/spy@1.0.4:
+    resolution: {integrity: sha512-9ojTFRL1AJVh0hvfzAQpm0QS6xIS+1HFIw94kl/1ucTfGCaj1LV/iuJU4Y6cdR03EzPDygxTHwE1JOm+5RCcvA==}
     dependencies:
       tinyspy: 2.2.0
     dev: true
@@ -6362,8 +6362,8 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@vitest/utils@1.0.2:
-    resolution: {integrity: sha512-GPQkGHAnFAP/+seSbB9pCsj339yRrMgILoI5H2sPevTLCYgBq0VRjF8QSllmnQyvf0EontF6KUIt2t5s2SmqoQ==}
+  /@vitest/utils@1.0.4:
+    resolution: {integrity: sha512-gsswWDXxtt0QvtK/y/LWukN7sGMYmnCcv1qv05CsY6cU/Y1zpGX1QuvLs+GO1inczpE6Owixeel3ShkjhYtGfA==}
     dependencies:
       diff-sequences: 29.6.3
       loupe: 2.3.7
@@ -8200,34 +8200,34 @@ packages:
     resolution: {integrity: sha512-SOp9Phqvqn7jtEUxPWdWfWoLmyt2VaJ6MpvP9Comy1MceMXqE6bxvaTu4iaxpYYPzhny28Lc+M87/c2cPK6lDg==}
     dev: true
 
-  /esbuild@0.19.8:
-    resolution: {integrity: sha512-l7iffQpT2OrZfH2rXIp7/FkmaeZM0vxbxN9KfiCwGYuZqzMg/JdvX26R31Zxn/Pxvsrg3Y9N6XTcnknqDyyv4w==}
+  /esbuild@0.19.9:
+    resolution: {integrity: sha512-U9CHtKSy+EpPsEBa+/A2gMs/h3ylBC0H0KSqIg7tpztHerLi6nrrcoUJAkNCEPumx8yJ+Byic4BVwHgRbN0TBg==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@esbuild/android-arm': 0.19.8
-      '@esbuild/android-arm64': 0.19.8
-      '@esbuild/android-x64': 0.19.8
-      '@esbuild/darwin-arm64': 0.19.8
-      '@esbuild/darwin-x64': 0.19.8
-      '@esbuild/freebsd-arm64': 0.19.8
-      '@esbuild/freebsd-x64': 0.19.8
-      '@esbuild/linux-arm': 0.19.8
-      '@esbuild/linux-arm64': 0.19.8
-      '@esbuild/linux-ia32': 0.19.8
-      '@esbuild/linux-loong64': 0.19.8
-      '@esbuild/linux-mips64el': 0.19.8
-      '@esbuild/linux-ppc64': 0.19.8
-      '@esbuild/linux-riscv64': 0.19.8
-      '@esbuild/linux-s390x': 0.19.8
-      '@esbuild/linux-x64': 0.19.8
-      '@esbuild/netbsd-x64': 0.19.8
-      '@esbuild/openbsd-x64': 0.19.8
-      '@esbuild/sunos-x64': 0.19.8
-      '@esbuild/win32-arm64': 0.19.8
-      '@esbuild/win32-ia32': 0.19.8
-      '@esbuild/win32-x64': 0.19.8
+      '@esbuild/android-arm': 0.19.9
+      '@esbuild/android-arm64': 0.19.9
+      '@esbuild/android-x64': 0.19.9
+      '@esbuild/darwin-arm64': 0.19.9
+      '@esbuild/darwin-x64': 0.19.9
+      '@esbuild/freebsd-arm64': 0.19.9
+      '@esbuild/freebsd-x64': 0.19.9
+      '@esbuild/linux-arm': 0.19.9
+      '@esbuild/linux-arm64': 0.19.9
+      '@esbuild/linux-ia32': 0.19.9
+      '@esbuild/linux-loong64': 0.19.9
+      '@esbuild/linux-mips64el': 0.19.9
+      '@esbuild/linux-ppc64': 0.19.9
+      '@esbuild/linux-riscv64': 0.19.9
+      '@esbuild/linux-s390x': 0.19.9
+      '@esbuild/linux-x64': 0.19.9
+      '@esbuild/netbsd-x64': 0.19.9
+      '@esbuild/openbsd-x64': 0.19.9
+      '@esbuild/sunos-x64': 0.19.9
+      '@esbuild/win32-arm64': 0.19.9
+      '@esbuild/win32-ia32': 0.19.9
+      '@esbuild/win32-x64': 0.19.9
     dev: true
 
   /escalade@3.1.1:
@@ -8464,7 +8464,7 @@ packages:
       object.fromentries: 2.0.7
     dev: true
 
-  /eslint-plugin-prettier@5.0.1(@types/eslint@8.44.8)(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0):
+  /eslint-plugin-prettier@5.0.1(@types/eslint@8.44.8)(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.1):
     resolution: {integrity: sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -8481,7 +8481,7 @@ packages:
       '@types/eslint': 8.44.8
       eslint: 8.55.0
       eslint-config-prettier: 9.1.0(eslint@8.55.0)
-      prettier: 3.1.0
+      prettier: 3.1.1
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
     dev: true
@@ -8602,7 +8602,7 @@ packages:
       file-entry-cache: 6.0.1
       find-up: 5.0.0
       glob-parent: 6.0.2
-      globals: 13.23.0
+      globals: 13.24.0
       graphemer: 1.4.0
       ignore: 5.3.0
       imurmurhash: 0.1.4
@@ -9216,6 +9216,13 @@ packages:
 
   /globals@13.23.0:
     resolution: {integrity: sha512-XAmF0RjlrjY23MA51q3HltdlGxUpXPvg0GioKiD9X6HD28iMjo2dKC8Vqwm7lne4GNr78+RHTfliktR6ZH09wA==}
+    engines: {node: '>=8'}
+    dependencies:
+      type-fest: 0.20.2
+    dev: true
+
+  /globals@13.24.0:
+    resolution: {integrity: sha512-AhO5QUcj8llrbG09iWhPU2B204J1xnPeL8kQmVorSsy+Sjj1sk8gIyh6cUocGmH4L0UuhAJy+hJMRA4mgA4mFQ==}
     engines: {node: '>=8'}
     dependencies:
       type-fest: 0.20.2
@@ -12309,17 +12316,17 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier-plugin-svelte@3.1.2(prettier@3.1.0)(svelte@4.2.8):
+  /prettier-plugin-svelte@3.1.2(prettier@3.1.1)(svelte@4.2.8):
     resolution: {integrity: sha512-7xfMZtwgAWHMT0iZc8jN4o65zgbAQ3+O32V6W7pXrqNvKnHnkoyQCGCbKeUyXKZLbYE0YhFRnamfxfkEGxm8qA==}
     peerDependencies:
       prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
     dependencies:
-      prettier: 3.1.0
+      prettier: 3.1.1
       svelte: 4.2.8
     dev: true
 
-  /prettier-plugin-tailwindcss@0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.0):
+  /prettier-plugin-tailwindcss@0.5.9(prettier-plugin-svelte@3.1.2)(prettier@3.1.1):
     resolution: {integrity: sha512-9x3t1s2Cjbut2QiP+O0mDqV3gLXTe2CgRlQDgucopVkUdw26sQi53p/q4qvGxMLBDfk/dcTV57Aa/zYwz9l8Ew==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
@@ -12368,12 +12375,12 @@ packages:
       prettier-plugin-twig-melody:
         optional: true
     dependencies:
-      prettier: 3.1.0
-      prettier-plugin-svelte: 3.1.2(prettier@3.1.0)(svelte@4.2.8)
+      prettier: 3.1.1
+      prettier-plugin-svelte: 3.1.2(prettier@3.1.1)(svelte@4.2.8)
     dev: true
 
-  /prettier@3.1.0:
-    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
+  /prettier@3.1.1:
+    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -13354,13 +13361,13 @@ packages:
       - supports-color
     dev: true
 
-  /remark-preset-prettier@2.0.1(prettier@3.1.0):
+  /remark-preset-prettier@2.0.1(prettier@3.1.1):
     resolution: {integrity: sha512-1+cZaM080zTlhQIvZDOj7SFWvW9zevfxsLjTZspLEsBYivMDwCyTodvNvaZLc9p5dUSMik/BjMFKicfhZXh7qg==}
     engines: {node: '>=14.8'}
     peerDependencies:
       prettier: '>=1.0.0'
     dependencies:
-      prettier: 3.1.0
+      prettier: 3.1.1
     dev: true
 
   /remark-stringify@11.0.0:
@@ -14115,7 +14122,7 @@ packages:
       postcss-scss: 4.0.9(postcss@8.4.32)
       stylelint: 16.0.1(typescript@5.3.3)
       stylelint-config-recommended: 13.0.0(stylelint@16.0.1)
-      stylelint-scss: 5.3.1(stylelint@16.0.1)
+      stylelint-scss: 5.3.2(stylelint@16.0.1)
     dev: true
 
   /stylelint-config-recommended@13.0.0(stylelint@16.0.1):
@@ -14152,8 +14159,8 @@ packages:
       stylelint-config-recommended: 13.0.0(stylelint@16.0.1)
     dev: true
 
-  /stylelint-scss@5.3.1(stylelint@16.0.1):
-    resolution: {integrity: sha512-5I9ZDIm77BZrjOccma5WyW2nJEKjXDd4Ca8Kk+oBapSO4pewSlno3n+OyimcyVJJujQZkBN2D+xuMkIamSc6hA==}
+  /stylelint-scss@5.3.2(stylelint@16.0.1):
+    resolution: {integrity: sha512-4LzLaayFhFyneJwLo0IUa8knuIvj+zF0vBFueQs4e3tEaAMIQX8q5th8ziKkgOavr6y/y9yoBe+RXN/edwLzsQ==}
     peerDependencies:
       stylelint: ^14.5.1 || ^15.0.0
     dependencies:
@@ -14899,12 +14906,12 @@ packages:
       vfile-message: 3.1.4
     dev: true
 
-  /unified-prettier@2.0.0(prettier@3.1.0):
+  /unified-prettier@2.0.0(prettier@3.1.1):
     resolution: {integrity: sha512-sbe/9D1hEWugtRv3nB2EdItKGnajCq0dYIPG06OFUHx+DwkQojpQSlWyrjvGvGVqrTP6deQ2gIxl4/u5Kra02g==}
     peerDependencies:
       prettier: ^3.0.0
     dependencies:
-      prettier: 3.1.0
+      prettier: 3.1.1
       unified: 11.0.4
     dev: true
 
@@ -15273,8 +15280,8 @@ packages:
       - terser
     dev: true
 
-  /vite-node@1.0.2(@types/node@20.10.4):
-    resolution: {integrity: sha512-h7BbMJf46fLvFW/9Ygo3snkIBEHFh6fHpB4lge98H5quYrDhPFeI3S0LREz328uqPWSnii2yeJXktQ+Pmqk5BQ==}
+  /vite-node@1.0.4(@types/node@20.10.4):
+    resolution: {integrity: sha512-9xQQtHdsz5Qn8hqbV7UKqkm8YkJhzT/zr41Dmt5N7AlD8hJXw/Z7y0QiD5I8lnTthV9Rvcvi0QW7PI0Fq83ZPg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     dependencies:
@@ -15327,7 +15334,7 @@ packages:
       '@alexaegis/workspace-tools': 0.7.3
       '@pakk/core': 0.8.0
       '@types/node': 20.10.4
-      prettier: 3.1.0
+      prettier: 3.1.1
       ts-node: 10.9.2(@types/node@20.10.4)(typescript@5.3.3)
       typescript: 5.3.3
       vite: 5.0.7(@types/node@20.10.4)
@@ -15374,7 +15381,7 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.10.4
-      esbuild: 0.19.8
+      esbuild: 0.19.9
       postcss: 8.4.32
       rollup: 4.7.0
     optionalDependencies:
@@ -15459,8 +15466,8 @@ packages:
       - terser
     dev: true
 
-  /vitest@1.0.2(@types/node@20.10.4):
-    resolution: {integrity: sha512-F3NVwwpXfRSDnJmyv+ALPwSRVt0zDkRRE18pwUHSUPXAlWQ47rY1dc99ziMW5bBHyqwK2ERjMisLNoef64qk9w==}
+  /vitest@1.0.4(@types/node@20.10.4):
+    resolution: {integrity: sha512-s1GQHp/UOeWEo4+aXDOeFBJwFzL6mjycbQwwKWX2QcYfh/7tIerS59hWQ20mxzupTJluA2SdwiBuWwQHH67ckg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -15485,11 +15492,11 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.10.4
-      '@vitest/expect': 1.0.2
-      '@vitest/runner': 1.0.2
-      '@vitest/snapshot': 1.0.2
-      '@vitest/spy': 1.0.2
-      '@vitest/utils': 1.0.2
+      '@vitest/expect': 1.0.4
+      '@vitest/runner': 1.0.4
+      '@vitest/snapshot': 1.0.4
+      '@vitest/spy': 1.0.4
+      '@vitest/utils': 1.0.4
       acorn-walk: 8.3.1
       cac: 6.7.14
       chai: 4.3.10
@@ -15504,7 +15511,7 @@ packages:
       tinybench: 2.5.1
       tinypool: 0.8.1
       vite: 5.0.7(@types/node@20.10.4)
-      vite-node: 1.0.2(@types/node@20.10.4)
+      vite-node: 1.0.4(@types/node@20.10.4)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less

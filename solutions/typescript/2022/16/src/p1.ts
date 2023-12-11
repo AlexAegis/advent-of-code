@@ -105,7 +105,7 @@ export const p1 = (input: string): number => {
 		const from = graph.nodes.get(valve.name)!;
 		for (const lead of valve.leadsTo) {
 			const to = graph.nodes.get(lead)!;
-			from.neighbours.set(lead, { from, to, weight: 0 });
+			from.neighbours.set(lead, { from, to, weight: 0, direction: lead });
 		}
 	}
 

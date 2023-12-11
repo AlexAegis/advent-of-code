@@ -6,6 +6,6 @@ export const perm = (a: number[]): number[][] => {
 					...perm([...a.slice(0, i), ...a.slice(i + 1)]).map((x) => [v, ...x]),
 				],
 				[],
-		  )
+			)
 		: [[]];
 };

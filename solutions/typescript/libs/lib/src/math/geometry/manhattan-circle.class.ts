@@ -23,7 +23,7 @@ export class ManhattanCircle {
 					new Vec2(this.center.x + this.radius, this.center.y), // right
 					new Vec2(this.center.x, this.center.y + this.radius), // top
 					new Vec2(this.center.x, this.center.y - this.radius), // bottom
-			  ];
+				];
 	}
 
 	intersect(other: ManhattanCircle): [Vec2, Vec2] | undefined {

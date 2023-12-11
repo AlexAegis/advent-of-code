@@ -278,7 +278,7 @@ export class BoundingBox {
 					[this.topLeft, this.topRight, this.bottomLeft, this.bottomRight].filter(
 						(anchor) => anchor.isFinite(),
 					),
-			  );
+				);
 	}
 
 	createBlankMatrix(): undefined[][];
