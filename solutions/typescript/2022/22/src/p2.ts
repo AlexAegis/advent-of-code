@@ -78,6 +78,7 @@ export const p2 = (input: string): number => {
 					to,
 					data: reverseDirection.turn(180),
 					weight: from.value === to.value ? 0 : Number.POSITIVE_INFINITY,
+					direction,
 				});
 			}
 		}

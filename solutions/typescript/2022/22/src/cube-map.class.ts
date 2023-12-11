@@ -55,6 +55,7 @@ export class CubeMap<T extends ToString> {
 									from: node,
 									to: neighbouringNode,
 									weight: 0,
+									direction,
 								});
 							} else if (neighbouringNode !== alreadyFoundNeighbour.to) {
 								throw new Error('Found a different face for an existing neighbour');
