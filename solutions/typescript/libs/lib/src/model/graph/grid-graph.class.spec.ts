@@ -40,7 +40,7 @@ describe('Grid Graph', () => {
 		it('should find the shortest path', () => {
 			const g = GridGraph.fromMatrix(matrix);
 			const goal = g.getNode(finish)!;
-			const path = g.aStar(g.getNode(start), goal, {
+			const { path } = g.aStar(g.getNode(start), goal, {
 				heuristic: (a) => a.coordinate.manhattan(goal.coordinate),
 			});
 			expect(path.length).toEqual(10);
@@ -51,7 +51,7 @@ describe('Grid Graph', () => {
 				connectionDirections: Direction.allDirections,
 			});
 			const goal = g.getNode(finish)!;
-			const path = g.aStar(g.getNode(start), goal, {
+			const { path } = g.aStar(g.getNode(start), goal, {
 				heuristic: (a) => a.coordinate.manhattan(goal.coordinate),
 			});
 			expect(path.length).toEqual(6);

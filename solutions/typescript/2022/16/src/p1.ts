@@ -13,7 +13,7 @@ const pathBetweenValves = memoize(
 	): GraphNode<Valve, string>[] => {
 		const from = graph.getNode(fromValve);
 		const to = graph.getNode(toValve);
-		return graph.aStar(from, to);
+		return graph.aStar(from, to).path;
 	},
 );
 

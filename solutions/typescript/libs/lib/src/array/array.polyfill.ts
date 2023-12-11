@@ -74,7 +74,7 @@ declare global {
 		 * Return the average value of the array
 		 */
 		mean(): number;
-		filterMap<V>(mapFn: (t: T) => V | undefined): V[];
+		filterMap<V>(mapFn: (t: T, i: number) => V | undefined): V[];
 		partition(partitioner: (a: T) => boolean): [T[], T[]];
 		pairwise(callback: (a: T, b: T) => void): void;
 		slideWindow<N extends number = 2>(windowSize?: N, stepSize?: number): SizedTuple<T, N>[];
@@ -187,7 +187,7 @@ Array.prototype.unique = function <T>(this: T[], comparator?: (a: T, b: T) => bo
 	return result;
 };
 
-Array.prototype.filterMap = function <T, V>(mapFn: (t: T) => V | undefined): V[] {
+Array.prototype.filterMap = function <T, V>(mapFn: (t: T, i: number) => V | undefined): V[] {
 	return filterMap(this, mapFn);
 };
 
