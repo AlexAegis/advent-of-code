@@ -14,7 +14,7 @@ export const p2 = (input: string): number => {
 
 	const start = graph.findNode((n) => n.value === 'E');
 
-	return graph.aStar(start, (n) => n.value === 'a').length - 1;
+	return graph.aStar(start, (n) => n.value === 'a').path.length - 1;
 };
 
 await task(p2, packageJson.aoc); // 525 ~140.04ms

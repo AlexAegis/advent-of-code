@@ -290,9 +290,9 @@ export class Graph<
 		start: N | undefined,
 		end: N | ((n: N, path: N[]) => boolean) | undefined,
 		options?: GraphTraversalOptions<N, Dir>,
-	): N[] {
+	): { path: N[]; gScore: Map<N, number> } {
 		if (!start || !end) {
-			return [];
+			return { path: [], gScore: new Map() };
 		}
 
 		const openSet = new Set<N>([start]); // q?
@@ -351,6 +351,6 @@ export class Graph<
 			}
 		}
 
-		return Graph.generatePath(cameFrom, start, goal);
+		return { path: Graph.generatePath(cameFrom, start, goal), gScore };
 	}
 }

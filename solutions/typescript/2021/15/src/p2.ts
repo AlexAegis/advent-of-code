@@ -52,7 +52,7 @@ export const p2 = (input: string): number => {
 	const start = graph.getNode(boundingBox.topLeft);
 	const end = graph.getNode(boundingBox.bottomRight);
 
-	const path = graph.aStar(start, end, {
+	const { path } = graph.aStar(start, end, {
 		heuristic: (_a, p) => p.map((n) => n.value).sum(),
 	});
 
