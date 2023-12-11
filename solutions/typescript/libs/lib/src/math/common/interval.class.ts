@@ -246,7 +246,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 			? new Interval(lowestLow.low, highestHigh.high, {
 					lowQualifier: lowestLow.lowQualifier,
 					highQualifier: highestHigh.highQualifier,
-			  })
+				})
 			: undefined;
 	}
 

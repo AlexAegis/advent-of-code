@@ -160,11 +160,11 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-prettier": "^5.0.1",
 		"kolorist": "^1.8.0",
-		"prettier": "^3.1.0",
+		"prettier": "^3.1.1",
 		"remark": "^15.0.1",
 		"remark-cli": "^12.0.0",
 		"typescript": "5.3.3",
 		"vite": "^5.0.7",
-		"vitest": "^1.0.2"
+		"vitest": "^1.0.4"
 	}
 }

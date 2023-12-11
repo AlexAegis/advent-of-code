@@ -61,11 +61,6 @@
 			"import": "./dist/p2.js",
 			"default": "./dist/p2.js"
 		},
-		"./p2.naive": {
-			"types": "./src/p2.naive.ts",
-			"import": "./dist/p2.naive.js",
-			"default": "./dist/p2.naive.js"
-		},
 		"./parse": {
 			"types": "./src/parse.ts",
 			"import": "./dist/parse.js",
@@ -84,6 +79,6 @@
 		"@types/node": "^20.10.4",
 		"benny": "^3.7.1",
 		"vite": "^5.0.7",
-		"vitest": "^1.0.2"
+		"vitest": "^1.0.4"
 	}
 }
