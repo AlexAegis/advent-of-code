@@ -1,23 +1,7 @@
-import { BoundingBox, task } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
-import { parse } from './parse.js';
+import { solver } from './p1.js';
 
-export const p2 = (input: string): number => {
-	const { galaxies, emptyRows, emptyColumns } = parse(input);
+export const p2 = (input: string): number => solver(1_000_000)(input);
 
-	return galaxies
-		.pairs()
-		.map(([a, b]) => {
-			const nonExpandedDistance = a.manhattan(b);
-			const galaxyBox = BoundingBox.fromVectors([a, b]);
-			const emptyRowCount = emptyRows.filter((i) => galaxyBox.vertical.contains(i)).length;
-			const emptyColumnCount = emptyColumns.filter((i) =>
-				galaxyBox.horizontal.contains(i),
-			).length;
-
-			return nonExpandedDistance + emptyRowCount * 999_999 + emptyColumnCount * 999_999;
-		})
-		.sum();
-};
-
-await task(p2, packageJson.aoc); // 10228230 ~0ms
+await task(p2, packageJson.aoc); // 10228230 ~104.48ms
