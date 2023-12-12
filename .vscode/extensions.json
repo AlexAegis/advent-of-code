@@ -6,6 +6,7 @@
 		"dbaeumer.vscode-eslint",
 		"ipatalas.vscode-postfix-ts",
 		"ms-python.python",
+		"ms-python.autopep8",
 		"ms-python.vscode-pylance",
 		"rust-lang.rust-analyzer"
 	]

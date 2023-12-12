@@ -1,4 +1,4 @@
-import { cartesianCombinations, task } from '@alexaegis/advent-of-code-lib';
+import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 interface SprintLog {
@@ -15,12 +15,11 @@ interface SprintLog {
 export const criteriaToRegExp = (criteria: number[]): RegExp =>
 	new RegExp('^\\.*' + criteria.map((brokenCount) => `#{${brokenCount}}`).join('\\.+') + '\\.*$');
 
-function generateVariations(damagedLog: string, criteria: RegExp): string[] {
-	const variants = [...damagedLog].map((entry) => (entry === '?' ? ['#', '.'] : [entry]));
+function calculateVariations(damagedLog: string, criteria: number[]): number {
+	const totalVariationCount = [...damagedLog].map((entry) => (entry === '?' ? 2 : 1)).product();
+	const minlen = criteria.sum() + criteria.length - 1;
 	// const variationCount = variants.map((ev) => ev.length).product();
-	return cartesianCombinations(...variants)
-		.map((combination) => combination.join(''))
-		.filter((combination) => criteria.test(combination));
+	return totalVariationCount ^ minlen;
 }
 
 export const p2 = (input: string): number =>
@@ -45,7 +44,7 @@ export const p2 = (input: string): number =>
 		.tap((a) => {
 			console.log(a);
 		})
-		.map((spring) => generateVariations(spring.log, spring.criteriaRegExp).length)
+		.map((spring) => calculateVariations(spring.log, spring.criteria))
 
 		.sum();
 
