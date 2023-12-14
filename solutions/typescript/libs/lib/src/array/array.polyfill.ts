@@ -84,7 +84,10 @@ declare global {
 		unique(comparator?: (a: T, b: T) => boolean): T[];
 		pairsWith<N = T>(other?: N[], onlyUnique?: boolean): [T, N][];
 		getSizedGroups(groupSize: number): T[][];
-		findLast<V extends T>(predicate: (t: T) => t is V): V | undefined;
+		findLast<V extends T>(
+			predicate: (t: T, i: number) => boolean,
+			skipCount?: number,
+		): V | undefined;
 		mapFirst<V>(map: (t: T) => V): V | undefined;
 		mapLast<V>(map: (t: T) => V): V | undefined;
 		zip<U>(other: U[]): [T, U][];
@@ -118,11 +121,12 @@ Array.prototype.clear = function (): void {
 	this.splice(0);
 };
 
-Array.prototype.findLast = function <T, V extends T>(
+Array.prototype.findLast = function <T>(
 	this: T[],
-	predicate: (t: T) => t is V,
+	predicate: (t: T, i: number) => boolean,
+	skipCount: number,
 ): T | undefined {
-	return findLast(this, predicate);
+	return findLast(this, predicate, skipCount);
 };
 
 Array.prototype.pairs = function <T>(): [T, T][] {

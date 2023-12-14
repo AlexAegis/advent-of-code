@@ -7,6 +7,9 @@ import {
 } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
+/**
+ * @deprecated use the one on the graph
+ */
 const getColumn = <T extends ToString = string, N extends GridGraphNode<T> = GridGraphNode<T>>(
 	gg: GridGraph<T, N>,
 	column: number,
@@ -23,6 +26,9 @@ const getColumn = <T extends ToString = string, N extends GridGraphNode<T> = Gri
 		: undefined;
 };
 
+/**
+ * @deprecated use the one on the graph
+ */
 const getRow = <T extends ToString = string, N extends GridGraphNode<T> = GridGraphNode<T>>(
 	gg: GridGraph<T, N>,
 	row: number,

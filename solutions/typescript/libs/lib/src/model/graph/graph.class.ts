@@ -66,6 +66,50 @@ export class Graph<
 		);
 	}
 
+	/**
+	 * TODO: Fix
+	 * Swap 2 nodes with all their neighbours, but keep the value
+	 */
+	public swap(a: N, b: N): void {
+		const an = a.neighbours.entryArray();
+		const bn = b.neighbours.entryArray();
+		const ak = this.nodes.findKey(a);
+		const bk = this.nodes.findKey(b);
+
+		if (ak === undefined || bk === undefined) {
+			throw new Error('trying to swap nodes without keys');
+		}
+
+		a.neighbours.clear();
+		b.neighbours.clear();
+
+		this.nodes.set(ak, b);
+		this.nodes.set(bk, a);
+		for (const [d, n] of bn) {
+			this.edges.delete(n);
+			const edge = {
+				...n,
+				from: a,
+				to: n.to === a ? b : n.to,
+			};
+			a.neighbours.set(d, edge);
+			this.edges.add(edge);
+		}
+
+		for (const [d, n] of an) {
+			this.edges.delete(n);
+			const edge = {
+				...n,
+				from: b,
+				to: n.to === b ? a : n.to,
+			};
+			a.neighbours.set(d, edge);
+			this.edges.add(edge);
+		}
+
+		a;
+	}
+
 	private tryAddNode(value: T, key?: string): [string, N] {
 		let existing: [string, N] | undefined;
 		if (key) {

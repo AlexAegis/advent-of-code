@@ -277,6 +277,32 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 		);
 	}
 
+	public getRow(row: number): N[] | undefined {
+		const aabb = this.boundingBox();
+		return aabb.vertical.contains(row)
+			? aabb.horizontal.map((column) => {
+					const node = this.getNode({ x: column, y: row });
+					if (!node) {
+						throw new Error(`problem while fetching row: ${row} column: ${column}`);
+					}
+					return node;
+				})
+			: undefined;
+	}
+
+	public getColumn(column: number): N[] | undefined {
+		const aabb = this.boundingBox();
+		return aabb.horizontal.contains(column)
+			? aabb.vertical.map((row) => {
+					const node = this.getNode({ x: column, y: row });
+					if (!node) {
+						throw new Error(`problem while fetching row: ${row} column: ${column}`);
+					}
+					return node;
+				})
+			: undefined;
+	}
+
 	public print(nodeToString?: (node: GridGraphNode<T>) => string): void {
 		console.log(this.toString(nodeToString));
 	}
