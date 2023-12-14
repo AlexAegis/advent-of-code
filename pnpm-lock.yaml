@@ -4061,6 +4061,37 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(@types/node@20.10.4)
 
+  solutions/typescript/2023/14:
+    dependencies:
+      '@alexaegis/advent-of-code-lib':
+        specifier: workspace:^
+        version: link:../../libs/lib
+    devDependencies:
+      '@alexaegis/eslint-config-vitest':
+        specifier: ^0.9.1
+        version: 0.9.1
+      '@alexaegis/ts':
+        specifier: ^0.9.1
+        version: 0.9.1
+      '@alexaegis/vite':
+        specifier: ^0.9.1
+        version: 0.9.1(@types/node@20.10.4)
+      '@alexaegis/vitest':
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@4.2.8)(vite@5.0.7)
+      '@types/node':
+        specifier: ^20.10.4
+        version: 20.10.4
+      benny:
+        specifier: ^3.7.1
+        version: 3.7.1
+      vite:
+        specifier: ^5.0.7
+        version: 5.0.7(@types/node@20.10.4)
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
+
   solutions/typescript/libs/ecs:
     dependencies:
       '@alexaegis/advent-of-code-lib':
