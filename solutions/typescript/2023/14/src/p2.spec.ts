@@ -1,7 +1,7 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
-import { p2 } from './p2.js';
+import { findCycle, p2 } from './p2.js';
 
 describe('2023 14 p2', () => {
 	describe('the input', () => {
@@ -15,6 +15,20 @@ describe('2023 14 p2', () => {
 		it('should be solved', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
 			expect(p2(input)).toEqual(0);
+		});
+	});
+
+	describe('findCycle', () => {
+		it('should find a simple repeating pattern', () => {
+			const vals = [1, 2, 3, 4, 3, 4, 3, 4];
+			const cycle = findCycle(vals);
+			expect(cycle).toEqual([3, 4]);
+		});
+
+		it('should find a more complex repeating pattern', () => {
+			const vals = [1, 2, 3, 4, 4, 3, 4, 4, 3, 4, 4];
+			const cycle = findCycle(vals);
+			expect(cycle).toEqual([3, 4, 4]);
 		});
 	});
 });
