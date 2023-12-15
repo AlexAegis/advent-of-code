@@ -1,8 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
+import { hash } from './internal/hash.js';
 
-export const p1 = (_input: string): number => {
-	return 0;
-};
+export const p1 = (input: string): number => input.lines(false).first().split(',').map(hash).sum();
 
-await task(p1, packageJson.aoc); // 0 ~0ms
+await task(p1, packageJson.aoc); // 495972 ~0.19ms
