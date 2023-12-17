@@ -1,0 +1,79 @@
+{
+	"name": "@alexaegis/advent-of-code-2023-17",
+	"description": "Advent of Code 2023 17 solutions",
+	"version": "1.0.0",
+	"license": "mit",
+	"private": true,
+	"archetype": {
+		"platform": "node",
+		"framework": "adventofcode",
+		"language": "ts"
+	},
+	"keywords": [
+		"advent-of-code",
+		"javascript",
+		"js",
+		"managed-by-autotool",
+		"ts",
+		"typescript"
+	],
+	"type": "module",
+	"aoc": {
+		"day": 17,
+		"year": 2023
+	},
+	"scripts": {
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"lint:depcheck_": "depcheck",
+		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
+		"lint:format": "turbo run lint:format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"lint:format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --check .",
+		"lint:md": "turbo run lint:md_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"lint:md_": "remark --frail --no-stdout --silently-ignore .",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"lint:tsc_": "tsc --noEmit",
+		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"test_": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests --coverage",
+		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"bench": "ts-node-esm src/bench.ts",
+		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"build-lib_": "vite build",
+		"format": "turbo run format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-17",
+		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
+		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
+		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts"
+	},
+	"exports": {
+		"./bench": {
+			"types": "./src/bench.ts",
+			"import": "./dist/bench.js",
+			"default": "./dist/bench.js"
+		},
+		"./p1": {
+			"types": "./src/p1.ts",
+			"import": "./dist/p1.js",
+			"default": "./dist/p1.js"
+		},
+		"./p2": {
+			"types": "./src/p2.ts",
+			"import": "./dist/p2.js",
+			"default": "./dist/p2.js"
+		},
+		"./readme": "./readme.md"
+	},
+	"dependencies": {
+		"@alexaegis/advent-of-code-lib": "workspace:^"
+	},
+	"devDependencies": {
+		"@alexaegis/eslint-config-vitest": "^0.9.2",
+		"@alexaegis/ts": "^0.9.2",
+		"@alexaegis/vite": "^0.9.2",
+		"@alexaegis/vitest": "^0.9.2",
+		"@types/node": "^20.10.4",
+		"benny": "^3.7.1",
+		"vite": "^5.0.9",
+		"vitest": "^1.0.4"
+	}
+}
