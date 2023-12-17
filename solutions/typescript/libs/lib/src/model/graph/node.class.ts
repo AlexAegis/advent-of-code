@@ -20,6 +20,12 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction> imp
 		return this;
 	}
 
+	public directionTo(target: this): Dir | undefined {
+		return [...this.neighbours.entries()].find(
+			([, neightbour]) => neightbour.to === target,
+		)?.[0];
+	}
+
 	*[Symbol.iterator](): IterableIterator<Edge<this, Dir>> {
 		yield* this.neighbours.values();
 	}

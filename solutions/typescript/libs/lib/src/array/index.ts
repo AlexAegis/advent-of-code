@@ -17,5 +17,6 @@ export * from './pairs-with.function.js';
 export * from './partition.function.js';
 export * from './peek.function.js';
 export * from './present-in-all.function.js';
+export * from './reduce-if-all-the-same.function.js';
 export * from './rotate-matrix.function.js';
 export * from './zip.function.js';

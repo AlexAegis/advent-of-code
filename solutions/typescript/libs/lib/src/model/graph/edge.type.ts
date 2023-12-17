@@ -1,4 +1,4 @@
-import type { Direction } from '../index.js';
+import type { CurrentPathWeighter, Direction } from '../index.js';
 
 /**
  * Represents an edge between two vertices
@@ -9,5 +9,5 @@ export interface Edge<N, Dir = Direction, EdgeData = unknown> {
 	direction: Dir;
 	data?: EdgeData;
 	weight?: number;
-	weighter?: () => number;
+	currentPathWeighter?: CurrentPathWeighter<N, Dir>;
 }

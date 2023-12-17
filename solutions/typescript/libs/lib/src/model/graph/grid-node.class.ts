@@ -109,7 +109,7 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 	public calculateWeights(weighter: Weighter<this>) {
 		this.neighbours.forEach((edge, direction) => {
 			edge.weight = weighter(this, edge.to, direction);
-			edge.weighter = () => weighter(this, edge.to, direction);
+			edge.currentPathWeighter = () => weighter(this, edge.to, direction);
 		});
 	}
 
@@ -143,8 +143,8 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 					this.calculateWeights(weighter);
 					forwardEdge.weight = weighter(this, node, dir);
 					backEdge.weight = weighter(node, this, reverse);
-					forwardEdge.weighter = () => weighter(this, node, dir);
-					backEdge.weighter = () => weighter(node, this, reverse);
+					forwardEdge.currentPathWeighter = () => weighter(this, node, dir);
+					backEdge.currentPathWeighter = () => weighter(node, this, reverse);
 				}
 			}
 		}

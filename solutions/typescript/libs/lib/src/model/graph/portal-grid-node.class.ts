@@ -64,8 +64,8 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 				if (weighter) {
 					forwardEdge.weight = weighter(this, node, direction);
 					backEdge.weight = weighter(node, this, direction);
-					forwardEdge.weighter = () => weighter(this, node, direction);
-					backEdge.weighter = () => weighter(node, this, direction);
+					forwardEdge.currentPathWeighter = () => weighter(this, node, direction);
+					backEdge.currentPathWeighter = () => weighter(node, this, direction);
 				}
 			}
 		}

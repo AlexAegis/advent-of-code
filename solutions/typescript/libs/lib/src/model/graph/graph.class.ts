@@ -2,7 +2,7 @@ import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 
 import type { Edge } from './edge.type.js';
-import type { Heuristic, Weighter } from './heuristic.type.js';
+import type { CurrentPathWeighter, Heuristic, Weighter } from './heuristic.type.js';
 import { GraphNode } from './node.class.js';
 
 export interface GraphTraversalOptions<N, Dir = Direction> {
@@ -13,10 +13,9 @@ export interface GraphTraversalOptions<N, Dir = Direction> {
 	 * complete
 	 */
 	// generateNode?: (graph: Graph<N>, path: Map<N, N>) => N | undefined;
-	edgeGenerator?: (nodeMap: Map<string, N>, from: N, path: N[]) => Generator<Edge<N, Dir>>;
+	edgeGenerator?: (nodeMap: Map<string, N>, from: N, path: N[]) => Edge<N, Dir>[];
 	heuristic?: Heuristic<N>;
-	weighter?: Weighter<N, Dir>;
-	recalc?: boolean; // evaluate need
+	currentPathWeighter?: CurrentPathWeighter<N, Dir>;
 }
 
 // TODO take out DIR, it doesnt make sense here
@@ -169,6 +168,8 @@ export class Graph<
 		}
 	}
 
+	static defaultWeighter: Weighter<unknown, unknown> = (_a, _b, _direction) => 1;
+
 	public dijkstra(start: N | undefined, target: N | undefined): N[] {
 		if (!start || !target) {
 			return [];
@@ -304,8 +305,13 @@ export class Graph<
 			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, []) ?? current) {
 				const tentativegScore =
 					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
-					(options?.weighter
-						? options.weighter(neighbour.from, neighbour.to, neighbour.direction)
+					(options?.currentPathWeighter
+						? options.currentPathWeighter(
+								neighbour.from,
+								neighbour.to,
+								neighbour.direction,
+								[],
+							)
 						: neighbour.weight ?? 1);
 				const tentativeDistance = (dMap.get(current) ?? 0) + 1;
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
@@ -344,8 +350,7 @@ export class Graph<
 		const gScore = new Map<N, number>(); // dist! Infinity
 
 		const h = options?.heuristic ?? (() => 1);
-		// const weighter = options?.weigther ?? (() => 1);
-		const recalc = options?.recalc ?? false;
+
 		const isFinished = typeof end === 'function' ? end : (n: N, _path: N[]) => n === end;
 		// const generateNode = options?.generateNode ?? (() => undefined);
 
@@ -371,7 +376,7 @@ export class Graph<
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const current = umin.node!;
 
-			const currentPath = Graph.generatePath(cameFrom, start, current);
+			const currentPath = Graph.generatePath<T, Dir, N>(cameFrom, start, current);
 
 			if (isFinished(current, currentPath)) {
 				goal = current;
@@ -383,7 +388,21 @@ export class Graph<
 				current) {
 				const tentativegScore =
 					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
-					(recalc && neighbour.weighter ? neighbour.weighter() : neighbour.weight ?? 1);
+					(options?.currentPathWeighter
+						? options.currentPathWeighter(
+								current,
+								neighbour.to,
+								neighbour.direction,
+								currentPath,
+							)
+						: neighbour.currentPathWeighter
+							? neighbour.currentPathWeighter(
+									current,
+									neighbour.to,
+									neighbour.direction,
+									currentPath,
+								)
+							: neighbour.weight ?? 1);
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);
@@ -395,6 +414,6 @@ export class Graph<
 			}
 		}
 
-		return { path: Graph.generatePath(cameFrom, start, goal), gScore };
+		return { path: Graph.generatePath<T, Dir, N>(cameFrom, start, goal), gScore };
 	}
 }

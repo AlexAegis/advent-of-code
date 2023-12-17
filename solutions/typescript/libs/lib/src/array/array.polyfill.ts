@@ -22,6 +22,7 @@ import { minOf } from './min-of.function.js';
 import { pairsWith } from './pairs-with.function.js';
 import { partition } from './partition.function.js';
 import { peek } from './peek.function.js';
+import { reduceIfAllTheSame } from './reduce-if-all-the-same.function.js';
 import { rotateMatrix } from './rotate-matrix.function.js';
 import { zip } from './zip.function.js';
 
@@ -50,6 +51,7 @@ declare global {
 		}): (number | undefined)[];
 		intoIter(): IterableIterator<T>;
 		repeat(until?: (element: T, iteration: number) => boolean): IterableIterator<T>;
+
 		sum(): number;
 		product(): number;
 		min(): number;
@@ -98,6 +100,10 @@ declare global {
 		 * @param isDelimiter by default it checks if a value is falsy or not
 		 */
 		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
+		/**
+		 * If every element is the same, return that.
+		 */
+		reduceIfAllTheSame(): T | undefined;
 	}
 }
 
@@ -345,4 +351,8 @@ Array.prototype.removeItem = function <T>(item: T): boolean {
 		this.splice(index, 1);
 	}
 	return index >= 0;
+};
+
+Array.prototype.reduceIfAllTheSame = function <T>(): T | undefined {
+	return reduceIfAllTheSame(this);
 };
