@@ -20,4 +20,4 @@ export const p1 = (input: string): number => {
 	return [...score].reduce((acc, next) => (acc < next ? next : acc));
 };
 
-await task(p1, packageJson.aoc); // 361466 ~9ms
+await task(p1, packageJson.aoc); // 361466 ~1.27ms

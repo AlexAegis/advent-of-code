@@ -708,6 +708,9 @@ importers:
       '@types/node':
         specifier: ^20.10.4
         version: 20.10.4
+      benny:
+        specifier: ^3.7.1
+        version: 3.7.1
       vite:
         specifier: ^5.0.9
         version: 5.0.9(@types/node@20.10.4)
