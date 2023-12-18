@@ -102,8 +102,11 @@ declare global {
 		groupByDelimiter(isDelimiter?: (t: T) => boolean): T[][];
 		/**
 		 * If every element is the same, return that.
+		 *
+		 * @param minimumLength even if all elements are the same, if the length
+		 * is below this value, it will still return undefined.
 		 */
-		reduceIfAllTheSame(): T | undefined;
+		reduceIfAllTheSame(minimumLength?: number): T | undefined;
 	}
 }
 
@@ -353,6 +356,6 @@ Array.prototype.removeItem = function <T>(item: T): boolean {
 	return index >= 0;
 };
 
-Array.prototype.reduceIfAllTheSame = function <T>(): T | undefined {
-	return reduceIfAllTheSame(this);
+Array.prototype.reduceIfAllTheSame = function <T>(minimumLength?: number): T | undefined {
+	return reduceIfAllTheSame(this, minimumLength);
 };

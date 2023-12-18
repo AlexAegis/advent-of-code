@@ -45,6 +45,11 @@
 		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts"
 	},
 	"exports": {
+		"./bench": {
+			"types": "./src/bench.ts",
+			"import": "./dist/bench.js",
+			"default": "./dist/bench.js"
+		},
 		"./interpreter.function": {
 			"types": "./src/interpreter.function.ts",
 			"import": "./dist/interpreter.function.js",

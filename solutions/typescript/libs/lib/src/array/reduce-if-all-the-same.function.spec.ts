@@ -21,4 +21,11 @@ describe('reduceIfAllTheSame', () => {
 		const result = reduceIfAllTheSame([1]);
 		expect(result).toEqual(1);
 	});
+
+	describe('minimumLength', () => {
+		it('should return undefined even if all of them are the same, if the minimumLength is larger', () => {
+			const result = reduceIfAllTheSame([1, 1, 1], 5);
+			expect(result).toEqual(undefined);
+		});
+	});
 });

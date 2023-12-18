@@ -4269,6 +4269,9 @@ importers:
       arktype:
         specifier: ^1.0.28-alpha
         version: 1.0.28-alpha
+      js-sdsl:
+        specifier: ^4.4.2
+        version: 4.4.2
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.9.2
@@ -10032,6 +10035,10 @@ packages:
 
   /jpeg-js@0.4.4:
     resolution: {integrity: sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==}
+    dev: false
+
+  /js-sdsl@4.4.2:
+    resolution: {integrity: sha512-dwXFwByc/ajSV6m5bcKAPwe4yDDF6D614pxmIi5odytzxRlwqF6nwoiCek80Ixc7Cvma5awClxrzFtxCQvcM8w==}
     dev: false
 
   /js-tokens@4.0.0:
