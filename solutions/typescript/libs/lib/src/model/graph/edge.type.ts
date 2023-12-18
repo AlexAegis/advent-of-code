@@ -1,13 +1,13 @@
-import type { CurrentPathWeighter, Direction } from '../index.js';
+import type { ToString } from '../index.js';
 
 /**
  * Represents an edge between two vertices
  */
-export interface Edge<N, Dir = Direction, EdgeData = unknown> {
+export interface Edge<T extends ToString, Dir extends ToString, N, EdgeData = unknown> {
 	from: N;
 	to: N;
 	direction: Dir;
-	data?: EdgeData;
-	weight?: number;
-	currentPathWeighter?: CurrentPathWeighter<N, Dir>;
+	data?: EdgeData | T | undefined;
+	weight?: number | undefined;
+	// currentPathWeighter?: CurrentPathWeighter<T, Dir, N> | undefined;
 }

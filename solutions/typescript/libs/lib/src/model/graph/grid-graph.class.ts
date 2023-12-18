@@ -17,9 +17,9 @@ import type { ConnectionFilter, Weighter } from './heuristic.type.js';
 import { PortalGridNode } from './portal-grid-node.class.js';
 
 export interface GridGraphOptions<T extends ToString> {
-	weighter?: Weighter<GridGraphNode<T>>;
+	weighter?: Weighter<T, Direction, GridGraphNode<T>>;
 	connectionDirections?: readonly Readonly<Direction>[];
-	connectionFilter?: ConnectionFilter<GridGraphNode<T>>;
+	connectionFilter?: ConnectionFilter<T, Direction, GridGraphNode<T>>;
 	ignoreNodes?: (s: string) => boolean;
 }
 
@@ -139,8 +139,8 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 
 	public addNode(
 		node: N,
-		weighter?: Weighter<N>,
-		connectionFilter?: ConnectionFilter<N>,
+		weighter?: Weighter<T, Direction, N>,
+		connectionFilter?: ConnectionFilter<T, Direction, N>,
 		connectionDirections: readonly Readonly<Direction>[] = Direction.cardinalDirections,
 	): N {
 		this.nodes.set(node.coordinate.toString(), node);
@@ -326,16 +326,15 @@ export class PortalGridGraph<
 	>(
 		matrix: T[][],
 		options: {
-			weighter?: Weighter<PortalGridNode<T>>;
+			weighter?: Weighter<T, Direction, PortalGridNode<T>>;
 			filter?: (n: Vec2) => boolean;
 			portalOf: (n: Vec2) => string | undefined;
 			connectionDirections?: Direction[];
 		},
 	): PortalGridGraph<T, N> {
-		const weigther: Weighter<PortalGridNode<T>> =
-			options.weighter ??
-			((a: PortalGridNode<T>, b: PortalGridNode<T>) =>
-				a.value === b.value ? 0 : Number.POSITIVE_INFINITY);
+		const weigther: Weighter<T, Direction, PortalGridNode<T>> = options.weighter ??
+		((a: PortalGridNode<T>, b: PortalGridNode<T>) =>
+			a.value === b.value ? 0 : Number.POSITIVE_INFINITY);
 		const connectionDirections = options.connectionDirections ?? Direction.cardinalDirections;
 
 		const graph = new PortalGridGraph<T, N>();

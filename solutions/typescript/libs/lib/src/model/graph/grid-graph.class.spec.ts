@@ -23,16 +23,16 @@ describe('Grid Graph', () => {
 	describe('Dijkstra', () => {
 		it('should find the shortest path', () => {
 			const g = GridGraph.fromMatrix(matrix);
-			const path = g.dijkstra(g.getNode(start), g.getNode(finish));
-			expect(path.length).toEqual(10);
+			const path = g.dijkstra({ start: g.getNode(start)!, end: g.getNode(finish) });
+			expect(path.path.length).toEqual(10);
 		});
 
 		it('should find the shortest path with diagonal connections', () => {
 			const g = GridGraph.fromMatrix(matrix, {
 				connectionDirections: Direction.allDirections,
 			});
-			const path = g.dijkstra(g.getNode(start), g.getNode(finish));
-			expect(path.length).toEqual(6);
+			const path = g.dijkstra({ start: g.getNode(start)!, end: g.getNode(finish) });
+			expect(path.path.length).toEqual(6);
 		});
 	});
 
@@ -40,7 +40,9 @@ describe('Grid Graph', () => {
 		it('should find the shortest path', () => {
 			const g = GridGraph.fromMatrix(matrix);
 			const goal = g.getNode(finish)!;
-			const { path } = g.aStar(g.getNode(start), goal, {
+			const { path } = g.aStar({
+				start: g.getNode(start)!,
+				end: goal,
 				heuristic: (a) => a.coordinate.manhattan(goal.coordinate),
 			});
 			expect(path.length).toEqual(10);
@@ -51,7 +53,9 @@ describe('Grid Graph', () => {
 				connectionDirections: Direction.allDirections,
 			});
 			const goal = g.getNode(finish)!;
-			const { path } = g.aStar(g.getNode(start), goal, {
+			const { path } = g.aStar({
+				start: g.getNode(start)!,
+				end: goal,
 				heuristic: (a) => a.coordinate.manhattan(goal.coordinate),
 			});
 			expect(path.length).toEqual(6);

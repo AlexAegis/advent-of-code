@@ -27,7 +27,9 @@ const graph = GridGraph.fromString(mazeStr, {
 graph.print();
 const start = graph.getNode(new Vec2(1, 1))!;
 const goal = graph.getNode(new Vec2(11, 12))!;
-const { path } = graph.aStar(start, goal, {
+const { path } = graph.aStar({
+	start,
+	end: goal,
 	currentPathWeighter: (a, b) => a.coordinate.dist(b.coordinate),
 });
 console.log(
@@ -38,15 +40,19 @@ console.log(
 
 await defaultBench(
 	'Grid Graph',
-	add('Dijkstra', () => graph.dijkstra(start, goal)),
+	add('Dijkstra', () => graph.dijkstra({ start, end: goal })),
 	add('Astar', () =>
-		graph.aStar(start, goal, {
-			currentPathWeighter: (a, g) => a.coordinate.dist(g.coordinate),
+		graph.aStar({
+			start,
+			end: goal,
+			heuristic: (a) => a.coordinate.dist(goal.coordinate),
 		}),
 	),
 	add('Astar h2', () =>
-		graph.aStar(start, goal, {
-			currentPathWeighter: (a, g) => 140 - a.coordinate.dist(g.coordinate),
+		graph.aStar({
+			start,
+			end: goal,
+			heuristic: (a) => 140 - a.coordinate.dist(goal.coordinate),
 		}),
 	),
 );

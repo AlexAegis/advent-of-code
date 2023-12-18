@@ -1,11 +1,23 @@
+import {
+	constructPath,
+	dijkstra,
+	type EdgeCollectionOptions,
+	type PathFindingResult,
+} from '../../pathfinding/dijkstra.js';
 import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 
 import type { Edge } from './edge.type.js';
-import type { CurrentPathWeighter, Heuristic, Weighter } from './heuristic.type.js';
-import { GraphNode } from './node.class.js';
+import type { CurrentPathWeighter, Heuristic } from './heuristic.type.js';
+import { GraphNode, type BasicGraphNode } from './node.class.js';
 
-export interface GraphTraversalOptions<N, Dir = Direction> {
+export interface GraphTraversalOptions<
+	T extends ToString,
+	Dir extends ToString,
+	N extends BasicGraphNode<T, Dir>,
+> {
+	start: N;
+	end?: N | undefined;
 	/**
 	 * When traversing an edge that doesn't have a node at it's end, how to
 	 * generate it? By default it always generates an `undefined` meaning
@@ -13,12 +25,14 @@ export interface GraphTraversalOptions<N, Dir = Direction> {
 	 * complete
 	 */
 	// generateNode?: (graph: Graph<N>, path: Map<N, N>) => N | undefined;
-	edgeGenerator?: (nodeMap: Map<string, N>, from: N, path: N[]) => Edge<N, Dir>[];
-	heuristic?: Heuristic<N>;
-	currentPathWeighter?: CurrentPathWeighter<N, Dir>;
+	edgeGenerator?:
+		| ((nodeMap: Map<string, N>, from: N, path: N[]) => Edge<T, Dir, N>[])
+		| undefined;
+	edgeFilter?: ((edge: Edge<T, Dir, N>, tentativePath: N[]) => boolean) | undefined;
+	heuristic?: Heuristic<T, Dir, N> | undefined;
+	currentPathWeighter?: CurrentPathWeighter<T, Dir, N> | undefined;
 }
 
-// TODO take out DIR, it doesnt make sense here
 export class Graph<
 	T extends ToString = string,
 	Dir extends ToString = Direction,
@@ -26,7 +40,7 @@ export class Graph<
 > implements Iterable<N>
 {
 	public nodes = new Map<string, N>();
-	public edges = new Set<Edge<N, Dir>>();
+	public edges = new Set<Edge<T, Dir, N>>();
 
 	public static fromUniqueValueEdges<T extends ToString>(
 		edges: { from: T; to: T; bidirection?: boolean }[],
@@ -130,24 +144,6 @@ export class Graph<
 		}
 	}
 
-	private static generatePath<
-		T extends ToString,
-		Dir extends ToString,
-		N extends GraphNode<T, Dir>,
-	>(cameFrom: Map<N, N>, start: N, goal?: N): N[] {
-		const s: N[] = [];
-		if (goal) {
-			let u: N | undefined = goal;
-			if (start === u || cameFrom.get(u)) {
-				while (u) {
-					s.unshift(u);
-					u = cameFrom.get(u);
-				}
-			}
-		}
-		return s;
-	}
-
 	public getNode(key: string): N | undefined {
 		return this.nodes.get(key);
 	}
@@ -168,57 +164,18 @@ export class Graph<
 		}
 	}
 
-	static defaultWeighter: Weighter<unknown, unknown> = (_a, _b, _direction) => 1;
-
-	public dijkstra(start: N | undefined, target: N | undefined): N[] {
-		if (!start || !target) {
-			return [];
-		}
-		const q = new Set<N>(this.nodes.values());
-
-		const dist = new Map<N, number>();
-		const prev = new Map<N, N>();
-		dist.set(start, 0);
-
-		while (q.size > 0) {
-			// refactor this to a prio queue
-			const umin = [...q.values()].reduce(
-				(acc, b) => {
-					const u = dist.get(b) ?? Number.POSITIVE_INFINITY;
-					if (!acc.node || u < acc.dist) {
-						acc.node = b;
-						acc.dist = dist.get(b) ?? Number.POSITIVE_INFINITY;
-					}
-					return acc;
-				},
-				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY },
-			);
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			const u = umin.node!;
-			if (u === target) {
-				break;
-			}
-			q.delete(u);
-
-			for (const neighbour of u) {
-				const alt = umin.dist + (neighbour.weight ?? 1);
-				if (alt < (dist.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
-					dist.set(neighbour.to, alt);
-					prev.set(neighbour.to, u);
-				}
-			}
-		}
-
-		const s: N[] = [];
-		let u: N | undefined = target;
-		if (start === u || prev.get(u)) {
-			while (u) {
-				s.unshift(u);
-				u = prev.get(u);
-			}
-		}
-
-		return s;
+	public dijkstra(
+		options: Omit<GraphTraversalOptions<T, Dir, N>, 'heuristic'> &
+			Omit<EdgeCollectionOptions<T, Dir, N>, 'pathConstructor' | 'allNodes'>,
+	): PathFindingResult<N> {
+		return dijkstra<T, Dir, N>({
+			allNodes: this.nodes,
+			start: options.start,
+			end: options.end,
+			currentPathWeighter: options.currentPathWeighter,
+			edgeFilter: options.edgeFilter,
+			edgeGenerator: options.edgeGenerator,
+		});
 	}
 
 	/**
@@ -268,22 +225,22 @@ export class Graph<
 	 * A gutted out aStar, not trying to find a path, but calculating a distanceMap
 	 * to all reachable node.
 	 */
-	public flood(start: N | undefined, options?: GraphTraversalOptions<N, Dir>): Map<N, number> {
-		if (!start) {
+	public flood(options: GraphTraversalOptions<T, Dir, N>): Map<N, number> {
+		if (!options.start) {
 			return new Map();
 		}
-		const openSet = new Set<N>([start]); // q?
+		const openSet = new Set<N>([options.start]); // q?
 		const cameFrom = new Map<N, N>(); // prev!
 		const gScore = new Map<N, number>(); // weightMap! Infinity
 		const dMap = new Map<N, number>(); // distanceMap Infinity
 
 		const h = options?.heuristic ?? (() => 1);
 
-		gScore.set(start, 0);
-		dMap.set(start, 0);
+		gScore.set(options.start, 0);
+		dMap.set(options.start, 0);
 
 		const fScore = new Map<N, number>(); // Infinity
-		fScore.set(start, h(start, []));
+		fScore.set(options.start, h(options.start, []));
 
 		while (openSet.size > 0) {
 			const umin = [...openSet.values()].reduce(
@@ -336,28 +293,27 @@ export class Graph<
 	 * @param h global heuristic function. Should return a monotone value for
 	 * better nodes
 	 */
-	public aStar(
-		start: N | undefined,
-		end: N | ((n: N, path: N[]) => boolean) | undefined,
-		options?: GraphTraversalOptions<N, Dir>,
-	): { path: N[]; gScore: Map<N, number> } {
-		if (!start || !end) {
-			return { path: [], gScore: new Map() };
+	public aStar(options: GraphTraversalOptions<T, Dir, N>): PathFindingResult<N> {
+		if (!options.start || !options.end) {
+			return { path: [], distances: new Map() };
 		}
 
-		const openSet = new Set<N>([start]); // q?
+		const openSet = new Set<N>([options.start]); // q?
 		const cameFrom = new Map<N, N>(); // prev!
 		const gScore = new Map<N, number>(); // dist! Infinity
 
 		const h = options?.heuristic ?? (() => 1);
 
-		const isFinished = typeof end === 'function' ? end : (n: N, _path: N[]) => n === end;
+		const isFinished =
+			typeof options.end === 'function'
+				? options.end
+				: (n: N, _path: N[]) => n === options.end;
 		// const generateNode = options?.generateNode ?? (() => undefined);
 
-		gScore.set(start, 0);
+		gScore.set(options.start, 0);
 
 		const fScore = new Map<N, number>(); // Infinity
-		fScore.set(start, h(start, []));
+		fScore.set(options.start, h(options.start, []));
 
 		let goal: N | undefined;
 
@@ -376,7 +332,7 @@ export class Graph<
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			const current = umin.node!;
 
-			const currentPath = Graph.generatePath<T, Dir, N>(cameFrom, start, current);
+			const currentPath = constructPath<N>(options.start, current, cameFrom);
 
 			if (isFinished(current, currentPath)) {
 				goal = current;
@@ -384,8 +340,13 @@ export class Graph<
 			}
 			openSet.delete(current);
 
-			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, currentPath) ??
-				current) {
+			let edges = options?.edgeGenerator?.(this.nodes, current, currentPath) ?? [...current];
+			const edgeFilter = options?.edgeFilter;
+			if (edgeFilter) {
+				edges = edges.filter((edge) => edgeFilter(edge, currentPath));
+			}
+
+			for (const neighbour of edges) {
 				const tentativegScore =
 					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
 					(options?.currentPathWeighter
@@ -395,14 +356,14 @@ export class Graph<
 								neighbour.direction,
 								currentPath,
 							)
-						: neighbour.currentPathWeighter
+						: /*neighbour.currentPathWeighter
 							? neighbour.currentPathWeighter(
 									current,
 									neighbour.to,
 									neighbour.direction,
 									currentPath,
 								)
-							: neighbour.weight ?? 1);
+							:*/ neighbour.weight ?? 1);
 				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
 					cameFrom.set(neighbour.to, current);
 					gScore.set(neighbour.to, tentativegScore);
@@ -414,6 +375,9 @@ export class Graph<
 			}
 		}
 
-		return { path: Graph.generatePath<T, Dir, N>(cameFrom, start, goal), gScore };
+		return {
+			path: constructPath<N>(options.start, goal, cameFrom),
+			distances: gScore,
+		};
 	}
 }

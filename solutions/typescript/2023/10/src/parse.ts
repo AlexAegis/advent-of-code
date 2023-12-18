@@ -16,7 +16,7 @@ const pipeConnectorMap: Record<string, Direction[]> = {
 	S: [Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST],
 };
 
-export const weighter: Weighter<GridGraphNode> = (a, b, dir) => {
+export const weighter: Weighter<string, Direction, GridGraphNode> = (a, b, dir) => {
 	if (a.value === '.' && b.value === '.') {
 		return 1;
 	}

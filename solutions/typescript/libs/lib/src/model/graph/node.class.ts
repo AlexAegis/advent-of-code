@@ -2,8 +2,16 @@ import type { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import type { Edge } from './edge.type.js';
 
-export class GraphNode<T extends ToString, Dir extends ToString = Direction> implements ToString {
-	public neighbours = new Map<Dir, Edge<this, Dir>>();
+export interface BasicGraphNode<T extends ToString, Dir extends ToString = Direction>
+	extends ToString {
+	value: T;
+	neighbours: Map<Dir, Edge<T, Dir, this>>;
+}
+
+export class GraphNode<T extends ToString, Dir extends ToString>
+	implements ToString, BasicGraphNode<T, Dir>
+{
+	public neighbours = new Map<Dir, Edge<T, Dir, this>>();
 
 	public constructor(
 		public key: string,
@@ -26,7 +34,7 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction> imp
 		)?.[0];
 	}
 
-	*[Symbol.iterator](): IterableIterator<Edge<this, Dir>> {
+	*[Symbol.iterator](): IterableIterator<Edge<T, Dir, this>> {
 		yield* this.neighbours.values();
 	}
 
@@ -34,7 +42,7 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction> imp
 		return this.neighbourEdges.map((edge) => edge.to);
 	}
 
-	public get neighbourEdges(): Edge<this, Dir>[] {
+	public get neighbourEdges(): Edge<T, Dir, this>[] {
 		return [...this.neighbours.values()];
 	}
 

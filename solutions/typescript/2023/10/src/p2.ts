@@ -58,7 +58,7 @@ export const partitionGraph = <
 	}
 	while (nonPartitionedNodes.size > 0) {
 		const nodeNotInTheLoop = nonPartitionedNodes.values().next().value as N;
-		const nextPartition = graph.flood(nodeNotInTheLoop);
+		const nextPartition = graph.flood({ start: nodeNotInTheLoop });
 
 		for (const [foundNode] of nextPartition) {
 			nonPartitionedNodes.delete(foundNode);
@@ -101,8 +101,10 @@ export const partitionIntoTwoFromLoop = <
 
 	while (nonPartitionedNodes.size > 0) {
 		const nodeNotInTheLoop = nonPartitionedNodes.values().next().value as N;
-		const nextPartition = graph.flood(nodeNotInTheLoop, {
-			weighter: (a, b) => (loop.has(a) || loop.has(b) ? Number.POSITIVE_INFINITY : 1),
+		const nextPartition = graph.flood({
+			start: nodeNotInTheLoop,
+			currentPathWeighter: (a, b) =>
+				loop.has(a) || loop.has(b) ? Number.POSITIVE_INFINITY : 1,
 		});
 
 		for (const [foundNode] of nextPartition) {
@@ -175,7 +177,7 @@ export const p2 = (input: string): number => {
 		throw new Error('no starting position for the animal!');
 	}
 
-	const pathLoop = graph.flood(animalStart);
+	const pathLoop = graph.flood({ start: animalStart });
 
 	const { inside, outside } = partitionIntoTwoFromLoop(graph, pathLoop);
 

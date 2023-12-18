@@ -3,9 +3,9 @@ import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import { Vec2 } from '../vector/vec2.class.js';
 import type { Edge } from './edge.type.js';
-import type { Graph } from './graph.class.js';
+import type { GridGraph } from './grid-graph.class.js';
 import type { ConnectionFilter, Weighter } from './heuristic.type.js';
-import { GraphNode } from './node.class.js';
+import { GraphNode, type BasicGraphNode } from './node.class.js';
 
 Vec2.ORIGIN;
 
@@ -16,7 +16,10 @@ interface WalkResult<T extends ToString = string> {
 /**
  *
  */
-export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
+export class GridGraphNode<T extends ToString = string>
+	extends GraphNode<T, Direction>
+	implements BasicGraphNode<T>
+{
 	public constructor(
 		public coordinate: Vec2,
 		value: T,
@@ -74,50 +77,50 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 		return { nodes, walkedToTheEnd };
 	}
 
-	public get north(): Edge<this> | undefined {
+	public get north(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.NORTH);
 	}
 
-	public get northEast(): Edge<this> | undefined {
+	public get northEast(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.NORTHEAST);
 	}
 
-	public get east(): Edge<this> | undefined {
+	public get east(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.EAST);
 	}
 
-	public get southEast(): Edge<this> | undefined {
+	public get southEast(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.SOUTHEAST);
 	}
 
-	public get south(): Edge<this> | undefined {
+	public get south(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.SOUTH);
 	}
 
-	public get southWest(): Edge<this> | undefined {
+	public get southWest(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.SOUTHWEST);
 	}
 
-	public get west(): Edge<this> | undefined {
+	public get west(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.WEST);
 	}
 
-	public get northWest(): Edge<this> | undefined {
+	public get northWest(): Edge<T, Direction, this> | undefined {
 		return this.neighbours.get(Direction.NORTHWEST);
 	}
 
-	public calculateWeights(weighter: Weighter<this>) {
+	public calculateWeights(weighter: Weighter<T, Direction, this>) {
 		this.neighbours.forEach((edge, direction) => {
 			edge.weight = weighter(this, edge.to, direction);
-			edge.currentPathWeighter = () => weighter(this, edge.to, direction);
+			// edge.currentPathWeighter = () => weighter(this, edge.to, direction);
 		});
 	}
 
 	public attachNeightbours(
-		graph: Graph<T, Direction, this>,
+		graph: GridGraph<T, this>,
 		directions = Direction.cardinalDirections,
-		weighter?: Weighter<this>,
-		connectionFilter?: ConnectionFilter<this>,
+		weighter?: Weighter<T, Direction, this>,
+		connectionFilter?: ConnectionFilter<T, Direction, this>,
 	): void {
 		for (const dir of directions) {
 			const node = graph.nodes.get(this.coordinate.clone().add(dir).toString());
@@ -143,8 +146,8 @@ export class GridGraphNode<T extends ToString = string> extends GraphNode<T> {
 					this.calculateWeights(weighter);
 					forwardEdge.weight = weighter(this, node, dir);
 					backEdge.weight = weighter(node, this, reverse);
-					forwardEdge.currentPathWeighter = () => weighter(this, node, dir);
-					backEdge.currentPathWeighter = () => weighter(node, this, reverse);
+					// forwardEdge.currentPathWeighter = () => weighter(this, node, dir);
+					// backEdge.currentPathWeighter = () => weighter(node, this, reverse);
 				}
 			}
 		}

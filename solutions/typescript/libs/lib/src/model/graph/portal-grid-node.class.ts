@@ -19,7 +19,7 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 		}
 	}
 
-	public portal(): Edge<this> | undefined {
+	public portal(): Edge<T, Direction, this> | undefined {
 		return this.portalLabel
 			? this.neighbours.get(this.portalLabel as unknown as Direction)
 			: undefined;
@@ -29,7 +29,7 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		graph: PortalGridGraph<T, any>,
 		directions = Direction.cardinalDirections,
-		weighter?: Weighter<this>,
+		weighter?: Weighter<T, Direction, this>,
 	): void {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		super.attachNeightbours(graph, directions, weighter);
@@ -64,8 +64,8 @@ export class PortalGridNode<T extends ToString = string> extends GridGraphNode<T
 				if (weighter) {
 					forwardEdge.weight = weighter(this, node, direction);
 					backEdge.weight = weighter(node, this, direction);
-					forwardEdge.currentPathWeighter = () => weighter(this, node, direction);
-					backEdge.currentPathWeighter = () => weighter(node, this, direction);
+					// forwardEdge.currentPathWeighter = () => weighter(this, node, direction);
+					// backEdge.currentPathWeighter = () => weighter(node, this, direction);
 				}
 			}
 		}

@@ -10,7 +10,7 @@ export const p1 = (input: string): number => {
 		throw new Error('no starting position for the animal!');
 	}
 
-	const distanceMap = graph.flood(animalStart);
+	const distanceMap = graph.flood({ start: animalStart });
 
 	return distanceMap
 		.entryArray()

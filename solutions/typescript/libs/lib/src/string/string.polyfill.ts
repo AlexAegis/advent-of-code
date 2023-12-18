@@ -14,7 +14,7 @@ declare global {
 		alphabeticalOrder(): number;
 		toInt(radix?: number): number;
 		toMatrix(): string[][];
-		toGridGraph<T extends ToString>(
+		toGridGraph<T extends ToString = string>(
 			gridOptions?: GridGraphOptions<T> & {
 				valueConverter?: (value: string) => T;
 			},
