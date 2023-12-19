@@ -17,7 +17,7 @@ interface WalkResult<T extends ToString = string> {
  *
  */
 export class GridGraphNode<T extends ToString = string>
-	extends GraphNode<T, Direction>
+	extends GraphNode<T>
 	implements BasicGraphNode<T>
 {
 	public constructor(

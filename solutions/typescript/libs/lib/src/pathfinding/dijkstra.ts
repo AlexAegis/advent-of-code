@@ -107,16 +107,24 @@ export const dijkstra = <
 	});
 
 	const pathConstructor: PathConstructor<N> = (to) => constructPath<N>(options.start, to, prev);
+	const isFinished = isNotNullish(options.end)
+		? (n: N) =>
+				typeof options.end === 'function'
+					? options.end(n, pathConstructor(n))
+					: n === options.end
+		: (_n: N) => false;
 
 	dist.set(options.start, 0);
 	pathLengthMap.set(options.start, 0);
 	pq.updateItem(options.start);
 
+	let target: N | undefined;
 	while (!pq.empty()) {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		const u = pq.pop()!; // u, closest yet
 
-		if (options.end && options.end === u) {
+		if (isFinished(u)) {
+			target = u;
 			break;
 		}
 
@@ -144,10 +152,10 @@ export const dijkstra = <
 		}
 	}
 
-	return options.end
+	return target
 		? {
 				distances: pathLengthMap,
-				path: constructPath(options.start, options.end, prev),
+				path: constructPath(options.start, target, prev),
 			}
 		: {
 				distances: pathLengthMap,

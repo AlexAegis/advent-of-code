@@ -29,7 +29,7 @@ const getShortestSegment = (input: string): number =>
 export const p2 = (input: string): number => {
 	const [map, rawInstructions] = input.splitIntoStringPair(DOUBLE_NEWLINE);
 	const instructions = parseMovementInstructions(rawInstructions);
-	const graph = map.toGridGraph<string>();
+	const graph = map.toGridGraph();
 	const sideLength = getShortestSegment(input);
 	const flatCubeBox = graph.boundingBox();
 	const horizontalFaceCount = flatCubeBox.horizontal.length / sideLength;

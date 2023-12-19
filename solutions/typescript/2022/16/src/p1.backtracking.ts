@@ -7,7 +7,7 @@ const OPEN = 'open';
 const WAIT = 'wait';
 type PathSegment = Valve | typeof OPEN | typeof WAIT;
 type Path = PathSegment[];
-interface Node {
+interface ValveNode {
 	path: Path;
 	pressureReleasedSoFar: number;
 	openValves: Valve[];
@@ -55,12 +55,12 @@ export const p1 = (input: string): number => {
 	 *
 	 * graphSpace cache
 	 */
-	const solutionGraph = new Map<string, Node>();
+	const solutionGraph = new Map<string, ValveNode>();
 	// Start at "AA"
 	/**
 	 * solutionSpace cache
 	 */
-	let currentSolution: Node | undefined = {
+	let currentSolution: ValveNode | undefined = {
 		path: [valveMap.get('AA')!],
 		pressureReleasedSoFar: 0,
 		openValves: [],
@@ -109,6 +109,8 @@ export const p1 = (input: string): number => {
 
 		// It's its worth opening and wasn't already opened this round, or this path wasnt tried
 		if (
+			currentValve !== 'open' &&
+			currentValve !== 'wait' &&
 			currentValve.flowRate > 0 &&
 			!currentSolution.openValves.contains(currentValve) &&
 			!solutionGraph.has(`${currentPathSerialized},${OPEN}`)
@@ -120,7 +122,7 @@ export const p1 = (input: string): number => {
 		if (currentSolution.openValves.length === valvesWorthOpening.length) {
 			// Everything is open, the only thing left is waiting
 			nextOptions.push(WAIT);
-		} else {
+		} else if (currentValve !== 'open' && currentValve !== 'wait') {
 			const notCoveredValves = currentValve.leadsTo.filterMap((valveKey) => {
 				const wouldBeSolution = `${currentPathSerialized},${valveKey}`;
 				const graphAlreadyCoversSolution = solutionGraph.has(wouldBeSolution);
@@ -167,14 +169,19 @@ export const p1 = (input: string): number => {
 				.sum();
 
 			const openValves = [...currentSolution.openValves];
-			if (nextOption === OPEN && !openValves.includes(currentValve)) {
+			if (
+				currentValve !== 'open' &&
+				currentValve !== 'wait' &&
+				nextOption === OPEN &&
+				!openValves.includes(currentValve)
+			) {
 				openValves.push(currentValve);
 			}
 
 			if (solutionGraph.has(nextPathSerialized)) {
 				backtrack = true;
 			} else {
-				const nextSolution: Node = {
+				const nextSolution: ValveNode = {
 					path: nextPath,
 					openValves,
 					pressureReleasedSoFar:

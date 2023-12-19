@@ -1,5 +1,4 @@
-import { task } from '@alexaegis/advent-of-code-lib';
-import { drawMapStatic, renderMatrix, sleep } from '@alexaegis/advent-of-code-lib/functions';
+import { drawMapStatic, renderMatrix, sleep, task } from '@alexaegis/advent-of-code-lib';
 import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';

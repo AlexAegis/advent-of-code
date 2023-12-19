@@ -1,5 +1,4 @@
-import { task } from '@alexaegis/advent-of-code-lib';
-import { identity } from '@alexaegis/advent-of-code-lib/functions';
+import { isNotNullish, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { closingTagMap, isOpeningTag, type ClosingTag, type OpeningTag } from './model/index.js';
 
@@ -30,7 +29,7 @@ export const p1 = (input: string): number =>
 	input
 		.lines()
 		.map(getFirstCorruptTag)
-		.filter(identity)
+		.filter(isNotNullish)
 		.map((closingTag) => scoreMap[closingTag])
 		.sum();
 

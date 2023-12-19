@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { split } from '@alexaegis/advent-of-code-lib';
 
 export interface Valve {
@@ -13,10 +12,13 @@ export const parse = (input: string): Valve[] => {
 		const groups = match.exec(line);
 		if (groups) {
 			const [, name, rawFlowRate, rawLeadsTo] = groups;
+			if (!rawFlowRate || !rawLeadsTo) {
+				throw new Error('Malformed input ' + line);
+			}
 			return {
 				name,
-				flowRate: Number.parseInt(rawFlowRate!, 10),
-				leadsTo: rawLeadsTo!.split(', '),
+				flowRate: Number.parseInt(rawFlowRate, 10),
+				leadsTo: rawLeadsTo.split(', '),
 			} as Valve;
 		} else {
 			throw new Error(`Line is not valve data ${line}`);

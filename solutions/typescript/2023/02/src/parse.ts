@@ -1,3 +1,5 @@
+import { isNotNullish } from '@alexaegis/advent-of-code-lib';
+
 export interface Bag {
 	red: number;
 	green: number;
@@ -21,16 +23,19 @@ const parseBag = (bag: string): Bag => {
 		blue: 0,
 	};
 
-	if (c1n !== undefined) {
-		bagParsed[c1n] = c1v.toInt();
+	const c1vi = c1v.toInt();
+	if (isNotNullish(c1n) && isNotNullish(c1vi)) {
+		bagParsed[c1n] = c1vi;
 	}
 
-	if (c2n !== undefined) {
-		bagParsed[c2n] = c2v.toInt();
+	const c2vi = c2v.toInt();
+	if (isNotNullish(c2n) && isNotNullish(c2vi)) {
+		bagParsed[c2n] = c2vi;
 	}
 
-	if (c3n !== undefined) {
-		bagParsed[c3n] = c3v.toInt();
+	const c3vi = c3v.toInt();
+	if (isNotNullish(c3n) && isNotNullish(c3vi)) {
+		bagParsed[c3n] = c3vi;
 	}
 
 	return bagParsed;

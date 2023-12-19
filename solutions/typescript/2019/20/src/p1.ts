@@ -15,7 +15,7 @@ export enum Tile {
 	EMPTY = ' ',
 }
 
-export const weighter: Weighter<PortalGridNode> = (
+export const weighter: Weighter<string, Direction, PortalGridNode> = (
 	_a: PortalGridNode,
 	b: PortalGridNode,
 ): number => {

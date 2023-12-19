@@ -12,7 +12,7 @@ import { getFacingScore, parseMovementInstructions } from './parse.function.js';
 export const p1 = (input: string): number => {
 	const [map, rawInstructions] = input.splitIntoStringPair(DOUBLE_NEWLINE);
 	const instructions = parseMovementInstructions(rawInstructions);
-	const graph = map.toGridGraph<string>();
+	const graph = map.toGridGraph();
 
 	graph.connectEdgeNodesWrappingAround();
 

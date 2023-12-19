@@ -1,3 +1,4 @@
+export * from '@alexaegis/common';
 export {
 	Deque,
 	HashMap,

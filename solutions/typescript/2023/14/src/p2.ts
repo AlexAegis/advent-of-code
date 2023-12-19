@@ -41,7 +41,7 @@ export const findCycle = <T>(values: T[]): T[] | undefined => {
 };
 
 export const p2 = (input: string): number => {
-	const gg = input.toGridGraph<string>();
+	const gg = input.toGridGraph();
 
 	const allNodes = gg.nodes.valueArray();
 

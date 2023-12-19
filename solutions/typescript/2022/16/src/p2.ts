@@ -11,9 +11,12 @@ const pathBetweenValves = memoize(
 		toValve: string,
 		graph: Graph<Valve, string>,
 	): GraphNode<Valve, string>[] => {
-		const from = graph.getNode(fromValve);
-		const to = graph.getNode(toValve);
-		return graph.aStar(from, to).path;
+		const start = graph.getNode(fromValve);
+		const end = graph.getNode(toValve);
+		if (start === undefined || end === undefined) {
+			throw new Error('no start end endpoints are present');
+		}
+		return graph.aStar({ start, end }).path;
 	},
 );
 

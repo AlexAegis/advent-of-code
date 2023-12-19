@@ -52,9 +52,11 @@ export const p2 = (input: string): number => {
 	const start = graph.getNode(boundingBox.topLeft);
 	const end = graph.getNode(boundingBox.bottomRight);
 
-	const { path } = graph.aStar(start, end, {
-		heuristic: (_a, p) => p.map((n) => n.value).sum(),
-	});
+	if (!start) {
+		throw new Error('Start node does not exist');
+	}
+
+	const { path } = graph.aStar({ start, end, heuristic: (_a, p) => p.map((n) => n.value).sum() });
 
 	return path.map((p) => p.value).sum() - (start?.value ?? 0);
 };

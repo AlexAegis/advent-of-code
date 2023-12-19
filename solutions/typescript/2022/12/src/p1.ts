@@ -19,7 +19,7 @@ export const p1 = (input: string): number => {
 		throw new Error('No path found');
 	}
 
-	return graph.aStar(start, end).path.length - 1;
+	return graph.aStar({ start, end }).path.length - 1;
 };
 
 await task(p1, packageJson.aoc); // 534 ~83.84ms

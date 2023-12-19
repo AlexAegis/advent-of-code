@@ -14,9 +14,9 @@ const from150to193 = (150).interval(193, INTERVAL_CLOSED);
 const from59to76 = (59).interval(76, INTERVAL_CLOSED);
 
 export const passportChecks: Record<RelevantField, (v: string) => boolean> = {
-	byr: (byr) => byr.toInt().isContainedIn(from1920to2002),
-	iyr: (iyr) => iyr.toInt().isContainedIn(from2010to2020),
-	eyr: (eyr) => eyr.toInt().isContainedIn(from2020to2030),
+	byr: (byr) => byr.toInt()?.isContainedIn(from1920to2002) ?? false,
+	iyr: (iyr) => iyr.toInt()?.isContainedIn(from2010to2020) ?? false,
+	eyr: (eyr) => eyr.toInt()?.isContainedIn(from2020to2030) ?? false,
 	hgt: (hgt) => {
 		if (hgt.endsWith(CM)) {
 			return hgt.split(CM)[0]?.toInt()?.isContainedIn(from150to193) ?? false;

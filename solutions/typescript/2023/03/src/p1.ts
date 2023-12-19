@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Direction, Vec2, task } from '@alexaegis/advent-of-code-lib';
+import { Direction, Vec2, isNotNullish, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 export const p1 = (input: string): number => {
@@ -27,7 +27,10 @@ export const p1 = (input: string): number => {
 						}),
 				)
 			) {
-				numbers.push(number.toInt());
+				const int = number.toInt();
+				if (isNotNullish(int)) {
+					numbers.push(int);
+				}
 				number = undefined;
 				numberPositions = [];
 			} else {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { memoize } from './memoize.function.js';
+import { memoizeDeprecated } from './memoize.function.js';
 
 describe('Memoize', () => {
 	it('should call the original function only once', () => {
@@ -8,7 +8,7 @@ describe('Memoize', () => {
 			callCount++;
 			return a + b;
 		};
-		const memoizedAdd = memoize(add);
+		const memoizedAdd = memoizeDeprecated(add);
 		expect(memoizedAdd(1, 2)).toEqual(3);
 		expect(memoizedAdd(1, 2)).toEqual(3);
 		expect(callCount).toEqual(1);

@@ -1,4 +1,4 @@
-import { split } from '@alexaegis/advent-of-code-lib';
+import { isNotNullish, split } from '@alexaegis/advent-of-code-lib';
 
 export type MonkeyOperation = (wl: number) => number;
 
@@ -87,9 +87,9 @@ export const parse = (input: string): { monkeyMap: Record<number, Monkey>; monke
 			continue;
 		}
 
-		const monkeyIdMatch = monkeyIdMatcher.exec(line)?.[1];
-		if (monkeyIdMatch) {
-			monkeyBuilder.setId(monkeyIdMatch.toInt());
+		const monkeyIdMatch = monkeyIdMatcher.exec(line)?.[1]?.toInt();
+		if (isNotNullish(monkeyIdMatch)) {
+			monkeyBuilder.setId(monkeyIdMatch);
 			continue;
 		}
 
@@ -105,21 +105,21 @@ export const parse = (input: string): { monkeyMap: Record<number, Monkey>; monke
 			continue;
 		}
 
-		const monkeyTestMatch = monkeyTestMatcher.exec(line)?.[1];
-		if (monkeyTestMatch) {
-			monkeyBuilder.setTest(monkeyTestMatch.toInt());
+		const monkeyTestMatch = monkeyTestMatcher.exec(line)?.[1]?.toInt();
+		if (isNotNullish(monkeyTestMatch)) {
+			monkeyBuilder.setTest(monkeyTestMatch);
 			continue;
 		}
 
-		const monkeyTrueTargetMatch = monkeyTrueTargetMatcher.exec(line)?.[1];
-		if (monkeyTrueTargetMatch) {
-			monkeyBuilder.setTrueTarget(monkeyTrueTargetMatch.toInt());
+		const monkeyTrueTargetMatch = monkeyTrueTargetMatcher.exec(line)?.[1]?.toInt();
+		if (isNotNullish(monkeyTrueTargetMatch)) {
+			monkeyBuilder.setTrueTarget(monkeyTrueTargetMatch);
 			continue;
 		}
 
-		const monkeyFalseTargetMatch = monkeyFalseTargetMatcher.exec(line)?.[1];
-		if (monkeyFalseTargetMatch) {
-			monkeyBuilder.setFalseTarget(monkeyFalseTargetMatch.toInt());
+		const monkeyFalseTargetMatch = monkeyFalseTargetMatcher.exec(line)?.[1]?.toInt();
+		if (isNotNullish(monkeyFalseTargetMatch)) {
+			monkeyBuilder.setFalseTarget(monkeyFalseTargetMatch);
 			continue;
 		}
 	}

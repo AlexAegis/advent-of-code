@@ -3,7 +3,7 @@ import packageJson from '../package.json';
 import { energizeMap } from './internal/beam.js';
 
 export const p1 = (input: string): number => {
-	const gg = input.toGridGraph<string>();
+	const gg = input.toGridGraph();
 	return energizeMap(gg, { position: new Vec2(0, 0), direction: Direction.EAST });
 };
 

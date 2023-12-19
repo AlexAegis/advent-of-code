@@ -17,7 +17,7 @@ export interface GraphTraversalOptions<
 	N extends BasicGraphNode<T, Dir>,
 > {
 	start: N;
-	end?: N | undefined;
+	end?: N | ((n: N, tentativePath: N[]) => boolean) | undefined;
 	/**
 	 * When traversing an edge that doesn't have a node at it's end, how to
 	 * generate it? By default it always generates an `undefined` meaning

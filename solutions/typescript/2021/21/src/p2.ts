@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { numberPair, task } from '@alexaegis/advent-of-code-lib';
-import { memoize } from '@alexaegis/advent-of-code-lib/functions';
+import { memoize, numberPair, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 
 interface RoundState {

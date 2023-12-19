@@ -1,5 +1,4 @@
-import { task } from '@alexaegis/advent-of-code-lib';
-import { memoize } from '@alexaegis/advent-of-code-lib/functions';
+import { memoize, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
 import { parse } from './parse.function.js';
 
@@ -29,13 +28,10 @@ export const matchRule = (
 	}
 };
 
-const cache = new Map<string, number[]>();
-const memoizedMatchRule = memoize(matchRule, cache);
+const memoizedMatchRule = memoize(matchRule);
 
 export const p2 = (input: string): number => {
 	const { ruleBook, words } = parse(input);
-
-	cache.clear(); // For benchmarking
 
 	ruleBook.set(8, [[42], [42, 8]]);
 	ruleBook.set(11, [

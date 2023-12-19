@@ -8,7 +8,7 @@ export interface BasicGraphNode<T extends ToString, Dir extends ToString = Direc
 	neighbours: Map<Dir, Edge<T, Dir, this>>;
 }
 
-export class GraphNode<T extends ToString, Dir extends ToString>
+export class GraphNode<T extends ToString, Dir extends ToString = Direction>
 	implements ToString, BasicGraphNode<T, Dir>
 {
 	public neighbours = new Map<Dir, Edge<T, Dir, this>>();
