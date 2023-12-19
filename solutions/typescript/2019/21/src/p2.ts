@@ -1,5 +1,5 @@
+import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { task } from '@alexaegis/advent-of-code-lib';
-import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import packageJson from '../package.json';
 import { execute } from './p1.js';
 import { parse } from './parse.js';

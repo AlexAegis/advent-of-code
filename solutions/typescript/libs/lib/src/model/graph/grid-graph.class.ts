@@ -1,9 +1,9 @@
 import { isNotNullish } from '@alexaegis/common';
 import { slideWindow } from '../../array/groups/slide-window.function.js';
 import { mapFirst } from '../../array/map-first.function.js';
+import { mapLast } from '../../array/map-last.function.js';
 import { hasToString } from '../../functions/assertions/has-to-string.assert.js';
-import { mapLast, renderMatrix } from '../../index.js';
-
+import { renderMatrix } from '../../functions/output/render-matrix.function.js';
 import { stringToVectorMap } from '../../string/string-to-vectormap.function.js';
 import { DirectionArrowUnicodeSymbol } from '../direction/direction-arrow-unicode.symbol.enum.js';
 import { Direction } from '../direction/direction.class.js';

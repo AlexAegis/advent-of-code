@@ -1,4 +1,4 @@
-import { ascending } from '../math/index.js';
+import { ascending } from '../math/common/basic-operations.functions.js';
 
 export const median = (array: number[], skipSort = false): number => {
 	const sortedArray = skipSort ? array : [...array].sort(ascending);

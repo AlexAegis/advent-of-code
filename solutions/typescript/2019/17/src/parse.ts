@@ -1,10 +1,10 @@
+import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import {
 	Direction,
 	DirectionArrowSymbol,
 	Vec2,
 	type Vec2String,
 } from '@alexaegis/advent-of-code-lib';
-import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 
 export const parse = (input: string): number[] => {
 	return input

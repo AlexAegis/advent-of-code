@@ -1,5 +1,5 @@
+import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
-import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
 import { p2 } from './p2.js';

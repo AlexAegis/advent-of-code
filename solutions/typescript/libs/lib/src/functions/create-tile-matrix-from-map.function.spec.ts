@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { Vec2, type Vec2String } from '../model/index.js';
+import { Vec2 } from '../model/vector/vec2.class.js';
+import type { Vec2String } from '../model/vector/vec2.class.types.js';
 import { createTileMatrixFromMap } from './create-tile-matrix-from-map.function.js';
 import { mergeTileMatrix } from './merge-tile-matrix.function.js';
 

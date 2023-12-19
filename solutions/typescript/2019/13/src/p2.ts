@@ -1,5 +1,5 @@
+import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { drawMapStatic, renderMatrix, sleep, task } from '@alexaegis/advent-of-code-lib';
-import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import packageJson from '../package.json';

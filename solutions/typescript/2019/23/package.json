@@ -73,6 +73,7 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
+		"@alexaegis/advent-of-code-intcode": "workspace:^",
 		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {

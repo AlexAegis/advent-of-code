@@ -6,7 +6,6 @@ import {
 } from '../../pathfinding/dijkstra.js';
 import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
-
 import type { Edge } from './edge.type.js';
 import type { CurrentPathWeighter, Heuristic } from './heuristic.type.js';
 import { GraphNode, type BasicGraphNode } from './node.class.js';

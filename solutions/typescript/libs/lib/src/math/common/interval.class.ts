@@ -1,4 +1,5 @@
-import { Vec2, type Vec2Like, type Vec2String } from '../../index.js';
+import { Vec2 } from '../../model/vector/vec2.class.js';
+import type { Vec2Like, Vec2String } from '../../model/vector/vec2.class.types.js';
 
 export interface IntervalLike extends Partial<IntervalQualifier> {
 	low: number;

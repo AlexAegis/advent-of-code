@@ -1,4 +1,4 @@
-import { IntCodeComputer } from '@alexaegis/advent-of-code-lib/intcode';
+import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { nullPacket, type Packet } from './packet.interface.js';
 export const NETWORK_SIZE = 50;
 export const NAT_ADDRESS = 255;

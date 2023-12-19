@@ -76,12 +76,6 @@
 			"require": "./dist/functions.cjs",
 			"default": "./dist/functions.js"
 		},
-		"./intcode": {
-			"types": "./src/intcode.ts",
-			"import": "./dist/intcode.js",
-			"require": "./dist/intcode.cjs",
-			"default": "./dist/intcode.js"
-		},
 		"./linked-list": {
 			"types": "./src/linked-list.ts",
 			"import": "./dist/linked-list.js",

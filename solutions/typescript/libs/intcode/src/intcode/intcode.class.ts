@@ -1,4 +1,4 @@
-import { integerLength, numAt } from '../functions/index.js';
+import { integerLength, numAt } from '../../../lib/src/functions/index.js';
 import { Instruction, toInstruction } from './instruction.enum.js';
 import { Mode } from './mode.enum.js';
 

@@ -1,5 +1,5 @@
 import { gcd } from '../../math/common/gcd.function.js';
-import { NUM } from '../../regex/index.js';
+import { NUM } from '../../regex/number.regex.js';
 import { DirectionArrowSymbol } from '../direction/direction-arrow-symbol.enum.js';
 import { DirectionCardinalGeographicLetter } from '../direction/direction-cardinal-geographic-letter.enum.js';
 import { DirectionCardinalLiteralLetter } from '../direction/direction-cardinal-literal-letter.enum.js';

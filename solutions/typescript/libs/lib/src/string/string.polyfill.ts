@@ -1,6 +1,8 @@
-import { GridGraph, type GridGraphOptions } from '../model/graph/index.js';
-import type { ToString, Vec2, Vec2String } from '../model/index.js';
-import { NEWLINE } from '../regex/index.js';
+import { GridGraph, type GridGraphOptions } from '../model/graph/grid-graph.class.js';
+import type { ToString } from '../model/to-string.interface.js';
+import type { Vec2 } from '../model/vector/vec2.class.js';
+import type { Vec2String } from '../model/vector/vec2.class.types.js';
+import { NEWLINE } from '../regex/whitespace.regex.js';
 import { alphabeticalOrder } from './alphabetical-order.function.js';
 import { rightSplit } from './right-split.function.js';
 import { splitIntoStringPair } from './split-into-tuple.function.js';

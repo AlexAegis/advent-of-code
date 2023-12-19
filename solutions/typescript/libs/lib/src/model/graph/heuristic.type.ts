@@ -1,4 +1,6 @@
-import type { BasicGraphNode, Direction, ToString } from '../index.js';
+import type { Direction } from '../direction/direction.class.js';
+import type { ToString } from '../to-string.interface.js';
+import type { BasicGraphNode } from './node.class.js';
 
 /**
  * Determines a value to a node

@@ -1,4 +1,4 @@
-import type { ToString } from '../index.js';
+import type { ToString } from '../to-string.interface.js';
 
 /**
  * Represents an edge between two vertices
