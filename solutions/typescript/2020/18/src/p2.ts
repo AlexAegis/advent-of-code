@@ -25,7 +25,7 @@ export const calcSegment = (input: string[]): string => {
 			const segment = input.cutSubSegment(['(', ')'], i);
 			if (segment) {
 				const r = calcSegment(segment);
-				input.splice(i, 0, `${r}`); // Splice the result back
+				input.splice(i, 0, r); // Splice the result back
 				i--;
 			}
 		}
