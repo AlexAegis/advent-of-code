@@ -1,4 +1,3 @@
-import '../../map/map.polyfill.js';
 import { Direction } from '../direction/direction.class.js';
 import type { ToString } from '../to-string.interface.js';
 import { Vec2 } from '../vector/vec2.class.js';

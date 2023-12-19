@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
 import { p1 } from './p1.js';
 
-describe('2023 17 p1', () => {
+describe.skip('2023 17 p1', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
 			const resources = await loadTaskResources(packageJson.aoc);

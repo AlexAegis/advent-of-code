@@ -2,6 +2,6 @@ export const reduceIfAllTheSame = <T>(array: T[], minimumLength = 1): T | undefi
 	if (array.length < minimumLength) {
 		return undefined;
 	}
-	const first = array.first();
+	const first = array[0];
 	return array.every((i) => i === first) ? first : undefined;
 };

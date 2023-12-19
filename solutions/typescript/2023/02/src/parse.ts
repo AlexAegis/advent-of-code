@@ -6,6 +6,9 @@ export interface Bag {
 	blue: number;
 }
 
+const isCubeColor = (s: string | undefined): s is keyof Bag =>
+	s === 'red' || s === 'green' || s === 'blue';
+
 export interface Game {
 	id: number;
 	bags: Bag[];
@@ -13,9 +16,9 @@ export interface Game {
 
 const parseBag = (bag: string): Bag => {
 	const [c1, c2, c3] = bag.split(', ');
-	const [c1v, c1n] = (c1?.trim()?.split(' ') ?? []) as [string, keyof Bag | undefined];
-	const [c2v, c2n] = (c2?.trim()?.split(' ') ?? []) as [string, keyof Bag | undefined];
-	const [c3v, c3n] = (c3?.trim()?.split(' ') ?? []) as [string, keyof Bag | undefined];
+	const [c1v, c1n] = c1?.trim()?.split(' ') ?? [];
+	const [c2v, c2n] = c2?.trim()?.split(' ') ?? [];
+	const [c3v, c3n] = c3?.trim()?.split(' ') ?? [];
 
 	const bagParsed: Bag = {
 		red: 0,
@@ -23,18 +26,18 @@ const parseBag = (bag: string): Bag => {
 		blue: 0,
 	};
 
-	const c1vi = c1v.toInt();
-	if (isNotNullish(c1n) && isNotNullish(c1vi)) {
+	const c1vi = c1v?.toInt();
+	if (isCubeColor(c1n) && isNotNullish(c1vi)) {
 		bagParsed[c1n] = c1vi;
 	}
 
-	const c2vi = c2v.toInt();
-	if (isNotNullish(c2n) && isNotNullish(c2vi)) {
+	const c2vi = c2v?.toInt();
+	if (isCubeColor(c2n) && isNotNullish(c2vi)) {
 		bagParsed[c2n] = c2vi;
 	}
 
-	const c3vi = c3v.toInt();
-	if (isNotNullish(c3n) && isNotNullish(c3vi)) {
+	const c3vi = c3v?.toInt();
+	if (isCubeColor(c3n) && isNotNullish(c3vi)) {
 		bagParsed[c3n] = c3vi;
 	}
 

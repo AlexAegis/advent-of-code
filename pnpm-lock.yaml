@@ -4323,6 +4323,10 @@ importers:
         version: 1.0.4(@types/node@20.10.4)(@vitest/ui@1.0.4)(jsdom@23.0.1)
 
   solutions/typescript/libs/intcode:
+    dependencies:
+      '@alexaegis/advent-of-code-lib':
+        specifier: workspace:^
+        version: link:../lib
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.9.2

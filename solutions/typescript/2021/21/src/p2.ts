@@ -16,35 +16,38 @@ interface RoundResultState {
 	p2WinCount: number;
 }
 
-const playFromRoundState = memoize((state: RoundState, roll: number): RoundResultState => {
-	const nextState: RoundState = { ...state };
-	if (nextState.isP1Turn) {
-		nextState.p1Position = nextState.p1Position.addWithinRange(roll, 1, 10);
-	} else {
-		nextState.p2Position = nextState.p2Position.addWithinRange(roll, 1, 10);
-	}
-
-	if (nextState.rollPhase === 2) {
+const playFromRoundState = memoize(
+	(state: RoundState, roll: number): RoundResultState => {
+		const nextState: RoundState = { ...state };
 		if (nextState.isP1Turn) {
-			nextState.p1Score += nextState.p1Position;
+			nextState.p1Position = nextState.p1Position.addWithinRange(roll, 1, 10);
 		} else {
-			nextState.p2Score += nextState.p2Position;
+			nextState.p2Position = nextState.p2Position.addWithinRange(roll, 1, 10);
 		}
-	}
 
-	if (nextState.p1Score >= 21) {
-		return { p1WinCount: 1, p2WinCount: 0 };
-	} else if (nextState.p2Score >= 21) {
-		return { p1WinCount: 0, p2WinCount: 1 };
-	} else {
-		nextState.rollPhase++;
-		if (nextState.rollPhase > 2) {
-			nextState.rollPhase = 0;
-			nextState.isP1Turn = !nextState.isP1Turn;
+		if (nextState.rollPhase === 2) {
+			if (nextState.isP1Turn) {
+				nextState.p1Score += nextState.p1Position;
+			} else {
+				nextState.p2Score += nextState.p2Position;
+			}
 		}
-		return diracRoll(nextState);
-	}
-});
+
+		if (nextState.p1Score >= 21) {
+			return { p1WinCount: 1, p2WinCount: 0 };
+		} else if (nextState.p2Score >= 21) {
+			return { p1WinCount: 0, p2WinCount: 1 };
+		} else {
+			nextState.rollPhase++;
+			if (nextState.rollPhase > 2) {
+				nextState.rollPhase = 0;
+				nextState.isP1Turn = !nextState.isP1Turn;
+			}
+			return diracRoll(nextState);
+		}
+	},
+	{ maxCacheEntries: Number.POSITIVE_INFINITY },
+);
 
 const diracRoll = (state: RoundState): RoundResultState => {
 	const result1 = playFromRoundState(state, 1);

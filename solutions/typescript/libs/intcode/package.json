@@ -54,6 +54,9 @@
 			"default": "./dist/index.js"
 		}
 	},
+	"dependencies": {
+		"@alexaegis/advent-of-code-lib": "workspace:^"
+	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.9.2",
 		"@alexaegis/ts": "^0.9.2",

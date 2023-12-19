@@ -7,7 +7,6 @@ export * from './frequency-map.function.js';
 export * from './generate-string-tile.function.js';
 export * from './integer-length.function.js';
 export * from './iterator-get-until.function.js';
-export * from './memoize.function.js';
 export * from './merge-tile-matrix.function.js';
 export * from './non-nullish.function.js';
 export * from './num-at.function.js';

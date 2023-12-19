@@ -1,19 +1,13 @@
 import { isNotNullish } from '@alexaegis/common';
 import { PriorityQueue } from 'js-sdsl';
-
-import {
-	type BasicGraphNode,
-	type CurrentPathWeighter,
-	type Direction,
-	type Edge,
-	type GraphTraversalOptions,
-	type GridGraphNode,
-	type ToString,
-} from '../index.js';
-import '../string/string.polyfill.js';
+import type { Edge } from '../model/graph/edge.type.js';
+import type { GraphTraversalOptions } from '../model/graph/graph.class.js';
+import type { CurrentPathWeighter } from '../model/graph/heuristic.type.js';
+import type { BasicGraphNode } from '../model/graph/node.class.js';
+import type { ToString } from '../model/to-string.interface.js';
 
 export type PathConstructor<N> = (to: N) => N[];
-/*
+
 /**
  * TODO: Mark end as NoInfer
  */
@@ -162,31 +156,3 @@ export const dijkstra = <
 				path: [],
 			};
 };
-
-const example = `#####
-#...#
-#.#.#
-#...#
-#.###
-#...#
-#####`;
-
-const gg = example.toGridGraph({
-	weighter: (a, b) => (a.value === b.value ? 1 : 3),
-	//	connectionFilter: (a, b) => a.value === b.value,
-});
-gg.print();
-const start = gg.getNode({ x: 1, y: 1 });
-if (!start) {
-	throw new Error('asd');
-}
-const end = gg.getNode({ x: 3, y: 5 });
-
-const path = dijkstra<string, Direction, GridGraphNode>({
-	allNodes: gg.nodes,
-	start,
-	end,
-});
-console.log(path.distances.size);
-
-gg.printPath(path.path);
