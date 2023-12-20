@@ -1,20 +1,20 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
-import { p2 } from './p2.js';
+import { p1 } from './p1.js';
 
-describe.skip('2023 19 p2', () => {
+describe.skip('2023 20 p1', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
-			const { input } = await loadTaskResources(packageJson.aoc);
-			expect(p2(input)).toEqual(0);
+			const resources = await loadTaskResources(packageJson.aoc);
+			expect(p1(resources.input)).toEqual(0);
 		});
 	});
 
 	describe('example 1', () => {
 		it('should be solved', async () => {
-			const { input } = await loadTaskResources(packageJson.aoc, 'example.1.txt');
-			expect(p2(input)).toEqual(0);
+			const resources = await loadTaskResources(packageJson.aoc, 'example.1.txt');
+			expect(p1(resources.input)).toEqual(0);
 		});
 	});
 });

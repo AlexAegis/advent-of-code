@@ -1,4 +1,4 @@
-# [Day 19](https://adventofcode.com/2023/day/19)
+# [Day 20](https://adventofcode.com/2023/day/19)
 
 ## [Part One](https://adventofcode.com/2023/day/19#part1)
 
