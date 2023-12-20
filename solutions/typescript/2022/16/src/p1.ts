@@ -122,13 +122,13 @@ export const p1 = (input: string): number => {
 		// calc pressure
 		const pressureThisRound = openedValves.map((valve) => valve.flowRate).sum();
 		pressureReleasedSoFar += pressureThisRound;
-		console.log(`\n== Minute ${i + 1} ==`);
+		// console.log(`\n== Minute ${i + 1} ==`);
 		if (openedValves.length > 0) {
-			console.log(
-				`Valves ${openedValves
-					.map((v) => v.name)
-					.join(', ')} are open, releasing ${pressureThisRound} pressure.`,
-			);
+			// console.log(
+			// 	`Valves ${openedValves
+			// 		.map((v) => v.name)
+			// 		.join(', ')} are open, releasing ${pressureThisRound} pressure.`,
+			// );
 		} else {
 			console.log('No valves are open.');
 		}
@@ -138,7 +138,7 @@ export const p1 = (input: string): number => {
 				?.valve;
 
 			if (targetValve) {
-				console.log('TARGET', targetValve.name);
+				// console.log('TARGET', targetValve.name);
 				movingAlongPath = pathBetweenValves(
 					currentlyAtValve.name,
 					targetValve.name,
@@ -151,11 +151,11 @@ export const p1 = (input: string): number => {
 		}
 		if (movingAlongPath?.length) {
 			currentlyAtValve = movingAlongPath.shift()!;
-			console.log(`You move to valve ${currentlyAtValve.name}`);
+			// console.log(`You move to valve ${currentlyAtValve.name}`);
 		} else if (currentlyAtValve === targetValve && !openedValves.includes(currentlyAtValve)) {
 			openedValves.push(currentlyAtValve);
 			targetValve = undefined;
-			console.log(`You open valve ${currentlyAtValve.name}`);
+			// console.log(`You open valve ${currentlyAtValve.name}`);
 		}
 	}
 	return pressureReleasedSoFar;

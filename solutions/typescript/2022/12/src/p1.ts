@@ -22,4 +22,4 @@ export const p1 = (input: string): number => {
 	return graph.aStar({ start, end }).path.length - 1;
 };
 
-await task(p1, packageJson.aoc); // 534 ~83.84ms
+await task(p1, packageJson.aoc); // 534 ~56.09ms

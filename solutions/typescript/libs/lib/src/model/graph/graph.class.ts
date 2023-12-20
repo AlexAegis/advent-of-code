@@ -1,5 +1,5 @@
+import { aStar } from '../../pathfinding/astar.js';
 import {
-	constructPath,
 	dijkstra,
 	type EdgeCollectionOptions,
 	type PathFindingResult,
@@ -292,91 +292,10 @@ export class Graph<
 	 * @param h global heuristic function. Should return a monotone value for
 	 * better nodes
 	 */
-	public aStar(options: GraphTraversalOptions<T, Dir, N>): PathFindingResult<N> {
-		if (!options.start || !options.end) {
-			return { path: [], distances: new Map() };
-		}
-
-		const openSet = new Set<N>([options.start]); // q?
-		const cameFrom = new Map<N, N>(); // prev!
-		const gScore = new Map<N, number>(); // dist! Infinity
-
-		const h = options?.heuristic ?? (() => 1);
-
-		const isFinished =
-			typeof options.end === 'function'
-				? options.end
-				: (n: N, _path: N[]) => n === options.end;
-		// const generateNode = options?.generateNode ?? (() => undefined);
-
-		gScore.set(options.start, 0);
-
-		const fScore = new Map<N, number>(); // Infinity
-		fScore.set(options.start, h(options.start, []));
-
-		let goal: N | undefined;
-
-		while (openSet.size > 0) {
-			const umin = [...openSet.values()].reduce(
-				(acc, b) => {
-					const u = fScore.get(b) ?? Number.POSITIVE_INFINITY;
-					if (!acc.node || u < acc.dist) {
-						acc.node = b;
-						acc.dist = fScore.get(b) ?? Number.POSITIVE_INFINITY;
-					}
-					return acc;
-				},
-				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY },
-			);
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			const current = umin.node!;
-
-			const currentPath = constructPath<N>(options.start, current, cameFrom);
-
-			if (isFinished(current, currentPath)) {
-				goal = current;
-				break;
-			}
-			openSet.delete(current);
-
-			let edges = options?.edgeGenerator?.(this.nodes, current, currentPath) ?? [...current];
-			const edgeFilter = options?.edgeFilter;
-			if (edgeFilter) {
-				edges = edges.filter((edge) => edgeFilter(edge, currentPath));
-			}
-
-			for (const neighbour of edges) {
-				const tentativegScore =
-					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
-					(options?.currentPathWeighter
-						? options.currentPathWeighter(
-								current,
-								neighbour.to,
-								neighbour.direction,
-								currentPath,
-							)
-						: /*neighbour.currentPathWeighter
-							? neighbour.currentPathWeighter(
-									current,
-									neighbour.to,
-									neighbour.direction,
-									currentPath,
-								)
-							:*/ neighbour.weight ?? 1);
-				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
-					cameFrom.set(neighbour.to, current);
-					gScore.set(neighbour.to, tentativegScore);
-					fScore.set(neighbour.to, tentativegScore + h(neighbour.to, currentPath));
-					if (!openSet.has(neighbour.to)) {
-						openSet.add(neighbour.to);
-					}
-				}
-			}
-		}
-
-		return {
-			path: constructPath<N>(options.start, goal, cameFrom),
-			distances: gScore,
-		};
+	public aStar(
+		options: GraphTraversalOptions<T, Dir, N> &
+			Omit<EdgeCollectionOptions<T, Dir, N>, 'pathConstructor' | 'allNodes'>,
+	): PathFindingResult<N> {
+		return aStar({ ...options, allNodes: this.nodes });
 	}
 }

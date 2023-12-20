@@ -95,8 +95,8 @@ export const dijkstra = <
 	const pathLengthMap = new Map<N, number>(); // How many nodes there are to reach the end
 	const prev = new Map<N, N>();
 	const pq = new PriorityQueue(options.allNodes, (a, b) => {
-		const bDist = dist.get(b) ?? Number.POSITIVE_INFINITY;
 		const aDist = dist.get(a) ?? Number.POSITIVE_INFINITY;
+		const bDist = dist.get(b) ?? Number.POSITIVE_INFINITY;
 		return aDist - bDist;
 	});
 
@@ -135,10 +135,10 @@ export const dijkstra = <
 				options.currentPathWeighter,
 				pathConstructor,
 			);
-			const alt = uDist + weight; // alt
+			const tentativegScore = uDist + weight;
 			const currentCost = dist.get(neighbour.to) ?? Number.POSITIVE_INFINITY;
-			if (alt < currentCost) {
-				dist.set(neighbour.to, alt);
+			if (tentativegScore < currentCost) {
+				dist.set(neighbour.to, tentativegScore);
 				prev.set(neighbour.to, u);
 				pathLengthMap.set(neighbour.to, (pathLengthMap.get(u) ?? 0) + 1);
 				pq.updateItem(neighbour.to);
