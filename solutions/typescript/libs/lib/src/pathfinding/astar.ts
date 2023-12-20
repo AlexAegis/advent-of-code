@@ -12,11 +12,19 @@ import {
 	type PathFindingResult,
 } from './dijkstra.js';
 
+/**
+ * Finds the shortest path between two nodes in a graph. The nodes must be aware
+ * of their own neighbours.
+ *
+ * When an end is not defined the algorithm will travel though the reachable
+ * parts of the graph from the start and calculate the distance to
+ * each nodes from the start.
+ */
 export const aStar = <T extends ToString, Dir extends ToString, N extends BasicGraphNode<T, Dir>>(
 	options: GraphTraversalOptions<T, Dir, N> &
 		Omit<EdgeCollectionOptions<T, Dir, N>, 'pathConstructor'>,
 ): PathFindingResult<N> => {
-	if (!options.start || !options.end) {
+	if (!options.start) {
 		return { path: [], distances: new Map() };
 	}
 
@@ -28,7 +36,7 @@ export const aStar = <T extends ToString, Dir extends ToString, N extends BasicG
 	const pathLengthMap = new Map<N, number>(); // How many nodes there are to reach the end
 
 	gScore.set(options.start, 0);
-	fScore.set(options.start, h(options.start, []));
+	fScore.set(options.start, options.end ? h(options.start, []) : 1);
 	pathLengthMap.set(options.start, 0);
 	// This is used to support weights of 0
 	const orderOfDiscovery = [options.start];
@@ -51,7 +59,6 @@ export const aStar = <T extends ToString, Dir extends ToString, N extends BasicG
 			return aScore - bScore;
 		}
 	});
-
 	const pathConstructor: PathConstructor<N> = (to) => constructPath<N>(options.start, to, prev);
 
 	const isFinished = isNotNullish(options.end)
@@ -66,7 +73,6 @@ export const aStar = <T extends ToString, Dir extends ToString, N extends BasicG
 	while (pq.length > 0) {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		const current = pq.pop()!; // u, closest yet
-
 		orderOfDiscovery.removeItem(current);
 
 		if (isFinished(current)) {
@@ -90,12 +96,16 @@ export const aStar = <T extends ToString, Dir extends ToString, N extends BasicG
 			const tentativegScore = uDist + weight;
 			const currentScore = gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY;
 			if (tentativegScore < currentScore) {
-				const currentPath = constructPath<N>(options.start, current, prev);
-
 				prev.set(neighbour.to, current);
 				gScore.set(neighbour.to, tentativegScore);
-				fScore.set(neighbour.to, tentativegScore + h(neighbour.to, currentPath));
-				pathLengthMap.set(neighbour.to, (pathLengthMap.get(neighbour.to) ?? 0) + 1);
+				fScore.set(
+					neighbour.to,
+					tentativegScore +
+						(options.end
+							? h(neighbour.to, constructPath<N>(options.start, current, prev))
+							: 1),
+				);
+				pathLengthMap.set(neighbour.to, (pathLengthMap.get(current) ?? 0) + 1);
 
 				if (!pq.updateItem(neighbour.to)) {
 					pq.push(neighbour.to);
@@ -106,7 +116,7 @@ export const aStar = <T extends ToString, Dir extends ToString, N extends BasicG
 	}
 
 	return {
-		path: constructPath<N>(options.start, goal, prev),
+		path: goal ? constructPath<N>(options.start, goal, prev) : [],
 		distances: pathLengthMap,
 	};
 };

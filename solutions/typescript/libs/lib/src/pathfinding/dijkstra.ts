@@ -146,13 +146,8 @@ export const dijkstra = <
 		}
 	}
 
-	return target
-		? {
-				distances: pathLengthMap,
-				path: constructPath(options.start, target, prev),
-			}
-		: {
-				distances: pathLengthMap,
-				path: [],
-			};
+	return {
+		distances: pathLengthMap,
+		path: target ? constructPath(options.start, target, prev) : [],
+	};
 };

@@ -168,121 +168,19 @@ export class Graph<
 			Omit<EdgeCollectionOptions<T, Dir, N>, 'pathConstructor' | 'allNodes'>,
 	): PathFindingResult<N> {
 		return dijkstra<T, Dir, N>({
+			...options,
 			allNodes: this.nodes,
-			start: options.start,
-			end: options.end,
-			currentPathWeighter: options.currentPathWeighter,
-			edgeFilter: options.edgeFilter,
-			edgeGenerator: options.edgeGenerator,
 		});
 	}
 
 	/**
-	 *
-	 */
-	public floodDiskstra(start: N | undefined): Map<N, number> {
-		if (!start) {
-			return new Map();
-		}
-		const q = new Set<N>(this.nodes.values());
-
-		const dist = new Map<N, number>();
-		const prev = new Map<N, N>();
-		dist.set(start, 0);
-
-		while (q.size > 0) {
-			// refactor this to a prio queue
-			const umin = [...q.values()].reduce(
-				(acc, b) => {
-					const u = dist.get(b) ?? Number.POSITIVE_INFINITY;
-					if (!acc.node || u < acc.dist) {
-						acc.node = b;
-						acc.dist = dist.get(b) ?? Number.POSITIVE_INFINITY;
-					}
-					return acc;
-				},
-				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY },
-			);
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			const u = umin.node!;
-
-			q.delete(u);
-
-			for (const neighbour of u) {
-				const alt = umin.dist + (neighbour.weight ?? 1);
-				if (alt < (dist.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
-					dist.set(neighbour.to, alt);
-					prev.set(neighbour.to, u);
-				}
-			}
-		}
-
-		return dist;
-	}
-
-	/**
 	 * A gutted out aStar, not trying to find a path, but calculating a distanceMap
-	 * to all reachable node.
+	 * to all reachable nodes.
 	 */
-	public flood(options: GraphTraversalOptions<T, Dir, N>): Map<N, number> {
-		if (!options.start) {
-			return new Map();
-		}
-		const openSet = new Set<N>([options.start]); // q?
-		const cameFrom = new Map<N, N>(); // prev!
-		const gScore = new Map<N, number>(); // weightMap! Infinity
-		const dMap = new Map<N, number>(); // distanceMap Infinity
-
-		const h = options?.heuristic ?? (() => 1);
-
-		gScore.set(options.start, 0);
-		dMap.set(options.start, 0);
-
-		const fScore = new Map<N, number>(); // Infinity
-		fScore.set(options.start, h(options.start, []));
-
-		while (openSet.size > 0) {
-			const umin = [...openSet.values()].reduce(
-				(acc, b) => {
-					const u = fScore.get(b) ?? Number.POSITIVE_INFINITY;
-					if (!acc.node || u < acc.dist) {
-						acc.node = b;
-						acc.dist = fScore.get(b) ?? Number.POSITIVE_INFINITY;
-					}
-					return acc;
-				},
-				{ node: undefined as N | undefined, dist: Number.POSITIVE_INFINITY },
-			);
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			const current = umin.node!;
-
-			openSet.delete(current);
-
-			for (const neighbour of options?.edgeGenerator?.(this.nodes, current, []) ?? current) {
-				const tentativegScore =
-					(gScore.get(current) ?? Number.POSITIVE_INFINITY) +
-					(options?.currentPathWeighter
-						? options.currentPathWeighter(
-								neighbour.from,
-								neighbour.to,
-								neighbour.direction,
-								[],
-							)
-						: neighbour.weight ?? 1);
-				const tentativeDistance = (dMap.get(current) ?? 0) + 1;
-				if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
-					cameFrom.set(neighbour.to, current);
-					gScore.set(neighbour.to, tentativegScore);
-					fScore.set(neighbour.to, tentativegScore);
-					dMap.set(neighbour.to, tentativeDistance);
-					if (!openSet.has(neighbour.to)) {
-						openSet.add(neighbour.to);
-					}
-				}
-			}
-		}
-
-		return dMap;
+	public flood(
+		options: Omit<GraphTraversalOptions<T, Dir, N>, 'end' | 'heuristic'>,
+	): Map<N, number> {
+		return aStar({ ...options, allNodes: this.nodes, end: undefined }).distances;
 	}
 
 	/**
