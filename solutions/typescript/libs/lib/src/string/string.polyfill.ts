@@ -2,11 +2,10 @@ import { GridGraph, type GridGraphOptions } from '../model/graph/grid-graph.clas
 import type { ToString } from '../model/to-string.interface.js';
 import type { Vec2 } from '../model/vector/vec2.class.js';
 import type { Vec2String } from '../model/vector/vec2.class.types.js';
-import { NEWLINE } from '../regex/whitespace.regex.js';
 import { alphabeticalOrder } from './alphabetical-order.function.js';
 import { rightSplit } from './right-split.function.js';
 import { splitIntoStringPair } from './split-into-tuple.function.js';
-import { stringToMatrix } from './string-to-matrix.function.js';
+import { stringToMatrix, type StringToMatrixOptions } from './string-to-matrix.function.js';
 import { stringToVectorMap } from './string-to-vectormap.function.js';
 import { vectorsInStringTile } from './vectors-in-string-tile.function.js';
 export * from '../array/array.polyfill.js'; // `toInt` is used in `splitToInt`
@@ -15,7 +14,7 @@ declare global {
 	interface String {
 		alphabeticalOrder(): number;
 		toInt(radix?: number): number;
-		toMatrix(): string[][];
+		toMatrix<T = string>(options?: StringToMatrixOptions<T>): T[][];
 		toGridGraph<T extends ToString = string>(
 			gridOptions?: GridGraphOptions<T> & {
 				valueConverter?: (value: string) => T;
@@ -131,11 +130,8 @@ String.prototype.splitToInt = function (options?: {
 	});
 };
 
-String.prototype.toMatrix = function (
-	rowSeparator: RegExp | string = NEWLINE,
-	itemSeparator: RegExp | string = '',
-): string[][] {
-	return stringToMatrix(this as string, rowSeparator, itemSeparator);
+String.prototype.toMatrix = function <T = string>(options?: StringToMatrixOptions<T>): T[][] {
+	return stringToMatrix<T>(this as string, options);
 };
 
 String.prototype.vectorsOf = function (character: string, fromBottom = false): Vec2[] {

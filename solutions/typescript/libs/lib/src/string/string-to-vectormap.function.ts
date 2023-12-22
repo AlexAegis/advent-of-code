@@ -11,6 +11,7 @@ export interface StringToVectorMapOptions<V> {
 	 */
 	ignoreValues?: (value: V) => boolean;
 }
+
 /**
  * Splits a string into a matrix along row and item separators. By default it
  * splits along new lines and every character
@@ -24,7 +25,7 @@ export const stringToVectorMap = <V = string>(
 	rawOptions?: StringToVectorMapOptions<V>,
 ): Map<Vec2String, V> => {
 	const options = normalizeStringToVectorMapOptions(rawOptions);
-	const matrix = stringToMatrix(s, options.rowSeparator, options.itemSeparator);
+	const matrix = stringToMatrix(s, options);
 
 	const map = new Map<Vec2String, V>();
 	for (let y = 0; y < matrix.length; y++) {
@@ -33,11 +34,8 @@ export const stringToVectorMap = <V = string>(
 			for (let x = 0; x < row.length; x++) {
 				const coord = new Vec2(x, y);
 				const value = row[x];
-				if (value !== undefined) {
-					const convertedValue = options.valueConverter?.(value) ?? (value as V);
-					if (!options.ignoreValues(convertedValue)) {
-						map.set(coord.toString(), convertedValue);
-					}
+				if (value !== undefined && !options.ignoreValues(value)) {
+					map.set(coord.toString(), value);
 				}
 			}
 		}
