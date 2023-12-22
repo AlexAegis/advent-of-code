@@ -745,6 +745,12 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		});
 	}
 
+	closestEndTo(to: number): number {
+		const ld = Math.abs(to - this.low);
+		const hd = Math.abs(this.high - to);
+		return ld < hd ? this.low : this.high;
+	}
+
 	toString(): string {
 		return `${this.lowQualifier === INTERVAL_ENDPOINT_OPEN_QUALIFIER ? '(' : '['}${this.low},${
 			this.high

@@ -108,7 +108,7 @@ export class GridGraph<T extends ToString = string, N extends GridGraphNode<T> =
 	}
 
 	/**
-	 *
+	 * TODO: Make this lazy, make this.nodes private and only allow operations through functions, invalidate the cached bb when a nodes key is changed
 	 * @returns two Vec2s that are not necessarily point to a node but all the nodes are between
 	 */
 	public boundingBox(): BoundingBox {
