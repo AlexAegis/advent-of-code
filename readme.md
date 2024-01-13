@@ -19,9 +19,9 @@
 
 ## Usage
 
-The repository does not contain task inputs as my own inputs are located
-in a private repository. If you wish to use this repository with your
-own inputs provide them in the following folder structure:
+The repository does not contain task inputs as my own inputs are located in a
+private repository. If you wish to use this repository with your own inputs
+provide them in the following folder structure:
 
 ```sh
 resources
@@ -41,7 +41,7 @@ resources
     │   └── input.txt
     │  ...
     └── 25
-        └── input.txt 
+        └── input.txt
 ```
 
 ### Cloning
@@ -52,6 +52,7 @@ resources
 git clone --recurse-submodules -j8 git@github.com:AlexAegis/advent-of-code.git
 ```
 
+[Why and how](#working-with-private-files)
 
 ## [TypeScript](./solutions/typescript)
 
@@ -156,6 +157,78 @@ Install latest stable `python` and `pipenv`
 pipenv install
 pipenv shell
 ```
+
+## Working with private files
+
+If you wish to replicate the same input setup that I have so that it's compliant
+with [Advent of Code](https://adventofcode.com/)'s rules, you should not keep
+your inputs in a publicly hosted repository. I think the best solution to this
+is to keep them in a private submodule, keeping your inputs private, but your
+solutions public and keeping your CI happy and operational.
+
+### Why?
+
+See the _"Can I copy/redistribute part of Advent of Code?"_ section at
+<https://adventofcode.com/2023/about>
+
+### How?
+
+1. Collect your input files into a new "advent-of-code-inputs" repository
+
+2. Get a fresh clone of your repository!
+
+3. [Install `git-filter-repo`](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md)
+
+   > You will completely rewrite your repository's history, so first educate
+   > yourself on how
+   > [`git-filter-repo`](https://github.com/newren/git-filter-repo) works. (The
+   > tool you might find for this first is the BFG Repo cleaner, however
+   > git-filter-repo is much more capable and can clean out huge repositories in
+   > just milliseconds.)
+
+4. Clean out the repository:
+   `git filter-repo --invert-paths --path-glob '*.txt' --path inputs`
+
+   > This is just an example command, add more globs or paths if needed
+
+5. Verify that apart from the unwanted files everything is in order. Check older
+   commits too!
+
+   > Maybe in previous years you stored these files differently, and/or you
+   > refactored them at some point!
+
+6. Add back your inputs as a git submodule:
+
+   ```sh
+   git submodule add git@github.com:AlexAegis/advent-of-code-inputs.git resources
+   git commit -m 'added inputs submodule'
+   ```
+
+7. Adjust your CI so that it checks out submodules too.
+
+   > If you're using GitHub Actions and actions/checkout:
+
+   ```yaml
+   - name: checkout
+     uses: actions/checkout@v4
+     with:
+       fetch-depth: 1
+       submodules: true
+   ```
+
+8. Verify if everything works locally
+
+9. If everything looks right, re-add your remote and force push the changes.
+   (Since you started with a fresh clone, your old can be used to restore it if
+   anything goes wrong at any point)
+
+   ```sh
+   git remote add origin git@github.com:AlexAegis/advent-of-code.git
+   git push --force
+   ```
+
+10. Clean out remaining branches by either force pushing them too or just
+    removing them.
 
 ## Disclaimer
 
