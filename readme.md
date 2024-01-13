@@ -17,6 +17,42 @@
 > same root level. You need to individually set up each language you wish to
 > use.
 
+## Usage
+
+The repository does not contain task inputs as my own inputs are located
+in a private repository. If you wish to use this repository with your
+own inputs provide them in the following folder structure:
+
+```sh
+resources
+├── 2015
+│   ├── 01
+│   │   └── input.txt
+│   ├── 02
+│   │   └── input.txt
+│   │  ...
+│   └── 25
+│       └── input.txt
+│   ...
+└── 2023
+    ├── 01
+    │   ├── example.1.txt
+    │   ├── example.2.txt
+    │   └── input.txt
+    │  ...
+    └── 25
+        └── input.txt 
+```
+
+### Cloning
+
+> Reference for myself, cloning with my private inputs
+
+```sh
+git clone --recurse-submodules -j8 git@github.com:AlexAegis/advent-of-code.git
+```
+
+
 ## [TypeScript](./solutions/typescript)
 
 [![2023 TypeScript Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/typescript/2023.json)](/solutions/typescript/2023/)
