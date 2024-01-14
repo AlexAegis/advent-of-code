@@ -1,12 +1,11 @@
-import { split } from '@alexaegis/advent-of-code-lib';
-import { Coord } from './model/coord.class.js';
+import { Vec2, split } from '@alexaegis/advent-of-code-lib';
 
-export const interpret = (input: string): Coord[] => {
-	const points: Coord[] = [];
+export const interpret = (input: string): Vec2[] => {
+	const points: Vec2[] = [];
 	for (const line of split(input)) {
 		if (line) {
-			const lineSplit = line.split(', ');
-			points.push(new Coord(Number(lineSplit[1]), Number(lineSplit[0])));
+			const [y, x] = line.splitIntoStringPair(', ');
+			points.push(new Vec2(Number.parseInt(x, 10), Number.parseInt(y, 10)));
 		}
 	}
 	return points;

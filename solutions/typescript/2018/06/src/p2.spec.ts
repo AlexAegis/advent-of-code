@@ -1,8 +1,7 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json';
-import type { Args } from './model/args.interface.js';
-import { p2 } from './p2.js';
+import { p2, type Args } from './p2.js';
 
 describe('2018 - Day 6 - Part Two', () => {
 	it('should solve the input', async () => {

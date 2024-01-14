@@ -229,7 +229,7 @@ export class Interval implements IntervalLike, IntervalQualifier {
 
 	reduce<A>(reducer: (accumulator: A, next: number) => A, initialValue: A): A {
 		let accumulator = initialValue;
-		for (const item of this.walk()) {
+		for (const item of this.iter()) {
 			accumulator = reducer(accumulator, item);
 		}
 		return accumulator;
@@ -506,14 +506,14 @@ export class Interval implements IntervalLike, IntervalQualifier {
 		return Interval.isAboveLow(this, n);
 	}
 
-	*walk(): Generator<number> {
+	*iter(): Generator<number> {
 		for (let i = this.lowest(); this.contains(i); i++) {
 			yield i;
 		}
 	}
 
 	collectValues(): number[] {
-		return [...this.walk()];
+		return [...this.iter()];
 	}
 
 	/**
