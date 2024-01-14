@@ -1,43 +1,26 @@
-import { task } from '@alexaegis/advent-of-code-lib';
-import { max, min } from '@alexaegis/advent-of-code-lib/math';
+import { BoundingBox, Vec2, task } from '@alexaegis/advent-of-code-lib';
 import packageJson from '../package.json';
-import type { Boundary } from './boundary.interface.js';
 import { interpreter } from './interpreter.function.js';
-import { Coord } from './model/coord.class.js';
-import type { Vector } from './model/vector.class.js';
 
-export const normalize = (input: Vector[]): Vector[] => {
-	const { minX, minY } = boundary(input);
-	const norm = new Coord(minX, minY);
+import type { MotionVector } from './model/motion-vector.class.js';
+
+export const normalize = (input: MotionVector[]): MotionVector[] => {
+	const aabb = BoundingBox.fromVectors(input.map((i) => i.position));
 	return input.map((vector) => {
-		vector.position.sub(norm);
+		vector.position.subMut(aabb.size);
 		return vector;
 	});
 };
 
-export const area = (b: Boundary): number => (b.maxX - b.minX) * (b.maxY - b.minY); // did not terminate correctly
-export const verticalArea = (b: Boundary): number => b.maxY - b.minY;
-
-export const boundary = (input: Vector[]): Boundary => {
-	return {
-		maxX: input.map((vector) => vector.position.x).reduce(max),
-		minX: input.map((vector) => vector.position.x).reduce(min),
-		maxY: input.map((vector) => vector.position.y).reduce(max),
-		minY: input.map((vector) => vector.position.y).reduce(min),
-	};
-};
-
-export const print = (input: Vector[]): string => {
-	const { maxX, minX, maxY, minY } = boundary(input);
-	console.log(`maxX: ${maxX}, minX: ${minX}, maxY: ${maxY}, minY: ${minY}`);
-
+export const print = (input: MotionVector[]): string => {
+	const aabb = BoundingBox.fromVectors(input.map((i) => i.position));
 	const stars = new Set(input.map((vector) => vector.position.toString()));
 
 	let pic = '';
-	for (let y = minY; y <= maxY; y++) {
+	for (let y = aabb.top; y <= aabb.bottom; y++) {
 		let row = '';
-		for (let x = minX; x <= maxX; x++) {
-			row = row + stars.has(new Coord(x, y).toString()) ? '#' : '.';
+		for (let x = aabb.left; x <= aabb.right; x++) {
+			row = row + stars.has(new Vec2(x, y).toString()) ? '#' : '.';
 		}
 		pic = pic + row + '\n';
 	}
@@ -46,13 +29,15 @@ export const print = (input: Vector[]): string => {
 
 export const p1 = (input: string): number => {
 	const vectors = interpreter(input);
-	let minArea: number = area(boundary(vectors));
+	const aabb = BoundingBox.fromVectors(vectors.map((i) => i.position));
+	let minArea: number = aabb.area();
 	let i = 0;
 	for (;;) {
 		for (const vector of vectors) {
-			vector.position.add(vector.velocity);
+			vector.position.addMut(vector.velocity);
 		}
-		const currArea = verticalArea(boundary(vectors));
+		const aabb = BoundingBox.fromVectors(vectors.map((i) => i.position));
+		const currArea = aabb.vertical.length;
 		if (minArea > currArea) {
 			minArea = currArea;
 		} else break;

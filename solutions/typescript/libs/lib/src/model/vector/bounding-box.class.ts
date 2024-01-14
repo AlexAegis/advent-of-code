@@ -5,8 +5,6 @@ import type { Vec2Like } from './vec2.class.types.js';
 export type BoundingBoxCorner = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
 /**
- * TODO: Rename to Area
- *
  * It consists of two closed intervals from left to right and bottom to top
  *
  * It uses a screen coordinate system where 0,0 is at the top left, and Y
@@ -174,6 +172,10 @@ export class BoundingBox {
 		for (let y = this.bottom; y <= this.top; y++) {
 			yield y;
 		}
+	}
+
+	area(): number {
+		return this.horizontal.length * this.vertical.length;
 	}
 
 	forEach(callback: (x: number, y: number) => void, resolution = 1): void {

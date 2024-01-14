@@ -1,5 +1,5 @@
 import { split } from '@alexaegis/advent-of-code-lib';
-import { Vector } from './model/vector.class.js';
+import { MotionVector } from './model/motion-vector.class.js';
 
-export const interpreter = (input: string): Vector[] =>
-	split(input).map((line) => Vector.parse(line));
+export const interpreter = (input: string): MotionVector[] =>
+	split(input).map((line) => MotionVector.parse(line));
