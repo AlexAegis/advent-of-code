@@ -22,8 +22,8 @@ export const isNice = (line: string): boolean => {
 			}
 			pairObj.push(i);
 			if (!hasNonOverlapping) {
-				hasNonOverlapping = pairObj.some(
-					(po) => pairObj?.some((poi) => Math.abs(poi - po) > 1),
+				hasNonOverlapping = pairObj.some((po) =>
+					pairObj?.some((poi) => Math.abs(poi - po) > 1),
 				);
 			}
 		}

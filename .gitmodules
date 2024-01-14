@@ -1,3 +1,4 @@
 [submodule "resources"]
 	path = resources
 	url = git@github.com:AlexAegis/advent-of-code-inputs.git
+	branch = master

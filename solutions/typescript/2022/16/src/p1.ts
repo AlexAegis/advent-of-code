@@ -134,8 +134,14 @@ export const p1 = (input: string): number => {
 		}
 
 		if (!targetValve && openedValves.length < valvesWorthOpening.length) {
-			targetValve = highestScoreValve(i, currentlyAtValve, openedValves, valves, graph, 4)
-				?.valve;
+			targetValve = highestScoreValve(
+				i,
+				currentlyAtValve,
+				openedValves,
+				valves,
+				graph,
+				4,
+			)?.valve;
 
 			if (targetValve) {
 				// console.log('TARGET', targetValve.name);
