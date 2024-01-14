@@ -1,7 +1,7 @@
-import type { Coord } from './coord.interface.js';
+import type { Vec2 } from '@alexaegis/advent-of-code-lib';
 
 export interface Claim {
 	id: number;
-	starting: Coord;
-	size: Coord;
+	starting: Vec2;
+	size: Vec2;
 }

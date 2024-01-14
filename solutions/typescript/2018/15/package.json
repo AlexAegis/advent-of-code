@@ -50,11 +50,6 @@
 			"import": "./dist/cave.class.js",
 			"default": "./dist/cave.class.js"
 		},
-		"./coord.class": {
-			"types": "./src/coord.class.ts",
-			"import": "./dist/coord.class.js",
-			"default": "./dist/coord.class.js"
-		},
 		"./reader.function": {
 			"types": "./src/reader.function.ts",
 			"import": "./dist/reader.function.js",
