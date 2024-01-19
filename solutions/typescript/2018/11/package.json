@@ -74,7 +74,7 @@
 		"@types/node": "^20.11.0",
 		"@types/workerpool": "^6.4.7",
 		"benny": "^3.7.1",
-		"vite": "^5.0.11",
+		"vite": "^5.0.12",
 		"vitest": "^1.2.0"
 	}
 }
