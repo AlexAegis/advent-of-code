@@ -25,7 +25,7 @@ const detectTerminal = (): Promise<terminalKit.Terminal> =>
 	new Promise((resolve, reject) => {
 		terminalKit.getDetectedTerminal((error, terminal) => {
 			if (error) {
-				reject(error);
+				reject(error as Error);
 			} else {
 				resolve(terminal);
 			}

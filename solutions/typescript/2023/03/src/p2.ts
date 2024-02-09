@@ -30,9 +30,9 @@ export const p2 = (input: string): number => {
 				numberPositions.push(new Vec2({ x, y }));
 			} else if (number !== undefined && gearVector) {
 				if (gears.has(gearVector.toString())) {
-					gears.get(gearVector.toString())?.push(number.toInt()!);
+					gears.get(gearVector.toString())?.push(number.toInt());
 				} else {
-					gears.set(gearVector.toString(), [number.toInt()!]);
+					gears.set(gearVector.toString(), [number.toInt()]);
 				}
 				number = undefined;
 				numberPositions = [];
