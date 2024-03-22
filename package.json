@@ -15,7 +15,7 @@
 		"typescript"
 	],
 	"author": {
-		"email": "alexaegis@gmail.com",
+		"email": "alexaegis@pm.me",
 		"name": "Alex Aegis",
 		"url": "https://github.com/AlexAegis"
 	},
@@ -25,7 +25,7 @@
 		"type": "git"
 	},
 	"bugs": {
-		"email": "alexaegis@gmail.com",
+		"email": "alexaegis@pm.me",
 		"url": "https://github.com/AlexAegis/advent-of-code/issues"
 	},
 	"type": "module",

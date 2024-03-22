@@ -1,7 +1,7 @@
 [package]
 name = "aoc{{year}}{{day}}"
 version = "1.0.0"
-authors = ["AlexAegis <alexaegis@gmail.com>"]
+authors = ["AlexAegis <alexaegis@pm.me>"]
 license = "mit"
 edition = "2021"
 

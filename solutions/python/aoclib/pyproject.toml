@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "aoclib"
 version = "0.0.2"
 authors = [
-  { name="AlexAegis", email="alexaegis@gmail.com" },
+  { name="AlexAegis", email="alexaegis@pm.me" },
 ]
 description = "Advent of Code Tools"
 requires-python = ">=3.11"
