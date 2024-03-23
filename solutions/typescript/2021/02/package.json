@@ -66,13 +66,13 @@
 		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.9.3",
-		"@alexaegis/ts": "^0.9.3",
-		"@alexaegis/vite": "^0.9.3",
-		"@alexaegis/vitest": "^0.9.3",
-		"@types/node": "^20.11.17",
+		"@alexaegis/eslint-config-vitest": "^0.10.4",
+		"@alexaegis/ts": "^0.10.4",
+		"@alexaegis/vite": "^0.10.4",
+		"@alexaegis/vitest": "^0.10.4",
+		"@types/node": "^20.11.30",
 		"benny": "^3.7.1",
-		"vite": "^5.1.0",
-		"vitest": "^1.2.2"
+		"vite": "^5.2.4",
+		"vitest": "^1.4.0"
 	}
 }

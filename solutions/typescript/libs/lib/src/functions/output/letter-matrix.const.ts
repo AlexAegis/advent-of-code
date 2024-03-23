@@ -55,7 +55,7 @@ export const A_LETTER_SMALL = `\
 #..#
 ####
 #..#
-#..#` as const;
+#..#`;
 
 export const B_LETTER_SMALL = `\
 ###.
@@ -63,7 +63,7 @@ export const B_LETTER_SMALL = `\
 ###.
 #..#
 #..#
-###.` as const;
+###.`;
 
 export const C_LETTER_SMALL = `\
 .##.
@@ -71,7 +71,7 @@ export const C_LETTER_SMALL = `\
 #...
 #...
 #..#
-.##.` as const;
+.##.`;
 
 export const D_UNVERIFIED_LETTER_SMALL = `\
 ###.
@@ -79,7 +79,7 @@ export const D_UNVERIFIED_LETTER_SMALL = `\
 #..#
 #..#
 #..#
-###.` as const;
+###.`;
 
 export const E_LETTER_SMALL = `\
 ####
@@ -87,7 +87,7 @@ export const E_LETTER_SMALL = `\
 ###.
 #...
 #...
-####` as const;
+####`;
 
 export const F_LETTER_SMALL = `\
 ####
@@ -95,7 +95,7 @@ export const F_LETTER_SMALL = `\
 ###.
 #...
 #...
-#...` as const;
+#...`;
 
 export const G_LETTER_SMALL = `\
 .##.
@@ -103,7 +103,7 @@ export const G_LETTER_SMALL = `\
 #...
 #.##
 #..#
-.###` as const;
+.###`;
 
 export const H_LETTER_SMALL = `\
 #..#
@@ -111,7 +111,7 @@ export const H_LETTER_SMALL = `\
 ####
 #..#
 #..#
-#..#` as const;
+#..#`;
 
 export const I_LETTER_SMALL = `\
 ###
@@ -119,7 +119,7 @@ export const I_LETTER_SMALL = `\
 .#.
 .#.
 .#.
-###` as const;
+###`;
 
 export const J_LETTER_SMALL = `\
 ..##
@@ -127,7 +127,7 @@ export const J_LETTER_SMALL = `\
 ...#
 ...#
 #..#
-.##.` as const;
+.##.`;
 
 export const K_LETTER_SMALL = `\
 #..#
@@ -135,7 +135,7 @@ export const K_LETTER_SMALL = `\
 ##..
 #.#.
 #.#.
-#..#` as const;
+#..#`;
 
 export const L_LETTER_SMALL = `\
 #...
@@ -143,7 +143,7 @@ export const L_LETTER_SMALL = `\
 #...
 #...
 #...
-####` as const;
+####`;
 
 export const M_UNVERIFIED_LETTER_SMALL = `\
 #...#
@@ -151,7 +151,7 @@ export const M_UNVERIFIED_LETTER_SMALL = `\
 #.#.#
 #...#
 #...#
-#...#` as const;
+#...#`;
 
 export const N_UNVERIFIED_LETTER_SMALL = `\
 #...#
@@ -159,7 +159,7 @@ export const N_UNVERIFIED_LETTER_SMALL = `\
 #.#.#
 #.#.#
 #..##
-#...#` as const;
+#...#`;
 
 export const O_LETTER_SMALL = `\
 .##.
@@ -167,7 +167,7 @@ export const O_LETTER_SMALL = `\
 #..#
 #..#
 #..#
-.##.` as const;
+.##.`;
 
 export const P_LETTER_SMALL = `\
 ###.
@@ -175,7 +175,7 @@ export const P_LETTER_SMALL = `\
 #..#
 ###.
 #...
-#...` as const;
+#...`;
 
 export const Q_UNVERIFIED_LETTER_SMALL = `\
 .##.
@@ -183,7 +183,7 @@ export const Q_UNVERIFIED_LETTER_SMALL = `\
 #..#
 #..#
 #.##
-.###` as const;
+.###`;
 
 export const R_LETTER_SMALL = `\
 ###.
@@ -191,7 +191,7 @@ export const R_LETTER_SMALL = `\
 #..#
 ###.
 #.#.
-#..#` as const;
+#..#`;
 
 export const S_LETTER_SMALL = `\
 .###
@@ -199,7 +199,7 @@ export const S_LETTER_SMALL = `\
 #...
 .##.
 ...#
-###.` as const;
+###.`;
 
 export const T_UNVERIFIED_LETTER_SMALL = `\
 #####
@@ -207,7 +207,7 @@ export const T_UNVERIFIED_LETTER_SMALL = `\
 ..#..
 ..#..
 ..#..
-..#..` as const;
+..#..`;
 
 export const U_LETTER_SMALL = `\
 #..#
@@ -215,7 +215,7 @@ export const U_LETTER_SMALL = `\
 #..#
 #..#
 #..#
-.##.` as const;
+.##.`;
 
 export const V_UNVERIFIED_LETTER_SMALL = `\
 #...#
@@ -223,7 +223,7 @@ export const V_UNVERIFIED_LETTER_SMALL = `\
 #...#
 #...#
 .#.#.
-..#..` as const;
+..#..`;
 
 export const W_UNVERIFIED_LETTER_SMALL = `\
 #.......#
@@ -231,7 +231,7 @@ export const W_UNVERIFIED_LETTER_SMALL = `\
 #...#...#
 #...#...#
 .#.#.#.#.
-..#...#..` as const;
+..#...#..`;
 
 export const X_UNVERIFIED_LETTER_SMALL = `\
 #...#
@@ -239,7 +239,7 @@ export const X_UNVERIFIED_LETTER_SMALL = `\
 ..#..
 ..#..
 .#.#.
-#...#` as const;
+#...#`;
 
 export const Y_LETTER_SMALL = `\
 #...#
@@ -247,7 +247,7 @@ export const Y_LETTER_SMALL = `\
 .#.#.
 ..#..
 ..#..
-..#..` as const;
+..#..`;
 
 export const Z_LETTER_SMALL = `\
 ####
@@ -255,7 +255,7 @@ export const Z_LETTER_SMALL = `\
 ..#.
 .#..
 #...
-####` as const;
+####`;
 
 export const MATRIX_ALPHABET_SMALL = {
 	A: A_LETTER_SMALL,
@@ -297,7 +297,7 @@ export const A_LETTER_BIG = `\
 #....#
 #....#
 #....#
-` as const;
+`;
 
 export const B_LETTER_BIG = `\
 #####.
@@ -310,7 +310,7 @@ export const B_LETTER_BIG = `\
 #....#
 #....#
 #####.
-` as const;
+`;
 
 export const C_LETTER_BIG = `\
 .####.
@@ -323,7 +323,7 @@ export const C_LETTER_BIG = `\
 #.....
 #....#
 .####.
-` as const;
+`;
 
 export const D_UNVERIFIED_LETTER_BIG = `\
 #####.
@@ -336,7 +336,7 @@ export const D_UNVERIFIED_LETTER_BIG = `\
 #....#
 #....#
 #####.
-` as const;
+`;
 
 export const E_LETTER_BIG = `\
 ######
@@ -349,7 +349,7 @@ export const E_LETTER_BIG = `\
 #.....
 #.....
 ######
-` as const;
+`;
 
 export const F_LETTER_BIG = `\
 ######
@@ -362,7 +362,7 @@ export const F_LETTER_BIG = `\
 #.....
 #.....
 #.....
-` as const;
+`;
 
 export const G_LETTER_BIG = `\
 .####.
@@ -375,7 +375,7 @@ export const G_LETTER_BIG = `\
 #....#
 #...##
 .###.#
-` as const;
+`;
 
 export const H_LETTER_BIG = `\
 #....#
@@ -388,7 +388,7 @@ export const H_LETTER_BIG = `\
 #....#
 #....#
 #....#
-` as const;
+`;
 
 export const I_UNVERIFIED_LETTER_BIG = `\
 ###
@@ -401,7 +401,7 @@ export const I_UNVERIFIED_LETTER_BIG = `\
 .#.
 .#.
 ###
-` as const;
+`;
 
 export const J_LETTER_BIG = `\
 ...###
@@ -414,7 +414,7 @@ export const J_LETTER_BIG = `\
 #...#.
 #...#.
 .###..
-` as const;
+`;
 
 export const K_LETTER_BIG = `\
 #....#
@@ -427,7 +427,7 @@ export const K_LETTER_BIG = `\
 #..#..
 #...#.
 #....#
-` as const;
+`;
 
 export const L_LETTER_BIG = `\
 #.....
@@ -440,7 +440,7 @@ export const L_LETTER_BIG = `\
 #.....
 #.....
 ######
-` as const;
+`;
 
 export const M_UNVERIFIED_LETTER_BIG = `\
 #.....#
@@ -453,7 +453,7 @@ export const M_UNVERIFIED_LETTER_BIG = `\
 #.....#
 #.....#
 #.....#
-` as const;
+`;
 
 export const N_LETTER_BIG = `\
 #....#
@@ -466,7 +466,7 @@ export const N_LETTER_BIG = `\
 #...##
 #...##
 #....#
-` as const;
+`;
 
 export const O_UNVERIFIED_LETTER_BIG = `\
 .####.
@@ -479,7 +479,7 @@ export const O_UNVERIFIED_LETTER_BIG = `\
 #....#
 #....#
 .####.
-` as const;
+`;
 
 export const P_LETTER_BIG = `\
 #####.
@@ -492,7 +492,7 @@ export const P_LETTER_BIG = `\
 #.....
 #.....
 #.....
-` as const;
+`;
 
 export const Q_UNVERIFIED_LETTER_BIG = `\
 .####.
@@ -505,7 +505,7 @@ export const Q_UNVERIFIED_LETTER_BIG = `\
 #..#.#
 #...##
 .#####
-` as const;
+`;
 
 export const R_LETTER_BIG = `\
 #####.
@@ -518,7 +518,7 @@ export const R_LETTER_BIG = `\
 #...#.
 #....#
 #....#
-` as const;
+`;
 
 export const S_UNVERIFIED_LETTER_BIG = `\
 .####.
@@ -531,7 +531,7 @@ export const S_UNVERIFIED_LETTER_BIG = `\
 .....#
 .....#
 #####.
-` as const;
+`;
 
 export const T_UNVERIFIED_LETTER_BIG = `\
 #####
@@ -544,7 +544,7 @@ export const T_UNVERIFIED_LETTER_BIG = `\
 ..#..
 ..#..
 ..#..
-` as const;
+`;
 
 export const U_UNVERIFIED_LETTER_BIG = `\
 #....#
@@ -557,7 +557,7 @@ export const U_UNVERIFIED_LETTER_BIG = `\
 #....#
 #....#
 .####.
-` as const;
+`;
 
 export const V_UNVERIFIED_LETTER_BIG = `\
 #...#
@@ -570,7 +570,7 @@ export const V_UNVERIFIED_LETTER_BIG = `\
 .#.#.
 .#.#.
 ..#..
-` as const;
+`;
 
 export const W_UNVERIFIED_LETTER_BIG = `\
 #.......#
@@ -583,7 +583,7 @@ export const W_UNVERIFIED_LETTER_BIG = `\
 .#.#.#.#.
 .#.#.#.#.
 ..#...#..
-` as const;
+`;
 
 export const X_LETTER_BIG = `\
 #....#
@@ -596,7 +596,7 @@ export const X_LETTER_BIG = `\
 .#..#.
 #....#
 #....#
-` as const;
+`;
 
 export const Y_UNVERIFIED_LETTER_BIG = `\
 #...#
@@ -609,7 +609,7 @@ export const Y_UNVERIFIED_LETTER_BIG = `\
 ..#..
 ..#..
 ..#..
-` as const;
+`;
 
 export const Z_LETTER_BIG = `\
 ######
@@ -622,7 +622,7 @@ export const Z_LETTER_BIG = `\
 #.....
 #.....
 ######
-` as const;
+`;
 
 export const MATRIX_ALPHABET_BIG = {
 	A: A_LETTER_BIG,

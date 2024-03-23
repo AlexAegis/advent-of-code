@@ -4,8 +4,8 @@ import packageJson from '../package.json';
 
 function shift(window: string, last: number, length: number): string {
 	return window.length >= length
-		? window.slice(window.length - length + 1, window.length) + last
-		: window + last;
+		? window.slice(window.length - length + 1, window.length) + last.toString()
+		: window + last.toString();
 }
 
 export const p2 = (input: string): number => {

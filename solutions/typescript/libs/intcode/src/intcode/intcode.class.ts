@@ -226,7 +226,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 
 	private outOp(pos: number | undefined): number {
 		if (pos === undefined) {
-			throw new Error('Not valid output' + pos);
+			throw new Error(`Not valid output ${pos}`);
 		}
 		if (this.outputCallback) {
 			this.outputCallback(pos);

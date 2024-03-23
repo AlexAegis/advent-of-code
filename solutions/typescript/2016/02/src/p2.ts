@@ -27,7 +27,7 @@ export const p2 = (input: string): string => {
 			position.addMut(direction, {
 				limit: (v) => toKeypadNumber(v) === undefined,
 			});
-		return acc + toKeypadNumber(position);
+		return `${acc}${toKeypadNumber(position) ?? ''}`;
 	}, '');
 
 	return result;

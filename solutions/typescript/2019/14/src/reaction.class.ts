@@ -17,7 +17,7 @@ export class Reaction {
 	}
 
 	public toString(): string {
-		return `${[...this.from.entries()].map(([n, q]) => q + ' ' + n).join(', ')} => ${
+		return `${[...this.from.entries()].map(([n, q]) => `${q} ${n}`).join(', ')} => ${
 			this.toq
 		} ${this.to}`;
 	}

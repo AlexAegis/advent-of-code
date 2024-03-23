@@ -43,7 +43,7 @@ const W = 22;
 const H = 37;
 
 const draw = (m: Map<string, number>, score: number): void => {
-	console.log(score + '\n' + renderMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
+	console.log(score.toString() + '\n' + renderMatrix(drawMapStatic(m, tileToString, 0, W, 0, H)));
 };
 
 export const p2 =

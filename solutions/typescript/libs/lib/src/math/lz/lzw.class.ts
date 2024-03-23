@@ -47,7 +47,7 @@ export class LZW {
 			p = localTape.shift();
 			result = [];
 			for (const c of localTape) {
-				const pc = p + c;
+				const pc = (p ?? '') + c;
 				if (this.dictionary.has(pc)) {
 					p = pc;
 				} else if (p !== undefined) {

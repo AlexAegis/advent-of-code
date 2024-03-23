@@ -26,14 +26,7 @@ export const calculateVariations = (
 	state: State,
 	cache: Map<string, number> = new Map(),
 ): number => {
-	const key =
-		state.remainingCriteria.join(',') +
-		';' +
-		state.remainingDamagedLog +
-		';' +
-		state.currentOriginalCriteria +
-		';' +
-		state.currentCriteria;
+	const key = `${state.remainingCriteria.join(',')};${state.remainingDamagedLog};${state.remainingDamagedLog};${state.currentOriginalCriteria};${state.currentCriteria}`;
 
 	const cachedResult = cache.get(key);
 	if (cachedResult !== undefined) {

@@ -67,7 +67,7 @@ export const p2 = async (input: string): Promise<string> => {
 		{ vec: undefined, sum: Number.NEGATIVE_INFINITY, size: Number.NEGATIVE_INFINITY },
 	);
 	await pool.terminate(true);
-	return `${max.vec ? max.vec.x + ', ' + max.vec.y : 'undefined'},${max.size} (${max.sum})`;
+	return `${max.vec ? max.vec.x.toString() + ', ' + max.vec.y.toString() : 'undefined'},${max.size.toString()} (${max.sum.toString()})`;
 };
 
 await task(p2, packageJson.aoc); // 236,146,12 (160) ~63007ms

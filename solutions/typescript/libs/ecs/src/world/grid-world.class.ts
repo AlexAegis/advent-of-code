@@ -329,14 +329,14 @@ export class GridWorld {
 	 * @param componentFilters
 	 * @returns
 	 */
-	filter<C extends Constructor<Component>[]>(
-		...componentFilters: ComponentFilterTypeOfTuple<InstanceTypeOfConstructorTuple<C>>
-	): [Entity, ...InstanceTypeOfConstructorTuple<C>][] {
+	filter<C extends Component[]>(
+		...componentFilters: ComponentFilterTypeOfTuple<C>
+	): [Entity, ...C][] {
 		return filterMap(this.entities.values(), (entity) => {
 			const matchingComponents = filterMap(componentFilters, (componentFilter) => {
 				const component = entity.components.get(componentFilter.componentType);
-				return component ? componentFilter.filter(component) : false;
-			}) as InstanceTypeOfConstructorTuple<C>;
+				return component && componentFilter.filter(component) ? component : undefined;
+			}) as C;
 			return matchingComponents.length > 0 ? [entity, ...matchingComponents] : undefined;
 		});
 	}

@@ -20,7 +20,7 @@ export const print = (input: MotionVector[]): string => {
 	for (let y = aabb.top; y <= aabb.bottom; y++) {
 		let row = '';
 		for (let x = aabb.left; x <= aabb.right; x++) {
-			row = row + stars.has(new Vec2(x, y).toString()) ? '#' : '.';
+			row = row + (stars.has(new Vec2(x, y).toString()) ? '#' : '.');
 		}
 		pic = pic + row + '\n';
 	}

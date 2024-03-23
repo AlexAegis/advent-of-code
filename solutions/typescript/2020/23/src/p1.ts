@@ -61,7 +61,7 @@ export const p1 =
 
 		let result = '';
 		while (first.value !== 1) {
-			result += first.value;
+			result += first.value.toString();
 			first = first.next;
 		}
 		return Number.parseInt(result, 10);
