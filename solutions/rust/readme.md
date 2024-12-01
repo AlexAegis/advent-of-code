@@ -2,7 +2,7 @@
 
 ## [2023](https://adventofcode.com/2023/)
 
-[![2023 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2023.json)](/solutions/rust/2023/)
+![2023 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2023.json)
 
 <!-- markdownlint-disable MD013 -->
 
@@ -38,7 +38,7 @@
 
 ## [2022](https://adventofcode.com/2022/)
 
-[![2022 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2022.json)](/solutions/rust/2022/)
+![2022 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2022.json)
 
 <!-- markdownlint-disable MD013 -->
 
@@ -74,7 +74,7 @@
 
 ## [2021](https://adventofcode.com/2021/)
 
-[![2021 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2021.json)](/solutions/rust/2021/)
+![2021 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2021.json)
 
 <!-- markdownlint-disable MD013 -->
 
@@ -110,37 +110,37 @@
 
 ## [2020](https://adventofcode.com/2020/)
 
-[![2020 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2020.json)](/solutions/rust/2020/)
+![2020 Rust Progress](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/AlexAegis/advent-of-code/master/.github/badges/rust/2020.json)
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                                | Part One | Part Two |
-| ---------------------------------- | -------- | -------- |
-| [Day 1](/solutions/rust/2020/01/)  | -        | -        |
-| [Day 2](/solutions/rust/2020/02/)  | -        | -        |
-| [Day 3](/solutions/rust/2020/03/)  | -        | -        |
-| [Day 4](/solutions/rust/2020/04/)  | -        | -        |
-| [Day 5](/solutions/rust/2020/05/)  | -        | -        |
-| [Day 6](/solutions/rust/2020/06/)  | -        | -        |
-| [Day 7](/solutions/rust/2020/07/)  | -        | -        |
-| [Day 8](/solutions/rust/2020/08/)  | -        | -        |
-| [Day 9](/solutions/rust/2020/09/)  | -        | -        |
-| [Day 10](/solutions/rust/2020/10/) | -        | -        |
-| [Day 11](/solutions/rust/2020/11/) | -        | -        |
-| [Day 12](/solutions/rust/2020/12/) | -        | -        |
-| [Day 13](/solutions/rust/2020/13/) | -        | -        |
-| [Day 14](/solutions/rust/2020/14/) | -        | -        |
-| [Day 15](/solutions/rust/2020/15/) | -        | -        |
-| [Day 16](/solutions/rust/2020/16/) | -        | -        |
-| [Day 17](/solutions/rust/2020/17/) | -        | -        |
-| [Day 18](/solutions/rust/2020/18/) | -        | -        |
-| [Day 19](/solutions/rust/2020/19/) | -        | -        |
-| [Day 20](/solutions/rust/2020/20/) | -        | -        |
-| [Day 21](/solutions/rust/2020/21/) | -        | -        |
-| [Day 22](/solutions/rust/2020/22/) | -        | -        |
-| [Day 23](/solutions/rust/2020/23/) | -        | -        |
-| [Day 24](/solutions/rust/2020/24/) | -        | -        |
-| [Day 25](/solutions/rust/2020/25/) | -        | -        |
+| Day    | Part One | Part Two |
+| ------ | -------- | -------- |
+| Day 1  | -        | -        |
+| Day 2  | -        | -        |
+| Day 3  | -        | -        |
+| Day 4  | -        | -        |
+| Day 5  | -        | -        |
+| Day 6  | -        | -        |
+| Day 7  | -        | -        |
+| Day 8  | -        | -        |
+| Day 9  | -        | -        |
+| Day 10 | -        | -        |
+| Day 11 | -        | -        |
+| Day 12 | -        | -        |
+| Day 13 | -        | -        |
+| Day 14 | -        | -        |
+| Day 15 | -        | -        |
+| Day 16 | -        | -        |
+| Day 17 | -        | -        |
+| Day 18 | -        | -        |
+| Day 19 | -        | -        |
+| Day 20 | -        | -        |
+| Day 21 | -        | -        |
+| Day 22 | -        | -        |
+| Day 23 | -        | -        |
+| Day 24 | -        | -        |
+| Day 25 | -        | -        |
 
 <!-- markdownlint-enable MD013 -->
 
@@ -186,33 +186,33 @@
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                                | Part One                                   | Part Two                                     |
-| ---------------------------------- | ------------------------------------------ | -------------------------------------------- |
-| [Day 1](/solutions/rust/2018/01/)  | [13μs](/solutions/rust/2018/01/src/lib.rs) | [12.2μs](/solutions/rust/2018/01/src/lib.rs) |
-| [Day 2](/solutions/rust/2018/02/)  | -                                          | -                                            |
-| [Day 3](/solutions/rust/2018/03/)  | -                                          | -                                            |
-| [Day 4](/solutions/rust/2018/04/)  | -                                          | -                                            |
-| [Day 5](/solutions/rust/2018/05/)  | -                                          | -                                            |
-| [Day 6](/solutions/rust/2018/06/)  | -                                          | -                                            |
-| [Day 7](/solutions/rust/2018/07/)  | -                                          | -                                            |
-| [Day 8](/solutions/rust/2018/08/)  | -                                          | -                                            |
-| [Day 9](/solutions/rust/2018/09/)  | -                                          | -                                            |
-| [Day 10](/solutions/rust/2018/10/) | -                                          | -                                            |
-| [Day 11](/solutions/rust/2018/11/) | -                                          | -                                            |
-| [Day 12](/solutions/rust/2018/12/) | -                                          | -                                            |
-| [Day 13](/solutions/rust/2018/13/) | -                                          | -                                            |
-| [Day 14](/solutions/rust/2018/14/) | -                                          | -                                            |
-| [Day 15](/solutions/rust/2018/15/) | -                                          | -                                            |
-| Day 16                             | -                                          | -                                            |
-| Day 17                             | -                                          | -                                            |
-| Day 18                             | -                                          | -                                            |
-| Day 19                             | -                                          | -                                            |
-| Day 20                             | -                                          | -                                            |
-| Day 21                             | -                                          | -                                            |
-| Day 22                             | -                                          | -                                            |
-| Day 23                             | -                                          | -                                            |
-| Day 24                             | -                                          | -                                            |
-| Day 25                             | -                                          | -                                            |
+| Day    | Part One                                   | Part Two                                     |
+| ------ | ------------------------------------------ | -------------------------------------------- |
+| Day 1  | [13μs](/solutions/rust/2018/01/src/lib.rs) | [12.2μs](/solutions/rust/2018/01/src/lib.rs) |
+| Day 2  | -                                          | -                                            |
+| Day 3  | -                                          | -                                            |
+| Day 4  | -                                          | -                                            |
+| Day 5  | -                                          | -                                            |
+| Day 6  | -                                          | -                                            |
+| Day 7  | -                                          | -                                            |
+| Day 8  | -                                          | -                                            |
+| Day 9  | -                                          | -                                            |
+| Day 10 | -                                          | -                                            |
+| Day 11 | -                                          | -                                            |
+| Day 12 | -                                          | -                                            |
+| Day 13 | -                                          | -                                            |
+| Day 14 | -                                          | -                                            |
+| Day 15 | -                                          | -                                            |
+| Day 16 | -                                          | -                                            |
+| Day 17 | -                                          | -                                            |
+| Day 18 | -                                          | -                                            |
+| Day 19 | -                                          | -                                            |
+| Day 20 | -                                          | -                                            |
+| Day 21 | -                                          | -                                            |
+| Day 22 | -                                          | -                                            |
+| Day 23 | -                                          | -                                            |
+| Day 24 | -                                          | -                                            |
+| Day 25 | -                                          | -                                            |
 
 <!-- markdownlint-enable MD013 -->
 
@@ -256,33 +256,33 @@
 
 <!-- markdownlint-disable MD013 -->
 
-| Day                               | Part One | Part Two |
-| --------------------------------- | -------- | -------- |
-| [Day 1](/solutions/rust/2016/01/) | -        | -        |
-| [Day 2](/solutions/rust/2016/02/) | -        | -        |
-| Day 3                             | -        | -        |
-| Day 4                             | -        | -        |
-| Day 5                             | -        | -        |
-| Day 6                             | -        | -        |
-| Day 7                             | -        | -        |
-| Day 8                             | -        | -        |
-| Day 9                             | -        | -        |
-| Day 10                            | -        | -        |
-| Day 11                            | -        | -        |
-| Day 12                            | -        | -        |
-| Day 13                            | -        | -        |
-| Day 14                            | -        | -        |
-| Day 15                            | -        | -        |
-| Day 16                            | -        | -        |
-| Day 17                            | -        | -        |
-| Day 18                            | -        | -        |
-| Day 19                            | -        | -        |
-| Day 20                            | -        | -        |
-| Day 21                            | -        | -        |
-| Day 22                            | -        | -        |
-| Day 23                            | -        | -        |
-| Day 24                            | -        | -        |
-| Day 25                            | -        | -        |
+| Day    | Part One | Part Two |
+| ------ | -------- | -------- |
+| Day 1  | -        | -        |
+| Day 2  | -        | -        |
+| Day 3  | -        | -        |
+| Day 4  | -        | -        |
+| Day 5  | -        | -        |
+| Day 6  | -        | -        |
+| Day 7  | -        | -        |
+| Day 8  | -        | -        |
+| Day 9  | -        | -        |
+| Day 10 | -        | -        |
+| Day 11 | -        | -        |
+| Day 12 | -        | -        |
+| Day 13 | -        | -        |
+| Day 14 | -        | -        |
+| Day 15 | -        | -        |
+| Day 16 | -        | -        |
+| Day 17 | -        | -        |
+| Day 18 | -        | -        |
+| Day 19 | -        | -        |
+| Day 20 | -        | -        |
+| Day 21 | -        | -        |
+| Day 22 | -        | -        |
+| Day 23 | -        | -        |
+| Day 24 | -        | -        |
+| Day 25 | -        | -        |
 
 <!-- markdownlint-enable MD013 -->
 

@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number => {
 	const nums = [...input].filter((c) => /^([+-])?\d+/.test(c)).map((c) => Number.parseInt(c, 10));

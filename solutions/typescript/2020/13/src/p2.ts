@@ -1,6 +1,6 @@
 import { split, task, type SizedTuple } from '@alexaegis/advent-of-code-lib';
 import { crtBigInt, type CongruentModulo } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string): number => {
 	const [, data] = split(input) as SizedTuple<string, 2>;

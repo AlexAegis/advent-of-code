@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { task } from '@alexaegis/advent-of-code-lib';
 import { chunksOfArray } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
 export enum COLOR {

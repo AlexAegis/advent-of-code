@@ -4,7 +4,7 @@ import { add } from 'benny';
 import { p1 } from './p1.js';
 import { p2 } from './p2.js';
 
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 await defaultBench(
 	'2020 - Day 20',

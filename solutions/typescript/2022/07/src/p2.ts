@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { ExpeditionFileSystem } from './expedition-file-system.class.js';
 
 const TOTAL_DISK_SPACE = 70_000_000;

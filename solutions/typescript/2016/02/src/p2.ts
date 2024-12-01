@@ -5,7 +5,7 @@ import {
 	isDirectionMarker,
 	type Vec2Like,
 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const keypad = [
 	[undefined, undefined, 1, undefined, undefined],

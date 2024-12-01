@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Bingo } from './model/bingo.class.js';
 
 export const p1 = (input: string): number => {

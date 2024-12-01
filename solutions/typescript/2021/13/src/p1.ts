@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number => {
 	const [points, foldInstructions] = input.splitIntoStringPair(/\n\n/);

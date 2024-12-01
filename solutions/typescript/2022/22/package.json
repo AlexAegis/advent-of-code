@@ -23,24 +23,24 @@
 		"year": 2022
 	},
 	"scripts": {
-		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"lint:depcheck_": "depcheck",
-		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"lint:es": "turbo run lint:es_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:format": "turbo run lint:format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"lint:format": "turbo run lint:format_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"lint:format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --check .",
-		"lint:md": "turbo run lint:md_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"lint:md": "turbo run lint:md_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"lint:md_": "remark --frail --no-stdout --silently-ignore .",
-		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"lint:tsc_": "tsc --noEmit",
 		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
-		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"bench": "ts-node-esm src/bench.ts",
 		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
 		"build-lib_": "vite build",
-		"format": "turbo run format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2022-22",
+		"format": "turbo run format_ --concurrency 16 --filter @alexaegis/advent-of-code-2022-22",
 		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
 		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
 		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts"
@@ -78,13 +78,13 @@
 		"@alexaegis/advent-of-code-lib": "workspace:^"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.11.4",
-		"@alexaegis/ts": "^0.11.4",
-		"@alexaegis/vite": "^0.11.4",
-		"@alexaegis/vitest": "^0.11.4",
-		"@types/node": "^20.12.12",
+		"@alexaegis/eslint-config-vitest": "^0.12.0",
+		"@alexaegis/ts": "^0.12.0",
+		"@alexaegis/vite": "^0.12.0",
+		"@alexaegis/vitest": "^0.12.0",
+		"@types/node": "^22.10.1",
 		"benny": "^3.7.1",
-		"vite": "^5.2.11",
-		"vitest": "^1.6.0"
+		"vite": "^6.0.1",
+		"vitest": "^2.1.6"
 	}
 }

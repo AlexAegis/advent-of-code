@@ -6,7 +6,7 @@ import {
 	Vec2,
 	type Weighter,
 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parseLines } from './parse.js';
 
 export enum Tile {

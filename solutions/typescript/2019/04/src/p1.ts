@@ -1,5 +1,5 @@
 import { numberPair, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number => {
 	const [l, h] = numberPair.assert(input.split('-').map((s) => Number.parseInt(s, 10)));

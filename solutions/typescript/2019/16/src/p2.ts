@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { lcm } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
 export const pattern = [0, 1, 0, -1] as const;

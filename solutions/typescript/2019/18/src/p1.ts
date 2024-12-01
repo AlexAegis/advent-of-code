@@ -2,7 +2,7 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import type { GridGraphNode, Vec2 } from '@alexaegis/advent-of-code-lib/model';
 import { GridGraph } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Tile, doorMatcher, parseLines, parseMatrix, type Key } from './parse.js';
 
 /**

@@ -1,5 +1,5 @@
 import { Direction, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number => {
 	const graph = input.toGridGraph();

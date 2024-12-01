@@ -54,7 +54,7 @@ export const flood = <T extends ToString, Dir extends ToString, N extends BasicG
 							neighbour.direction,
 							[],
 						)
-					: neighbour.weight ?? 1);
+					: (neighbour.weight ?? 1));
 			const tentativeDistance = (dMap.get(current) ?? 0) + 1;
 			if (tentativegScore < (gScore.get(neighbour.to) ?? Number.POSITIVE_INFINITY)) {
 				cameFrom.set(neighbour.to, current);

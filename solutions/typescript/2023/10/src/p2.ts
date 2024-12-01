@@ -5,7 +5,7 @@ import {
 	task,
 	type ToString,
 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse, weighter } from './parse.js';
 
 export const findPartition = <

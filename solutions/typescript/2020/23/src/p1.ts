@@ -4,7 +4,7 @@ import {
 	CircularLinkedListNode,
 } from '@alexaegis/advent-of-code-lib/linked-list';
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 =
 	(iterationCount = 100) =>

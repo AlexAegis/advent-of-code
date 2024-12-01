@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { createSandWorld, SandKindComponent } from './sand-world.class.js';
 
 export const p2 = async (input: string): Promise<number> => {

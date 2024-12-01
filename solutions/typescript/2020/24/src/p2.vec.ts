@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { hexagonalAxialDirections, parse } from './parse.function.js';
 
 const getHexNeighbours = (v: Vec2): Vec2[] => {

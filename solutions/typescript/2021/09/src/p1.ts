@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const getLowPoints = (map: Map<Vec2String, number>): [Vec2String, number][] =>
 	[...map.entries()].filter(([key, value]) => {

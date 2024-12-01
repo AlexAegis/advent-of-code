@@ -1,5 +1,5 @@
 import { DOUBLE_NEWLINE, split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { signalComparator, type Signal } from './signal-comparator.function.js';
 
 export const p1 = (input: string): number =>

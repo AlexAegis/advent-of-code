@@ -1,5 +1,5 @@
 import { split, task, Vec3 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string): number => {
 	const lines = split(input).map((line) => new Vec3(line));

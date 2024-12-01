@@ -5,7 +5,7 @@ describe('pairwise', () => {
 	it('should emit pairs', () => {
 		const data = [0, 1, 2, 3, 4, 5, 6];
 
-		const spy = vi.fn<[number, number], undefined>();
+		const spy = vi.fn<(_a: number, _b: number) => void>();
 
 		pairwise(data, spy);
 

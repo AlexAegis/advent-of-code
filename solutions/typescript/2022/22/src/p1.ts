@@ -6,7 +6,7 @@ import {
 	mapFirst,
 	task,
 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { getFacingScore, parseMovementInstructions } from './parse.function.js';
 
 export const p1 = (input: string): number => {

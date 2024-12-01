@@ -1,5 +1,5 @@
 import { quadratic, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parseAsOneRace } from './parse.js';
 
 export const p2 = (input: string): number => {

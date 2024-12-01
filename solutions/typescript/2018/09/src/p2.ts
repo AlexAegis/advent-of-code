@@ -1,5 +1,5 @@
 import { Deque, rotateDeque, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { interpreter } from './interpreter.function.js';
 
 export const p2 = (input: string): number => {
@@ -9,7 +9,8 @@ export const p2 = (input: string): number => {
 	for (let marble = 1; marble <= setup.lastMarble * 100; marble++) {
 		if (marble % 23 === 0) {
 			rotateDeque(ring, 7);
-			score[marble % setup.players] += marble + (ring.popBack() ?? 0);
+			const i = marble % setup.players;
+			score[i] = (score[i] ?? 0) + marble + (ring.popBack() ?? 0);
 			rotateDeque(ring, -1);
 		} else {
 			rotateDeque(ring, -1);

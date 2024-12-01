@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { computeMap, parse, Tile } from './parse.js';
 
 export enum MovementFunction {

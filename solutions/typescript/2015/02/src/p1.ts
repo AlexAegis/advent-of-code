@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { min, sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number =>
 	split(input)

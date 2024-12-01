@@ -1,6 +1,6 @@
 import { split, task, type SizedTuple } from '@alexaegis/advent-of-code-lib';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const ADDRESS_LENGTH = 36;
 

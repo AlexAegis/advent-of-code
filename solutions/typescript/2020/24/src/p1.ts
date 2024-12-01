@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { hexagonalAxialDirections, parse } from './parse.function.js';
 
 export const p1 = (input: string): number =>

@@ -1,6 +1,6 @@
 import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { TileType } from './p2.js';
 import { parse } from './parse.js';
 

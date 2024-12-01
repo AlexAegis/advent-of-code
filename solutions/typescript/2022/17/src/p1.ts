@@ -10,7 +10,7 @@ import {
 	spawnWall,
 	StaticPositionComponent,
 } from '@alexaegis/ecs';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export class TetrominoComponent extends Component {}
 

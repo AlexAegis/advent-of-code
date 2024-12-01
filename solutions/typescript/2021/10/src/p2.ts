@@ -1,5 +1,5 @@
 import { isNotNullish, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { closingTagMap, isOpeningTag, type ClosingTag, type OpeningTag } from './model/index.js';
 
 const scoreMap: Record<ClosingTag, number> = {

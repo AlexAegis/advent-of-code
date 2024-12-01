@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { Direction } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const expand = (input: string, factor = 5): string => {
 	const matrix = input.toMatrix().map((row) => row.map((e) => Number.parseInt(e, 10)));

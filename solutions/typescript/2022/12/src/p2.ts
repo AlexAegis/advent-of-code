@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { getHeightValue } from './get-height-value.function.js';
 
 export const p2 = (input: string): number => {

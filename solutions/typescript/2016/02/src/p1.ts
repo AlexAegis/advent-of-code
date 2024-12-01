@@ -5,7 +5,7 @@ import {
 	Vec2,
 	isDirectionMarker,
 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const toKeypadNumber = (vec: Vec2): number => (2 - vec.y) * 3 + vec.x + 1;
 

@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { rotateArrayTimes } from '@alexaegis/advent-of-code-lib/functions';
 import { ascending } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1array =
 	(iterationCount = 100) =>

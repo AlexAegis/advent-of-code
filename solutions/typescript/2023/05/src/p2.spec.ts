@@ -1,6 +1,6 @@
 import { loadTaskResources } from '@alexaegis/advent-of-code-lib';
 import { describe, expect, it } from 'vitest';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { p2, refract } from './p2.js';
 import { toRange, type Range } from './parse.js';
 

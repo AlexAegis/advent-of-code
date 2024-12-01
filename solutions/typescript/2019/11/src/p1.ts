@@ -1,7 +1,7 @@
 import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { task } from '@alexaegis/advent-of-code-lib';
 import { Direction, Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
 export enum Color {

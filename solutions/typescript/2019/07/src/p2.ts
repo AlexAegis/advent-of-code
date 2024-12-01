@@ -2,7 +2,7 @@
 import { IntCodeComputer } from '@alexaegis/advent-of-code-intcode';
 import { task } from '@alexaegis/advent-of-code-lib';
 import { perm } from '@alexaegis/advent-of-code-lib/functions';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
 export const PHASE = [5, 6, 7, 8, 9];

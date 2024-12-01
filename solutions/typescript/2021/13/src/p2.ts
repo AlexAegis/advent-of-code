@@ -5,7 +5,7 @@ import {
 	vectorsToMatrix,
 } from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string): string => {
 	const [points, foldInstructions] = input.splitIntoStringPair(/\n\n/);

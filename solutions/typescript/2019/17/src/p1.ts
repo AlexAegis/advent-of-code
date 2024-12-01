@@ -2,7 +2,7 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { drawMapStatic, renderMatrix } from '@alexaegis/advent-of-code-lib/functions';
 import { sum } from '@alexaegis/advent-of-code-lib/math';
 import { GridGraph } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Tile, computeMap, type Vacuum } from './parse.js';
 
 const W = 50;

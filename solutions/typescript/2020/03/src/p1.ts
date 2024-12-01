@@ -1,6 +1,6 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const EMPTY = '.';
 export const TREE = '#';

@@ -1,5 +1,5 @@
 import { BoundingBox, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.js';
 
 export const solver =

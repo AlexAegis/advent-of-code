@@ -4,7 +4,7 @@ import {
 	directionMarkerAssociationMap,
 	type DirectionMarker,
 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p2 = (input: string): number =>
 	[...input].reduce(

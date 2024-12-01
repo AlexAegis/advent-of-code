@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Direction, GridGraphNode, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const tilt = <T extends string = string, N extends GridGraphNode<T> = GridGraphNode<T>>(
 	allNodes: N[],

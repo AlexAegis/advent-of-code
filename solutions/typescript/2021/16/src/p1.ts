@@ -2,7 +2,7 @@ import { hexToBits } from './model/hex-to-bits.function.js';
 import { interpretPacket, isContainerPacket, type Packet } from './model/packet.interface.js';
 
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const sumVersions = (packet: Packet): number =>
 	packet.version +

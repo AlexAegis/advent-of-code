@@ -1,5 +1,5 @@
 import { INTERVAL_CLOSED, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { RelevantField, isPassport, parsePassports, type Passport } from './p1.js';
 
 const CM = 'cm';

@@ -1,5 +1,5 @@
 import { Direction, Vec2, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { energizeMap } from './internal/beam.js';
 
 export const p1 = (input: string): number => {

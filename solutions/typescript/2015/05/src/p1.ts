@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const vowels = 'aeiou';
 const forbidden = new Set(['ab', 'cd', 'pq', 'xy']);

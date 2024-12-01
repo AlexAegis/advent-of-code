@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { is } from '@alexaegis/advent-of-code-lib/functions';
 import { Vec2, type Vec2String } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { SeatState, parse } from './parse.function.js';
 
 const dirs = [

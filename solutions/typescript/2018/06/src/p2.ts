@@ -1,5 +1,5 @@
 import { BoundingBox, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { interpret } from './interpret.function.js';
 
 export interface Args {

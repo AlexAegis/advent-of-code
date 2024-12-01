@@ -1,5 +1,5 @@
 import { DOUBLE_NEWLINE, isNotNullish, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { findReflection } from './internal/matrix-reflection.js';
 
 export const p1 = (input: string): number =>

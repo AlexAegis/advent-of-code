@@ -1,5 +1,5 @@
 import { INTERVAL_CLOSED, renderMatrix, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
 const CRT_WIDTH = 40;

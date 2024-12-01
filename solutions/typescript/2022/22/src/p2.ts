@@ -10,7 +10,7 @@ import {
 	zip,
 	type Vec2String,
 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { CubeMap } from './cube-map.class.js';
 import { getFacingScore, parseMovementInstructions } from './parse.function.js';
 

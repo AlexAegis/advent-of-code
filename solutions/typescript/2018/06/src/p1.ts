@@ -1,5 +1,5 @@
 import { BoundingBox, Vec2, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { interpret } from './interpret.function.js';
 
 export const p1 = (input: string): number | undefined => {

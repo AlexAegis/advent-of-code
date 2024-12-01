@@ -1,5 +1,5 @@
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Network, NETWORK_SIZE } from './network.class.js';
 import type { Packet } from './packet.interface.js';
 import { parse } from './parse.js';

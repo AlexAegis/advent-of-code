@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './args.interface.js';
 
 export const hasComponents = (n: number, sequence: number[]): boolean => {

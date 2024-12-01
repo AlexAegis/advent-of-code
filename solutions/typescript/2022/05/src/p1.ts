@@ -1,5 +1,5 @@
 import { DOUBLE_NEWLINE, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parseCommands, parseStacks } from './parse.function.js';
 
 export const p1 = (input: string): string => {

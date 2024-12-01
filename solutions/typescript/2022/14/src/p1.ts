@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { StaticPositionComponent } from '@alexaegis/ecs';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import {
 	createSandWorld,
 	SandKindComponent,

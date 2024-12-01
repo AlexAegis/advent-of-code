@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { max, min } from '@alexaegis/advent-of-code-lib/math';
 import { Direction, Vec3 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Tile } from './p1.js';
 import { parse } from './parse.js';
 

@@ -1,5 +1,5 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 interface Graph {
 	nodes: string[];
 	edges: { from: string; to: string }[];

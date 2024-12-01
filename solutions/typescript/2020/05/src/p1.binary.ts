@@ -1,7 +1,7 @@
 import { split, task } from '@alexaegis/advent-of-code-lib';
 import { usingMap } from '@alexaegis/advent-of-code-lib/functions';
 import { max } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import type { PlanePartition } from './p1.js';
 
 const partitionMap: Record<PlanePartition, '0' | '1'> = {

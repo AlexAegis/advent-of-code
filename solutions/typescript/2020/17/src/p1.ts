@@ -2,7 +2,7 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { cartesianCombinations } from '@alexaegis/advent-of-code-lib/math';
 import type { ToString } from '@alexaegis/advent-of-code-lib/model';
 import { Vec3 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parse } from './parse.function.js';
 
 const getNeighbours3 = (v: Vec3): Vec3[] => {

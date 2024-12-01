@@ -3,7 +3,7 @@ import { hexToBits } from './model/hex-to-bits.function.js';
 import { interpretPacket, isLiteralPacket, type Packet } from './model/packet.interface.js';
 
 import { task } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const calculatePacketValue = (packet: Packet): number => {
 	if (isLiteralPacket(packet)) {

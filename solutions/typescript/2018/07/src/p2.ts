@@ -1,5 +1,5 @@
 import { split, task, type SizedTuple } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import type { Args } from './model/args.interface.js';
 import { Edge } from './model/edge.class.js';
 import type { Graph } from './model/graph.interface.js';

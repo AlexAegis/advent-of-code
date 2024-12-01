@@ -2,7 +2,7 @@ import { task } from '@alexaegis/advent-of-code-lib';
 import { pairs } from '@alexaegis/advent-of-code-lib/functions';
 import { clamp, lcm } from '@alexaegis/advent-of-code-lib/math';
 import { Vec3 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Moon } from './model/moon.class.js';
 import { parseLines } from './parse.js';
 

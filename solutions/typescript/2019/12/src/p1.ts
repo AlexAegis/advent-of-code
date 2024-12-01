@@ -1,7 +1,7 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import { pairs } from '@alexaegis/advent-of-code-lib/functions';
 import { clamp } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { Moon } from './model/moon.class.js';
 import { parseLines } from './parse.js';
 

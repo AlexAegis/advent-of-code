@@ -94,7 +94,7 @@ export class IntCodeComputer implements Iterable<number | undefined> {
 				break;
 			}
 		}
-		return asIndex ? v : this.tape.get(v) ?? 0;
+		return asIndex ? v : (this.tape.get(v) ?? 0);
 	}
 
 	public reset(tape?: number[]): this {

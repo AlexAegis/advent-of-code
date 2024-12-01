@@ -4,7 +4,7 @@ import {
 	Vec2,
 	task,
 } from '@alexaegis/advent-of-code-lib';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 interface DigPlanEntry {
 	direction: Direction;

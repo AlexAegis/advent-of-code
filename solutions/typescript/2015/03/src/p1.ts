@@ -5,7 +5,7 @@ import {
 	type DirectionMarker,
 	type Vec2String,
 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 
 export const p1 = (input: string): number =>
 	[...input].reduce(

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Interval, task } from '@alexaegis/advent-of-code-lib';
 import { mult } from '@alexaegis/advent-of-code-lib/math';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { invalidFields } from './p1.js';
 import { parse, type Ticket } from './parse.function.js';
 

@@ -1,6 +1,6 @@
 import { task } from '@alexaegis/advent-of-code-lib';
 import type { Vec2 } from '@alexaegis/advent-of-code-lib/model';
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: 'json' };
 import { parseLines } from './parse.js';
 export interface CoordWithLosCount {
 	coord: Vec2;
