@@ -10,13 +10,6 @@
 		"kind": "lib"
 	},
 	"keywords": [
-		"@alexaegis/setup-depcheck",
-		"@alexaegis/setup-eslint",
-		"@alexaegis/setup-prettier",
-		"@alexaegis/setup-remark",
-		"@alexaegis/setup-ts-node",
-		"@alexaegis/setup-vite-lib",
-		"@alexaegis/setup-vitest-node",
 		"advent-of-code",
 		"javascript",
 		"js",
@@ -44,7 +37,7 @@
 		"build-lib_": "vite build",
 		"codecov": "codecov",
 		"dev": "RUN=1 NODE_NO_WARNINGS=1 nodemon --no-stdin src/examples/example.ts",
-		"example": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/examples/example.ts",
+		"example": "RUN=1 NODE_NO_WARNINGS=1 tsx src/examples/example.ts",
 		"format": "prettier --write ."
 	},
 	"exports": {
@@ -75,7 +68,6 @@
 		"eslint": "^9.16.0",
 		"nodemon": "^3.1.7",
 		"prettier": "^3.4.1",
-		"ts-node": "10.9.2",
 		"typescript": "5.7.2",
 		"vite": "^6.0.1",
 		"vitest": "^2.1.6"

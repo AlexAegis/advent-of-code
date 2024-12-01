@@ -130,7 +130,7 @@
 		"remark-cli": "^12.0.1",
 		"stylelint": "^16.11.0",
 		"svelte-check": "^4.1.0",
-		"ts-node": "^10.9.2",
+		"tsx": "^4.19.2",
 		"turbo": "^2.3.3",
 		"turbo-ignore": "^2.3.3",
 		"typedoc": "^0.27.2",

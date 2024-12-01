@@ -37,13 +37,13 @@
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --filter @alexaegis/advent-of-code-2023-19",
-		"bench": "ts-node-esm src/bench.ts",
+		"bench": "tsx src/bench.ts",
 		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/advent-of-code-2023-19",
 		"build-lib_": "vite build",
 		"format": "turbo run format_ --concurrency 16 --filter @alexaegis/advent-of-code-2023-19",
 		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
-		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
-		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts"
+		"p1": "RUN=1 NODE_NO_WARNINGS=1 tsx src/p1.ts",
+		"p2": "RUN=1 NODE_NO_WARNINGS=1 tsx src/p2.ts"
 	},
 	"exports": {
 		"./bench": {

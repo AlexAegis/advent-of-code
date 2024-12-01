@@ -9,4 +9,5 @@ packages:
   - 'solutions/typescript/2021/*'
   - 'solutions/typescript/2022/*'
   - 'solutions/typescript/2023/*'
+  - 'solutions/typescript/2024/*'
 link-workspace-packages: 'deep'

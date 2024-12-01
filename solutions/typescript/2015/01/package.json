@@ -41,8 +41,8 @@
 		"build-lib_": "vite build",
 		"format": "turbo run format_ --concurrency 16 --filter @alexaegis/advent-of-code-2015-01",
 		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
-		"p1": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p1.ts",
-		"p2": "RUN=1 NODE_NO_WARNINGS=1 ts-node-esm src/p2.ts"
+		"p1": "RUN=1 NODE_NO_WARNINGS=1 tsx src/p1.ts",
+		"p2": "RUN=1 NODE_NO_WARNINGS=1 tsx src/p2.ts"
 	},
 	"exports": {
 		"./p1": {
@@ -67,7 +67,6 @@
 		"@alexaegis/vite": "^0.12.0",
 		"@alexaegis/vitest": "^0.12.0",
 		"@types/node": "^22.10.1",
-		"ts-node": "^10.9.2",
 		"vite": "^6.0.1",
 		"vitest": "^2.1.6"
 	}
