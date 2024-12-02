@@ -9,7 +9,7 @@
 | Day                                     | Part One                                           | Part Two                                           |
 | --------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | [Day 1](/solutions/typescript/2024/01/) | [16.04ms](/solutions/typescript/2024/01/src/p1.ts) | [18.95ms](/solutions/typescript/2024/01/src/p2.ts) |
-| Day 2                                   | -                                                  | -                                                  |
+| [Day 2](/solutions/typescript/2024/02/) | [0.58ms](/solutions/typescript/2024/02/src/p1.ts)  | [0.90ms](/solutions/typescript/2024/02/src/p2.ts)  |
 | Day 3                                   | -                                                  | -                                                  |
 | Day 4                                   | -                                                  | -                                                  |
 | Day 5                                   | -                                                  | -                                                  |
