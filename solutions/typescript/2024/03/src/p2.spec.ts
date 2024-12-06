@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import packageJson from '../package.json' assert { type: 'json' };
 import { p2 } from './p2.js';
 
-describe('2024 01 p2', () => {
+describe('2024 03 p2', () => {
 	describe('the input', () => {
 		it('should solve the input', async () => {
 			const { input } = await loadTaskResources(packageJson.aoc);

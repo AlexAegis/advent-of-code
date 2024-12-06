@@ -4544,6 +4544,130 @@ importers:
         specifier: ^2.1.6
         version: 2.1.6(@types/node@22.10.1)(@vitest/ui@2.1.6)(jiti@1.21.6)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1)
 
+  solutions/typescript/2024/04:
+    dependencies:
+      '@alexaegis/advent-of-code-lib':
+        specifier: workspace:^
+        version: link:../../libs/lib
+    devDependencies:
+      '@alexaegis/eslint-config-vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)
+      '@alexaegis/ts':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vite':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(svelte@5.2.12)(tsx@4.19.2)(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1)
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
+      benny:
+        specifier: ^3.7.1
+        version: 3.7.1
+      vite:
+        specifier: ^6.0.1
+        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1)
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.6(@types/node@22.10.1)(@vitest/ui@2.1.6)(jiti@1.21.6)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1)
+
+  solutions/typescript/2024/05:
+    dependencies:
+      '@alexaegis/advent-of-code-lib':
+        specifier: workspace:^
+        version: link:../../libs/lib
+    devDependencies:
+      '@alexaegis/eslint-config-vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)
+      '@alexaegis/ts':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vite':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(svelte@5.2.12)(tsx@4.19.2)(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1)
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
+      benny:
+        specifier: ^3.7.1
+        version: 3.7.1
+      vite:
+        specifier: ^6.0.1
+        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1)
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.6(@types/node@22.10.1)(@vitest/ui@2.1.6)(jiti@1.21.6)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1)
+
+  solutions/typescript/2024/06:
+    dependencies:
+      '@alexaegis/advent-of-code-lib':
+        specifier: workspace:^
+        version: link:../../libs/lib
+    devDependencies:
+      '@alexaegis/eslint-config-vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)
+      '@alexaegis/ts':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vite':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(svelte@5.2.12)(tsx@4.19.2)(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1)
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
+      benny:
+        specifier: ^3.7.1
+        version: 3.7.1
+      vite:
+        specifier: ^6.0.1
+        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1)
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.6(@types/node@22.10.1)(@vitest/ui@2.1.6)(jiti@1.21.6)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1)
+
+  solutions/typescript/2024/07:
+    dependencies:
+      '@alexaegis/advent-of-code-lib':
+        specifier: workspace:^
+        version: link:../../libs/lib
+    devDependencies:
+      '@alexaegis/eslint-config-vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)
+      '@alexaegis/ts':
+        specifier: ^0.12.0
+        version: 0.12.0(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vite':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(yaml@2.6.1)
+      '@alexaegis/vitest':
+        specifier: ^0.12.0
+        version: 0.12.0(@types/node@22.10.1)(jiti@1.21.6)(svelte@5.2.12)(tsx@4.19.2)(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1)
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
+      benny:
+        specifier: ^3.7.1
+        version: 3.7.1
+      vite:
+        specifier: ^6.0.1
+        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.6.1)
+      vitest:
+        specifier: ^2.1.6
+        version: 2.1.6(@types/node@22.10.1)(@vitest/ui@2.1.6)(jiti@1.21.6)(jsdom@25.0.1)(tsx@4.19.2)(yaml@2.6.1)
+
   solutions/typescript/libs/ecs:
     dependencies:
       '@alexaegis/advent-of-code-lib':
