@@ -28,6 +28,10 @@ export class GraphNode<T extends ToString, Dir extends ToString = Direction>
 		return this;
 	}
 
+	public getNeighbour(direction: Dir): this | undefined {
+		return this.neighbours.get(direction)?.to;
+	}
+
 	public directionTo(target: this): Dir | undefined {
 		return [...this.neighbours.entries()].find(
 			([, neightbour]) => neightbour.to === target,

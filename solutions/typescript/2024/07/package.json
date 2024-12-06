@@ -19,7 +19,7 @@
 	],
 	"type": "module",
 	"aoc": {
-		"day": 3,
+		"day": 7,
 		"year": 2024
 	},
 	"scripts": {
@@ -45,7 +45,7 @@
 		"p1": "RUN=1 NODE_NO_WARNINGS=1 tsx src/p1.ts",
 		"p1:example": "RUN=1 NODE_NO_WARNINGS=1 RESOURCE=example.1.txt tsx src/p1.ts",
 		"p2": "RUN=1 NODE_NO_WARNINGS=1 tsx src/p2.ts",
-		"p2:example": "RUN=1 NODE_NO_WARNINGS=1 RESOURCE=example.2.txt tsx src/p2.ts"
+		"p2:example": "RUN=1 NODE_NO_WARNINGS=1 RESOURCE=example.1.txt tsx src/p2.ts"
 	},
 	"exports": {
 		"./bench": {

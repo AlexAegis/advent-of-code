@@ -61,13 +61,18 @@ export class GridGraphNode<T extends ToString = string>
 		return this.walkDirection(Direction.NORTHWEST, until);
 	}
 
-	public walkDirection(direction: Direction, whileTrue?: (next: this) => boolean): WalkResult<T> {
-		const nodes: this[] = [];
+	public walkDirection(
+		direction: Direction,
+		whileTrue?: (next: this, distance: number) => boolean,
+	): WalkResult<T> {
+		const nodes: this[] = [this];
 		let neighbour = this.neighbours.get(direction)?.to;
 		let walkedToTheEnd = true;
+		let distance = 0;
 		while (neighbour) {
 			nodes.push(neighbour);
-			if (whileTrue && !whileTrue(neighbour)) {
+			distance++;
+			if (whileTrue && !whileTrue(neighbour, distance)) {
 				walkedToTheEnd = false;
 				break;
 			}
