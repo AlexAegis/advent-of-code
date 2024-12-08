@@ -40,6 +40,7 @@ declare global {
 		contains(item: T): boolean;
 		intoSet(set?: Set<T>): Set<T>;
 		tap(callbackFn: (item: T, index: number) => void): T[];
+		log(prefix?: string): T[];
 		toInt(
 			options?:
 				| { radix?: number; safe?: boolean; keepNonNumbers: false }
@@ -209,6 +210,14 @@ Array.prototype.tap = function <T>(this: T[], callbackFn: (item: T, index: numbe
 	for (let i = 0; i < this.length; i++) {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		callbackFn(this[i]!, i);
+	}
+	return this;
+};
+
+Array.prototype.log = function <T>(this: T[], prefix?: string): T[] {
+	for (let i = 0; i < this.length; i++) {
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		console.log(prefix ?? 'log:', this[i]!, i);
 	}
 	return this;
 };
