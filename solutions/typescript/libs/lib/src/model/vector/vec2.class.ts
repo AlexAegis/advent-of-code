@@ -156,7 +156,7 @@ export class Vec2 implements Vec2Like {
 	public add(
 		coord: Vec2Like,
 		options?: {
-			times?: number;
+			times?: number | ((v: Vec2, i: number) => boolean);
 			limit?: BoundingBox | ((v: Vec2Like) => boolean);
 		},
 	): Vec2 {
@@ -190,7 +190,7 @@ export class Vec2 implements Vec2Like {
 	public addMut(
 		v: Vec2Like,
 		options?: {
-			times?: number;
+			times?: number | ((v: Vec2, i: number) => boolean);
 			limit?: BoundingBox | ((v: Vec2Like) => boolean);
 			flipX?: boolean;
 			flipY?: boolean;
@@ -198,8 +198,22 @@ export class Vec2 implements Vec2Like {
 	): this {
 		const originalX = this.x;
 		const originalY = this.y;
-		const diffX = v.x * (options?.times ?? 1);
-		const diffY = v.y * (options?.times ?? 1);
+
+		let diffX = 0;
+		let diffY = 0;
+
+		if (typeof options?.times === 'function') {
+			let times = 0;
+			while (options.times(this.add(v, { times: times + 1 }), times)) {
+				times++;
+			}
+			diffX = v.x * times;
+			diffY = v.y * times;
+		} else {
+			const times = options?.times ?? 1;
+			diffX = v.x * times;
+			diffY = v.y * times;
+		}
 
 		this.x += options?.flipX ? -diffX : diffX;
 		this.y += options?.flipY ? -diffY : diffY;

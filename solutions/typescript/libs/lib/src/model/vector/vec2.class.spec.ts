@@ -31,4 +31,52 @@ describe('Vec2', () => {
 			});
 		});
 	});
+
+	describe('addMut', () => {
+		it('should add a vector to another', () => {
+			const target = new Vec2(1, 1);
+			const delta = new Vec2(2, 3);
+			const expectedResult = new Vec2(3, 4);
+			target.addMut(delta);
+			expect(target).toEqual(expectedResult);
+		});
+
+		it('should add a vector to another many times', () => {
+			const target = new Vec2(1, 1);
+			const delta = new Vec2(2, 3);
+			const expectedResult = new Vec2(9, 13);
+			target.addMut(delta, { times: 4 });
+			expect(target).toEqual(expectedResult);
+		});
+
+		it('should add a vector to another multiple times while it should', () => {
+			const target = new Vec2(1, 1);
+			const delta = new Vec2(2, 3);
+			const expectedResult = new Vec2(9, 13);
+			target.addMut(delta, {
+				times: (_v, i) => i < 4,
+			});
+			expect(target).toEqual(expectedResult);
+		});
+
+		it('should add a vector to another multiple times while it can', () => {
+			const target = new Vec2(1, 1);
+			const delta = new Vec2(2, 3);
+			const expectedResult = new Vec2(5, 7);
+			target.addMut(delta, {
+				times: (v, _i) => v.x < 7,
+			});
+			expect(target).toEqual(expectedResult);
+		});
+
+		it('should not add a vector to another multiple times if it cant', () => {
+			const target = new Vec2(1, 1);
+			const delta = new Vec2(2, 3);
+			const expectedResult = new Vec2(1, 1);
+			target.addMut(delta, {
+				times: (v, _i) => v.x < 1,
+			});
+			expect(target).toEqual(expectedResult);
+		});
+	});
 });

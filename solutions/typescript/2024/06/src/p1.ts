@@ -27,7 +27,7 @@ export const p1 = (input: string): number => {
 		guardPosition.addMut(guardDirection);
 		guardPath.add(guardPosition.toString());
 	}
-	//g.print((n) => (guardPath.has(n.coordinate.toString()) ? 'X' : n.toString()));
+	g.print((n) => (guardPath.has(n.coordinate.toString()) ? 'X' : n.toString()));
 	return guardPath.size;
 };
 
